@@ -1,0 +1,70 @@
+LOCUS       HUMTRPSGNA               800 bp    mRNA    linear   PRI 14-JAN-1995
+DEFINITION  Human pancreatic trypsin 1 (TRY1) mRNA, complete cds.
+ACCESSION   M22612
+VERSION     M22612.1
+KEYWORDS    trypsinogen.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 800)
+  AUTHORS   Emi,M., Nakamura,Y., Ogawa,M., Yamamoto,T., Nishide,T., Mori,T. and
+            Matsubara,K.
+  TITLE     Cloning, characterization and nucleotide sequences of two cDNAs
+            encoding human pancreatic trypsinogens
+  JOURNAL   Gene 41 (2-3), 305-310 (1986)
+   PUBMED   3011602
+COMMENT     On Aug 4, 1994 this sequence version replaced gi:340723.
+            Original source text: Homo sapiens pancreas cDNA to mRNA.
+FEATURES             Location/Qualifiers
+     source          1..800
+                     /organism="Homo sapiens"
+                     /mol_type="mRNA"
+                     /db_xref="taxon:9606"
+                     /map="7q32-qter"
+                     /tissue_type="pancreas"
+     gene            1..800
+                     /gene="TRY1"
+     CDS             7..750
+                     /gene="TRY1"
+                     /codon_start=1
+                     /product="trypsinogen"
+                     /protein_id="AAA61231.1"
+                     /db_xref="GDB:G00-119-620"
+                     /translation="MNPLLILTFVAAALAAPFDDDDKIVGGYNCEENSVPYQVSLNSG
+                     YHFCGGSLINEQWVVSAGHCYKSRIQVRLGEHNIEVLEGNEQFINAAKIIRHPQYDRK
+                     TLNNDIMLIKLSSRAVINARVSTISLPTAPPATGTKCLISGWGNTASSGADYPDELQC
+                     LDAPVLSQAKCEASYPGKITSNMFCVGFLEGGKDSCQGDSGGPVVCNGQLQGVVSWGD
+                     GCAQKNKPGVYTKVYNYVKWIKNTIAANS"
+     sig_peptide     7..51
+                     /gene="TRY1"
+                     /note="G00-119-620"
+     mat_peptide     76..747
+                     /gene="TRY1"
+                     /product="trypsinogen"
+                     /note="G00-119-620"
+     regulatory      781..786
+                     /regulatory_class="polyA_signal_sequence"
+                     /gene="TRY1"
+                     /note="G00-119-620"
+     polyA_site      800
+                     /gene="TRY1"
+                     /note="G00-119-620"
+ORIGIN      
+        1 accaccatga atccactcct gatccttacc tttgtggcag ctgctcttgc tgcccccttt
+       61 gatgatgatg acaagatcgt tgggggctac aactgtgagg agaattctgt cccctaccag
+      121 gtgtccctga attctggcta ccacttctgt ggtggctccc tcatcaacga acagtgggtg
+      181 gtatcagcag gccactgcta caagtcccgc atccaggtga gactgggaga gcacaacatc
+      241 gaagtcctgg aggggaatga gcagttcatc aatgcagcca agatcatccg ccacccccaa
+      301 tacgacagga agactctgaa caatgacatc atgttaatca agctctcctc acgtgcagta
+      361 atcaacgccc gcgtgtccac catctctctg cccaccgccc ctccagccac tggcacgaag
+      421 tgcctcatct ctggctgggg caacactgcg agctctggcg ccgactaccc agacgagctg
+      481 cagtgcctgg atgctcctgt gctgagccag gctaagtgtg aagcctccta ccctggaaag
+      541 attaccagca acatgttctg tgtgggcttc cttgagggag gcaaggattc atgtcagggt
+      601 gattctggtg gccctgtggt ctgcaatgga cagctccaag gagttgtctc ctggggtgat
+      661 ggctgtgccc agaagaacaa gcctggagtc tacaccaagg tctacaacta cgtgaaatgg
+      721 attaagaaca ccatagctgc caatagctaa agcccccagt atctcttcag tctctatacc
+      781 aataaagtga ccctgttctc
+//
+

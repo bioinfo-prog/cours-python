@@ -1,0 +1,133 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 60px;
+}
+
+#main {
+    max-width: 1200px;
+
+}
+
+.navbar {
+    background-color: white;
+    border: #ccc solid 1px;
+}
+
+
+/* navbar left */
+
+.navbar-inverse .navbar-brand {
+    color: #337ab7;
+
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: #45a9ff;
+}
+
+
+/* navbar right */
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #337ab7;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    color: #45a9ff;
+    background-color: transparent;
+}
+
+/* menu for small screen */
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #337ab7;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #ccc;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #ddd;
+}
+
+/* title */
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
+.big {
+  font-size: 45px;
+}
+
+h1 {
+  margin-top: 80px;
+
+}
+/* toc */
+nav[data-toggle='toc'] {
+  margin-top: 50px;
+}
+
+pre {
+  font-family: monospace;
+  background-color: #fff;
+  padding: 0.3em;
+  border: 0px;
+  /*border-radius: .25em;*/
+  /*box-shadow: .1em .1em .2em rgba(0,0,0,.45);*/
+  counter-reset: line;
+  line-height: normal;
+}
+
+pre code span {
+    counter-increment: line;
+}
+
+pre code span::before {
+      content: counter(line);
+      display: inline-block;
+      width: 2em;
+      text-align: right;
+      border-right: 1px solid #ddd;
+      padding: 0 0.2em;
+      margin-right: 1em;
+      color: #888;
+}
+
+.box {
+    border-top: 0.5px dashed gray;
+    border-bottom: 1px dashed gray;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.box-title {
+    font-weight: bold;
+    width: 100%;
+}
+
+.box-title::before {
+    height: 5px;
+}
+
+/* small screens */
+@media (max-width: 768px) {
+  /* override the Affix plugin so that the navigation isn't sticky */
+  nav.affix[data-toggle='toc'] {
+    position: static;
+  }
+
+  /* PICK ONE */
+  /* don't expand nested items, which pushes down the rest of the page when navigating */
+  nav[data-toggle='toc'] .nav .active .nav {
+    display: none;
+  }
+  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+  nav[data-toggle='toc'] .nav .nav {
+    display: block;
+  }
+}

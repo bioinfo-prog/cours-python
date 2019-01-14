@@ -1,0 +1,637 @@
+# Fenêtres graphiques et tkinter
+
+open-box-adv
+
+Dans ce chapitre nous allons avoir besoin des classes, nous vous conseillons donc de bien relire le Chapitre 19. Par ailleurs, nous vous conseillons de relire la section sur les arguments optionnels dans les fonctions du Chapitre 9.
+
+close-box-adv
+
+## Utilité d'une GUI
+
+Dans votre carrière "pythonesque" il se peut que vous soyez amené à vouloir développer une application graphique, on parle encore de *graphical user interface* ou GUI. Jusqu'à maintenant, vous avez fait en sorte qu'un utilisateur interagisse avec votre code via la ligne de commande, par exemple :
+
+```
+python3 ./mon_script.py file.gbk -option1 blabla -option2 blublu
+```
+
+Les arguments passés à la ligne de commande sont tout à fait classiques dans le monde de la bioinformatique. Toutefois il se peut que vous développiez un programme pour une communauté élargie qui n'a pas forcément l'habitude d'utiliser un *shell* et la ligne de commande. C'est là qu'une GUI permettra un usage plus large de votre programme, il est donc intéressant de regarder comment s'y prendre. Dans notre exemple ci-dessus on pourrait par exemple développer une interface où l'utilisateur pourrait choisir le nom du fichier d'entrée par l'intermédiaire d'une boîte de dialogue, et de contrôler les options en cliquant sur des boutons, ou des "listes de choix". Une telle GUI pourrait ressembler à la Figure @fig:exemple_GUI.
+
+![Exemple de GUI](img/exemple_GUI.png "Exemple de GUI"){ #fig:exemple_GUI width=80% }
+
+Au delà de l'aspect convivial pour l'utilisateur, le développement de GUI vous permettra de construire des fenêtres illustrant des éléments que votre programme génère à la volée. Ainsi, vous pourrez "voir" ce qu'il se passe de manière explicite et en direct ! Par exemple, si on réalise une simulation de particules, on pourrait être intéressé de voir un "film" de ces particules, c'est-à-dire comment elles bougent au fur et à mesure que les pas de simulation avancent. Une GUI vous permettra une telle prouesse ! Enfin, sachez que de nombreux logiciels scientifiques ont été développés avec des bibliothèques telles que Tk (par exemple pymol, vmd, etc). Qui sait, peut-être serez-vous le prochain développeur d'un outil incontournable ?
+
+Il existe de nombreux modules permettant de construire des applications graphiques, on pourra citer notamment [tkinter](https://wiki.python.org/moin/TkInter), [wxpython](http://www.wxpython.org/), [PyQt](https://pyqt.readthedocs.io), [PyGObject](https://pygobject.readthedocs.io/en/latest/), etc. Nous vous montrons dans ce chapitre le module `tkinter` qui est présent de base dans les distributions Python (pas besoin *a priori* de faire d'installation de module externe). Tkinter permet de piloter la bibliothèque graphique générale Tk (*Tool Kit*), tkinter signifiant *tk interface*. On pourra noter que cette bibliothèque Tk peut être également pilotée par d'autres langages (Tcl, perl, etc).
+
+## Quelques concepts liés à la programmation graphique
+
+Lorsque l'on développe une GUI, nous créons une fenêtre graphique contenant notre application, ainsi que des *widgets* inclus dans la fenêtre.
+
+open-box-def
+
+Les *widgets* (*window gadget*) sont des objets graphiques permettant à l'utilisateur d'interagir avec votre programme Python de manière conviviale. Par exemple, dans la fenêtre montrée en Figure @fig:exemple_GUI, les boutons, les listes de choix, ou encore la zone de texte sont des *widgets*.
+
+close-box-def
+
+L'utilisation d'une GUI va amener une nouvelle manière d'aborder le déroulement d'un programme, il s'agit de la programmation dite *évenementielle*. Jusqu'à maintenant vous avez programmé "linéairement", c'est-à-dire que les instructions du programme principal s'enchaînaient les unes derrière les autres (avec bien-sûr de possibles appels à des fonctions). Avec une GUI, l'exécution est décidée par l'utilisateur en fonction de ses interactions avec les différents *widgets*. Comme c'est l'utilisateur qui décide lorsqu'il souhaite cliquer ici et là, il va falloir mettre en place ce qu'on appelle un *gestionnaire d'évènements*.
+
+open-box-def
+
+Le *gestionnaire d'évènements* est une "boucle infinie" qui est à l'affût de la moindre action de la part de l'utilisateur. C'est lui qui permettra d'effectuer une action lors de l'interaction de l'utilisateur avec chaque *widget* de la GUI. Ainsi, l'exécution du programme sera réellement guidée par les actions de l'utilisateur.
+
+close-box-def
+
+La bibliothèque Tk que nous piloterons avec le module Python tkinter nous permettra de mettre en place tous les éléments cités ci-dessus (fenêtre graphique, *widgets*, gestionnaire d'évènements). Nous aurons besoin d'une dernière notion, à savoir les fonctions *callback*.
+
+open-box-def
+
+Une fonction *callback* est une fonction passée en argument d'une autre fonction.
+
+close-box-def
+
+Un exemple de fonction *callback* est présenté dans la section suivante.
+
+## Notion de fonction *callback*
+
+*Conseil* : Pour les débutants, vous pouvez passer cette section.
+
+Jusqu'à maintenant nous avons toujours appelé les fonctions ou les méthodes de cette manière :
+
+```
+var = fct(arg1, arg2)
+
+obj.methode(arg)
+```
+
+où les arguments étaient des objets "classiques" (par exemple une chaîne de caractères, un entier, un *float*, etc).
+
+Sachez qu'il est possible de passer en argument une fonction à une autre fonction ! Par exemple :
+
+```
+def fct_callback(arg):
+    print("J'aime bien les {} !".format(arg))
+
+def une_fct(ma_callback):
+    print("Je suis au début de une_fct() et je vais exécuter la fonction callback :")
+    ma_callback("fraises")
+    print("Aye, une_fct() se termine.")
+
+# prog principal
+une_fct(fct_callback)
+```
+
+Si on exécute ce code, on obtient :
+
+```
+Je suis au début de une_fct() et je vais exécuter la fonction callback :
+J'aime bien les fraises !
+Aye, une_fct() se termine.
+```
+
+Vous voyez que dans le programme principal, lors de l'appel de `une_fct()`, on lui passe en argument une autre fonction mais sans **aucune parenthèses ni argument(s)**, c'est-à-dire `fct_callback` tout court. En d'autres termes, cela est différent de `une_fct(fct_callback("scoubidous"))` : dans une telle construction, `fct_callback("scoubidous")` serait d'abord évaluée, puis ce serait la valeur renvoyée par cet appel qui serait passée à `une_fct()` (n'essayez pas sur notre exemple car cela mènerait à une erreur !). Que se passe-t-il en filigrane lors de l'appel `une_fct(fct_callback)` ? Python passe une référence vers la fonction `fct_callback` (en réalité il s'agit d'un pointeur, mais tout ceci est géré par Python et est transparent pour l'utilisateur). Vous souvenez-vous ce qu'il se passait avec une liste passée en argument à une fonction (cf. Chapitre 12) ? C'était la même chose, une référence était envoyée plutôt qu'une copie. [Pythontutor](http://pythontutor.com) nous confirme cela (cf. Figure @fig:fonction_callback_pythontutor).
+
+![Exemple de fonction *callback* dans pythontutor](img/fonction_callback_pythontutor.png "Fonction *callback* dans pythontutor"){ #fig:fonction_callback_pythontutor width=80% }
+
+Lorsqu'on est dans `une_fct()` on pourra utiliser bien-sûr des arguments lors de l'appel de notre fonction *callback* si on le souhaite. Notez enfin que dans `une_fct()` la fonction *callback* reçue en argument peut avoir un nom différent (comme pour tout type de variable).
+
+A quoi cela sert-il ? A première vue cette construction peut sembler ardue et inutile. Toutefois, vous verrez que dans le module tkinter les fonctions *callback* sont incontournables. En effet, on utilise cette construction pour lancer une fonction lors de l'interaction de l'utilisateur avec un *widget* : par exemple, lorsque l'utilisateur clique sur un bouton et qu'on souhaite lancer une fonction particulière suite à ce clic.
+
+
+## Prise en main du module tkinter
+
+Le module `tkinter` est très vaste. Notre but n'est pas de vous faire un cours exhaustif mais plutôt de vous montrer quelques pistes. Pour apprendre à piloter ce module nous pensons qu'il est intéressant de vous montrer des exemples. Nous allons donc voir quelques exemples qui pourraient vous être utiles, à vous ensuite de consulter de la documentation supplémentaire si vous souhaitez aller plus loin (cf. la section [Bibliographie pour aller plus loin](#bibliographie-pour-aller-plus-loin)).
+
+### Un premier exemple dans l'interpréteur
+
+Commençons par construire un script qui affichera une simple fenêtre avec un message et un bouton. Regardons d'abord comment faire dans l'interpréteur (nous vous conseillons de tester ligne par ligne ce code tout en lisant les commentaires ci-dessous) :
+
+```
+>>> import tkinter as tk
+>>> racine = tk.Tk()
+>>> label = tk.Label(racine, text="J'adore Python !")
+>>> bouton = tk.Button(racine, text="Quitter", fg="red", command=racine.destroy)
+>>> label.pack()
+>>> bouton.pack()
+>>>
+```
+
+Commentaires :
+
+Ligne 1. On importe le module tkinter.
+
+Ligne 2. On crée la fenêtre principale (vous la verrez apparaître !). Pour cela on crée une instance de la classe `tk.Tk` dans la variable `racine`. Tous les *widgets* que l'on créera ensuite seront des fils de cette fenêtre. On pourra d'ailleurs noter que cette classe `tk.Tk` ne s'instancie en général qu'une seule fois par programme. Vous pouvez, par curiosité, lancer une commande `dir(racine)` ou `help(racine)`, vous verrez ainsi les très nombreuses méthodes et attributs associés à un tel objet Tk.
+
+Ligne 3. On crée un *label*, c'est à dire une zone dans la fenêtre principale où on écrit un texte. Pour cela, on a créé une variable `label` qui est une instance de la classe `tk.Label`. Cette variable `label` contient donc notre *widget*, nous la ré-utiliserons plus tard (par exemple pour placer ce *widget* dans la fenêtre). Notez le premier argument `racine` passé à `tk.Label`, celui-ci indique la fenêtre parente où doit être dessinée le *label*. Cet argument doit toujours être passé en premier et il est strictement **obligatoire**. Nous avons passé un autre argument avec le nom `text` pour indiquer, comme vous l'avez deviné, le texte que nous souhaitons voir dans ce *label*. La classe `tk.Label` peut recevoir de nombreux autres arguments, en voici la [liste exhaustive](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/label.html). Dans les fonctions tkinter permettant de construire un *widget*, les arguments possibles pour la mise en forme de celui-ci sont toujours très nombreux, si bien qu'ils sont toujours des arguments optionnels (si on ne précise pas un de ces arguments lors de la création du *widget*, l'argument prendra ainsi une valeur par défaut). Cette liste des arguments optionnels est tellement longue qu'en général on ne les précisera pas tous. Heureusement, Python permet l'utilisation des arguments optionnels dans un ordre quelconque. Comme nous l'avons vu dans le Chapitre 9 sur les fonctions, souvenez vous que leur utilisation dans le désordre implique qu'il faudra toujours préciser leur nom : par exemple vous écrirez `text="blabla"` et non pas `"blabla"` tout court.
+
+Ligne 4. De même on crée un bouton "Quitter" qui provoquera la fermeture de la fenêtre - et donc l'arrêt de l'application - si on clique dessus. A nouveau, on passe la fenêtre parente en premier argument, le texte à écrire dans le bouton, puis la couleur de ce texte. Le dernier argument `command=racine.destroy` va indiquer la fonction / méthode à exécuter lorsque l'utilisateur clique sur le bouton. On pourra noter que l'instance de la fenêtre mère `tk.Tk` (que nous avons nommée `racine`) possède une méthode `.destroy()` qui va détruire le *widget* sur lequel elle s'applique. Comme on tue la fenêtre principale (que l'on peut considérer comme un *widget* contenant d'autres *widgets*), tous les *widgets* fils seront détruits et donc l'application s'arrêtera. Vous voyez par ailleurs que cette méthode `racine.destroy` est passée à l'argument `command=` **sans parenthèses ni arguments** : il s'agit donc d'une fonction *callback* comme expliqué ci-dessus. Dans tous les *widgets* tkinter, on doit passer à l'argument `command=...` une fonction / méthode *callback*. La liste exhaustive des arguments possibles de la classe `tk.Button` se trouve [ici](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/button.html).
+
+Lignes 5 et 6. Vous avez noté que lors de la création de ce *label* et de ce bouton, rien ne s'est passé dans la fenêtre. C'est normal, ces deux *widgets* existent bien, mais il faut maintenant les placer à l'intérieur de la fenêtre. On appelle pour ça la méthode `.pack()`, avec une notation objet `widget.pack()` : à ce moment précis, vous verrez votre label apparaître ainsi que la fenêtre qui se redimensionne automatiquement en s'adaptant à la grandeur de votre *label*. L'invocation de la même méthode pour le bouton va faire apparaître celui-ci juste en dessous du *label* et redimensionner la fenêtre. Vous l'aurez compris la méthode `.pack()` place les *widgets* les uns en dessous des autres et ajuste la taille de la fenêtre. On verra plus bas que l'on peut passer des argument à cette méthode pour placer les *widgets* différement (en haut, à droite, à gauche).
+
+Au final, vous devez obtenir une fenêtre comme montré dans la Figure @fig:exemple1_tkinter.
+
+### Le même exemple dans un script.
+
+Tentons maintenant de faire la même chose dans un script `tk_exemple.py` :
+
+```
+import tkinter as tk
+
+racine = tk.Tk()
+label = tk.Label(racine, text="J'adore Python !")
+bouton = tk.Button(racine, text="Quitter", command=racine.quit)
+bouton["fg"] = "red"
+label.pack()
+bouton.pack()
+racine.mainloop()
+print("C'est fini !")
+```
+
+puis lançons ce script depuis le shell Unix :
+
+```
+$ python3 ./tk_exemple.py
+```
+
+Vous voyez maintenant la même fenêtre avec les mêmes fonctionnalités par rapport à la version dans l'interpréteur (cf. Figure @fig:exemple1_tkinter). Nous commentons ici les différences (dans le désordre !) :
+
+Ligne 6. Le bouton a été créé en Ligne 5, mais on voit qu'il est possible de préciser une option de rendu du widget après cette création (ici on met le texte en rouge avec l'option `"fg"`). La notation ressemble à celle d'un dictionnaire avec une syntaxe générale `widget["option"] = valeur`.
+
+Ligne 9. L'instruction `racine.mainloop()` va lancer le gestionnaire d'évènements que nous avons évoqué ci-dessus. C'est lui qui interceptera la moindre action de l'utilisateur, et qui lancera les portions de code associées à chacune de ses actions. Bien-sûr, comme nous développerons dans ce qui va suivre toutes nos applications tkinter dans des scripts (et non pas dans l'interpréteur), cette ligne sera systématiquement présente. Elle sera souvent à la fin du script, puisque, à l'image de ce script, on écrit d'abord le code construisant l'interface, et on lance le gestionnaire d'évènements une fois l'interface complètement décrite, ce qui lancera au final l'application. 
+
+Ligne 10. Cette ligne ne s'exécute qu'après l'arrêt de l'application (soit en cliquant sur le bouton "Quitter", soit en cliquant sur la croix).
+
+Ligne 5. Pour quitter l'application, on utilise ici la méthode `.quit()`. Celle-ci quitte la *mainloop()* et arrête ainsi le gestionnaire d'évènements. Cela mène donc à l'arrêt de l'application. Dans le premier exemple dans l'interpréteur, on avait utilisé la méthode `.destroy()` sur la fenêtre principale qui comme son nom l'indique détruit cette dernière et mène aussi à l'arrêt de l'application. Elle aurait donc également fonctionné ici. Par contre, la méthode `.quit()` n'aurait pas fonctionné dans l'interpréteur car, comme on l'a vu, la *mainloop()* n'y est pas présente. Comme  nous écrirons systématiquement nos applications tkinter dans des scripts, et que la *mainloop()* y est obligatoire, vous pourrez utiliser au choix `.quit()` ou `.destroy()` pour quitter l'application.
+
+![Exemple basique de fenêtre tkinter](img/example_tkinter.png "Exemple de fenêtre tkinter"){ #fig:exemple1_tkinter width=80% }
+
+## Construire une application tkinter avec une classe
+
+De manière générale, il est vivement conseillé de développer ses applications tkinter en utilisant une classe. Cela permet d'encapsuler l'application de manière efficace et d'éviter ainsi l'utilisation de variables globales (on se souvient elles sont à bannir définitivement !). Une classe permet de créer un espace de noms propre à votre application, et toutes les variables nécessaires seront ainsi des attributs de cette classe. Reprenons notre petit exemple avec un label et un bouton :
+
+```
+import tkinter as tk
+
+class Application(tk.Tk):
+    def __init__(self):
+        tk.Tk.__init__(self)
+        self.creer_widgets()
+
+    def creer_widgets(self):
+        self.label = tk.Label(self, text="J'adore Python !")
+        self.bouton = tk.Button(self, text="Quitter", command=self.quit)
+        self.label.pack()
+        self.bouton.pack()
+
+if __name__ == '__main__':
+    app = Application()
+    app.title("Ma Première App :-)")
+    app.mainloop()
+```
+
+Commentaires :
+
+Ligne 3. On crée notre application en tant que classe. Notez que cette classe porte un nom qui commence par une majuscule (comme recommandé dans les bonnes pratiques de la [PEP8](https://www.python.org/dev/peps/pep-0008/), cf. Chapitre 15). L'argument passé dans les parenthèses indique que notre classe `Application` hérite de la classe `tk.Tk`. Par ce mécanisme, nous héritons ainsi de toutes les méthodes et attributs de cette classe mère, mais nous pouvons en outre en ajouter de nouvelles/nouveaux (on parle aussi de "surchage" de la classe `tk.Tk`) !
+
+Ligne 4. On crée un constructeur, c'est-à-dire une méthode qui sera exécutée lors de l'instanciation de notre classe (à la ligne 15).
+
+Ligne 5. On appelle ici le constructeur de la classe mère `tk.Tk.__init__()`. Pourquoi fait-on cela ? On se souvient dans la version linéaire de l'application, on avait utilisé une instanciation classique : `racine = tk.Tk()`. Ici, l'effet de l'appel du constructeur de la classe mère permet d'instancier la fenêtre Tk dans la variable `self` directement. C'est à dire que la prochaine fois que l'on aura besoin de cette instance (lors de la création des *widgets* par exemple, cf. lignes 9 et 10), on utilisera directement `self` plutôt que `racine` ou tout autre nom donné à l'instance. Cette ligne est sans doute la plus ardue à comprendre, mais elle permet d'instancier la fenêtre Tk dans la variable `self` tout en héritant de la classe Tk, ce qui est bien pratique.
+
+Ligne 6. On appelle la méthode `self.creer_widgets()` de notre classe Application. Pour rappel, le `self` avant le `.creer_widgets()` indique qu'il s'agit d'une méthode de notre classe (et non pas d'une fonction classique).
+
+Ligne 8. Cette méthode `.creer_widgets()` va permettre la création des *widgets* de notre application.
+
+Ligne 9. On crée un label en instanciant la classe `tk.Label()`. Notez que le premier argument passé est maintenant `self` (au lieu de `racine` précédemment) indiquant la fenêtre dans laquelle sera construit ce *widget*.
+
+Ligne 10. De même on crée un *widget* bouton en instanciant la classe `tk.Button()`. Là aussi, l'appel à la méthode `.quit()` se fait par `self.quit` puisque la fenêtre est instanciée dans la variable `self`. Par ailleurs, on ne met ni parenthèses ni arguments à `self.quit` car il s'agit d'une fonction *callback* (comme définit ci-dessus).
+
+Lignes 11 et 12. On place les deux *widgets* dans la fenêtre avec la méthode `.pack()`.
+
+Ligne 14. Ici on permet le lancement de notre application tkinter en ligne de commande (`python3 ./tk_application.py`), ou bien de réutiliser notre classe en important `tk_application.py` en tant que module (`import tk_application`) (cf. Chapitre 14).
+
+Ligne 15. On instancie notre application.
+
+Ligne 16. On donne un titre dans la fenêtre de notre application. Comme on utilise de petits *widgets* avec la méthode `pack()`, il se peut que le titre ne soit pas visible lors du lancement de l'application. Toutefois, si on "étire" la fenêtre à la souris, le titre deviendra visible. On pourra noter que cette méthode `.title()` est héritée de la classe mère Tk. 
+
+Ligne 17. On lance le gestionnaire d'évènements.
+
+Au final, vous obtiendrez le même rendu que précédemment (cf. Figure @fig:exemple1_tkinter). Alors vous pourrez-vous poser la question, "pourquoi ai-je besoin de toute cette structure alors que le code précédent semblait plus simple ?". La réponse est simple, lorsqu'un projet de GUI grossit, le code devient très vite illisible s'il n'est pas organisé en classe. De plus, la non-utilisation de classe rend quasi-obligatoire l'utilisation de variables globales, ce qui on l'a vu, est à proscrire définitivement ! Dans la suite du chapitre, nous verrons quelques exemples qui illustrent cela (cf. le code générant la Figure @fig:exemple2_canvas).
+
+## Le widget Canvas
+
+### Un canvas simple et le système de coordonnées
+
+Le *widget* [*canvas*](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/canvas.html) de tkinter est très puissant. Il permet de dessiner des formes diverses (lignes, cercles, etc), et même de les animer !
+
+Pour créer un *canvas*, ou encore un canevas en français, il suffit d'utiliser la classe `tk.Canvas`. Cela va créer une zone (*i.e.* le canevas en tant que tel) dans laquelle nous allons pouvoir dessiner divers objets tels que des ellipses, lignes, polygones, etc, ou encore insérer du texte ou des images. Regardons tout d'abord un code minimal qui construit un *widget* *canvas*, et dans lequel on y dessine un cercle et deux lignes :
+
+```
+import tkinter as tk
+
+racine = tk.Tk()
+canv = tk.Canvas(racine, bg="white", height=200, width=200)
+canv.pack()
+canv.create_oval(0, 0, 200, 200, outline="red", width=10)
+canv.create_line(0, 0, 200, 200, fill="black", width=10)
+canv.create_line(0, 200, 200, 0, fill="black", width=10)
+racine.mainloop()
+```
+
+Le rendu de l'image est montré dans la Figure @fig:exemple1_canvas ainsi que le système de coordonnées associé au *canvas*. Comme dans la plupart des bibliothèques graphiques, l'origine du repère du *canvas* (*i.e.* la coordonnée $(0,0)$ est en haut à gauche. Les $x$ vont de gauche à droite, et les $y$ vont de haut en bas. 
+
+open-box-warn
+
+L'axe des $y$ est inversé par rapport à ce que l'on représente en mathématique. Ainsi, si l'on souhaite présenter une fonction mathématique (ou tout autre objet dans un repère régi par un repère mathématique), il faudra faire un changement de repère.
+
+close-box-warn
+
+Commentaires du code :
+
+Ligne 4. On voit qu'il faut d'abord créer le *widget* *canvas*, comme d'habitude en lui passant l'instance de la fenêtre principale en tant qu'argument obligatoire, puis les options. Notons que nous lui passons comme options la hauteur et la largeur du *canvas*. Même s'il s'agit d'arguments optionnels, c'est une bonne pratique car sinon des valeurs par défaut sont prises et on risque de dessiner hors de la zone visible (cela ne génère pas d'erreur mais n'a guère d'intérêt).
+
+Ligne 6 à 8. Nous dessinons maintenant des objets graphiques à l'intérieur du canevas avec les méthodes `.create_oval()` (dessine une ellipse) et `.create_line()` (dessine une ligne). Les arguments obligatoires sont les coordonnées de l'ellipse (les deux points englobant l'ellipse, cf. [ce lien](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_oval.html) pour la définition exacte) ou de la ligne. Ensuite on passe comme d'habitude des arguments optionnels (vous commencez à avoir l'habitude !) pour mettre en forme ces objets graphiques.
+
+![Exemple 1 de *canvas* avec le système de coordonnées (le système de coordonnées est montré en vert et n'apparait pas sur la vraie fenêtre tkinter)](img/example_canvas1_coor.png "Exemple 1 de canvas avec coordonnées"){ #fig:exemple1_canvas width=80% }
+
+### Un canvas encapsulé dans une classe
+
+Voici un autre exemple d'utilisation du *widget* *canvas* un peu plus conséquent et qui est inclus dans une classe. Il s'agit d'une application dans laquelle il y a une zone de dessin, un bouton dessinant des cercles, un autre des lignes, et un dernier bouton qui quitte l'application (Figure @fig:exemple2_canvas).
+
+![Exemple 2 de Canvas](img/example_canvas2.png "Exemple 2 de Canvas"){ #fig:exemple2_canvas width=70% }
+
+Le code suivant permet une telle application :
+
+```
+import tkinter as tk
+import random as rd
+
+class AppliCanevas(tk.Tk):
+    def __init__(self):
+        tk.Tk.__init__(self)
+        self.size = 500
+        self.creer_widgets()
+
+    def creer_widgets(self):
+        # création canevas
+        self.canv = tk.Canvas(self, bg="light gray", height=self.size,
+                              width=self.size)
+        self.canv.pack(side=tk.LEFT)
+        # boutons
+        self.bouton_cercles = tk.Button(self, text="Cercle !",
+                                         command=self.dessine_cercles)
+        self.bouton_cercles.pack(side=tk.TOP)
+        self.bouton_lignes = tk.Button(self, text="Lignes !",
+                                        command=self.dessine_lignes)
+        self.bouton_lignes.pack()
+        self.bouton_quitter = tk.Button(self, text="Quitter",
+                                         command=self.quit)
+        self.bouton_quitter.pack(side=tk.BOTTOM)
+
+    def rd_col(self):
+        return rd.choice(("black", "red", "green", "blue", "yellow", "magenta",
+                          "cyan", "white", "purple"))
+
+    def dessine_cercles(self):
+        for i in range(20):
+            x, y = [rd.randint(1, self.size) for j in range(2)]
+            diameter = rd.randint(1, 50)
+            self.canv.create_oval(x, y, x+diameter, y+diameter,
+                                  fill=self.rd_col())
+
+    def dessine_lignes(self):
+        for i in range(20):
+            x, y, x2, y2 = [rd.randint(1, self.size) for j in range(4)]
+            self.canv.create_line(x, y, x2, y2, fill=self.rd_col())
+
+if __name__ == "__main__":
+    app = AppliCanevas()
+    app.title("Mon Canevas Psychédélique !")
+    app.mainloop()
+```
+
+Commentaires :
+
+Ligne 4. Comme montré dans la [section "Construire une application tkinter avec une classe"](#construire-une-application-tkinter-avec-une-classe), notre classe `AppliCanevas` hérite de la classe générale `tk.Tk`.
+
+Ligne 6. A nouveau, on appelle le constructeur de la classe mère `tk.Tk` qui va instancier la fenêtre Tk dans la variable `self`.
+
+Ligne 7. On crée un attribut de la classe `self.size` qui contiendra la taille (hauteur et largeur) du *canvas*. On rappelle cet attribut sera visible dans l'ensemble de la classe puisqu'il est "accroché" à celle-ci par le `self`.
+
+Ligne 8. On lance la méthode `.creer_widgets()` (qui est elle aussi "accrochée" à la classe par le `self`).
+
+Lignes 12 et 13. On crée un *widget* *canvas* en instanciant la classe `tk.Canvas`. Comme pour tout *widget*, le premier argument correspond à la fenêtre Tk, puis on lui passe des arguments optionnels (notamment la largeur et la hauteur).
+
+Ligne 14. On place le *canvas* dans la fenêtre avec la méthode `.pack()` en lui précisant où le placer avec la variable tkinter `tk.LEFT`.
+
+Lignes 15 à 24. On crée des *widgets* boutons et on les place dans la fenêtre. A noter que chacun de ces *widgets* appelle une méthode différente, dont deux que nous avons créées dans la classe, à savoir `.dessine_cercle()` et `.dessine_lignes()`.
+
+Ligne 26 à 28. On définit une méthode dans notre classe qui renvoie une couleur au hasard sous forme de chaîne de caractères.
+
+Lignes 30 à 39. On définit deux méthodes qui vont dessiner des paquets de 20 cercles (cas spécial d'une ellipse) ou 20 lignes. Lors de la création de ces cercles et lignes, on ne les récupère pas dans une variable car on ne souhaite ni les réutiliser ni changer leurs propriétés par la suite. Vous pourrez noter ici l'avantage de programmer avec une classe, le *canvas* est directement accessible dans n'importe quelle méthode de la classe grâce à `self.canv`. Cet attribut est une sorte de variable globale mais seulement au sein de la classe. En dehors de celle-ci, il faut noter `nom_instance.canv` pour y avoir accès, ce n'est donc pas une véritable variable globale. Elle est en quelque sorte "protégée" dans son propre espace de noms (celui de l'instance de la classe). Cela illustre à merveille l'intérêt d'utiliser une classe pour notre application tkinter !
+
+Lignes 41 à 44. Le programme principal instancie notre application, donne un titre à la fenêtre  et lance le gestionnaire d'évènements.
+
+### Un canvas animé dans une classe
+
+Dans ce dernier exemple, nous allons illustrer la puissance du *widget canvas* en vous montrant que l'on peut animer les objets se trouvant à l'intérieur. Nous allons également découvrir une technique intéressante, à savoir comment "capturer" des clics de souris générés ainsi que des touches pressées par l'utilisateur. L'application consiste en une "baballe" qui se déplace dans la fenêtre et dont on contrôle les propriétés à la souris (cf. Figure @fig:canvas_anime).
+
+```
+"""Super appli baballe !!!
+
+Usage: python3 ./tk_baballe.py
+- clic gauche: faire grossir la baballe
+- clic droit: faire rétrécir
+- clic central: relance la baballe (depuis le  point du clic)
+                  dans une direction aléatoire
+- touche Esc: quitte l'appli baballe
+"""
+
+import tkinter as tk
+import random as rd
+
+class AppliBaballe(tk.Tk):
+    def __init__(self):
+        """Constructeur de l'application."""
+        tk.Tk.__init__(self)
+        # coord ini baballe
+        self.x, self.y = 200, 200
+        # rayon ini baballe
+        self.size = 50
+        # pas de deplacement
+        self.dx, self.dy = 20, 20
+        # création et packing du canvas
+        self.canv = tk.Canvas(self, bg='light gray', height=400, width=400)
+        self.canv.pack()
+        # création de la baballe
+        self.baballe = self.canv.create_oval(self.x, self.y,
+                                             self.x+self.size,
+                                             self.y+self.size,
+                                             width=2, fill="blue")
+        # binding des actions
+        self.canv.bind("<Button-1>", self.incr)
+        self.canv.bind("<Button-2>", self.boom)
+        self.canv.bind("<Button-3>", self.decr)
+        self.bind("<Escape>", self.stop)
+        # lancer la baballe
+        self.move()
+
+    def move(self):
+        """Déplace la baballe (rappelée itérativement avec la méthode after)."""
+        # incr coord baballe
+        self.x += self.dx
+        self.y += self.dy
+        # vérifier que la baballe ne sort pas du canvas (choc élastique)
+        if self.x < 10:
+            self.dx = abs(self.dx)
+        if self.x > 400-self.size-10:
+            self.dx = -abs(self.dx)
+        if self.y < 10:
+            self.dy = abs(self.dy)
+        if self.y > 400-self.size-10:
+            self.dy = -abs(self.dy)
+        # mise à jour des  coord
+        self.canv.coords(self.baballe, self.x, self.y, self.x+self.size,
+                         self.y+self.size)
+        # rappel de move toutes les 50ms
+        self.after(50, self.move)
+
+    def boom(self, mclick):
+        """Relance la baballe dans une direction aléatoire au point du clic."""
+        self.x = mclick.x
+        self.y = mclick.y
+        self.canv.create_text(self.x, self.y, text="Boom !", fill="red")
+        self.dx = rd.choice([-30, -20, -10, 10, 20, 30])
+        self.dy = rd.choice([-30, -20, -10, 10, 20, 30])
+
+    def incr(self, lclick):
+        """Augmente la taille de la baballe."""
+        self.size += 10
+        if self.size > 200:
+            self.size = 200
+
+    def decr(self, rclick):
+        """Diminue la taille de la baballe."""
+        self.size -= 10
+        if self.size < 10:
+            self.size = 10
+
+    def stop(self, esc):
+        """Quitte l'application."""
+        self.quit()
+
+if __name__ == "__main__":
+    myapp = AppliBaballe()
+    myapp.title("Baballe !")
+    myapp.mainloop()
+```
+
+Commentaires :
+
+Lignes 14 à 17. Comme précédemment on crée notre classe en héritant de la classe mère Tk et notre fenêtre se retrouve dans le `self`.
+
+Lignes 19 à 23. Les coordonnées de la baballe, ses pas de déplacement, et sa taille sont créés en tant qu'attributs de notre classe. Ainsi ils seront visibles partout dans la classe. 
+
+Lignes 25 à 31. Le *canvas* est ensuite créé et placé dans la fenêtre, puis on définit notre fameuse baballe. A noter, les coordonnées `self.x` et `self.y` de la baballe représentent en fait son côté "nord-ouest" (en haut à gauche, voir [le point ($x_0$, $y_0$) dans la documentation officielle](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_oval.html)).
+
+Lignes 33 à 35. Jusqu'à maintenant nous avons utilisé des évènements provenant de clics sur des boutons. Ici, on va "capturer" des évènements générés par des clics de souris sur le *canvas* et les lier à une fonction / méthode (comme nous l'avions fait pour les clics sur des boutons avec l'option `command=...`, cf. ci-dessus). La méthode pour faire cela est `.bind()`, voilà pourquoi on parle de *event binding* en anglais. Cette méthode prend en argument le type d'évènement à capturer en tant que chaîne de caractères avec un format spécial : par exemple `"<Button-1>"` correspond à un clic gauche de la souris (de même `"<Button-2>"` et `"<Button-3>"` correspondent aux clics central et droit respectivement). Le deuxième argument de la méthode `.bind()` est une méthode / fonction *callback* à appeler lors de la survenue de l'évènement (comme pour les clics de bouton, vous vous souvenez? On l'appelle donc sans parenthèses ni arguments). On notera que tous ces évènements sont liés à des clics sur le *canvas*, mais il est possible de capturer des évènements de souris sur d'autres types de *widgets*.
+
+Ligne 36. De même on peut "capturer" un évènement lié à l'appui sur une touche, ici la touche Esc.
+
+Ligne 38. La méthode `.move()` est appelée, ainsi l'animation démarrera dès l'exécution du constructeur, donc peu après l'instanciation de notre application (ligne 83).
+
+Lignes 40 à 58. On définit une méthode `.move()` qui va gérer le déplacement de la baballe avec des chocs élastiques sur les parois (et faire en sorte qu'elle ne sorte pas du *canvas*).
+
+Lignes 55 et 56. On utilise la très commode méthode `.coords()` de la classe Canvas, permettant de "mettre à jour" les coordonnées de n'importe quel objet dessiné dans notre *canvas* (c'est-à-dire que cela déplacera l'objet).
+
+Ligne 58. Ici, on utilise une autre méthode très commode des objets tkinter : `.after()` permet de rappeler une autre méthode / fonction (deuxième argument) après un certain laps de temps (ici 50 ms, passé en premier argument). Ainsi `.move()` se rappelle elle-même à l'image d'une fonction récursive. Toutefois, ce n'est pas une vraie fonction récursive comme celle vue dans le chapitre 12 (exemple du calcul de factorielle), car Python ne conserve pas l'état de la fonction lors de l'appel de `.after()` : c'est comme si on avait un `return`, tout l'espace mémoire alloué à `.move()` est détruit lorsque Python rencontre la méthode `.after()` un peu comme si on faisait une boucle :
+
+```
+import time
+
+...
+
+while True:
+    move()
+    time.sleep(0.05) # attendre 50 ms
+```
+
+Le temps de 50 ms donne 20 images (ou clichés) par seconde. Si vous diminuez ce temps, vous aurez plus d'images par secondes et donc un "film" plus fluide.
+
+Ligne 60 à 66. On définit la méthode `.boom()` de notre classe qui on se souvient est appelée lors d'un évènement clic central sur le *canvas*. Vous noterez qu'outre le `self`, cette fonction prend un autre argument que nous avons nommé ici `mclick`. Il s'agit d'un objet spécial géré par tkinter qui va nous donner des informations sur l'évènement généré par l'utilisateur. Dans les lignes 60 et 61, cet objet `mclick` nous permet de récupèrer les coordonnées où le clic a eu lieu grâce aux attributs `mclick.x` et `mclick.y`. Ces coordonnées sont réaffectées à la baballe pour la faire repartir de l'endroit du clic. Nous créons ensuite un petit texte dans le canevas et affectons des valeurs aléatoires aux variables de déplacement pour faire repartir la balle dans une direction aléatoire.
+
+Lignes 68 à 78. On a ici deux méthodes `.incr()` et `.decr()` appelées lors d'un clic gauche ou droit. Deux choses sont à noter : i) l'attribut `self.size` est modifié dans les deux fonctions, mais le changement de diamètre de la boule ne sera effectif dans le *canvas* que lors de la prochaine exécution de l'instruction `self.canv.coords()` (dans la méthode `.move()`); ii) de même que pour la méthode `.boom()`, ces deux méthodes prennent un argument après le `self` (`lclick` ou `rclick`) nous permettant de récupérer des informations sur l'évènement de l'utilisateur. Même si on ne s'en sert pas, cet argument après le `self` est obligatoire car il est imposé par la méthode `.bind()`.
+
+Lignes 80 à 82. Cette méthode est appelée lorsque l'utilisateur clic sur la touche Esc, et elle quitte l'application.
+
+![Exemple de *canvas* animé à deux instants de l'exécution (gauche: au moment où on effectue un clic central, droite: après avoir effectué plusieurs clics gauches)](img/example_canvas_baballe.png "Exemple de canvas animé"){ #fig:canvas_anime width=80%}
+
+Il existe de nombreux autres évènements que l'on peut capturer et lier à des méthodes / fonctions *callback*. Vous trouverez une liste complète [ici](http://effbot.org/tkinterbook/tkinter-events-and-bindings.htm).
+
+## Pour aller plus loin...
+
+### D'autres *widgets*...
+
+Jusqu'à maintenant nous avons vu les *widgets* `Button`, `Canvas`, `Label`, mais il en existe bien d'autres. En voici la liste avec une brève explication pour chacun :
+
+- Checkbutton : cases à cocher.
+- Entry : permet de demander à l'utilisateur de saisir une valeur / une phrase.
+- Listbox : liste d'options à choisir (comme dans la Figure @fig:exemple_GUI).
+- Radiobutton : permet d'implémenter des "boutons radio".
+- Menubutton et Menu : vous permettront de faire des menus déroulants.
+- Message : pour afficher un message sur plusieurs lignes (extensions du *widget* Label).
+- Scale : pour mettre une règle graduée permettant à l'utilisateur de choisir parmi une échelle de valeurs.
+- Scrollbar : pour mettre des ascenseurs (horizontaux et verticaux).
+- Text : pour mettre une zone de texte dans lequel l'utilisateur peut saisir un texte multilignes.
+- Spinbox : permet de sélectionner une valeur parmi une liste de valeurs.
+- tkMessageBox : pour afficher une boîte avec un message.
+
+Il existe par ailleurs des *widgets* qui peuvent contenir d'autres widgets et qui permettent d'organiser le placement de ces derniers :
+
+- Frame : *widget* container pouvant contenir d'autres *widgets* classiques, particulièrement utile lorsqu'on réalise une GUI complexe avec de nombreuses zones.
+- LabelFrame : comme Frame mais permet d'afficher un *label* sur le bord.
+- Toplevel : permet de créer des fenêtres indépendantes.
+- PanedWindow : container pour d'autres *widgets*, mais ici l'utilisateur peut réajuster les zones affectées à chaque *widget* fils.
+
+Vous trouverez la documentation exhaustive pour tous ces *widgets* (ainsi que ceux que nous avons décrits dans les sections précédentes) sur le [site de l'institut des mines et de technologie du Nouveau Mexique](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html) (MNT). Par ailleurs, la [page *Universal widget methods*](https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/universal.html) vous donnera une vue d'ensemble des différentes méthodes associées à chaque widget.
+
+Il existe également une extension de tkinter nommée *ttk*, réimplémentant la plupart des *widgets* de base de tkinter et qui en propose de nouveaux (Combobox, Notebook, Progressbar, Separator, Sizegrip et Treeview). Typiquement si vous utilisez ttk, nous vous conseillons d'utiliser les *widgets* ttk en priorité, et pour ceux qui n'existent pas dans ttk, ceux de tkinter (comme Canvas qui n'existe que dans tkinter). Vous pouvez importer le sous-module ttk de cette manière : `import tkinter.ttk as ttk`.
+
+Vous pourrez alors utiliser les classes de widget de ttk (par exemple `ttk.Button`, etc). Si vous souhaitez importer ttk et tkinter, il suffit d'utiliser ces deux lignes :
+
+```
+import tkinter as tk
+import tkinter.ttk as ttk
+```
+
+Ainsi vous pourrez utiliser des *widgets* de tkinter (e.g. `tk.Canvas`) et de ttk (e.g. `ttk.Button`).
+
+Pour plus d'informations, vous pouvez consulter la [documentation officielle de Python](https://docs.python.org/3/library/tkinter.ttk.html), ainsi que la documentation très complète du [site du MNT](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk.html).
+
+### Autres pistes à approfondir
+
+Si vous souhaitez aller un peu plus loin en tkinter, voici quelques notions / remarques qui pourraient vous être utiles. Pour les débutants, vous pouvez passer cette section.
+
+**Les variables de contrôle**
+
+Lorsque vous souhaitez mettre un jour un *widget* avec une certaine valeur (par exemple le texte d'un *label*), vous ne pouvez pas utiliser une variable Python ordinaire, il faudra utiliser une variable tkinter dite de contrôle. Par exemple, si on souhaitait afficher les coordonnées de notre baballe (cf. section précédente) dans un *label*, et que cet affichage se mette à jour au fur et à mesure des mouvements de la baballe, il faudrait utiliser des variables de contrôle. On peut créer de telles variables avec les classes `tk.StringVar` pour les chaînes de caractères, `tk.DoubleVar` pour les *floats*, et `tk.IntVar` pour les entiers. Une fois créée, par exemple avec l'instruction `var = tk.StringVar()`, on peut modifier la valeur d'une variable de contrôle avec la méthode `var.set(nouvelle_valeur)` : ceci mettra à jour tous les *widgets* utilisant cette variable `var`. Il existe aussi la méthode `var.get()` qui permet de récupérer la valeur actuelle contenue dans `var`. Enfin, il faudra lors de la création du label utiliser l'option `textvariable=` avec votre variable de contrôle (par exemple `tk.Label(..., textvariable=var, ...)`) pour que cela soit fonctionnel.
+
+A nouveau, vous trouverez une documentation précise sur le [site du MNT](https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/control-variables.html).
+
+**Autres méthodes de placement des widgets dans la fenêtre Tk**
+
+Dans les exemples montrés dans ce chapitre, nous avons systématiquement utiliser la méthode `.pack()` pour placer les *widgets*. Cette méthode très simple et directe "empaquette" les *widgets* les uns contre les autres, et redimensionne la fenêtre automatiquement. Avec l'option `side=` et les variables `tk.BOTTOM`, `tk.LEFT`, `tk.TOP` et `tk.RIGHT` on place facilement les *widgets* les uns par rapport aux autres. Toutefois, la méthode `.pack()` peut parfois présenter des limitations, il existe alors deux autres alternatives. La méthode `.grid()` permet grâce à l'utilisation d'une grille un placement mieux contrôlé des différents *widgets*. La méthode `.place()` permet enfin de placer les *widgets* en utilisant les coordonnées de la fenêtre principale. Nous ne développerons par plus ces méthodes, mais voici de la documentation supplémentaire en accès libre :
+
+- `.pack()`: <http://effbot.org/tkinterbook/pack.htm>
+- `.grid()`: <http://effbot.org/tkinterbook/grid.htm> et <https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/grid.html>
+- `.place()`: <http://effbot.org/tkinterbook/place.htm>
+
+**Hériter de la classe Frame pour vos applications ?**
+
+Comme illustré dans nos exemples, nous vous recommandons pour vos classes applications tkinter d'hériter de la classe mère `tk.Tk` et d'utiliser le constructeur de la classe mère `tk.Tk.__init__()`. Toutefois, il se peut qu'en consultant d'autres ressources certains auteurs utilisent la technique d'héritage de la classe mère `tk.Frame` :
+
+```
+import tkinter as tk
+
+class Application(tk.Frame):
+    def __init__(self, racine=None):
+        tk.Frame.__init__(self, racine)
+        self.racine = racine
+        self.create_widgets()
+
+    def create_widgets(self):
+        self.label = tk.Label(self.racine, text="J'adore Python !")
+        self.bouton = tk.Button(self.racine, text="Quitter",
+                                 fg="green", command=self.quit)
+        self.label.pack()
+        self.bouton.pack()
+
+if __name__ == '__main__':
+    racine = tk.Tk()
+    racine.title("Ma Première App :-)")
+    app = Application(racine)
+    racine.mainloop()
+```
+
+Commentaires.
+
+Lignes 17 à 20. Commentons d'abord le programme principal : ici on crée la fenêtre principale dans l'instance `racine` puis on instancie notre classe en passant `racine` en argument.
+
+Ligne 3. Ici on hérite de la classe tk.Frame.
+
+Lignes 4 et 5. Ici réside la principale différence par rapport à ce que nous vous avons montré dans ce chapitre : en Ligne 4 on passe l'argument `racine` à notre constructeur, puis en Ligne 5 on passe ce même argument `racine` lors de l'appel du constructeur de la classe tk.Frame (ce qui était inutile lorsqu'on héritait de la classe Tk). 
+
+Ligne 6. L'argument `racine` passé à la méthode `.__init__()` est finalement une variable locale. Comme il s'agit de l'instance de notre fenêtre principale à passer à tous nos widgets, il faut qu'elle soit visible dans toute la classe. La variable `self.racine` est ainsi créée afin d'être ré-utilisée dans d'autres méthodes.
+
+Vous pourrez vous posez la question : "Pourquoi en Ligne 4 l'argument optionnel `racine=None` prend la valeur `None` par défaut ?". Et bien c'est parce que notre classe Application peut s'appeler sans passer d'instance de fenêtre Tk, par exemple : `app = Application()`. Voici un exemple avec les lignes qui changent seulement (tout le reste est identique au code précédent) :
+
+```
+...
+class Application(tk.Frame):
+    def __init__(self, racine=None):
+        tk.Frame.__init__(self)
+        self.racine = racine
+		...
+...
+if __name__ == '__main__':
+    app = Application()
+    app.mainloop()
+```
+
+Dans un tel cas, l'argument `racine` prend la valeur par défaut `None` lorsque la méthode `.__init__()` de notre classe est exécutée.  L'appel au constructeur de la classe Frame en Ligne 4 instancie automatiquement une fenêtre Tk (car cela est strictement obligatoire). Dans la suite du programme, cette instance de la fenêtre principale sera `self.racine` et il n'y aura pas de changement par rapport à la version précédente. Cette méthode reste toutefois peu intuitive car cette instance de la fenêtre principale `self.racine` vaut finalement `None` !
+
+Hériter de la classe Frame ou de la classe Tk sont deux manières tout à fait valides pour créer des applications tkinter. Le choix de l'une ou de l'autre relève plus de préférences que l'on acquiert en pratiquant, voire de convictions philosophiques sur la manière de programmer. Toutefois, nous pensons qu'hériter de la classe `tk.Tk` est une manière plus générale et plus compacte : tout ce qui concerne le fenêtrage tkinter se situera dans votre classe Application, et le programme principal n'aura qu'à instancier l'application et à lancer le gestionnaire d'évènements (les choses seront ainsi mieux "partitionnées"). C'est donc la méthode que nous vous recommandons.
+
+**Passage d'arguments avec \*args et \*\*kwargs**
+
+Si vous allez chercher de la documentation supplémentaire sur tkinter, il se peut que vous tombiez sur ce style de syntaxe lorsque vous créez votre classe contenant l'application graphique :
+
+```
+class MonApplication(tk.Tk):
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+        # ici débute la construction de votre appli
+...
+
+# programme principal
+if __name__ == '__main__':
+    ...
+    app = MonApplication()
+    ...
+```
+
+Les arguments `*args` et `**kwargs` permettent de récupérer facilement tous les arguments dits "positionnels" et "optionnels" respectivement. Pour plus de détails sur comment `*args` et `**kwargs` fonctionnent, reportez-vous au Chapitre 21 Pour Aller Plus Loin.
+
+Dans l'exemple ci-dessus, `*args` et `**kwargs` sont inutiles car lors de l'instanciation de notre application, on ne passe aucun argument : `app = MonApplication()`. Toutefois, on pourrait être intéressé à récupérer des arguments à passer au constructeur, par exemple : `app = MonApplication(arg1, arg2, option1=val1, option2=val2)`. Ainsi certains auteurs laissent toujours ces `*args` et `**kwargs` au cas où on en ait besoin dans le futur. Cela est bien utile lorsqu'on distribue notre classe Application à la communauté, et que l'on souhaite que les futurs utilisateurs puissent passer des arguments tkinter au constructeur de notre classe.
+
+Toutefois, même si cela "ne coûte rien", nous vous recommandons de ne pas mettre ces `*args` et `**kwargs` si vous n'en avez pas besoin, comme nous vous l'avons montré dans les exemples de ce chapitre. Rappelons nous de la PEP 20 (cf. Chapitre 15 Bonnes Pratiques), les assertions *Simple is better than complex* ou *Sparse is better than dense* nous suggèrent qu'il est inutile d'ajouter des choses dont on ne se sert pas.
+
+**Passage d'arguments à vos fonctions callback**
+
+Comme vu dans nos exemples ci-dessus, les fonctions *callback* ne prennent pas d'arguments ce qui peut se révéler parfois limitant. Il existe toutefois une astuce qui utilise les fonctions *lambda* ; nous expliquons brièvement les fonctions lambda dans le Chapitre 21 "Pour aller plus loin". Toutefois, nous ne développons pas leur utilisation avec tkinter et les fonctions *callback* car cela dépasse le cadre de cet ouvrage. Pour de plus amples explications sur cette question, vous pouvez consulter le site [pythonprogramming](https://pythonprogramming.net/passing-functions-parameters-tkinter-using-lambda/) et le [livre de Gérard Swinnen](https://inforef.be/swi/python.htm).
+
+**Application tkinter avec plusieurs pages**
+
+Dans ce chapitre d'introduction, nous vous avons montré des GUI simples avec une seule page. Toutefois, si votre projet se complexifie, il se peut que vous ayez besoin de créer plusieurs fenêtre différentes. Le [livre de Gérard Swinnen](https://inforef.be/swi/python.htm) et le site [pythonprogramming](https://pythonprogramming.net/change-show-new-frame-tkinter/) sont des bonnes sources pour commencer et voir concrètement comment faire cela.
+
+### Projet simulation d'un pendule
+
+Certains concepts vous semblent un peu ardus ? Vous souhaitez "mettre les mains dans le cambouis" ? Nous vous conseillons de faire les exercices puis d'aller directement à l'annexe B 22 "Mini projets". Nous vous proposons de réaliser une application tkinter qui simule le mouvement d'un pendule (cf. Figure @fig:pendule). En réalisant une application complète de ce genre, un peu plus conséquente, vous serez armé pour construire vos propres applications.
+
+![Application pendule](img/pendule.png){ #fig:pendule width=60% }
+
+### Bibliographie pour aller plus loin
+
+Voici quelques ressources que vous pouvez utiliser pour continuer votre apprentissage de tkinter : 
+
+1. En anglais :
+  - Documentation officielle de Python : <https://wiki.python.org/moin/TkInter>
+  - Manuel de référence sur le site du MNT : <https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html>
+  - Le site de Fredrik Lundh est également très complet : <http://effbot.org/tkinterbook/>
+  - Pour avoir un exemple rapide de code pour chaque *widget* : <https://www.tutorialspoint.com/python/python_gui_programming.htm>
+  - Le livre de David Love "Learn Tkinter By Example" qui montre des exemples concrets d'applications tkinter de plus en plus complexes (pdf en libre téléchargement) : <https://github.com/Dvlv/Tkinter-By-Example>
+  - Le site très bien fait de Harisson (avec vidéos !) vous guidera dans la construction d'une GUI complète et complexe avec de nombreuses fonctions avancées (comme par exemple mettre des graphes matplotlib qui se mettent à jour dans la GUI !) : <https://pythonprogramming.net/tkinter-depth-tutorial-making-actual-program/>
+
+2. En français :
+  - Le site bien complet d'Étienne Florent : <http://tkinter.fdex.eu/index.html>
+  - Le livre de Gérard Swinnen qui montre de nombreux exemples d'applications tkinter (pdf en libre téléchargement) : <https://inforef.be/swi/python.htm>
+
+## Exercices
+

@@ -1,0 +1,219 @@
+\documentclass[10pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{
+  margin=1.5cm,
+  footskip=1.5cm,
+}
+
+\let\cleardoublepage\clearpage
+
+% define PDF format options
+\usepackage{hyperref}
+\hypersetup{ % configuration de hyperref
+  draft=false,          		% true pour imprimer sans les liens
+  bookmarks=true,       		% Signets
+  bookmarksnumbered=true,   % Signets numérotés
+  pdfpagemode=None,         % Signets/vignettes fermé à l'ouverture
+  pdfstartview=FitH,        % La page prend toute la largeur
+  pdfpagelayout=SinglePage, % Vue par page
+  colorlinks=true,     			% Liens en couleur
+  urlcolor=blue,     				% Couleur des liens externes
+  pdfborder={0 0 0},        % Style de bordure : ici, pas de bordure
+  pdfauthor={Patrick Fuchs et Pierre Poulain},
+  pdftitle={Cours de Python},
+  pdfsubject={Cours de Python},
+  pdfkeywords={programmation,Python,biologie},
+  pdfcreator={pandoc},
+  pdfproducer={pandoc}
+}
+
+\usepackage{upquote}
+\usepackage{longtable,booktabs}
+
+
+%====================================================================
+% Conversion des liens web en note de bas de page
+%====================================================================
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+
+%==============================================================================
+% load listing package
+% and redefine the vebatim environment
+%==============================================================================
+\usepackage{listings}
+\usepackage{color}
+\definecolor{gray}{rgb}{0.7,0.7,0.7}
+\let\verbatim\relax
+\lstnewenvironment{verbatim}[1][]{
+    \lstset{
+        basicstyle=\linespread{0.8}\footnotesize\ttfamily,
+        literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+        {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+        {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+        {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+        {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+        {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+        {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+        {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+        {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 ,
+        tabsize=4,
+        columns=fixed,
+        numbers=left,
+        stepnumber=1,
+        numberstyle=\tiny\color{gray},
+        frame=leftline,
+        framerule=0.1pt,
+        rulecolor=\color{gray},
+        frameround=tttt,
+        framesep=3pt,  % space between code and frame
+        numbersep=5pt, % space between numbers and code
+        xleftmargin=10pt, % left margin
+        xrightmargin=-10pt, % right margin
+        #1
+    }
+}{}
+
+%==============================================================================
+% define page header and footer
+%==============================================================================
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clear all headers and footer fields
+\fancyhead[LE,RO]{\nouppercase{\leftmark}}
+\fancyhead[RE,LO]{\nouppercase{\rightmark}}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[RE,LO]{\it Cours de Python / Université Paris Diderot - Paris 7 / UFR Sciences du Vivant}
+
+
+
+%==============================================================================
+% boxes
+%==============================================================================
+\usepackage{framed}
+
+\newenvironment{box-rem}%
+{\vspace{5mm}\noindent\textbf{Remarque}\ \hrulefill}%
+{\vspace*{-2mm}\noindent\hrulefill\vspace{5mm}}
+
+\newenvironment{box-adv}%
+{\vspace{5mm}\noindent\textbf{Conseil}\ \hrulefill}%
+{\vspace*{-2mm}\noindent\hrulefill\vspace{5mm}}
+
+\newenvironment{box-warn}%
+{\vspace{5mm}\noindent\textbf{Attention}\ \hrulefill}%
+{\vspace*{-2mm}\noindent\hrulefill\vspace{5mm}}
+
+\newenvironment{box-def}%
+{\vspace{5mm}\noindent\textbf{Définition}\ \hrulefill}%
+{\vspace*{-2mm}\noindent\hrulefill\vspace{5mm}}
+
+\newenvironment{box-more}%
+{\vspace{5mm}\noindent\textbf{Pour aller plus loin}\ \hrulefill}%
+{\vspace*{-2mm}\noindent\hrulefill\vspace{5mm}}
+
+%==============================================================================
+% start document
+%==============================================================================
+\begin{document}
+
+%==============================================================================
+% title page
+%==============================================================================
+\thispagestyle{empty}
+
+\begin{titlepage}
+
+\begin{center}
+
+\includegraphics[width=10cm]{img/LogoUPD_USPC.png}
+
+\vspace{3cm}
+
+{\Huge \bf Cours de Python}\\
+\includegraphics[width=5cm]{img/logo_python.png} \\
+\verb@https://python.sdv.univ-paris-diderot.fr/@
+\vspace{2cm}
+
+{\large
+	{\bf Patrick Fuchs} et {\bf Pierre Poulain} \\
+	{\tt prénom [point] nom [arobase] univ-paris-diderot [point] fr}
+}
+
+\vspace{3 cm}
+
+version du \today
+
+\vspace{3cm}
+Université Paris Diderot-Paris 7, Paris, France
+
+\vfill
+
+\begin{minipage}{0.80\textwidth}
+\footnotesize
+Ce document est sous licence \\
+Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France \\
+(CC BY-SA 3.0 FR) \\
+\url{https://creativecommons.org/licenses/by-sa/3.0/fr/}
+\end{minipage}
+\begin{minipage}{0.15\textwidth}
+\includegraphics{img/logo_CC-BY-SA.png}
+\end{minipage}
+
+\end{center}
+\end{titlepage}
+
+%==============================================================================
+% define margins
+%==============================================================================
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2.5cm}
+
+%==============================================================================
+% add table of content
+%==============================================================================
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\clearpage
+\include{tex/00_avant_propos}
+\include{tex/01_introduction}
+\include{tex/02_variables}
+\include{tex/03_affichage}
+\include{tex/04_listes}
+\include{tex/05_boucles_comparaisons}
+\include{tex/06_tests}
+\include{tex/07_fichiers}
+\include{tex/08_modules}
+\include{tex/09_fonctions}
+\include{tex/10_plus_sur_les_chaines_de_caracteres}
+\include{tex/11_plus_sur_les_listes}
+\include{tex/12_plus_sur_les_fonctions}
+\include{tex/13_dictionnaires_tuples}
+\include{tex/14_creation_modules}
+\include{tex/15_bonnes_pratiques}
+\include{tex/16_expressions_regulieres}
+\include{tex/17_modules_interet_bioinfo}
+\include{tex/18_jupyter}
+\include{tex/19_avoir_la_classe_avec_les_objets}
+\include{tex/20_tkinter}
+\include{tex/21_remarques_complementaires}
+
+\appendix
+
+\include{tex/annexe_formats_fichiers}
+\include{tex/annexe_mini_projets}
+\include{tex/annexe_install_python}
+
+\end{document}
