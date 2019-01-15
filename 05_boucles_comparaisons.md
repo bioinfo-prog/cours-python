@@ -361,9 +361,9 @@ Attention à bien respecter l'alignement des chiffres qui doivent être justifi�
 
 ### Parcours de demi-matrice sans la diagonale (exercice ++)
 
-En se basant sur le script précédent, on souhaite réaliser le parcours d'une demi-matrice carrée sans la diagonale. On peut noter que cela donne tous les couples possibles une seule fois (1 et 2 est équivalent à 2 et 1), en excluant par ailleurs chaque élément avec lui même (1 et 1, 2 et 2, etc). Pour mieux comprendre ce qui est demandé, la figure @fig:demimatrice indique les cases à parcourir en vert :
+En se basant sur le script précédent, on souhaite réaliser le parcours d'une demi-matrice carrée sans la diagonale. On peut noter que cela donne tous les couples possibles une seule fois (1 et 2 est équivalent à 2 et 1), en excluant par ailleurs chaque élément avec lui même (1 et 1, 2 et 2, etc). Pour mieux comprendre ce qui est demandé, la figure @fig:demimatrice indique les cases à parcourir en gris :
 
-![Demi-matrice sans la diagonale (en vert)](img/half_matrix_check.png "Demi-matrice sans la diagonale (en vert)"){ #fig:demimatrice width=30% }
+![Demi-matrice sans la diagonale (en gris)](img/demi-matrice-sans-diag.png "Demi-matrice sans la diagonale (en gris)"){ #fig:demimatrice width=30% }
 
 Écrivez un script qui affiche le numéro de ligne et de colonne, puis la taille de la matrice `NxN` et le nombre total de cases parcourues. Par exemple pour une matrice 4 $\times$ 4 (N=4) :
 ```
@@ -376,31 +376,29 @@ ligne colonne
    3     4
 Pour une matrice 4x4, on a parcouru 6 cases
 ```
-Testez votre script avec `N=3`, `N=4` et `N=5`.
+Testez votre script avec `N=3`, puis `N=4` et enfin `N=5`.
 
 Concevez une seconde version à partir du script précédent, où cette fois on n'affiche plus tous les couples possibles mais simplement la valeur de `N`, et le nombre de cases parcourues. Affichez cela pour des valeurs de `N` allant de 1 à 20. Pouvez-vous trouver une formule générale reliant le nombre de cases parcourues à `N` ?
 
 
 ### Sauts de puce
 
-On imagine une puce qui se déplace aléatoirement sur une ligne, en avant ou en arrière, par pas de 1 ou -1. Par exemple, si elle est à l'emplacement 0, elle peut sauter à l'emplacement 1 ou -1; si elle est à l'emplacement 2, elle peut sauter à l'emplacement 3 ou 1, etc. Avec une boucle `while`, simuler le mouvement de cette puce de l'emplacement 0 à l'emplacement 5 (cf schéma suivant). Combien de sauts sont nécessaires à ce parcours ? Relancez plusieurs fois le programme. Trouvez-vous le même nombre de sauts à chaque exécution ? Comparez avec votre voisin.
-```
-  départ     arrivée
-     |         |
-     v         v
-...o-X-o-o-o-o-X-o...
-  -1 0 1 2 3 4 5 6
-```
+On imagine une puce qui se déplace aléatoirement sur une ligne, en avant ou en arrière, par pas de 1 ou -1. Par exemple, si elle est à l'emplacement 0, elle peut sauter à l'emplacement 1 ou -1; si elle est à l'emplacement 2, elle peut sauter à l'emplacement 3 ou 1, etc.
 
-*Conseil*: vous utiliserez l'instruction
+Avec une boucle `while`, simuler le mouvement de cette puce de l'emplacement 0 à l'emplacement 5 (voir schéma de la figure @fig:saut-de-puce). Combien de sauts sont nécessaires à ce parcours ? Relancez plusieurs fois le programme. Trouvez-vous le même nombre de sauts à chaque exécution ?
+
+![Sauts de puce](img/sauts-de-puce.png "Sauts de puce"){ #fig:saut-de-puce width=50% }
+
+
+*Conseil* : vous utiliserez l'instruction
 
 `random.choice([-1,1])`
 
-qui renvoie au hasard les valeurs -1 ou 1 avec la même probabilité. Avant d'utiliser cette commande vous devrez mettre en haut du script la ligne
+qui renvoie au hasard les valeurs -1 ou 1 avec la même probabilité. Avant d'utiliser cette commande vous mettrez au début de votre script la ligne
 
 `import random`
 
-Nous reverrons la signification de cette syntaxe particulière dans le chapitre sur les modules.
+Nous reverrons la signification de cette syntaxe particulière dans le chapitre 8 *Modules*.
 
 
 ### Suite de Fibonacci (exercice +++)
