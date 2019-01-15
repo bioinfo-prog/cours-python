@@ -233,15 +233,14 @@ La fonction `min()` de Python, renvoie l'élément le plus petit d'une liste con
 
 La liste ci-dessous représente une séquence d'acides aminés :
 
-`["A","R","A","W","W","A","W","A","R","W","W","R","A","G","A","R"]`
+`["A","R","A","W","W","A","W","A","R","W","W","R","A","G"]`
 
 Calculez la fréquence des acides aminés alanine (A), arginine (R), tryptophane (W) et glycine (G) dans cette séquence.
 
 
 ### Notes et mention d'un étudiant
 
-Voici les notes d'un étudiant : 14, 9, 13, 15 et 12. Écrivez un script qui affiche la note maximum (fonction `max()`),
-la note minimum (fonction `min()`) et qui calcule la moyenne.
+Voici les notes d'un étudiant : 14, 9, 13, 15 et 12. Écrivez un script qui affiche la note maximum (utilisez la fonction `max()`), la note minimum (utilisez la fonction `min()`) et qui calcule la moyenne.
 
 Affichez la valeur de la moyenne avec deux décimales. Affichez aussi la mention obtenue sachant que la mention est passable si la moyenne est entre 10 inclus et 12 exclus, assez-bien entre 12 inclus et 14 exclus et bien au-delà de 14.
 
