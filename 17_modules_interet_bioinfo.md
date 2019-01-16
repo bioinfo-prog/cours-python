@@ -1023,6 +1023,72 @@ souris     30    31      32   33
 ```
 
 
+### Combinaison de *dataframes*
+
+En biologie, on a souvent besoin de combiner deux tableaux de chiffres à partir d'une colonne commune.
+
+Par exemple, si on considère les deux *dataframes* suivants :
+
+```
+>>> data1 = {"Lyon": [10, 23, 17], "Paris": [3, 15, 20]}
+>>> df1 = pd.DataFrame.from_dict(data1)
+>>> df1.index = ["chat", "singe", "souris"]
+>>> df1
+        Lyon  Paris
+chat      10      3
+singe     23     15
+souris    17     20
+```
+et
+```
+>>> data2 = {"Nantes": [3, 9, 14], "Strasbourg": [5, 10, 8]}
+>>> df2 = pd.DataFrame.from_dict(data2)
+>>> df2.index = ["chat", "souris", "lapin"]
+>>> df2
+        Nantes  Strasbourg
+chat         3           5
+souris       9          10
+lapin       14           8
+```
+
+On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les 4 villes (Lyon, Paris, Nantes et Strasbourg) le nombre d'animaux. On remarque d'ores et déjà qu'il y a des singes à Lyon et Paris mais pas de lapin et qu'il y a des lapins à Nantes et Strasbourg mais pas de singe. Nous allons voir comment gérer cette situation.
+
+*Pandas* propose pour cela la fonction [`.concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html) qui prend comme argument une liste de *dataframes* :
+
+```
+>>> pd.concat([df1, df2])
+        Lyon  Nantes  Paris  Strasbourg
+chat    10.0     NaN    3.0         NaN
+singe   23.0     NaN   15.0         NaN
+souris  17.0     NaN   20.0         NaN
+chat     NaN     3.0    NaN         5.0
+souris   NaN     9.0    NaN        10.0
+lapin    NaN    14.0    NaN         8.0
+```
+
+Ici, `NaN` indique des valeurs manquantes. Mais le résultat obtenu n'est pas celui que nous attendions puisque les lignes de deux *dataframes* ont été recopiées.
+
+L'argument supplémentaire `axis=1` produit le résultat attendu :
+```
+ >>> pd.concat([df1, df2], axis=1)
+        Lyon  Paris  Nantes  Strasbourg
+chat    10.0    3.0     3.0         5.0
+lapin    NaN    NaN    14.0         8.0
+singe   23.0   15.0     NaN         NaN
+souris  17.0   20.0     9.0        10.0
+```
+
+Par défaut, *pandas* va conserver le plus de lignes possible. Si on ne souhaite conserver que les lignes communes aux deux *dataframes*, il faut ajouter l'argument `join="inner"` :
+```
+>>> pd.concat([df1, df2], axis=1, join="inner")
+        Lyon  Paris  Nantes  Strasbourg
+chat      10      3       3           5
+souris    17     20       9          10
+```
+
+Un autre comportement par défaut de `.concat()` est que cette fonction va combiner les *dataframes* en se basant sur leurs index. Il est néanmoins possible de préciser, pour chaque *dataframe*, le nom de la colonne qui sera utilisée comme référence avec l'argument `join_axes`.
+
+
 ## Un exemple plus complet
 
 Pour illustrer les possibilités de *pandas*, voici un exemple plus complet.
@@ -1033,7 +1099,7 @@ contient une liste de structures de la [transferrine](https://fr.wikipedia.org/w
 Cette protéine est responsable du transport du fer dans l'organisme.
 
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
-de consulter l'annexe *Quelques formats de données rencontrés en biologie*
+de consulter l'annexe A *Quelques formats de données rencontrés en biologie*
 
 Voyons maintenant comment explorer les données contenues
 dans ce fichier avec *pandas*.
@@ -1070,7 +1136,7 @@ Nous avons 5 colonnes de données :
 - le nombre d'acides aminés qui constituent la protéine (`Length`) ;
 - et la masse molaire de la protéine (`MW`).
 
-La colonne d'entiers tout à gauche est un index automatiquement ajouté par *pandas*.
+La colonne d'entiers tout à gauche est un index automatiquement créé par *pandas*.
 
 Nous pouvons demander à *pandas* d'utiliser une colonne particulière comme index.
 La colonne `PDB ID` s'y prête très bien car cette colonne ne contient que
@@ -1109,8 +1175,7 @@ MW              float64
 dtype: object
 ```
 
-Les colonnes `Length` et `MW` contiennent des données numériques
-(respectivement des entiers et des réels).
+Les colonnes `Length` et `MW` contiennent des valeurs numériques, respectivement des entiers (`int64`) et des réels (`float64`). Le type `object` est un type par défaut.
 
 
 ### Conversion en date
@@ -1140,7 +1205,7 @@ PDB ID
 1B3E          Homo sapiens   1998-12-09     330  36505.5
 ```
 
-Mais le type de données de la colonne `Deposit Date` est bien une date :
+Mais le type de données de la colonne `Deposit Date` est maintenant une date (`datetime64[ns]`) :
 ```
 >>> df.dtypes
 Source                  object
@@ -1204,7 +1269,7 @@ La méthode `.groupby()` va d'abord rassembler les données suivant la colonne
 `Source` puis la méthode `.mean()` calcule la moyenne pour chaque groupe.
 
 Si on souhaite obtenir deux statistiques (par exemple la valeur minimale et maximale)
-en une seule fois, alors il convient d'utiliser la méthode `.pivot_table()`
+en une seule fois, il convient alors d'utiliser la méthode `.pivot_table()`
 plus complexe mais aussi beaucoup plus puissante :
 ```
 >>> df.pivot_table(index="Source", values=["Length", "MW"], aggfunc=[min, max])
@@ -1247,7 +1312,7 @@ Text(0, 0.5, 'Masse moléculaire (Dalton)')
 ```
 
 On obtient un graphique similaire à celui de la figure @fig:transferrine1
-avec deux groupes de points distincts.
+avec deux groupes de points distincts (car certaines structures sont incomplètes).
 
 ![Masse moléculaire en fonction de la taille.](img/transferrine1.png){ #fig:transferrine1  width=50% }
 
@@ -1277,7 +1342,7 @@ entre le nombre de résidus d'une protéine et sa masse moléculaire.
 ![Masse moléculaire en fonction de la taille (zoom).](img/transferrine2.png){ #fig:transferrine2  width=50% }
 
 En réalisant une régression linéaire, on détermine les paramètres de
-la droite qui passent par les points du graphique.
+la droite qui passent le plus proche possible des points du graphique.
 ```
 >>> from scipy.stats import linregress
 >>> lr = linregress(dfz["Length"], dfz["MW"])
@@ -1309,7 +1374,7 @@ On obtient ainsi le graphique de la figure @fig:transferrine3.
 
 ### Analyse de données temporelles
 
-Il est intéressant de savoir, pour chaque organisme, quand les premières
+Il peut être intéressant de savoir, pour chaque organisme, quand les premières
 et les dernières structures de transferrines ont été déposées dans la PDB.
 
 La méthode `.pivot_table()` apporte un élément de réponse :
@@ -1347,7 +1412,7 @@ Name: Deposit Date, dtype: int64
 
 Si on souhaite une réponse plus globale, par exemple, à l'échelle de
 l'année, la méthode `.resample()` calcule le nombre de structures déposées par
-année (argument `A`) :
+année (en fournissant l'argument `A`) :
 ```
 >>> df["Deposit Date"].value_counts().resample("A").count()
 1990-12-31    1
@@ -1380,12 +1445,12 @@ Name: Deposit Date, dtype: int64
 ```
 
 En 2001, 5 structures de transferrine ont été déposées dans la PDB. La deuxième
-*meilleure* années est 2003 avec 4 structures.
+*meilleure* année est 2003 avec 4 structures.
 
 Toutes ces méthodes, enchaînées les unes à la suite des autres, peuvent vous
 sembler complexes mais chacune d'elles correspond à une étape particulière
-du traitement de données. L'utilisation des parenthèses (juste avant
-`df["Deposit Date"]` et juste après `head()`) permet de répartir élégamment
+du traitement ded données. L'utilisation des parenthèses (ligne 1, juste avant
+`df["Deposit Date"]` et ligne 5, juste après `head()`) permet de répartir élégamment
 cette longue instruction sur plusieurs lignes.
 
 Bien sur, on aurait pu créer des variables intermédiaires
@@ -1407,6 +1472,7 @@ Name: Deposit Date, dtype: int64
 open-box-more
 
 - Le livre de Nicolas Rougier [*From Python to Numpy*](https://www.labri.fr/perso/nrougier/from-python-to-numpy/) est une excellente ressource pour explorer plus en détails les possibilités de *NumPy*.
+- Les ouvrages *Python for Data Analysis* de Wes McKinney et *Pandas Cookbook* de Theodore Petrou sont d'excellentes références pour *pandas*.
 
 close-box-more
 
