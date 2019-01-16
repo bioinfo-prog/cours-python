@@ -202,7 +202,9 @@ Conseil : utilisez l'interpréteur Python pour les exercices 2 à 4.
 
 ### Affichage dans l'interpréteur et dans un programme
 
-Ouvrez l'interpréteur Python et tapez `1+1`. Que se passe-t-il ? Ecrivez la même chose dans un script `test.py`. Exécutez ce script en tapant `python3 test.py` dans un *shell* Unix. Que se passe-t-il ? Pourquoi ? Faites en sorte d'afficher le résultat de l'addition `1+1` en exécutant le script dans un *shell* Unix.
+Ouvrez l'interpréteur Python et tapez l'instruction `1+1`. Que se passe-t-il ?
+
+Écrivez la même chose dans le script `test.py` que vous allez créer avec un éditeur de texte. Exécutez ce script en tapant `python3 test.py` dans un *shell*. Que se passe-t-il ? Pourquoi ? Faites en sorte d'afficher le résultat de l'addition `1+1` en exécutant le script dans un *shell*.
 
 
 ### Poly-A
@@ -222,7 +224,11 @@ En utilisant l'écriture formatée, affichez en une seule ligne les variables `a
 
 ### Écriture formatée 2
 
-Dans un script `propGC.py`, calculez un pourcentage de GC avec l'instruction suivante : `percGC = ((4500 + 2575)/14800)*100`. Ensuite, affichez le contenu de la variable `percGC` à l'écran avec 0, 1, 2, 3 puis 4 décimales sous forme arrondie en utilisant `.format()`. On souhaite que le programme affiche la sortie suivante :
+Dans un script `propGC.py`, calculez un pourcentage de GC avec l'instruction suivante :
+
+`percGC = ((4500 + 2575)/14800)*100`.
+
+Ensuite, affichez le contenu de la variable `percGC` à l'écran avec 0, 1, 2, 3 puis 4 décimales sous forme arrondie en utilisant `.format()`. On souhaite que le programme affiche la sortie suivante :
 
     Le pourcentage de GC est 48      %
     Le pourcentage de GC est 47.8    %
