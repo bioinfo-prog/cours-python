@@ -4,22 +4,22 @@
 
 En programmation, les **fonctions** sont très utiles pour réaliser plusieurs fois la même opération au sein d'un programme. Elles permettent également de rendre le code plus lisible et plus clair en le fractionnant en blocs logiques.
 
-Vous connaissez déjà certaines fonctions Python, par exemple `math.cos(angle)` du module `math` renvoie le cosinus de la variable `angle` exprimé en radian. Vous connaissez aussi des fonctions internes à Python comme `range()` ou `len()`. Pour l'instant, une fonction est à vos yeux une sorte de *boîte noire* (cf Figure @fig:fonction) :
+Vous connaissez déjà certaines fonctions Python, par exemple `math.cos(angle)` du module `math` renvoie le cosinus de la variable `angle` exprimé en radian. Vous connaissez aussi des fonctions internes à Python comme `range()` ou `len()`. Pour l'instant, une fonction est à vos yeux une sorte de *boîte noire* (cf Figure @fig:schema_fonction) :
 
-- À laquelle vous passez une (ou zero ou plusieurs) valeur(s) entre parenthèses. Ces valeurs sont appelées arguments.
-- Qui effectue une action. Par exemple la fonction `random.shuffle()` permute aléatoirement une liste.
-- Et qui renvoie éventuellement un résultat (plus précisément un objet).
+1. À laquelle vous passez zero, une ou plusieurs variable(s) entre parenthèses. Ces variables sont encore appelées arguments. Il peut s'agit de quel type d'objet Python.
+2. Qui effectue une action.
+3. Et qui renvoie un objet Python ou rien du tout.
 
-![Fonctionnement schématique d'une fonction](img/fonction.png){ #fig:fonction width=60% }
+![Fonctionnement schématique d'une fonction](img/schema_fonction.png){ #fig:schema_fonction width=60% }
 
-Par exemple si vous appelez la fonction `len()` en lui passant l'argument `[0, 1, 2]` :
+Par exemple si vous appelez la fonction `len()` de la manière suivante :
 ```
 >>> len([0, 1, 2])
 3
 ```
-celle-ci vous renvoie un entier indiquant la longueur de la liste passée en argument.
+dans l'ordre : (1) vous l'appelez en lui passant une liste en argument, (2) la fonction calcule la longueur de cette liste, (3) elle vous renvoie un entier égal à cette longueur.
 
-Autre exemple, si vous appelez la méthode `liste.append(5)` (n'oubliez pas, une méthode est une **fonction** qui agit sur l'objet auquel elle est attachée), `append()` ajoute l'entier `5` à la variable `liste` mais ne renvoie rien.
+Autre exemple, si vous appelez la méthode `liste.append(5)` (n'oubliez pas, une méthode est une **fonction** qui agit sur l'objet auquel elle est attachée) : (1) vous passez l'entier 5 en argument, (2) la méthode `append()` ajoute l'entier `5` à l'objet `liste`, et (3) elle ne renvoie rien.
 
 Au contraire, aux yeux du programmeur une fonction est une portion de code effectuant une suite d'instructions bien particulière. Avant de démarrer sur la syntaxe, revenons sur cette notion de *boîte noire* :
 
