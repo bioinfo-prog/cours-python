@@ -41,13 +41,13 @@ Pour définir une fonction, Python utilise le mot-clé `def` et si on veut que c
 ```
 Notez que la syntaxe de `def` utilise les `:` comme les boucles `for` et `while` ainsi que les tests `if`, un bloc d’instructions est donc attendu. De même que pour les boucles et les tests, l'**indentation** de ce bloc d'instructions (*i.e.* le corps de la fonction) est **obligatoire**.
 
-Dans l'exemple précédent, nous avons passé un argument à la fonction `carre()` qui nous a retourné une valeur que nous avons affichée à l'écran. Que veut dire valeur retournée ? Et bien cela signifie que cette dernière est stockable dans une variable :
+Dans l'exemple précédent, nous avons passé un argument à la fonction `carre()` qui nous a retourné ou renvoyé une valeur que nous avons affichée à l'écran. Que veut dire valeur retournée ou renvoyée ? Et bien cela signifie que cette dernière est stockable dans une variable :
 ```
 >>> res = carre(2)
 >>> print(res)
 4
 ```
-Ici, le résultat renvoyé par la fonction est stockée dans la variable `res`.
+Ici, le résultat renvoyé par la fonction est stocké dans la variable `res`.
 Notez qu'une fonction ne prend pas forcément un argument et ne renvoie pas forcément une valeur, par exemple :
 ```
 >>> def hello():
@@ -58,9 +58,9 @@ bonjour
 ```
 Dans ce cas la fonction `hello()` se contente d'imprimer la chaîne de caractères `"hello"` à l'écran. Elle ne prend aucun argument et ne renvoie aucun résultat. Par conséquent, cela n'a pas de sens de vouloir récupérer dans une variable le résultat renvoyé par une telle fonction. Si on essaie tout de même, Python affecte la valeur `None` qui signifie *rien* en anglais:
 ```
->>> x = hello()
+>>> var = hello()
 bonjour
->>> print(x)
+>>> print(var)
 None
 ```
 Ceci n'est pas une faute car Python n'émet pas d'erreur, toutefois cela ne présente, la plupart du temps, guère d'intérêt.
@@ -83,6 +83,10 @@ Une particularité des fonctions en Python est que vous n'êtes pas obligé(e) d
 'toto'
 ```
 L'opérateur `*` reconnait plusieurs types (entiers, réels, chaînes de caractères), notre fonction est donc capable d'effectuer des tâches différentes ! Même si Python permet cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait mener à des surprises dans vos futurs programmes. En général il est plus judicieux que chaque argument ait un type précis (*int*, *str*, *float*, etc), et pas l'un ou l'autre.
+
+## Passage d'arguments variables
+
+[TODO PAT]
 
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs valeurs à la fois, comme dans cette fraction de code :
 ```
