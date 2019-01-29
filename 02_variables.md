@@ -50,7 +50,7 @@ Vous remarquez que Python reconnaît certains types de variable automatiquement 
 
 Le nom des variable en Python peut-être constitué de lettres minuscules (`a` à `z`), de lettres majuscules (`A` à `Z`), de nombres (`0` à `9`) ou du caractère souligné (`_`).
 
-Néanmoins, un nom de variable ne doit pas débuter ni par un chiffre, ni par `_` et ne peut pas contenir de caractère accentué. Il faut absolument éviter d'utiliser un mot "réservé" par Python comme nom de variable (par exemple : `print`, `range`, `for`, `from`, etc.).
+Néanmoins, un nom de variable ne doit pas débuter ni par un chiffre, ni par `_` et ne peut pas contenir de caractère accentué. Il faut absolument éviter d'utiliser un mot « réservé » par Python comme nom de variable (par exemple : `print`, `range`, `for`, `from`, etc.).
 
 Python est sensible à la casse, ce qui signifie que les variables `TesT`, `test` ou `TEST` sont différentes. Enfin, vous ne pouvez pas utilisez d'espace dans un nom de variable.
 
