@@ -6,7 +6,7 @@ En programmation, les **fonctions** sont très utiles pour réaliser plusieurs f
 
 Vous connaissez déjà certaines fonctions Python, par exemple `math.cos(angle)` du module `math` renvoie le cosinus de la variable `angle` exprimé en radian. Vous connaissez aussi des fonctions internes à Python comme `range()` ou `len()`. Pour l'instant, une fonction est à vos yeux une sorte de *boîte noire* (cf Figure @fig:schema_fonction) :
 
-1. À laquelle vous passez zero, une ou plusieurs variable(s) entre parenthèses. Ces variables sont encore appelées arguments. Il peut s'agit de quel type d'objet Python.
+1. À laquelle vous passez zero, une ou plusieurs variable(s) entre parenthèses. Ces variables sont encore appelées arguments. Il peut s'agir de n'importe quel type d'objet Python.
 2. Qui effectue une action.
 3. Et qui renvoie un objet Python ou rien du tout.
 
@@ -27,7 +27,7 @@ Au contraire, aux yeux du programmeur une fonction est une portion de code effec
 
 - Chaque fonction effectue en général une tâche **unique et précise**. Si cela se complique, il est plus judicieux d'écrire plusieurs fonctions (qui peuvent éventuellement s'appeler les unes les autres). Cette **modularité** améliore la qualité générale et la lisibilité du code. Vous verrez qu'en Python, les fonctions présentent une grande flexibilité.
 
-Pour finir sur les généralités, vous avez vu dans la Figure @fig:fonction que nous avons utilisé le terme **programme principal** (*main* en anglais) pour désigner l'endroit depuis lequel on appelle une fonction (on verra plus tard que l'on peut en fait appeler une fonction de n'importe où). Le programme principal désigne le code qui est exécuté lorsqu'on lance le script Python, c'est à dire toute la suite d'instructions qui commencent à la colonne 1 du script, autrement dit toutes les instructions en dehors des fonctions. En général, dans un script Python, on écrit d'abord les fonctions puis le programme principal (donc celui-ci se situe à la fin du script). Nous aurons l'occasion de revenir sur cette notion de programme principal dans la section 9.4 de ce chapitre ainsi que dans le chapitre 12.
+Pour finir sur les généralités, vous avez vu dans la Figure @fig:schema_fonction que nous avons utilisé le terme **programme principal** (*main* en anglais) pour désigner l'endroit depuis lequel on appelle une fonction (on verra plus tard que l'on peut en fait appeler une fonction de n'importe où). Le programme principal désigne le code qui est exécuté lorsqu'on lance le script Python, c'est à dire toute la suite d'instructions qui commencent à la colonne 1 du script, autrement dit toutes les instructions en dehors des fonctions. En général, dans un script Python, on écrit d'abord les fonctions puis le programme principal (donc celui-ci se situe à la fin du script). Nous aurons l'occasion de revenir sur cette notion de programme principal dans la section 9.4 de ce chapitre ainsi que dans le chapitre 12.
 
 ## Définition
 
