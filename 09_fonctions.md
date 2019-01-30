@@ -19,7 +19,7 @@ Par exemple si vous appelez la fonction `len()` de la manière suivante :
 ```
 dans l'ordre : (1) vous l'appelez en lui passant une liste en argument, (2) la fonction calcule la longueur de cette liste, (3) elle vous renvoie un entier égal à cette longueur.
 
-Autre exemple, si vous appelez la méthode `liste.append(5)` (n'oubliez pas, une méthode est une **fonction** qui agit sur l'objet auquel elle est attachée) : (1) vous passez l'entier 5 en argument, (2) la méthode `append()` ajoute l'entier `5` à l'objet `liste`, et (3) elle ne renvoie rien.
+Autre exemple, si vous appelez la méthode `liste.append(5)` (n'oubliez pas, une **méthode** est une **fonction** qui agit en général sur l'objet auquel elle est attachée par un point) : (1) vous passez l'entier 5 en argument, (2) la méthode `append()` ajoute l'entier `5` à l'objet `liste`, et (3) elle ne renvoie rien.
 
 Au contraire, aux yeux du programmeur une fonction est une portion de code effectuant une suite d'instructions bien particulière. Avant de démarrer sur la syntaxe, revenons sur cette notion de *boîte noire* :
 
@@ -84,10 +84,6 @@ Une particularité des fonctions en Python est que vous n'êtes pas obligé(e) d
 ```
 L'opérateur `*` reconnait plusieurs types (entiers, réels, chaînes de caractères), notre fonction est donc capable d'effectuer des tâches différentes ! Même si Python permet cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait mener à des surprises dans vos futurs programmes. En général il est plus judicieux que chaque argument ait un type précis (*int*, *str*, *float*, etc), et pas l'un ou l'autre.
 
-## Passage d'arguments variables
-
-[TODO PAT]
-
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs valeurs à la fois, comme dans cette fraction de code :
 ```
 >>> def carre_cube(x):
@@ -114,18 +110,59 @@ Renvoyer un *tuple* ou une liste de deux arguments (ou plus) est notamment très
 ```
 Cela permet de récupérer plusieurs valeurs retournées par une fonction et les affecter à des variables différentes à la volée.
 
-Enfin, il est possible de passer un ou plusieurs argument(s) de manière facultative et de leur attribuer une valeur par défaut :
+## Passage d'arguments optionnels
+
+De plus en plus fort, il est possible de passer un ou plusieurs argument(s) de manière facultative et de leur attribuer une valeur par défaut :
 ```
->>> def useless_fct(x=1):
+>>> def fct(x=1):
 ...     return x
 ...
->>> useless_fct()
+>>> fct()
 1
->>> useless_fct(10)
+>>> fct(10)
 10
 ```
+
+Il est bien-sûr possible d'avoir plusieurs arguments optionnels dans une fonction :
+
+```
+>>> def fct(x=0, y=0, z=0):
+...     return x, y, z
+...
+>>> fct()
+(0, 0, 0)
+>>> fct(10)
+(10, 0, 0)
+>>> fct(10, 8)
+(10, 8, 0)
+>>> fct(10, 8, 3)
+(10, 8, 3)
+```
+
+Comment pourrions-nous faire si on souhaitait préciser l'argument optionnel `z`, et garder `x` et `y` par défaut. La réponse est très simple, il suffit de préciser le nom de l'argument lors de l'appel de la fonction :
+```
+>>> fct(z=10)
+(0, 0, 10)
+```
+
+Python permet même de rentrer les arguments optionnels dans un ordre arbitraire :
+
+```
+>>> fct(z=10, x=3, y=80)
+(3, 80, 10)
+>>> fct(z=10, y=80)
+(0, 80, 10)
+```
+
+Que se passe-t-il lorsque nous avons un mélange d'arguments optionnels et obligatoires ?
+
+[TODO P@t]
+
+En fait, les arguments **optionnels** s'opposent aux arguments dits **positionnels**.
+
 Notez que si on passe plusieurs arguments à une fonction, le ou les arguments facultatifs doivent être situés après les arguments obligatoires. Il faut donc écrire `def fct(x, y, z=1):`.
 
+[Fin TODO P@t]
 
 ## Variables locales et variables globales
 
