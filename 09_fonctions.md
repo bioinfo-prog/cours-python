@@ -123,7 +123,7 @@ De plus en plus fort, il est possible de passer un ou plusieurs argument(s) de m
 10
 ```
 
-Il est bien-sûr possible d'avoir plusieurs arguments optionnels dans une fonction :
+Pour en passer plusieurs, voici la syntaxe :
 
 ```
 >>> def fct(x=0, y=0, z=0):
@@ -139,7 +139,8 @@ Il est bien-sûr possible d'avoir plusieurs arguments optionnels dans une foncti
 (10, 8, 3)
 ```
 
-Comment pourrions-nous faire si on souhaitait préciser l'argument optionnel `z`, et garder `x` et `y` par défaut. La réponse est très simple, il suffit de préciser le nom de l'argument lors de l'appel de la fonction :
+On voit que pour l'instant, les arguments optionnels sont pris dans l'ordre dans lesquels on les passe. Comment pourrions-nous faire si on souhaitait préciser l'argument optionnel `z`, et garder les valeurs de `x` et `y` par défaut. La réponse est très simple, il suffit de préciser le nom de l'argument lors de l'appel de la fonction :
+
 ```
 >>> fct(z=10)
 (0, 0, 10)
@@ -153,16 +154,35 @@ Python permet même de rentrer les arguments optionnels dans un ordre arbitraire
 >>> fct(z=10, y=80)
 (0, 80, 10)
 ```
+[box advice]
+Préciser les arguments optionnels est une pratique que nous vous recommandons BLABLABLA. 
 
-Que se passe-t-il lorsque nous avons un mélange d'arguments optionnels et obligatoires ?
+Que se passe-t-il lorsque nous avons un mélange d'arguments « classiques » et optionnels et obligatoires ? Et bien les arguments « classiques » doivent toujours être placés avant les arguments optionnels :
 
-[TODO P@t]
+```
+>>> def fct(a, b, x=0, y=0, z=0):
+...     return a, b, x, y, z
+...
+>>> fct(1, 1)
+(1, 1, 0, 0, 0)
+>>> fct(1, 1, z=5)
+(1, 1, 0, 0, 5)
+>>> fct(1, 1, z=5, y=32)
+(1, 1, 0, 32, 5)
+```
 
-En fait, les arguments **optionnels** s'opposent aux arguments dits **positionnels**.
+On peut toujours passer les arguments optionnels dans un ordre arbitraire à partir du moment où on précise le nom de l'argument. Par contre, si les deux arguments `a` et `b`  ne sont pas passés à la fonction, Python renvoie une erreur.
 
-Notez que si on passe plusieurs arguments à une fonction, le ou les arguments facultatifs doivent être situés après les arguments obligatoires. Il faut donc écrire `def fct(x, y, z=1):`.
+```
+>>> fct(z=0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: fct() missing 2 required positional arguments: 'a' and 'b'
+```
 
-[Fin TODO P@t]
+En fait les arguments `a` et `b` sont appelés arguments **positionnels** par opposition aux arguments **optionnels**. Comme leur nom l'indique, les arguments positionnels (que nous avons appelés ci-avant « classiques ») dépendent de la position dans la liste d'arguments, et sont donc **obligatoires**.
+
+BLABLABLA chapitre 20 *Tkinter*.
 
 ## Variables locales et variables globales
 
