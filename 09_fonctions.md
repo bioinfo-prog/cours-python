@@ -72,14 +72,14 @@ Le nombre d'argument(s) que l'on peut passer à une fonction est variable. Nous 
 
 Une particularité des fonctions en Python est que vous n'êtes pas obligé(e) de préciser le type des arguments que vous lui passez, dès lors que les opérations que vous effectuez avec ces arguments sont valides. Python est en effet connu comme étant un langage au *typage dynamique*, c'est-à-dire qu'il reconnaît pour vous le type des variables au moment de l'exécution, par exemple :
 ```
->>> def fois(x,y):
+>>> def fois(x, y):
 ...     return x*y
 ...
->>> fois(2,3)
+>>> fois(2, 3)
 6
->>> fois(3.1415,5.23)
+>>> fois(3.1415, 5.23)
 16.430045000000003
->>> fois('to',2)
+>>> fois('to', 2)
 'toto'
 ```
 L'opérateur `*` reconnait plusieurs types (entiers, réels, chaînes de caractères), notre fonction est donc capable d'effectuer des tâches différentes ! Même si Python permet cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait mener à des surprises dans vos futurs programmes. En général il est plus judicieux que chaque argument ait un type précis (*int*, *str*, *float*, etc), et pas l'un ou l'autre.
@@ -87,7 +87,7 @@ L'opérateur `*` reconnait plusieurs types (entiers, réels, chaînes de caract�
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs valeurs à la fois, comme dans cette fraction de code :
 ```
 >>> def carre_cube(x):
-...     return x**2,x**3
+...     return x**2, x**3
 ...
 >>> carre_cube(2)
 (4, 8)
@@ -95,7 +95,7 @@ Un énorme avantage en Python est que les fonctions sont capables de renvoyer pl
 En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séquentiel, c'est à dire contenir lui même plusieurs objets. Dans notre exemple Python renvoie un objet de type `tuple`, type que nous verrons dans le chapitre 13 (il s'agit d'une sorte de liste avec des propriétés différentes). Notre fonction pourrait tout autant renvoyer une liste :
 ```
 >>> def carre_cube2(x):
-...     return [x**2,x**3]
+...     return [x**2, x**3]
 ...
 >>> carre_cube2(3)
 [9, 27]
@@ -110,9 +110,26 @@ Renvoyer un *tuple* ou une liste de deux arguments (ou plus) est notamment très
 ```
 Cela permet de récupérer plusieurs valeurs retournées par une fonction et les affecter à des variables différentes à la volée.
 
-## Passage d'arguments optionnels
+## Arguments positionnels et optionnels
+
+Jusqu'à maintenant, nous avons systématiquement passé le nombre d'arguments que la fonction attend. Que se passe-t-il si une fonction attend deux arguments et que nou ne lui en passons qu'un seul ?
+
+```
+>>> def fois(x, y):
+...     return x*y
+...
+>>> fois(2, 3)
+6
+>>> fois(2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: fois() missing 1 required positional argument: 'y'
+```
+
+On voit que passer un seul argument à une fonction qui en attend deux mène à une erreur. Dans notre exemple ci-dessus, les arguments `x` et `y` sont appelés **arguments positionnels**. Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est strictement nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x`, `3` correspondra à `y`. Finalement, tout dépend de leur position, d'où leur qualification d'argument positionnel.
 
 De plus en plus fort, il est possible de passer un ou plusieurs argument(s) de manière facultative et de leur attribuer une valeur par défaut :
+
 ```
 >>> def fct(x=1):
 ...     return x
@@ -123,7 +140,13 @@ De plus en plus fort, il est possible de passer un ou plusieurs argument(s) de m
 10
 ```
 
-Pour en passer plusieurs, voici la syntaxe :
+open-box-def
+
+Un argument défini avec une syntaxe `def fct(arg_opt=val_par_defaut):` est appelé **argument optionnel**. Comme son nom l'indique, le passage d'un tel argument lors de l'appel de la fonction est facultatif. Par opposition, un argument défini avec une syntaxe `def fct(arg_pos):` est appelé **argument positionnel**. Le passage d'un tel argument lors de l'appel de la fonction est strictement obligatoire.
+
+close-box-def
+
+Il est bien-sûr possible de passer plusieurs arguments optionnels :
 
 ```
 >>> def fct(x=0, y=0, z=0):
@@ -139,7 +162,7 @@ Pour en passer plusieurs, voici la syntaxe :
 (10, 8, 3)
 ```
 
-On voit que pour l'instant, les arguments optionnels sont pris dans l'ordre dans lesquels on les passe. Comment pourrions-nous faire si on souhaitait préciser l'argument optionnel `z`, et garder les valeurs de `x` et `y` par défaut. La réponse est très simple, il suffit de préciser le nom de l'argument lors de l'appel de la fonction :
+On voit que pour l'instant, les arguments optionnels sont pris dans l'ordre dans lesquels on les passe lors de l'appel. Comment pourrions-nous faire si on souhaitait préciser l'argument optionnel `z`, et garder les valeurs de `x` et `y` par défaut ? La réponse est très simple, il suffit de préciser le nom de l'argument lors de l'appel :
 
 ```
 >>> fct(z=10)
@@ -154,10 +177,14 @@ Python permet même de rentrer les arguments optionnels dans un ordre arbitraire
 >>> fct(z=10, y=80)
 (0, 80, 10)
 ```
-[box advice]
-Préciser les arguments optionnels est une pratique que nous vous recommandons BLABLABLA. 
 
-Que se passe-t-il lorsque nous avons un mélange d'arguments « classiques » et optionnels et obligatoires ? Et bien les arguments « classiques » doivent toujours être placés avant les arguments optionnels :
+open-box-adv
+
+Préciser le nom des arguments optionnels lors de l'appel d'une fonction est une pratique que nous vous recommandons. Cela permet de voir clairement qu'il s'agit d'arguments optionnels et de ne pas les confondre avec les arguments positionnels.
+
+close-box-adv
+
+Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et optionnels ? Et bien les arguments optionnels doivent toujours être placés avant les arguments optionnels :
 
 ```
 >>> def fct(a, b, x=0, y=0, z=0):
@@ -180,9 +207,7 @@ Traceback (most recent call last):
 TypeError: fct() missing 2 required positional arguments: 'a' and 'b'
 ```
 
-En fait les arguments `a` et `b` sont appelés arguments **positionnels** par opposition aux arguments **optionnels**. Comme leur nom l'indique, les arguments positionnels (que nous avons appelés ci-avant « classiques ») dépendent de la position dans la liste d'arguments, et sont donc **obligatoires**.
-
-BLABLABLA chapitre 20 *Tkinter*.
+Nous verrons dans le chapitre 20 *Tkinter* que l'usage des arguments optionnels est très classique BLABLABLA.
 
 ## Variables locales et variables globales
 
