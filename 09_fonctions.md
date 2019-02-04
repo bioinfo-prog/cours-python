@@ -23,7 +23,7 @@ Autre exemple, si vous appelez la méthode `liste.append(5)` (n'oubliez pas, une
 
 Au contraire, aux yeux du programmeur une fonction est une portion de code effectuant une suite d'instructions bien particulière. Avant de démarrer sur la syntaxe, revenons sur cette notion de *boîte noire* :
 
-- Une fonction effectue une tâche. Pour cela, elle reçoit éventuellement des arguments et renvoie éventuellement un résultat. L'algorithme utilisé au sein de la fonction n'intéresse pas directement l'utilisateur. Par exemple, il est inutile de savoir comment la fonction `math.cos()` calcule un cosinus, on a juste besoin de savoir qu'il faut lui passer en argument un angle en radian et qu'elle renvoie le cosinus de cet angle. Ce qu'il se passe à l'intérieur de la fonction ne regarde que le programmeur (c'est-à-dire vous dans ce chapitre).
+- Une fonction effectue une tâche. Pour cela, elle reçoit éventuellement des arguments et renvoie éventuellement un résultat. L'algorithme utilisé au sein de la fonction n'intéresse pas directement l'utilisateur. Par exemple, il est inutile de savoir comment la fonction `math.cos()` calcule un cosinus, on a juste besoin de savoir qu'il faut lui passer en argument un angle en radian et qu'elle renvoie le cosinus de cet angle. Ce qui se passe à l'intérieur de la fonction ne regarde que le programmeur (c'est-à-dire vous dans ce chapitre).
 
 - Chaque fonction effectue en général une tâche **unique et précise**. Si cela se complique, il est plus judicieux d'écrire plusieurs fonctions (qui peuvent éventuellement s'appeler les unes les autres). Cette **modularité** améliore la qualité générale et la lisibilité du code. Vous verrez qu'en Python, les fonctions présentent une grande flexibilité.
 
@@ -82,6 +82,7 @@ Une particularité des fonctions en Python est que vous n'êtes pas obligé(e) d
 >>> fois('to', 2)
 'toto'
 ```
+
 L'opérateur `*` reconnait plusieurs types (entiers, réels, chaînes de caractères), notre fonction est donc capable d'effectuer des tâches différentes ! Même si Python permet cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait mener à des surprises dans vos futurs programmes. En général il est plus judicieux que chaque argument ait un type précis (*int*, *str*, *float*, etc), et pas l'un ou l'autre.
 
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs valeurs à la fois, comme dans cette fraction de code :
@@ -110,9 +111,9 @@ Renvoyer un *tuple* ou une liste de deux arguments (ou plus) est notamment très
 ```
 Cela permet de récupérer plusieurs valeurs retournées par une fonction et les affecter à des variables différentes à la volée.
 
-## Arguments positionnels et optionnels
+## Arguments positionnels et arguments par mot-clé
 
-Jusqu'à maintenant, nous avons systématiquement passé le nombre d'arguments que la fonction attend. Que se passe-t-il si une fonction attend deux arguments et que nou ne lui en passons qu'un seul ?
+Jusqu'à maintenant, nous avons systématiquement passé le nombre d'arguments que la fonction attendait. Que se passe-t-il si une fonction attend deux arguments et que nous ne lui en passons qu'un seul ?
 
 ```
 >>> def fois(x, y):
@@ -126,7 +127,13 @@ Traceback (most recent call last):
 TypeError: fois() missing 1 required positional argument: 'y'
 ```
 
-On voit que passer un seul argument à une fonction qui en attend deux mène à une erreur. Dans notre exemple ci-dessus, les arguments `x` et `y` sont appelés **arguments positionnels**. Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est strictement nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x`, `3` correspondra à `y`. Finalement, tout dépend de leur position, d'où leur qualification d'argument positionnel.
+On voit que passer un seul argument à une fonction qui en attend deux mène à une erreur. 
+
+open-box-def
+
+Lorsqu'on définit une fonction `def fct(x, y):` les arguments `x` et `y` sont appelés **arguments positionnels** (en anglais *positional argument*). Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est strictement nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x`, `3` correspondra à `y`. Finalement, tout dépendra de leur position, d'où leur qualification de positionnel.
+
+close-box-def
 
 De plus en plus fort, il est possible de passer un ou plusieurs argument(s) de manière facultative et de leur attribuer une valeur par défaut :
 
@@ -142,11 +149,11 @@ De plus en plus fort, il est possible de passer un ou plusieurs argument(s) de m
 
 open-box-def
 
-Un argument défini avec une syntaxe `def fct(arg_opt=val_par_defaut):` est appelé **argument optionnel**. Comme son nom l'indique, le passage d'un tel argument lors de l'appel de la fonction est facultatif. Par opposition, un argument défini avec une syntaxe `def fct(arg_pos):` est appelé **argument positionnel**. Le passage d'un tel argument lors de l'appel de la fonction est strictement obligatoire.
+Un argument défini avec une syntaxe `def fct(arg=val):` est appelé **argument par mot-clé** (en anglais *keyword argument*). Le passage d'un tel argument lors de l'appel de la fonction est facultatif. Ce type d'argument ne doit pas être confondu avec les arguments positionnels vus ci-dessus, dont la syntaxe est `def fct(arg):`.
 
 close-box-def
 
-Il est bien-sûr possible de passer plusieurs arguments optionnels :
+Il est bien-sûr possible de passer plusieurs arguments par mot-clé :
 
 ```
 >>> def fct(x=0, y=0, z=0):
@@ -162,14 +169,14 @@ Il est bien-sûr possible de passer plusieurs arguments optionnels :
 (10, 8, 3)
 ```
 
-On voit que pour l'instant, les arguments optionnels sont pris dans l'ordre dans lesquels on les passe lors de l'appel. Comment pourrions-nous faire si on souhaitait préciser l'argument optionnel `z`, et garder les valeurs de `x` et `y` par défaut ? La réponse est très simple, il suffit de préciser le nom de l'argument lors de l'appel :
+On voit que pour l'instant, les arguments par mot-clé sont pris dans l'ordre dans lesquels on les passe lors de l'appel. Comment pourrions-nous faire si on souhaitait préciser l'argument par mot-clé `z`, et garder les valeurs de `x` et `y` par défaut ? La réponse est très simple, il suffit de préciser le nom de l'argument lors de l'appel :
 
 ```
 >>> fct(z=10)
 (0, 0, 10)
 ```
 
-Python permet même de rentrer les arguments optionnels dans un ordre arbitraire :
+Python permet même de rentrer les arguments par mot-clé dans un ordre arbitraire :
 
 ```
 >>> fct(z=10, x=3, y=80)
@@ -177,12 +184,6 @@ Python permet même de rentrer les arguments optionnels dans un ordre arbitraire
 >>> fct(z=10, y=80)
 (0, 80, 10)
 ```
-
-open-box-adv
-
-Préciser le nom des arguments optionnels lors de l'appel d'une fonction est une pratique que nous vous recommandons. Cela permet de voir clairement qu'il s'agit d'arguments optionnels et de ne pas les confondre avec les arguments positionnels.
-
-close-box-adv
 
 Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et optionnels ? Et bien les arguments optionnels doivent toujours être placés avant les arguments optionnels :
 
@@ -198,7 +199,7 @@ Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et opt
 (1, 1, 0, 32, 5)
 ```
 
-On peut toujours passer les arguments optionnels dans un ordre arbitraire à partir du moment où on précise le nom de l'argument. Par contre, si les deux arguments `a` et `b`  ne sont pas passés à la fonction, Python renvoie une erreur.
+On peut toujours passer les arguments par mot-clé dans un ordre arbitraire à partir du moment où on précise leur nom. Par contre, si les deux arguments positionnels `a` et `b` ne sont pas passés à la fonction, Python renvoie une erreur.
 
 ```
 >>> fct(z=0)
@@ -207,7 +208,14 @@ Traceback (most recent call last):
 TypeError: fct() missing 2 required positional arguments: 'a' and 'b'
 ```
 
-Nous verrons dans le chapitre 20 *Tkinter* que l'usage des arguments optionnels est très classique BLABLABLA.
+open-box-adv
+
+Préciser le nom des arguments par mot-clé lors de l'appel d'une fonction est une pratique que nous vous recommandons. Cela permet de les distinguer clairement des arguments positionnels.
+
+close-box-adv
+
+L'utilisation d'arguments par mot-clé est très classique en Python. Elle permet de de modifier le comportement par défaut de nombreuses fonctions. Par exemple, si on souhaite que la fonction `print()` n'affiche pas un retour à la ligne supplémentaire, on peut utiliser l'argument *end* : `print("Message ", end="")`. Nous verrons, dans le chapitre 20 *Tkinter*, que l'utilisation d'arguments par mot-clé est systématique lorsqu'on crée un objet graphique (une fenêtre, un boutton, etc).
+
 
 ## Variables locales et variables globales
 
@@ -225,7 +233,7 @@ z = 5
 resultat = carre(5)
 print(resultat)
 ```
-Pour la suite nous allons utiliser l'excellent site [pythontutor](http://www.pythontutor.com) qui permet de visualiser l'état des variables au fur et à mesure de l'exécution d'un code Python (avant de continuer nous vous conseillons de prendre 5 minutes pour tester ce site). Regardons maintenant ce qu'il se passe dans le code ci-dessus, étape par étape :
+Pour la suite nous allons utiliser l'excellent site [pythontutor](http://www.pythontutor.com) qui permet de visualiser l'état des variables au fur et à mesure de l'exécution d'un code Python (avant de continuer nous vous conseillons de prendre 5 minutes pour tester ce site). Regardons maintenant ce qui se passe dans le code ci-dessus, étape par étape :
 
 - Étape 1 : Python est prêt à lire la première ligne de code.
 
