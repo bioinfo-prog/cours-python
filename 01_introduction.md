@@ -3,16 +3,16 @@
 
 ## Avant de commencer
 
-Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Si Python n'est pas déjà installé sur votre machine, consultez l'annexe C *Installation de Python* qui explique la marche à suivre.
+Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Si Python n'est pas déjà installé sur votre machine, consultez l'annexe B *Installation de Python* qui explique la marche à suivre.
 
-L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *TextWrangler* ou *BBedit* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans l'annexe B *Installation de Python*. Bien sur, si vous préférez d'autres éditeurs comme *Atom*, *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les. À tout fin utile, on rappelle néanmoins que *Microsoft Word*, *WordPad* et *LibreOffice Writer* ne sont pas des éditeurs de texte, ce sont des traitements de texte qui ne peuvent pas et ne doivent pas être utilisés pour écrire du code informatique.
+L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *TextWrangler* ou *BBedit* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans l'annexe B *Installation de Python*. Bien sur, si vous préférez d'autres éditeurs comme *Atom*, *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les. À toute fin utile, on rappelle néanmoins que les logiciels *Microsoft Word*, *WordPad* et *LibreOffice Writer* ne sont pas des éditeurs de texte, ce sont des traitements de texte qui ne peuvent pas et ne doivent pas être utilisés pour écrire du code informatique.
 
 
 ## C'est quoi Python ?
 
 Le langage de programmation Python a été créé en 1989 par Guido van Rossum, aux Pays-Bas. Le nom *Python* vient d'un hommage à la série télévisée *Monty Python's Flying Circus* dont G. van Rossum est fan. La première version publique de ce langage a été publiée en 1991.
 
-La dernière version de Python est la version 3. Plus précisément, la version 3.7 a été publiée en juin 2018. Ce cours est basé sur Python 3. La version 2 de de Python est désormais obsolète, dans la mesure du possible évitez de l'utiliser.
+La dernière version de Python est la version 3. Plus précisément, la version 3.7 a été publiée en juin 2018. Ce cours est basé sur Python 3. La version 2 de Python est désormais obsolète, dans la mesure du possible évitez de l'utiliser.
 
 La *Python Software Foundation* est l'association qui organise le développement de Python et anime la communauté de développeurs et d'utilisateurs.
 
@@ -22,7 +22,7 @@ Ce langage de programmation présente de nombreuses caractéristiques intéressa
 - Il est gratuit. Vous pouvez l'installer sur autant d'ordinateurs que vous voulez.
 - C'est un langage de haut niveau. Il demande relativement peu de connaissance sur le fonctionnement d'un ordinateur pour être utilisé.
 - C'est un langage interprété. Chaque script Python n'a pas besoin d'être compilé pour pouvoir l'utiliser, contrairement à des langages comme le C ou le C++.
-- Il est orienté objet. C'est-à-dire qu'il est possible de créer en Python des entités qui ont un sens dans le monde réel (une cellule, une protéine, un atome) avec un certains nombres de fonctionnement et d'interaction.
+- Il est orienté objet. C'est-à-dire qu'il est possible de créer en Python des entités qui ont un sens dans le monde réel (une cellule, une protéine, un atome) avec un certain nombre de fonctionnements et d'interactions.
 - Il est relativement *simple* à prendre en main[^footnote].
 - Enfin, il est très utilisé en bioinformatique et plus généralement en analyse de données.
 
@@ -34,7 +34,7 @@ Toutes ces caractéristiques font que Python est désormais enseigné dans de no
 ## Notations utilisées
 
 Dans cet ouvrage, les commandes, les instructions Python, les résultats et les contenus de fichiers
-sont indiquées sous `cette forme` pour les éléments ponctuels ou
+sont indiqués avec `cette police` pour les éléments ponctuels ou
 ```
 sous cette forme,
 sur plusieurs lignes,
@@ -42,7 +42,7 @@ pour les éléments les plus longs.
 ```
 
 Pour ces derniers, le numéro à gauche indique le numéro de la ligne et sera utilisé
-pour faire référence à une instruction particulière. Ce numéro n'est bien sur là qu'à titre indicatif.
+pour faire référence à une instruction particulière. Ce numéro n'est bien sûr là qu'à titre indicatif.
 
 Par ailleurs, dans le cas de programmes, de contenus de fichiers ou de résultats trop longs pour être inclus dans leur intégralité, la notation `[...]` indique une coupure arbitraire de plusieurs caractères ou lignes.
 
@@ -56,7 +56,7 @@ Python est un langage interprété, c'est-à-dire que chaque ligne de code est l
 
 open-box-rem
 
-Si vous ne savez pas ou avez oubliez ce qu'est un *shell*, consultez la rubrique *Qu'appelle-t-on le shell ?* de l'annexe C *Installation de Python*.
+Si vous ne savez pas ou avez oublié ce qu'est un *shell*, consultez la rubrique *Qu'appelle-t-on le shell ?* de l'annexe C *Installation de Python*.
 
 close-box-rem
 
@@ -101,7 +101,7 @@ Tapez par exemple l'instruction
 
 puis validez votre commande en appuyant sur la touche `Entrée`.
 
-Python a exécuté la commande directement et a affiché le texte `Hello world !`. Il attend ensuite votre prochaine instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a du apparaître sur votre écran :
+Python a exécuté la commande directement et a affiché le texte `Hello world !`. Il attend ensuite votre prochaine instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a dû apparaître sur votre écran :
 ```
 >>> print("Hello world !")
 Hello world !
@@ -116,7 +116,7 @@ Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteu
 ```
 À ce stade, vous pouvez entrer une autre commande ou bien quitter l'interpréteur Python, soit en tapant la commande `exit()` puis en validant en appuyant sur la touche `Entrée`, soit en pressant simultanément les touches `Ctrl` et `D`.
 
-L'interpréteur Python est donc un système interactif dans lequel vous pouvez entrer des commandes, que Python exécutera sous vos yeux (au moment où vous validerez la commande en tapant sur `Entrée`).
+L'interpréteur Python est donc un système interactif dans lequel vous pouvez entrer des commandes, que Python exécutera sous vos yeux (au moment où vous validerez la commande en appuyant sur la touche `Entrée`).
 
 Il existe de nombreux autres langages interprétés tels que [Perl](http://www.perl.org) ou [R](http://www.r-project.org). Le gros avantage de ce type de langage est qu'on peut immédiatement tester une commande à l'aide de l'interpréteur, ce qui est très utile pour débugger (c'est-à-dire corriger les éventuelles erreurs d'un programme). Gardez bien en mémoire cette propriété de Python qui pourra parfois vous faire gagner un temps précieux !
 
@@ -125,11 +125,10 @@ Il existe de nombreux autres langages interprétés tels que [Perl](http://www.p
 
 Bien sûr, l'interpréteur présente vite des limites dès lors que l'on veut exécuter une suite d'instructions plus complexe. Comme tout langage informatique, on peut enregistrer ces instructions dans un fichier, que l'on appelle communément un script Python.
 
-Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à l'annexe B *Installation de Python*) et entrez le code suivant.
-```
-print('Hello World !')
-```
-Ensuite enregistrez votre fichier sous le nom `test.py`, puis quittez l'éditeur de texte.
+Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à l'annexe B *Installation de Python*) et entrez le code suivant :  
+`print('Hello World !')`
+
+Ensuite, enregistrez votre fichier sous le nom `test.py`, puis quittez l'éditeur de texte.
 
 open-box-rem
 
@@ -137,8 +136,10 @@ L'extension de fichier standard des scripts Python est `.py`.
 
 close-box-rem
 
-Pour exécuter votre script, ouvrez un *shell*  et entrez la commande `python test.py`.
-Vous devriez obtenir un résultat similaire  :
+Pour exécuter votre script, ouvrez un *shell*  et entrez la commande :  
+`python test.py`
+
+Vous devriez obtenir un résultat similaire à ceci :
 ```
 $ python3 test.py
 Hello World !
@@ -158,11 +159,17 @@ L'utilisation des commentaires est rediscutée dans le chapitre 15 *Bonnes prati
 Voici un exemple :
 
 ```
-# votre premier message en  Python
+# votre premier commentaire en  Python
 print('Hello World !')
 
 # d'autres commandes plus utiles pourraient suivre
 ```
+
+open-box-rem
+
+On appelle souvent à tord le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe)) ».
+
+close-box-rem
 
 
 ## Notion de bloc d'instructions et d'indentation
@@ -171,10 +178,7 @@ Pour terminer ce chapitre, nous allons aborder les notions de **bloc d'instructi
 
 En programmation, il est courant de répéter un certain nombre de choses (avec les boucles, voir le chapitre 5 *Boucles et comparaisons*) ou de faire des choix (avec les tests, voir le chapitre 6 *Tests*).
 
-Par exemple, on souhaite répéter 10 fois 3 instructions différentes, les unes à la suite des autres.
-
-Voici un exemple avec du pseudo-code (c'est-à-dire avec des instructions qui
-n'existent pas en Python) :
+Par exemple, on souhaite répéter 10 fois 3 instructions différentes, les unes à la suite des autres. Voici ce que cela donnerait avec du pseudo-code (c'est-à-dire avec des instructions qui n'existent pas en Python) :
 ```
 instruction_qui_répète_10_fois_ce_qui_suit:
     instruction_1
@@ -183,17 +187,17 @@ instruction_qui_répète_10_fois_ce_qui_suit:
 instruction_suivante
 ```
 
-Ligne 1. Cette instruction va indiquer à Python de répéter 10 fois d'autres instructions (il s'agit d'une boucle, on verra le nom de la commande exacte plus tard). Cette instruction se termine par le symbole **:** qui indique à Python qu'il doit attendre un bloc d'instructions.
+Ligne 1. Cette instruction va indiquer à Python de répéter 10 fois d'autres instructions (il s'agit d'une boucle, on verra la commande exacte plus tard). Cette instruction se termine par le symbole **:** qui indique à Python qu'il doit attendre un bloc d'instructions.
 
-Lignes 2 à 4. Les 3 instructions à répéter sont `instruction_1`, `instruction_2` et `instruction_3` . Ces instructions constituent un bloc d'instructions car elles sont indentées. L'**indentation est le décalage vers la droite d'un bloc d'instructions**. L'indentation peut être réalisée par un espace ou une tabulation. Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
+Lignes 2 à 4. Les 3 instructions à répéter sont `instruction_1`, `instruction_2` et `instruction_3` . Ces instructions constituent un bloc d'instructions car elles sont indentées. L'**indentation est le décalage vers la droite d'un bloc d'instructions**. L'indentation peut être réalisée par des espaces ou des tabulations. Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
 
 Ligne 5. Enfin, la ligne `instruction_suivante` est exécutée une fois que le bloc d'instructions est terminé.
 
-Si tout cela semble un peu complexe, ne vous inquiétez pas. Vous allez comprendre tous ces détails, et surtout les acquérir, chapitre après chapitre.
+Si tout cela semble un peu complexe, ne vous inquiétez pas. Vous allez comprendre tous ces détails chapitre après chapitre.
 
 
 ## Python 2 ou Python 3 ?
 
-Ce cours est basé sur la version 3 de Python, qui est maintenant devenu un standard. Par ailleurs Python 2 cessera d'être maintenu au delà du [1er janvier 2020](https://pythonclock.org/). Python 3 est donc la version à utiliser.
+Ce cours est basé sur la version 3 de Python, qui est maintenant devenu un standard. Par ailleurs, Python 2 cessera d'être maintenu après le 1er janvier 2020. Python 3 est donc la version à utiliser.
 
-Si néanmoins, vous devez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 21 *Remarques complémentaires* vous apportera plus de précisions.
+Si, néanmoins, vous devez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 21 *Remarques complémentaires* vous apportera plus de précisions.
