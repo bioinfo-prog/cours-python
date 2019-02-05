@@ -57,7 +57,7 @@ L'importation du module se fait avec la commande `import message`. Notez que le 
 ```
 
 
-## Les docstrings
+## Les *docstrings*
 
 Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module, et comment utiliser chaque fonction. Les commentaires (entre triple guillemets) situés en début de module et sous chaque fonction sont là pour cela, on les appelle *docstrings*. Ces *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
 ```
