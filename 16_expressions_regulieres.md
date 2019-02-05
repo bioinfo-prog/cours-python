@@ -163,9 +163,9 @@ Nous vous conseillons de tester systématiquement vos expressions régulières s
 N'hésitez pas à tester ces sites avant de vous lancer dans les exercices ou dans l'écriture de vos propres regex !
 
 
-## Le Module re
+## Le module *re*
 
-### La fonction search()
+### La fonction *search()*
 
 Dans le module `re`, la fonction incontournable est la fonction `search()`. Elle permet de rechercher un motif (*pattern* en anglais, c'est à dire une regex) au sein d'une chaîne de caractères avec une syntaxe de la forme `search(motif, chaine)`. Si `motif` est retrouvé dans `chaine`, Python renvoie un objet du type `SRE_Match`.
 

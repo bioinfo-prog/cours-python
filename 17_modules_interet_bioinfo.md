@@ -409,7 +409,7 @@ Ligne 11. La variable `x_ABSTFL` représente l'abscisse du spectre (en radian$^{
 Ligne 12. La variable `ABSTF` contient le spectre lui même. L'analyse de ce dernier nous donne un pic à 0,15 radian$^{-1}$, ce qui correspond bien à $2\pi$ (c'est plutôt bon signe de retrouver ce résultat).
 
 
-## Module Biopython
+## Module *Biopython*
 
 Le module [*Biopython*](http://biopython.org/) propose des fonctionnalités très utiles en bioinformatique.
 Le [tutoriel](http://biopython.org/DIST/docs/tutorial/Tutorial.html) est particulièrement bien fait, n'hésitez pas à le consulter.
