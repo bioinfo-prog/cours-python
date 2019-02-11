@@ -97,14 +97,14 @@ représentent l'invite de commande de votre *shell*. Par la suite, cette invite 
 Le triple chevron `>>>` est l'invite de commande de Python (*prompt* en anglais), ce qui signifie que Python attend une commande.
 Tapez par exemple l'instruction
 
-`print("Hello world !")`
+`print("Hello world!")`
 
 puis validez votre commande en appuyant sur la touche `Entrée`.
 
-Python a exécuté la commande directement et a affiché le texte `Hello world !`. Il attend ensuite votre prochaine instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a dû apparaître sur votre écran :
+Python a exécuté la commande directement et a affiché le texte `Hello world!`. Il attend ensuite votre prochaine instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a dû apparaître sur votre écran :
 ```
->>> print("Hello world !")
-Hello world !
+>>> print("Hello world!")
+Hello world!
 >>>
 ```
 Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteur comme d'une calculatrice.
@@ -126,7 +126,7 @@ Il existe de nombreux autres langages interprétés tels que [Perl](http://www.p
 Bien sûr, l'interpréteur présente vite des limites dès lors que l'on veut exécuter une suite d'instructions plus complexe. Comme tout langage informatique, on peut enregistrer ces instructions dans un fichier, que l'on appelle communément un script Python.
 
 Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à l'annexe B *Installation de Python*) et entrez le code suivant :  
-`print('Hello World !')`
+`print("Hello world!")`
 
 Ensuite, enregistrez votre fichier sous le nom `test.py`, puis quittez l'éditeur de texte.
 
@@ -141,8 +141,8 @@ Pour exécuter votre script, ouvrez un *shell*  et entrez la commande :
 
 Vous devriez obtenir un résultat similaire à ceci :
 ```
-$ python3 test.py
-Hello World !
+$ python test.py
+Hello world!
 ```
 
 Si c'est bien le cas, bravo ! Vous avez exécuté votre premier programme Python.
@@ -160,7 +160,7 @@ Voici un exemple :
 
 ```
 # votre premier commentaire en  Python
-print('Hello World !')
+print('Hello world!')
 
 # d'autres commandes plus utiles pourraient suivre
 ```
