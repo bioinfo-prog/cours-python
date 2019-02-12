@@ -77,15 +77,25 @@ Les quatre opérations arithmétiques de base se font de manière simple sur les
 >>> x = 45
 >>> x + 2
 47
+>>> x - 2
+43
+>>> x * 3
+135
 >>> y = 2.5
->>> x + y
-47.5
->>> (x * 10) / y
-180.0
->>> 3 / 4
-0.75
+>>> x - y
+42.5
+>>> (x * 10) + y
+452.5
 ```
 Remarquez toutefois que si vous mélangez les types entiers et réels, le résultat est renvoyé comme un réel (car ce type est plus général). Par ailleurs, l'utilisation de parenthèses permet de gérer les priorités.
+
+L'opérateur `/` permet d'effectuer une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
+```
+>>> 3 / 4
+0.75
+>>> 2.5 / 2
+1.25
+```
 
 L'opérateur puissance utilise le symbole `**` :
 ```
@@ -147,10 +157,10 @@ TypeError: can't multiply sequence by non-int of type 'float'
 >>> "toto" + 2
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-TypeError: must be str, not int
+TypeError: can only concatenate str (not "int") to str
 ```
 
-Notez que Python vous donne des informations dans son message d'erreur. Dans le second exemple, il vous indique que vous devez utilisez une variable de type *str* c'est-à-dire une chaîne de caractères et pas un *int*, c'est-à-dire un entier.
+Notez que Python vous donne des informations dans son message d'erreur. Dans le second exemple, il vous indique que vous devez utiliser une variable de type *str* c'est-à-dire une chaîne de caractères et pas un *int*, c'est-à-dire un entier.
 
 
 ## La fonction `type()`
