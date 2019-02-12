@@ -2,7 +2,7 @@
 
 open-box-adv
 
-Dans ce chapitre nous allons avoir besoin des classes, nous vous conseillons donc de bien relire le Chapitre 19. Par ailleurs, nous vous conseillons de relire la section sur les arguments optionnels dans les fonctions du Chapitre 9.
+Dans ce chapitre nous allons avoir besoin des classes, nous vous conseillons donc de bien relire le Chapitre 19. Par ailleurs, nous vous conseillons de relire la rubrique *Arguments positionnels et arguments par mot-clé* du Chapitre 9 sur les fonctions.
 
 close-box-adv
 
