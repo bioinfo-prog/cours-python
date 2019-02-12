@@ -346,12 +346,13 @@ Imaginons que l'on souhaite parcourir tous les éléments d'une matrice carrée,
 Écrivez un script qui parcourt chaque élément de la matrice et qui affiche le numéro de ligne et de colonne.
 
 Pour une matrice 2 $\times$ 2, le schéma @fig:parcoursmatrice vous indique comment parcourir une telle matrice. L'affichage attendu est :
+
 ```
 ligne colonne
-   1     1
-   1     2
-   2     1
-   2     2
+   1    1
+   1    2
+   2    1
+   2    2
 ```
 
 ![Parcours d'une matrice](img/parcours_matrice.png "Parcours d'une matrice"){ #fig:parcoursmatrice width=30% }
