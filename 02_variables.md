@@ -262,10 +262,13 @@ Conseil : utilisez l'interpréteur Python pour les exercices suivants.
 Essayez de prédire le résultat de chacune des instructions suivantes, puis vérifiez-le dans l'interpréteur Python :
 
 - `(1+2)**3`
-- `"Da"*4`
-- `"Da"+3`
-- `("Pa"+"La")*2`
-- `("Da"*4)/2`
+- `"Da" * 4`
+- `"Da" + 3`
+- `("Pa"+"La") * 2`
+- `("Da"*4) / 2`
+- `5 / 2`
+- `5 // 2`
+- `5 % 2`
 
 ### Prédire le résultat : opérations et conversions de types
 
