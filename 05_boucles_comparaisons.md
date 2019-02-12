@@ -283,13 +283,14 @@ Voici les notes d'un étudiant `[14, 9, 6, 8, 12]`. Calculez la moyenne de ces n
 
 ### Produit de nombres consécutifs
 
-Soit la liste `entiers` contenant les nombres entiers de 0 à 10. Calculez le produit des nombres consécutifs deux à deux de `entiers` en utilisant une boucle. Exemple pour les premières itérations :
+Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. Calculez le produit des nombres consécutifs deux à deux de `entiers` en utilisant une boucle. Exemple pour les premières itérations :
 
-    0
-    2
-    6
-    12
-
+```
+8
+24
+48
+[...]
+```
 
 ### Triangle
 
