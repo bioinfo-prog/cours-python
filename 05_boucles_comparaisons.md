@@ -233,6 +233,22 @@ Faites bien attention aux tests et à l'incrémentation que vous utilisez car un
 
 Ici nous avons omis de mettre à jour la variable `i`, ainsi la boucle ne s'arrêtera jamais (sauf en pressant Ctrl-C) puisque la condition `i < 10` sera toujours vraie.
 
+La boucle `while` combinée à la fonction `input()` peut s'avérer commode lorsqu'on souhaite demander à l'utilisateur une valeur bornée. Par exemple :
+
+```
+>>> i = 0
+>>> while i < 10 or i > 20:
+...    reponse = input("Rentrez un entier compris entre 10 et 20: ")
+...    i = int(reponse)
+...
+Rentrez un entier compris entre 10 et 20: -7
+Rentrez un entier compris entre 10 et 20: 42
+Rentrez un entier compris entre 10 et 20: 15
+>>> i
+15
+```
+
+La fonction `input()` prend en argument un message, demande à l'utilisateur de rentrer une valeur et renvoie celle-ci sous forme de chaîne de caractères. Il faut ensuite convertir cette dernière en entier (avec la fonction `int()`).
 
 ## Exercices
 
