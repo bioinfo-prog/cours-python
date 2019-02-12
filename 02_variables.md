@@ -121,6 +121,24 @@ Pour obtenir le quotient et le reste d'une division entière (voir [ici](https:/
 
 Les symboles `+`, `-`, `*`, `/`, `**`, `//` et `%` sont appelés **opérateurs**, car ils permettent de faire des opérations sur les variables.
 
+Enfin, il existe des opérateurs « combinés » qui effectue une opération et une affectation en une seule étape :
+
+```
+>>> i = 0
+>>> i = i + 1
+>>> i
+1
+>>> i += 1
+>>> i
+2
+>>> i += 2
+>>> i
+4
+```
+
+L'opérateur `+=` effectue une addition puis affecte le résultat à la même variable. Cette opération s'appelle une « incrémentation ».
+
+Les opérateurs `-=`, `*=` et `/=` se comportent de manière similaire pour la soustraction, la multiplication et la division.
 
 ### Opérations sur les chaînes de caractères
 
