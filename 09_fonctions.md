@@ -131,7 +131,7 @@ On voit que passer un seul argument à une fonction qui en attend deux mène à 
 
 open-box-def
 
-Lorsqu'on définit une fonction `def fct(x, y):` les arguments `x` et `y` sont appelés **arguments positionnels** (en anglais *positional argument*). Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est strictement nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x`, `3` correspondra à `y`. Finalement, tout dépendra de leur position, d'où leur qualification de positionnel.
+Lorsqu'on définit une fonction `def fct(x, y):` les arguments `x` et `y` sont appelés **arguments positionnels** (en anglais *positional arguments*). Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est strictement nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x`, `3` correspondra à `y`. Finalement, tout dépendra de leur position, d'où leur qualification de positionnel.
 
 close-box-def
 
