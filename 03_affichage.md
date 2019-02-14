@@ -1,17 +1,24 @@
 # Affichage
 
+## La fonction `print()`
+
 Dans le chapitre 1, nous avons rencontré la fonction `print()` qui affiche une chaîne de caractères (le fameux `"Hello world!"`). Elle peut également afficher le contenu d'une ou plusieurs variables :
 ```
 >>> x = 32
 >>> nom = "John"
->>> print(nom , " a " , x , " ans")
-John  a  32  ans
-```
-Python a donc écrit une phrase complète en remplaçant les variables `x` et `nom` par leur contenu. Vous noterez également que pour écrire plusieurs éléments de texte sur une seule ligne, nous avons utilisé le séparateur `,` avec la fonction `print()`. En regardant de plus près, vous vous apercevrez que Python a automatiquement ajouté un espace à chaque fois que l'on utilisait le séparateur `,`. Par conséquent, si vous voulez mettre un seul espace entre chaque bloc, vous pouvez retirer ceux de vos chaînes de caractères :
-```
 >>> print(nom , "a" , x , "ans")
 John a 32 ans
 ```
+Python a donc écrit une phrase complète en remplaçant les variables `x` et `nom` par leur contenu. Vous remarquerez que pour afficher plusieurs éléments de texte sur une seule ligne, nous avons utilisé le séparateur `,` entre les différents éléments. Python a également ajouté un espace à chaque fois que l'on utilisait le séparateur `,`. On peut modifier ce comportement en passant à la fonction `print()` l'argument par « mot clé » `sep` (la notion d'argument par « mot clé » sera détaillée dans le chapitre 9 *Fonctions*) :
+```
+>>> x = 32
+>>> nom = "John"
+>>> print(nom , "a" , x , "ans", sep="")
+Johna32ans
+>>> print(nom , "a" , x , "ans", sep="-")
+John-a-32-ans
+```
+
 Pour imprimer deux chaînes de caractères l'une à côté de l'autre sans espace, vous devrez les concaténer :
 ```
 >>> ani1 = "chat"
@@ -35,7 +42,7 @@ Si on reprend l'exemple précédent :
 John  a  32  ans
 ```
 - Dans la chaîne de caractères, les accolades vides `{}` précisent l'endroit où le contenu de la variable doit être inséré.
-- Juste après la chaîne de caractères, l'instruction `.format(nom, x)` fournie la liste des variables à insérer, d'abord la variable `nom` puis la variable `x`. La méthode `.format()` agit sur la chaîne de caractères à laquelle elle est attachée par le `.`.
+- Juste après la chaîne de caractères, l'instruction `.format(nom, x)` fournie la liste des variables à insérer, d'abord la variable `nom` puis la variable `x`. La méthode `.format()` agit sur la chaîne de caractères à laquelle elle est attachée par le point.
 
 open-box-rem
 
@@ -57,7 +64,7 @@ Imaginez maintenant que vous vouliez calculer, puis afficher, la proportion de G
 >>> print("La proportion de GC est", prop_GC)
 La proportion de GC est 0.4780405405405405
 ```
-Le résultat obtenu présente trop de décimales (seize dans le cas présent). Pour écrire le résultat plus lisiblement, vous pouvez spécifier dans les accolades `{}` le format qui vous intéresse. Dans le cas présent, vous voulez formater un réel (*float*) pour l'afficher avec deux puis trois décimales :
+Le résultat obtenu présente trop de décimales (seize dans le cas présent). Pour écrire le résultat plus lisiblement, vous pouvez spécifier dans les accolades `{}` le format qui vous intéresse. Dans le cas présent, vous voulez formater un *float* pour l'afficher avec deux puis trois décimales :
 
 ```
 >>> print("La proportion de GC est {:.2f}".format(prop_GC))
@@ -69,7 +76,7 @@ La proportion de GC est 0.478
 Détaillons le contenu des accolades de la première ligne (`{:.2f}`) :
 
 - Les deux points `:` indiquent qu'on veut préciser le format.
-- La lettre `f` indique qu'on souhaite afficher la variable sous forme d'un réel (*float*).
+- La lettre `f` indique qu'on souhaite afficher la variable sous forme d'un *float*.
 - Les caractères `.2` indiquent la précision voulue, soit ici deux chiffres après la virgule.
 
 Notez enfin que le formatage avec `.xf` (`x` étant un entier positif) renvoie un résultat arrondi.
@@ -142,7 +149,7 @@ atom HDE1
 
 Vous voyez tout de suite l'énorme avantage de l'écriture formatée. Elle vous permet d'écrire en colonnes parfaitement alignées. Nous verrons que ceci est très pratique si l'on veut écrire les coordonnées des atomes d'une molécule au format PDB (pour en savoir plus sur ce format, reportez-vous à l'annexe A *Quelques formats de données rencontrés en biologie*).
 
-Pour les nombres réels, il est possible de combiner le nombre de caractères à afficher avec le nombre de décimales :
+Pour les *floats*, il est possible de combiner le nombre de caractères à afficher avec le nombre de décimales :
 ```
 >>> print("{:7.3f}".format(perc_GC))
  47.804
@@ -150,7 +157,7 @@ Pour les nombres réels, il est possible de combiner le nombre de caractères à
     47.804
 ```
 
-L'instruction `7.3f` signifie que l'on souhaite écrire le réel avec 3 décimales et formaté sur 7 caractères (par défaut justifiés à droite). L'instruction `10.3f` fait la même chose sur 10 caractères. Remarquez que le séparateur décimal `.` compte pour un caractère.
+L'instruction `7.3f` signifie que l'on souhaite écrire le *float* avec 3 décimales et formaté sur 7 caractères (par défaut justifiés à droite). L'instruction `10.3f` fait la même chose sur 10 caractères. Remarquez que le séparateur décimal `.` compte pour un caractère.
 
 Enfin, si on veut afficher des accolades littérales et utiliser la méthode `.format()` en même temps, il faut doubler les accolades pour échapper au formatage :
 ```
@@ -187,7 +194,7 @@ On a 4500 G et 2575 C -> prop GC = 0.48
 La syntaxe est légèrement différente. Le symbole `%` est d'abord appelé dans la chaîne de caractères (dans l'exemple ci-dessus `%d`, `%d` et `%.2f`) pour :
 
 - Désigner l'endroit où sera placée la variable dans la chaîne de caractères.
-- Préciser le type de variable à formater, `d` pour un entier (`i` fonctionne également) ou `f` pour un réel.
+- Préciser le type de variable à formater, `d` pour un entier (`i` fonctionne également) ou `f` pour un *float*.
 - Éventuellement pour indiquer le format voulu. Ici `.2` signifie une précision de deux décimales.
 
 Le signe `%` est rappelé une seconde fois (`% (nb_G, nb_C, prop_GC)`) pour indiquer les variables à formater.
@@ -197,7 +204,7 @@ Cette ancienne façon de formater vous est présentée à titre d'information. N
 
 ## Note sur le vocabulaire et la syntaxe
 
-Revenons quelques instants sur la notion de **méthode** abordée dans ce chapitre avec `.format()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point `.`. La syntaxe générale est du type `objet.méthode()`.
+Revenons quelques instants sur la notion de **méthode** abordée dans ce chapitre avec `.format()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est du type `objet.méthode()`.
 
 Dans l'exemple suivant :
 ```
@@ -223,17 +230,17 @@ Ouvrez l'interpréteur Python et tapez l'instruction `1+1`. Que se passe-t-il ?
 
 ### Poly-A
 
-Générez une chaîne de caractères représentant un oligonucléotide poly-A (c'est-à-dire qui ne contient que des bases A) de 20 bases de longueur, sans taper littéralement toutes les bases.
+Générez une chaîne de caractères représentant un brin d'ADN poly-A (c'est-à-dire qui ne contient que des bases A) de 20 bases de longueur, sans taper littéralement toutes les bases.
 
 
 ### Poly-A et poly-GC
 
-Suivant le modèle du dessus, générez en une ligne de code un poly-A (AAAA...) de 20 bases suivi d'un poly-GC régulier (GCGCGC...) de 40 bases.
+Suivant le modèle de l'exercice précédent, générez en une ligne de code un brin d'ADN poly-A (AAAA...) de 20 bases suivi d'un poly-GC régulier (GCGCGC...) de 40 bases.
 
 
 ### Écriture formatée
 
-En utilisant l'écriture formatée, affichez en une seule ligne les variables `a`, `b` et `c` dont les valeurs sont respectivement la chaîne de caractères `"salut"`, le nombre entier `102` et le nombre réel `10.318`. La variable `c` sera affichée avec 2 décimales.
+En utilisant l'écriture formatée, affichez en une seule ligne les variables `a`, `b` et `c` dont les valeurs sont respectivement la chaîne de caractères `"salut"`, le nombre entier `102` et le *float* `10.318`. La variable `c` sera affichée avec 2 décimales.
 
 
 ### Écriture formatée 2
