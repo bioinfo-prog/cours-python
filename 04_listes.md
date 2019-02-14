@@ -63,7 +63,7 @@ L'opérateur `+` est très pratique pour concaténer deux listes.
 
 Vous pouvez aussi utiliser la méthode `.append()` lorsque vous souhaitez ajouter un seul élément à la fin d'une liste.
 
-Dans l'exemple suivant nous allons créer une liste vide
+Dans l'exemple suivant nous allons créer une liste vide :
 ```
 >>> a = []
 >>> a
@@ -88,9 +88,9 @@ puis avec la méthode `.append()` :
 [15, -5, 13, -3]
 ```
 
-Dans l'exemple ci-dessus, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. Nous vous conseillons néanmoins dans ce cas précis d'utiliser la méthode `.append()` dont la syntaxe est plus élégante.
+Dans l'exemple ci-dessus, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. Nous vous conseillons dans ce cas précis d'utiliser la méthode `.append()` dont la syntaxe est plus élégante.
 
-Nous reverrons en détail la méthode `.append()` dans le chapitre *Plus sur les listes*.
+Nous reverrons en détail la méthode `.append()` dans le chapitre 11 *Plus sur les listes*.
 
 
 ## Indiçage négatif
@@ -116,17 +116,17 @@ Les indices négatifs reviennent à compter à partir de la fin. Leur principal 
 >>> animaux[-2]
 'singe'
 ```
-Pour accéder au premier élément de la liste, il faut par contre connaître le bon indice :
+Pour accéder au premier élément de la liste avec un indice négatif, il faut par contre connaître le bon indice :
 ```
 >>> animaux[-4]
 'girafe'
 ```
-Dans ce cas, on utiliserait plutôt `animaux[0]`.
+Dans ce cas, on utilise plutôt `animaux[0]`.
 
 
 ## Tranches
 
-Un autre avantage des listes est la possibilité de sélectionner une partie en utilisant un indiçage construit sur le modèle `[m:n+1]` pour récupérer tous les éléments, du émième au énième (de l'élément `m` inclus à l'élément `n+1` exclu). On dit alors qu'on récupère une **tranche** de la liste, par exemple :
+Un autre avantage des listes est la possibilité de sélectionner une partie d'une liste en utilisant un indiçage construit sur le modèle `[m:n+1]` pour récupérer tous les éléments, du émième au énième (de l'élément `m` inclus à l'élément `n+1` exclu). On dit alors qu'on récupère une **tranche** de la liste, par exemple :
 ```
 >>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> animaux[0:2]
@@ -143,7 +143,7 @@ Un autre avantage des listes est la possibilité de sélectionner une partie en 
 ['tigre', 'singe']
 ```
 
-Notez que lorsqu'aucun indice n'est indiqué à gauche ou à droite du symbole `:`, Python prend par défaut tous les éléments depuis le début ou tous les éléments jusqu'à la fin respectivement.
+Notez que lorsqu'aucun indice n'est indiqué à gauche ou à droite du symbole deux-points, Python prend par défaut tous les éléments depuis le début ou tous les éléments jusqu'à la fin respectivement.
 
 On peut aussi préciser le pas en ajoutant un `:` supplémentaire et en indiquant le pas par un entier.
 ```
@@ -166,7 +166,7 @@ On peut aussi préciser le pas en ajoutant un `:` supplémentaire et en indiquan
 Finalement, on voit que l'accès au contenu d'une liste avec des crochets fonctionne sur le modèle `liste[début:fin:pas]`.
 
 
-## Fonction len()
+## Fonction `len()`
 
 L'instruction `len()` vous permet de connaître la longueur d'une liste, c'est-à-dire le nombre d'éléments que contient la liste. Voici un exemple d'utilisation :
 ```
@@ -178,9 +178,9 @@ L'instruction `len()` vous permet de connaître la longueur d'une liste, c'est-�
 ```
 
 
-## Les fonctions range() et list()
+## Les fonctions `range()` et `list()`
 
-L'instruction `range()` est une fonction spéciale en Python qui va nous permettre de générer des nombres entiers compris dans un intervalle lorsqu'elle est utilisée en combinaison avec la fonction `list()`. Par exemple :
+L'instruction `range()` est une fonction spéciale en Python qui  génère des nombres entiers compris dans un intervalle. Lorsqu'elle est utilisée en combinaison avec la fonction `list()`, on obtient une liste d'entiers. Par exemple :
 ```
 >>> list(range(10))
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -207,7 +207,7 @@ Enfin, prenez garde aux arguments optionnels par défaut (`0` pour `début` et `
 >>> list(range(10,0))
 []
 ```
-Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 1. Ainsi, si on commence à 10 et qu'on avance par pas de 1, on ne pourra jamais atteindre 0. Python génère ainsi une liste vide. Pour éviter ça, il faudra absolument préciser le pas de -1 pour les listes décroissantes :
+Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 1. Ainsi, si on commence à 10 et qu'on avance par pas de 1, on ne pourra jamais atteindre 0. Python génère ainsi une liste vide. Pour éviter ça, il faudrait, par exemple, préciser un pas de -1 pour une liste d'entiers décroissants :
 ```
 >>> list(range(10,0,-1))
 [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
@@ -215,7 +215,7 @@ Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 
 
 ## Listes de listes
 
-Pour finir, sachez qu'il est tout-à-fait possible de construire des listes de listes. Cette fonctionnalité peut être parfois très pratique. Par exemple :
+Pour finir, sachez qu'il est tout à fait possible de construire des listes de listes. Cette fonctionnalité peut être parfois très pratique. Par exemple :
 ```
 >>> enclos1 = ['girafe', 4]
 >>> enclos2 = ['tigre', 2]
@@ -240,19 +240,19 @@ Pour accéder à un élément de la sous-liste, on utilise un double indiçage :
 2
 ```
 
-On verra un peu plus loin qu'il existe en Python les dictionnaires qui sont très pratiques pour faire ce genre de choses. On verra aussi qu'il existe un module nommé `numpy` permettant de gérer des listes ou tableaux de nombres (vecteurs et matrices), ainsi que de faire des opérations avec.
+On verra un peu plus loin qu'il existe en Python des dictionnaires qui sont également très pratiques pour stocker de l'information structurée. On verra aussi qu'il existe un module nommé *NumPy* qui permet de créer des listes ou tableaux de nombres (vecteurs et matrices), ainsi que de les manipuler.
 
 
 ## Exercices
 
-Conseil : utilisez l'interpréteur Python.
+*Conseil* : utilisez l'interpréteur Python.
 
 
 ### Jours de la semaine
 
 Constituez une liste `semaine` contenant les 7 jours de la semaine.
 
-1. À partir de cette liste, comment récupérez-vous seulement les 5 premiers jours de la semaine d'une part, et ceux du week-end d'autre part (*utilisez pour cela l'indiçage*) ?
+1. À partir de cette liste, comment récupérez-vous seulement les 5 premiers jours de la semaine d'une part, et ceux du week-end d'autre part ? Utilisez pour cela l'indiçage.
 2. Cherchez un autre moyen pour arriver au même résultat (*en utilisant un autre indiçage*).
 3. Trouvez deux manières pour accéder au dernier jour de la semaine.
 4. Inversez les jours de la semaine en une commande.
@@ -260,7 +260,7 @@ Constituez une liste `semaine` contenant les 7 jours de la semaine.
 
 ### Saisons
 
-Créez 4 listes `hiver`, `printemps`, `ete` et `automne` contenant les mois correspondants à ces saisons. Créez ensuite une liste `saisons` contenant les sous-listes `hiver`, `printemps`, `ete` et `automne`. Prévoyez ce que renvoient les instructions suivantes, puis vérifiez-le dans l'interpréteur :
+Créez 4 listes `hiver`, `printemps`, `ete` et `automne` contenant les mois correspondants à ces saisons. Créez ensuite une liste `saisons` contenant les listes `hiver`, `printemps`, `ete` et `automne`. Prévoyez ce que renvoient les instructions suivantes, puis vérifiez-le dans l'interpréteur :
 
 1. `saisons[2]`
 2. `saisons[1][0]`
@@ -270,9 +270,9 @@ Créez 4 listes `hiver`, `printemps`, `ete` et `automne` contenant les mois corr
 
 ### Table de multiplication par 9
 
-Affichez la table des 9 en une seule commande avec les instructions `range()` et `list()`.
+Affichez la table de multiplication par 9 en une seule commande avec les instructions `range()` et `list()`.
 
 
 ### Nombres pairs
 
-Avec Python, répondez à la question suivante en une seule commande. Combien y a-t-il de nombres pairs dans l'intervalle [2 , 10000] inclus ?
+Répondez à la question suivante en une seule commande. Combien y a-t-il de nombres pairs dans l'intervalle [2 , 10000] inclus ?
