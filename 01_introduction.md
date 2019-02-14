@@ -5,7 +5,7 @@
 
 Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Si Python n'est pas déjà installé sur votre machine, consultez l'annexe B *Installation de Python* qui explique la marche à suivre.
 
-L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *TextWrangler* ou *BBedit* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans l'annexe B *Installation de Python*. Bien sur, si vous préférez d'autres éditeurs comme *Atom*, *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les. À toute fin utile, on rappelle néanmoins que les logiciels *Microsoft Word*, *WordPad* et *LibreOffice Writer* ne sont pas des éditeurs de texte, ce sont des traitements de texte qui ne peuvent pas et ne doivent pas être utilisés pour écrire du code informatique.
+L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *BBEdit* ou *CotEditor* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans l'annexe B *Installation de Python*. Bien sur, si vous préférez d'autres éditeurs comme *Atom*, *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les. À toute fin utile, on rappelle néanmoins que les logiciels *Microsoft Word*, *WordPad* et *LibreOffice Writer* ne sont pas des éditeurs de texte, ce sont des traitements de texte qui ne peuvent pas et ne doivent pas être utilisés pour écrire du code informatique.
 
 
 ## C'est quoi Python ?
@@ -49,7 +49,7 @@ Par ailleurs, dans le cas de programmes, de contenus de fichiers ou de résultat
 
 ## Premier contact avec Python
 
-Python est un langage interprété, c'est-à-dire que chaque ligne de code est lue puis interprétée afin d'être exécutée par l'ordinateur. Pour vous en rendre compte, ouvrez un *shell*, puis lancez la commande :
+Python est un langage interprété, c'est-à-dire que chaque ligne de code est lue puis interprétée afin d'être exécutée par l'ordinateur. Pour vous en rendre compte, ouvrez un *shell*, activez conda (sous Linux ou Mac OS X, voir l'annexe C *Installation de Python*), puis lancez la commande :
 
 `python`
 
@@ -71,7 +71,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 pour Mac OS X :
 ```
-iMac-de-LBM-516b:Downloads lbm_516b$ python
+(base) iMac-de-pierre:Downloads$ python
 Python 3.7.0 (default, Jun 28 2018, 07:39:16)
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
@@ -89,7 +89,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Les blocs
 
 - `(base) C:\Users\pierre>` pour Windows,
-- `iMac-de-LBM-516b:Downloads lbm_516b$` pour Mac OS X
+- `(base) iMac-de-pierre:Downloads$` pour Mac OS X
 - et `(base) pierre@jeera:~$` pour Linux
 
 représentent l'invite de commande de votre *shell*. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.

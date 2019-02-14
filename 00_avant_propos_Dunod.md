@@ -8,7 +8,7 @@ Cet ouvrage est basé sur un cours conçu à l'origine pour les étudiants débu
 Ce cours est toujours accessible en ligne, à l'adresse suivante :  
 <https://python.sdv.univ-paris-diderot.fr/>.
 
-Il est régulièrement mis-à-jour en fonction des retours de nos étudiants et plus généralement des utilisateurs de ce cours.
+Il est régulièrement mis à jour en fonction des retours de nos étudiants et plus généralement des utilisateurs de ce cours.
 
 Afin de promouvoir le partage des connaissances et le logiciel libre, nos droits d'auteurs provenant de la vente de cet ouvrage seront reversés à deux associations. [Wikimédia France](https://www.wikimedia.fr/) qui s'occupe notamment de l'encyclopédie en ligne Wikipédia. [NumFOCUS](https://numfocus.org/) qui soutient le développement de logiciels libres scientifiques et notamment l'écosystème scientifique autour de Python.
 
