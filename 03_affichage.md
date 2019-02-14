@@ -19,7 +19,7 @@ Johna32ans
 John-a-32-ans
 ```
 
-Pour imprimer deux chaînes de caractères l'une à côté de l'autre sans espace, vous devrez les concaténer :
+Pour afficher deux chaînes de caractères l'une à côté de l'autre, sans espace, on peut aussi les concaténer :
 ```
 >>> ani1 = "chat"
 >>> ani2 = "souris"
