@@ -183,7 +183,7 @@ Dans un premier temps, on découpe la chaîne de caractères avec l'instruction 
 ['3.4', '17.2', 'atom']
 ```
 
-On obtient une liste de chaînes de caractères. On transforme ensuite les deux premiers éléments de cette liste en réels (avec la fonction `float()`) pour pouvoir les additionner :
+On obtient une liste de chaînes de caractères. On transforme ensuite les deux premiers éléments de cette liste en *floats* (avec la fonction `float()`) pour pouvoir les additionner :
 ```
 >>> float(val2[0]) + float(val2[1])
 20.599999999999998
@@ -192,7 +192,7 @@ On obtient une liste de chaînes de caractères. On transforme ensuite les deux 
 
 ## Conversion d'une liste de chaînes de caractères en une chaîne de caractères
 
-On a vu dans le chapitre 2 la conversion des types simples (entier, réel et chaînes de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est un peu particulière puisqu'elle fait appelle à la méthode `.join()`.
+On a vu dans le chapitre 2 la conversion des types simples (entier, *float* et chaînes de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est un peu particulière puisqu'elle fait appelle à la méthode `.join()`.
 ```
 >>> seq = ["A", "T", "G", "A", "T"]
 >>> seq
@@ -285,7 +285,7 @@ souris
 
 ### Fréquence des bases dans une séquence nucléique
 
-Soit la séquence nucléique `ATATACGGATCGGCTGTTGCCTGCGTAGTAGCGT`. On souhaite calculer la fréquence de chaque base A, T, C et G dans cette séquence et afficher le résultat à l'écran. Créez pour cela une fonction `calc_composition()` à laquelle vous passez votre séquence nucléique sous forme de chaîne de caractères et qui renvoie une liste de 4 nombres réels (*float*) indiquant respectivement la fréquence en bases `A`, `T`, `G` et `C`.
+Soit la séquence nucléique `ATATACGGATCGGCTGTTGCCTGCGTAGTAGCGT`. On souhaite calculer la fréquence de chaque base A, T, C et G dans cette séquence et afficher le résultat à l'écran. Créez pour cela une fonction `calc_composition()` à laquelle vous passez votre séquence nucléique sous forme de chaîne de caractères et qui renvoie une liste de 4 *floats* indiquant respectivement la fréquence en bases `A`, `T`, `G` et `C`.
 
 
 ### Conversion des acides aminés du code à trois lettres au code à une lettre

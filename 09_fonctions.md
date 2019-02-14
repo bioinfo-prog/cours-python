@@ -83,7 +83,7 @@ Une particularité des fonctions en Python est que vous n'êtes pas obligé(e) d
 'toto'
 ```
 
-L'opérateur `*` reconnait plusieurs types (entiers, réels, chaînes de caractères), notre fonction est donc capable d'effectuer des tâches différentes ! Même si Python permet cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait mener à des surprises dans vos futurs programmes. En général il est plus judicieux que chaque argument ait un type précis (*int*, *str*, *float*, etc), et pas l'un ou l'autre.
+L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de caractères), notre fonction est donc capable d'effectuer des tâches différentes ! Même si Python permet cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait mener à des surprises dans vos futurs programmes. En général il est plus judicieux que chaque argument ait un type précis (*int*, *str*, *float*, etc), et pas l'un ou l'autre.
 
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs valeurs à la fois, comme dans cette fraction de code :
 ```
@@ -127,7 +127,7 @@ Traceback (most recent call last):
 TypeError: fois() missing 1 required positional argument: 'y'
 ```
 
-On voit que passer un seul argument à une fonction qui en attend deux mène à une erreur. 
+On voit que passer un seul argument à une fonction qui en attend deux mène à une erreur.
 
 open-box-def
 
@@ -380,11 +380,11 @@ $$
 
 ### Fonctions distribution et stat
 
-Créez une fonction `gen_distrib()` qui prend comme argument 3 entiers : *debut*, *fin* et *n*. La fonction renverra une liste de *n* nombres réels aléatoires entre *debut* et *fin*. Cette liste suivra une distribution uniforme (utilisez pour cela la fonction `uniform()` du module `random`).
+Créez une fonction `gen_distrib()` qui prend comme argument 3 entiers : *debut*, *fin* et *n*. La fonction renverra une liste de *n* *floats* aléatoires entre *debut* et *fin*. Cette liste suivra une distribution uniforme (utilisez pour cela la fonction `uniform()` du module `random`).
 
-Créez une autre fonction `calc_stat()` qui prend en argument une liste de nombres réels et qui renvoie une liste de 4 éléments contenant respectivement le minimum, le maximum, la moyenne et la médiane de la liste.
+Créez une autre fonction `calc_stat()` qui prend en argument une liste de *floats* et qui renvoie une liste de 4 éléments contenant respectivement le minimum, le maximum, la moyenne et la médiane de la liste.
 
-Dans le programme principal, générez 20 listes aléatoires de 100 nombres réels entre 0 et 100 et afficher les statistiques pour chacune d'entre elles (minimum, maximum, médiane et moyenne).
+Dans le programme principal, générez 20 listes aléatoires de 100 *floats* compris entre 0 et 100 et afficher les statistiques pour chacune d'entre elles (minimum, maximum, médiane et moyenne).
 On souhaite obtenir une sortie comme suit :
 ```
 Liste  1 : min = X.XX ; max = X.XX ; médiane = X.XX ; moyenne = X.XX
@@ -398,7 +398,7 @@ Les écarts sur les statistiques entre les différentes listes sont-ils importan
 
 ### Fonction distance à l'origine
 
-En reprenant votre fonction `calc_distance3D()`, faites-en une version 2D (`calc_distance2D()`). Écrivez une autre fonction `calc_dist2ori()` à laquelle vous passez en argument deux listes de nombres réels `list_x` et `list_y` représentant les coordonnées en 2D d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de nombres réels représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$). La Figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en rouge) ; chaque trait pointillé représente la distance que l'on cherche entre les points de la courbe (x minuscule), et l'origine du repère (X majuscule). 
+En reprenant votre fonction `calc_distance3D()`, faites-en une version 2D (`calc_distance2D()`). Écrivez une autre fonction `calc_dist2ori()` à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées en 2D d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$). La Figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en rouge) ; chaque trait pointillé représente la distance que l'on cherche entre les points de la courbe (x minuscule), et l'origine du repère (X majuscule). 
 
 ![Fonction distance à l'origine](img/sin2ori.png){ #fig:sin2ori width=40%}
 

@@ -76,7 +76,7 @@ SyntaxError: Missing parentheses in call to 'print'
 
 ### Division d'entiers
 
-En Python 3, la division de deux entiers, se fait *naturellement*, c'est-à-dire que l'opérateur `/` renvoie systématiquement un nombre réel (*float*). Par exemple :
+En Python 3, la division de deux entiers, se fait *naturellement*, c'est-à-dire que l'opérateur `/` renvoie systématiquement un *float*. Par exemple :
 ```
 >>> 3 / 4
 0.75
