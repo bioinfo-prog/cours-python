@@ -28,9 +28,9 @@ Enfin, dans l'instruction `x = y - 3`, l'opération `y - 3` est d'abord évalué
 
 ## Les types de variables
 
-Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers (*integer* ou *int*), les réels (*float*) et les chaînes de caractères (*string* ou *str*). Bien sûr, il existe de nombreux autres types (par exemple, les nombres complexes), c'est d'ailleurs un des gros avantages de Python (si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/3.7/library/stdtypes.html?highlight=type#)).
+Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers (*integer* ou *int*), les nombres décimaux que nous appellerons *float* et les chaînes de caractères (*string* ou *str*). Bien sûr, il existe de nombreux autres types (par exemple, les nombres complexes), c'est d'ailleurs un des gros avantages de Python (si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/3.7/library/stdtypes.html)).
 
-Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la variable `x`, mais il est tout à fait possible de stocker des nombres réels (*float*), des chaînes de caractères (*string* ou *str*) ou plein d'autres types de variables que nous verrons par la suite :
+Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la variable `x`, mais il est tout à fait possible de stocker des *floats*, des chaînes de caractères (*string* ou *str*) ou plein d'autres types de variables que nous verrons par la suite :
 ```
 >>> y = 3.14
 >>> y
@@ -51,9 +51,11 @@ Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la 
 
 open-box-rem
 
-Python reconnaît certains types de variable automatiquement (entier, réel). Par contre, pour une chaîne de caractères, il faut l'entourer de guillemets (doubles, simples, voire trois guillemets successifs doubles ou simples) afin d'indiquer à Python le début et la fin de la chaîne de caractères.
+Python reconnaît certains types de variable automatiquement (entier, *float*). Par contre, pour une chaîne de caractères, il faut l'entourer de guillemets (doubles, simples, voire trois guillemets successifs doubles ou simples) afin d'indiquer à Python le début et la fin de la chaîne de caractères.
 
 Dans l'interpréteur, l'affichage direct du contenu d'une chaîne de caractères se fait avec des guillemets simples, quelque soit le type de guillemets utilisé pour définir la chaîne de caractères.
+
+En Python, comme dans la plupart des langages de programmation, c'est le point qui est utilisé comme séparateur décimal. Ainsi, `3.14` est un nombre reconnu comme un *float* en Python alors que ce n'est pas le cas de `3,14`.
 
 close-box-rem
 
@@ -72,7 +74,7 @@ Enfin, Python est sensible à la casse, ce qui signifie que les variables `TesT`
 
 ### Opérations sur les types numériques
 
-Les quatre opérations arithmétiques de base se font de manière simple sur les types numériques (nombres entiers et réels) :
+Les quatre opérations arithmétiques de base se font de manière simple sur les types numériques (nombres entiers et *floats*) :
 ```
 >>> x = 45
 >>> x + 2
@@ -87,7 +89,7 @@ Les quatre opérations arithmétiques de base se font de manière simple sur les
 >>> (x * 10) + y
 452.5
 ```
-Remarquez toutefois que si vous mélangez les types entiers et réels, le résultat est renvoyé comme un réel (car ce type est plus général). Par ailleurs, l'utilisation de parenthèses permet de gérer les priorités.
+Remarquez toutefois que si vous mélangez les types entiers et *floats*, le résultat est renvoyé comme un *float* (car ce type est plus général). Par ailleurs, l'utilisation de parenthèses permet de gérer les priorités.
 
 L'opérateur `/` permet d'effectuer une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
 ```
@@ -106,7 +108,6 @@ L'opérateur puissance utilise le symbole `**` :
 ```
 
 Pour obtenir le quotient et le reste d'une division entière (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo `%` :
-
 
 ```
 >>> 5 // 4
@@ -196,7 +197,7 @@ Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type
 <class 'str'>
 ```
 
-Faites bien attention, car pour Python, la valeur `2` (nombre entier) est différente de `2.0` (nombre réel) et est aussi différente de `'2'` (chaîne de caractères).
+Faites bien attention, car pour Python, la valeur `2` (nombre entier) est différente de `2.0` (*float*) et est aussi différente de `'2'` (chaîne de caractères).
 
 Nous verrons plus tard ce que signifie le mot *class*.
 
@@ -225,7 +226,7 @@ Toute conversion d'une variable d'un type en un autre est appelé *casting* en a
 
 ## Note sur la division de deux nombres entiers
 
-Notez bien qu'en Python 3, la division de nombres entiers renvoie par défaut un nombre réel (*float*) :
+Notez bien qu'en Python 3, la division de deux nombres entiers renvoie par défaut un *float* :
 ```
 >>> x = 3 / 4
 >>> x
@@ -247,14 +248,14 @@ Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous
 
 Par ailleurs, nous avons rencontré plusieurs fois des **fonctions** dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
 
-Ce qui se trouve entre les parenthèses d'une fonction est appelé **argument** et c'est ce que l'on *passe* à la fonction. Dans l'instruction `type(2)`, c'est l'entier `2` qui est l'argument passé à la fonction `type()`. Pour l'instant, on retiendra qu'une fonction est une sorte de *boîte* à qui on passe un *argument* et qui peut renvoyer un *résultat* ou plus généralement un objet. Par exemple, la fonction `type()` renvoie le type de la variable qu'on lui a passé en argument.
+Ce qui se trouve entre les parenthèses d'une fonction est appelé **argument** et c'est ce que l'on *passe* à la fonction. Dans l'instruction `type(2)`, c'est l'entier `2` qui est l'argument passé à la fonction `type()`. Pour l'instant, on retiendra qu'une fonction est une sorte de *boîte* à qui on passe un *argument*, qui effectue une action et qui peut renvoyer un résultat ou plus généralement un objet. Par exemple, la fonction `type()` renvoie le type de la variable qu'on lui a passé en argument.
 
 Si ces notions vous semblent obscures, ne vous inquiétez pas, au fur et à mesure que vous avancerez dans le cours, tout deviendra limpide.
 
 
 ## Exercices
 
-Conseil : utilisez l'interpréteur Python pour les exercices suivants.
+*Conseil* : utilisez l'interpréteur Python pour les exercices suivants.
 
 
 ### Prédire le résultat : opérations
