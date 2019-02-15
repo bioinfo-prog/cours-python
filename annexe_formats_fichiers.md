@@ -565,7 +565,7 @@ ALA 24 -10.648 -2.627 30.361
 ASN 25 -6.97 -3.437 31.02
 ```
 
-Remarque : pour extraire des valeurs numériques, comme des numéros de résidus ou des coordonnées atomiques, il ne faudra pas oublier de les convertir en entiers ou en réels.
+Remarque : pour extraire des valeurs numériques, comme des numéros de résidus ou des coordonnées atomiques, il ne faudra pas oublier de les convertir en entiers ou en *floats*.
 
 
 ## Format XML, CSV et TSV

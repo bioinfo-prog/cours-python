@@ -225,7 +225,7 @@ Enlevez les doublons de cette liste, triez-la et affichez-la.
 
 
 ### Séquence nucléique aléatoire 2
-Générez aléatoirement une séquence nucléique de 50 bases contenant 10 % de A, 50 % de G, 30 % de T et 10 % de C. Votre programme contiendra une fonction `gen_seq_alea2()` à qui on passe 5 nombres réels représentant respectivement la longueur de la séquence et les pourcentages de chacun des 4 nucléotide. La fonction renverra la séquence sous forme d'une liste.
+Générez aléatoirement une séquence nucléique de 50 bases contenant 10 % de A, 50 % de G, 30 % de T et 10 % de C. Votre programme contiendra une fonction `gen_seq_alea2()` à qui on passe 5 *floats* représentant respectivement la longueur de la séquence et les pourcentages de chacun des 4 nucléotide. La fonction renverra la séquence sous forme d'une liste.
 
 
 ### Le nombre mystère

@@ -172,21 +172,22 @@ L'instruction `continue` saute à l'itération suivante.
 ```
 
 
-## Tests de valeur sur des réels
+## Tests de valeur sur des *floats*
 
-Lorsque l'on souhaite tester la valeur d'une variable réelle (*float*), le premier réflexe serait d'utiliser l'opérateur d'égalité comme :
+Lorsque l'on souhaite tester la valeur d'une variable de type *float*, le premier réflexe serait d'utiliser l'opérateur d'égalité comme :
 ```
 >>> 1/10 == 0.1
 True
 ```
 
-Toutefois nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques réelles (*float*) sous forme de nombres flottants (d'où leur nom !), et cela mène à certaines [limitations](https://docs.python.org/3.6/tutorial/floatingpoint.html). Regardez l'exemple suivant :
+Toutefois nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques des *floats* sous forme de nombres flottants (d'où leur nom !), et cela mène à certaines [limitations](https://docs.python.org/3.6/tutorial/floatingpoint.html). Regardez l'exemple suivant :
 ```
 >>> (3 - 2.7) == 0.3
 False
 >>> 3 - 2.7
 0.2999999999999998
 ```
+
 Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False`. 
 
 En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont un ordinateur traite les nombres flottants (comme un rapport de nombres binaires). Ainsi certaines valeurs de *float* ne peuvent être qu'approchées. Une manière de s'en rendre compte est d'utiliser l'écriture formatée en demandant un grand nombre de décimales :
@@ -226,7 +227,7 @@ close-box-adv
 
 ## Exercices
 
-Conseil : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
 
 
 ### Jours de la semaine

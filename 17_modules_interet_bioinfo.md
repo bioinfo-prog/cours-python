@@ -57,7 +57,7 @@ array(['1', '2', 'tigre'], dtype='<U21')
 <class 'numpy.ndarray'>
 ```
 
-De même, il est possible de créer un objet *array* à partir d'une liste constitué d'entiers et de réels, mais toutes les valeurs seront alors comprises par *NumPy* comme des réels :  
+De même, il est possible de créer un objet *array* à partir d'une liste constitué d'entiers et de *floats*, mais toutes les valeurs seront alors comprises par *NumPy* comme des *floats* :  
 ```
 >>> b = np.array([1, 2, 3.5])
 >>> b
@@ -66,9 +66,9 @@ array([1. , 2. , 3.5])
 <class 'numpy.ndarray'>
 ```
 
-Ici, la notion `1.` indique qu'il s'agit d'un nombre réel `1.0000...` et non pas de l'entier `1`.
+Ici, la notion `1.` indique qu'il s'agit du *float* `1.0000...` et non pas de l'entier `1`.
 
-Le module *NumPy* a été conçu et est très performant pour manipuler des valeurs numériques (entières ou réelles). Nous vous recommandons ne n'utiliser que des valeurs numériques avec *NumPy*.
+Le module *NumPy* a été conçu et est très performant pour manipuler des valeurs numériques (entières ou *floats*). Nous vous recommandons ne n'utiliser que des valeurs numériques avec *NumPy*.
 
 close-box-rem
 
@@ -85,7 +85,7 @@ Comme avec `range()`, on peut spécifier en argument une borne de début, une bo
 array([10,  9,  8,  7,  6,  5,  4,  3,  2,  1])
 ```
 
-Un autre avantage de la fonction `arange()` est qu'elle génère des objets *array* qui contiennent des entiers ou de réels selon l'argument qu'on lui passe :
+Un autre avantage de la fonction `arange()` est qu'elle génère des objets *array* qui contiennent des entiers ou des *floats* selon l'argument qu'on lui passe :
 ```
 >>> np.arange(10)
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -292,7 +292,7 @@ array([[1., 1., 1.],
       [1., 1., 1.]])
 ```
 
-Par défaut, les fonctions `zeros()` et `ones()` génèrent des réels, mais vous pouvez demander des entiers en passant l'option `int` en second argument :
+Par défaut, les fonctions `zeros()` et `ones()` génèrent des *floats*, mais vous pouvez demander des entiers en passant l'option `int` en second argument :
 ```
 >>> np.zeros((2,3), int)
 array([[0, 0, 0],
@@ -308,7 +308,7 @@ array([[7, 7, 7],
 array([[ 7.,  7.,  7.],
        [ 7.,  7.,  7.]])
 ```
-Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes et qui ne contient que le chiffre 7, sous formes d'entiers (`int`) dans le premier cas et de réels (`float`) dans le second.
+Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes et qui ne contient que le chiffre 7, sous formes d'entiers (`int`) dans le premier cas et de *floats* dans le second.
 
 
 ### Un peu d'algèbre linéaire
@@ -1175,7 +1175,7 @@ MW              float64
 dtype: object
 ```
 
-Les colonnes `Length` et `MW` contiennent des valeurs numériques, respectivement des entiers (`int64`) et des réels (`float64`). Le type `object` est un type par défaut.
+Les colonnes `Length` et `MW` contiennent des valeurs numériques, respectivement des entiers (`int64`) et des *floats* (`float64`). Le type `object` est un type par défaut.
 
 
 ### Conversion en date
@@ -1509,7 +1509,7 @@ alors on extrait les coordonnées atomiques (lignes 4 à 6) et on les écrit dan
 
 #### Lecture des coordonnées
 
-Ouvrez le fichier `1BTA_CA.txt` avec Python et créez une liste contenant toutes les coordonnées sous forme de réels avec les fonctions `split()` et `float()`.
+Ouvrez le fichier `1BTA_CA.txt` avec Python et créez une liste contenant toutes les coordonnées sous forme de *floats* avec les fonctions `split()` et `float()`.
 
 Affichez à l'écran le nombre total de coordonnées.
 
