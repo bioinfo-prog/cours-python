@@ -360,7 +360,7 @@ Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. C
 
 Imaginons que l'on souhaite parcourir tous les éléments d'une matrice carrée, c'est-à-dire d'une matrice qui est constituée d'autant de colonnes que de lignes.
 
-Écrivez un script qui parcourt chaque élément de la matrice et qui affiche le numéro de ligne et de colonne.
+Écrivez un script qui parcourt chaque élément de la matrice et qui affiche le numéro de ligne et de colonne uniquement avec des boucles `for`.
 
 Pour une matrice 2 $\times$ 2, le schéma @fig:parcoursmatrice vous indique comment parcourir une telle matrice. L'affichage attendu est :
 
@@ -376,6 +376,7 @@ ligne colonne
 
 Attention à bien respecter l'alignement des chiffres qui doivent être justifiés à droite. Testez pour une matrice 3 $\times$ 3, 5 $\times$ 5, et 10 $\times$ 10.
 
+Ecrivez une version bis de votre script, cette fois-ci avec des boucles `while`.
 
 ### Parcours de demi-matrice sans la diagonale (exercice ++)
 
