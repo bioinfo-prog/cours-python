@@ -235,6 +235,10 @@ Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?str
 89
 ```
 
+## Passage d'arguments avec \*args et \*\*kwargs
+
+Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 9 sur les fonctions.
+
 
 ## Gestion des erreurs
 
