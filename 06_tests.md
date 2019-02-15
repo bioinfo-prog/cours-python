@@ -187,13 +187,42 @@ False
 >>> 3 - 2.7
 0.2999999999999998
 ```
-Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False`. Pour éviter ces problèmes nous conseillons de toujours encadrer une valeur réelle avec une certaine précision *delta*, par exemple :
+Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False`. 
+
+En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont un ordinateur traite les nombres flottants (comme un rapport de nombres binaires). Ainsi certaines valeurs de *float* ne peuvent être qu'approchées. Une manière de s'en rendre compte est d'utiliser l'écriture formatée en demandant un grand nombre de décimales :
+
+```
+>>> 0.3
+0.3
+>>> "{:.5f}".format(0.3)
+'0.30000'
+>>> "{:.60f}".format(0.3)
+'0.299999999999999988897769753748434595763683319091796875000000'
+>>> "{:.60f}".format(3.0 - 2.7)
+'0.299999999999999822364316059974953532218933105468750000000000'
+```
+
+On voit que lorsqu'on tape `0.3`, Python nous affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant : ceci est visible en demandant un grand nombre de décimales.
+
+open-box-adv
+
+Pour les raisons évoquées ci-dessus, il ne faut surtout pas tester si un *float* est égal à une certaine valeur. La bonne pratique est de vérifier si un *float* est compris dans un intervalle avec une certaine précision. Si on appelle cette précision *delta*, on peut procéder ainsi :
+
 ```
 >>> delta = 0.0001
->>> 0.3 - delta < 3.0 - 2.7 < 0.3 + delta
+>>> var = 3.0 - 2.7
+>>> 0.3 - delta < var < 0.3 + delta
+True
+>>> abs(var - 0.3) < delta
 True
 ```
-Ici on teste si `3 - 2.7` est compris entre `0.3` $\pm$ `delta`.
+
+Ici on teste si `var` est compris entre `0.3` $\pm$ `delta`. Les deux méthodes mènent à un résultat strictement équivalent : 
+
+- la ligne 3 est intuitive car elle ressemble à un encadrement mathématique ;
+- la ligne 5 qui utilise la valeur absolue est plus compacte mais un peu moins intuitive.
+
+close-box-adv
 
 ## Exercices
 
