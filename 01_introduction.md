@@ -174,25 +174,18 @@ close-box-rem
 
 ## Notion de bloc d'instructions et d'indentation
 
-Pour terminer ce chapitre, nous allons aborder les notions de **bloc d'instructions** et d'**indentation**.
-
 En programmation, il est courant de répéter un certain nombre de choses (avec les boucles, voir le chapitre 5 *Boucles et comparaisons*) ou de faire des choix (avec les tests, voir le chapitre 6 *Tests*).
 
-Par exemple, on souhaite répéter 10 fois 3 instructions différentes, les unes à la suite des autres. Voici ce que cela donnerait avec du pseudo-code (c'est-à-dire avec des instructions qui n'existent pas en Python) :
-```
-instruction_qui_répète_10_fois_ce_qui_suit:
-    instruction_1
-    instruction_2
-    instruction_3
-instruction_suivante
-```
+Par exemple, imaginons que nous souhaitions compter toutes les bases d'une séquence, afficher chacune de ces bases, puis d'afficher le nombre de bases à la fin. Nous pourrions utiliser l'algorithme présenté dans la figure @fig:indentation_bloc_instructions.
 
-Ligne 1. Cette instruction va indiquer à Python de répéter 10 fois d'autres instructions (il s'agit d'une boucle, on verra la commande exacte plus tard). Cette instruction se termine par le symbole **:** qui indique à Python qu'il doit attendre un bloc d'instructions.
+![Notion d'indentation et de bloc d'instructions](img/indentation_bloc_instructions.png "Indentation et bloc d'instructions"){ #fig:indentation_bloc_instructions width=30% }
 
-Lignes 2 à 4. Les 3 instructions à répéter sont `instruction_1`, `instruction_2` et `instruction_3` . Ces instructions constituent un bloc d'instructions car elles sont indentées. L'**indentation est le décalage vers la droite d'un bloc d'instructions**. L'indentation peut être réalisée par des espaces ou des tabulations. Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
+Donc pour chaque base de la séquence nous souhaitons effectuer deux actions : i) afficher la base, et ii) compter une base de plus. Pour indiquer cela, on décalera ces deux instructions par rapport à la ligne précédente (contenant `Pour chaque base[...]`). Ce décalage est applé **indentation**, et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
 
-Ligne 5. Enfin, la ligne `instruction_suivante` est exécutée une fois que le bloc d'instructions est terminé.
+Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer à la suite, c'est-à-dire afficher le résultat. Pour bien préciser que cet affichage se fait à la fin, donc une fois le comptage terminé, la ligne correspondante n'est pas indentée (c'est à dire pas décalée de quelques espaces).
 
+Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
+ 
 Si tout cela semble un peu complexe, ne vous inquiétez pas. Vous allez comprendre tous ces détails chapitre après chapitre.
 
 
