@@ -203,7 +203,7 @@ En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont u
 '0.299999999999999822364316059974953532218933105468750000000000'
 ```
 
-On voit que lorsqu'on tape `0.3`, Python nous affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant : ceci est visible en demandant un grand nombre de décimales.
+On voit que lorsqu'on tape `0.3`, Python nous affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est donc essentiel d'avoir cela en tête lorsque l'on effectue un test .
 
 open-box-adv
 
@@ -218,7 +218,7 @@ True
 True
 ```
 
-Ici on teste si `var` est compris entre `0.3` $\pm$ `delta`. Les deux méthodes mènent à un résultat strictement équivalent : 
+Ici on teste si `var` est compris dans l'intervalle `0.3` $\pm$ `delta`. Les deux méthodes mènent à un résultat strictement équivalent : 
 
 - la ligne 3 est intuitive car elle ressemble à un encadrement mathématique ;
 - la ligne 5 qui utilise la valeur absolue est plus compacte mais un peu moins intuitive.
