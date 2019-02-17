@@ -340,9 +340,9 @@ Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. C
     **********
 
 
-### Triangle isocèle
+### Pyramide
 
-Écrivez un script qui dessine un triangle comme celui-ci :
+Écrivez un script qui dessine une pyramide comme celle-ci :
 
              *
             ***
