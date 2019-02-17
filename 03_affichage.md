@@ -2,7 +2,38 @@
 
 ## La fonction `print()`
 
-Dans le chapitre 1, nous avons rencontré la fonction `print()` qui affiche une chaîne de caractères (le fameux `"Hello world!"`). Elle peut également afficher le contenu d'une ou plusieurs variables :
+Dans le chapitre 1, nous avons rencontré la fonction `print()` qui affiche une chaîne de caractères (le fameux `"Hello world!"`). En fait, la fonction `print()` affiche l'argument qu'on lui passe entre parenthèses **et** un retour à ligne. Ce retour à ligne supplémentaire est ajouté par défaut. Si toutefois, on ne veut pas afficher ce retour à la ligne, on peut utiliser l'argument par mot-clé `end` :
+
+```
+>>> print("Hello world")
+Hello world
+>>> print("Hello world", end="")
+Hello world>>>
+```
+
+En ligne 1, nous avons fait un `print()` classique en mettant la chaîne de caractères `"Hello world"` en argument. En ligne 3, on a ajouté un deuxième argument `end=""`, en précisant le mot-clé `end`. Nous verrons les arguments par mot-clé dans le chapitre 9. Pour l'instant, disons nous que cela permet de modifier le comportement par défaut des fonctions. A la ligne 4, l'effet du `end=""` fait que les trois chevrons `>>>` se retrouve collés après la chaîne `"Hello world"`.
+
+Une autre manière de s'en rendre compte et d'utiliser deux fonctions `print()` à la suite (dans la portion de code suivante, le caractère `;` sert de séparateur entre les instructions sur une même ligne) :
+
+```
+>>> print("Hello") ; print("Joe")
+Hello
+Joe
+>>> print("Hello", end="") ; print("Joe")
+HelloJoe
+>>> print("Hello", end=" ") ; print("Joe")
+Hello Joe
+```
+
+La fonction `print()` peut également afficher le contenu d'une variable :
+
+```
+>>> var = 3
+>>> print(var)
+3
+```
+
+Il est également possible d'afficher le contenu de plusieurs variables (quels que soient leur type) en les séparant par des virgules :
 ```
 >>> x = 32
 >>> nom = "John"
