@@ -174,7 +174,7 @@ close-box-rem
 
 ## Notion de bloc d'instructions et d'indentation
 
-En programmation, il est courant de répéter un certain nombre de choses (avec les boucles, voir le chapitre 5 *Boucles et comparaisons*) ou de faire des choix (avec les tests, voir le chapitre 6 *Tests*).
+En programmation, il est courant de répéter un certain nombre de choses (avec les boucles, voir le chapitre 5 *Boucles et comparaisons*) ou d'exécuter plusieurs instructions si une condition est vraie (avec les tests, voir le chapitre 6 *Tests*).
 
 Par exemple, imaginons que nous souhaitions compter toutes les bases d'une séquence, afficher chacune de ces bases, puis d'afficher le nombre de bases à la fin. Nous pourrions utiliser l'algorithme présenté en pseudo-code dans la figure @fig:indentation_bloc_instructions.
 
@@ -182,7 +182,7 @@ Par exemple, imaginons que nous souhaitions compter toutes les bases d'une séqu
 
 Donc pour chaque base de la séquence nous souhaitons effectuer deux actions : i) afficher la base, et ii) compter une base de plus. Pour indiquer cela, on décalera ces deux instructions par rapport à la ligne précédente (contenant `Pour chaque base[...]`). Ce décalage est applé **indentation**, et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
 
-Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer à la suite, c'est-à-dire afficher le résultat. Pour bien préciser que cet affichage se fait à la fin, donc une fois le comptage terminé, la ligne correspondante n'est pas indentée (c'est à dire pas décalée de quelques espaces).
+Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer à la suite, c'est-à-dire afficher la taille de la séquence. Pour bien préciser que cet affichage se fait à la fin, donc une fois le comptage et l'affichage de chaque base terminés, la ligne correspondante n'est pas indentée (c'est à dire pas décalée de quelques espaces).
 
 Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
  
