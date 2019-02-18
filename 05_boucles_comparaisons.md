@@ -54,7 +54,7 @@ open-box-rem
 
 Outre une meilleure lisibilité, les `:` et l'**indentation** sont formellement requis en Python. Même si on peut indenter comme on veut en Python (plusieurs espaces ou plusieurs tabulations, mais pas une combinaison des deux), les développeurs recommandent l'utilisation de 4 espaces. Vous pouvez consulter à ce sujet le chapitre 15 *Bonnes pratiques de programmation* en Python.
 
-Faites en sorte de configurer votre éditeur de texte favori de façon à écrire 4 espaces lorsque vous tapez sur la touche `Tab` (tabulation).
+Faites en sorte de configurer votre éditeur de texte favori de façon à écrire 4 espaces lorsque vous tapez sur la touche *Tab* (tabulation).
 
 close-box-rem
 
@@ -248,13 +248,13 @@ Une boucle `while` nécessite généralement **trois éléments** pour fonctionn
 2. Test de la variable associée à l'instruction `while` (ligne 2).
 3. Mise à jour de la variable de test dans le corps de la boucle (ligne 4).
 
-Faites bien attention aux tests et à l'incrémentation que vous utilisez car une erreur mène souvent à des « boucles infinies » qui ne s'arrêtent jamais. Vous pouvez néanmoins toujours stopper l'exécution d'un script Python à l'aide de la combinaison de touches `Ctrl-C` (c'est-à-dire en pressant simultanément les touches `Ctrl` et `C`). Par exemple :
+Faites bien attention aux tests et à l'incrémentation que vous utilisez car une erreur mène souvent à des « boucles infinies » qui ne s'arrêtent jamais. Vous pouvez néanmoins toujours stopper l'exécution d'un script Python à l'aide de la combinaison de touches *Ctrl-C* (c'est-à-dire en pressant simultanément les touches *Ctrl* et *C*). Par exemple :
 ```
 i = 0
 while i < 10:
     print("Le python c'est cool !")
 ```
-Ici, nous avons omis de mettre à jour la variable `i` dans le corps de la boucle. Par conséquent, la boucle ne s'arrêtera jamais (sauf en pressant `Ctrl-C`) puisque la condition `i < 10` sera toujours vraie.
+Ici, nous avons omis de mettre à jour la variable `i` dans le corps de la boucle. Par conséquent, la boucle ne s'arrêtera jamais (sauf en pressant *Ctrl-C*) puisque la condition `i < 10` sera toujours vraie.
 
 La boucle `while` combinée à la fonction `input()` peut s'avérer commode lorsqu'on souhaite demander à l'utilisateur une valeur numérique. Par exemple :
 
