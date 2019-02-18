@@ -266,9 +266,11 @@ Constituez une liste `semaine` contenant les 7 jours de la semaine.
 Écrivez une série d'instructions affichant les jours de la semaine (en utilisant une boucle `for`), ainsi qu'une autre série d'instructions affichant les jours du week-end (en utilisant une boucle `while`).
 
 
-### Table des 1
+### Nombres de 1 à 10 sur une ligne
 
 Avec une boucle, affichez les nombres de 1 à 10 sur une seule ligne.
+
+*Conseil* : n'hésitez pas à relire le début du chapitre 3 *Affichage* qui discute de la fonction `print()`.
 
 
 ### Nombres pairs et impairs
@@ -295,70 +297,78 @@ Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. C
 ### Triangle
 
 Écrivez un script qui dessine un triangle comme celui-ci :
-
-    *
-    **
-    ***
-    ****
-    *****
-    ******
-    *******
-    ********
-    *********
-    **********
-
+```
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+```
 
 ### Triangle inversé
 
 Écrivez un script qui dessine un triangle comme celui-ci :
-
-    **********
-    *********
-    ********
-    *******
-    ******
-    *****
-    ****
-    ***
-    **
-    *
-
+```
+**********
+*********
+********
+*******
+******
+*****
+****
+***
+**
+*
+```
 
 ### Triangle gauche
 
 Écrivez un script qui dessine un triangle comme celui-ci :
-
-             *
-            **
-           ***
-          ****
-         *****
-        ******
-       *******
-      ********
-     *********
-    **********
-
+```
+         *
+        **
+       ***
+      ****
+     *****
+    ******
+   *******
+  ********
+ *********
+**********
+```
 
 ### Pyramide
 
 Écrivez un script qui dessine une pyramide comme celle-ci :
+```
+         *
+        ***
+       *****
+      *******
+     *********
+    ***********
+   *************
+  ***************
+ *****************
+*******************
+```
 
-             *
-            ***
-           *****
-          *******
-         *********
-        ***********
-       *************
-      ***************
-     *****************
-    *******************
+Essayez de faire évoluer votre script pour dessiner la pyramide à partir d'un nombre arbitraire de lignes `N`. Vous pourrez demander à l'utilisateur le nombre de lignes de la pyramide avec les instructions suivantes qui utilisent la fonction `input()` :
+
+```
+reponse = input("Rentrez un nombre de lignes (entier positif): ")
+N = int(reponse)
+```
 
 
 ### Parcours de matrice
 
-Imaginons que l'on souhaite parcourir tous les éléments d'une matrice carrée, c'est-à-dire d'une matrice qui est constituée d'autant de colonnes que de lignes.
+Imaginons que l'on souhaite parcourir tous les éléments d'une matrice carrée, c'est-à-dire d'une matrice qui est constituée d'autant de lignes que de colonnes.
 
 Écrivez un script qui parcourt chaque élément de la matrice et qui affiche le numéro de ligne et de colonne uniquement avec des boucles `for`.
 
@@ -374,9 +384,10 @@ ligne colonne
 
 ![Parcours d'une matrice](img/parcours_matrice.png "Parcours d'une matrice"){ #fig:parcoursmatrice width=30% }
 
-Attention à bien respecter l'alignement des chiffres qui doivent être justifiés à droite. Testez pour une matrice 3 $\times$ 3, 5 $\times$ 5, et 10 $\times$ 10.
+Attention à bien respecter l'alignement des chiffres qui doivent être justifiés à droite sur 4 caractères. Testez pour une matrice 3 $\times$ 3, 5 $\times$ 5, et 10 $\times$ 10.
 
-Ecrivez une version bis de votre script, cette fois-ci avec des boucles `while`.
+Écrivez une seconde version de votre script, cette fois-ci avec des boucles `while`.
+
 
 ### Parcours de demi-matrice sans la diagonale (exercice ++)
 
@@ -384,20 +395,22 @@ En se basant sur le script précédent, on souhaite réaliser le parcours d'une 
 
 ![Demi-matrice sans la diagonale (en gris)](img/demi-matrice-sans-diag.png "Demi-matrice sans la diagonale (en gris)"){ #fig:demimatrice width=30% }
 
-Écrivez un script qui affiche le numéro de ligne et de colonne, puis la taille de la matrice `NxN` et le nombre total de cases parcourues. Par exemple pour une matrice 4 $\times$ 4 (N=4) :
+Écrivez un script qui affiche le numéro de ligne et de colonne, puis la taille de la matrice $N \times N$ et le nombre total de cases parcourues. Par exemple pour une matrice 4 $\times$ 4 (N=4) :
 ```
 ligne colonne
-   1     2
-   1     3
-   1     4
-   2     3
-   2     4
-   3     4
+   1    2
+   1    3
+   1    4
+   2    3
+   2    4
+   3    4
 Pour une matrice 4x4, on a parcouru 6 cases
 ```
 Testez votre script avec `N=3`, puis `N=4` et enfin `N=5`.
 
-Concevez une seconde version à partir du script précédent, où cette fois on n'affiche plus tous les couples possibles mais simplement la valeur de `N`, et le nombre de cases parcourues. Affichez cela pour des valeurs de `N` allant de 1 à 20. Pouvez-vous trouver une formule générale reliant le nombre de cases parcourues à `N` ?
+Concevez une seconde version à partir du script précédent, où cette fois on n'affiche plus tous les couples possibles mais simplement la valeur de `N`, et le nombre de cases parcourues. Affichez cela pour des valeurs de `N` allant de 2 à 10.
+
+Pouvez-vous trouver une formule générale reliant le nombre de cases parcourues à `N` ?
 
 
 ### Sauts de puce
@@ -413,7 +426,7 @@ Avec une boucle `while`, simuler le mouvement de cette puce de l'emplacement 0 �
 
 `random.choice([-1,1])`
 
-qui renvoie au hasard les valeurs -1 ou 1 avec la même probabilité. Avant d'utiliser cette commande vous mettrez au début de votre script la ligne
+qui renvoie au hasard les valeurs -1 ou 1 avec la même probabilité. Avant d'utiliser cette commande vous mettrez au tout début de votre script la ligne
 
 `import random`
 
@@ -422,10 +435,10 @@ Nous reverrons la signification de cette syntaxe particulière dans le chapitre 
 
 ### Suite de Fibonacci (exercice +++)
 
-La suite de Fibonacci est une suite mathématique qui porte le nom de Leonardo Fibonacci, un mathématicien italien du XIII$^e$ siècle. Initialement, cette suite a été conçue pour décrire la croissance d'une population de lapins mais elle peut également être utilisée pour décrire certains motifs géométriques retrouvés dans la nature (coquillages, fleurs de tournesol...).
+La [suite de Fibonacci](https://fr.wikipedia.org/wiki/Suite_de_Fibonacci) est une suite mathématique qui porte le nom de Leonardo Fibonacci, un mathématicien italien du XIII$^e$ siècle. Initialement, cette suite a été conçue pour décrire la croissance d'une population de lapins mais elle peut également être utilisée pour décrire certains motifs géométriques retrouvés dans la nature (coquillages, fleurs de tournesol...).
 
-Par définition, les deux premiers termes de la suite de Fibonacci sont 0 et 1. Ensuite, le terme au rang *n* est la somme des nombres aux rangs $n - 1$ et $n - 2$. Par exemple, les 10 premiers termes de la suite de Fibonacci sont 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.
+Par définition, les deux premiers termes (de rang 0 et de rang 1) de la suite de Fibonacci sont 0 et 1. Ensuite, le terme au rang *n* (avec $n > 1$) est la somme des nombres aux rangs $n - 1$ et $n - 2$. Par exemple, les 10 premiers termes de la suite de Fibonacci sont 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.
 
-Écrivez un script qui construit la liste des 20 premiers termes de la suite de Fibonacci puis l'affiche.
+Écrivez un script qui construit une liste `fibo` des 15 premiers termes de la suite de Fibonacci puis l'affiche.
 
-Améliorez ce script en imprimant à chaque itération le rapport entre l'élément $n$ et l'élément $n - 1$. Ce rapport tend-il vers une constante ? Si oui, laquelle ?
+Améliorez ce script en affichant, pour chaque élément de la liste `fibo` avec $n > 1$, le rapport entre l'élément de rang $n$ et l'élément de rang $n - 1$. Ce rapport tend-il vers une constante ? Si oui, laquelle ?
