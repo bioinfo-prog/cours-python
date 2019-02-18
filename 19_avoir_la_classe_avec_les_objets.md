@@ -1468,7 +1468,7 @@ class Citron:
     saveur = "acide"
 
     def __init__(self, couleur="jaune", taille="standard"):
-        """Constructeur de la classe Citron : prend deux arguments optionnels couleur et taille."""
+        """Constructeur de la classe Citron : prend deux arguments par mot-clé couleur et taille."""
         self.couleur = couleur
         self.taille = taille
 
@@ -1505,7 +1505,7 @@ class Citron(builtins.object)
  |  Methods defined here:
  |  
  |  __init__(self, couleur='jaune', taille='standard')
- |      Constructeur de la classe Citron : prend deux arguments optionnels couleur et taille.
+ |      Constructeur de la classe Citron : prend deux arguments par mot-clé couleur et taille.
  |  
  |  get_attributs(self)
  |      Cette méthode renvoie un tuple contenant les attributs de l'instance en cours.

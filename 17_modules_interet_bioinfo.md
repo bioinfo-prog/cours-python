@@ -629,7 +629,7 @@ Ligne 12. La fonction `plot()` permet de construire une courbe à partir des coo
 
 Ligne 13. La fonction `grid()` affiche une grille.
 
-Ligne 14. Enfin, la fonction `savefig()` enregistre le graphique produit sous la forme d'une image au format png. Des arguments optionnels définissent la manière de générer les marges autour du graphique (`bbox_inches`) et la résolution de l'image (`dpi`).
+Ligne 14. Enfin, la fonction `savefig()` enregistre le graphique produit sous la forme d'une image au format png. Des arguments par mot-clé définissent la manière de générer les marges autour du graphique (`bbox_inches`) et la résolution de l'image (`dpi`).
 
 
 ### Représentation sous forme de diagramme en bâtons

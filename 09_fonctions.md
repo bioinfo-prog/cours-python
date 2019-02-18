@@ -185,7 +185,7 @@ Python permet même de rentrer les arguments par mot-clé dans un ordre arbitrai
 (0, 80, 10)
 ```
 
-Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et optionnels ? Et bien les arguments optionnels doivent toujours être placés avant les arguments optionnels :
+Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et par mot-clé ? Et bien les arguments positionnels doivent toujours être placés avant les arguments par mot-clé :
 
 ```
 >>> def fct(a, b, x=0, y=0, z=0):
