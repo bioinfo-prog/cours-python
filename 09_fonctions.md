@@ -331,12 +331,12 @@ La fonction `math.pow(x,y)` permet de calculer $x^y$. Reprogrammer une fonction 
 
 ### Fonction pyramide
 
-Reprenez l'exercice 5.4.10 qui dessine un triangle isocèle. Concevez une fonction `gen_pyramide()` à laquelle vous passez un nombre entier `N` et qui renvoie une pyramide de *N* lignes (i.e. triangle isocèle) sous forme de chaîne de caractères. Le programme principal demandera à l'utilisateur le nombre de lignes souhaitées (pensez à la fonction `input()` !) et affichera la pyramide à l'écran.
+Reprenez l'exercice du chapitre 5 qui dessine une pyramide. Concevez une fonction `gen_pyramide()` à laquelle vous passez un nombre entier `N` et qui renvoie une pyramide de *N* lignes (i.e. triangle isocèle) sous forme de chaîne de caractères. Le programme principal demandera à l'utilisateur le nombre de lignes souhaitées (pensez à la fonction `input()` !) et affichera la pyramide à l'écran.
 
 
 ### Fonction nombre premier
 
-Reprenez l'exercice 6.6.10 sur les nombres premiers. Concevez une fonction `is_prime()` qui prend en argument un nombre entier positif *n* (supérieur à 2) et qui renvoie un booléen `True` si *n* est premier, et `False` si *n* n'est pas premier. Déterminez tous les nombres premiers de 2 à 100. On souhaite avoir une sortie comme ça :
+Reprenez l'exercice du chapitre 6 sur les nombres premiers. Concevez une fonction `is_prime()` qui prend en argument un nombre entier positif *n* (supérieur à 2) et qui renvoie un booléen `True` si *n* est premier, et `False` si *n* n'est pas premier. Déterminez tous les nombres premiers de 2 à 100. On souhaite avoir une sortie comme ça :
 ```
   2 est premier
   3 est premier
