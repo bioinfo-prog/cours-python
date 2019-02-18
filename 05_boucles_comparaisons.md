@@ -344,7 +344,7 @@ Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. C
 
 ### Pyramide
 
-Écrivez un script qui dessine une pyramide comme celle-ci :
+Écrivez un script `pyra.py` qui dessine une pyramide comme celle-ci :
 ```
          *
         ***
@@ -386,7 +386,7 @@ ligne colonne
 
 Attention à bien respecter l'alignement des chiffres qui doivent être justifiés à droite sur 4 caractères. Testez pour une matrice 3 $\times$ 3, 5 $\times$ 5, et 10 $\times$ 10.
 
-Écrivez une seconde version de votre script, cette fois-ci avec des boucles `while`.
+Écrivez une seconde version de votre script, cette fois-ci avec deux boucles `while`.
 
 
 ### Parcours de demi-matrice sans la diagonale (exercice ++)
