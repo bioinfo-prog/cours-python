@@ -636,7 +636,7 @@ Voici quelques conseils pour vous aider à concevoir un script Python.
 - Testez toujours votre code sur un jeu de données **simple** pour pouvoir comprendre rapidement ce qui se passe. Par exemple, une séquence de 1000 bases est plus facile à gérer que le génome humain !
 - Lorsque votre programme plante, **lisez** le message d'erreur. Python tente de vous expliquer ce qui ne va pas. Le numéro de la ligne qui pose problème est aussi indiquée.
 - Lorsque votre programme ne plante pas mais qu'il ne fait pas ce que vous souhaitez, cela signifie sans doute que les variables ou objets créés ne contiennent pas les valeurs que vous attendez. Essayez d'identifier la variable qui pose problème en utilisant un jeu de données simple.
-- Utilisez les outils ou sites internet existants (pythontutor, etc).
+- Utilisez les outils ou sites internet existants (Python Tutor, etc).
 - Discutez avec des gens. Faites tester votre programme par d'autres. Les instructions d'utilisation sont-elles claire ?
 - Documentez-vous. L'algorithme dont vous avez besoin existe-t-il déjà dans un autre module ? Existe-t-il sous la forme de pseudo-code ? De quels outils mathématiques avez-vous besoin dans votre algorithme ?
 - Si vous distribuez votre code :

@@ -233,7 +233,7 @@ z = 5
 resultat = carre(z)
 print(resultat)
 ```
-Pour la suite nous allons utiliser l'excellent site [pythontutor](http://www.pythontutor.com) qui permet de visualiser l'état des variables au fur et à mesure de l'exécution d'un code Python (avant de continuer nous vous conseillons de prendre 5 minutes pour tester ce site). Regardons maintenant ce qui se passe dans le code ci-dessus, étape par étape :
+Pour la suite nous allons utiliser l'excellent site [Python Tutor](http://www.pythontutor.com) qui permet de visualiser l'état des variables au fur et à mesure de l'exécution d'un code Python (avant de continuer nous vous conseillons de prendre 5 minutes pour tester ce site). Regardons maintenant ce qui se passe dans le code ci-dessus, étape par étape :
 
 - Étape 1 : Python est prêt à lire la première ligne de code.
 
@@ -253,7 +253,7 @@ Pour la suite nous allons utiliser l'excellent site [pythontutor](http://www.pyt
 \
 
 
-- Étape 4 : La fonction `carre()` est appelée et on lui passe en argument l'entier `z`. La fonction rentre alors en exécution et un nouveau cadre bleu est créé dans lequel *pythontutor* va nous indiquer toutes les variables *locales* à la fonction. Notez bien que la variable passée en argument, qui s'appelle `x` dans la fonction, est créée en tant que variable *locale*. On pourra aussi remarquer que les variables *globales* situées dans le *global frame* sont toujours là.
+- Étape 4 : La fonction `carre()` est appelée et on lui passe en argument l'entier `z`. La fonction rentre alors en exécution et un nouveau cadre bleu est créé dans lequel *Python Tutor* va nous indiquer toutes les variables *locales* à la fonction. Notez bien que la variable passée en argument, qui s'appelle `x` dans la fonction, est créée en tant que variable *locale*. On pourra aussi remarquer que les variables *globales* situées dans le *global frame* sont toujours là.
 
 ![Etape 4.](img/fct_step4.png){width=40%, #fig:fct_step4 width=80% }
 \
@@ -271,7 +271,7 @@ Pour la suite nous allons utiliser l'excellent site [pythontutor](http://www.pyt
 \
 
 
-- Étape 7 : Python s'apprête à retourner la variable *locale* `y` au programme principal (*pythontutor* nous indique le contenu de la valeur retournée).
+- Étape 7 : Python s'apprête à retourner la variable *locale* `y` au programme principal (*Python Tutor* nous indique le contenu de la valeur retournée).
 
 ![Etape 7.](img/fct_step7.png){ #fig:fct_step7 width=80% }
 \
@@ -291,7 +291,7 @@ Pour la suite nous allons utiliser l'excellent site [pythontutor](http://www.pyt
 
 Nous espérons que cet exemple guidé facilitera la compréhension des concepts de variables locales et globales. Cela viendra aussi avec la pratique. Nous irons un peu plus loin sur les fonctions dans le chapitre 12. D'ici là essayez de vous entraîner au maximum avec les fonctions. C'est un concept ardu, mais il est impératif de savoir les maîtriser.
 
-Enfin, comme vous avez vu, *pythontutor* nous a grandement aidés à comprendre ce qu'il se passait. N'hésitez pas à l'utiliser sur des exemples ponctuels, celui-ci pourra vous aider à comprendre lorsqu'un code ne fait pas ce que vous attendez.
+Enfin, comme vous avez vu, *Python Tutor* nous a grandement aidés à comprendre ce qu'il se passait. N'hésitez pas à l'utiliser sur des exemples ponctuels, celui-ci pourra vous aider à comprendre lorsqu'un code ne fait pas ce que vous attendez.
 
 ## Exercices
 

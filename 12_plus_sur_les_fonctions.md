@@ -2,7 +2,7 @@
 
 Avant d'aborder ce chapitre, nous vous conseillons de relire le chapitre 9 et de bien en assimiler toutes les notions (et aussi d'en faire les exercices). Nous avons vu dans ce chapitre 9 le concept puissant et incontournable que représente les **fonctions**. Nous vous avons également introduit la notion de variables **locales** et **globales**.
 
-Dans ce chapitre, nous allons aller un peu plus loin sur la visibilité de ces variables dans et hors des fonctions, et aussi voir ce qui se passe lorsque ces variables sont des listes. Attention, la plupart des lignes de code ci-dessous sont données à titre d'exemple pour bien comprendre ce qui se passe, mais nombre d'entre elles sont des aberrations de programmation. Ainsi nous ferons un récapitulatif des bonnes pratiques à la fin du chapitre. Enfin, nous vous conseillons de tester tous les exemples ci-dessous avec le site [pythontutor](http://www.pythontutor.com/) afin de suivre l'état des variables lors de l'exécution des exemples.
+Dans ce chapitre, nous allons aller un peu plus loin sur la visibilité de ces variables dans et hors des fonctions, et aussi voir ce qui se passe lorsque ces variables sont des listes. Attention, la plupart des lignes de code ci-dessous sont données à titre d'exemple pour bien comprendre ce qui se passe, mais nombre d'entre elles sont des aberrations de programmation. Ainsi nous ferons un récapitulatif des bonnes pratiques à la fin du chapitre. Enfin, nous vous conseillons de tester tous les exemples ci-dessous avec le site [Python Tutor](http://www.pythontutor.com/) afin de suivre l'état des variables lors de l'exécution des exemples.
 
 
 ## Appel d'une fonction dans une fonction
@@ -23,7 +23,7 @@ def calc_vals(debut, fin):
 print(calc_vals(-5,5))
 ```
 
-Dans cet exemple, nous appelons depuis le programme principal la fonction `calc_vals()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `polynome()`. Regardons ce que *pythontutor* nous montre lorsque la fonction `polynome()` est en exécution (lors de son second appel) :
+Dans cet exemple, nous appelons depuis le programme principal la fonction `calc_vals()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `polynome()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `polynome()` est en exécution (lors de son second appel) :
 
 ![Appel d'une fonction dans une fonction.](img/appel_fct_ds_fct.png){ #fig:appel_fct_ds_fct width=40% }
 
@@ -61,7 +61,7 @@ def calc_factorielle(nb):
 print(calc_factorielle(4))
 ```
 
-Pas très facile à comprendre, n'est-ce pas ? À nouveau, demandons l'aide de pythontutor pour visualiser ce qui se passe (nous vous conseillons bien sûr de tester vous-même cet exemple sur [pythontutor](http://pythontutor.com)) :
+Pas très facile à comprendre, n'est-ce pas ? À nouveau, demandons l'aide de Python Tutor pour visualiser ce qui se passe (nous vous conseillons bien sûr de tester vous-même cet exemple sur [Python Tutor](http://pythontutor.com)) :
 
 ![Fonction récursive : factorielle.](img/fct_recursive_factorielle.png){ #fig:fct-recursive-factorielle width=70% }
 

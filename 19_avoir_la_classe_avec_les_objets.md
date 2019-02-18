@@ -219,7 +219,7 @@ Vous l'aurez deviné, ce code affichera `acide` à l'écran. Comme pour les fonc
 
 Lors de l'instanciation d'un objet à partir d'une classe, il peut être intéressant de lancer certaines instructions comme par exemple initialiser certaines variables. Pour cela, on peut ajouter une méthode spéciale nommée `.__init__()` : cette méthode s'appelle le constructeur de la classe. Il s'agit d'une méthode spéciale car son nom est entouré de doubles *underscores* : en effet, elle sert au fonctionnement interne de notre classe, et sauf cas extrêmement rare, elle n'est pas supposée être lancée comme une fonction classique par l'utilisateur de la classe. Ce constructeur est exécuté à chaque instanciation de notre classe, et ne renvoie pas de valeur, il ne possède donc pas de `return`.
 
-Pour bien comprendre comment cela fonctionne, nous allons suivre un exemple simple avec le site [Pythontutor](http://www.pythontutor.com) (déjà utilisé dans le Chapitre 9 et 12 sur les fonctions). N'hésitez pas à copier / coller ce petit code dans Pythontutor pour le tester vous-même :
+Pour bien comprendre comment cela fonctionne, nous allons suivre un exemple simple avec le site [Python Tutor](http://www.pythontutor.com) (déjà utilisé dans le Chapitre 9 et 12 sur les fonctions). N'hésitez pas à copier / coller ce petit code dans Python Tutor pour le tester vous-même :
 
 ```
 class Citron:
@@ -232,19 +232,19 @@ if __name__ == '__main__':
     print(citron1.couleur)
 ```
 
-Etape 1 (cf. Figure @fig:classe_constructeur1). Au départ, Pythontutor nous montre que la classe `Citron` a été mise en mémoire, elle contient pour l'instant la méthode `.__init__()`.
+Etape 1 (cf. Figure @fig:classe_constructeur1). Au départ, Python Tutor nous montre que la classe `Citron` a été mise en mémoire, elle contient pour l'instant la méthode `.__init__()`.
 
 ![Fonctionnement d'un constructeur (étape 1)](img/classe_constructeur1.png){ #fig:classe_constructeur1 width=90%}
 
-Etape 2 (cf. Figure @fig:classe_constructeur2). Nous créons ensuite l'instance `citron1` à partir de la classe `Citron`. Notre classe `Citron` contenant une méthode `.__init__()` (le constructeur), celle-ci est immédiatement exécutée au moment de l'instanciation. Cette méthode prend un argument nommé `self` : cet argument est **obligatoire**. Il s'agit en fait d'une référence vers l'instance en cours (instance que nous appellerons `citron1` de retour dans le programme principal, mais cela serait vrai pour n'importe quel autre nom d'instance). Pythontutor nous indique cela par une flèche point vers un espace nommé `Citron instance`. La signification du `self` est expliquée en détail dans la rubrique suivante.
+Etape 2 (cf. Figure @fig:classe_constructeur2). Nous créons ensuite l'instance `citron1` à partir de la classe `Citron`. Notre classe `Citron` contenant une méthode `.__init__()` (le constructeur), celle-ci est immédiatement exécutée au moment de l'instanciation. Cette méthode prend un argument nommé `self` : cet argument est **obligatoire**. Il s'agit en fait d'une référence vers l'instance en cours (instance que nous appellerons `citron1` de retour dans le programme principal, mais cela serait vrai pour n'importe quel autre nom d'instance). Python Tutor nous indique cela par une flèche point vers un espace nommé `Citron instance`. La signification du `self` est expliquée en détail dans la rubrique suivante.
 
 ![Fonctionnement d'un constructeur (étape 2)](img/classe_constructeur2.png){ #fig:classe_constructeur2 width=90%}
 
-Etape 3 (cf. Figure @fig:classe_constructeur3). Un nouvel attribut est créé s'appellant `self.couleur`. La chaîne de caractères `couleur` est ainsi "accrochée" (grâce au caractère `.`) à l'instance en cours référencée par le `self`. Pythontutor nous indique cela par une flèche qui pointe depuis le `self` vers la variable `couleur` (qui se trouve elle-même dans l'espace nommé `Citron instance`). Si d'autres attributs étaient créés, ils seraient tous répertoriés dans cet espace `Citron instance` (cf. exemple de la Figure @fig:classe_var_instance). Vous l'aurez compris, l'attribut `couleur` est donc une variable d'instance (cf. rubrique *Ajout d'un attribut d'instance* ci-dessus). La méthode `.__init__()` étant intrinsèquement une fonction, Pythontutor nous rappelle qu'elle ne renvoie rien (d'où le `None` dans la case *Return value*) une fois son exécution terminée. Et comme avec les fonctions classiques, l'espace mémoire contenant les variables locales à cette méthode va être détruit une fois son exécution terminée.
+Etape 3 (cf. Figure @fig:classe_constructeur3). Un nouvel attribut est créé s'appellant `self.couleur`. La chaîne de caractères `couleur` est ainsi "accrochée" (grâce au caractère `.`) à l'instance en cours référencée par le `self`. Python Tutor nous indique cela par une flèche qui pointe depuis le `self` vers la variable `couleur` (qui se trouve elle-même dans l'espace nommé `Citron instance`). Si d'autres attributs étaient créés, ils seraient tous répertoriés dans cet espace `Citron instance` (cf. exemple de la Figure @fig:classe_var_instance). Vous l'aurez compris, l'attribut `couleur` est donc une variable d'instance (cf. rubrique *Ajout d'un attribut d'instance* ci-dessus). La méthode `.__init__()` étant intrinsèquement une fonction, Python Tutor nous rappelle qu'elle ne renvoie rien (d'où le `None` dans la case *Return value*) une fois son exécution terminée. Et comme avec les fonctions classiques, l'espace mémoire contenant les variables locales à cette méthode va être détruit une fois son exécution terminée.
 
 ![Fonctionnement d'un constructeur (étape 3)](img/classe_constructeur3.png){ #fig:classe_constructeur3 width=90%}
 
-Etape 4 (cf. Figure @fig:classe_constructeur4). De retour dans le programme principal, Pythontutor nous indique que `citron1` est une instance de la classe `Citron` par une flèche pointant vers l'espace `Citron instance`. Cette instance contient un attribut nommé `couleur` auquel on accéde avec la syntaxe `citron1.couleur` dans le `print()`. Notez que si l'instance s'était appelée `enorme_citron`, on aurait utilisé `enorme_citron.couleur` pour accéder à l'attribut `couleur`.
+Etape 4 (cf. Figure @fig:classe_constructeur4). De retour dans le programme principal, Python Tutor nous indique que `citron1` est une instance de la classe `Citron` par une flèche pointant vers l'espace `Citron instance`. Cette instance contient un attribut nommé `couleur` auquel on accéde avec la syntaxe `citron1.couleur` dans le `print()`. Notez que si l'instance s'était appelée `enorme_citron`, on aurait utilisé `enorme_citron.couleur` pour accéder à l'attribut `couleur`.
 
 ![Fonctionnement d'un constructeur (étape 4)](img/classe_constructeur4.png){ #fig:classe_constructeur4 width=90%}
 
@@ -345,7 +345,7 @@ close-box-adv
 
 Ligne 11. On crée l'instance `citron1` en lui passant l'argument `"jaune pâle"`. La variable d'instance `couleur` prendra ainsi cette valeur au lieu de celle par défaut ("jaune"). A noter, l'instanciation affichera le message `Le citron c'est trop bon !` puisque la méthode `.affiche_attributs()` est appelée dans le constructeur `.__init__()`.
 
-Afin de bien comprendre les différentes étapes des codes de cette rubrique, nous vous conseillons de les retester de votre côté dans Pythontutor.
+Afin de bien comprendre les différentes étapes des codes de cette rubrique, nous vous conseillons de les retester de votre côté dans Python Tutor.
 
 ### Différence entre les attributs de classe et d'instance
 
@@ -387,11 +387,11 @@ Lignes 10 et 11. On crée une nouvelle méthode `.ajoute_masse()` qui augmente l
 
 Ligne 14 à 21. Dans le programme principal, on instancie la classe Citron sans passer d'argument (les valeurs par défaut `"jaune"`, `"standard"` et `0` seront donc prises), puis on imprime les attributs.
 
-Regardons l'état des variables après avoir exécuté ce code grâce au site [Pythontutor](http://www.pythontutor.com) dans la Figure @fig:classe_var_instance.
+Regardons l'état des variables après avoir exécuté ce code grâce au site [Python Tutor](http://www.pythontutor.com) dans la Figure @fig:classe_var_instance.
 
-![Illustration de la signification des attributs de classe et d'instance avec Pythontutor](img/classe_var_instance.png){ #fig:classe_var_instance width=90%}
+![Illustration de la signification des attributs de classe et d'instance avec Python Tutor](img/classe_var_instance.png){ #fig:classe_var_instance width=90%}
 
-Pythontutor nous montre bien la différence entre les variables de classe `forme` et `saveur` qui apparaissent directement dans les attributs de la classe `Citron` lors de sa définition, et les trois variables d'instance `couleur`, `taille` et `masse` qui sont liées à l'instance `citron1`. Pour autant, on peut voir dans la dernière instruction `print()` qu'on accède de la même manière aux variables de classe ou d'instance, lorsqu'on est à l'extérieur, avec une syntaxe `instance.attribut`.
+Python Tutor nous montre bien la différence entre les variables de classe `forme` et `saveur` qui apparaissent directement dans les attributs de la classe `Citron` lors de sa définition, et les trois variables d'instance `couleur`, `taille` et `masse` qui sont liées à l'instance `citron1`. Pour autant, on peut voir dans la dernière instruction `print()` qu'on accède de la même manière aux variables de classe ou d'instance, lorsqu'on est à l'extérieur, avec une syntaxe `instance.attribut`.
 
 Au sein des méthodes, on accède également de la même manière aux attributs de classe ou d'instance, avec une syntaxe `self.attribut` :
 
@@ -434,19 +434,19 @@ if __name__ == '__main__':
     citron1 = Citron()
     print(citron1.saveur)
     citron1.saveur = "sucrée"
-    print(citron1.saveur) # on regarde ici avec Pythontutor
+    print(citron1.saveur) # on regarde ici avec Python Tutor
     del citron1.saveur
-    print(citron1.saveur) # on regarde ici avec Pythontutor
+    print(citron1.saveur) # on regarde ici avec Python Tutor
     del citron1.saveur
 ```
 
-A la Ligne 7, on pourrait penser qu'on modifie l'attribut de classe `saveur` avec une syntaxe `instance.attribut_de_classe = nouvelle_valeur`. Que se passe-t-il exactement ? La Figure @fig:classe_var_instance3 nous montre l'état des variables grâce au site Pythontutor. Celui-ci indique que la Ligne 7 a en fait créé un nouvel attribut d'instance `citron1.saveur` (contenant la valeur `sucrée`) qui est bien distinct de l'attribut de classe auquel on accédait avant par le même nom !
+A la Ligne 7, on pourrait penser qu'on modifie l'attribut de classe `saveur` avec une syntaxe `instance.attribut_de_classe = nouvelle_valeur`. Que se passe-t-il exactement ? La Figure @fig:classe_var_instance3 nous montre l'état des variables grâce au site Python Tutor. Celui-ci indique que la Ligne 7 a en fait créé un nouvel attribut d'instance `citron1.saveur` (contenant la valeur `sucrée`) qui est bien distinct de l'attribut de classe auquel on accédait avant par le même nom !
 
-![Illustration avec Pythontutor de la non destruction d'un attribut de classe (étape 1)](img/classe_var_instance2.png){ #fig:classe_var_instance2 width=90%}
+![Illustration avec Python Tutor de la non destruction d'un attribut de classe (étape 1)](img/classe_var_instance2.png){ #fig:classe_var_instance2 width=90%}
 
-A la Ligne 9, on détruit finalement l'attribut d'instance `citron1.saveur` qui contenait la valeur `sucrée`. Pythontutor nous montre que la notation `citron1.saveur` pointe maintenant vers l'espace `Citron instance` qui est vide ; ainsi, Python utilisera alors l'attribut de classe `.saveur` qui contient toujours la valeur `acide` (cf. Figure @fig:classe_var_instance3).
+A la Ligne 9, on détruit finalement l'attribut d'instance `citron1.saveur` qui contenait la valeur `sucrée`. Python Tutor nous montre que la notation `citron1.saveur` pointe maintenant vers l'espace `Citron instance` qui est vide ; ainsi, Python utilisera alors l'attribut de classe `.saveur` qui contient toujours la valeur `acide` (cf. Figure @fig:classe_var_instance3).
 
-![Illustration avec Pythontutor de la non destruction d'un attribut de classe (étape 3)](img/classe_var_instance3.png){ #fig:classe_var_instance3 width=90%}
+![Illustration avec Python Tutor de la non destruction d'un attribut de classe (étape 3)](img/classe_var_instance3.png){ #fig:classe_var_instance3 width=90%}
 
 La ligne 11 va tenter de détruire l'attribut de classe `.saveur`. Toutefois, Python interdit cela, ainsi l'erreur suivante sera générée :
 
@@ -477,7 +477,7 @@ Dans la [documentation officielle](https://docs.python.org/3/tutorial/classes.ht
 
 close-box-def
 
-Différents espaces de noms peuvent contenir des objets de même nom sans que cela ne pose de problème. Parce-qu'ils sont chacun dans un espace différent, ils peuvent cohabiter sans risque d'écrasement de l'un par l'autre. Par exemple, à chaque fois que l'on appelle une fonction, un espace de noms est créé pour cette fonction (Pythontutor nous montre cet espace sous la forme d'un carré bleu, cf. Chapitres 9 et 12 sur les fonctions). Si cette fonction appelle une autre fonction, un nouvel espace est créé, bien distinct de la fonction appelante (ce nouvel espace peut donc contenir un objet de même nom). Finalement, ce qui va compter, c'est de savoir quelles règles Python va utiliser pour chercher les différents espaces de noms pour finalement accéder à un objet.
+Différents espaces de noms peuvent contenir des objets de même nom sans que cela ne pose de problème. Parce-qu'ils sont chacun dans un espace différent, ils peuvent cohabiter sans risque d'écrasement de l'un par l'autre. Par exemple, à chaque fois que l'on appelle une fonction, un espace de noms est créé pour cette fonction (Python Tutor nous montre cet espace sous la forme d'un carré bleu, cf. Chapitres 9 et 12 sur les fonctions). Si cette fonction appelle une autre fonction, un nouvel espace est créé, bien distinct de la fonction appelante (ce nouvel espace peut donc contenir un objet de même nom). Finalement, ce qui va compter, c'est de savoir quelles règles Python va utiliser pour chercher les différents espaces de noms pour finalement accéder à un objet.
 
 Nous allons dans cette rubrique refaire le point sur ce que l'on a appris dans cet ouvrage sur les espaces de noms en Python, puis se pencher sur les spécificités de ce concept dans les classes.
 
