@@ -1502,7 +1502,7 @@ publiés chaque année.
 Vous utiliserez les modules *Biopython* et *matplotlib*.
 
 
-#### Requête avec un mot clé
+#### Requête avec un mot-clé
 
 Sur le site de [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/),
 cherchez combien d'articles scientifiques sont relatifs à la barstar.
