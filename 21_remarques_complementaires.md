@@ -363,30 +363,6 @@ La variable `e` est une instance (un représentant) de l'erreur de type `IOError
 Si tout se passe bien, la page est téléchargée et stockée dans la variable `data`, puis ensuite enregistrée sur le disque dur.
 
 
-## Sauvegardez votre historique de commandes
-
-Vous pouvez sauvegarder l'historique des commandes utilisées dans l'interpréteur Python avec le module `readline`.
-```
->>> print("hello")
-hello
->>> a = 22
->>> a = a + 11
->>> print(a)
-33
->>> import readline
->>> readline.write_history_file()
-```
-
-Quittez Python. L'historique de toutes vos commandes est dans votre répertoire personnel, dans le fichier `.history`.
-
-Relancez l'interpréteur Python.
-```
->>> import readline
->>> readline.read_history_file()
-```
-Vous pouvez accéder aux commandes de la session précédente avec la flèche du haut de votre clavier. D'abord les commandes `readline.read_history_file()` et `import readline` de la session actuelle, puis `print(a)`, `a = a + 11`, `a = 22`...
-
-
 ## Ressources complémentaires
 
 Pour compléter votre apprentissage de Python, nous vous conseillons les ressources suivantes :  

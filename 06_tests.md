@@ -2,7 +2,7 @@
 
 ## Définition
 
-Les **tests** sont un élément essentiel à tout langage informatique si on veut lui donner un peu de complexité car ils permettent à l'ordinateur de prendre des décisions si telle ou telle condition est vraie ou fausse. Pour cela, Python utilise l'instruction `if` ainsi qu'une comparaison que nous avons abordée au chapitre précédent. Voici un premier exemple :
+Les **tests** sont un élément essentiel à tout langage informatique si on veut lui donner un peu de complexité car ils permettent à l'ordinateur de prendre des décisions. Pour cela, Python utilise l'instruction `if` ainsi qu'une comparaison que nous avons abordée au chapitre précédent. Voici un premier exemple :
 ```
 >>> x = 2
 >>> if x == 2:
@@ -19,9 +19,11 @@ et un second :
 ```
 Il y a plusieurs remarques à faire concernant ces deux exemples :
 
-- Dans le premier exemple, le test étant vrai, l'instruction `print("Le test est vrai !")` est exécutée. Dans le second exemple, le test est faux et rien n'est affiché.
-- Les blocs d'instruction dans les tests doivent forcément être indentés comme les boucles `for` et `while`.  L'indentation indique la portée des instructions à exécuter si le test est vrai.
-- L'instruction `if` se termine comme les instructions `for` et `while` par le caractère `:`.
+- Dans le premier exemple, le test étant vrai, l'instruction
+    `print("Le test est vrai !")`
+    est exécutée. Dans le second exemple, le test est faux et rien n'est affiché.
+- Les blocs d'instruction dans les tests doivent forcément être indentés comme pour les boucles `for` et `while`.  L'indentation indique la portée des instructions à exécuter si le test est vrai.
+- Et comme avec les boucles `for` et `while`, la ligne qui contient l'instruction `if` se termine par le caractère deux-points « `:`».
 
 
 ## Tests à plusieurs cas
@@ -44,7 +46,9 @@ Le test est vrai !
 Le test est faux !
 ```
 
-On peut utiliser une série de tests dans la même instruction `if`, notamment pour tester plusieurs valeurs d'une même variable. Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'intruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une `liste`. L'instruction `import random` sera vue plus tard, admettez pour le moment qu'elle est nécessaire.
+On peut utiliser une série de tests dans la même instruction `if`, notamment pour tester plusieurs valeurs d'une même variable.
+
+Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 8 *Modules*, admettez pour le moment qu'elle est nécessaire.
 ```
 >>> import random
 >>> base = random.choice(["a", "t", "c", "g"])
@@ -60,12 +64,14 @@ On peut utiliser une série de tests dans la même instruction `if`, notamment p
 choix d'une cytosine
 ```
 
-Dans cet exemple, Python teste la première condition, puis, si et seulement si elle est fausse,
-teste la deuxième et ainsi de suite... Le code correspondant à la première condition vérifiée est exécuté puis Python sort du `if`.
+Dans cet exemple, Python teste la première condition, puis, si et seulement si elle est fausse, teste la deuxième et ainsi de suite... Le code correspondant à la première condition vérifiée est exécuté puis Python sort du bloc d'instructions du `if`.
 
-**Remarque** : De nouveau, faites bien attention à l'indentation dans ces deux derniers exemples ! Vous devez être très rigoureux sur ce point. Pour vous en convaincre, exécutez ces deux scripts dans l'interpréteur Python :
 
-**Script 1**
+## Importance de l'indentation
+
+De nouveau, faites bien attention à l'indentation ! Vous devez être très rigoureux sur ce point. Pour vous en convaincre, exécutez ces deux exemples de code :
+
+**Code 1**
 ```
 nombres = [4, 5, 6]
 for nb in nombres:
@@ -73,8 +79,13 @@ for nb in nombres:
         print("Le test est vrai")
         print("car la variable nb vaut {}".format(nb))
 ```
+Résultat :
+```
+Le test est vrai
+car la variable nb vaut 5
+```
 
-**Script 2**
+**Code 2**
 ```
 nombres = [4, 5, 6]
 for nb in nombres:
@@ -82,12 +93,20 @@ for nb in nombres:
         print("Le test est vrai")
     print("car la variable nb vaut {}".format(nb))
 ```
-Comment expliquez-vous ce résultat ? Observez bien l'indentation de la dernière ligne.
+Résultat :
+```
+car la variable nb vaut 4
+Le test est vrai
+car la variable nb vaut 5
+car la variable nb vaut 6
+```
+
+Les deux codes pourtant très similaires produisent des résultats très différents. Si vous observez avec attention l'indentation des instructions sur la ligne 5, vous remarquerez que dans le code 1, l'instruction est indentée deux fois, ce qui signifie qu'elle appartient au bloc d'instructions du test `if`. Dans le code 2, l'instruction de la ligne 5 n'est indentée qu'une seule fois, ce qui fait qu'elle appartient au bloc d'instructions de la boucle `for`, d'où l'affichage de `car la variable nb vaut xx` pour toutes les valeurs de `nb`.
 
 
 ## Tests multiples
 
-Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont le **OU** et le **ET**. Voici un petit rappel du mode de fonctionnement de l'opérateurs **OU** :
+Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont le **OU** et le **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
 
 
 | Condition 1 | Opérateur | Condition 2 | Résultat |
@@ -142,7 +161,8 @@ True
 False
 ```
 
-## Instructions break et continue
+
+## Instructions `break` et `continue`
 
 Ces deux instructions permettent de modifier le comportement d'une boucle (`for` ou `while`) avec un test.
 
@@ -158,7 +178,7 @@ L'instruction `break` stoppe la boucle.
 2
 ```
 
-L'instruction `continue` saute à l'itération suivante.
+L'instruction `continue` saute à l'itération suivante, sans exécuter la suite du bloc d'instructions de la boucle.
 ```
 >>> for i in range(5):
 ...     if i == 2:
@@ -180,7 +200,7 @@ Lorsque l'on souhaite tester la valeur d'une variable de type *float*, le premie
 True
 ```
 
-Toutefois nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques des *floats* sous forme de nombres flottants (d'où leur nom !), et cela mène à certaines [limitations](https://docs.python.org/3.6/tutorial/floatingpoint.html). Regardez l'exemple suivant :
+Toutefois, nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques des *floats* sous forme de nombres flottants (d'où leur nom !), et cela mène à certaines [limitations](https://docs.python.org/3/tutorial/floatingpoint.html). Regardez l'exemple suivant :
 ```
 >>> (3 - 2.7) == 0.3
 False
@@ -188,7 +208,7 @@ False
 0.2999999999999998
 ```
 
-Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False`. 
+Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False` ligne 2.
 
 En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont un ordinateur traite les nombres flottants (comme un rapport de nombres binaires). Ainsi certaines valeurs de *float* ne peuvent être qu'approchées. Une manière de s'en rendre compte est d'utiliser l'écriture formatée en demandant un grand nombre de décimales :
 
@@ -203,12 +223,11 @@ En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont u
 '0.299999999999999822364316059974953532218933105468750000000000'
 ```
 
-On voit que lorsqu'on tape `0.3`, Python nous affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est donc essentiel d'avoir cela en tête lorsque l'on effectue un test .
+On observe que lorsqu'on tape `0.3`, Python affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est donc essentiel d'avoir cela en tête lorsque l'on effectue un test .
 
 open-box-adv
 
 Pour les raisons évoquées ci-dessus, il ne faut surtout pas tester si un *float* est égal à une certaine valeur. La bonne pratique est de vérifier si un *float* est compris dans un intervalle avec une certaine précision. Si on appelle cette précision *delta*, on peut procéder ainsi :
-
 ```
 >>> delta = 0.0001
 >>> var = 3.0 - 2.7
@@ -218,12 +237,13 @@ True
 True
 ```
 
-Ici on teste si `var` est compris dans l'intervalle `0.3` $\pm$ `delta`. Les deux méthodes mènent à un résultat strictement équivalent : 
+Ici on teste si `var` est compris dans l'intervalle $0.3 \pm delta$. Les deux méthodes mènent à un résultat strictement équivalent :
 
-- la ligne 3 est intuitive car elle ressemble à un encadrement mathématique ;
-- la ligne 5 qui utilise la valeur absolue est plus compacte mais un peu moins intuitive.
+- La ligne 3 est intuitive car elle ressemble à un encadrement mathématique.
+- La ligne 5 utilise la fonction valeur absolue `abs()` et est plus compacte.
 
 close-box-adv
+
 
 ## Exercices
 
@@ -256,7 +276,7 @@ Rappel : la séquence complémentaire s'obtient en remplaçant A par T, T par A,
 
 ### Minimum d'une liste
 
-La fonction `min()` de Python, renvoie l'élément le plus petit d'une liste consistuée de valeurs numériques ou de chaînes de caractères. Sans utiliser cette fonction, écrivez un script qui détermine le plus petit élément de la liste `[8, 4, 6, 1, 5]`.
+La fonction `min()` de Python renvoie l'élément le plus petit d'une liste constituée de valeurs numériques ou de chaînes de caractères. Sans utiliser cette fonction, écrivez un script qui détermine le plus petit élément de la liste `[8, 4, 6, 1, 5]`.
 
 
 ### Fréquence des acides aminés
@@ -272,12 +292,12 @@ Calculez la fréquence des acides aminés alanine (A), arginine (R), tryptophane
 
 Voici les notes d'un étudiant : 14, 9, 13, 15 et 12. Écrivez un script qui affiche la note maximum (utilisez la fonction `max()`), la note minimum (utilisez la fonction `min()`) et qui calcule la moyenne.
 
-Affichez la valeur de la moyenne avec deux décimales. Affichez aussi la mention obtenue sachant que la mention est passable si la moyenne est entre 10 inclus et 12 exclus, assez-bien entre 12 inclus et 14 exclus et bien au-delà de 14.
+Affichez la valeur de la moyenne avec deux décimales. Affichez aussi la mention obtenue sachant que la mention est « passable » si la moyenne est entre 10 inclus et 12 exclus, « assez bien » entre 12 inclus et 14 exclus et « bien » au-delà de 14.
 
 
 ### Nombres pairs
 
-Construisez une boucle qui parcourt les nombres de 0 à 20 et qui affiche les nombres pairs inférieurs ou égaux à 10 d'une part, et les nombres impairs strictement supérieur à 10 d'autre part.
+Construisez une boucle qui parcourt les nombres de 0 à 20 et qui affiche les nombres pairs inférieurs ou égaux à 10 d'une part, et les nombres impairs strictement supérieurs à 10 d'autre part.
 
 Pour cet exercice, vous pourrez utiliser l'opérateur modulo `%`  qui renvoie le reste de la division entière entre deux nombres et dont voici quelques exemples d'utilisation :
 ```
@@ -294,7 +314,7 @@ Pour cet exercice, vous pourrez utiliser l'opérateur modulo `%`  qui renvoie le
 >>> 7 % 2
 1
 ```
-Ainsi, vous remarquerez qu'un nombre est pair lorsque le reste de sa division entière par 2 est nul.
+Vous remarquerez qu'un nombre est pair lorsque le reste de sa division entière par 2 est nul.
 
 
 ### Conjecture de Syracuse (exercice +++)
@@ -306,22 +326,23 @@ indéfiniment par une suite de trois valeurs triviales appelée cycle trivial.
 
 Jusqu'à présent, la conjecture de Syracuse, selon laquelle depuis n'importe quel entier positif la suite de Syracuse atteint 1, n'a pas été mise en défaut.
 
-Par exemple, les premiers éléments de la suite de Syracuse si on prend comme point de départ 10 sont :
-10, 5, 16, 8, 4, 2, 1...
+Par exemple, les premiers éléments de la suite de Syracuse si on prend comme point de départ 10 sont : 10, 5, 16, 8, 4, 2, 1...
 
 Écrivez un script qui, partant d'un entier positif *n* (par exemple 10 ou 20), crée une liste des nombres de la suite de Syracuse. Avec différents points de départ (c'est-à-dire avec différentes valeurs de *n*), la conjecture de Syracuse est-elle toujours vérifiée ? Quels sont les nombres qui constituent le cycle trivial ?
 
-**Remarques**
+open-box-rem
 
 1. Pour cet exercice, vous avez besoin de faire un nombre d'itérations inconnu pour que la suite de Syracuse atteigne le chiffre 1 puis entame son cycle trivial. Vous pourrez tester votre algorithme avec un nombre arbitraire d'itérations, typiquement 20 ou 100, suivant votre nombre *n* de départ.
 2. Un nombre est pair lorsque le reste de sa division entière (opérateur modulo `%`) par 2 est nul.
+
+close-box-rem
 
 
 ### Attribution simple de la structure secondaire des résidus d'une protéine (exercice +++)
 
 Les angles dièdres phi/psi d'une hélice alpha parfaite ont une valeur de -57 degrés et -47 degrés respectivement. Bien sûr, il est très rare que l'on trouve ces valeurs parfaites dans une protéine, par conséquent il est couramment accepté de tolérer une déviation de +/- 30 degrés sur celles-ci.
 
-Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles phi/psi des résidues de la première hélice de la protéine [1TFE](http://www.rcsb.org/pdb/explore.do?structureId=1TFE). En utilisant cette liste, écrivez un programme qui teste, pour chaque résidu, s'il est ou pas en hélice.
+Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles phi/psi des résidus de la première hélice de la protéine [1TFE](http://www.rcsb.org/pdb/explore.do?structureId=1TFE). En utilisant cette liste, écrivez un programme qui teste, pour chaque résidu, s'il est ou pas en hélice.
 ```
 [[48.6,53.4],[-124.9,156.7],[-66.2,-30.8],[-58.8,-43.1], \
 [-73.9,-40.6],[-53.7,-37.5],[-80.6,-16.0],[-68.5,135.0], \
@@ -356,12 +377,12 @@ Vous pouvez facilement améliorer la méthode 1 avec quelques astuces. Nous vous
 
 **Méthode 2** (plus optimale et plus rapide, mais un peu plus compliquée)
 
-Vous pouvez parcourir tous les nombres de 2 à 100 et vérifier si ceux-ci sont composés, c'est-à-dire qu'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier. Attention, pour cette méthode, il faudra initialiser la liste de nombres premiers avec le premier nombre premier (donc 2 !).
+Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire qu'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier. Attention, pour cette méthode, il faudra initialiser la liste de nombres premiers avec le premier nombre premier (donc 2 !).
 
 
 ### Recherche d'un nombre par dichotomie (exercice +++)
 
-La recherche par [dichotomie](https://fr.wikipedia.org/wiki/Dichotomie) est une méthode qui consiste à diviser (en général en parties égales) un problème pour en trouver la solution. À titre d'exemple, voici une discussion entre Pierre et Patrick dans laquelle Pierre essaie de deviner le nombre (compris entre 1 et 100) auquel Patrick a pensé.
+La recherche par [dichotomie](https://fr.wikipedia.org/wiki/Dichotomie) est une méthode qui consiste à diviser (en général en parties égales) un problème pour en trouver la solution. À titre d'exemple, voici une discussion entre Pierre et Patrick dans laquelle Pierre essaie de deviner le nombre (compris entre 1 et 100 inclus) auquel Patrick a pensé.
 
 - [Patrick] "C'est bon, j'ai pensé à un nombre entre 1 et 100."
 - [Pierre] "OK, je vais essayer de le deviner. Est-ce que ton nombre est plus petit ou plus grand que 50 ?"
@@ -391,7 +412,7 @@ Pour arriver rapidement à deviner le nombre, l'astuce consiste à prendre à ch
 
 Écrivez un script qui reproduit ce jeu de devinettes. Vous pensez à un nombre entre 1 et 100 et l'ordinateur essaie de le deviner par dichotomie en vous posant des questions.
 
-Vous utiliserez la fonction `input()` pour interagir avec l'utilisateur. Voici un exemple de son fonctionnement :
+Votre programme utilisera la fonction `input()` pour interagir avec l'utilisateur. Voici un exemple de son fonctionnement :
 ```
 >>> lettre = input("Entrez une lettre : ")
 Entrez une lettre : P
@@ -410,4 +431,4 @@ Est-ce votre nombre est plus grand, plus petit ou égal à 78 ? [+/-/=] +
 Est-ce votre nombre est plus grand, plus petit ou égal à 79 ? [+/-/=] =
 J'ai trouvé en 6 questions !
 ```
-Les caractères `[+/-/=]` indiquent à l'utilisateur comment il doit interagir avec l'ordinateur, c'est-à-dire entrer soit le caractère `+` si le nombre choisi est plus grand que le nombre proposé par l'ordinateur, soit le caractère `-` si le nombre choisi est plus petit que le nombre proposé par l'ordinateur, soit le caractère `=` si le nombre choisi est celui proposé par l'ordinateur (en appuyant ensuite sur la touché *Entrée*).
+Les caractères `[+/-/=]` indiquent à l'utilisateur comment il doit interagir avec l'ordinateur, c'est-à-dire entrer soit le caractère `+` si le nombre choisi est plus grand que le nombre proposé par l'ordinateur, soit le caractère `-` si le nombre choisi est plus petit que le nombre proposé par l'ordinateur, soit le caractère `=` si le nombre choisi est celui proposé par l'ordinateur (en appuyant ensuite sur la touche *Entrée*).
