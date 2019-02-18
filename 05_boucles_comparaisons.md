@@ -302,7 +302,7 @@ Avec une boucle, affichez les nombres de 1 à 10 sur une seule ligne.
 Soit `impairs` la liste de nombres `[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21]`. Écrivez un programme qui, à partir de la liste `impairs`, construit une liste `pairs` dans laquelle tous les éléments de `impairs` sont incrémentés de 1.
 
 
-### Calcul de moyenne
+### Calcul de la moyenne
 
 Voici les notes d'un étudiant `[14, 9, 6, 8, 12]`. Calculez la moyenne de ces notes. Utilisez l'écriture formatée pour afficher la valeur de la moyenne avec deux décimales.
 
