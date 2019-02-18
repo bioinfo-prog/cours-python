@@ -56,7 +56,7 @@ Notez qu'une fonction ne prend pas forcément un argument et ne renvoie pas forc
 >>> hello()
 bonjour
 ```
-Dans ce cas la fonction `hello()` se contente d'imprimer la chaîne de caractères `"hello"` à l'écran. Elle ne prend aucun argument et ne renvoie aucun résultat. Par conséquent, cela n'a pas de sens de vouloir récupérer dans une variable le résultat renvoyé par une telle fonction. Si on essaie tout de même, Python affecte la valeur `None` qui signifie *rien* en anglais:
+Dans ce cas la fonction `hello()` se contente d'imprimer la chaîne de caractères `"bonjour"` à l'écran. Elle ne prend aucun argument et ne renvoie aucun résultat. Par conséquent, cela n'a pas de sens de vouloir récupérer dans une variable le résultat renvoyé par une telle fonction. Si on essaie tout de même, Python affecte la valeur `None` qui signifie *rien* en anglais:
 ```
 >>> var = hello()
 bonjour
