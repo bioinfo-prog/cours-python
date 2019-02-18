@@ -230,62 +230,62 @@ def carre(x):
 
 # programme principal
 z = 5
-resultat = carre(5)
+resultat = carre(z)
 print(resultat)
 ```
 Pour la suite nous allons utiliser l'excellent site [pythontutor](http://www.pythontutor.com) qui permet de visualiser l'état des variables au fur et à mesure de l'exécution d'un code Python (avant de continuer nous vous conseillons de prendre 5 minutes pour tester ce site). Regardons maintenant ce qui se passe dans le code ci-dessus, étape par étape :
 
 - Étape 1 : Python est prêt à lire la première ligne de code.
 
-![Etape 1.](img/step1.png){ #fig:step1 }
+![Etape 1.](img/fct_step1.png){ #fig:fct_step1 width=80% }
 \
 
 
 - Étape 2 : Python met en mémoire la fonction `carre()` (notez qu'il ne l'exécute pas !). La fonction est mise dans un espace de la mémoire nommé *global frame*, il s'agit de l'espace du programme principal. Y seront stockées toutes les variables *globales* créées dans le programme. Python est maintenant prêt à exécuter le programme principal.
 
-![Etape 2.](img/step2.png "Etape 2"){ #fig:step2 }
+![Etape 2.](img/fct_step2.png "Etape 2"){ #fig:fct_step2 width=80% }
 \
 
 
 - Étape 3 : Python lit et met en mémoire la variable `z`. Celle-ci étant créée dans le programme principal, il s'agira d'une variable *globale*. Ainsi, elle sera également stockée dans le *global frame*.
 
-![Etape 3.](img/step3.png){ #fig:step3 }
+![Etape 3.](img/fct_step3.png){ #fig:fct_step3 width=80% }
 \
 
 
-- Étape 4 : La fonction `carre()` est appelée et on lui passe en argument l'entier `5`. La fonction rentre alors en exécution et un nouveau cadre bleu est créé dans lequel *pythontutor* va nous indiquer toutes les variables *locales* à la fonction. Notez bien que la variable passée en argument, qui s'appelle `x` dans la fonction, est créée en tant que variable *locale*. On pourra aussi remarquer que les variables *globales* situées dans le *global frame* sont toujours là.
+- Étape 4 : La fonction `carre()` est appelée et on lui passe en argument l'entier `z`. La fonction rentre alors en exécution et un nouveau cadre bleu est créé dans lequel *pythontutor* va nous indiquer toutes les variables *locales* à la fonction. Notez bien que la variable passée en argument, qui s'appelle `x` dans la fonction, est créée en tant que variable *locale*. On pourra aussi remarquer que les variables *globales* situées dans le *global frame* sont toujours là.
 
-![Etape 4.](img/step4.png){width=40%, #fig:step4}
+![Etape 4.](img/fct_step4.png){width=40%, #fig:fct_step4 width=80% }
 \
 
 
 - Étape 5 : Python est maintenant prêt à exécuter chaque ligne de code de la fonction.
 
-![Etape 5.](img/step5.png){ #fig:step5 }
+![Etape 5.](img/fct_step5.png){ #fig:fct_step5 width=80% }
 \
 
 
 - Étape 6 : La variable `y` est créée dans la fonction. Celle-ci est donc stockée en tant que variable *locale* à la fonction.
 
-![Etape 6.](img/step6.png){ #fig:step6 }
+![Etape 6.](img/fct_step6.png){ #fig:fct_step6 width=80% }
 \
 
 
 - Étape 7 : Python s'apprête à retourner la variable *locale* `y` au programme principal (*pythontutor* nous indique le contenu de la valeur retournée).
 
-![Etape 7.](img/step7.png){ #fig:step7 }
+![Etape 7.](img/fct_step7.png){ #fig:fct_step7 width=80% }
 \
 
 
 - Étape 8 : Python quitte la fonction et la valeur retournée par celle-ci est affectée à la variable *globale* `resultat`. Notez bien que lorsque Python quitte la fonction, **l'espace des variables allouées à la fonction est détruit**. Ainsi toutes les variables créées dans la fonction n'existent plus. On comprend pourquoi elles portent le nom de *locales* puisqu'elles n'existent que lorsque la fonction est en exécution.
 
-![Etape 8.](img/step8.png){ #fig:step8 }
+![Etape 8.](img/fct_step8.png){ #fig:fct_step8 width=80% }
 \
 
 
 - Étape 9 : Python affiche le contenu de la variable `resultat` et l'exécution est terminée.
 
-![Etape 9.](img/step9.png){ #fig:step9 }
+![Etape 9.](img/fct_step9.png){ #fig:fct_step9 width=80% }
 \
 
 
