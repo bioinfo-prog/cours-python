@@ -133,7 +133,7 @@ Il est très important de savoir que l'affectation d'une liste (à partir d'une 
 [1, -15, 3]
 ```
 
-Vous voyez que la modification de `x` modifie `y` aussi ! Pour comprendre ce qu'il se passe nous allons de nouveau utiliser le site [pythontutor](http://www.pythontutor.com/) sur cet exemple :
+Vous voyez que la modification de `x` modifie `y` aussi ! Pour comprendre ce qui se passe nous allons de nouveau utiliser le site [pythontutor](http://www.pythontutor.com/) sur cet exemple :
 
 ![Copie de liste 1.](img/copy_list.png){width=40%, #fig:copy_list}
 \

@@ -633,7 +633,7 @@ Voici quelques conseils pour vous aider à concevoir un script Python.
 - Utilisez des noms de variables explicites, qui signifient quelque chose. En lisant votre code, on doit comprendre ce que vous faites. Choisir des noms de variables pertinents permet aussi de réduire les commentaires.
 - Quand vous construisez une structure de données complexe (par exemple une liste de dictionnaires contenant d'autres objets), documentez et illustrer l'organisation de cette structure de données sur un exemple simple.
 - Testez régulièrement votre code. Un découpage en fonctions, classes ou méthodes sera alors très utile.
-- Testez toujours votre code sur un jeu de données **simple** pour pouvoir comprendre rapidement ce qu'il se passe. Par exemple, une séquence de 1000 bases est plus facile à gérer que le génome humain !
+- Testez toujours votre code sur un jeu de données **simple** pour pouvoir comprendre rapidement ce qui se passe. Par exemple, une séquence de 1000 bases est plus facile à gérer que le génome humain !
 - Lorsque votre programme plante, **lisez** le message d'erreur. Python tente de vous expliquer ce qui ne va pas. Le numéro de la ligne qui pose problème est aussi indiquée.
 - Lorsque votre programme ne plante pas mais qu'il ne fait pas ce que vous souhaitez, cela signifie sans doute que les variables ou objets créés ne contiennent pas les valeurs que vous attendez. Essayez d'identifier la variable qui pose problème en utilisant un jeu de données simple.
 - Utilisez les outils ou sites internet existants (pythontutor, etc).
