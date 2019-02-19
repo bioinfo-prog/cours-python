@@ -271,14 +271,14 @@ La PEP 8 recommande très fortement d'écrire les commentaires en anglais, sauf 
 
 Soyez également cohérent entre la langue utilisée pour les commentaires et la langue utilisée pour nommer les variables. Pour un programme scientifique, les commentaires et les noms de variables sont en anglais. Ainsi `ma_liste` deviendra `my_list` et `ma_fonction` deviendra `my_function` (par exemple).
 
-Les commentaires qui suivent le code sur la même ligne sont à éviter le plus possible et doivent être séparés du code d'au moins deux espaces :
+Les commentaires qui suivent le code sur la même ligne sont à éviter le plus possible et doivent être séparés du code par au moins deux espaces :
 ```
 x = x + 1   # My comment.
 ```
 
 open-box-rem
 
-Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas incluse dans la PEP8. On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Simples ou doubles ?
+Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas incluse dans la PEP 8. On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Simples ou doubles ?
 ```
 >>> var_1 = "Ma chaîne de caractères"
 >>> var_1
