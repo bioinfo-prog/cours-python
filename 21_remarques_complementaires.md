@@ -257,7 +257,7 @@ Traceback (most recent call last):
 TypeError: fct() got an unexpected keyword argument 'z'
 ```
 
-L'utilisation d'une syntaxe `*args` permet d'empaqueter tous les arguments positionnels passés lors de l'appel (quel que soit leur nombre) dans un *tuple* unique `args` récupéré au sein de la fonction. L'avantage est que nous pouvons passer autant d'arguments positionnels que l'on veut. Toutefois, on s'aperçoit en ligne 10 que cette syntaxe ne fonctionne pas avec les arguments par mot-clé.
+L'utilisation de la syntaxe `*args` permet d'empaqueter tous les arguments positionnels dans un *tuple* unique `args` récupéré au sein de la fonction. L'avantage est que nous pouvons passer autant d'arguments positionnels que l'on veut. Toutefois, on s'aperçoit en ligne 10 que cette syntaxe ne fonctionne pas avec les arguments par mot-clé.
 
 Il existe un équivalent avec les arguments par mot-clé :
 
@@ -277,7 +277,7 @@ Traceback (most recent call last):
 TypeError: fct() takes 0 positional arguments but 2 were given
 ```
 
-La syntaxe `**kwargs` permet d'empaqueter l'ensemble des arguments par mot-clé (quel que soit leur nombre) dans un dictionnaire unique `kwargs` récupéré dans la fonction. Les clés et valeurs de celui-ci sont, respectivement, les noms d'argument et valeurs passées à la fonction. Toutefois, on s'aperçoit en ligne 9 que cette syntaxe ne fonctionne pas avec les arguments positionnels.
+La syntaxe `**kwargs` permet d'empaqueter l'ensemble des arguments par mot-clé, quel que soit leur nombre, dans un dictionnaire unique `kwargs` récupéré dans la fonction. Les clés et valeurs de celui-ci sont, respectivement, les noms d'argument et valeurs passées à la fonction. Toutefois, on s'aperçoit en ligne 9 que cette syntaxe ne fonctionne pas avec les arguments positionnels.
 
 Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utiliser les deux en même temps :
 
@@ -306,7 +306,7 @@ Enfin, il est possible de combiner des arguments positionnels avec `*args` et `*
 
 open-box-adv
 
-Les noms `*args` et `**kwargs` sont des conventions en Python, ainsi nous vous conseillons de les appeler de la sorte pour faciliter la lecture de votre code par d'autres personnes.
+Les noms `*args` et `**kwargs` sont des conventions en Python, ainsi nous vous conseillons de la respecter pour faciliter la lecture de votre code par d'autres personnes.
 
 clos-box-adv
 
