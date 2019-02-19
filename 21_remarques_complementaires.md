@@ -235,7 +235,7 @@ Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?str
 89
 ```
 
-## Passage d'arguments avec \*args et \*\*kwargs
+## Passage d'arguments avec `*args` et `**kwargs`
 
 Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 9 sur les fonctions.
 
@@ -300,7 +300,7 @@ Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utili
 {'y': 2, 'z': 1}
 ```
 
-Deux contraintes sont toutefois à respecter : Il faut toujours 1) mettre `*args` avant `**kwargs` dans la définition de la fonction, 2) passer les arguments positionnels avec ceux par mot-clé lors de l'appel. 
+Deux contraintes sont toutefois à respecter : Il faut toujours 1) mettre `*args` avant `**kwargs` dans la définition de la fonction, 2) passer les arguments positionnels avec ceux par mot-clé lors de l'appel.
 
 Enfin, il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple : `def fct(a, b, *args, **kwargs):`. Dans un tel cas, il y aura une obligation de passer les deux arguments `a` et `b` à la fonction, ensuite on pourra mettre un nombre arbitraire d'arguments positionnels (récupérés dans le tuple `args`), puis un nombre arbitraire d'arguments par mot-clé (récupérés dans le dictionnaire `kwargs`).
 
@@ -308,7 +308,7 @@ open-box-adv
 
 Les noms `*args` et `**kwargs` sont des conventions en Python, ainsi nous vous conseillons de la respecter pour faciliter la lecture de votre code par d'autres personnes.
 
-clos-box-adv
+close-box-adv
 
 L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *tkinter* (*cf.* chapitre 20).
 
