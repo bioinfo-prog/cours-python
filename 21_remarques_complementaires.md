@@ -239,7 +239,7 @@ Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?str
 
 Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 9 sur les fonctions.
 
-Dans le chapitre 9, nous avons vu qu'il était nécessaire de passer à la fonction tous les arguments positionnels. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
+Dans le chapitre 9, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
 
 ```
 >>> def fct(*args):
@@ -257,7 +257,7 @@ Traceback (most recent call last):
 TypeError: fct() got an unexpected keyword argument 'z'
 ```
 
-L'utilisation d'une syntaxe `*args` permet d'empaqueter tous les arguments passés lors de l'appel dans un *tuple* unique `args` récupéré au sein de la fonction. L'avantage est que nous pouvons passer autant d'arguments positionnels que l'on veut. Toutefois, on s'aperçoit en ligne 10 que cette syntaxe `*args` ne fonctionne pas avec les arguments par mot-clé.
+L'utilisation d'une syntaxe `*args` permet d'empaqueter tous les arguments positionnels passés lors de l'appel dans un *tuple* unique `args` récupéré au sein de la fonction. L'avantage est que nous pouvons passer autant d'arguments positionnels que l'on veut. Toutefois, on s'aperçoit en ligne 10 que cette syntaxe ne fonctionne pas avec les arguments par mot-clé.
 
 Il existe un équivalent avec les arguments par mot-clé :
 
@@ -300,7 +300,9 @@ Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utili
 {'y': 2, 'z': 1}
 ```
 
-Deux contraintes sont toutefois à respecter : 1) Il faut toujours mettre `*args` avant `**kwargs`, 2) il faut toujours passer les arguments positionnels avec ceux par mot-clé lors de l'appel. Enfin, il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple : `def fct(a, b, *args, **kwargs):`.
+Deux contraintes sont toutefois à respecter : Il faut toujours 1) mettre `*args` avant `**kwargs` dans la définition de la fonction, 2) passer les arguments positionnels avec ceux par mot-clé lors de l'appel. 
+
+Enfin, il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple : `def fct(a, b, *args, **kwargs):`. Dans un tel cas, il y aura une obligation de passer les deux arguments `a` et `b` à la fonction, ensuite on pourra mettre un nombre arbitraire d'arguments positionnels (récupérés dans le tuple `args`), puis un nombre arbitraire d'arguments par mot-clé (récupérés dans le dictionnaire `kwargs`).
 
 open-box-adv
 
