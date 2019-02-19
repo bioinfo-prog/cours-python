@@ -278,7 +278,7 @@ x = x + 1   # My comment.
 
 open-box-rem
 
-On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Simples ou doubles ?
+Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas incluse dans la PEP8. On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Simples ou doubles ?
 ```
 >>> var_1 = "Ma chaîne de caractères"
 >>> var_1
@@ -291,7 +291,7 @@ True
 ```
 Vous constatez dans l'exemple ci-dessus que pour Python, c'est exactement la même chose. Et à notre connaissance, il n'existe pas de recommandation officielle sur le sujet.
 
-Nous vous conseillons cependant d'utiliser les guillemets doubles car ceux-ci sont, de notre point de vue, plus lisibles.  
+Nous vous conseillons cependant d'utiliser les guillemets doubles car ceux-ci sont, de notre point de vue, plus lisibles.
 
 close-box-rem
 
