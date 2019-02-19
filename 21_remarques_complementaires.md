@@ -237,9 +237,9 @@ Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?str
 
 ## Passage d'arguments avec `*args` et `**kwargs`
 
-Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 9 sur les fonctions.
+Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 9 *Fonctions*.
 
-Dans le chapitre 9, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
+Dans ce chapitre, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
 
 ```
 >>> def fct(*args):
@@ -277,9 +277,9 @@ Traceback (most recent call last):
 TypeError: fct() takes 0 positional arguments but 2 were given
 ```
 
-La syntaxe `**kwargs` permet d'empaqueter l'ensemble des arguments par mot-clé, quel que soit leur nombre, dans un dictionnaire unique `kwargs` récupéré dans la fonction. Les clés et valeurs de celui-ci sont, respectivement, les noms d'argument et valeurs passées à la fonction. Toutefois, on s'aperçoit en ligne 9 que cette syntaxe ne fonctionne pas avec les arguments positionnels.
+La syntaxe `**kwargs` permet d'empaqueter l'ensemble des arguments par mot-clé, quel que soit leur nombre, dans un dictionnaire unique `kwargs` récupéré dans la fonction. Les clés et valeurs de celui-ci sont les noms des arguments et les valeurs passées à la fonction. Toutefois, on s'aperçoit en ligne 9 que cette syntaxe ne fonctionne pas avec les arguments positionnels.
 
-Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utiliser les deux en même temps :
+Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utiliser `*args` et  `**kwargs` en même temps :
 
 ```
 >>> def fct(*args, **kwargs):
@@ -300,18 +300,26 @@ Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utili
 {'y': 2, 'z': 1}
 ```
 
-Deux contraintes sont toutefois à respecter : Il faut toujours 1) mettre `*args` avant `**kwargs` dans la définition de la fonction, 2) passer les arguments positionnels avec ceux par mot-clé lors de l'appel.
+Deux contraintes sont toutefois à respecter. Il faut toujours :
 
-Enfin, il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple : `def fct(a, b, *args, **kwargs):`. Dans un tel cas, il y aura une obligation de passer les deux arguments `a` et `b` à la fonction, ensuite on pourra mettre un nombre arbitraire d'arguments positionnels (récupérés dans le tuple `args`), puis un nombre arbitraire d'arguments par mot-clé (récupérés dans le dictionnaire `kwargs`).
+- mettre `*args` avant `**kwargs` dans la définition de la fonction ;
+- passer les arguments positionnels avant ceux par mot-clé lors de l'appel de la fonction.
+
+Enfin, il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple :
+
+`def fct(a, b, *args, **kwargs):`
+
+Dans un tel cas, il faudra obligatoirement passer les deux arguments `a` et `b` à la fonction, ensuite on pourra mettre un nombre arbitraire d'arguments positionnels (récupérés dans le tuple `args`), puis un nombre arbitraire d'arguments par mot-clé (récupérés dans le dictionnaire `kwargs`).
 
 open-box-adv
 
-Les noms `*args` et `**kwargs` sont des conventions en Python, ainsi nous vous conseillons de la respecter pour faciliter la lecture de votre code par d'autres personnes.
+Les noms `*args` et `**kwargs` sont des conventions en Python. Nous vous conseillons de respecter ces conventions pour faciliter la lecture de votre code par d'autres personnes.
 
 close-box-adv
 
-L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *tkinter* (*cf.* chapitre 20).
+L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *Tkinter* présenté dans le chapitre 20.
 
+s
 ## Gestion des erreurs
 
 La gestion des erreurs permet d'éviter que votre programme plante en prévoyant vous même les sources d'erreurs éventuelles.
