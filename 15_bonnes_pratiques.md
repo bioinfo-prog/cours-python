@@ -275,8 +275,27 @@ Les commentaires qui suivent le code sur la même ligne sont à éviter le plus 
 x = x + 1   # My comment
 ```
 
+open-box-rem
 
-### Docstrings
+On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Simples ou doubles ?
+```
+>>> var_1 = "Ma chaîne de caractères"
+>>> var_1
+'Ma chaîne de caractères'
+>>> var_2 = 'Ma chaîne de caractères'
+>>> var_2
+'Ma chaîne de caractères'
+>>> var_1 == var_2
+True
+```
+Vous constatez dans l'exemple ci-dessus que pour Python, c'est exactement la même chose. Et à notre connaissance, il n'existe pas de recommandation officielle sur le sujet.
+
+Nous vous conseillons cependant d'utiliser les guillemets doubles car ceux-ci sont, de notre point de vue, plus lisibles.  
+
+close-box-rem
+
+
+## Les *docstrings* et la PEP 257
 
 Les *docstrings*, que l'on pourrait traduire pas "chaînes de documentation" en français, sont un élément essentiel de nos programmes Python comme on l'a vu au chapitre 14 *Création de modules*. À nouveau les développeurs de Python ont émis des recommandations dans la PEP 8 et plus exhaustivement dans la [PEP 257](https://www.python.org/dev/peps/pep-0257/) sur la manière de rédiger correctement les *docstrings*. En voici un résumé succinct.
 
