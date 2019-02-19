@@ -111,6 +111,7 @@ Bien sur, une écriture plus "pythonique" de l'exemple précédent permet de se 
 ...
 ```
 
+Enfin, des noms de variable à une lettre peuvent être utilisées lorsque cela a un sens mathématique (par exemple, `x`, `y` et `z` évoquent des coordonnées cartésiennes).
 
 ### Gestion des espaces
 
@@ -268,11 +269,11 @@ Les commentaires sont sur le même niveau d'indentation que le code qu'ils comme
 
 La PEP 8 recommande très fortement d'écrire les commentaires en anglais, sauf si vous êtes à 120% sur que votre code ne sera lu que par des francophones. Dans la mesure où vous allez souvent développer des programmes scientifiques, nous vous conseillons d'écrire vos commentaires en anglais.
 
-Soyez également cohérent entre la langue utilisée pour les commentaires et la langue utilisée pour nommer les variables. Pour un programme scientifique, les commentaires et les noms de variables sont en anglais. Ainsi `ma_liste` deviendra `my_list` et `ma_fonction` deviendra `my_fonction` (par exemple).
+Soyez également cohérent entre la langue utilisée pour les commentaires et la langue utilisée pour nommer les variables. Pour un programme scientifique, les commentaires et les noms de variables sont en anglais. Ainsi `ma_liste` deviendra `my_list` et `ma_fonction` deviendra `my_function` (par exemple).
 
 Les commentaires qui suivent le code sur la même ligne sont à éviter le plus possible et doivent être séparés du code d'au moins deux espaces :
 ```
-x = x + 1   # My comment
+x = x + 1   # My comment.
 ```
 
 
