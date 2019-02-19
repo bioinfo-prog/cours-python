@@ -68,7 +68,7 @@ Ceci n'est pas une faute car Python n'émet pas d'erreur, toutefois cela ne pré
 
 ## Passage d'arguments
 
-Le nombre d'argument(s) que l'on peut passer à une fonction est variable. Nous avons vu ci-dessus des fonctions auxquelles on passait 0 ou 1 argument. Dans les chapitres précédents, vous avez vu des fonctions internes à Python qui prenaient au moins 2 arguments, pour rappel souvenez-vous de `range(1,10)` ou encore `range(1,10,2)`. Le nombre d'argument est donc laissé libre à l'initiative du programmeur qui est en train de développer une nouvelle fonction.
+Le nombre d'argument(s) que l'on peut passer à une fonction est variable. Nous avons vu ci-dessus des fonctions auxquelles on passait 0 ou 1 argument. Dans les chapitres précédents, vous avez vu des fonctions internes à Python qui prenaient au moins 2 arguments, pour rappel souvenez-vous de `range(1, 10)` ou encore `range(1, 10, 2)`. Le nombre d'argument est donc laissé libre à l'initiative du programmeur qui est en train de développer une nouvelle fonction.
 
 Une particularité des fonctions en Python est que vous n'êtes pas obligé(e) de préciser le type des arguments que vous lui passez, dès lors que les opérations que vous effectuez avec ces arguments sont valides. Python est en effet connu comme étant un langage au *typage dynamique*, c'est-à-dire qu'il reconnaît pour vous le type des variables au moment de l'exécution, par exemple :
 ```
@@ -103,7 +103,7 @@ En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séque
 ```
 Renvoyer un *tuple* ou une liste de deux arguments (ou plus) est notamment très pratique en conjonction avec l'**affectation multiple**, par exemple :
 ```
->>> z1,z2 = carre_cube2(3)
+>>> z1, z2 = carre_cube2(3)
 >>> z1
 9
 >>> z2
