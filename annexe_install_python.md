@@ -436,13 +436,14 @@ Si vous le souhaitez, vous pouvez également cochez la case *Activer l'indentati
 
 Sous Windows, on vous recommande l'excellent éditeur [notepad++](https://notepad-plus-plus.org/download). Une fois cet éditeur installé, il va falloir le régler (paramètres -> préférences) [penser à utf-8, tab = 4 espaces]
 
+
 ### Installation et réglage de TextWrangler/BBedit sous Mac
 
 ## Comment se mettre dans le bon répertoire dans le shell
 
 Pour apprendre Python, nous allons devoir écrire des scripts, les enregistrer dans un répertoire, puis les exécuter avec l'interpréteur Python. Il faut pour cela être capable d'ouvrir un *shell* et de se mettre dans le répertoire où se trouve ce script.
 
-Notre livre n'est pas un cours d'Unix mais il convient au moins de savoir se déplacer dans l'arborescence avant de lancer Python. Sous Linux et sous Mac il est donc fondamental de connaitre les commandes Unix `cd`, `pwd`, `ls` et la signification de `..`.
+Notre livre n'est pas un cours d'Unix mais il convient au moins de savoir se déplacer dans l'arborescence avant de lancer Python. Sous Linux et sous Mac il est donc fondamental de connaître les commandes Unix `cd`, `pwd`, `ls` et la signification de `..`.
 
 Sous Windows, il existe une astuce très pratique. Lorsqu'on utilise l'explorateur Windows et que l'on est dans un répertoire donné, par exemple :
 
@@ -478,7 +479,26 @@ print("C'est fini !")
 Ouvrez un *shell* et déplacez-vous dans le répertoire où se trouve `test.py`. Lancez le script avec l'interpréteur Python :
 
 ```
-$ python3 test.py
+$ python test.py
 ```
 
-Si vous avez fait les choses correctement, cela devrait afficher une petite fenêtre avec un message "J'adore Python" et un boutton "Quitter".
+Si vous avez fait les choses correctement, cela devrait afficher une petite fenêtre avec un message « J'adore Python ! » et un bouton *Quitter*.
+
+
+## Python web et mobile
+
+Si vous ne pouvez ou ne souhaitez pas installer Python sur votre ordinateur (quel dommage !), des solutions alternatives s'offrent à vous.
+
+Des sites internet vous proposent l'équivalent d'un interpréteur Python utilisable depuis votre navigateur web :
+
+- [repl.it](https://repl.it/languages/python3) ;
+- [Tutorials Point](https://www.tutorialspoint.com/execute_python3_online.php) ;
+- et bien sur l'incontournable [Python Tutor](http://pythontutor.com/visualize.html#mode=edit).
+
+
+Des applications mobiles vous permettent aussi de « pythonner » avec votre smartphone :
+
+- [Pydroid 3](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3) pour Android ;
+- [Pythonista 3](https://itunes.apple.com/us/app/pythonista-3/id1085978097) pour iOS (payant).
+
+Soyez néanmoins conscient que ces applications web ou mobiles peuvent être limitées, notamment sur leur capacité à installer des modules supplémentaires et à gérer les fichiers.
