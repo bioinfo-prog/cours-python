@@ -239,6 +239,76 @@ Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?str
 
 Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 9 sur les fonctions.
 
+Dans le chapitre 9, nous avons vu qu'il était nécessaire de passer à la fonction tous les arguments positionnels. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
+
+```
+>>> def fct(*args):
+...     print(args)
+...
+>>> fct()
+()
+>>> fct(1)
+(1,)
+>>> fct(1, 2, 5, "Python")
+(1, 2, 5, 'Python')
+>>> fct(z=1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: fct() got an unexpected keyword argument 'z'
+```
+
+L'utilisation d'une syntaxe `*args` permet d'empaqueter tous les arguments passés lors de l'appel dans un *tuple* unique `args` récupéré au sein de la fonction. L'avantage est que nous pouvons passer autant d'arguments positionnels que l'on veut. Toutefois, on s'aperçoit en ligne 10 que cette syntaxe `*args` ne fonctionne pas avec les arguments par mot-clé.
+
+Il existe un équivalent avec les arguments par mot-clé :
+
+```
+>>> def fct(**kwargs):
+...     print(kwargs)
+...
+>>> fct()
+{}
+>>> fct(z=1, gogo="toto")
+{'gogo': 'toto', 'z': 1}
+>>> fct(z=1, gogo="toto", y=-67)
+{'y': -67, 'gogo': 'toto', 'z': 1}
+>>> fct(1, 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: fct() takes 0 positional arguments but 2 were given
+```
+
+La syntaxe `**kwargs` permet d'empaqueter l'ensemble des arguments par mot-clé, quel que soit leur nombre, dans un dictionnaire unique `kwargs` dont les clés et valeurs sont, respectivement, les noms d'argument et valeurs passées à la fonction. Toutefois, on s'aperçoit en ligne 9 que cette syntaxe ne fonctionne pas avec les arguments positionnels.
+
+Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utiliser les deux en même temps :
+
+```
+>>> def fct(*args, **kwargs):
+...     print(args)
+...     print(kwargs)
+...
+>>> fct()
+()
+{}
+>>> fct(1, 2)
+(1, 2)
+{}
+>>> fct(z=1, y=2)
+()
+{'y': 2, 'z': 1}
+>>> fct(1, 2, 3, z=1, y=2)
+(1, 2, 3)
+{'y': 2, 'z': 1}
+```
+
+Deux contraintes sont toutefois à respecter : 1) Il faut toujours mettre `*args` avant `**kwargs`, 2) il faut toujours passer les arguments positionnels avec ceux par mot-clé lors de l'appel. Enfin, il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple : `def fct(a, b, *args, **kwargs):`.
+
+open-box-adv
+
+Les noms `*args` et `**kwargs` sont des conventions en Python, ainsi nous vous conseillons de les appeler de la sorte pour faciliter la lecture de votre code par d'autres personnes.
+
+clos-box-adv
+
+L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *tkinter* (*cf.* chapitre 20).
 
 ## Gestion des erreurs
 
