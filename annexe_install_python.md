@@ -18,28 +18,6 @@ Par ailleurs, on vous recommande vivement la lecture de la section sur les [édi
 Enfin, dans tout ce qui suit, on part du principe que vous installerez Miniconda  **en tant qu'utilisateur**, et non pas en tant qu'administrateur. Autrement dit, vous n'aurez pas besoin de droits spéciaux pour pouvoir installer Miniconda et les autres modules nécessaires. La procédure proposée a été testée avec succès sous Windows (7 et 10), Mac OS C (Mac OS High Sierra version 10.13.6) et Linux (Ubuntu 16.04, Ubuntu 18.04).
 
 
-## Qu'appelle-t-on le *shell* ?
-
-Dans cet ouvrage, on utilise le terme *shell*. Un *shell* est un interpréteur de commande interactif permettant d'interagir avec l'ordinateur.
-
-On utilisera le *shell* pour lancer l'interpréteur Python.
-
-Pour approfondir la notion de *shell*, vous pouvez consulter les pages Wikipedia :
-
-- le [*shell* Unix](https://fr.wikipedia.org/wiki/Shell_Unix) fonctionnant sous Mac OS X et Linux ;
-- le [*shell* Windows *cmd*](https://fr.wikipedia.org/wiki/Cmd) ;
-- le [*powershell* Windows](https://fr.wikipedia.org/wiki/Windows_PowerShell) qui est un *shell* beaucoup plus puissant que *cmd* et que l'on vous recommande si vous êtes sous Windows.
-
-Un *shell* possède toujours une invite de commande, c'est-à-dire un message qui s'affiche avant l'endroit où on entre des commandes. Dans tout cet ouvrage, cette invite est représentée systématiquement par le symbole dollar `$`, et ce quel que soit le système d'exploitation.
-
-Par exemple, si on vous demande de lancer l'instruction suivante  :
-```
-$ python
-```
-
-il faudra taper seulement `python` sans le `$` ni l'espace après le `$`.
-
-
 ## Installation de Python avec Miniconda
 
 On vous conseille l'installation de la distribution [Miniconda](https://conda.io/miniconda.html) qui présente l'avantage d'installer Python et un puissant gestionnaire de paquets appelé *conda*.

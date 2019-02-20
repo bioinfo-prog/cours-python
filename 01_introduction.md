@@ -1,18 +1,10 @@
 # Introduction
 
-
-## Avant de commencer
-
-Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Si Python n'est pas déjà installé sur votre machine, consultez l'annexe B *Installation de Python* qui explique la marche à suivre.
-
-L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *BBEdit* ou *CotEditor* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans l'annexe B *Installation de Python*. Bien sur, si vous préférez d'autres éditeurs comme *Atom*, *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les. À toute fin utile, on rappelle néanmoins que les logiciels *Microsoft Word*, *WordPad* et *LibreOffice Writer* ne sont pas des éditeurs de texte, ce sont des traitements de texte qui ne peuvent pas et ne doivent pas être utilisés pour écrire du code informatique.
-
-
 ## C'est quoi Python ?
 
 Le langage de programmation Python a été créé en 1989 par Guido van Rossum, aux Pays-Bas. Le nom *Python* vient d'un hommage à la série télévisée *Monty Python's Flying Circus* dont G. van Rossum est fan. La première version publique de ce langage a été publiée en 1991.
 
-La dernière version de Python est la version 3. Plus précisément, la version 3.7 a été publiée en juin 2018. Ce cours est basé sur Python 3. La version 2 de Python est désormais obsolète, dans la mesure du possible évitez de l'utiliser.
+La dernière version de Python est la version 3. Plus précisément, la version 3.7 a été publiée en juin 2018. La version 2 de Python est désormais obsolète et cessera d'être maintenue après le 1er janvier 2020. Dans la mesure du possible évitez de l'utiliser.
 
 La *Python Software Foundation* est l'association qui organise le développement de Python et anime la communauté de développeurs et d'utilisateurs.
 
@@ -31,6 +23,34 @@ Ce langage de programmation présente de nombreuses caractéristiques intéressa
 Toutes ces caractéristiques font que Python est désormais enseigné dans de nombreuses formations, depuis l'enseignement secondaire jusqu'à l'enseignement supérieur.
 
 
+## Conseils pour installer et configurer Python
+
+Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux.
+
+
+### Python 2 ou Python 3 ?
+
+Ce cours est basé sur la **version 3 de Python**, qui est désormais le standard.
+
+Si, néanmoins, vous devez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 21 *Remarques complémentaires* vous apportera plus de précisions.
+
+
+### Miniconda
+
+Nous vous conseillons d'installer [Miniconda](https://conda.io/miniconda.html), logiciel gratuit, disponible pour Windows, Mac OS X et Linux, et qui installera pour vous Python 3.
+
+Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *biopython*), mais également les *notebooks* Jupyter. Vous trouverez en ligne, dans la rubrique *Installation de Python* une documentation pas à pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours :
+
+<https://python.sdv.univ-paris-diderot.fr/>
+
+
+### Éditeur de texte
+
+L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *BBEdit* ou *CotEditor* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans la rubrique [*Installation de Python*](https://python.sdv.univ-paris-diderot.fr/) disponible en ligne. Bien sur, si vous préférez d'autres éditeurs comme *Atom*, *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les !
+
+À toute fin utile, on rappelle que les logiciels *Microsoft Word*, *WordPad* et *LibreOffice Writer* ne sont pas des éditeurs de texte, ce sont des traitements de texte qui ne peuvent pas et ne doivent pas être utilisés pour écrire du code informatique.
+
+
 ## Notations utilisées
 
 Dans cet ouvrage, les commandes, les instructions Python, les résultats et les contenus de fichiers
@@ -47,19 +67,33 @@ pour faire référence à une instruction particulière. Ce numéro n'est bien s
 Par ailleurs, dans le cas de programmes, de contenus de fichiers ou de résultats trop longs pour être inclus dans leur intégralité, la notation `[...]` indique une coupure arbitraire de plusieurs caractères ou lignes.
 
 
+## Introduction au *shell*
+
+Un *shell* est un interpréteur de commande interactif permettant d'interagir avec l'ordinateur.
+
+On utilisera le *shell* pour lancer l'interpréteur Python.
+
+Pour approfondir la notion de *shell*, vous pouvez consulter les pages Wikipedia :
+
+- du [*shell* Unix](https://fr.wikipedia.org/wiki/Shell_Unix) fonctionnant sous Mac OS X et Linux ;
+- du [*shell* Windows *cmd*](https://fr.wikipedia.org/wiki/Cmd) ;
+- du [*powershell* Windows](https://fr.wikipedia.org/wiki/Windows_PowerShell) qui est un *shell* beaucoup plus puissant que *cmd* et que l'on vous recommande si vous êtes sous Windows.
+
+Un *shell* possède toujours une invite de commande, c'est-à-dire un message qui s'affiche avant l'endroit où on entre des commandes. Dans tout cet ouvrage, cette invite est représentée systématiquement par le symbole dollar `$`, et ce quel que soit le système d'exploitation.
+
+Par exemple, si on vous demande de lancer l'instruction suivante  :
+```
+$ python
+```
+
+il faudra taper seulement `python` sans le `$` ni l'espace après le `$`.
+
+
 ## Premier contact avec Python
 
-Python est un langage interprété, c'est-à-dire que chaque ligne de code est lue puis interprétée afin d'être exécutée par l'ordinateur. Pour vous en rendre compte, ouvrez un *shell*, activez conda (sous Linux ou Mac OS X, voir l'annexe C *Installation de Python*), puis lancez la commande :
+Python est un langage interprété, c'est-à-dire que chaque ligne de code est lue puis interprétée afin d'être exécutée par l'ordinateur. Pour vous en rendre compte, ouvrez un *shell*, activez conda (reportez-vous si nécessaire à la rubrique *Installation de Python* en ligne), puis lancez la commande :
 
 `python`
-
-
-open-box-rem
-
-Si vous ne savez pas ou avez oublié ce qu'est un *shell*, consultez la rubrique *Qu'appelle-t-on le shell ?* de l'annexe C *Installation de Python*.
-
-close-box-rem
-
 
 La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
 ```
@@ -125,7 +159,8 @@ Il existe de nombreux autres langages interprétés tels que [Perl](http://www.p
 
 Bien sûr, l'interpréteur présente vite des limites dès lors que l'on veut exécuter une suite d'instructions plus complexe. Comme tout langage informatique, on peut enregistrer ces instructions dans un fichier, que l'on appelle communément un script Python.
 
-Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à l'annexe B *Installation de Python*) et entrez le code suivant :  
+Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à la rubrique *Installation de Python* en ligne) et entrez le code suivant :
+
 `print("Hello world!")`
 
 Ensuite, enregistrez votre fichier sous le nom `test.py`, puis quittez l'éditeur de texte.
@@ -187,10 +222,3 @@ Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer
 Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
 
 Si tout cela semble un peu complexe, ne vous inquiétez pas. Vous allez comprendre tous ces détails chapitre après chapitre.
-
-
-## Python 2 ou Python 3 ?
-
-Ce cours est basé sur la version 3 de Python, qui est maintenant devenu un standard. Par ailleurs, Python 2 cessera d'être maintenu après le 1er janvier 2020. Python 3 est donc la version à utiliser.
-
-Si, néanmoins, vous devez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 21 *Remarques complémentaires* vous apportera plus de précisions.
