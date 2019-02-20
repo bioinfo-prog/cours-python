@@ -288,19 +288,27 @@ puis exécutez-les dans un *shell*.
 
 Le fichiers [notes.txt](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
 
-- Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
-- Créez un script Python qui lit chaque ligne de ce fichier, extrait les notes sous forme de *float* et les stocke dans une liste.
-- Terminez le script en calculant et affichant la moyenne des notes avec deux décimales.
+Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
+
+Créez un script Python qui lit chaque ligne de ce fichier, extrait les notes sous forme de *float* et les stocke dans une liste.
+
+Terminez le script en calculant et affichant la moyenne des notes avec deux décimales.
 
 
-### Structures secondaires
+### Admis ou recalé
 
-Dans cet exercice, nous allons utiliser une sortie partielle de DSSP (*Define Secondary Structure of Proteins*), qui est un logiciel d'assignation des structures secondaires des protéines. Ce fichier contient 5 colonnes correspondant respectivement au numéro de résidu, à l'acide aminé, sa structure secondaire et ses angles phi/psi.
+Le fichiers [notes.txt](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
 
-- Téléchargez le fichier [first_helix_1tfe.txt](https://python.sdv.univ-paris-diderot.fr/data-files/first_helix_1tfe.txt) et sauvegardez-le dans votre répertoire de travail (jetez-y un oeil en passant).
-- Chargez les lignes de ce fichier en les plaçant dans une liste puis fermez le fichier.
-- Affichez chaque ligne à l'écran pour vérifier que vous avez bien chargé le fichier.
-- Écrivez dans un fichier `output.txt` chacune des lignes précédées du message `OK:`.
+Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
+
+Créez un script Python qui lit chaque ligne de ce fichier, extrait les notes sous forme de *float* et les stocke dans une liste.
+
+Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une note par ligne suivie de `recalé` si la note est inférieure à 10 et `admis` si la note est supérieure ou égale à 10. Toutes les notes seront écrites avec une décimale. À titre d'exemple, voici les 3 premières lignes attendues pour le fichier `notes2.txt` :
+```
+13.5 admis
+17.0 admis
+9.5 recalé
+```
 
 
 ### Spirale (exercice +++)
