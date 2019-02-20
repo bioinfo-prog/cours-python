@@ -355,7 +355,7 @@ Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles p
 
 Pour le premier acide aminé, l'angle phi vaut *48.6* et l'angle psi *53.4*. Pour le deuxième, l'angle phi vaut *-124.9* et l'angle psi *156.7*, etc.
 
-En utilisant cette liste, écrivez un script qui teste, pour chaque résidu, s'il est ou non en hélice et affiche les valeurs des angles phi et psi et le message adapté *est en hélice* ou *n'est pas en hélice*.
+En utilisant cette liste, écrivez un script qui teste, pour chaque acide aminé, s'il est ou non en hélice et affiche les valeurs des angles phi et psi et le message adapté *est en hélice* ou *n'est pas en hélice*.
 
 Par exemple, pour les 3 premiers acides aminés :
 ```
