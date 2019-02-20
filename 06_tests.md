@@ -338,20 +338,39 @@ open-box-rem
 close-box-rem
 
 
-### Attribution simple de la structure secondaire des résidus d'une protéine (exercice +++)
+### Attribution de la structure secondaire des acides aminés d'une protéine (exercice +++)
 
-Les angles dièdres phi/psi d'une hélice alpha parfaite ont une valeur de -57 degrés et -47 degrés respectivement. Bien sûr, il est très rare que l'on trouve ces valeurs parfaites dans une protéine, par conséquent il est couramment accepté de tolérer une déviation de +/- 30 degrés sur celles-ci.
+Dans une protéine, les différents acides aminés sont liés entre eux par une liaison peptidique. Les angles phi et psi sont deux angles mesurés autour de cette liaison peptidique. Leurs valeurs sont utiles pour définir la conformation spatiale (appelée « structure secondaire ») adoptée par les acides aminés.
 
-Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles phi/psi des résidus de la première hélice de la protéine [1TFE](http://www.rcsb.org/pdb/explore.do?structureId=1TFE). En utilisant cette liste, écrivez un programme qui teste, pour chaque résidu, s'il est ou pas en hélice.
+Par exemples, les angles phi et psi d'une conformation en « hélice alpha » parfaite ont une valeur de -57 degrés et -47 degrés respectivement. Bien sûr, il est très rare que l'on trouve ces valeurs parfaites dans une protéine, et il est habituel de tolérer une déviation de $\pm$ 30 degrés autour des valeurs idéales de ces angles.
+
+Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles phi et psi de 15 acides aminés de la protéine [1TFE](https://www.rcsb.org/structure/1TFE) :
 ```
-[[48.6,53.4],[-124.9,156.7],[-66.2,-30.8],[-58.8,-43.1], \
-[-73.9,-40.6],[-53.7,-37.5],[-80.6,-16.0],[-68.5,135.0], \
-[-64.9,-23.5],[-66.9,-45.5],[-69.6,-41.0],[-62.7,-37.5], \
-[-68.2,-38.3],[-61.2,-49.1],[-59.7,-41.1],[-63.2,-48.5], \
-[-65.5,-38.5],[-64.1,-40.7],[-63.6,-40.8],[-66.4,-44.5], \
-[-56.0,-52.5],[-55.4,-44.6],[-58.6,-44.0],[-77.5,-39.1], \
-[-91.7,-11.9],[48.6,53.4]]
+[[48.6,53.4],[-124.9,156.7],[-66.2,-30.8], \
+[-58.8,-43.1],[-73.9,-40.6],[-53.7,-37.5], \
+[-80.6,-26.0],[-68.5,135.0],[-64.9,-23.5], \
+[-66.9,-45.5],[-69.6,-41.0],[-62.7,-37.5], \
+[-68.2,-38.3],[-61.2,-49.1],[-59.7,-41.1]]
 ```
+
+Pour le premier acide aminé, l'angle phi vaut *48.6* et l'angle psi *53.4*. Pour le deuxième, l'angle phi vaut *-124.9* et l'angle psi *156.7*, etc.
+
+En utilisant cette liste, écrivez un script qui teste, pour chaque résidu, s'il est ou non en hélice et affiche les valeurs des angles phi et psi et le message adapté *est en hélice* ou *n'est pas en hélice*.
+
+Par exemple, pour les 3 premiers acides aminés :
+```
+[48.6, 53.4] n'est pas en hélice
+[-124.9, 156.7] n'est pas en hélice
+[-66.2, -30.8] est en hélice
+```
+
+D'après vous, quelle est la structure secondaire majoritaire de ces 15 acides aminés ?
+
+open-box-rem
+
+Pour en savoir plus sur le monde merveilleux des protéines, n'hésitez pas à consulter la page Wikipedia sur la [structure secondaire des protéines](https://fr.wikipedia.org/wiki/Structure_des_prot%C3%A9ines#Angles_di%C3%A8dres_et_structure_secondaire).
+
+close-box-rem
 
 
 ### Détermination des nombres premiers inférieurs à 100 (exercice +++)
