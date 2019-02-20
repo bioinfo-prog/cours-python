@@ -1,4 +1,3 @@
-# En vrac
 
 ## Shebang et /usr/bin/env python3
 
