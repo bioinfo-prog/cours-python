@@ -2,12 +2,16 @@
 
 ## Définition
 
-Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à réutiliser souvent (on les appelle aussi bibliothèques ou *libraries*). Les développeurs de Python ont mis au point de nombreux modules qui effectuent une quantité phénoménale de tâches. Pour cette raison, prenez le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module. La plupart de ces modules sont déjà installés dans les versions standards de Python. Vous pouvez accéder à une [documentation exhaustive](https://docs.python.org/3/py-modindex.html) sur le site de Python. Explorez un peu ce site, la quantité de modules disponibles est impressionnante (plus de 300).
+Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à réutiliser souvent (on les appelle aussi bibliothèques ou *libraries*).
+
+Les développeurs de Python ont mis au point de nombreux modules qui effectuent une quantité phénoménale de tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe déjà pas sous forme de module.
+
+La plupart de ces modules sont déjà installés dans les versions standards de Python. Vous pouvez accéder à une [documentation exhaustive](https://docs.python.org/3/py-modindex.html) sur le site de Python. N'hésitez pas à explorer un peu ce site, la quantité de modules disponibles est impressionnante (plus de 300).
 
 
 ## Importation de modules
 
-Jusqu'à présent, nous avons rencontré une fois cette notion de module lorsque nous avons voulu tirer un nombre aléatoire.
+Dans les chapitres précédents, nous avons rencontré la notion de module quelques fois. Notamment lorsque nous avons voulu tirer un nombre aléatoire :
 ```
 >>> import random
 >>> random.randint(0,10)
@@ -16,18 +20,18 @@ Jusqu'à présent, nous avons rencontré une fois cette notion de module lorsque
 
 Regardons de plus près cet exemple :
 
-- L'instruction `import` permet d'accéder à toutes les fonctions du module [random](https://docs.python.org/fr/3/library/random.html#module-random).
-- Ensuite, nous utilisons la fonction (ou méthode) [`randint(a,b)`](https://docs.python.org/fr/3/library/random.html#random.randint) du module `random`. Attention cette fonction renvoie un nombre entier aléatoirement tiré entre `a` inclus et `b` inclus (contrairement à la fonction `range()` par exemple). Remarquez la notation objet `random.randint()` où la fonction `randint()` peut être considérée comme une méthode de l'objet `random`.
+- Ligne 1, l'instruction `import` permet d'accéder à toutes les fonctions du module [random](https://docs.python.org/fr/3/library/random.html#module-random).
+- Ensuite, nous utilisons la fonction (ou méthode) `randint(a,b)` du module `random`. Attention, cette fonction renvoie un nombre entier tiré aléatoirement entre `a` inclus et `b` inclus. Remarquez la notation objet `random.randint()` où la fonction `randint()` peut être considérée comme une méthode de l'objet `random`.
 
 
-Il existe un autre moyen d'importer une ou des fonctions d'un module :
+Il existe un autre moyen d'importer une ou plusieurs fonctions d'un module :
 ```
 >>> from random import randint
 >>> randint(0,10)
 7
 ```
 
-À l'aide du mot-clé `from`, vous pouvez importer une fonction spécifique d'un module donné. Remarquez que dans ce cas il est inutile de répéter le nom du module, seul le nom de la fonction en question est requis.
+À l'aide du mot-clé `from`, on peut importer une fonction spécifique d'un module donné. Remarquez que dans ce cas il est inutile de répéter le nom du module, seul le nom de la fonction en question est requis.
 
 On peut également importer toutes les fonctions d'un module :
 ```
@@ -44,13 +48,13 @@ On peut également importer toutes les fonctions d'un module :
 >>> uniform(0,2.5)
 0.64943174760727951
 ```
-Comme vous l'avez deviné, l'instruction `from random import *` importe toutes les fonctions du module `random`. On peut ainsi utiliser toutes ses fonctions directement, comme par exemple `shuffle()` qui permute une liste aléatoirement.
+L'instruction `from random import *` importe toutes les fonctions du module `random`. On peut ainsi utiliser toutes ses fonctions directement, comme par exemple `shuffle()` qui permute une liste aléatoirement.
 
-Dans la pratique, plutôt que de charger toutes les fonctions d'un module en une seule fois, par exemple :
+Dans la pratique, plutôt que de charger toutes les fonctions d'un module en une seule fois :
 ```
 from random import *
 ```
-nous vous conseillons de charger le module seul, par exemple :
+nous vous conseillons de charger le module seul :
 ```
 import random
 ```
@@ -70,7 +74,7 @@ Il est également possible de définir un alias (un nom plus court) pour un modu
 Dans cet exemple, les fonctions du module `random` sont accessibles via l'alias `rand`.
 
 
-Enfin, si vous voulez vider de la mémoire un module déjà chargé, vous pouvez utiliser l'instruction `del` :
+Enfin, pour vider de la mémoire un module déjà chargé, on peut utiliser l'instruction `del` :
 ```
 >>> import random
 >>> random.randint(0,10)
@@ -81,7 +85,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in ?
 NameError: name 'random' is not defined
 ```
-Vous constatez qu'un rappel d'une fonction du module `random` après l'avoir vidé de la mémoire retourne un message d'erreur.
+On constate alors qu'un rappel d'une fonction du module `random` après l'avoir vidé de la mémoire retourne un message d'erreur.
 
 
 ## Obtenir de l'aide sur les modules importés
@@ -93,7 +97,7 @@ Pour obtenir de l'aide sur un module rien de plus simple, il suffit d'utiliser l
 ...
 ```
 
-Vous devriez alors obtenir quelque chose du type :
+Ce qui renvoie quelque chose du type :
 ```
 Help on module random:
 
@@ -101,7 +105,7 @@ NAME
     random - Random variable generators.
 
 MODULE REFERENCE
-    https://docs.python.org/3.6/library/random
+    https://docs.python.org/3.7/library/random
 
     The following documentation is automatically generated from the Python
     source files.  It may be incomplete, incorrect or include features that
@@ -121,7 +125,7 @@ DESCRIPTION
 ```
 open-box-rem
 
-- Pour vous déplacer dans l'aide, utilisez les flèches du haut et du bas pour parcourir les lignes les unes après les autres, ou les touches *page-up* et *page-down* pour faire défiler l'aide page après page.
+- Pour vous déplacer dans l'aide, utilisez les flèches du haut et du bas pour parcourir les lignes les unes après les autres, ou les touches *page-up* et *page-down* pour faire défiler l'aide page par page.
 - Pour quitter l'aide, appuyez sur la touche *Q*.
 - Pour chercher du texte, tapez */* puis le texte que vous cherchez puis la touche *Entrée*. Par exemple, pour chercher l'aide sur la fonction `randint()`, tapez `/randint` puis *Entrée*.
 - Vous pouvez obtenir de l'aide sur une fonction particulière d'un module de la manière suivante :
@@ -149,7 +153,7 @@ class list(object)
 ...
 ```
 
-Enfin, pour connaître d'un seul coup d'oeil toutes les méthodes ou variables associées à un objet, utilisez la fonction `dir()` :
+Enfin, pour connaître d'un seul coup d’œil toutes les méthodes ou variables associées à un objet, utilisez la fonction `dir()` :
 ```
 >>> import random
 >>> dir(random)
@@ -170,43 +174,44 @@ etrandbits', 'getstate', 'jumpahead', 'lognormvariate', 'normalvariate',
 
 Il existe une série de modules que vous serez probablement amenés à utiliser si vous programmez en Python. En voici une liste non exhaustive. Pour la liste complète, reportez-vous à [la page des modules](https://docs.python.org/fr/3/py-modindex.html) sur le site de Python :
 
-- [math](https://docs.python.org/fr/3/library/math.html#module-math) : fonctions et constantes mathématiques de base (sin, cos, exp, pi...).
-- [sys](https://docs.python.org/fr/3/library/sys.html#module-sys) : passage d'arguments, interaction avec l'interpréteur Python.
-- [os](https://docs.python.org/fr/3/library/os.html#module-os) : dialogue avec le système d'exploitation.
-- [random](https://docs.python.org/fr/3/library/random.html#module-random) : génération de nombres aléatoires.
-- [time](https://docs.python.org/fr/3/library/time.html#module-time) : permet d'accéder à l'heure de l'ordinateur et aux fonctions gérant le temps.
-- [calendar](https://docs.python.org/fr/3/library/calendar.html#module-calendar) : fonctions de calendrier.
-- [urllib](https://docs.python.org/fr/3/library/urllib.html#module-urllib) : permet de récupérer des données sur internet depuis Python.
-- [tkinter](https://docs.python.org/fr/3/library/tkinter.html#module-tkinter) : interface python avec Tk. Permet de créer des objets graphiques.
-- [re](https://docs.python.org/fr/3/library/re.html#module-re) : gestion des expressions régulières.
+- [*math*](https://docs.python.org/fr/3/library/math.html#module-math) : fonctions et constantes mathématiques de base (sin, cos, exp, pi...).
+- [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) : interaction avec l'interpréteur Python, passage d'arguments.
+- [*os*](https://docs.python.org/fr/3/library/os.html#module-os) : dialogue avec le système d'exploitation.
+- [*random*](https://docs.python.org/fr/3/library/random.html#module-random) : génération de nombres aléatoires.
+- [*time*](https://docs.python.org/fr/3/library/time.html#module-time) : accès à l'heure de l'ordinateur et aux fonctions gérant le temps.
+- [*urllib*](https://docs.python.org/fr/3/library/urllib.html#module-urllib) : récupération de données sur internet depuis Python.
+- [*tkinter*](https://docs.python.org/fr/3/library/tkinter.html#module-tkinter) : interface python avec Tk. Création d'objets graphiques.
+- [*re*](https://docs.python.org/fr/3/library/re.html#module-re) : gestion des expressions régulières.
 
-Nous vous conseillons vivement d'aller explorer les pages de ces modules pour découvrir toutes leurs potentialités.
+Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir toutes leurs potentialités.
 
-Vous verrez plus tard comment créer votre propres modules lorsque vous êtes amenés à réutiliser souvent vos propres fonctions.
+Nous verrons dans le chapitre 14 *Création de module* comment créer notre propre module lorsqu'on souhaite réutiliser souvent ses propres fonctions.
 
-Enfin, notez qu'il existe de nombreux autres modules qui ne sont pas installés de base dans Python mais qui sont très utilisées en bioinformatique (au sens large). Citons-en quelques-uns: *NumPy* (notion de matrice, algèbre linéaire, transformée de Fourier), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures), *matplotlib* (construction de graphiques)...
+Enfin, notez qu'il existe de nombreux autres modules qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique (au sens large). Citons-en quelques-uns: *NumPy* (notion de matrice, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures), *matplotlib* (construction de graphiques)...
 
 
-## Module sys : passage d'arguments
+## Module *sys* : passage d'arguments
 
-Le module [sys](https://docs.python.org/fr/3/library/sys.html#module-sys) contient des fonctions et des variables spécifiques à l'interpréteur Python lui-même. Ce module est particulièrement intéressant pour récupérer les arguments passés à un script Python lorsque celui-ci est appelé en ligne de commande. Dans cet exemple, écrivons le court script suivant que l'on enregistrera sous le nom `test.py ` :
+Le module [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) contient des fonctions et des variables spécifiques à l'interpréteur Python lui-même. Ce module est particulièrement intéressant pour récupérer les arguments passés à un script Python lorsque celui-ci est appelé en ligne de commande.
+
+Dans cet exemple, écrivons le court script suivant que l'on enregistrera sous le nom `test.py ` :
 ```
 import sys
 print(sys.argv)
 ```
 
-Ensuite lançons `test.py` suivi de plusieurs arguments. Par exemple :
+Ensuite, lançons `test.py` suivi de plusieurs arguments. Par exemple :
 ```
-$ python3 test.py salut girafe 42
+$ python test.py salut girafe 42
 ['test.py', 'salut', 'girafe', '42']
 ```
 
-Dans l'exemple précédent, `$` représente l'invite du *shell* Linux, `test.py` est le nom du script Python, `salut`, `girafe` et `42` sont les arguments passés au script.
+Ligne 1, le caractère `$` représente l'invite du *shell*, `test.py` est le nom du script Python, `salut`, `girafe` et `42` sont les arguments passés au script (tous séparés par un espace).
 
-La variable `sys.argv` est une liste qui contient tous les arguments de la ligne de commande, y compris le nom du script lui même qu'on peut retrouver comme premier élément de cette liste dans `sys.argv[0].` On peut donc accéder à chacun de ces arguments avec `sys.argv[1]`, `sys.argv[2]`...
+Ligne 2. Le script affiche le contenu de la variable `sys.argv`. Cette variable est une liste qui contient tous les arguments de la ligne de commande, y compris le nom du script lui-même qu'on retrouve comme premier élément de cette liste dans `sys.argv[0]`. On peut donc accéder à chacun des arguments du script avec `sys.argv[1]`, `sys.argv[2]`...
 
 
-On peut aussi utiliser la fonction `sys.exit()` pour quitter un script Python. On peut donner un argument à cette fonction (en général une chaîne de caractères) qui sera renvoyé au moment où Python quittera le script. Par exemple, si vous attendez au moins un argument en ligne de commande, vous pouvez renvoyer un message pour indiquer à l'utilisateur ce que le script attend comme argument :
+Toujours dans le module *sys*, la fonction `sys.exit()` est utile pour quitter un script Python. On peut donner un argument à cette fonction (en général une chaîne de caractères) qui sera renvoyé au moment où Python quittera le script. Par exemple, si vous attendez au moins un argument en ligne de commande, vous pouvez renvoyer un message pour indiquer à l'utilisateur ce que le script attend comme argument :
 ```
 import sys
 
@@ -218,20 +223,20 @@ print("Argument vaut : {}".format(sys.argv[1]))
 
 Puis on l'exécute sans argument :
 ```
-$ python3 test.py
+$ python test.py
 ERREUR : il faut exactement un argument.
 ```
 et avec un argument :
 ```
-$ python3 test.py 42
+$ python test.py 42
 Argument vaut : 42
 ```
 
-Notez qu'ici on vérifie que le script possède deux arguments car le nom du script lui-même est le premier argument.
+Notez qu'ici on vérifie que le script possède deux arguments car le nom du script lui-même compte pour un argument (le tout premier).
 
 L'intérêt de récupérer des arguments passés dans la ligne de commande à l'appel du script est de pouvoir ensuite les utiliser dans le script Python.
 
-Voici à titre d'exemple du script `compte_lignes.py` qui va prendre comme argument le nom d'un fichier puis afficher le nombre de lignes qu'il contient.
+Voici à titre d'exemple le script `compte_lignes.py` qui va prendre comme argument le nom d'un fichier puis afficher le nombre de lignes qu'il contient.
 ```
 import sys
 
@@ -262,36 +267,36 @@ chat
 
 Utilisons maintenant notre script `compte_lignes.py` :
 ```
-$ python3 compte_lignes.py
+$ python compte_lignes.py
 ERREUR : il faut exactement un argument.
-$ python3 compte_lignes.py zoo1.txt
+$ python compte_lignes.py zoo1.txt
 zoo1.txt contient 4 lignes.
-$ python3 compte_lignes.py zoo2.txt
+$ python compte_lignes.py zoo2.txt
 zoo2.txt contient 3 lignes.
 ```
 
 Notre script est donc capable de :
 
 - Vérifier si un argument lui est donné et si ce n'est pas le cas d'afficher un message d'erreur.
-- D'ouvrir le fichier dont le nom est donné comme argument, de compter puis d'afficher le nombre de lignes.
+- D'ouvrir le fichier dont le nom est donné en argument, de compter puis d'afficher le nombre de lignes.
 
 Par contre, le script ne vérifie pas si le fichier existe bien :
 ```
-$ python3 compte_lignes.py zoo3.txt
+$ python compte_lignes.py zoo3.txt
 Traceback (most recent call last):
  File "compte_lignes.py", line 8, in <module>
    with open(nom_fichier, "r") as f_in:
 FileNotFoundError: [Errno 2] No such file or directory: 'zoo3.txt'
 ```
 
-Vous allez  pouvoir améliorer `compte_lignes.py` en lisant la partie suivante.
+La lecture de la partie suivante va nous permettre d'améliorer notre script `compte_lignes.py`.
 
 
-## Module os : interaction avec le système d'exploitation
+## Module *os* : interaction avec le système d'exploitation
 
-Le module [os](https://docs.python.org/fr/3/library/os.html#module-os) gère l'interface avec le système d'exploitation.
+Le module [*os*](https://docs.python.org/fr/3/library/os.html#module-os) gère l'interface avec le système d'exploitation.
 
-`os.path.exists()` est une fonction pratique de ce module qui vérifie la présence d'un fichier sur le disque.
+La fonction `os.path.exists()` est une fonction pratique de ce module qui vérifie la présence d'un fichier sur le disque.
 ```
 >>> import sys
 >>> import os
@@ -303,7 +308,7 @@ Le module [os](https://docs.python.org/fr/3/library/os.html#module-os) gère l'i
 le fichier est absent
 ```
 
-Dans cet exemple, si le fichier n'est pas présent sur le disque, on quitte le programme avec la fonction `exit()` du module `sys` que nous venons de voir.
+Dans cet exemple, si le fichier n'existe pas sur le disque, on quitte le programme avec la fonction `exit()` du module *sys* que nous venons de voir.
 
 La fonction `os.getcwd()` renvoie le répertoire (sous forme de chemin complet) depuis lequel est lancé Python :
 ```
@@ -323,97 +328,115 @@ Le résultat est renvoyé sous forme d'une liste contenant à la fois le nom des
 
 ## Exercices
 
-Conseil : pour les trois premiers exercices, utilisez l'interpréteur Python. Pour les exercices suivants, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseils* : pour les trois premiers exercices, utilisez l'interpréteur Python. Pour les exercices suivants, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
 
 
 ### Racine carrée
 
-Affichez sur la même ligne les nombres de 10 à 20 (inclus) ainsi que leur racine carrée avec 3 décimales. Utilisez pour cela le module `math` avec la fonction `sqrt()`. Exemple :
+Affichez sur la même ligne les nombres de 10 à 20 (inclus) ainsi que leur racine carrée avec 3 décimales. Utilisez pour cela le module *math* avec la fonction `sqrt()`. Exemple :
 ```
 10 3.162
 11 3.317
 12 3.464
 13 3.606
-...
+[...]
 ```
 
-Documentation :
+Documentation de la fonction `math.sqrt()` :
 
-- de la fonction `math.sqrt()` : <https://docs.python.org/fr/3/library/math.html#math.sqrt>
+<https://docs.python.org/3/library/math.html#math.sqrt>
 
 
 ### Cosinus
 
-Calculez le cosinus de pi/2 en utilisant le module `math` avec la fonction `cos()` et la  constante `pi`.
+Calculez le cosinus de $\pi/2$ en utilisant le module *math* avec la fonction `cos()` et la constante `pi`.
 
-Documentation :
+Documentation de la fonction `math.cos()` :
 
-- de le fonction `math.cos()` : <https://docs.python.org/fr/3/library/math.html#math.cos>
-- de la constante `math.pi` : <https://docs.python.org/fr/3/library/math.html#math.pi>
+<https://docs.python.org/fr/3/library/math.html#math.cos>
+
+Documentation de la constante `math.pi` :
+
+<https://docs.python.org/fr/3/library/math.html#math.pi>
 
 
 ### Nom et contenu du répertoire courant
 
 Affichez le nom et le contenu du répertoire courant (celui depuis lequel vous avez lancé l'interpréteur Python).
 
-Déterminez également le nombre de fichiers et répertoires (confondus) présents dans le répertoire courant.
+Déterminez également le nombre total de fichiers et de répertoires présents dans le répertoire courant.
 
-Documentation :
+Documentation de la fonction `os.getcwd()` :
 
-- de la fonction `os.getcwd()` : <https://docs.python.org/fr/3/library/os.html#os.getcwd>
-- de la fonction `os.listdir()` : <https://docs.python.org/fr/3/library/os.html#os.listdir>
+<https://docs.python.org/fr/3/library/os.html#os.getcwd>
+
+Documentation de la fonction `os.listdir()` :
+
+<https://docs.python.org/fr/3/library/os.html#os.listdir>
 
 
 ### Affichage temporisé
 
-Affichez les nombres de 1 à 10 avec 1 seconde d'intervalle. Utilisez pour cela le module `time` et sa fonction `sleep()`.
+Affichez les nombres de 1 à 10 avec 1 seconde d'intervalle. Utilisez pour cela le module *time* et sa fonction `sleep()`.
 
-Documentation :
+Documentation de la fonction `time.sleep()` :
 
-- de la fonction `time.sleep()` : <https://docs.python.org/fr/3/library/time.html#time.sleep>
+<https://docs.python.org/fr/3/library/time.html#time.sleep>
 
 
 ### Séquences aléatoires de chiffres
 
 Générez une séquence aléatoire de 6 chiffres, ceux-ci étant des entiers tirés entre 1 et 4. Utilisez le module `random` et la fonction `randint()`.
 
-Documentation :
+Documentation de la fonction `random.randint()` :
 
-- de la fonction `random.randint()` : <https://docs.python.org/fr/3/library/random.html#random.randint>
+<https://docs.python.org/fr/3/library/random.html#random.randint>
 
 
-### Séquences aléatoires de bases
+### Séquences aléatoires d'ADN
 
-Générez une séquence aléatoire de 20 bases de deux manières différentes. Utilisez le module `random` avec la fonction `randint()` ou `choice()`.
+Générez une séquence aléatoire d'ADN de 20 bases de deux manières différentes. Utilisez le module `random` avec la fonction `randint()` ou `choice()`.
 
-Documentation :
+Documentation de la fonction `random.randint()` :
 
-- de la fonction `random.randint()` : <https://docs.python.org/fr/3/library/random.html#random.randint>
-- de la fonction `random.choice()` : <https://docs.python.org/fr/3/library/random.html#random.choice>
+<https://docs.python.org/fr/3/library/random.html#random.randint>
+
+Documentation de la fonction `random.choice()` :
+
+<https://docs.python.org/fr/3/library/random.html#random.choice>
+
+
+### Séquences aléatoires d'ADN avec argument
+
+Créez un script `dna_random.py` qui prend comme argument un nombre de bases, construit une séquence aléatoire d'ADN dont la longueur est le nombre de bases fourni en argument, puis affiche cette séquence.
+
+Le script devra vérifier qu'un argument est bien fourni et renvoyer un message d'erreur si ce n'est pas le cas.
+
+*Conseil* : pour générer la séquence d'ADN, vous utiliserez, au choix, la fonction `random.randint()` ou `random.choice()` abordée dans l'exercice précédent.
 
 
 ### Compteur de lignes
 
 Améliorez le script `compte_lignes.py` dont le code a été donné précédemment de façon à ce qu'il renvoie un message d'erreur si le fichier n'existe pas. Par exemple, si les fichiers `zoo1.txt` et `zoo2.txt` sont bien dans le répertoire courant, mais pas `zoo3.txt` :
 ```
-$ python3 compte_lignes.py zoo1.txt
+$ python compte_lignes.py zoo1.txt
 zoo1.txt contient 4 lignes.
-$ python3 compte_lignes.py zoo2.txt
+$ python compte_lignes.py zoo2.txt
 zoo2.txt contient 3 lignes.
-$ python3 compte_lignes.py zoo3.txt
+$ python compte_lignes.py zoo3.txt
 ERREUR : zoo3.txt n'existe pas.
 ```
 
 
 ### Détermination du nombre pi par la méthode Monte Carlo (exercice +++)
 
-Soit un cercle de rayon 1 (en trait plein sur la figure @fig:monte-carlo) inscrit dans un carré de coté 2 (en trait pointillé).
+Soit un cercle de rayon 1 (en trait plein sur la figure @fig:monte-carlo) inscrit dans un carré de côté 2 (en trait pointillé).
 
 ![Cercle de rayon 1 inscrit dans un carré de côté 2.](img/monte-carlo_pi.png){ #fig:monte-carlo }
 
 Avec $R = 1$, l'aire du carré vaut $(2R)^2$ soit 4 et l'aire du cercle vaut $\pi R^2$ soit $\pi$.
 
-En choisissant $N$ points aléatoires (à l'aide d'une distribution uniforme) à l'intérieur du carré, la probabilité que ces points se trouvent aussi dans le cercle est
+En choisissant $N$ points aléatoires (à l'aide d'une distribution uniforme) à l'intérieur du carré, la probabilité que ces points se trouvent aussi dans le cercle est :
 
 $$
 p = \frac{\mbox{aire du cercle}}{\mbox{aire du carré}} = \frac{\pi}{4}
@@ -433,12 +456,12 @@ $$
 
 Déterminez une approximation de $\pi$ par cette méthode. Pour cela, pour $N$ itérations :
 
-- Choisissez aléatoirement les coordonnées *x* et *y* d'un point entre -1 et 1. Utilisez la fonction `uniform()` du module `random`.
+- Choisissez aléatoirement les coordonnées *x* et *y* d'un point entre -1 et 1. Utilisez la fonction `uniform()` du module *random*.
 - Calculez la distance entre le centre du cercle et ce point.
 - Déterminez si cette distance est inférieure au rayon du cercle, c'est-à-dire si le point est dans le cercle ou pas.
 - Si le point est effectivement dans le cercle, incrémentez le compteur \verb=n=.
 
-Finalement calculez le rapport entre *n* et *N* et proposer une estimation de $\pi$. Quelle valeur de $\pi$ obtenez-vous pour pour 100 itérations ? 1000 itérations ? 10000 itérations ? Comparez les valeurs obtenues à la valeur de $\pi$ fournie par le module `math`.
+Finalement calculez le rapport entre *n* et *N* et proposez une estimation de $\pi$. Quelle valeur de $\pi$ obtenez-vous pour pour 100 itérations ? 1000 itérations ? 10 000 itérations ? Comparez les valeurs obtenues à la valeur de $\pi$ fournie par le module *math*.
 
 On rappelle que la distance *d* entre deux points A et B de coordonnées respectives $(x_A, y_A)$ et $(x_B, y_B)$ se calcule comme :
 
@@ -446,6 +469,6 @@ $$
 d = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}
 $$
 
-Documentation :
+Documentation de la fonction `random.uniform()` :
 
-- de la fonction `random.uniform()` : <https://docs.python.org/3/library/random.html#random.uniform>
+<https://docs.python.org/3/library/random.html#random.uniform>
