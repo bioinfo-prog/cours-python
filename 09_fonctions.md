@@ -255,7 +255,7 @@ Pour la suite nous allons utiliser l'excellent site [Python Tutor](http://www.py
 
 - Étape 4 : La fonction `carre()` est appelée et on lui passe en argument l'entier `z`. La fonction rentre alors en exécution et un nouveau cadre bleu est créé dans lequel *Python Tutor* va nous indiquer toutes les variables *locales* à la fonction. Notez bien que la variable passée en argument, qui s'appelle `x` dans la fonction, est créée en tant que variable *locale*. On pourra aussi remarquer que les variables *globales* situées dans le *global frame* sont toujours là.
 
-![Etape 4.](img/fct_step4.png){width=40%, #fig:fct_step4 width=80% }
+![Etape 4.](img/fct_step4.png){ #fig:fct_step4 width=80% }
 \
 
 
