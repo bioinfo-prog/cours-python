@@ -243,7 +243,7 @@ Pour la suite nous allons utiliser l'excellent site [Python Tutor](http://www.py
 
 - Étape 2 : Python met en mémoire la fonction `carre()` (notez qu'il ne l'exécute pas !). La fonction est mise dans un espace de la mémoire nommé *global frame*, il s'agit de l'espace du programme principal. Y seront stockées toutes les variables *globales* créées dans le programme. Python est maintenant prêt à exécuter le programme principal.
 
-![Etape 2.](img/fct_step2.png "Etape 2"){ #fig:fct_step2 width=80% }
+![Etape 2.](img/fct_step2.png){ #fig:fct_step2 width=80% }
 \
 
 

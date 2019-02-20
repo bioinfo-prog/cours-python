@@ -135,7 +135,7 @@ Il est très important de savoir que l'affectation d'une liste (à partir d'une 
 
 Vous voyez que la modification de `x` modifie `y` aussi ! Pour comprendre ce qui se passe nous allons de nouveau utiliser le site [Python Tutor](http://www.pythontutor.com/) sur cet exemple :
 
-![Copie de liste 1.](img/copy_list.png){width=40%, #fig:copy_list}
+![Copie de liste 1.](img/copy_list.png){ #fig:copy_list width=80% }
 \
 
 Techniquement, Python utilise des pointeurs (comme dans le langage C) vers les mêmes objets. *Python Tutor* nous l'illustre en mettant des flèches, et on voit bien que `x` et `y` pointent vers la même liste. Donc si on modifie `x`, `y` est modifiée pareillement. Rappelez-vous de ceci dans vos futurs programmes car cela pourrait avoir des effets désastreux !
@@ -159,7 +159,7 @@ Dans l'exemple précédent, `x[:]` a créé une copie *à la volée* de la liste
 ```
 Si on regarde à nouveau dans *Python Tutor*, on voit bien que l'utilisation des tranches `[:]` ou de la fonction `list()` créee des copies explicites, c'est à dire que chaque "flèche" pointe vers des listes différentes, indépendantes les unes des autres.
 
-![Copie de liste 2.](img/copy_list2.png){width=40%, #fig:copy_list}
+![Copie de liste 2.](img/copy_list2.png){ #fig:copy_list width=80% }
 \
 
 Attention, les deux techniques précédentes ne fonctionnent que pour les listes à une dimension, autrement dit les listes qui ne contiennent pas elles-mêmes d'autres listes. Voyez par exemple :
