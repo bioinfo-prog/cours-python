@@ -1,6 +1,6 @@
 # Mini-projets
 
-Dans ce chapitre, nous vous proposons quelques scénarios pour développer vos compétences en Python et mettre en oeuvre les concepts que vous avez rencontrés dans les chapitres précédents.
+Dans ce chapitre, nous vous proposons quelques scénarios pour développer vos compétences en Python et mettre en œuvre les concepts que vous avez rencontrés dans les chapitres précédents.
 
 ## Mots anglais dans le protéome humain
 
