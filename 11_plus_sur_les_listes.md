@@ -210,22 +210,30 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 Soit la liste de nombres `[8, 3, 12.5, 45, 25.5, 52, 1]`. Triez les nombres de cette liste par ordre croissant, sans utiliser la fonction `sort()` (les fonctions/méthodes `min()`, `append()` et `remove()` vous seront utiles).
 
 
-### Séquence nucléique aléatoire
-Générez aléatoirement une séquence nucléique de 15 bases en utilisant une liste et la méthode `append()` (chaque base est équiprobable). Votre programme contiendra la fonction `gen_seq_alea()` à laquelle on passe un entier positif `n` représentant le nombre de nucléotides. La fonction renverra la séquence aléatoire sous forme de liste.
+### Séquence d'ADN aléatoire
+
+Créez une fonction `seq_alea()` à laquelle on passe en argument un entier positif `taille` représentant le nombre de bases de la séquence et renvoie une séquence d'ADN aléatoire sous forme d'une liste de bases. Utilisez la méthode `.append()` pour ajouter les différentes bases à la liste et la fonction `random.choice()` pour choisir une base parmi les 4 possibles.
+
+Avec cette fonction, générez aléatoirement une séquence d'ADN de 15 bases.
 
 
-### Séquence nucléique complémentaire
-Transformez la séquence nucléique `TCTGTTAACCATCCACTTCG` en sa séquence complémentaire inverse en utilisant un maximum de méthodes associées aux listes. N'oubliez pas que la séquence complémentaire doit être inversée !
+### Séquence d'ADN complémentaire inverse
+
+Transformez la séquence d'ADN `TCTGTTAACCATCCACTTCG` en sa séquence complémentaire inverse en utilisant un maximum de méthodes associées aux listes. N'oubliez pas que la séquence complémentaire doit être inversée. Autrement dit, la séquence complémentaire inverse de la séquence `ATCG` est `CGAT`.
 
 
 ### Doublons
+
 Soit la liste de nombres `[5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]`.
 
-Enlevez les doublons de cette liste, triez-la et affichez-la.
+Retirez les doublons de cette liste, triez-la et affichez-la.
 
 
-### Séquence nucléique aléatoire 2
-Générez aléatoirement une séquence nucléique de 50 bases contenant 10 % de A, 50 % de G, 30 % de T et 10 % de C. Votre programme contiendra une fonction `gen_seq_alea2()` à qui on passe 5 *floats* représentant respectivement la longueur de la séquence et les pourcentages de chacun des 4 nucléotide. La fonction renverra la séquence sous forme d'une liste.
+### Séquence d'ADN aléatoire 2
+
+Créez une fonction `seq_alea_2()` qui prend comme argument 1 entier et 4 *floats* représentant respectivement la longueur de la séquence et les pourcentages de chacune des 4 bases A, T, G et C. La fonction générera aléatoirement une séquence d'ADN qui prend en compte les contraintes fournies comme arguments et renverra la séquence sous forme d'une liste.
+
+Utilisez cette fonction pour générez aléatoirement une séquence d'ADN de 50 bases contenant 10 % de A, 30 % de T, 50 % de G et 10 % de C.
 
 
 ### Le nombre mystère
@@ -239,7 +247,7 @@ Trouvez le nombre mystère qui répond aux conditions suivantes :
 - *La somme de ses chiffres est égale à 7*.
 
 
-On vous propose d'utiliser une méthode dite *brute force*, c'est-à-dire d'utiliser une boucle et à chaque itération de tester les différentes conditions.
+On vous propose d'utiliser une méthode dite « brute force », c'est-à-dire d'utiliser une boucle et à chaque itération de tester les différentes conditions.
 
 
 ### Triangle de Pascal (Exercice +++)
