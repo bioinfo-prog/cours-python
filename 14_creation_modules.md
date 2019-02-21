@@ -11,6 +11,8 @@ En Python, la création de modules est très simple. Il vous suffit d'écrire un
 ```
 """Module inutile qui affiche des messages :-)."""
 
+DATE = 16092008
+
 
 def bonjour(nom):
     """Dit Bonjour."""
@@ -25,21 +27,24 @@ def ciao(nom):
 def hello(nom):
     """Dit Hello."""
     return "Hello " + nom
-
-
-DATE = 16092008
 ```
 
-Les commentaires entre triple guillemets en tête de module et dans chaque fonction sont facultatifs mais jouent néanmoins un rôle important. On les appelle *docstrings*.
+Les chaînes de caractères entre triple guillemets en tête de module et dans chaque fonction sont facultatives mais elles jouent néanmoins un rôle essentiel dans la documentation du code.
 
 
 ## Utilisation de son propre module
 
-Pour appeler une fonction ou une variable de ce module, il faut que le fichier `message.py` soit dans le répertoire courant (dans lequel on travaille) ou bien dans un répertoire indiqué par la variable d'environnement Unix `PYTHONPATH` (on rappelle en Unix il faut taper la commande suivante : `export PYTHONPATH=/chemin/vers/mes/super/modules/python`). Ensuite, il suffit d'importer le module et toutes ses fonctions (et variables) vous sont alors accessibles.
+Pour appeler une fonction ou une variable de ce module, il faut que le fichier `message.py` soit dans le répertoire courant (dans lequel on travaille) ou bien dans un répertoire listé par la variable d'environnement `PYTHONPATH`. Ensuite, il suffit d'importer le module et toutes ses fonctions (et variables) vous sont alors accessibles.
 
 open-box-rem
 
-La première fois qu'un module est importé, Python crée un répertoire nommé `__pycache__` contenant un fichier avec une extension `.pyc` qui contient le [bytecode](https://docs.python.org/3.6/glossary.html), c'est-à-dire le code précompilé, du module.
+Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell* pour modifier la variable d'environnement `PYTHONPATH` :
+
+`export PYTHONPATH=$PYTHONPATH:/chemin/vers/mes/super/modules/python`
+
+Avec Windows, toujours depuis un *shell*, il faut taper la commande suivante :
+
+`set PYTHONPATH=%PYTHONPATH%;C:\chemin\vers\mes\super\modules\python`
 
 close-box-rem
 
@@ -56,10 +61,16 @@ L'importation du module se fait avec la commande `import message`. Notez que le 
 16092008
 ```
 
+open-box-rem
+
+La première fois qu'un module est importé, Python crée un répertoire nommé `__pycache__` contenant un fichier avec une extension `.pyc` qui contient le [bytecode](https://docs.python.org/fr/3/glossary.html), c'est-à-dire le code précompilé du module.
+
+close-box-rem
+
 
 ## Les *docstrings*
 
-Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module, et comment utiliser chaque fonction. Les commentaires (entre triple guillemets) situés en début de module et sous chaque fonction sont là pour cela, on les appelle *docstrings*. Ces *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
+Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères (entre triple guillemets) situés en début de module et sous chaque fonction sont là pour cela, on les appelle *docstrings*. Ces *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
 ```
 >>> help(message)
 
@@ -91,7 +102,7 @@ Pour quitter l'aide, pressez la touche `Q`.
 
 close-box-rem
 
-Vous voyez que Python a formaté automatiquement cette page d'aide, tout comme il est capable de le faire pour les modules internes à Python (e.g. *random*, *math*, etc), et ce grâce aux *docstrings*. Notez que l'on peut invoquer l'aide pour une seule fonction :
+Vous remarquez que Python a généré automatiquement cette page d'aide, tout comme il est capable de le faire pour les modules internes à Python (*random*, *math*, etc) et ce grâce aux *docstrings*. Notez que l'on peut aussi appeler l'aide pour une seule fonction :
 ```
 >>> help(message.ciao)
 
@@ -101,13 +112,13 @@ ciao(nom)
     Dit Ciao.
 ```
 
-En résumé, les *docstrings* sont destinés aux utilisateurs du module, leur but est donc différent des commentaires qui eux sont destinés à celui qui lit le code (pour en comprendre les subtilités). Une bonne *docstring* de fonction doit contenir tout ce dont un utilisateur a besoin pour utiliser cette fonction. Une liste minimale (non exhaustive) serait :
+En résumé, les *docstrings* sont destinés aux utilisateurs du module. Leur but est donc différent des commentaires qui eux sont destinés à celui qui lit le code (pour en comprendre les subtilités). Une bonne *docstring* de fonction doit contenir tout ce dont un utilisateur a besoin pour utiliser cette fonction. Une liste minimale et non exhaustive serait :
 
 - ce que fait la fonction,
 - ce qu'elle prend en argument,
 - ce qu'elle renvoie.
 
-Pour en savoir plus sur les *docstrings*, nous vous recommandons de lire le chapitre suivant *Bonnes pratiques en programmation Python*.
+Pour en savoir plus sur les *docstrings* et comment les écrire, nous vous recommandons de lire le chapitre 15 *Bonnes pratiques en programmation Python*.
 
 
 ## Modules et fonctions
@@ -121,14 +132,14 @@ La visibilité des fonctions au sein des modules suit des règles simples :
 
 ## Module ou script ?
 
-Vous avez remarqué que notre module `message` ne contient que des fonctions et une constante. Si on l'exécutait comme un script classique, cela ne renverrait aucune sortie :
+Vous avez remarqué que notre module `message` ne contient que des fonctions et une constante. Si on l'exécutait comme un script classique, cela ne renverrait rien :
 ```
 $ python message.py
 $
 ```
-Cela vient bien sûr de l'absence de programme principal, c'est à dire, de lignes de code que l'interpréteur exécute lorsqu'on lance le script.
+Cela s'explique par l'absence de programme principal, c'est-à-dire, de lignes de code que l'interpréteur exécute lorsqu'on lance le script.
 
-Que se passe-t-il alors si on importe un script en tant que module alors qu'il contient un programme principal avec des lignes de code ? Par exemple, avec le code suivant enregistré dans un fichier `message2.py` :
+À l'inverse, que se passe-t-il alors si on importe un script en tant que module alors qu'il contient un programme principal avec des lignes de code ? Prenons par exemple le code suivant enregistré dans un fichier `message2.py` :
 ```
 """Script de test."""
 
@@ -148,7 +159,7 @@ Si on l'importe dans l'interpréteur, on obtient :
 Bonjour Joe
 ```
 
-Ceci n'est pas le comportement attendu d'un module car on n'attend pas d'affichage particulier (par exemple un `import math` n'affiche rien dans l'interpréteur), et plus généralement on s'attend à avoir des fonctions accessibles mais pas spécialement des lignes de code exécutées.
+Ceci n'est pas le comportement voulu pour un module car on n'attend pas d'affichage particulier (par exemple la commande `import math` n'affiche rien dans l'interpréteur). Plus généralement, on s'attend à avoir des fonctions accessibles mais pas spécialement à des lignes de code exécutées.
 
 Afin de pouvoir utiliser un code Python en tant que module ou en tant que script, il faut utiliser la structure suivante :
 ```
@@ -164,30 +175,38 @@ if __name__ == '__main__':
     print(bonjour("Joe"))
 ```
 
-La ligne `if __name__ == '__main__':` indique à Python :
+La ligne 9 `if __name__ == '__main__':` indique à Python :
 
-- Si le programme `message2.py` est exécuté en tant que script, le résultat du `if` sera alors `True` :
+- Si le programme `message2.py` est exécuté en tant que script, le résultat du test `if` sera alors `True` et le bloc d'instructions correspondant (ligne 10) sera exécuté :
     ```
     $ python message2.py
     Bonjour Joe
     ```
 
-- Si le programme `message2.py` est importé en tant que module, le résultat du `if` sera alors `False` :
+- Si le programme `message2.py` est importé en tant que module, le résultat du test `if` sera alors `False` (et le bloc d'instructions correspondant ne sera pas exécuté) :
     ```
     >>> import message2
     >>>
     ```
 
-Dans ce dernier cas, les fonctions du module sont accessibles mais le bloc d'instructions du `if` ne sera pas exécuté. Ce comportement est possible grâce à la gestion des espaces de noms par Python (voir chapitre 15 *Avoir la classe avec les objets*).
+Ce comportement est possible grâce à la gestion des espaces de noms par Python (voir le chapitre 19 *Avoir la classe avec les objets*).
 
-Au delà de la commodité de pouvoir utiliser votre programme en tant que script ou en tant que module, cela présente l'avantage de bien voir où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions recommandé dans les chapitres 9 et 12 sur les fonctions. L'utilisation de la ligne `if __name__ == '__main__':` est une bonne pratique que nous vous recommandons !
+Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de bien voir où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == '__main__':` est une bonne pratique que nous vous recommandons !
 
 
 ## Exercices
 
-**Conseil** : pour cet exercice, écrivez un script dans un fichier, puis exécutez-le dans un *shell*.
+*Conseil* : pour cet exercice, écrivez un script dans un fichier, puis exécutez-le dans un *shell*.
 
 
 ### Module ADN
 
-Reprenez l'ensemble des fonctions qui gèrent le traitement de séquences nucléiques et incluez-les dans un module *adn.py*. Testez-les au fur et à mesure.
+Dans le script `adn.py`, construisez un module qui va contenir les fonctions et variables suivantes.
+
+- Fonction `seq_alea()` : prend en argument une taille de séquence sous forme d'un entier et renvoie une séquence d'ADN de la taille correspondante sous forme d'une chaîne de caractères.
+- Fonction `prop_gc()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la proportion en GC de la séquence sous forme d'un *float*. Nous vous rappelons que la proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G).
+- Fonction `comp_inv()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la séquence complémentaire inverse (aussi sous forme d'une chaîne de caractères).
+- Fonction `lit_fasta()` : prend en argument un nom de fichier sous forme d'une chaîne de caractères et renvoie la séquence d'ADN lue dans le fichier sous forme d'une chaîne de caractère.
+- La variable `BASE_COMP` : dictionnaire qui contient la complémentarité des bases d'ADN (`A`$\rightarrow$`T`, `T`$\rightarrow$`C`, `G`$\rightarrow$`C`...). Ce dictionnaire sera utilisé par la fonction `comp_inv()`.
+
+Pour les fonctions `seq_alea()` et `comp_inv()`, n'hésitez pas à jeter un œil aux exercices correspondants dans le chapitre 11 *Plus sur les listes.*
