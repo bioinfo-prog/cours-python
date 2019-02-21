@@ -52,7 +52,7 @@ close-box-def
 
 Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 9 *Fonctions*.
 
-Dans ce chapitre, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
+Dans le chapitre 9, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
 
 ```
 >>> def fct(*args):
@@ -131,6 +131,34 @@ Les noms `*args` et `**kwargs` sont des conventions en Python. Nous vous conseil
 close-box-adv
 
 L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *Tkinter* présenté dans le chapitre 20.
+
+Enfin, il est possible d'utiliser ce mécanisme d'empaquetage / désempaquetage (*packing* / *unpacking*) dans l'autre sens :
+
+```
+>>> def fct(a, b, c):
+...    print(a,b,c)
+...
+>>> t = (-5,6,7)
+>>>
+>>> fct(*t)
+-5 6 7
+```
+
+Avec la syntaxe `*t` on désempaquette le tuple à la volée lors de l'appel à la fonction. Cela est aussi possible avec un dictionnaire : 
+
+```
+>>> def fct(x, y, z):
+...    print(x, y, z)
+...
+>>> dico = {'x': -1, 'y': -2, 'z': -3}
+>>> fct(**dico)
+-1 -2 -3
+```
+
+Attention toutefois à bien respecter deux choses :
+
+- la concordance entre le nom des clés du dictionnaire et le nom des arguments dans la fonction (sinon cela renvoie une erreur) ;
+- l'utilisation d'une double étoile pour désempaqueter les valeurs du dictionnaire (si vous utilisez une seule étoile, Python désempaquettera les clés !).
 
 
 ## Un peu de transformée de Fourier avec *NumPy*
