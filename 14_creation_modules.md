@@ -2,11 +2,12 @@
 
 ## Pourquoi créer ses propres modules ?
 
-Dans le chapitre 8, nous avons vu comment utiliser les modules existant dans python (comme *random*, *math*, etc). Nous avons vu par ailleurs les fonctions dans les chapitres 9 et 12 qui permettent de ré-utiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer du code. On peut imaginer qu'une fonction bien écrite pourrait être judicieusement ré-utilisée dans un autre programme Python. C'est justement l'objet de la création de module, il s'agit d'y mettre un ensemble de fonctions que vous pourrez être amené à ré-utiliser souvent. En général les modules sont regroupés autour d'un thème précis, par exemple, on pourrait concevoir un module de gestion de séquences biologiques ou encore de gestion de fichiers PDB.
+Dans le chapitre 8 *Modules*, nous avons découvert quelques modules existants dans Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions* que les fonctions sont utiles pour ré-utiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer ce code. On peut imaginer qu'une fonction bien écrite pourrait être judicieusement ré-utilisée dans un autre programme Python. C'est justement l'intérêt de créer un module, on y met un ensemble de fonctions que l'on peut être amené à ré-utiliser souvent. En général les modules sont regroupés autour d'un thème précis, par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
 
-## Comment créer son propre module
 
-En Python, la création de modules est très simple. Il vous suffit d'écrire un ensemble de fonctions (et/ou de constantes) dans un fichier, puis d'enregistrer ce dernier avec une extension `.py` (comme n'importe quel script Python). À titre d'exemple, nous allons créer un module simple que nous enregistrerons sous le nom `message.py`.
+## Création d'un module
+
+En Python, la création d'un module est très simple. Il suffit d'écrire un ensemble de fonctions (et/ou de constantes) dans un fichier, puis d'enregistrer ce dernier avec une extension `.py` (comme n'importe quel script Python). À titre d'exemple, nous allons créer un module simple que nous enregistrerons sous le nom `message.py` :
 
 ```
 """Module inutile qui affiche des messages :-)."""
@@ -29,7 +30,13 @@ def hello(nom):
     return "Hello " + nom
 ```
 
-Les chaînes de caractères entre triple guillemets en tête de module et dans chaque fonction sont facultatives mais elles jouent néanmoins un rôle essentiel dans la documentation du code.
+Les chaînes de caractères entre triple guillemets en tête du module et en tête de chaque fonction sont facultatives mais elles jouent néanmoins un rôle essentiel dans la documentation du code.
+
+open-box-rem
+
+Une constante est, par définition, une variable dont la valeur n'est pas modifiée. Par convention en Python, le nom des constantes est écrit en majuscules (comme `DATE` dans notre exemple).
+
+close-box-rem
 
 
 ## Utilisation de son propre module
@@ -38,17 +45,15 @@ Pour appeler une fonction ou une variable de ce module, il faut que le fichier `
 
 open-box-rem
 
-Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell* pour modifier la variable d'environnement `PYTHONPATH` :
+Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell* pour modifier la variable d'environnement `PYTHONPATH` :  
+`export PYTHONPATH=$PYTHONPATH:/chemin/vers/mon/super/module`
 
-`export PYTHONPATH=$PYTHONPATH:/chemin/vers/mes/super/modules/python`
-
-Avec Windows, toujours depuis un *shell*, il faut taper la commande suivante :
-
-`set PYTHONPATH=%PYTHONPATH%;C:\chemin\vers\mes\super\modules\python`
+Avec Windows, toujours depuis un *shell*, il faut taper la commande suivante :  
+`set PYTHONPATH=%PYTHONPATH%;C:\chemin\vers\mon\super\module`
 
 close-box-rem
 
-L'importation du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py` et pourtant on ne la précise pas lorsqu'on importe le module. Ensuite on peut utiliser les fonctions comme avec un module classique.
+Le chargement du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py` et pourtant on ne la précise pas lorsqu'on importe le module. Ensuite on peut utiliser les fonctions comme avec un module classique.
 ```
 >>> import message
 >>> message.hello("Joe")
@@ -70,7 +75,7 @@ close-box-rem
 
 ## Les *docstrings*
 
-Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères (entre triple guillemets) situés en début de module et sous chaque fonction sont là pour cela, on les appelle *docstrings*. Ces *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
+Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères entre triple guillemets situées en début du module et de chaque fonction sont là pour cela, on les appelle *docstrings*. Ces *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
 ```
 >>> help(message)
 
@@ -112,7 +117,7 @@ ciao(nom)
     Dit Ciao.
 ```
 
-En résumé, les *docstrings* sont destinés aux utilisateurs du module. Leur but est donc différent des commentaires qui eux sont destinés à celui qui lit le code (pour en comprendre les subtilités). Une bonne *docstring* de fonction doit contenir tout ce dont un utilisateur a besoin pour utiliser cette fonction. Une liste minimale et non exhaustive serait :
+En résumé, les *docstrings* sont destinés aux utilisateurs du module. Leur but est différent des commentaires qui, eux, sont destinés à celui qui lit le code (pour en comprendre les subtilités). Une bonne *docstring* de fonction doit contenir tout ce dont un utilisateur a besoin pour utiliser cette fonction. Une liste minimale et non exhaustive serait :
 
 - ce que fait la fonction,
 - ce qu'elle prend en argument,
@@ -127,7 +132,7 @@ La visibilité des fonctions au sein des modules suit des règles simples :
 
 - Les fonctions dans un module peuvent s'appeler les unes les autres.
 
-- Les fonctions dans un module peuvent appeler des fonctions situées dans un autre module s'il a été préalablement importé avec la commande `import`.
+- Les fonctions dans un module peuvent appeler des fonctions situées dans un autre module s'il a été préalablement chargé avec la commande `import`.
 
 
 ## Module ou script ?
@@ -139,7 +144,7 @@ $
 ```
 Cela s'explique par l'absence de programme principal, c'est-à-dire, de lignes de code que l'interpréteur exécute lorsqu'on lance le script.
 
-À l'inverse, que se passe-t-il alors si on importe un script en tant que module alors qu'il contient un programme principal avec des lignes de code ? Prenons par exemple le code suivant enregistré dans un fichier `message2.py` :
+À l'inverse, que se passe-t-il alors si on importe un script en tant que module alors qu'il contient un programme principal avec des lignes de code ? Prenons par exemple le script `message2.py` suivant :
 ```
 """Script de test."""
 
@@ -159,9 +164,9 @@ Si on l'importe dans l'interpréteur, on obtient :
 Bonjour Joe
 ```
 
-Ceci n'est pas le comportement voulu pour un module car on n'attend pas d'affichage particulier (par exemple la commande `import math` n'affiche rien dans l'interpréteur). Plus généralement, on s'attend à avoir des fonctions accessibles mais pas spécialement à des lignes de code exécutées.
+Ceci n'est pas le comportement voulu pour un module car on n'attend pas d'affichage particulier (par exemple la commande `import math` n'affiche rien dans l'interpréteur).
 
-Afin de pouvoir utiliser un code Python en tant que module ou en tant que script, il faut utiliser la structure suivante :
+Afin de pouvoir utiliser un code Python en tant que module ou en tant que script, nous vous conseillons la structure suivante :
 ```
 """Script de test."""
 
@@ -171,11 +176,11 @@ def bonjour(nom):
     return "Bonjour " + nom
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(bonjour("Joe"))
 ```
 
-La ligne 9 `if __name__ == '__main__':` indique à Python :
+À la ligne 9, l'instruction `if __name__ == "__main__":` indique à Python :
 
 - Si le programme `message2.py` est exécuté en tant que script, le résultat du test `if` sera alors `True` et le bloc d'instructions correspondant (ligne 10) sera exécuté :
     ```
@@ -189,24 +194,31 @@ La ligne 9 `if __name__ == '__main__':` indique à Python :
     >>>
     ```
 
-Ce comportement est possible grâce à la gestion des espaces de noms par Python (voir le chapitre 19 *Avoir la classe avec les objets*).
+Ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 19 *Avoir la classe avec les objets*).
 
-Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de bien voir où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == '__main__':` est une bonne pratique que nous vous recommandons !
+Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de bien voir où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == "__main__":` est une bonne pratique que nous vous recommandons !
 
 
-## Exercices
+## Exercice
 
 *Conseil* : pour cet exercice, écrivez un script dans un fichier, puis exécutez-le dans un *shell*.
 
 
 ### Module ADN
 
-Dans le script `adn.py`, construisez un module qui va contenir les fonctions et variables suivantes.
+Dans le script `adn.py`, construisez un module qui va contenir les fonctions et constantes suivantes.
 
+- Fonction `lit_fasta()` : prend en argument un nom de fichier sous forme d'une chaîne de caractères et renvoie la séquence d'ADN lue dans le fichier sous forme d'une chaîne de caractères.
 - Fonction `seq_alea()` : prend en argument une taille de séquence sous forme d'un entier et renvoie une séquence d'ADN de la taille correspondante sous forme d'une chaîne de caractères.
-- Fonction `prop_gc()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la proportion en GC de la séquence sous forme d'un *float*. Nous vous rappelons que la proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G).
 - Fonction `comp_inv()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la séquence complémentaire inverse (aussi sous forme d'une chaîne de caractères).
-- Fonction `lit_fasta()` : prend en argument un nom de fichier sous forme d'une chaîne de caractères et renvoie la séquence d'ADN lue dans le fichier sous forme d'une chaîne de caractère.
-- La variable `BASE_COMP` : dictionnaire qui contient la complémentarité des bases d'ADN (`A`$\rightarrow$`T`, `T`$\rightarrow$`C`, `G`$\rightarrow$`C`...). Ce dictionnaire sera utilisé par la fonction `comp_inv()`.
+- Fonction `prop_gc()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la proportion en GC de la séquence sous forme d'un *float*. Nous vous rappelons que la proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G).
 
-Pour les fonctions `seq_alea()` et `comp_inv()`, n'hésitez pas à jeter un œil aux exercices correspondants dans le chapitre 11 *Plus sur les listes.*
+- Constante `BASE_COMP` : dictionnaire qui contient la complémentarité des bases d'ADN (`A`$\rightarrow$`T`, `T`$\rightarrow$`C`, `G`$\rightarrow$`C` et `C`$\rightarrow$`G`). Ce dictionnaire sera utilisé par la fonction `comp_inv()`.
+
+À la fin de votre script, proposez des exemples d'utilisation des fonctions que vous aurez créées. Ces exemples d'utilisation ne devront pas être exécutés lorsque le script est chargé comme un module.
+
+*Conseils* :
+
+- Dans cet exercice, on supposera que toutes les séquences sont manipulées comme des chaînes de caractères en majuscules.
+- Pour les fonctions `seq_alea()` et `comp_inv()`, n'hésitez pas à jeter un œil aux exercices correspondants dans le chapitre 11 *Plus sur les listes.*
+- Voici un exemple de fichier FASTA [`adn.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/adn.fasta) pour tester la fonction `lit_fasta()`.
