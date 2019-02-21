@@ -32,7 +32,7 @@ Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pou
 
 Ce cours est basé sur la **version 3 de Python**, qui est désormais le standard.
 
-Si, néanmoins, vous devez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 21 *Remarques complémentaires* vous apportera plus de précisions.
+Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 21 *Remarques complémentaires* vous apportera plus de précisions.
 
 
 ### Miniconda
@@ -148,7 +148,7 @@ Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteu
 >>> 6*3
 18
 ```
-À ce stade, vous pouvez entrer une autre commande ou bien quitter l'interpréteur Python, soit en tapant la commande `exit()` puis en validant en appuyant sur la touche `Entrée`, soit en pressant simultanément les touches `Ctrl` et `D`.
+À ce stade, vous pouvez entrer une autre commande ou bien quitter l'interpréteur Python, soit en tapant la commande `exit()` puis en validant en appuyant sur la touche `Entrée`, soit en pressant simultanément les touches `Ctrl` et `D` sous Linux et Mac ou `Ctrl` et `Z` sous Windows.
 
 L'interpréteur Python est donc un système interactif dans lequel vous pouvez entrer des commandes, que Python exécutera sous vos yeux (au moment où vous validerez la commande en appuyant sur la touche `Entrée`).
 
@@ -194,10 +194,10 @@ L'utilisation des commentaires est rediscutée dans le chapitre 15 *Bonnes prati
 Voici un exemple :
 
 ```
-# votre premier commentaire en  Python
+# Votre premier commentaire en  Python.
 print('Hello world!')
 
-# d'autres commandes plus utiles pourraient suivre
+# D'autres commandes plus utiles pourraient suivre.
 ```
 
 open-box-rem
@@ -211,7 +211,7 @@ close-box-rem
 
 En programmation, il est courant de répéter un certain nombre de choses (avec les boucles, voir le chapitre 5 *Boucles et comparaisons*) ou d'exécuter plusieurs instructions si une condition est vraie (avec les tests, voir le chapitre 6 *Tests*).
 
-Par exemple, imaginons que nous souhaitions afficher chacune des base d'une séquence d'ADN, les compter puis afficher le nombre total de bases à la fin. Nous pourrions utiliser l'algorithme présenté en pseudo-code dans la figure @fig:indentation_bloc_instructions.
+Par exemple, imaginons que nous souhaitions afficher chacune des bases d'une séquence d'ADN, les compter puis afficher le nombre total de bases à la fin. Nous pourrions utiliser l'algorithme présenté en pseudo-code dans la figure @fig:indentation_bloc_instructions.
 
 ![Notion d'indentation et de bloc d'instructions](img/indentation_bloc_instructions.png "Indentation et bloc d'instructions"){ #fig:indentation_bloc_instructions width=90% }
 
