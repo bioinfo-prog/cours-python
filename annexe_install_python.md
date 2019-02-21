@@ -157,11 +157,11 @@ puis suivez les mêmes instructions que dans la section précédente (la seule p
 
 ### Installation de Python avec Miniconda pour Windows 7 et 10
 
-Dans cette section, on détailler l'installation de Miniconda sous Windows.
+Dans cette section, nous détaillons l'installation de Miniconda sous Windows.
 
 open-box-warn
 
-On part du principe qu'aucune version d'Anaconda, Miniconda, ou encore de Python "classique" (obtenue sur le [site officiel de Python](https://www.python.org/downloads/)) n'est installée sur votre ordinateur. Si tel est le cas, on recommande vivement de la désinstaller pour éviter des conflits de version.
+Nous partons du principe qu'aucune version d'Anaconda, Miniconda, ou encore de Python "classique" (obtenue sur le [site officiel de Python](https://www.python.org/downloads/)) n'est installée sur votre ordinateur. Si tel est le cas, nous recommandons vivement de la désinstaller pour éviter des conflits de version.
 
 Par ailleurs, la procédure détaillée ci-dessous rendra la version de Miniconda **prioritaire** sur toute autre version de Python (raison pour laquelle nous vous demandons de cocher une case non recommandée par l'installateur, cf. Figure @fig:install_miniconda5bis). Si vous désinstallez toute version de Python existante, tout se passera sans problème.
 
