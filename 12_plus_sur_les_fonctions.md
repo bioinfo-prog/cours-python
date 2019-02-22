@@ -195,9 +195,13 @@ Dans le module principal x vaut -15
 ```
 Vous voyez que dans la fonction, `x` a pris la valeur qui lui était définie localement en priorité sur sa valeur définie dans le module principal.
 
-*Conseil* : même si Python peut reconnaître une variable ayant le même nom que ses fonctions ou variables internes, évitez de les utiliser car ceci rendra votre code confus !
+open-box-adv
 
-De manière générale la règle LGI découle de la manière dont Python gère ce que l'on appelle *l'espace des noms*. Nous en parlerons plus longuement dans le chapitre "Avoir la classe avec les objets" ainsi que dans le chapitre "Pour aller plus loin".
+Même si Python peut reconnaître une variable ayant le même nom que ses fonctions ou variables internes, évitez de les utiliser car ceci rendra votre code confus !
+
+close-box-adv
+
+De manière générale la règle LGI découle de la manière dont Python gère ce que l'on appelle *les espaces de noms*. Nous en parlerons plus longuement dans le chapitre 19 *Avoir la classe avec les objets*.
 
 
 ## Recommandations
