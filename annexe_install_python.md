@@ -20,8 +20,12 @@ Enfin, dans tout ce qui suit, on part du principe que vous installerez Miniconda
 
 ## Installation de Python avec Miniconda
 
-On vous conseille l'installation de la distribution [Miniconda](https://conda.io/miniconda.html) qui présente l'avantage d'installer Python et un puissant gestionnaire de paquets appelé *conda*.
+Nous vous conseillons l'installation de la distribution [Miniconda](https://conda.io/miniconda.html) qui présente l'avantage d'installer Python et un puissant gestionnaire de paquets appelé *conda*. Dans toute la suite de cette annexe, l'indication avec le $ et un espace comme suit :
 
+```
+$ 
+```
+signifie l'invite d'un *shell* quel qu'il soit (PowerShell sous Windows, bash sous Mac OS X et Linux).
 
 ### Installation de Python avec Miniconda pour Linux
 
