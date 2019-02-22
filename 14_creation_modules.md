@@ -45,20 +45,16 @@ Pour appeler une fonction ou une variable de ce module, il faut que le fichier `
 
 open-box-rem
 
-Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell bash* pour modifier la variable d'environnement `PYTHONPATH` :
+Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell* Bash pour modifier la variable d'environnement `PYTHONPATH` :
 `export PYTHONPATH=$PYTHONPATH:/chemin/vers/mon/super/module`
 
-Avec Windows, toujours depuis un *shell cmd*, il faut taper la commande suivante :
-`set PYTHONPATH=%PYTHONPATH%;C:\chemin\vers\mon\super\module`
-
-Toujours avec Windows, mais depuis un *powershell*, il faut taper la commande suivante :
+Avec Windows, mais depuis un *shell* PowerShell, il faut taper la commande suivante :
 `$env:PYTHONPATH += ";C:\chemin\vers\mon\super\module"`
 
 Une fois cette manipulation effectuée, vous pouvez contrôler que le chemin vers le répertoire contenant vos modules a bien été ajouté à la variable d'environnement `PYTHONPATH` :
 
-- sous Mac OSX et Linux : `echo $PYTHONPATH`
-- sous Windows avec le *shell cmd* : `echo %PYTHONPATH%`
-- sous Windows avec le *powershell* : `echo $env:PYTHONPATH`
+- sous Mac OS X et Linux : `echo $PYTHONPATH`
+- sous Windows : `echo $env:PYTHONPATH`
 
 close-box-rem
 
