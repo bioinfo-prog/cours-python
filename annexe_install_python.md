@@ -64,12 +64,12 @@ Miniconda3 will now be installed into this location:
 ```
 Le programme d'installation va alors installer Python et le gestionnaire de paquets *conda*.
 
-Cette étape terminée, le programme d'installation vous propose de modifier le fichier de configuration de votre *shell Bash* pour que *conda* soit pris en compte. On vous conseille d'accepter en tapant `yes` puis en appuyant sur la touche *Entrée*.
+Cette étape terminée, le programme d'installation vous propose de modifier le fichier de configuration de votre *shell* Bash pour que *conda* soit pris en compte (c'est-à-dire accessible à chaque fois que vous ouvrez un *shell*). Nous vous conseillons d'accepter en tapant `yes` puis en appuyant sur la touche *Entrée*.
 ```
 Do you wish the installer to prepend the Miniconda3 install location
 to PATH in your /home/pierre/.bashrc ? [yes|no]
 [no] >>> yes
-```  
+```
 
 L'installation de Miniconda est terminée. L'espace utilisé par Miniconda sur votre disque dur est d'environ 300 Mo.
 
@@ -189,11 +189,11 @@ Gardez le choix de l'installation seulement pour vous (case cochée à *Just me 
 
 ![Installation Miniconda étape 4](img/miniconda4.png){ #fig:install_miniconda4 width=40% }
 
-L'installateur vous demande où installer Miniconda, on vous recommande de laisser le choix par défaut (ressemblant à `C:\Users\votre_nom_utilisateur\Miniconda3`). Cliquez sur *Next*, vous arriverez sur :
+L'installateur vous demande où installer Miniconda, nous vous recommandons de laisser le choix par défaut (ressemblant à `C:\Users\votre_nom_utilisateur\Miniconda3`). Cliquez sur *Next*, vous arriverez sur :
 
 ![Installation Miniconda étape 5](img/miniconda5.png){ #fig:install_miniconda5 width=40% }
 
-Gardez la case *Register Anaconda as my default Python 3.7* cochée et cochez la case *Add Anaconda to my PATH environment variable*. En cochant cette dernière option, le texte s'est mis en rouge car ce n'est pas une option recommandée (cf. explications ci-dessus) :
+Gardez la case *Register Anaconda as my default Python 3.7* cochée et cochez la case *Add Anaconda to my PATH environment variable*. En cochant cette dernière option, le texte s'est mis en rouge car ce n'est pas une option recommandée. Nous vous recommandons de choisir tout de même cette option car elle permet d'avoir accès à conda (et donc Python) dans le *shell* Windows nommé PowerShell (*shell* beaucoup plus puissant que l'ancien *shell* nommé cmd qui devient progressivement obsolète).
 
 ![Installation Miniconda étape 5bis](img/miniconda5bis.png){ #fig:install_miniconda5bis width=40% }
 
@@ -213,19 +213,19 @@ Décochez les cases *Learn more about Anaconda Cloud* et *Learn how to get start
 
 #### Test de l'interpréteur Python
 
-En cliquant sur la touche Windows de la barre de tâches, un nouveau menu apparait sous le nom :
+Nous sommes maintenant prêts à tester l'interpréteur Python. En premier lieu, il faut lancer un *shell* PowerShell. Pour cela, cliquez sur le bouton Windows et tapez `powershell`. Vous devriez voir apparaitre le menu suivant :
 
-![Lancement d'un *shell* Anaconda](img/miniconda_launch_shell.png){ #fig:miniconda_launch_shell width=40% }
+![Menu pour lancer un PowerShell](img/menu_Windows10_powershell.png){ #fig:miniconda_launch_shell width=40% }
 
-Cliquez sur l'icône *Anaconda Prompt*, cela va lancer un *shell* Anaconda. Ce *shell* devrait avoir un fond noir, mais vous pouvez régler les couleurs de fond, du texte ainsi que les polices en cliquant sur la petite icône représentant un terminal dans la barre de titre. Par exemple, nous avons redéfini la couleur de fond en blanc dans la Figure @fig:miniconda_test_interpreter). Une fois vos réglages choisis, vous allez pouvoir tester si Python est bien installé en lançant l'interpréteur Python. Il suffit pour cela de taper la commande `python` dans le *shell* Anaconda :
+Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell avec un fond bleu (couleur que l'on peut bien-sûr modifier en cliquant sur la petite icône représentant un terminal dans la barre de titre). Pour tester si Python est bien installé, il suffit alors de lancer l'interpréteur Python en tapant la commande `python` :
 
-![Lancement de l'interpréteur Python dans un *shell* Anaconda](img/miniconda_test_interpreter.png){ #fig:miniconda_test_interpreter width=40% }
+![Lancement de l'interpréteur Python dans un PowerShell](img/test_python_powershell.png){ #fig:miniconda_test_interpreter width=40% }
 
 Si tout s'est bien passé, vous devriez avoir l'affichage suivant :
 
 ```
-(base) C:\Users\Pat>python
-Python 3.7.0 (default, Jun 28 2018, 08:04:48) [...]
+PS C:\Users\Pat> python
+Python 3.7.1 (default, Dec 10 2018, 22:54:23) [...]:: Anaconda, Inc. on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -237,8 +237,8 @@ Cela signifie que vous êtes bien dans l'interpréteur Python. À partir de là 
 Une fois revenu dans le *shell*, tapez la commande `conda`, vous devriez obtenir :
 
 ```
-$ conda
-usage: conda [-h] [-V] command ...
+PS C:\Users\Pat> conda
+usage: conda-script.py [-h] [-V] command ...
 
 conda is a tool for managing and deploying applications, environments and packages.
 
@@ -247,7 +247,35 @@ Options:
 positional arguments:
   command
     clean        Remove unused packages and caches.
-[...]
+    config       Modify configuration values in .condarc. This is modeled
+                 after the git config command. Writes to the user .condarc
+                 file (C:\Users\Pat\.condarc) by default.
+    create       Create a new conda environment from a list of specified
+                 packages.
+    help         Displays a list of available conda commands and their help
+                 strings.
+    info         Display information about current conda install.
+    init         Initialize conda for shell interaction. [Experimental]
+    install      Installs a list of packages into a specified conda
+                 environment.
+    list         List linked packages in a conda environment.
+    package      Low-level conda package utility. (EXPERIMENTAL)
+    remove       Remove a list of packages from a specified conda environment.
+    uninstall    Alias for conda remove.
+    run          Run an executable in a conda environment. [Experimental]
+    search       Search for packages and display associated information. The
+                 input is a MatchSpec, a query language for conda packages.
+                 See examples below.
+    update       Updates conda packages to the latest compatible version.
+    upgrade      Alias for conda update.
+
+optional arguments:
+  -h, --help     Show this help message and exit.
+  -V, --version  Show the conda version number and exit.
+
+conda commands available from other packages:
+  env
+PS C:\Users\Pat>
 ```
 
 Si c'est le cas, bravo, *conda* est bien installé et vous pouvez passez à la suite (rendez-vous à la section [Installation des modules supplémentaires](#installation-des-modules-supplémentaires)) !
@@ -427,15 +455,15 @@ Sous Windows, il existe une astuce très pratique. Lorsqu'on utilise l'explorate
 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 1)](img/lancement_shell_Windows1.png){ #fig:lancement_shell_Windows1 width=50% }
 
-Il suffit de taper `powershell` (ou bien `cmd`) dans la barre qui indique le chemin :
+Il suffit de taper `powershell` dans la barre qui indique le chemin :
 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 2)](img/lancement_shell_Windows2.png){ #fig:lancement_shell_Windows2 width=50% }
 
-puis on appuie sur entrée et le *powershell* (ou bien le *shell* `cmd`) se lance en étant directement dans le bon répertoire :
+puis on appuie sur entrée et le PowerShell se lance en étant directement dans le bon répertoire :
 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 3)](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=40% }
 
-Dans ce *powershell*, nous avons lancé la commande `ls` qui affiche le nom du répertoire courant (celui dans lequel on se trouve, dans notre exemple `D:\PAT\Python`) ainsi que les fichiers s'y trouvant (ici il n'y a qu'un fichier : `test.py`). Ensuite nous avons lancé l'exécution de ce fichier `test.py` en tapant `python test.py`.
+Dans ce PowerShell, nous avons lancé la commande `ls` qui affiche le nom du répertoire courant (celui dans lequel on se trouve, dans notre exemple `D:\PAT\Python`) ainsi que les fichiers s'y trouvant (ici il n'y a qu'un fichier : `test.py`). Ensuite nous avons lancé l'exécution de ce fichier `test.py` en tapant `python test.py`.
 
 **A votre tour !**
 
