@@ -225,7 +225,7 @@ Si tout s'est bien passé, vous devriez avoir l'affichage suivant :
 
 ```
 PS C:\Users\Pat> python
-Python 3.7.1 (default, Dec 10 2018, 22:54:23) [...]:: Anaconda, Inc. on win32
+Python 3.7.1 (default, Dec 10 2018, 22:54:23) [MSC v.1915 64 bit (AMD64)] :: Anaconda, Inc. on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -314,15 +314,15 @@ Puis enfin sur *Finish* :
 
 ### Installation des modules supplémentaires
 
-Cette étape sera commune pour les trois systèmes d'exploitation. À nouveau, lancez un *shell* (c'est-à-dire *Anaconda Prompt* sous Windows ou un terminal pour Mac OSX ou Linux).
+Cette étape sera commune pour les trois systèmes d'exploitation. À nouveau, lancez un *shell* (c'est-à-dire PowerShell sous Windows ou un terminal pour Mac OS X ou Linux).
 
 Dans le *shell*, tapez la ligne suivante puis appuyez sur la touche *Entrée* :
 
 ```
-$ conda install numpy pandas matplotlib scipy biopython
+$ conda install numpy pandas matplotlib scipy biopython jupyterlab
 ```
 
-Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib* et *scipy* et *BioPython*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien-sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copie d'écran prise sous Windows avec le *prompt* Anaconda) :
+Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib*, *scipy*, *BioPython* et *Jupyter lab*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien-sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copies d'écran prise sous Windows avec le PowerShell) :
 
 ![Installation de packages avec conda (étape 1)](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=40%}
 
@@ -337,14 +337,6 @@ Tapez `y` puis appuyez sur la touche *Entrée* pour confirmer. S'en suit alors l
 Une fois que tout cela est terminé, vous récupérez la main dans le *shell* :
 
 ![Installation de packages avec conda (étape 4)](img/miniconda_install_packages4.png){ #fig:miniconda_install_packages4 width=40%}
-
-Ensuite, on va installer deux autres modules très important, `jupyter` et `biopython`. En général, il existe plusieurs endroits, qu'on appelle des dépôts, où on peut retrouver un paquet donné. Les développeurs de `jupyter` et `biopython` recommandent d'utiliser le dépôt nommé *conda forge*. Pour préciser un dépôt, il faut utiliser l'option `-c` de *conda*. Lancez ainsi la commande suivante :
-
-```
-$ conda install -c conda-forge jupyterlab biopython
-```
-
-*Conda* vous demandera à nouveau une confirmation, puis le téléchargement et l'installation prendront plusieurs minutes.
 
 
 ### Test des modules supplémentaires
@@ -384,15 +376,13 @@ Cette commande devrait ouvrir votre navigateur internet par défaut et lancer Ju
 Pour quitter Jupyter, allez dans le menu *File* puis sélectionnez *Quit*. Vous pourrez alors fermer l'onglet de Jupyter. Pendant ces manipulations dans le navigateur, de nombreuses lignes ont été affichées dans l'interpréteur :
 
 ```
-(base) C:\Users\Pat>jupyter lab
-[I 18:45:13.435 LabApp] JupyterLab extension loaded from C:\Users\Pat\Miniconda3\lib\site-packages\jupyterlab
-[I 18:45:13.435 LabApp] JupyterLab application directory is C:\Users\Pat\Miniconda3\share\jupyter\lab
+PS C:\Users\Pat> jupyter lab
+[I 18:38:17.644 LabApp] JupyterLab extension loaded from C:\Users\Pat\Miniconda3\lib\site-packages\jupyterlab
+[I 18:38:17.644 LabApp] JupyterLab application directory is C:\Users\Pat\Miniconda3\share\jupyter\lab
 [...]
-[I 18:48:41.598 LabApp] Shutting down on /api/shutdown request.
-[I 18:48:41.598 LabApp] Shutting down 1 kernel
-[I 18:48:41.942 LabApp] Kernel shutdown: aa5bb931-8ac6-4008-adc2-2d5b3b72c105
-
-(base) C:\Users\Pat>
+[I 18:38:28.904 LabApp] Shutting down on /api/shutdown request.
+[I 18:38:28.919 LabApp] Shutting down 0 kernels
+PS C:\Users\Pat>
 ```
 
 Il s'agit d'un comportement normal. Quand Jupyter est actif, vous n'avez plus la main dans l'interpréteur et tous ces messages s'affichent. Une fois que vous quittez Jupyter, vous devriez récupérer la main dans l'interpréteur. Si ce n'est pas le cas, pressez deux fois la combinaison de touches *Ctrl* + *C*
