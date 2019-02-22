@@ -76,8 +76,7 @@ On utilisera le *shell* pour lancer l'interpréteur Python.
 Pour approfondir la notion de *shell*, vous pouvez consulter les pages Wikipedia :
 
 - du [*shell* Unix](https://fr.wikipedia.org/wiki/Shell_Unix) fonctionnant sous Mac OS X et Linux ;
-- du [*shell* Windows *cmd*](https://fr.wikipedia.org/wiki/Cmd) ;
-- du [*powershell* Windows](https://fr.wikipedia.org/wiki/Windows_PowerShell) qui est un *shell* beaucoup plus puissant que *cmd* et que l'on vous recommande si vous êtes sous Windows.
+- du [*shell* PowerShell](https://fr.wikipedia.org/wiki/Windows_PowerShell) fonctionnant sous Windows.
 
 Un *shell* possède toujours une invite de commande, c'est-à-dire un message qui s'affiche avant l'endroit où on entre des commandes. Dans tout cet ouvrage, cette invite est représentée systématiquement par le symbole dollar `$`, et ce quel que soit le système d'exploitation.
 
