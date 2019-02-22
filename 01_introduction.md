@@ -91,13 +91,13 @@ il faudra taper seulement `python` sans le `$` ni l'espace après le `$`.
 
 ## Premier contact avec Python
 
-Python est un langage interprété, c'est-à-dire que chaque ligne de code est lue puis interprétée afin d'être exécutée par l'ordinateur. Pour vous en rendre compte, ouvrez un *shell*, activez conda (reportez-vous si nécessaire à la rubrique *Installation de Python* en ligne), puis lancez la commande :
+Python est un langage interprété, c'est-à-dire que chaque ligne de code est lue puis interprétée afin d'être exécutée par l'ordinateur. Pour vous en rendre compte, ouvrez un *shell*, activez conda pour Linux et Mac OSX seulement (tapez `conda activate` et pour plus d'informations reportez-vous à la rubrique *Installation de Python* [en ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod)), puis lancez la commande :
 
 `python`
 
 La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
 ```
-(base) C:\Users\pierre>python
+C:\Users\pierre>python
 Python 3.7.0 (default, Jun 28 2018, 08:04:48) [MSC v.1912 64 bit (AMD64)] [...]
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
@@ -122,7 +122,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 Les blocs
 
-- `(base) C:\Users\pierre>` pour Windows,
+- `C:\Users\pierre>` pour Windows,
 - `(base) iMac-de-pierre:Downloads$` pour Mac OS X
 - et `(base) pierre@jeera:~$` pour Linux
 
