@@ -45,11 +45,20 @@ Pour appeler une fonction ou une variable de ce module, il faut que le fichier `
 
 open-box-rem
 
-Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell* pour modifier la variable d'environnement `PYTHONPATH` :  
+Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell bash* pour modifier la variable d'environnement `PYTHONPATH` :
 `export PYTHONPATH=$PYTHONPATH:/chemin/vers/mon/super/module`
 
-Avec Windows, toujours depuis un *shell*, il faut taper la commande suivante :  
+Avec Windows, toujours depuis un *shell cmd*, il faut taper la commande suivante :
 `set PYTHONPATH=%PYTHONPATH%;C:\chemin\vers\mon\super\module`
+
+Toujours avec Windows, mais depuis un *powershell*, il faut taper la commande suivante :
+`$env:PYTHONPATH += ";C:\chemin\vers\mon\super\module"`
+
+Une fois cette manipulation effectuée, vous pouvez contrôler que le chemin vers le répertoire contenant vos modules a bien été ajouté à la variable d'environnement `PYTHONPATH` :
+
+- sous Mac OSX et Linux : `echo $PYTHONPATH`
+- sous Windows avec le *shell cmd* : `echo %PYTHONPATH%`
+- sous Windows avec le *powershell* : `echo $env:PYTHONPATH`
 
 close-box-rem
 
@@ -126,13 +135,15 @@ En résumé, les *docstrings* sont destinés aux utilisateurs du module. Leur bu
 Pour en savoir plus sur les *docstrings* et comment les écrire, nous vous recommandons de lire le chapitre 15 *Bonnes pratiques en programmation Python*.
 
 
-## Modules et fonctions
+## Visibilité des fonctions dans un module
 
 La visibilité des fonctions au sein des modules suit des règles simples :
 
-- Les fonctions dans un module peuvent s'appeler les unes les autres.
+- Les fonctions dans un même module peuvent s'appeler les unes les autres.
 
-- Les fonctions dans un module peuvent appeler des fonctions situées dans un autre module s'il a été préalablement chargé avec la commande `import`.
+- Les fonctions dans un module peuvent appeler des fonctions situées dans un autre module s'il a été préalablement importé. Par exemple, si la commande `import autremodule` est utilisée dans un module, il est possible d'appeler une fonction avec `autremodule.fonction()`.
+
+Toutes ces règles viennent de la manière dont Python gère les **espaces de nom**. De plus amples explications sont données sur ce concept dans le chapitre 19 *Avoir la classe avec les objets.
 
 
 ## Module ou script ?
@@ -194,9 +205,9 @@ if __name__ == "__main__":
     >>>
     ```
 
-Ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 19 *Avoir la classe avec les objets*).
+A nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 19 *Avoir la classe avec les objets*).
 
-Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de bien voir où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == "__main__":` est une bonne pratique que nous vous recommandons !
+Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de bien voir où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == "__main__":` est donc une bonne pratique que nous vous recommandons !
 
 
 ## Exercice
