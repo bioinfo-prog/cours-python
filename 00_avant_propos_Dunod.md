@@ -13,7 +13,7 @@ Vous apprendrez dans ce livre les bases du langage Python et son utilisation dan
 
 Chaque chapitre se termine par une série d'exercices dont vous trouverez les solutions à la fin de l'ouvrage, dans l'annexe C.
 
-L'annexe A présente quelques formats de données rencontrés en biologie et les outils pour les manipuler avec Python. L'annexe B est dédiée à l'installation de Python, que ce soit sous Windows, Mac OS X ou Linux.
+L'annexe A présente quelques formats de données rencontrés en biologie et les outils pour les manipuler avec Python. L'annexe B est dédiée à la solution des exercices que nous vous proposons au cours des différents chapitres.
 
 L'ensemble du cours décrit dans cet ouvrage est toujours accessible en ligne, à l'adresse suivante :
 <https://python.sdv.univ-paris-diderot.fr/>.
