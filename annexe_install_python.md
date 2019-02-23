@@ -299,7 +299,7 @@ Puis enfin sur *Finish* :
 À ce point, Miniconda est bien désinstallé.
 
 
-## Utilisation de conda pour installer les modules complémentaires
+## Utilisation de conda pour installer des modules complémentaires
 
 ### Installation des modules supplémentaires
 
