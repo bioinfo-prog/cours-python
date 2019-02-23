@@ -23,7 +23,7 @@ Regardons de plus près cet exemple :
 - Ligne 1, l'instruction `import` permet d'accéder à toutes les fonctions du module [random](https://docs.python.org/fr/3/library/random.html#module-random).
 - Ensuite, nous utilisons la fonction `randint(a, b)` du module `random`. Attention, cette fonction renvoie un nombre entier tiré aléatoirement entre `a` inclus et `b` inclus.
 
-Nous avons également croisé fait appel au module [`math`](https://docs.python.org/3/library/math.html#module-math) lors de l'exercice sur la spirale (cf. chapitre 7 *Fichiers*). Ce module nous a permis d'accéder aiux fonctions trigonométriques et à la constante $\pi$ :
+Nous avons également croisé le module [`math`](https://docs.python.org/3/library/math.html#module-math) lors de l'exercice sur la spirale (cf. chapitre 7 *Fichiers*). Ce module nous a permis d'accéder aiux fonctions trigonométriques et à la constante $\pi$ :
 
 ```
 >>> import math
@@ -33,18 +33,18 @@ Nous avons également croisé fait appel au module [`math`](https://docs.python.
 1.0
 ```
 
-En résumé, l'utilisation de la syntaxe `import module` permet d'importer tout une série de fonctions organisées par « thèmes » : fonctions gérant les nombres aléatoires avec `random`, fonctions mathématiques avec `math`, et [bien d'autres](https://docs.python.org/3/py-modindex.html) encore.
+En résumé, l'utilisation de la syntaxe `import module` permet d'importer tout une série de fonctions organisées par « thèmes ». Par exemple, les fonctions gérant les nombres aléatoires avec `random` et les fonctions mathématiques avec `math`. Python comprend [de nombreux autres modules internes](https://docs.python.org/3/py-modindex.html) (c'est à dire présent de base lorsqu'on installe Python).
 
 open-box-rem
 
 Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` avec `truc` étant un objet et `.bidule()` une méthode. Nous vous avions expliqué qu'une *méthode* était en définitive une fonction un peu particulière :
 
 - elle était liée à un objet par un point ;
-- en général elle agissait sur cet objet auquel elle était liée. 
+- en général elle agissait ou utilisait l'objet auquel elle était lié. 
 
-Par exemple, la méthode `.format()` dans `"{}".format(3.14)` utilise l'objet chaîne de caractères `"{}"` auquel elle est liée, et renvoie finalement une autre chaine de caractères `"3.14"`.
+Par exemple, la méthode `.format()` dans `"{}".format(3.14)` utilise l'objet chaîne de caractères `"{}"` (auquel elle est lié) pour finalement renvoyer une autre chaine de caractères `"3.14"`.
 
-Avec les modules nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode au vu de la syntaxe. En fait la [documentation officielle de Python](https://docs.python.org/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Ainsi, nous utiliserons systématiquement le mot **fonction** dans cet ouvrage lorsqu'on évoquera des fonctions issues de modules.
+Avec les modules, nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode au vu de la syntaxe. En fait la [documentation officielle de Python](https://docs.python.org/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Ainsi, nous utiliserons systématiquement dans cet ouvrage le mot **fonction** lorsqu'on évoquera des fonctions issues de modules.
 
 Si cela vous parait encore ardu, ne vous inquiétez pas, c'est à force de pratiquer et de lire que vous vous approprierez le vocabulaire. Ici, la syntaxe `module.fonction()` est là pour nous rappeler d'où provient la fonction en un coup d'oeil !
 
