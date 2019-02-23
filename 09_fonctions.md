@@ -398,7 +398,7 @@ Les écarts sur les statistiques entre les différentes listes sont-ils importan
 
 ### Fonction distance à l'origine
 
-En reprenant votre fonction `calc_distance3D()`, faites-en une version 2D (`calc_distance2D()`). Écrivez une autre fonction `calc_dist2ori()` à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées en 2D d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$). La Figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en rouge) ; chaque trait pointillé représente la distance que l'on cherche entre les points de la courbe (x minuscule), et l'origine du repère (X majuscule). 
+En reprenant votre fonction `calc_distance3D()`, faites-en une version 2D (`calc_distance2D()`). Écrivez une autre fonction `calc_dist2ori()` à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées en 2D d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$). La Figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en rouge) ; chaque trait pointillé représente la distance que l'on cherche entre les points de la courbe (x minuscule), et l'origine du repère (X majuscule).
 
 ![Fonction distance à l'origine](img/sin2ori.png){ #fig:sin2ori width=40%}
 
