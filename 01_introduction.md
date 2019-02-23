@@ -39,14 +39,12 @@ Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en
 
 Nous vous conseillons d'installer [Miniconda](https://conda.io/miniconda.html), logiciel gratuit, disponible pour Windows, Mac OS X et Linux, et qui installera pour vous Python 3.
 
-Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *biopython*), mais également les *notebooks* Jupyter. Vous trouverez en ligne, dans la rubrique *Installation de Python* une documentation pas à pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours :
-
-<https://python.sdv.univ-paris-diderot.fr/>
+Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *biopython*), mais également les *notebooks* Jupyter. Vous trouverez en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod) une documentation pas à pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours.
 
 
 ### Éditeur de texte
 
-L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *BBEdit* ou *CotEditor* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans la rubrique [*Installation de Python*](https://python.sdv.univ-paris-diderot.fr/) disponible en ligne. Bien sur, si vous préférez d'autres éditeurs comme *Atom*, *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les !
+L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *BBEdit* ou *CotEditor* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans la rubrique *Installation de Python* disponible en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod). Bien sur, si vous préférez d'autres éditeurs comme *Atom*, *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les !
 
 À toute fin utile, on rappelle que les logiciels *Microsoft Word*, *WordPad* et *LibreOffice Writer* ne sont pas des éditeurs de texte, ce sont des traitements de texte qui ne peuvent pas et ne doivent pas être utilisés pour écrire du code informatique.
 
@@ -96,16 +94,16 @@ Python est un langage interprété, c'est-à-dire que chaque ligne de code est l
 
 La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
 ```
-C:\Users\pierre>python
-Python 3.7.0 (default, Jun 28 2018, 08:04:48) [MSC v.1912 64 bit (AMD64)] [...]
+PS C:\Users\pierre> python
+Python 3.7.1 (default, Dec 10 2018, 22:54:23) [MSC v.1915 64 bit (AMD64)] [...]
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
 pour Mac OS X :
 ```
-(base) iMac-de-pierre:Downloads$ python
-Python 3.7.0 (default, Jun 28 2018, 07:39:16)
+iMac-de-pierre:Downloads$ python
+Python 3.7.1 (default, Dec 14 2018, 19:28:38)
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
@@ -113,17 +111,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ou pour Linux :
 ```
-(base) pierre@jeera:~$ python
-Python 3.7.0 (default, Jun 28 2018, 13:15:42)
-[GCC 7.2.0] :: Anaconda, Inc. on linux
+pierre@jeera:~$ python
+Python 3.7.1 (default, Dec 14 2018, 19:28:38)
+[GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 Les blocs
 
-- `C:\Users\pierre>` pour Windows,
-- `(base) iMac-de-pierre:Downloads$` pour Mac OS X
-- et `(base) pierre@jeera:~$` pour Linux
+- `PS C:\Users\pierre>` pour Windows,
+- `iMac-de-pierre:Downloads$` pour Mac OS X,
+- `pierre@jeera:~$` pour Linux.
 
 représentent l'invite de commande de votre *shell*. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
 
@@ -147,9 +145,9 @@ Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteu
 >>> 6*3
 18
 ```
-À ce stade, vous pouvez entrer une autre commande ou bien quitter l'interpréteur Python, soit en tapant la commande `exit()` puis en validant en appuyant sur la touche `Entrée`, soit en pressant simultanément les touches `Ctrl` et `D` sous Linux et Mac ou `Ctrl` et `Z` sous Windows.
+À ce stade, vous pouvez entrer une autre commande ou bien quitter l'interpréteur Python, soit en tapant la commande `exit()` puis en validant en appuyant sur la touche *Entrée*, soit en pressant simultanément les touches *Ctrl* et *D* sous Linux et Mac ou *Ctrl* et *Z* puis *Entrée* sous Windows.
 
-L'interpréteur Python est donc un système interactif dans lequel vous pouvez entrer des commandes, que Python exécutera sous vos yeux (au moment où vous validerez la commande en appuyant sur la touche `Entrée`).
+L'interpréteur Python est donc un système interactif dans lequel vous pouvez entrer des commandes, que Python exécutera sous vos yeux (au moment où vous validerez la commande en appuyant sur la touche *Entrée*).
 
 Il existe de nombreux autres langages interprétés tels que [Perl](http://www.perl.org) ou [R](http://www.r-project.org). Le gros avantage de ce type de langage est qu'on peut immédiatement tester une commande à l'aide de l'interpréteur, ce qui est très utile pour débugger (c'est-à-dire corriger les éventuelles erreurs d'un programme). Gardez bien en mémoire cette propriété de Python qui pourra parfois vous faire gagner un temps précieux !
 
