@@ -23,7 +23,7 @@ Enfin, dans tout ce qui suit, on part du principe que vous installerez Miniconda
 Nous vous conseillons l'installation de la distribution [Miniconda](https://conda.io/miniconda.html) qui présente l'avantage d'installer Python et un puissant gestionnaire de paquets appelé *conda*. Dans toute la suite de cette annexe, l'indication avec le $ et un espace comme suit :
 
 ```
-$ 
+$
 ```
 signifie l'invite d'un *shell* quel qu'il soit (PowerShell sous Windows, bash sous Mac OS X et Linux).
 
@@ -70,8 +70,8 @@ Le programme d'installation va alors installer Python et le gestionnaire de paqu
 
 Cette étape terminée, le programme d'installation vous propose de modifier le fichier de configuration de votre *shell* Bash pour que *conda* soit pris en compte (c'est-à-dire accessible à chaque fois que vous ouvrez un *shell*). Nous vous conseillons d'accepter en tapant `yes` puis en appuyant sur la touche *Entrée*.
 ```
-Do you wish the installer to prepend the Miniconda3 install location
-to PATH in your /home/pierre/.bashrc ? [yes|no]
+Do you wish the installer to initialize Miniconda3
+in your /home/pierre/.bashrc ? [yes|no]
 [no] >>> yes
 ```
 
@@ -82,8 +82,8 @@ L'installation de Miniconda est terminée. L'espace utilisé par Miniconda sur v
 Ouvrez un nouveau *shell*. À partir de maintenant, lorsque vous taperez la commande `python`, c'est le Python 3 de Miniconda qui sera lancé :
 ```
 $ python
-Python 3.7.0 (default, Jun 28 2018, 13:15:42)
-[GCC 7.2.0] :: Anaconda, Inc. on linux
+Python 3.7.1 (default, Dec 14 2018, 19:28:38)
+[GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -110,21 +110,6 @@ positional arguments:
 
 Si c'est bien le cas, bravo, *conda* et bien installé et vous pouvez passez à la suite (rendez-vous à la section [Installation des modules supplémentaires](#installation-des-modules-supplémentaires)) !
 
-Si par contre, vous obtenez un message du type :
-
-```
-$ conda
--bash: conda : commande introuvable
-```
-
-cela signifie qu'une erreur s'est produite pendant l'installation ou que votre variable d'environnement `PATH` n'a pas été modifiée correctement. Vérifiez qu'il y a bien ces deux lignes dans votre `~/.bashrc` :
-
-```
-# added by Miniconda3 installer
-export PATH="/home/pierre/miniconda3/bin:$PATH"
-```
-
-où `/home/pierre` représente votre répertoire utilisateur. Si ces lignes n'y sont pas, ajoutez les, quittez le *shell* et relancez la commande `conda`. Si cela ne fonctionne toujours pas, il est probable que l'installation ne se soit pas passée comme prévu et vous pouvez recommencer l'installation depuis le début.
 
 #### Désinstallation de Miniconda
 
