@@ -2,7 +2,7 @@
 
 ## Définition
 
-Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à réutiliser souvent (on les appelle aussi bibliothèques ou *libraries*). Ce sont des « boites à outils » qui vont vous être très utiles.
+Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à réutiliser souvent (on les appelle aussi bibliothèques ou *libraries*). Ce sont des « boîtes à outils » qui vont vous être très utiles.
 
 Les développeurs de Python ont mis au point de nombreux modules qui effectuent une quantité phénoménale de tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe déjà pas sous forme de module.
 
@@ -14,18 +14,39 @@ La plupart de ces modules sont déjà installés dans les versions standards de 
 Dans les chapitres précédents, nous avons rencontré la notion de module quelques fois. Notamment lorsque nous avons voulu tirer un nombre aléatoire :
 ```
 >>> import random
->>> random.randint(0,10)
+>>> random.randint(0, 10)
 4
 ```
 
 Regardons de plus près cet exemple :
 
 - Ligne 1, l'instruction `import` permet d'accéder à toutes les fonctions du module [random](https://docs.python.org/fr/3/library/random.html#module-random).
-- Ensuite, nous utilisons la fonction `randint(a,b)` du module `random`. Attention, cette fonction renvoie un nombre entier tiré aléatoirement entre `a` inclus et `b` inclus.
+- Ensuite, nous utilisons la fonction `randint(a, b)` du module `random`. Attention, cette fonction renvoie un nombre entier tiré aléatoirement entre `a` inclus et `b` inclus.
+
+Nous avons également croisé fait appel au module [`math`](https://docs.python.org/3/library/math.html#module-math) lors de l'exercice sur la spirale (cf. chapitre 7 *Fichiers*). Ce module nous a permis d'accéder aiux fonctions trigonométriques et à la constante $\pi$ :
+
+```
+>>> import math
+>>> math.cos(math.pi / 2)
+6.123233995736766e-17
+>>> math.sin(math.pi / 2)
+1.0
+```
+
+En résumé, l'utilisation de la syntaxe `import module` permet d'importer tout une série de fonctions organisées par « thèmes » : fonctions gérant les nombres aléatoires avec `random`, fonctions mathématiques avec `math`, et [bien d'autres](https://docs.python.org/3/py-modindex.html) encore.
 
 open-box-rem
 
-Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` avec `truc` étant un objet et `.bidule()` une méthode. On pourrait penser qu'ici, dans l'instruction `random.randint()`, `.randint()` est aussi une méthode. Nous estimons que ce n'est pas le cas et pour les modules, nous parlerons bien de fonctions : `module.fonction()`.
+Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` avec `truc` étant un objet et `.bidule()` une méthode. Nous vous avions expliqué qu'une *méthode* était en définitive une fonction un peu particulière :
+
+- elle était liée à un objet par un point ;
+- en général elle agissait sur cet objet auquel elle était liée. 
+
+Par exemple, la méthode `.format()` dans `"{}".format(3.14)` utilise l'objet chaîne de caractères `"{}"` auquel elle est liée, et renvoie finalement une autre chaine de caractères `"3.14"`.
+
+Avec les modules nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode au vu de la syntaxe. En fait la [documentation officielle de Python](https://docs.python.org/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Ainsi, nous utiliserons systématiquement le mot **fonction** dans cet ouvrage lorsqu'on évoquera des fonctions issues de modules.
+
+Si cela vous parait encore ardu, ne vous inquiétez pas, c'est à force de pratiquer et de lire que vous vous approprierez le vocabulaire. Ici, la syntaxe `module.fonction()` est là pour nous rappeler d'où provient la fonction en un coup d'oeil !
 
 close-box-rem
 
@@ -192,7 +213,7 @@ Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir 
 
 Nous verrons dans le chapitre 14 *Création de module* comment créer notre propre module lorsqu'on souhaite réutiliser souvent ses propres fonctions.
 
-Enfin, notez qu'il existe de nombreux autres modules qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique (au sens large) et en analyse de données. Citons-en quelques-uns: *NumPy* (notion de matrice, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (construction de graphiques), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
+Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique (au sens large) et en analyse de données. Citons-en quelques-uns: *NumPy* (notion de matrice, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (construction de graphiques), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
 
 
 
