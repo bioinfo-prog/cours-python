@@ -328,11 +328,11 @@ Pour calculer les coordonnées cartésiennes qui décrivent la spirale, vous all
 - l'angle $\theta$, qui va prendre des valeurs de 0 à $4\pi$ par pas de 0.1, ce qui correspond à deux tours complets ;
 - le rayon du cercle $r$, qui va prendre comme valeur initiale 0.5 puis que vous allez incrémenter (c'est-à-dire augmenter) par pas de 0.1.
 
-Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module *math* que vous découvrirez plus en détails dans le chapitre 8 *Modules*. Pour les utilisez, vous ajouterez au début de votre script l'instruction :
+Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module *math* que vous découvrirez plus en détails dans le chapitre 8 *Modules*. Pour les utiliser, vous ajouterez au début de votre script l'instruction :
 
 `import math`
 
-la fonction sinus sera `math.sin()` et la fonction cosinus `math.cos()`. Ces deux fonctions prennent comme argument une valeur d'angle en radian.
+la fonction sinus sera `math.sin()` et la fonction cosinus `math.cos()`. Ces deux fonctions prennent comme argument une valeur d'angle en radian. La constante mathématique $\pi$ sera également accessible grâce à ce module via `math.pi`.
 
 Sauvegardez ensuite les coordonnées cartésiennes dans le fichier `spirale.dat` en respectant le format suivant :
 
