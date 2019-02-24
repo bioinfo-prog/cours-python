@@ -302,24 +302,28 @@ Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L
 Soit la liste `['girafe', 'tigre', 'singe', 'souris']`. Avec une boucle, affichez chaque élément ainsi que sa taille (nombre de caractères).
 
 
-### Lecture de fichier et saut de ligne
+### Lecture de fichier fasta
 
-Le fichier `zoo.txt` contient les lignes suivantes :
-```
-girafe
-tigre
-singe
-souris
-```
+Soit le fichier [UBI4_SCerevisiae.fasta](data-files/UBI4_SCerevisiae.fasta) contenant une séquence au format fasta. Ecrire un programme, qui lit la séquence contenue dans le fichier fasta, qui la stocke dans une chaîne de caractères nommée `seq`. Votre programme affichera ensuite :
 
-Récréez ce fichier, puis créez un script qui affiche le contenu de chaque ligne de cette façon, sans saut de ligne superflu :
-```
-girafe
-tigre
-singe
-souris
-```
+- le nom du fichier,
+- la longueur de la séquence,
+- un message vérifiant que le nombre de nucléotides est (ou non) un multiple de 3,
+- le nombre de codons (on rappelle un codon est un bloc de 3 nucléotides),
+- les 10 premiers nucléotides,
+- les 10 derniers nucléotides.
 
+La sortie devrait ressembler à ça :
+
+```
+UBI4_SCerevisiae.fasta
+La séquence fait XXX nucléotides
+La longueur de la séquence est bien un multiple de 3 nucléotides
+La séquence possède ZZZ codons
+10 premiers nucléotides: YYYYYYYYYY
+10 derniers nucléotides: YYYYYYYYYY
+```
+où `XXX` et `ZZZ` sont des entiers et `YYYYYYYYYY` sont des nucléotides. 
 
 ### Fréquence des bases dans une séquence d'ADN
 
@@ -430,6 +434,45 @@ Créez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier P
 Utilisez la fonction `trouve_calpha()` pour afficher à l'écran les carbones alpha des deux premiers résidus (acides aminés).
 
 *Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+
+### Lecture d'une séquence à partir d'un fichier genbank
+
+A partir du fichier genbank [NC_001133.gbk](data-files/NC_001133.gbk) (chromosome I de la levure S. Cerevisiae), on cherche à récupérer la séquence en nucléotides. Pour rappel, la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par `//` :
+
+```
+ORIGIN
+        1 ccacaccaca cccacacacc cacacaccac accacacacc acaccacacc cacacacaca
+       61 catcctaaca ctaccctaac acagccctaa tctaaccctg gccaacctgt ctctcaactt
+[...]
+   230101 tgttagtgtt agtattaggg tgtggtgtgt gggtgtggtg tgggtgtggg tgtgggtgtg
+   230161 ggtgtgggtg tgggtgtggt gtggtgtgtg ggtgtggtgt gggtgtggtg tgtgtggg
+//
+```
+
+On se propose de réaliser un programme qui récupère la séquence dans une chaîne de caractères `seq`. Pour cela on utilisera un algorihtme de drapeau ; en pseudo-code, cela donnerait :
+
+```
+drapeau <- Faux
+seq <- chaîne de caractères vide
+Lire toutes les lignes du fichier:
+	si la ligne contient //:
+	    drapeau <- Faux
+	si drapeau est Vrai:
+	    on ajoute à seq la ligne (en retirant les espaces, chiffres et retour à la ligne)
+	si la ligne contient ORIGIN
+	    drapeau <- Vrai
+```
+
+Le code affichera :
+
+```
+NC_001133.gbk
+La séquence fait XXX nucléotides
+10 premiers nucléotides: YYYYYYYYYY
+10 derniers nucléotides: YYYYYYYYYY
+```
+
+où XXX et ZZZ sont des entiers et YYYYYYYYYY sont des nucléotides.
 
 
 ### Calcul des distances entre les carbones alpha consécutifs d'une structure de protéine
