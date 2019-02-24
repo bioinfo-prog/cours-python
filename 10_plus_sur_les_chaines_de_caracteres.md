@@ -424,17 +424,6 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 - Monsieur Jack vous dactylographiez bien mieux que votre ami Wolf
 - Buvez de ce whisky que le patron juge fameux
 
-
-### Affichage des carbones alpha d'une structure de protéine
-
-Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
-
-Créez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier PDB (sous la forme d'une chaîne de caractères), qui sélectionne uniquement les lignes contenant des carbones alpha, qui stocke ces lignes dans une liste et les renvoie sous la forme d'une liste de chaînes de caractères.
-
-Utilisez la fonction `trouve_calpha()` pour afficher à l'écran les carbones alpha des deux premiers résidus (acides aminés).
-
-*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
-
 ### Lecture d'une séquence à partir d'un fichier genbank
 
 A partir du fichier genbank [NC_001133.gbk](data-files/NC_001133.gbk) (chromosome I de la levure S. Cerevisiae), on cherche à récupérer la séquence en nucléotides. Pour rappel, la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par `//` :
@@ -473,6 +462,17 @@ La séquence fait XXX nucléotides
 ```
 
 où XXX et ZZZ sont des entiers et YYYYYYYYYY sont des nucléotides.
+
+
+### Affichage des carbones alpha d'une structure de protéine
+
+Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
+
+Créez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier PDB (sous la forme d'une chaîne de caractères), qui sélectionne uniquement les lignes contenant des carbones alpha, qui stocke ces lignes dans une liste et les renvoie sous la forme d'une liste de chaînes de caractères.
+
+Utilisez la fonction `trouve_calpha()` pour afficher à l'écran les carbones alpha des deux premiers résidus (acides aminés).
+
+*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
 
 
 ### Calcul des distances entre les carbones alpha consécutifs d'une structure de protéine
