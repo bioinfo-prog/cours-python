@@ -391,7 +391,7 @@ Dans un script `pyra.py`, créez une fonction `gen_pyramide()` à laquelle vous 
 
 Reprenez l'exercice du chapitre 6 *Tests* sur les nombres premiers.
 
-Dans un script `premier.py`, créez une fonction `est_premier())` qui prend en argument un nombre entier positif *n* (supérieur à 2) et qui renvoie un booléen : `True` si *n* est premier et `False` si *n* n'est pas premier. Déterminez tous les nombres premiers de 2 à 100. On souhaite avoir une sortie similaire à celle-ci :
+Créez une fonction `est_premier())` qui prend en argument un nombre entier positif *n* (supérieur à 2) et qui renvoie un booléen : `True` si *n* est premier et `False` si *n* n'est pas premier. Déterminez tous les nombres premiers de 2 à 100. On souhaite avoir une sortie similaire à celle-ci :
 ```
   2 est premier
   3 est premier
@@ -403,12 +403,10 @@ Dans un script `premier.py`, créez une fonction `est_premier())` qui prend en a
 
 ### Séquence complémentaire
 
-Dans un script `complement.py`, créez une fonction `seq_comp()` qui prend comme argument une liste de bases et qui renvoie la séquence complémentaire d'une séquence d'ADN sous forme de liste.
+Créez une fonction `seq_comp()` qui prend comme argument une liste de bases et qui renvoie la séquence complémentaire d'une séquence d'ADN sous forme de liste.
 
-Dans le programme principal, à partir de la séquence d'ADN
-
-`seq = ['A', 'T', 'C', 'G', 'A', 'T', 'C', 'G', 'A', 'T', 'C', 'G', 'C']`
-
+Dans le programme principal, à partir de la séquence d'ADN  
+`seq = ['A', 'T', 'C', 'G', 'A', 'T', 'C', 'G', 'A', 'T', 'C', 'G', 'C']`  
 affichez `seq` et sa séquence complémentaire (en utilisant votre fonction `seq_comp()`).
 
 Rappel : la séquence complémentaire s'obtient en remplaçant A par T, T par A, C par G et G par C.
