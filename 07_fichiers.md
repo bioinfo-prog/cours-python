@@ -60,7 +60,7 @@ Vous voyez qu'en cinq lignes de code, vous avez lu, parcouru le fichier et affic
 
 open-box-rem
 
-- Chaque élément de la liste `lignes` est une chaîne de caractères. C'est en effet sous forme de chaînes de caractères qui Python lit le contenu d'un fichier.
+- Chaque élément de la liste `lignes` est une chaîne de caractères. C'est en effet sous forme de chaînes de caractères que Python lit le contenu d'un fichier.
 - Chaque élément de la liste `lignes` se termine par le caractère `\n`. Ce caractère un peu particulier correspond au saut de ligne qui permet de passer d'une ligne à la suivante. Ceci est codé par un caractère spécial que l'on représente par `\n`. Vous pourrez parfois rencontrer également la notation octale `\012`.
 - Par défaut, l'instruction `print()` affiche quelque chose puis revient à la ligne. Ce saut de ligne dû à `print()` se cumule alors avec celui de la fin de ligne (`\n`) de chaque ligne du fichier et donne l'impression qu'une ligne est sautée à chaque fois.
 
@@ -216,7 +216,7 @@ Vous voyez qu'il est extrêmement simple en Python de lire ou d'écrire dans un 
 
 open-box-rem
 
-Si vous travaillez sous Linux ou Mac, et si votre programme produit uniquement du texte, vous pouvez afficher ce texte sur la « sortie standard », c'est-à-dire l'écran, avec l'instruction `print()`. L'avantage dans ce cas est que l'utilisateur peut bénéficier de toutes les potentialités d'Unix (redirection, tri, *parsing*...). Si l'utilisateur veut écrire le résultat du programme dans un fichier, il pourra toujours le faire en redirigeant la sortie.
+Si vous travaillez sous Linux ou Mac OS X, et si votre programme produit uniquement du texte, vous pouvez afficher ce texte sur la « sortie standard », c'est-à-dire l'écran, avec l'instruction `print()`. L'avantage dans ce cas est que l'utilisateur peut bénéficier de toutes les potentialités d'Unix (redirection, tri, *parsing*...). Si l'utilisateur veut écrire le résultat du programme dans un fichier, il pourra toujours le faire en redirigeant la sortie.
 
 close-box-rem
 
@@ -253,11 +253,11 @@ Si vous souhaitez aller plus loin, sachez que l'instruction `with`
  est plus générale et est utilisable dans d'[autres contextes](https://docs.python.org/fr/3/reference/compound_stmts.html#the-with-statement).
 
 
-## Note sur les retours chariots sous Unix et sous Windows
+## Note sur les retours à la ligne sous Unix et sous Windows
 
 *Conseil* : si vous êtes débutant, vous pouvez sauter cette section.
 
-On a vu plus haut que le caractère spécial `\n` correspondait à un retour à la ligne. C'est le standard sous Unix (Mac et Linux).
+On a vu plus haut que le caractère spécial `\n` correspondait à un retour à la ligne. C'est le standard sous Unix (Mac OS X et Linux).
 
 Toutefois, Windows utilise deux caractères spéciaux pour le retour à la ligne : `\r` correspondant à un retour chariot (hérité des machines à écrire) et `\n` comme sous Unix.
 
