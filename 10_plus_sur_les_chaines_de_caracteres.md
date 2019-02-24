@@ -2,12 +2,12 @@
 
 ## Préambule
 
-Nous avons déjà abordé les chaînes de caractères dans le chapitre *variables* et *affichage*. Ici nous allons un peu plus loin notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3.6/library/string.html).
+Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3 *Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3.7/library/string.html).
 
 
 ## Chaînes de caractères et listes
 
-Les chaînes de caractères peuvent être considérées comme des listes (un peu particulières).
+Les chaînes de caractères peuvent être considérées comme des listes (de caractères) un peu particulières :
 ```
 >>> animaux = "girafe tigre"
 >>> animaux
@@ -28,7 +28,7 @@ Nous pouvons donc utiliser certaines propriétés des listes comme les tranches 
 'girafe tig'
 ```
 
-Mais *a contrario* des listes, les chaînes de caractères présentent toutefois une différence notable, ce sont **des listes non modifiables**. Une fois définie, vous ne pouvez plus modifier un de ses éléments. Le cas échéant, Python renvoie un message d'erreur :
+Mais *a contrario* des listes, les chaînes de caractères présentent toutefois une différence notable, ce sont **des listes non modifiables**. Une fois une chaîne de caractères définie, vous ne pouvez plus modifier un de ses éléments. Le cas échéant, Python renvoie un message d'erreur :
 ```
 >>> animaux = "girafe tigre"
 >>> animaux[4]
@@ -38,16 +38,16 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
 ```
-Par conséquent, si vous voulez modifier une chaîne, vous êtes obligés d'en construire une nouvelle. Pour cela, n'oubliez pas que les opérateurs de concaténation (`+`) et de duplication (`*`) (voir le chapitre *variables*) peuvent vous aider. Vous pouvez également générer une liste, qui elle est modifiable, puis revenir à une chaîne de caractères.
+Par conséquent, si vous voulez modifier une chaîne de caractères, vous êtes obligé d'en construire une nouvelle. Pour cela, n'oubliez pas que les opérateurs de concaténation (`+`) et de duplication (`*`) (voir le chapitre 2 *Variables*) peuvent vous aider. Vous pouvez également générer une liste, qui elle est modifiable, puis revenir à une chaîne de caractères.
 
 
 ## Caractères spéciaux
 
-Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` vous permet d'écrire une tabulation. Si vous voulez écrire un guillemet simple ou double (et que celui-ci ne soit pas confondu avec les guillemets de déclaration de la chaîne de caractères), vous pouvez utiliser `\'` ou `\"` ou utiliser respectivement des guillements doubles ou simple pour déclarer votre chaîne de caractères.
+Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` permet d'écrire une tabulation. Si vous voulez écrire des guillemets simples ou doubles (et que ceux-ci ne soit pas confondus avec les guillemets de déclaration de la chaîne de caractères), vous pouvez utiliser `\'` ou `\"` ou utiliser respectivement des guillemets doubles ou simples pour déclarer votre chaîne de caractères.
 ```
->>> print("Un retour à la ligne\npuis une tabulation\t, puis un guillemet\"")
+>>> print("Un retour à la ligne\npuis une tabulation\t puis un guillemet\"")
 Un retour à la ligne
-puis une tabulation     , puis un guillemet"
+puis une tabulation     puis un guillemet"
 >>> print('J\'affiche un guillemet simple')
 J'affiche un guillemet simple
 >>> print("Un brin d'ADN")
@@ -57,9 +57,9 @@ Python est un "super" langage de programmation
 ```
 Quand on souhaite écrire un texte sur plusieurs lignes, il est très commode d'utiliser les guillemets triples permettant de conserver le formatage (notamment les retours à la ligne):
 ```
->>> x = '''souris
+>>> x = """souris
 ... chat
-... abeille'''
+... abeille"""
 >>> x
 'souris\nchat\nabeille'
 >>> print(x)
@@ -70,7 +70,7 @@ abeille
 
 ## Méthodes associées aux chaînes de caractères
 
-Voici quelques [méthodes](https://docs.python.org/fr/3/library/string.html) spécifiques aux objets de type `string` :
+Voici quelques [méthodes](https://docs.python.org/fr/3/library/string.html) spécifiques aux objets de type `str` :
 ```
 >>> x = "girafe"
 >>> x.upper()
@@ -80,7 +80,7 @@ Voici quelques [méthodes](https://docs.python.org/fr/3/library/string.html) sp�
 >>> 'TIGRE'.lower()
 'tigre'
 ```
-Les méthodes `.lower()` et `.upper()` renvoient un texte en minuscule et en majuscule respectivement. On remarque que l'utilisation de ces fonctions n'altèrent pas la chaîne de départ mais renvoie la chaîne transformée.
+Les méthodes `.lower()` et `.upper()` renvoient un texte en minuscule et en majuscule respectivement. On remarque que l'utilisation de ces fonctions n'altère pas la chaîne de caractères de départ mais renvoie une chaîne de caractères transformée.
 
 Pour mettre en majuscule la première lettre seulement, vous pouvez faire :
 ```
@@ -123,7 +123,7 @@ Il est également intéressant d'indiquer à `.split()` le nombre de fois qu'on 
 ['girafe', 'tigre', 'singe souris']
 ```
 
-La méthode `.find()`, quand à elle, recherche une chaîne de caractères passée en argument :
+La méthode `.find()`, quant à elle, recherche une chaîne de caractères passée en argument :
 ```
 >>> animal = "girafe"
 >>> animal.find("i")
@@ -137,7 +137,7 @@ La méthode `.find()`, quand à elle, recherche une chaîne de caractères pass�
 ```
 Si l'élément recherché est trouvé, alors l'indice du début de l'élément dans la chaîne de caractères est renvoyé. Si l'élément n'est pas trouvé, alors la valeur `-1` est renvoyée.
 
-Si l'élément recherché est trouvé plusieurs fois, seul l'indice de la première occurrence est retourné :
+Si l'élément recherché est trouvé plusieurs fois, seul l'indice de la première occurrence est renvoyé :
 ```
 >>> animaux = "girafe tigre"
 >>> animaux.find("i")
@@ -167,7 +167,7 @@ Enfin, la méthode `.count()` compte le nombre d’occurrences d'une chaîne de 
 
 ## Extraction de valeurs numériques d'une chaîne de caractères
 
-Une tâche courante en Python est de lire une chaîne de caractères (provenant par exemple d'un fichier), d'extraire des valeurs de cette chaîne de caractères puis ensuite les manipuler.
+Une tâche courante en Python est de lire une chaîne de caractères (provenant par exemple d'un fichier), d'extraire des valeurs de cette chaîne de caractères puis ensuite de les manipuler.
 
 On considère par exemple la chaîne de caractères `val` :
 ```
@@ -183,7 +183,7 @@ Dans un premier temps, on découpe la chaîne de caractères avec l'instruction 
 ['3.4', '17.2', 'atom']
 ```
 
-On obtient une liste de chaînes de caractères. On transforme ensuite les deux premiers éléments de cette liste en *floats* (avec la fonction `float()`) pour pouvoir les additionner :
+On obtient alors une liste de chaînes de caractères. On transforme ensuite les deux premiers éléments de cette liste en *floats* (avec la fonction `float()`) pour pouvoir les additionner :
 ```
 >>> float(val2[0]) + float(val2[1])
 20.599999999999998
@@ -192,7 +192,7 @@ On obtient une liste de chaînes de caractères. On transforme ensuite les deux 
 
 ## Conversion d'une liste de chaînes de caractères en une chaîne de caractères
 
-On a vu dans le chapitre 2 la conversion des types simples (entier, *float* et chaînes de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est un peu particulière puisqu'elle fait appelle à la méthode `.join()`.
+On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *float* et chaîne de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est un peu particulière puisqu'elle fait appelle à la méthode `.join()`.
 ```
 >>> seq = ["A", "T", "G", "A", "T"]
 >>> seq
@@ -216,7 +216,7 @@ Traceback (most recent call last):
 TypeError: sequence item 1: expected string, int found
 ```
 
-On espére qu'après ce petit tour d'horizon vous serez convaincu de la richesse des méthodes associées aux chaînes de caractères. Pour avoir une liste exhaustive de l'ensemble des méthodes associées à une variable particulière, vous pouvez utiliser la fonction `dir()`.
+On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse des méthodes associées aux chaînes de caractères. Pour avoir une liste exhaustive de l'ensemble des méthodes associées à une variable particulière, vous pouvez utiliser la fonction `dir()`.
 ```
 >>> animaux = "girafe tigre"
 >>> dir(animaux)
@@ -235,9 +235,9 @@ title', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans',
  'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip',
  'swapcase', 'title', 'translate', 'upper', 'zfill']
 ```
-Pour l'instant vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`.
+Pour l'instant, vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`.
 
-Vous pouvez ensuite accéder à l'aide et à la documentation d'une méthode particulière avec `help()`, par exemple pour `.split()` :
+Vous pouvez également accéder à l'aide et à la documentation d'une méthode particulière avec `help()`, par exemple pour la méthode `.split()` :
 ```
 >>> help(animaux.split)
 Help on built-in function split:
@@ -251,12 +251,12 @@ split(...)
     whitespace string is a separator.
 (END)
 ```
-Attention de ne pas mettre les parenthèses à la suite du nom de la méthode : `help(animaux.split)` et pas `help(animaux.split())`.
+Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L'instruction correcte est `help(animaux.split)` et pas `help(animaux.split())`.
 
 
 ## Exercices
 
-Conseil : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
 
 
 ### Parcours d'une liste de chaînes de caractères
@@ -274,7 +274,7 @@ singe
 souris
 ```
 
-Récréez-le puis créez un script qui affiche le contenu de chaque ligne de cette façon, et sans saut de ligne superflu :
+Récréez ce fichier, puis créez un script qui affiche le contenu de chaque ligne de cette façon, sans saut de ligne superflu :
 ```
 girafe
 tigre
