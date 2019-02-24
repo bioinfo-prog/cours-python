@@ -283,14 +283,19 @@ souris
 ```
 
 
-### Fréquence des bases dans une séquence nucléique
+### Fréquence des bases dans une séquence d'ADN
 
-Soit la séquence nucléique `ATATACGGATCGGCTGTTGCCTGCGTAGTAGCGT`. On souhaite calculer la fréquence de chaque base A, T, C et G dans cette séquence et afficher le résultat à l'écran. Créez pour cela une fonction `calc_composition()` à laquelle vous passez votre séquence nucléique sous forme de chaîne de caractères et qui renvoie une liste de 4 *floats* indiquant respectivement la fréquence en bases `A`, `T`, `G` et `C`.
+Soit la séquence d'ADN `ATATACGGATCGGCTGTTGCCTGCGTAGTAGCGT`. On souhaite calculer la fréquence de chaque base A, T, C et G dans cette séquence et afficher le résultat à l'écran.
+
+Créez pour cela une fonction `calc_composition()` à laquelle vous passez en argument votre séquence d'ADN sous forme d'une chaîne de caractères et qui renvoie une liste de quatre *floats* indiquant respectivement la fréquence en bases `A`, `T`, `G` et `C`.
 
 
 ### Conversion des acides aminés du code à trois lettres au code à une lettre
 
-Soit la séquence protéique `ALA GLY GLU ARG TRP TYR SER GLY ALA TRP`. Transformez cette séquence en une chaîne de caractères en utilisant le code à une lettre pour les acides aminés.
+Créez une fonction `convert_3_lettres_1_lettre()` qui prend en argument une chaîne de caractères avec des acides aminés en code à trois lettres et renvoie une chaîne de caractères avec les acides aminés en code à 1 lettre.
+
+Utilisez cette fonction pour convertir la séquence protéique  
+`ALA GLY GLU ARG TRP TYR SER GLY ALA TRP`.
 
 Rappel de la nomenclature des acides aminés :
 
@@ -320,18 +325,21 @@ Rappel de la nomenclature des acides aminés :
 
 ### Distance de Hamming
 
-La [distance de Hamming](http://en.wikipedia.org/wiki/Hamming_distance) mesure la différence entre deux séquences de même taille en sommant le nombre de positions qui, pour chaque séquence, ne correspondent pas au même acide aminé.
+La [distance de Hamming](http://en.wikipedia.org/wiki/Hamming_distance) mesure la différence entre deux séquences de même taille en comptant le nombre de positions qui, pour chaque séquence, ne correspondent pas au même acide aminé.
 
-Écrivez la fonction `hamming()`  qui prend en argument deux chaînes de caractères et qui renvoie la distance de Hamming entre ces deux chaînes de caractères.
+Créez la fonction `dist_hamming()`  qui prend en argument deux chaînes de caractères et qui renvoie la distance de Hamming (sous la forme d'un entier) entre ces deux chaînes de caractères.
 
-Calculez la distance de Hamming entre les séquences `AGWPSGGASAGLAIL` et `IGWPSAGASAGLWIL`, puis entre les séquences `ATTCATACGTTACGATT` et `ATACTTACGTAACCATT`.
+Calculez la distance de Hamming entre les séquences  
+`AGWPSGGASAGLAIL` et `IGWPSAGASAGLWIL`  
+puis entre les séquences  
+`ATTCATACGTTACGATT` et `ATACTTACGTAACCATT`.
 
 
 ### Palindrome
 
-Un palindrome est un mot ou une phrase dont l'ordre des lettres reste le même si on le lit de gauche à droite ou de droite à gauche. Par exemple, *ressasser* et *Engage le jeu que je le gagne* sont des palindromes.
+Un palindrome est un mot ou une phrase dont l'ordre des lettres reste le même si on le lit de gauche à droite ou de droite à gauche. Par exemple, « ressasser » et « Engage le jeu que je le gagne » sont des palindromes.
 
-Écrivez la fonction `palindrome()` qui prend en argument une chaîne de caractères et qui affiche `xxx est un palindrome` si la chaîne de caractères est un palindrome et `xxx n'est pas un palindrome` sinon (bien sur, `xxx` est ici le palindrome en question). Pensez à vous débarrasser au préalable des majuscules et des espaces.
+Créez la fonction `test_palindrome()` qui prend en argument une chaîne de caractères et qui affiche `xxx est un palindrome` si la chaîne de caractères `xxx` passée en argument est un palindrome ou `xxx n'est pas un palindrome` sinon. Pensez à vous débarrasser au préalable des majuscules et des espaces.
 
 Testez ensuite si les expressions suivantes sont des palindromes :
 
@@ -343,23 +351,30 @@ Testez ensuite si les expressions suivantes sont des palindromes :
 
 ### Mot composable
 
-Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Comme au Scrabble, chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, `coucou` est composable
-à partir de *uocuoceokzefhu*.
+Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, `coucou` est composable
+à partir de « uocuoceokzefhu ».
 
-Écrivez la fonction `composable()` qui prend en argument un mot (chaîne de caractères) et une séquence de lettre (chaîne de caractères) et qui affiche `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) et `Le mot xxx n'est pas composable à partir de yyy` sinon.
+Écrivez la fonction `test_composable()` qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères) et qui affiche `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) ou `Le mot xxx n'est pas composable à partir de yyy` sinon.
 
-Testez la fonction avec différents mots et séquences.
+Testez cette fonction avec les mots et les séquences suivantes :
+
+|  Mot      | Séquence       |
+|-----------|----------------|
+| python    | aophrtkny      |
+| python    | aeiouyhpq      |
+| coucou    | uocuoceokzezh  |
+| fonction  | nhwfnitvkloco  |
 
 
 ### Alphabet et pangramme
 
-Les codes ASCII des lettres minuscules de l'alphabet vont de 97 (lettre 'a') à 122 (lettre 'z'). La fonction `chr()` prend en argument un code ASCII sous forme d'une entier et renvoie le caractère correspondant. Ainsi `chr(97)` renvoie `'a'`, `chr(98)` renvoie `'b'` et ainsi de suite.
+Les codes ASCII des lettres minuscules de l'alphabet vont de 97 (lettre « a ») à 122 (lettre « z »). La fonction `chr()` prend en argument un code ASCII sous la forme d'un entier et renvoie le caractère correspondant (sous la forme d'une chaîne de caractères). Ainsi `chr(97)` renvoie `'a'`, `chr(98)` renvoie `'b'` et ainsi de suite.
 
-Écrivez la fonction `get_alphabet()` qui utilise une boucle et la fonction `chr()` et qui renvoie une chaîne de caractères contenant toutes les lettres de l'alphabet.
+Créez la fonction `get_alphabet()` qui utilise une boucle et la fonction `chr()` et qui renvoie une chaîne de caractères contenant toutes les lettres de l'alphabet.
 
-Un [pangramme](http://fr.wikipedia.org/wiki/Pangramme) est une phrase comportant au moins une fois chaque lettre de l'alphabet. Par exemple, "Portez ce vieux whisky au juge blond qui fume" est un pangramme.
+Un [pangramme](http://fr.wikipedia.org/wiki/Pangramme) est une phrase comportant au moins une fois chaque lettre de l'alphabet. Par exemple, « Portez ce vieux whisky au juge blond qui fume » est un pangramme.
 
-Écrivez la fonction `pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractère (`xxx`) et qui renvoie `xxx est un pangramme` si cette chaîne de caractères est un pangramme et `xxx n'est pas un pangramme` sinon. Pensez à vous débarasser des majuscules le cas échéant.
+Créez la fonction `pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères (`xxx`) et qui renvoie `xxx est un pangramme` si cette chaîne de caractères est un pangramme ou `xxx n'est pas un pangramme` sinon. Pensez à vous débarrasser des majuscules le cas échéant.
 
 Testez ensuite si les expressions suivantes sont des pangrammes :
 
@@ -370,39 +385,39 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 
 ### Affichage des carbones alpha d'une structure de protéine
 
-Téléchargez le fichier `1bta.pdb` qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la ([PDB](https://files.rcsb.org/download/1BTA.pdb)).
+Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
 
-Écrivez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier PDB (sous forme de chaîne de caractères), qui sélectionne uniquement les lignes contenant des carbones alpha, qui stocke ces lignes et les renvoie sous forme de liste.
+Créez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier PDB (sous la forme d'une chaîne de caractères), qui sélectionne uniquement les lignes contenant des carbones alpha, qui stocke ces lignes dans une liste et les renvoie sous la forme d'une liste de chaînes de caractères.
 
-En utilisant la fonction `trouve_calpha()`, affichez à l'écran les carbones alpha des deux premiers résidus.
+Utilisez la fonction `trouve_calpha()` pour afficher à l'écran les carbones alpha des deux premiers résidus (acides aminés).
 
-*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*
+*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
 
 
 ### Calcul des distances entre les carbones alpha consécutifs d'une structure de protéine
 
-En utilisant la fonction `trouve_calpha()` précédente, calculez la distance inter-atomique entre les carbones alpha des deux premiers résidus (avec deux chiffres après la virgule).
+En utilisant la fonction `trouve_calpha()` précédente, calculez la distance interatomique entre les carbones alpha des deux premiers résidus (avec deux chiffres après la virgule).
 
-Écrivez ensuite la fonction `calcule_distance()` qui prend en argument la liste renvoyée par la fonction `trouve_calpha()` précédente, qui calcule les distance inter-atomiques entre carbones alpha consécutifs et affiche ces distances sous la forme :
-
-`numero_calpha_1 numero_calpha_2 distance`
-
-La distance sera affichée avec deux chiffres après la virgule. Voici un exemple avec les premiers carbones alpha :
-```
-1 2 3.80
-2 3 3.80
-3 4 3.83
-4 5 3.82
-```
-
-On rappelle que la distance *d* entre deux points A et B de coordonnées respectives $(x_A, y_A, z_A)$ et $(x_B, y_B, z_B)$ se calcule comme :
+Rappel : la distance euclidienne *d* entre deux points A et B de coordonnées cartésiennes respectives $(x_A, y_A, z_A)$ et $(x_B, y_B, z_B)$ se calcule comme suit :
 
 $$
 d = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}
 $$
 
+Créez ensuite la fonction `calcule_distance()` qui prend en argument la liste renvoyée par la fonction `trouve_calpha()`, qui calcule les distances interatomiques entre carbones alpha consécutifs et affiche ces distances sous la forme :
+
+`numero_calpha_1 numero_calpha_2 distance`
+
+Les numéros des carbones alpha seront affichés sur 2 caractères. La distance sera affichée avec deux chiffres après la virgule. Voici un exemple avec les premiers carbones alpha :
+```
+ 1  2 3.80
+ 2  3 3.80
+ 3  4 3.83
+ 4  5 3.82
+```
+
 Modifiez maintenant la fonction `calcule_distance()` pour qu'elle affiche à la fin la moyenne des distances.
 
-La distance inter carbones alpha dans les protéines est très stable et de l'ordre de 3,8 angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine 1BTA. Expliquez la valeur surprenante que vous devriez avoir obtenue.
+La distance inter-carbone alpha dans les protéines est très stable et de l'ordre de 3,8 angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine barstar. Repérez une valeur surprenante. Essayez de l'expliquer.
 
-*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe *Quelques formats de données rencontrés en biologie*
+*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
