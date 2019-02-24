@@ -107,7 +107,16 @@ singe
 souris
 ```
 
-La méthode `.split()` découpe une chaîne de caractères en plusieurs éléments appelés *champs*, en utilisant comme séparateur les espaces et les tabulations. Il est possible de modifier le séparateur de champs, par exemple :
+La méthode `.split()` découpe une chaîne de caractères en plusieurs éléments appelés *champs*, en utilisant comme séparateur n'importe quelle combinaison « d'espace blanc ». 
+
+open-box-def
+
+Un [espace blanc](https://en.wikipedia.org/wiki/Whitespace_character) (en anglais on parle de *whitespace*) correspond aux caractères qui sont invisibles à l'œil, mais qui occupent de l'espace dans un texte. Les espaces blancs les plus classiques sont l'espace, la tabulation et le saut à la ligne.
+
+close-box-def
+
+
+Il est possible de modifier le séparateur de champs, par exemple :
 ```
 >>> animaux = "girafe:tigre:singe:souris"
 >>> animaux.split(":")
@@ -153,7 +162,7 @@ On trouve aussi la méthode `.replace()` qui substitue une chaîne de caractère
 'gorafe togre'
 ```
 
-Enfin, la méthode `.count()` compte le nombre d’occurrences d'une chaîne de caractères passée en argument :
+La méthode `.count()` compte le nombre d’occurrences d'une chaîne de caractères passée en argument :
 ```
 >>> animaux = "girafe tigre"
 >>> animaux.count("i")
@@ -164,6 +173,35 @@ Enfin, la méthode `.count()` compte le nombre d’occurrences d'une chaîne de 
 1
 ```
 
+La méthode `.startswith()` permet de vérifier si une chaîne de caractères commence par une autre chaîne :
+
+```
+>>> chaine = "Bonjour monsieur le capitaine !"
+>>> chaine.startswith("Bonjour")
+True
+>>> chaine.startswith("Au revoir")
+False
+```
+
+Cette méthode est particulièrement utile lorsqu'on lit un fichier et que l'on veut récupérer certaines lignes commençant par un mot-clé (par exemple dans un fichier PDB, les lignes contenant les coordonnées des atomes commencent par `ATOM`).
+
+Enfin, la méthode `.strip()` permet de « nettoyer les bords » d'une chaîne de caractères :
+
+```
+>>> chaine = "  Comment enlever les espaces au début et à la fin ?       "
+>>> chaine.strip()
+'Comment enlever les espaces au début et à la fin ?'
+```
+
+On voit que  `.strip()` n'enlève que les espaces situés sur les bords mais pas entre les mots/caractères. En réalité, cette méthode enlève n'importe quel « espace blanc » sur les bords, par exemple :
+
+```
+>>> chaine = "  \tça fonctionne aussi avec les tabulations et les sauts à la ligne\n"
+>>> chaine.strip()
+'ça fonctionne aussi avec les tabulations et les sauts à la ligne'
+```
+
+La méthode `.strip()` est bien pratique quand on lit un fichier et qu'on veut se débarasser des sauts à la ligne.
 
 ## Extraction de valeurs numériques d'une chaîne de caractères
 
