@@ -1,11 +1,10 @@
 # Quelques modules d'intérêt en bioinformatique
 
-Nous allons découvrir dans cette section quelques modules très importants en bioinformatique. Le premier *NumPy* permet notamment de manipuler des vecteurs et des matrices. Le module *Biopython* permet de travailler sur des données biologiques, comme des séquences (nucléiques et protéiques) ou des structures (fichiers PDB). Le module *matplotlib* permet de créer des graphiques depuis Python. Enfin, le module *pandas* est très performant pour l'analyse de données et *scipy* étend les possibilités offertes par *NumPy*, notamment en proposant des algorithmes couramment utilisés en calcul scientifique.
+Nous allons aborder dans ce chapitre quelques modules très importants en bioinformatique. Le premier *NumPy* permet notamment de manipuler des vecteurs et des matrices. Le module *Biopython* permet de travailler sur des données biologiques, comme des séquences (nucléiques et protéiques) ou des structures (fichiers PDB). Le module *matplotlib* permet de créer des graphiques depuis Python. Enfin, le module *pandas* est très performant pour l'analyse de données, et *scipy* étend les possibilités offertes par *NumPy*, notamment en proposant des algorithmes couramment utilisés en calcul scientifique.
 
-Ces modules ne sont pas fournis avec la distribution Python de base (contrairement à tous les autres modules vus précédemment). Nous ne nous étendrons pas sur la manière de les installer. avec la distribution *Miniconda* que nous vous avons conseillé d'utiliser (nous vous renvoyons pour cela à l'annexe dédiée), vous pouvez rapidement les installer avec les commandes :
+Ces modules ne sont pas fournis avec la distribution Python de base (contrairement à tous les autres modules vus précédemment). Avec la distribution Miniconda que nous vous avons conseillé d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod)), vous pouvez rapidement les installer avec la commande :
 ```
-$ conda install -y numpy pandas matplotlib scipy
-$ conda install -y -c conda-forge biopython
+$ conda install -y numpy pandas matplotlib scipy biopython
 ```
 
 Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation de ces modules pour vous convaincre de leur pertinence.
@@ -15,7 +14,7 @@ Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation de ces 
 
 Le module [*NumPy*](http://numpy.scipy.org/) est incontournable en bioinformatique. Il permet d'effectuer des calculs sur des vecteurs ou des matrices, élément par élément, via un nouveau type d'objet appelé *array*.
 
-On charge le module *NumPy* avec la commande
+On charge le module *NumPy* avec la commande :
 ```
 >>> import numpy
 ```
@@ -27,7 +26,7 @@ On peut également définir un nom raccourci pour *NumPy* :
 
 ### Objets de type *array*
 
-Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` permet la conversion d'un objet séquentiel (type liste ou tuple) en un objet de type *array*. Voici un exemple simple de conversion d'une liste à une dimension en objet *array* :
+Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un objet séquentiel (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple simple de conversion d'une liste à une dimension en objet *array* :
 ```
 >>> import numpy as np
 >>> a = [1,2,3]
@@ -42,11 +41,11 @@ array([1, 2, 3])
 
 Nous avons converti la liste `[1, 2, 3]` en *array*. Nous aurions obtenu le même résultat si nous avions converti le tuple `(1,2,3)` en *array*.
 
-Par ailleurs, vous voyez que lorsqu'on demande à Python le contenu d'un objet *array*, les symboles `([` et `])` sont utilisés pour le distinguer d'une liste (délimitée par les caractères `[` et `]`) ou d'un tuple (délimité par les caractères `(` et `)`).
+Par ailleurs, lorsqu'on demande à Python d'afficher le contenu d'un objet *array*, les symboles `([` et `])` sont utilisés pour le distinguer d'une liste (délimitée par les caractères `[` et `]`) ou d'un tuple (délimité par les caractères `(` et `)`).
 
 open-box-rem
 
-Un objet *array* ne contient des données homogènes, c'est-à-dire d'un type identique.
+Un objet *array* ne contient que des données homogènes, c'est-à-dire d'un type identique.
 
 Il est possible de créer un objet *array* à partir d'une liste contenant des entiers et des chaînes de caractères, mais dans ce cas, toutes les valeurs seront comprises par *NumPy* comme des chaînes de caractères :
 ```
@@ -57,7 +56,7 @@ array(['1', '2', 'tigre'], dtype='<U21')
 <class 'numpy.ndarray'>
 ```
 
-De même, il est possible de créer un objet *array* à partir d'une liste constitué d'entiers et de *floats*, mais toutes les valeurs seront alors comprises par *NumPy* comme des *floats* :  
+De même, il est possible de créer un objet *array* à partir d'une liste constituée d'entiers et de *floats*, mais toutes les valeurs seront alors comprises par *NumPy* comme des *floats* :  
 ```
 >>> b = np.array([1, 2, 3.5])
 >>> b
@@ -66,9 +65,9 @@ array([1. , 2. , 3.5])
 <class 'numpy.ndarray'>
 ```
 
-Ici, la notion `1.` indique qu'il s'agit du *float* `1.0000...` et non pas de l'entier `1`.
+Ici, la notation `1.` indique qu'il s'agit du *float* `1.0000...` et pas de l'entier `1`.
 
-Le module *NumPy* a été conçu et est très performant pour manipuler des valeurs numériques (entières ou *floats*). Nous vous recommandons ne n'utiliser que des valeurs numériques avec *NumPy*.
+Le module *NumPy* est très performant pour manipuler des valeurs numériques (entières ou *floats*). Nous vous recommandons ne n'utiliser que des valeurs numériques avec *NumPy*.
 
 close-box-rem
 
@@ -111,7 +110,7 @@ array([0, 1, 4, 9])
 
 Avec les listes, ces opérations n'auraient été possibles qu'en utilisant des boucles. Nous vous encourageons donc à utiliser dorénavant les objets *array* lorsque vous aurez besoin de faire des opérations élément par élément.
 
-Notez également que, dans ce dernier exemple de multiplication (ligne 10), l'*array* final correspond à la multiplication **élément par élément** des deux *array* initiaux.
+Notez également que, dans le dernier exemple de multiplication (ligne 10), l'*array* final correspond à la multiplication **élément par élément** des deux *array* initiaux.
 
 
 ### *array* et dimensions
@@ -138,7 +137,7 @@ array([[[1, 2],
 
 La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois ça devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être considéré comme un **vecteur** et un *array* à deux dimensions comme une **matrice**.
 
-Voici quelques attributs intéressant pour décrire un objet *array* :
+Voici quelques attributs intéressants pour décrire un objet *array* :
 
 - `.ndim` renvoie le nombre de dimensions (par exemple,
     1 pour un vecteur et 2 pour une matrice) ;
@@ -169,7 +168,7 @@ array([[1, 2],
 6
 ```
 
-Et la méthode `.reshape()` permet de modifier les dimensions d'un *array* :
+Et la méthode `.reshape()` modifie les dimensions d'un *array* :
 ```
 >>> a = np.arange(0, 6)
 >>> a
@@ -197,9 +196,11 @@ array([[0, 1],
 La méthode `.reshape()` attend que les nouvelles dimensions soient **compatibles** avec la dimension initiale de l'objet *array*, c'est-à-dire que le nombre d'éléments contenus dans les différents *array* soit le même.
 Dans nos exemples précédents, $6 = 2 \times 3 = 3 \times 3$.
 
-Si les nouvelles dimensions ne sont pas compatibles avec les dimensions initiales, `.reshape()` génère une erreur.
+Si les nouvelles dimensions ne sont pas compatibles avec les dimensions initiales, la méthode `.reshape()` génère une erreur.
 ```
 >>> a = np.arange(0, 6)
+>>> a
+array([0, 1, 2, 3, 4, 5])
 >>> a.shape
 (6,)
 >>> d = a.reshape((3, 4))
@@ -251,7 +252,7 @@ array([[0, 1, 2, 3, 4],
 
 ### Indices
 
-Pour récupérer un ou plusieurs élément(s) d'un objet *array*, vous pouvez utiliser l'indiçage ou les tranchage, de la même manière que pour les listes.
+Pour récupérer un ou plusieurs élément(s) d'un objet *array*, vous pouvez utiliser les indices ou les tranches, de la même manière qu'avec les listes :
 ```
 >>> a = np.arange(10)
 >>> a
@@ -263,7 +264,7 @@ array([0, 2, 4, 6, 8])
 >>> a[1]
 1
 ```
-Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice `m`), une colonne complète (d'indice `n`) ou bien un seul élément.
+Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *m*), une colonne complète (d'indice *n*) ou bien un seul élément.
 ```
 >>> a = np.array([[1,2],[3,4]])
 >>> a
@@ -281,7 +282,7 @@ La syntaxe `a[m,:]` renvoie la ligne `m-1`, et `a[:,n]` renvoie la colonne `n-1`
 
 ### Construction automatique de matrices
 
-Il peut être parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module `numpy` contient quelques fonctions pratiques pour construire des matrices à partir de rien. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
+Il peut être parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour construire des matrices à partir de rien. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
 ```
 >>> np.zeros((2,3))
 array([[0., 0., 0.],
@@ -299,7 +300,7 @@ array([[0, 0, 0],
        [0, 0, 0]])
 ```
 
-Enfin, si voulez construire une matrice avec autre chose que des 0 ou des 1, vous avez à votre disposition la fonction `full()` :
+Enfin, si vous voulez construire une matrice avec autre chose que des 0 ou des 1, vous avez à votre disposition la fonction `full()` :
 ```
 >>> np.full((2,3), 7, int)
 array([[7, 7, 7],
@@ -315,7 +316,7 @@ Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes et qui
 
 Après avoir manipulé les objets *array* comme des vecteurs et des matrices, voici quelques fonctions pour faire de l'algèbre linéaire.
 
-La fonction `transpose()` renvoie la transposée d'un *array*. Par exemple pour une matrice :
+La fonction `transpose()` renvoie la transposée d'un *array*. Par exemple, pour une matrice :
 ```
 >>> a = np.resize(np.arange(1,10), (3,3))
 >>> a
@@ -345,7 +346,7 @@ Notez bien que `dot(a,a)` renvoie le **produit matriciel** entre deux matrices, 
 
 open-box-rem
 
-Dans *NumPy*, il existe également  des objets de type *matrix* pour lesquels les multiplications de matrices sont différents, mais nous ne les aborderons pas ici.
+Dans le module *NumPy*, il existe également des objets de type *matrix* pour lesquels les multiplications de matrices sont différents, mais nous ne les aborderons pas ici.
 
 close-box-rem
 
