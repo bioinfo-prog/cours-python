@@ -477,6 +477,7 @@ Lire toutes les lignes du fichier:
 	    drapeau <- Vrai
 ```
 
+
 ### Affichage des carbones alpha d'une structure de protéine
 
 Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
