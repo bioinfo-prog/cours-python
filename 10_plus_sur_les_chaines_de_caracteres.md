@@ -107,7 +107,7 @@ singe
 souris
 ```
 
-La méthode `.split()` découpe une chaîne de caractères en plusieurs éléments appelés *champs*, en utilisant comme séparateur n'importe quelle combinaison « d'espace(s) blanc(s) ». 
+La méthode `.split()` découpe une chaîne de caractères en plusieurs éléments appelés *champs*, en utilisant comme séparateur n'importe quelle combinaison « d'espace(s) blanc(s) ».
 
 open-box-def
 
@@ -173,7 +173,7 @@ La méthode `.count()` compte le nombre d’occurrences d'une chaîne de caract�
 1
 ```
 
-La méthode `.startswith()` permet de vérifier si une chaîne de caractères commence par une autre chaîne :
+La méthode `.startswith()` vérifie si une chaîne de caractères commence par une autre chaîne de caractères :
 
 ```
 >>> chaine = "Bonjour monsieur le capitaine !"
@@ -183,7 +183,7 @@ True
 False
 ```
 
-Cette méthode est particulièrement utile lorsqu'on lit un fichier et que l'on veut récupérer certaines lignes commençant par un mot-clé (par exemple dans un fichier PDB, les lignes contenant les coordonnées des atomes commencent par `ATOM`).
+Cette méthode est particulièrement utile lorsqu'on lit un fichier et que l'on veut récupérer certaines lignes commençant par un mot-clé. Par exemple dans un fichier PDB, les lignes contenant les coordonnées des atomes commencent par le mot-clé `ATOM`.
 
 Enfin, la méthode `.strip()` permet de « nettoyer les bords » d'une chaîne de caractères :
 
@@ -193,15 +193,16 @@ Enfin, la méthode `.strip()` permet de « nettoyer les bords » d'une chaîne d
 'Comment enlever les espaces au début et à la fin ?'
 ```
 
-On voit que  `.strip()` n'enlève que les espaces situés sur les bords mais pas entre les mots/caractères. En réalité, cette méthode enlève n'importe quel « espace blanc » sur les bords, par exemple :
+La méthode `.strip()` n'enlève que les espaces situés sur les bords de la chaîne de caractère, mais pas à l'intérieur. En réalité, cette méthode enlève n'importe quel « espace blanc » sur les bords, par exemple :
 
 ```
->>> chaine = "  \tça fonctionne aussi avec les tabulations et les sauts à la ligne\n"
+>>> chaine = "  \tfonctionne avec les tabulations et les sauts à la ligne\n"
 >>> chaine.strip()
-'ça fonctionne aussi avec les tabulations et les sauts à la ligne'
+'fonctionne avec les tabulations et les sauts à la ligne'
 ```
 
-La méthode `.strip()` est bien pratique quand on lit un fichier et qu'on veut se débarasser des sauts à la ligne.
+La méthode `.strip()` est très pratique quand on lit un fichier et qu'on veut se débarrasser des sauts à la ligne.
+
 
 ## Extraction de valeurs numériques d'une chaîne de caractères
 
@@ -302,28 +303,35 @@ Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L
 Soit la liste `['girafe', 'tigre', 'singe', 'souris']`. Avec une boucle, affichez chaque élément ainsi que sa taille (nombre de caractères).
 
 
-### Lecture de fichier fasta
+### Lecture d'une séquence à partir d'un fichier FASTA
 
-Soit le fichier [UBI4_SCerevisiae.fasta](data-files/UBI4_SCerevisiae.fasta) contenant une séquence au format fasta. Ecrire un programme, qui lit la séquence contenue dans le fichier fasta, qui la stocke dans une chaîne de caractères nommée `seq`. Votre programme affichera ensuite :
+Le fichier [UBI4_SCerevisiae.fasta](https://python.sdv.univ-paris-diderot.fr/data-files/UBI4_SCerevisiae.fasta) contient une séquence d'ADN au format FASTA.
 
-- le nom du fichier,
+Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier FASTA sous la forme d'une chaîne de caractères, lit la séquence dans le fichier FASTA et la renvoie sous la forme d'une chaîne de caractères.
+
+Utilisez ensuite cette fonction pour récupérer la séquence d'ADN dans la variable `sequence` puis pour afficher les informations suivantes :
+
+- le nom du fichier FASTA,
 - la longueur de la séquence,
-- un message vérifiant que le nombre de nucléotides est (ou non) un multiple de 3,
-- le nombre de codons (on rappelle un codon est un bloc de 3 nucléotides),
-- les 10 premiers nucléotides,
-- les 10 derniers nucléotides.
+- un message vérifiant que le nombre de base est (ou non) un multiple de 3,
+- le nombre de codons (on rappelle qu'un codon est un bloc de 3 bases),
+- les 10 premières bases,
+- les 10 dernières bases.
 
-La sortie devrait ressembler à ça :
+La sortie produite par le script devrait ressembler à ça :
 
 ```
 UBI4_SCerevisiae.fasta
-La séquence fait XXX nucléotides
-La longueur de la séquence est bien un multiple de 3 nucléotides
-La séquence possède ZZZ codons
-10 premiers nucléotides: YYYYYYYYYY
-10 derniers nucléotides: YYYYYYYYYY
+La séquence contient WWW bases
+La longueur de la séquence est un multiple de 3 nucléotides
+La séquence possède XXX codons
+10 premières bases : YYYYYYYYYY
+10 dernières bases : ZZZZZZZZZZ
 ```
-où `XXX` et `ZZZ` sont des entiers et `YYYYYYYYYY` sont des nucléotides. 
+où `WWW` et `XXX` sont des entiers et `YYYYYYYYYY` et `ZZZZZZZZZZ` sont des bases.
+
+*Conseil* : vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+
 
 ### Fréquence des bases dans une séquence d'ADN
 
@@ -393,8 +401,7 @@ Testez ensuite si les expressions suivantes sont des palindromes :
 
 ### Mot composable
 
-Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, `coucou` est composable
-à partir de « uocuoceokzefhu ».
+Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, `coucou` est composable à partir de « uocuoceokzefhu ».
 
 Écrivez la fonction `test_composable()` qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères) et qui affiche `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) ou `Le mot xxx n'est pas composable à partir de yyy` sinon.
 
@@ -424,9 +431,12 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 - Monsieur Jack vous dactylographiez bien mieux que votre ami Wolf
 - Buvez de ce whisky que le patron juge fameux
 
-### Lecture d'une séquence à partir d'un fichier genbank
 
-A partir du fichier genbank [NC_001133.gbk](data-files/NC_001133.gbk) (chromosome I de la levure S. Cerevisiae), on cherche à récupérer la séquence en nucléotides. Pour rappel, la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par `//` :
+### Lecture d'une séquence à partir d'un fichier GenBank
+
+On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk).
+
+Le format GenBank est présenté en détails dans l'annexe A *Quelques formats de données rencontrés en biologie*. Pour cet exercice, vous devez savoir que la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par les caractères `//` :
 
 ```
 ORIGIN
@@ -438,7 +448,7 @@ ORIGIN
 //
 ```
 
-On se propose de réaliser un programme qui récupère la séquence dans une chaîne de caractères `seq`. Pour cela on utilisera un algorihtme de drapeau ; en pseudo-code, cela donnerait :
+Pour extraire la séquence d'ADN, nous vous proposons d'utiliser un algorithme de « drapeau » dont voici l'équivalent en pseudo-code :
 
 ```
 drapeau <- Faux
@@ -447,21 +457,23 @@ Lire toutes les lignes du fichier:
 	si la ligne contient //:
 	    drapeau <- Faux
 	si drapeau est Vrai:
-	    on ajoute à seq la ligne (en retirant les espaces, chiffres et retour à la ligne)
+	    on ajoute à seq la ligne (sans espaces, chiffres et saut à la ligne)
 	si la ligne contient ORIGIN
 	    drapeau <- Vrai
 ```
 
-Le code affichera :
+Créez une fonction `lit_genbank()` qui prend comme argument le nom d'un fichier GenBank sous la forme d'une chaîne de caractères, lit la séquence dans le fichier GenBank et la renvoie sous la forme d'une chaîne de caractères.
+
+Utilisez ensuite cette fonction pour récupérer la séquence d'ADN dans la variable `sequence`. Le script affichera :
 
 ```
 NC_001133.gbk
-La séquence fait XXX nucléotides
-10 premiers nucléotides: YYYYYYYYYY
-10 derniers nucléotides: YYYYYYYYYY
+La séquence contient XXX bases
+10 premières bases : YYYYYYYYYY
+10 dernières bases : ZZZZZZZZZZ
 ```
 
-où XXX et ZZZ sont des entiers et YYYYYYYYYY sont des nucléotides.
+où `XXX` est un entier et `YYYYYYYYYY` et `ZZZZZZZZZZ` sont des bases.
 
 
 ### Affichage des carbones alpha d'une structure de protéine
@@ -475,7 +487,7 @@ Utilisez la fonction `trouve_calpha()` pour afficher à l'écran les carbones al
 *Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
 
 
-### Calcul des distances entre les carbones alpha consécutifs d'une structure de protéine
+### Calcul des distances entre les carbones alpha consécutifs d'une structure de protéine (exercice +++)
 
 En utilisant la fonction `trouve_calpha()` précédente, calculez la distance interatomique entre les carbones alpha des deux premiers résidus (avec deux chiffres après la virgule).
 
