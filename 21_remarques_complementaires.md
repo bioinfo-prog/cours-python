@@ -99,7 +99,8 @@ En Python 3, vous pouvez utiliser des caractères accentués dans les commentair
 
 Ce n'est pas le cas en Python 2. Si un caractère accentué est présent dans votre code, cela occasionnera une erreur de ce type lors de l'exécution de votre script :
 ```
-SyntaxError: Non-ASCII character '\xc2' in file xxx on line yyy, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+SyntaxError: Non-ASCII character '\xc2' in file xxx on line yyy, but no encoding
+declared; see http://python.org/dev/peps/pep-0263/ for details
 ```
 
 Pour éviter ce genre de désagrément, ajoutez la ligne suivante en tout début de votre script :
