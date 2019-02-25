@@ -29,8 +29,7 @@ Il y a plusieurs commentaires à faire sur cet exemple :
 
 Ligne 1. L'instruction `open()` ouvre le fichier `zoo.txt`. Ce fichier est ouvert en lecture seule, comme l'indique le second argument `r` (pour *read*) de la fonction `open()`. Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (*un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu*). Le curseur de lecture est prêt à lire le premier caractère du fichier.
 
-Ligne 2. Lorsqu'on affiche le contenu de la variable `filin`, vous voyez que Python la considère comme un objet de type fichier ouvert (ligne 3) :
-
+Ligne 2. Lorsqu'on affiche le contenu de la variable `filin`, vous voyez que Python la considère comme un objet de type fichier ouvert (ligne 3) :  
 `<_io.TextIOWrapper name='zoo.txt' mode='r' encoding='UTF-8'>`.
 
 Ligne 4. Nous utilisons à nouveau la syntaxe `objet.méthode()` (présentée dans le chapitre 3 *Affichage*). Ici la méthode `.readlines()` agit sur l'objet `filin` en déplaçant le curseur de lecture du début à la fin du fichier, puis elle renvoie une liste contenant toutes les lignes du fichier (*dans notre analogie avec un livre, ceci correspondrait à lire toutes les lignes du livre*).
@@ -221,7 +220,7 @@ Si vous travaillez sous Linux ou Mac OS X, et si votre programme produit uniquem
 close-box-rem
 
 
-## Ouvrir deux fichiers avec l'instruction with
+## Ouvrir deux fichiers avec l'instruction `with`
 
 L'instruction `with` permet même d'ouvrir deux fichiers (ou plus) en même temps.
 Voyez l'exemple suivant :

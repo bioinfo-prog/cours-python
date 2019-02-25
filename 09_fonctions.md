@@ -461,9 +461,9 @@ En reprenant votre fonction de calcul de distance euclidienne en 3D `calc_distan
 
 Créez une autre fonction `calc_dist2ori()` à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées en 2D d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$).
 
-La figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en trait épais). Chaque trait pointillé représente la distance que l'on cherche à calculer entre les points de la courbe (x minuscule), et l'origine du repère (X majuscule).
+La figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en trait épais). Chaque trait pointillé représente la distance que l'on cherche à calculer entre les points de la courbe et l'origine du repère de coordonnées (0, 0).
 
-![Fonction distance à l'origine](img/sin2ori.png){ #fig:sin2ori width=40% }
+![Illustration de la distance à l'origine.](img/sin2ori.png){ #fig:sin2ori width=60% }
 
 Votre programme générera un fichier `sin2ori.dat` qui contiendra deux colonnes : la première représente les $x$, la seconde la distance entre chaque point de la fonction $sin(x)$ à l'origine.
 
