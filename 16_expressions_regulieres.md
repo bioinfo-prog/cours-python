@@ -158,6 +158,9 @@ Comme vous le constatez, les métacaractères sont nombreux et leur significatio
 
 Il est important de savoir par ailleurs que les *regex* sont « avides » (*greedy* en anglais) lorsqu'on utilise les métacaractères `+` et `*` lors d'une substitution. C'est-à-dire que la *regex* cherchera à « s'étendre » au maximum. Par exemple, si on utilise la *regex* `A+` pour faire une substitution dans la chaîne `TTTAAAAAAAAGC`, tous les A de cette chaîne (8 en tout) seront concernés, bien que `AA`, `AAA`, etc, « fonctionnent » également avec cette *regex*.
 
+
+## Quelques ressources en ligne
+
 Nous vous conseillons de tester systématiquement vos expressions régulières sur des exemples simples. Pour vous aider, nous vous recommandons plusieurs sites internet :
 
 - [https://regexone.com/](https://regexone.com/) : tutoriel en ligne très bien fait.
@@ -352,71 +355,98 @@ Nous espérons vous avoir convaincu de la puissance du module *re* et des expres
 
 ## Exercices
 
+*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
 
-### Regex de base
 
-Dans ces exercices, nous allons utiliser le fichier GenBank [NC_001133.gbk](data-files/NC_001133.gbk) correspondant au chromosome I de la levure Saccharomyces Cerevisiae (souche S288C).
+### *Regex* de base
 
-- Créer un script `def.py` qui recherche le mot `DEFINITION` dans le fichier gbk, et ce en début de ligne. Le script affichera cette ligne (équivalent de `egrep`)
-- Ecrire un script `journal.py` qui affiche tous les journaux (mot-clé `JOURNAL`) dans lesquels ont été publiés les travaux sur ce génome (bien sûr utiliser une regex !).
+Dans cet exercice, nous allons manipuler le fichier GenBank [`NC_001133.gbk`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk) correspondant au chromosome I de la levure *Saccharomyces cerevisiae*.
+
+Créez un script `regex_genbank.py` :
+
+- qui recherche le mot `DEFINITION` en début de ligne dans le fichier GenBank, puis affiche la ligne correspondante ;
+- qui recherche tous les journaux (mot-clé `JOURNAL`) dans lesquels ont été publiés les travaux sur cette séquence, puis affiche les lignes correspondantes.
+
+*Conseils* :
+
+- Vous utiliserez des *regex* pour trouver les lignes demandées.
+- Vous trouverez des explications sur le format GenBank et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+
+
+### Enzyme de restriction
+
+Une enzyme de restriction est une protéine capable de couper une molécule d'ADN. Cette coupure se fait sur le site de restriction de l'ADN qui correspond à une séquence particulière de nucléotides (bases).
+
+Pour chacune des enzymes ci-dessous, déterminez les expressions régulières qui décrivent leurs sites de restriction. Le symbole N correspond aux bases A, T, C ou G. W correspond à A ou T . Y correspond à C ou T. R correspond à A ou G.
+
+| Enzyme  | Site de restriction |
+|---------|--------------|
+| HinFI   | GANTC        |
+| EcoRII  | CCWGG        |
+| BbvBI   | GGYRCC       |
+| BcoI    | CYCGRG       |
+| Psp5II  | RGGWCCY      |
+| BbvAI   | GAANNNNTTC   |
 
 
 ### Nettoyeur d'espaces
 
-Le fichier [cigale_fourmi.txt](data-files/cigale_fourmi.txt) contient le célèbre poème de Jean de la Fontaine. Malheureusement celui qui l'a recopié a parfois mis plusieurs espaces au lieu d'un seul entre les différents mots. Créer un script `cigale_fourmi.py` qui grâce aux regex et à la fonction `sub()` remplace les combinaisons de 2, 3, 4 (etc) espaces par un seul espace. Le nouveau texte "propre" sera enregistré dans un fichier `cigale_fourmi_propre.txt`.
+Le fichier [`cigale_fourmi.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/cigale_fourmi.txt) contient le célèbre poème de Jean de la Fontaine. Malheureusement, la personne qui l'a recopié a parfois mis plusieurs espaces au lieu d'un seul entre les mots.
+
+Créez un script `cigale_fourmi.py` qui grâce à une *regex* et à la fonction `sub()` remplace plusieurs espaces par un seul espace dans le texte ci-dessus. Le nouveau texte « propre » sera enregistré dans un fichier `cigale_fourmi_propre.txt`.
 
 
-### Compteur de gènes
+### Liste des protéines humaines
 
-- Téléchargez un petit fichier gbk sur la GenBank (vous pouvez réutiliser NC_001133.gbk).
-- Écrivez un script `genes.py` qui affiche tous les mots `gene` dans le fichier gbk. Lancez ce script de la manière suivante afin de voir ce que celui-ci renvoie page par page :
-```
-$ python3 genes.py | less
-```
-Si on compte ces lignes est-ce une bonne méthode pour compter les gènes ? Comment selon vous peut-on récupérer une ligne unique par gène (bien observer le fichier GenBank) ?
-- Sur la base du script précédent, écrivez un script `compte_genes.py` qui compte le nombre de gènes total et qui l'affiche à l'écran.
-- Améliorez le script afin qu'il affiche en plus le nombre de gènes directs et le nombre de gènes complémentaires.
+Téléchargez le fichier [`human-proteome.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta) qui contient le protéome humaine, c'est-à-dire les séquences de l'ensemble des protéines chez l'Homme. Ce fichier est au format FASTA.
 
+On souhaite lister toutes ces protéines et les indexer avec un numéro croissant.
 
-### Recherche de séquence dans un fichier gbk
+Créez un script `liste_proteome.py` qui :
 
-On veut créer un script `get_seq.py` qui extrait une séquence d'un fichier GenBank.
+- lit le fichier `human-proteome.fasta` ;
+- extrait, avec une *regex*, de toutes les lignes de commentaires des séquences, le numéro d'accession de la protéine ;
+- affiche le mot `protein`, suivi d'un numéro qui s'incrémente, suivi du numéro d'accession.
 
-- Téléchargez un petit fichier gbk sur la GenBank (vous pouvez réutiliser NC_001133.gbk).
-- Affichez toutes les lignes qui commencent par au moins un espace suivi d'un chiffre. Cela correspond-il aux lignes contenant la séquence d'ADN?
-- Affinez la regex pour ne récupérer que les lignes contenant la séquence. Testez votre nouvelle regex sur d'autres fichiers GenBank récupérés sur internet.
-- Avec la regex trouvée précédemment, écrivez un script qui récupère la séquence (dans une chaîne de caractères) en récupérant les bonnes lignes et en substituant les chiffres, espaces et retours chariot par rien du tout. Le script fonctionnera comme suit :
-```
-$ python3 get_seq.py file.gbk
-Le fichier file.gbk contient un génome de XXX bases.
-$
-```
-où XXX correspond au nombre de paires de bases dans le génome. Comparez avec le nombre de bases indiqué dans le fichier GenBank (ligne LOCUS).
-
-
-### Nettoyeur de doublons (++)
-
-Écrivez un script `ote_doublons.py` qui lit un fichier [breves_doublons.txt](data-files/breves_doublons.txt) et qui ôte tous les doublons de celui-ci à l'aide d'une regex. Le script affichera le nouveau texte à l'écran.
-
-
-### Le défi du dé-htmliseur (+++)
-
-Le format html permet d'afficher des pages web sur un navigateur. Il s'agit d'un langage à balise qui fonctionne avec des balises ouvrantes `<balise>` et des balises fermantes `</balise>`. Créez un script `dhtmliseur.py` qui lit le fichier [fichier_a_dhtmliser.html](data-files/fichier_a_dhtmliser.html) et qui renvoie à l'écran tout le texte de ce fichier contenu en dehors des balises html. Nous vous conseillons d'ouvrir le fichier html dans un éditeur de texte et de bien l'observer. N'hésitez pas à vous aider du site [https://regexr.com/](https://regexr.com/).
-
-
-### Remplacements puissants (+++)
-
-À partir du fichier contenant le [protéome humain](data-files/human-proteome.fasta), on souhaite faire une liste de toutes les protéines et les indexer avec un numéro arbitraire. Nous allons pour cela utiliser les regex et la substitution. Écrivez un script `liste_proteome.py` qui procède comme suit :
-
-- Lisez le fichier de protéome, et affichez uniquement les lignes de commentaires du fichier multi-fasta à l'aide d'une regex (lignes commençant par `>`).
-- Développez votre regex afin de récupérer le numéro d'accession dans un groupe (par exemple dans la ligne `>sp|O95139|NDUB6_HUMAN NADH dehydrogenase [...]` le numéro d'accession est `O95139`, il se situe entre le premier et le deuxième symbole `|` (symbole *pipe*)).
-- Au lieu d'afficher les lignes complète, affichez seulement le numéro d'accession, à l'aide de la fonction `sub()`.
-- Au final, on souhaite la sortie suivante (pensez à l'opérateur de formatage qui ajoute des 0 à la place d'espaces, par exemple `{:03d}`) :
-
+Voici un exemple de sortie attendue :
 ```
 protein 00001 O95139
 protein 00002 O75438
+protein 00003 Q8N4C6
 [...]
+protein 20371 Q8IZJ1
 protein 20372 Q9UKP6
 protein 20373 Q96HZ7
 ```
+
+*Conseils* :
+
+- Vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+- La ligne de commentaire d'une séquence au format FASTA est de la forme  
+    `>sp|O95139|NDUB6_HUMAN NADH dehydrogenase [...]`  
+    Elle débute toujours pas le caractère `>`.
+    Le numéro d'accession `O95139` se situe entre le premier et le second symbole `|` (symbole *pipe*). Attention, il faudra « échapper » ce symbole car il a une signification particulière dans une *regex*.
+- Le numéro qui s'incrémente débutera à 1 et sera affiché sur 5 caractères avec des 0 à sa gauche si nécessaires (formatage `{:05d}`).
+
+
+### Le défi du dé-htmliseur (exercice +++)
+
+Le format HTML permet d'afficher des pages web dans un navigateur. Il s'agit d'un langage à balise qui fonctionne avec des balises ouvrantes `<balise>` et des balises fermantes `</balise>`.
+
+Créez un script `dehtmliseur.py` qui lit le fichier [`fichier_a_dehtmliser.html`](https://python.sdv.univ-paris-diderot.fr/data-files/fichier_a_dhtmliser.html) au format HTML et qui renvoie à l'écran tout le texte de ce fichier sans les balises HTML.
+
+Nous vous conseillons tout d'abord d'ouvrir le fichier HTML dans un éditeur de texte et de bien l'observer. N'hésitez pas à vous aider des sites mentionnés dans les ressources en ligne
+
+
+### Nettoyeur de doublons (exercice +++)
+
+Téléchargez le fichier [`breves_doublons.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/breves_doublons.txt) qui contient des mots répétés deux fois. Par exmple :
+```
+Le cinéma est devenu parlant, la radio radio finira en images.
+La sardine, c'est un petit petit poisson sans tête qui vit dans l'huile.
+[...]
+```
+
+Écrivez un script `ote_doublons.py` qui lit le fichier `breves_doublons.txt` et qui supprime tous les doublons à l'aide d'une *regex*. Le script affichera le nouveau texte à l'écran.
+
+*Conseil* : utilisez la méthode `.sub()`.
