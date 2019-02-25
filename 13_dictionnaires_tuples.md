@@ -182,54 +182,84 @@ Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()
 En utilisant un dictionnaire, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence `AGWPSGGASAGLAILWGASAIMPGALW`. Le dictionnaire ne doit contenir que les acides aminés présents dans la séquence.
 
 
-### Mots de 2 lettres
+### Mots de 2 et 3 lettres dans une séquence d'ADN
 
-Soit la séquence nucléotidique suivante :  
+Créez une fonction `compte_mots_2_lettres()` qui prend comme argument une séquence sous la forme d'une chaîne de caractères et qui renvoie tous les mots de 2 lettres qui existent dans la séquence sous la forme d'un dictionnaire. Par exemple pour la séquence `ACCTAGCCCTA`, le dictionnaire renvoyée serait :  
+`{'AC': 1, 'CC': 3, 'CT': 2, 'TA': 2, 'AG': 1, 'GC': 1}`
+
+Créez une nouvelle fonction `compte_mots_3_lettres()` qui a un comportement similaire à `compte_mots_2_lettres()` mais avec des mots de 3 lettres.
+
+Utilisez ces fonctions pour affichez les mots de 2 et 3 lettres et leurs occurrences trouvés dans la séquence d'ADN :  
 `ACCTAGCCATGTAGAATCGCCTAGGCTTTAGCTAGCTCTAGCTAGCTG`
 
-En utilisant un dictionnaire, créez un programme qui répertorie tous les mots de 2 lettres qui existent dans la séquence (`AC`, `CC`, `CT`, `AG`, etc.) ainsi que leur nombre d’occurrences, puis qui les affiche à l'écran. Voici un exemple de sortie attendue :
+Voici un exemple de sortie attendue :
 ```
+Mots de 2 lettres
+AC : 1
+CC : 3
 CT : 8
-TC : 2
-GC : 7
+[...]
+Mots de 3 lettres
+ACC : 1
+CCT : 2
+CTA : 5
 [...]
 ```
 
 
-### Mots de 3 lettres
+### Mots de 2 lettres dans la séquence du chromosome I de *Saccharomyces cerevisiae*
 
-Faites de même avec des mots de 3 lettres.
+Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier FASTA sous la forme d'une chaîne de caractères, lit la séquence dans le fichier FASTA et la renvoie sous la forme d'une chaîne de caractères. N'hésitez pas à vous inspirer d'un exercice similaire du chapitre 10 *Plus sur les chaînes de caractères*.
 
-
-### Mots de 2 lettres dans le génome de *Saccharomyces cerevisiae*
-
-En vous basant sur les scripts précédents, extrayez les mots de 2 lettres et leurs occurrences dans le génome du chromosome I de la levure du boulanger *Saccharomyces cerevisiae* (fichier [`NC_001133.fna`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.fna)).
+Utilisez cette fonction et la fonction `compte_mots_2_lettres()` de l'exercice précédent pour extraire les mots de 2 lettres et leurs occurrences dans la séquence du chromosome I de la levure du boulanger *Saccharomyces cerevisiae* (fichier [`NC_001133.fna`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.fna)).
 
 Le génome complet est fourni au format FASTA. Vous trouverez des explications sur ce format et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
 
 
-### Mots de *n* lettres et fichiers FASTA
+### Mots de *n* lettres dans un fichier FASTA
 
-Créez un script `extract-words.py` qui prend en arguments le nom d'un fichier Fasta suivi d'un entier compris entre 1 et 4. Ce script doit extraire du fichier Fasta tous les mots (ainsi que leur nombre d’occurrences) du nombre de lettres passées en option.
+Créez un script `extract-words.py` qui prend comme arguments le nom d'un fichier FASTA suivi d'un entier compris entre 1 et 4. Ce script doit extraire du fichier FASTA tous les mots et leurs occurrences en fonction du nombre de lettres passé en option.
 
+Utilisez pour ce script la fonction `lit_fasta()` de l'exercice précédent. Créez également la fonction `compte_mots_n_lettres()` qui prend comme argument une séquence sous la forme d'une chaîne de caractères et le nombre de lettres des mots sous la forme d'un entier.
 
-### Mots de *n* lettres du génome d'*E. Coli*
+Testez ce script avec :
 
-Appliquez ce script sur le génome d'*Escherichia coli* : fichier [`NC_000913.fna`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_000913.fna). Attention, le génome complet est fourni au format fasta.
+- la séquence du chromosome I de la levure du boulanger *Saccharomyces cerevisiae* (fichier [`NC_001133.fna`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.fna))
+- le génome de la bactérie *Escherichia coli* (fichier [`NC_000913.fna`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_000913.fna))
 
-Cette méthode vous paraît-elle efficace sur un génome assez gros comme celui d'*E. Coli* ? Comment pourrait-on en améliorer la rapidité ?
+Les deux fichiers sont au format FASTA.
 
-
-### Dictionnaire et carbone alpha
-
-À partir du fichier PDB [1BTA](http://www.rcsb.org/pdb/files/1BTA.pdb), construisez un dictionnaire qui contient 4 clés se référant au premier carbone alpha : le numéro du résidu, puis les coordonnées atomiques *x*, *y* et *z*.
-
-
-### Dictionnaire et PDB
-
-Sur le même modèle que ci-dessus, créez une liste de dictionnaires pour chacun des carbones alpha de la protéine.
+Cette méthode vous paraît-elle efficace sur un génome assez gros comme celui d'*Escherichia coli* ?
 
 
-### Barycentre d'une protéine
+### Atomes carbone alpha d'un fichier PDB
 
-À l'aide de cette liste, calculez les coordonnées *x*, *y* et *z* du barycentre de ces carbones alpha.
+Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
+
+Créez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier PDB (sous la forme d'une chaîne de caractères), qui sélectionne uniquement les lignes contenant des carbones alpha et qui les renvoie sous la forme d'une liste de dictionnaires. Chaque dictionnaire contient quatre clés :
+
+- le numéro du résidu (`resid`) avec une valeur entière,
+- la coordonnée atomique *x* (`x`) avec une valeur *float*,
+- la coordonnée atomique *y* (`y`) avec une valeur *float*,
+- la coordonnée atomique *z* (`z`) avec une valeur *float*.
+
+Utilisez la fonction `trouve_calpha()` pour afficher à l'écran le nombre total de carbones alpha de la barstar ainsi que les coordonnées atomiques des carbones alpha des deux premiers résidus (acides aminés).
+
+*Conseil* : vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+
+
+### Barycentre d'une protéine (exercice +++)
+
+Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
+
+Un atome de carbone alpha est présent dans chaque résidu (acide aminé) d'une protéine. On peut obtenir une bonne approximation du barycentre d'une protéine en calculant le barycentre de ses carbones alpha.
+
+Le barycentre $G$ de coordonnées ($G_x$, $G_y$, $G_z$) est obtenu à partir des $n$ carbones alpha (CA) de coordonnées (${\rm CA}_{x}$, ${\rm CA}_{y}$, ${\rm CA}_{z}$) avec :
+
+$$ G_x =  \frac{1}{n} \sum_{i=1}^{n} {\rm CA}_{i,x} $$
+$$ G_y =  \frac{1}{n} \sum_{i=1}^{n} {\rm CA}_{i,y} $$
+$$ G_z =  \frac{1}{n} \sum_{i=1}^{n} {\rm CA}_{i,z} $$
+
+Créez une fonction `calcule_barycentre()` qui prend comme argument une liste de dictionnaires dont les clés (`resid`, `x`, `y` et `z`) sont celles de l'exercice précédent et qui renvoie les coordonnées du barycentre sous la forme d'une liste de *floats*.
+
+Utilisez la fonction `trouve_calpha()` de l'exercice précédent et la fonction `calcule_barycentre()`pour afficher, avec deux chiffres significatifs, les coordonnées du barycentre des carbones alpha de la barstar.
