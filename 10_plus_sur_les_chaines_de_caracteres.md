@@ -193,7 +193,7 @@ Enfin, la méthode `.strip()` permet de « nettoyer les bords » d'une chaîne d
 'Comment enlever les espaces au début et à la fin ?'
 ```
 
-La méthode `.strip()` n'enlève que les espaces situés sur les bords de la chaîne de caractère, mais pas à l'intérieur. En réalité, cette méthode enlève n'importe quel « espace blanc » sur les bords, par exemple :
+La méthode `.strip()` n'enlève que les espaces situés sur les bords de la chaîne de caractère, mais pas à l'intérieur (c'est à dire entre le premier et dernier  mots ou caractères visibles). En réalité, cette méthode enlève n'importe quel combinaison « d'espace(s) blanc(s) » sur les bords, par exemple :
 
 ```
 >>> chaine = "  \tfonctionne avec les tabulations et les sauts à la ligne\n"
@@ -432,7 +432,7 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 - Buvez de ce whisky que le patron juge fameux
 
 
-### Lecture d'une séquence à partir d'un fichier GenBank
+### Lecture d'une séquence à partir d'un fichier GenBank (exercice +++)
 
 On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk).
 
@@ -448,7 +448,22 @@ ORIGIN
 //
 ```
 
-Pour extraire la séquence d'ADN, nous vous proposons d'utiliser un algorithme de « drapeau » dont voici l'équivalent en pseudo-code :
+Pour extraire la séquence d'ADN, nous vous proposons d'utiliser un algorithme de « drapeau », c'est-à-dire une variable qui sera à `True` lorsqu'on lira les lignes contenant la séquence et à `False` pour les autres lignes.
+
+Créez une fonction `lit_genbank()` qui prend comme argument le nom d'un fichier GenBank sous la forme d'une chaîne de caractères, lit la séquence dans le fichier GenBank et la renvoie sous la forme d'une chaîne de caractères.
+
+Utilisez ensuite cette fonction pour récupérer la séquence d'ADN dans la variable `sequence` dans le programme principal. Le script affichera :
+
+```
+NC_001133.gbk
+La séquence contient XXX bases
+10 premières bases : YYYYYYYYYY
+10 dernières bases : ZZZZZZZZZZ
+```
+
+où `XXX` est un entier et `YYYYYYYYYY` et `ZZZZZZZZZZ` sont des bases.
+
+Vous avez toutes les informations pour effectuer cet exercice. Si toutefois vous coincez sur la mise en place du drapeau, voici l'algorithme en pseudo-code pour vous aider :
 
 ```
 drapeau <- Faux
@@ -461,20 +476,6 @@ Lire toutes les lignes du fichier:
 	si la ligne contient ORIGIN
 	    drapeau <- Vrai
 ```
-
-Créez une fonction `lit_genbank()` qui prend comme argument le nom d'un fichier GenBank sous la forme d'une chaîne de caractères, lit la séquence dans le fichier GenBank et la renvoie sous la forme d'une chaîne de caractères.
-
-Utilisez ensuite cette fonction pour récupérer la séquence d'ADN dans la variable `sequence`. Le script affichera :
-
-```
-NC_001133.gbk
-La séquence contient XXX bases
-10 premières bases : YYYYYYYYYY
-10 dernières bases : ZZZZZZZZZZ
-```
-
-où `XXX` est un entier et `YYYYYYYYYY` et `ZZZZZZZZZZ` sont des bases.
-
 
 ### Affichage des carbones alpha d'une structure de protéine
 
