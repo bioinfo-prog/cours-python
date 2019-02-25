@@ -88,11 +88,8 @@ J'aime bien les fraises !
 Aye, une_fct() se termine.
 ```
 
-Vous voyez que dans le programme principal, lors de l'appel de `une_fct()`, on lui passe en argument une autre fonction mais sans **aucune parenthèses ni argument(s)**, c'est-à-dire `fct_callback` tout court. En d'autres termes, cela est différent de :
-
-```
-une_fct(fct_callback("scoubidous"))
-```
+Vous voyez que dans le programme principal, lors de l'appel de `une_fct()`, on lui passe en argument une autre fonction mais sans **aucune parenthèses ni argument(s)**, c'est-à-dire `fct_callback` tout court. En d'autres termes, cela est différent de  
+`une_fct(fct_callback("scoubidous"))`.
 
 Dans une telle construction, `fct_callback("scoubidous")` serait d'abord évaluée, puis ce serait la valeur renvoyée par cet appel qui serait passée à `une_fct()` (n'essayez pas sur notre exemple car cela mènerait à une erreur !). Que se passe-t-il en filigrane lors de l'appel `une_fct(fct_callback)` ? Python passe une référence vers la fonction `fct_callback` (en réalité il s'agit d'un pointeur, mais tout ceci est géré par Python et est transparent pour l'utilisateur). Vous souvenez-vous ce qui se passait avec une liste passée en argument à une fonction (cf. Chapitre 12) ? C'était la même chose, une référence était envoyée plutôt qu'une copie. [Python Tutor](http://pythontutor.com) nous confirme cela (cf. Figure @fig:fonction_callback_pythontutor).
 
@@ -655,7 +652,10 @@ Concevez une application qui affiche l'heure dans un *label* (par exemple `09:10
 
 ### Compte à rebours
 
-Sur la base de l'application précédente, créer une application proposant un compte à rebours. L'utilisateur pourra choisir entre 1 et 60 minutes à l'aide d'une liste déroulante, et il y aura un bouton « Lancer » pour démarrer le compte à rebours. Pour la mise à jour du *label*, vous pourrez la méthode `.configure()`, par exemple : utiliser `self.label.configure(text=temps)` où `temps` représente le temps restant à compter à rebours.
+Sur la base de l'application précédente, créer une application proposant un compte à rebours. L'utilisateur pourra choisir entre 1 et 60 minutes à l'aide d'une liste déroulante, et il y aura un bouton « Lancer » pour démarrer le compte à rebours. Pour la mise à jour du *label*, vous pourrez utiliser la méthode `.configure()`, par exemple :  
+`self.label.configure(text=temps)` 
+
+où `temps` représente le temps restant à compter à rebours.
 
 ### Triangle de Sierpinski
 
@@ -664,7 +664,7 @@ Le [triangle de Sierpinski](https://fr.wikipedia.org/wiki/Triangle_de_Sierpi%C5%
 ```
 définir les 3 sommets d'un triangle isocèle
 point <- coordonnées (x, y) du centre du trianle
-dessiner(point) # (petit cercle d’une pixelle de large)
+dessiner(point) # une pixelle de large
 pour i de 0 à 25000:
     sommet_tmp <- choisir un sommet du triangle au hasard
     point <- calculer(coordonnées (x, y)  du centre entre et sommet_tmp)
@@ -673,7 +673,7 @@ pour i de 0 à 25000:
 
 Le rendu final attendu est montré dans la Figure @fig:Sierpinski. On utilisera un canevas de 400x400 pixels.
 
-![Triangle de Sierpinski.](img/Sierpinski.png){ #fig:Sierpinski width=70% }
+![Triangle de Sierpinski.](img/Sierpinski.png){ #fig:Sierpinski width=50% }
 
 ### Sierpinski++
 
