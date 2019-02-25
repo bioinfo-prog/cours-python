@@ -306,12 +306,3 @@ else:
 La variable `e` est une instance (un représentant) de l'erreur de type `IOError`. Certains de ces attributs sont testés avec la fonction `hasattr()` pour ainsi affiner le message renvoyé (ici contenu dans la variable `error`).
 
 Si tout se passe bien, la page est téléchargée et stockée dans la variable `data`, puis ensuite enregistrée sur le disque dur.
-
-
-## Ressources complémentaires
-
-Pour compléter votre apprentissage de Python, nous vous conseillons les ressources suivantes :  
-
-- Le livre *Apprendre à programmer avec Python 3* de Gérard Swinnen. Ce livre s’adresse aux débutants et propose une approche différente de la nôtre. Cet ouvrage est téléchargeable gratuitement sur le site de [Gérard Swinnen](http://www.inforef.be/swi/python.htm). Les éditions Eyrolles proposent également la version papier de cet ouvrage.
-- Le livre *Apprendre à programmer en Python avec PyZo et Jupyter Notebook* de Bob Cordeau et Laurent Pointal, publié aux éditions Dunod. Une partie de cet ouvrage est téléchargeable gratuitement sur le site de [Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3).
-- Le site [www.python.org](http://www.python.org). Il contient énormément d'informations et de liens sur Python. La page d'[index des modules](https://docs.python.org/fr/3/py-modindex.html) est particulièrement utile.

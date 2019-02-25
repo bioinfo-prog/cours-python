@@ -1,4 +1,4 @@
-# Introduction
+                        # Introduction
 
 ## C'est quoi Python ?
 
@@ -210,7 +210,7 @@ En programmation, il est courant de répéter un certain nombre de choses (avec 
 
 Par exemple, imaginons que nous souhaitions afficher chacune des bases d'une séquence d'ADN, les compter puis afficher le nombre total de bases à la fin. Nous pourrions utiliser l'algorithme présenté en pseudo-code dans la figure @fig:indentation_bloc_instructions.
 
-![Notion d'indentation et de bloc d'instructions](img/indentation_bloc_instructions.png "Indentation et bloc d'instructions"){ #fig:indentation_bloc_instructions width=90% }
+![Notion d'indentation et de bloc d'instructions](img/indentation_bloc_instructions.png "Indentation et bloc d'instructions"){ #fig:indentation_bloc_instructions width=70% }
 
 Pour chaque base de la séquence ATCCGACTG, nous souhaitons effectuer deux actions : 1) afficher la base, et 2) compter une base de plus. Pour indiquer cela, on décalera vers la droite ces deux instructions par rapport à la ligne précédente (`pour chaque base [...]`). Ce décalage est appelé **indentation**, et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
 
@@ -219,3 +219,12 @@ Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer
 Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
 
 Si tout cela semble un peu complexe, ne vous inquiétez pas. Vous allez comprendre tous ces détails chapitre après chapitre.
+
+
+## Ressources complémentaires
+
+Pour compléter votre apprentissage de Python, nous vous conseillons les ressources suivantes :  
+
+- Le livre *Apprendre à programmer avec Python 3* de Gérard Swinnen. Ce livre s’adresse aux débutants et propose une approche différente de la nôtre. Cet ouvrage est téléchargeable gratuitement sur le site de [Gérard Swinnen](http://www.inforef.be/swi/python.htm). Les éditions Eyrolles proposent également la version papier de cet ouvrage.
+- Le livre *Apprendre à programmer en Python avec PyZo et Jupyter Notebook* de Bob Cordeau et Laurent Pointal, publié aux éditions Dunod. Une partie de cet ouvrage est téléchargeable gratuitement sur le site de [Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3).
+- Le site [www.python.org](http://www.python.org). Il contient énormément d'informations et de liens sur Python. La page d'[index des modules](https://docs.python.org/fr/3/py-modindex.html) est particulièrement utile.
