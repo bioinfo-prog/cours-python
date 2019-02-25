@@ -156,7 +156,7 @@ Enfin, il existe des caractères spéciaux qui sont bien commodes et qui peuvent
 
 Comme vous le constatez, les métacaractères sont nombreux et leur signification est parfois difficile à maîtriser. Faites particulièrement attention aux métacaractères `.`, `+` et `*` qui, combinés ensemble, peuvent donner des résultats ambigus.
 
-Il est important de savoir par ailleurs que les *regex* sont « avides » (*greedy* en anglais) lorsqu'on utilise les métacaractères `+` et `*` lors d'une substitution. C'est-à-dire que la *regex* cherchera à « s'étendre » au maximum. Par exemple, si on utilise la *regex* `A+` pour faire une substitution dans la chaîne `TTTAAAAAAAAGC`, tous les A de cette chaîne (8 en tout) seront concernés, bien que `AA`, `AAA`, etc, « fonctionnent » également avec cette *regex*.
+Il est important de savoir par ailleurs que les *regex* sont « avides » (*greedy* en anglais) lorsqu'on utilise les métacaractères `+` et `*`. C'est-à-dire que la *regex* cherchera à « s'étendre » au maximum. Par exemple, si on utilise la *regex* `A+` pour faire une recherche dans la chaîne `TTTAAAAAAAAGC`, tous les A de cette chaîne (8 en tout) seront concernés, bien que `AA`, `AAA`, etc. « fonctionnent » également avec cette *regex*.
 
 
 ## Quelques ressources en ligne
@@ -341,7 +341,7 @@ Enfin, sachez que la réutilisation d'un groupe précédemment capturé est auss
 ```
 >>> re.search("(pan)\\1", "bambi et panpan")
 <_sre.SRE_Match object; span=(9, 15), match='panpan'>
->>> re.search("(pan)\\1","le pistolet a fait pan !")
+>>> re.search("(pan)\\1", "le pistolet a fait pan !")
 >>>
 ```
 
