@@ -35,3 +35,21 @@ Un exemple de correction est téléchargeable pour le projet :
 
 - sans expression régulière
 - avec expressions régulière
+
+## Simulation d'un pendule
+
+On se propose de réaliser une simulation d'un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple) en tkinter. Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. Le mouvement du pendule sera calculé en résolvant numériquement l'équation du mouvement : 
+
+$$\frac{d^2\theta}{dt^2} = -\frac{g}{l} * sin(\theta)$$
+
+où $\theta$ représente l'angle entre la verticale et la tige du pendule, $g$ la gravité, et $l$ la longueur de la tige (note : pour la dérivation d'une telle équation vous pouvez consulter la [page wikipedia](https://en.wikipedia.org/wiki/Pendulum_(mathematics)#math_Eq._1)).
+
+Pour trouver la valeur de $\theta$ en fonction du temps, on pourra utiliser la méthode d'Euler. La formule ci-dessus donne l'accélération angulaire $a = \frac{d^2\theta}{dt^2}$. A partir de celle-ci, on peut calculer la vitesse angulaire $v = a * \delta t$ (où $\delta t$ représente l'incrément de temps entre deux clichés). Enfin, cette vitesse $v$ nous donne l'angle $\theta$ lui même : $\theta = v * \delta t$. On prendra un pas de temps $\delta t = 0.05 s$, une accélération gravitationnelle $g = 9.8 m.s^{-2}$ et une longueur de tige de $l = 1 m$. 
+
+![Application pendule.](img/pendule.png){ #fig:pendule width=40% }
+
+Pour la visualisation, vous pourrez utiliser le *widget canvas* du module tkinter (cf. chapitre 20, rubrique *Un canvas animé dans une classe*). On cherche à obtenir un résultat comme montré dans la figure @fig:pendule. 
+
+Nous vous conseillons de procéder d'abord par la mise en place du simulateur physique (c'est à dire obtenir $\theta$ en fonction du temps). Faites par exemple un premier script Python qui sort un fichier à deux colonnes (temps et valeur de $\theta$). Une fois que cela fonctionne bien, il vous faudra construire l'interface tkinter et l'animer. N'oubliez pas, il faudra mettre dans votre programme final une fonction qui convertit l'angle $\theta$ en coordonnées cartésiennes $x$ et $y$ dans le plan du *canvas* (attention notamment au système de coordonnées du *canvas* où les ordonnées sont inversées par rapport à un repère mathématique).
+
+De plus amples informations sont disponibles en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod) (plus d'explications sur la physique du penduel, la résolution de l'équation du mouvement par une méthode numérique, et un guide pas à pas pour l'implémentation en tkinter).
