@@ -2,7 +2,7 @@
 
 ## Pourquoi créer ses propres modules ?
 
-Dans le chapitre 8 *Modules*, nous avons découvert quelques modules existants dans Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions* que les fonctions sont utiles pour ré-utiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer ce code. On peut imaginer qu'une fonction bien écrite pourrait être judicieusement ré-utilisée dans un autre programme Python. C'est justement l'intérêt de créer un module, on y met un ensemble de fonctions que l'on peut être amené à ré-utiliser souvent. En général les modules sont regroupés autour d'un thème précis, par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
+Dans le chapitre 8 *Modules*, nous avons découvert quelques modules existants dans Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions* que les fonctions sont utiles pour réutiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer ce code. On peut imaginer qu'une fonction bien écrite pourrait être judicieusement réutilisée dans un autre programme Python. C'est justement l'intérêt de créer un module. On y met un ensemble de fonctions que l'on peut être amené à utiliser souvent. En général, les modules sont regroupés autour d'un thème précis. Par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
 
 
 ## Création d'un module
@@ -41,14 +41,14 @@ close-box-rem
 
 ## Utilisation de son propre module
 
-Pour appeler une fonction ou une variable de ce module, il faut que le fichier `message.py` soit dans le répertoire courant (dans lequel on travaille) ou bien dans un répertoire listé par la variable d'environnement `PYTHONPATH`. Ensuite, il suffit d'importer le module et toutes ses fonctions (et variables) vous sont alors accessibles.
+Pour appeler une fonction ou une variable de ce module, il faut que le fichier `message.py` soit dans le répertoire courant (dans lequel on travaille) ou bien dans un répertoire listé par la variable d'environnement `PYTHONPATH`. Ensuite, il suffit d'importer le module et toutes ses fonctions (et constantes) vous sont alors accessibles.
 
 open-box-rem
 
-Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell* Bash pour modifier la variable d'environnement `PYTHONPATH` :
+Avec Mac OS X et Linux, il faut taper la commande suivante depuis un *shell* Bash pour modifier la variable d'environnement `PYTHONPATH` :  
 `export PYTHONPATH=$PYTHONPATH:/chemin/vers/mon/super/module`
 
-Avec Windows, mais depuis un *shell* PowerShell, il faut taper la commande suivante :
+Avec Windows, mais depuis un *shell* PowerShell, il faut taper la commande suivante :  
 `$env:PYTHONPATH += ";C:\chemin\vers\mon\super\module"`
 
 Une fois cette manipulation effectuée, vous pouvez contrôler que le chemin vers le répertoire contenant vos modules a bien été ajouté à la variable d'environnement `PYTHONPATH` :
@@ -58,7 +58,7 @@ Une fois cette manipulation effectuée, vous pouvez contrôler que le chemin ver
 
 close-box-rem
 
-Le chargement du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py` et pourtant on ne la précise pas lorsqu'on importe le module. Ensuite on peut utiliser les fonctions comme avec un module classique.
+Le chargement du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py` et pourtant on ne la précise pas lorsqu'on importe le module. Ensuite, on peut utiliser les fonctions comme avec un module classique.
 ```
 >>> import message
 >>> message.hello("Joe")
@@ -112,7 +112,7 @@ Pour quitter l'aide, pressez la touche `Q`.
 
 close-box-rem
 
-Vous remarquez que Python a généré automatiquement cette page d'aide, tout comme il est capable de le faire pour les modules internes à Python (*random*, *math*, etc) et ce grâce aux *docstrings*. Notez que l'on peut aussi appeler l'aide pour une seule fonction :
+Vous remarquez que Python a généré automatiquement cette page d'aide, tout comme il est capable de le faire pour les modules internes à Python (*random*, *math*, etc.) et ce grâce aux *docstrings*. Notez que l'on peut aussi appeler l'aide pour une seule fonction :
 ```
 >>> help(message.ciao)
 
@@ -139,7 +139,7 @@ La visibilité des fonctions au sein des modules suit des règles simples :
 
 - Les fonctions dans un module peuvent appeler des fonctions situées dans un autre module s'il a été préalablement importé. Par exemple, si la commande `import autremodule` est utilisée dans un module, il est possible d'appeler une fonction avec `autremodule.fonction()`.
 
-Toutes ces règles viennent de la manière dont Python gère les **espaces de nom**. De plus amples explications sont données sur ce concept dans le chapitre 19 *Avoir la classe avec les objets.
+Toutes ces règles viennent de la manière dont Python gère les **espaces de nom**. De plus amples explications sont données sur ce concept dans le chapitre 19 *Avoir la classe avec les objets*.
 
 
 ## Module ou script ?
@@ -201,9 +201,9 @@ if __name__ == "__main__":
     >>>
     ```
 
-A nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 19 *Avoir la classe avec les objets*).
+À nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 19 *Avoir la classe avec les objets*).
 
-Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de bien voir où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == "__main__":` est donc une bonne pratique que nous vous recommandons !
+Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de bien voir où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == "__main__":` est une bonne pratique que nous vous recommandons !
 
 
 ## Exercice
