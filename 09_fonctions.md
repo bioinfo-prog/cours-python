@@ -326,6 +326,7 @@ Enfin, comme vous avez pu le constater, *Python Tutor* nous a grandement aidé �
 
 *Conseil* : pour le premier exercice, utilisez *Python Tutor*. Pour les exercices suivants, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
 
+
 ### Carré et factorielle
 
 Reprenez l'exemple précédent à l'aide du site [*Python Tutor*](http://www.pythontutor.com) :
@@ -349,7 +350,8 @@ def calc_factorielle(n):
         fact = fact * i
     return fact
 
-# prog principal
+
+# programme principal
 nb = 4
 factorielle_nb = calc_factorielle(nb)
 print("{}! = {}".format(nb,factorielle_nb))
@@ -379,6 +381,7 @@ Dans le programme principal, calculez et affichez à l'écran $2^i$ avec $i$ var
 [...]
 2^20 = 1048576
 ```
+
 
 ### Pyramide
 
@@ -441,7 +444,6 @@ Créez une autre fonction `calc_stat()` qui prend en argument une liste de *floa
 
 Dans le programme principal, générez 20 listes aléatoires de 100 *floats* compris entre 0 et 100 et affichez le minimum (`min()`), le maximum (`max()`) et la moyenne pour chacune d'entre elles. La moyenne pourra être calculée avec les fonctions `sum()` et `len()`.
 
-
 Pour chacune des 20 listes, affichez les statistiques (min, max, et moyenne) avec deux chiffres après la virgule :
 ```
 Liste  1 : min = 0.17 ; max = 99.72 ; moyenne = 57.38
@@ -494,16 +496,3 @@ open-box-rem
 Le module *matplotlib* sera expliqué en détail dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
 
 close-box-rem
-
-
-### Aire sous la courbe (exercice +++)
-
-La [méthode des trapèzes](https://fr.wikipedia.org/wiki/M%C3%A9thode_des_trap%C3%A8zes) permet de calculer numériquement l'intégrale d'une fonction. Elle consiste à évaluer l'aire sous une fonction en évaluant l'aire de trapèzes successifs. On souhaite créer une fonction `calc_aire()` qui prend en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées d'une fonction (par exemple $x$ et $sin(x)$) et qui renvoie l'aire sous la courbe. On calculera les intégrales suivantes :
-
-- $\int_{0}^{1} x \, dx$
-
-- $\int_{0}^1 \sqrt{x} \, dx$
-
-- $\int_{-\pi}^{+\pi} sin(x) \,dx$
-
-- $\int_{-\pi}^{+\pi} cos(x) \,dx$

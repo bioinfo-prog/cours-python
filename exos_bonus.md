@@ -1,4 +1,22 @@
+## Fonction
+
+
+### Aire sous la courbe (exercice +++)
+
+La [méthode des trapèzes](https://fr.wikipedia.org/wiki/M%C3%A9thode_des_trap%C3%A8zes) permet de calculer numériquement l'intégrale d'une fonction. Elle consiste à évaluer l'aire sous une fonction en évaluant l'aire de trapèzes successifs. On souhaite créer une fonction `calc_aire()` qui prend en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées d'une fonction (par exemple $x$ et $sin(x)$) et qui renvoie l'aire sous la courbe. On calculera les intégrales suivantes :
+
+- $\int_{0}^{1} x \, dx$
+
+- $\int_{0}^1 \sqrt{x} \, dx$
+
+- $\int_{-\pi}^{+\pi} sin(x) \,dx$
+
+- $\int_{-\pi}^{+\pi} cos(x) \,dx$
+
+
+
 ## Regex
+
 
 ### Compteur de gènes
 
