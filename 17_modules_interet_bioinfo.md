@@ -411,18 +411,18 @@ Traduction en séquence protéique :
 Seq('ISAIAC', IUPACProtein())
 ```
 
-Dans l'annexe *Quelques formats de données rencontrés en biologie*, vous
+Dans l'annexe A *Quelques formats de données rencontrés en biologie*, vous
 trouverez de nombreux exemples d'utilisation de *Biopython* pour manipuler
-des données aux formats Fasta, GenBank et PDB.
+des données aux formats FASTA, GenBank et PDB.
 
 
-### Interrogation de la base de données Pubmed
+### Interrogation de la base de données PubMed
 
 Le sous-module *Entrez* de *Biopython* permet d’utiliser les ressources du NCBI
 et notamment d'interroger le site [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/).
 
 Nous allons par exemple utiliser PubMed pour chercher des articles scientifiques
-relatifs à la transferrine :
+relatifs à la transferrine (*transferrin* en anglais):
 
 ```
 >>> from Bio import Entrez
@@ -433,11 +433,11 @@ relatifs à la transferrine :
 
 Ligne 1. On charge directement le sous-module *Entrez*.
 
-Ligne 2. Lors d'une requête sur le site du NCBI, il est important de définir
+Ligne 2. Lors d'une requête sur le site du NCBI, il est important de définir correctement
 la variable `Entrez.email` qui sera transmise au NCBI lors de la requête et qui
 pourra être utilisée pour vous contacter en cas de difficulté avec le serveur.
 
-Ligne 3. On lance la requête (`transferrin`) sur le moteur de recherche `pubmed`.
+Ligne 3. On lance la requête (`transferrin`) sur le moteur de recherche `pubmed`. La requête est stockée dans la variable `req_esearch`.
 
 Ligne 4. Le résultat est lu et stocké dans la variable `res_esearch`.
 
@@ -476,11 +476,11 @@ Pour ne pas saturer les serveurs du NCBI, seulement 20 PMID sont renvoyés par d
 Mais vous pouvez augmenter cette limite en utilisant le paramètre `retmax` dans la fonction `Entre.esearch()`.
 
 Nous pouvons maintenant récupérer des informations sur une publication précise
-en connaissant son PMID. Par exemple l'article avec le PMID est [22294463](https://www.ncbi.nlm.nih.gov/pubmed/22294463) et dont un aperçu est sur la figure @fig:entrez-transferrin.
+en connaissant son PMID. Par exemple, l'article avec le PMID [22294463](https://www.ncbi.nlm.nih.gov/pubmed/22294463) et dont un aperçu est sur la figure @fig:entrez-transferrin.
 
-![Aperçu de la publication *Known and potential roles of transferrin in iron biology* depuis le site PubMed](img/entrez-transferrin.png "Aperçu de la publication Known and potential roles of transferrin in iron biology"){ #fig:entrez-transferrin width=80% }
+![Aperçu de la publication *Known and potential roles of transferrin in iron biology* depuis le site PubMed.](img/entrez-transferrin.png "Aperçu de la publication Known and potential roles of transferrin in iron biology"){ #fig:entrez-transferrin width=80% }
 
-Nous allons pour cela utiliser la méthode `Entrez.esummary()`
+Nous allons pour cela utiliser la fonction `Entrez.esummary()`
 
 ```
 >>> req_esummary = Entrez.esummary(db="pubmed", id="22294463")
@@ -513,7 +513,7 @@ publié :
 ```
 
 Enfin, pour récupérer le résumé de la publication précédente, nous allons
-utiliser la méthode `Entrez.efetch()` :
+utiliser la fonction `Entrez.efetch()` :
 ```
 >>> req_efetch = Entrez.efetch(db="pubmed", id="22294463", rettype="txt")
 >>> res_efetch = Entrez.read(req_efetch)
@@ -578,11 +578,11 @@ plt.show()
 ```
 Vous devriez obtenir une fenêtre graphique **interactive** qui vous permet de manipuler le graphe (se déplacer, zoomer, enregistrer comme image, etc.) et qui ressemble à celle de la figure @fig:pltinteractive.
 
-![Fenêtre interactive de matplotlib](img/concentration_vs_temps_show.png "Fenêtre interactive de matplotlib"){ #fig:pltinteractive width=60% }
+![Fenêtre interactive de *matplotlib*.](img/concentration_vs_temps_show.png "Fenêtre interactive de matplotlib"){ #fig:pltinteractive width=70% }
 
 Revenons maintenant sur le code.
 
-Ligne 1. Tout d'abord, on importe le sous-module `pyplot` du module `matplotlib` et on lui donne le nom court `plt` pour l'utiliser plus rapidement ensuite.
+Ligne 1. Tout d'abord, on importe le sous-module `pyplot` du module *matplotlib* et on lui donne le nom court `plt` pour l'utiliser plus rapidement ensuite.
 
 Lignes 3 et 4. On définit les variables `temps` et `concentration` comme des listes. Les deux listes doivent avoir la même longueur (7 éléments dans le cas présent).
 
@@ -616,11 +616,11 @@ plt.savefig('concentration_vs_temps.png', bbox_inches='tight', dpi=200)
 ```
 Le résultat est représenté sur la figure @fig:conc-vs-tps.
 
-![Concentration du produit en fonction du temps](img/concentration_vs_temps.png "Concentration du produit en fonction du temps"){  #fig:conc-vs-tps width=60% }
+![Concentration du produit en fonction du temps.](img/concentration_vs_temps.png "Concentration du produit en fonction du temps"){  #fig:conc-vs-tps width=70% }
 
 Les étapes supplémentaires par rapport au graphique précédent (figure @fig:pltinteractive) sont :
 
-Ligne 1. On charge le module `numpy` sous le nom `np`.
+Ligne 1. On charge le module *numpy* sous le nom `np`.
 
 Ligne 10. On crée la variable `x` avec la fonction `linspace()` du module *NumPy* qui renvoie une liste de valeurs régulièrement espacées entre deux bornes, ici entre le minimum (`min(temps)`) et le maximum (`max(temps)`) de la variable `temps`. Dans notre exemple, nous générons une liste de 50 valeurs. La variable `x` ainsi créée est du type *array*.
 
@@ -635,7 +635,7 @@ Ligne 14. Enfin, la fonction `savefig()` enregistre le graphique produit sous la
 
 ### Représentation sous forme de diagramme en bâtons
 
-On souhaite maintenant représenter graphiquement la distribution des différentes bases dans une séquence nucléique.
+On souhaite maintenant représenter graphiquement la distribution des différentes bases dans une séquence d'ADN.
 ```
 import numpy as np
 import matplotlib.pyplot as plt
@@ -657,32 +657,32 @@ plt.savefig('distribution_bases.png', bbox_inches="tight", dpi=200)
 
 On obtient alors le graphique de la figure @fig:distribution.
 
-![Distribution des bases](img/distribution_bases.png "Distribution des bases"){width=60%, #fig:distribution}
+![Distribution des bases.](img/distribution_bases.png "Distribution des bases"){ #fig:distribution width=70% }
 
 Prenons le temps d'examiner les différentes étapes du script précédent :
 
 Lignes 3 à 5. On définit les variables `sequence`, `bases` et `distribution` qu'on utilise ensuite.
 
-Lignes 6 et 7. On calcule la distribution des différentes bases dans la séquence. On utilise pour cela la fonction `count()` qui renvoie le nombre de fois qu'une chaîne de caractères (les différentes bases) se trouve dans une autre (la séquence).
+Lignes 6 et 7. On calcule la distribution des différentes bases dans la séquence. On utilise pour cela la méthode `count()` qui renvoie le nombre de fois qu'une chaîne de caractères (les différentes bases) se trouve dans une autre (la séquence).
 
-Ligne 9. On définit la positions en abscisse des barres. Dans cet exemple, la variable `x` vaut `array([0, 1, 2, 3])`.
+Ligne 9. On définit la position en abscisse des barres. Dans cet exemple, la variable `x` vaut `array([0, 1, 2, 3])`.
 
 Ligne 10. La fonction `bar()` construit le diagramme en bâtons. Elle prend en argument la position des barres (`x`) et leurs hauteurs (`distribution`).
 
 Ligne 11. La fonction `xtics()` redéfinit les étiquettes (c'est-à-dire le nom des bases) sur l'axe des abscisses.
 
-Lignes 12 à 14. On définit les légendes des axes et le titre du graphique. On insère un retour à la ligne `\n` dans le titre soit réparti sur deux lignes.
+Lignes 12 à 14. On définit les légendes des axes et le titre du graphique. On insère un retour à la ligne `\n` dans le titre pour qu'il soit réparti sur deux lignes.
 
 Ligne 15. Enfin, on enregistre le graphique généré au format png.
 
-Voilà, on espère que ce petit exemple vous aura convaincu de l'utilité du module *matplotlib*. Sachez qu'il peut faire bien plus, par exemple générer des histogrammes ou toutes sortes de graphiques utiles en analyse de données.
+On espère que ces courts exemples vous auront convaincu de l'utilité du module *matplotlib*. Sachez qu'il peut faire bien plus, par exemple générer des histogrammes ou toutes sortes de graphiques utiles en analyse de données. Le site du *matplotlib* fournit de nombreux [exemples détaillés](https://matplotlib.org/gallery/index.html), n'hésitez pas à le consulter.
 
 
 ## Module *pandas*
 
 Le module [*pandas*](https://pandas.pydata.org/) a été conçu pour la manipulation et l'analyse de données. Il est particulièrement puissant pour manipuler des données structurées sous forme de tableau.
 
-Pour charger pandas dans la mémoire de Python, on utilise la commande `import` habituelle :
+Pour charger *pandas* dans la mémoire de Python, on utilise la commande `import` habituelle :
 ```
 >>> import pandas
 ```
@@ -693,7 +693,7 @@ Pandas est souvent chargé avec un nom raccourci, comme pour *NumPy* et *matplot
 ```
 
 
-### Séries
+### *Series*
 
 Le premier type de données apporté par *pandas* est la *series*, qui correspond à un vecteur à une dimension.
 
@@ -717,7 +717,7 @@ comme pour une liste (0 pour le premier élément) ou son étiquette (ici, `"a"`
 10
 ```
 
-Bien sur, on peut extraire plusieurs éléments, par leurs indices ou leurs étiquettes :
+Bien sûr, on peut extraire plusieurs éléments, par leurs indices ou leurs étiquettes :
 ```
 >>> s[[1,3]]
 b    20
@@ -759,7 +759,7 @@ dtype: int64
 ```
 
 
-### Dataframes
+### *Dataframes*
 
 Un autre type d'objet particulièrement intéressant et introduit par *pandas*
 sont les *dataframes*, qui correspondent à des tableaux à deux dimensions
@@ -792,7 +792,7 @@ L'argument `columns` indique le nom des colonnes, sous forme d'une liste.
 
 Ligne 2. L'argument `index` définit le nom des lignes, sous forme de liste.
 
-Ligne 4-5. L'argument `data` fournit le contenu du *dataframe*, sous la forme
+Lignes 3-5. L'argument `data` fournit le contenu du *dataframe*, sous la forme
 d'une liste de valeurs correspondantes à des lignes. Ainsi `np.arange(10, 14)`
  qui est équivalent à `[10, 11, 12, 13]` correspond à la première ligne du *dataframe*.
 
@@ -815,10 +815,10 @@ souris  30  31  32  33
 Lignes 1-4. Le dictionnaire `data` contient les données en colonnes.
 La clef associée à chaque colonne est le nom de la colonne.
 
-Ligne 5. Le *dataframe* est crée avec la fonction `pd.DataFrame.from_dict()`
+Ligne 5. Le *dataframe* est créé avec la fonction `pd.DataFrame.from_dict()`
 à laquelle on passe `data` en argument.
 
-Ligne 6. On peut préciser les étiquettes des lignes de n'importe quel *dataframe*
+Ligne 6. On peut définir les étiquettes des lignes de n'importe quel *dataframe*
 avec l'attribut `df.index`.
 
 
@@ -844,8 +844,8 @@ singe      20    21      22   23
 souris     30    31      32   33
 ```
 
-La méthode `.head(n)` renvoie les `n` premières lignes du *dataframe*
-(par défaut, `n` vaut 5) :
+La méthode `.head(n)` renvoie les *n* premières lignes du *dataframe*
+(par défaut, *n* vaut 5) :
 ```
 >>> df.head(2)
        Paris  Lyon  Nantes  Pau
@@ -877,12 +877,12 @@ chat      11   13
 singe     21   23
 souris    31   33
 ```
-Pour la sélection de plusieurs colonnes, les étiquettes correspondantes sont rassemblées dans une liste.
+Pour la sélection de plusieurs colonnes, les étiquettes d'intérêt sont rassemblées dans une liste.
 
 
 #### Sélection de lignes
 
-Pour sélectionner une ligne, il faut utilise l'instruction `.loc()`
+Pour sélectionner une ligne, il faut utiliser l'instruction `.loc()`
 et l'étiquette de la ligne :
 ```
 >>> df.loc["singe"]
@@ -929,7 +929,7 @@ singe     20    21      22   23
 
 #### Sélection sur les lignes et les colonnes
 
-On peut bien sur combiner les deux types de sélection :
+On peut bien sûr combiner les deux types de sélection (en ligne et en colonne):
 ```
 >>> df.loc["souris", "Pau"]
 33
@@ -939,7 +939,7 @@ singe       22    21
 souris      32    31
 ```
 Notez qu'à partir du moment où on souhaite effectuer une sélection sur des lignes,
-il faut utiliser `loc` (ou `iloc`).
+il faut utiliser `loc` (ou `iloc` si on utilise les indices).
 
 
 #### Sélection par condition
@@ -970,14 +970,14 @@ souris    31
 Name: Lyon, dtype: int64
 ```
 
-On peut aussi combiner plusieurs conditions avec `&` pour l'opérateur **et**
+On peut aussi combiner plusieurs conditions avec `&` pour l'opérateur **et** :
 ```
 >>> df[ (df["Pau"]>15) & (df["Lyon"]>25) ]
         Paris  Lyon  Nantes  Pau
 souris     30    31      32   33
 ```
 
-et  `|` pour l'opérateur **ou** :
+et `|` pour l'opérateur **ou** :
 
 ```
 >>> df[ (df["Pau"]>15) | (df["Lyon"]>25) ]
@@ -1017,7 +1017,7 @@ lapin       14           8
 
 On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les 4 villes (Lyon, Paris, Nantes et Strasbourg) le nombre d'animaux. On remarque d'ores et déjà qu'il y a des singes à Lyon et Paris mais pas de lapin et qu'il y a des lapins à Nantes et Strasbourg mais pas de singe. Nous allons voir comment gérer cette situation.
 
-*Pandas* propose pour cela la fonction [`.concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html) qui prend comme argument une liste de *dataframes* :
+*pandas* propose pour cela la fonction [`.concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html) qui prend comme argument une liste de *dataframes* :
 
 ```
 >>> pd.concat([df1, df2])
@@ -1063,7 +1063,7 @@ contient une liste de structures de la [transferrine](https://fr.wikipedia.org/w
 Cette protéine est responsable du transport du fer dans l'organisme.
 
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
-de consulter l'annexe A *Quelques formats de données rencontrés en biologie*
+de consulter l'annexe A *Quelques formats de données rencontrés en biologie*.
 
 Voyons maintenant comment explorer les données contenues
 dans ce fichier avec *pandas*.
@@ -1080,7 +1080,7 @@ un fichier au format `.csv` :
 Le contenu est chargé sous la forme d'un *dataframe* dans la variable `df`.
 
 Le fichier contient 41 lignes de données plus une ligne d'entête. Cette dernière
- est automatiquement utilisée par Pandas pour nommer les différentes colonnes.
+ est automatiquement utilisée par *pandas* pour nommer les différentes colonnes.
  Voici un aperçu des premières lignes :
 ```
 >>> df.head()
@@ -1125,7 +1125,7 @@ Par exemple, connaître ses dimensions :
 ```
 
 Notre jeu de données contient donc 41 lignes et 4 colonnes. En effet,
-la colonne `PDB ID` est maintenant utilisée comme index et donc n'est plus
+la colonne `PDB ID` est maintenant utilisée comme index et n'est donc plus
 prise en compte.
 
 Il est aussi intéressant de savoir de quel type de données est constituée
@@ -1149,7 +1149,7 @@ C'est tout à fait légitime pour la colonne `Source`. Mais on sait par contre
 que la colonne `Deposit Date` est une date sous la forme
 *année-mois-jour*.
 
-Si le format de date utilisé est homogène sur tout le jeu de donnes et non ambigu,
+Si le format de date utilisé est homogène sur tout le jeu de données et non ambigu,
 *pandas* va se débrouiller pour trouver automatiquement le format de date utilisé.
 On peut alors explicitement demander à *pandas* de considérer la colonne
 `Deposit Date` comme une date :
@@ -1229,7 +1229,7 @@ Oryctolagus cuniculus  490.000000  54219.600000
 Sus scrofa             696.000000  77067.900000
 ```
 
-La méthode `.groupby()` va d'abord rassembler les données suivant la colonne
+La méthode `.groupby()` rassemble d'abord les données suivant la colonne
 `Source` puis la méthode `.mean()` calcule la moyenne pour chaque groupe.
 
 Si on souhaite obtenir deux statistiques (par exemple la valeur minimale et maximale)
@@ -1275,10 +1275,10 @@ Text(0, 0.5, 'Masse moléculaire (Dalton)')
 >>> plt.savefig("transferrine1.png")
 ```
 
-On obtient un graphique similaire à celui de la figure @fig:transferrine1
+On obtient un graphique similaire à celui de la figure @fig:transferrine (A)
 avec deux groupes de points distincts (car certaines structures sont incomplètes).
 
-![Masse moléculaire en fonction de la taille.](img/transferrine1.png){ #fig:transferrine1  width=50% }
+![(A) Masse moléculaire en fonction de la taille. (B) Zoom.](img/transferrine.png){ #fig:transferrine width=99% }
 
 On peut zoomer sur le groupe de points le plus à gauche en ne sélectionnant
 que les protéines constituées de moins de 400 résidus :
@@ -1297,13 +1297,11 @@ Text(0, 0.5, 'Masse moléculaire (Dalton)')
 >>> plt.savefig("transferrine2.png")
 ```
 
-Ligne 1. L'instruction `plt.clf()` efface le graph précédent mais conserve les
+Ligne 1. L'instruction `plt.clf()` efface le graphe précédent mais conserve les
 noms des axes des abscisses et des ordonnées.
 
-Le graphique obtenu @fig:transferrine2 met en évidence une relation linéaire
+Le graphique @fig:transferrine (B) obtenu met en évidence une relation linéaire
 entre le nombre de résidus d'une protéine et sa masse moléculaire.
-
-![Masse moléculaire en fonction de la taille (zoom).](img/transferrine2.png){ #fig:transferrine2  width=50% }
 
 En réalisant une régression linéaire, on détermine les paramètres de
 la droite qui passent le plus proche possible des points du graphique.
@@ -1333,7 +1331,7 @@ Text(0, 0.5, 'Masse moléculaire (Dalton)')
 
 On obtient ainsi le graphique de la figure @fig:transferrine3.
 
-![Masse moléculaire en fonction de la taille (zoom) avec un modèle linaire.](img/transferrine3.png){ #fig:transferrine3 width=50% }
+![Masse moléculaire en fonction de la taille (zoom) avec un modèle linaire.](img/transferrine3.png){ #fig:transferrine3 width=70% }
 
 
 ### Analyse de données temporelles
@@ -1362,8 +1360,8 @@ Une autre question est de savoir combien de structures de transferrines ont
 été déposées en fonction du temps.
 
 La méthode `.value_counts()` peut être utilisée mais elle ne renvoie que
-le nombre de structures déposée dans la PDB pour un jour donné. Par exemple
-2 structures ont été déposées le 4 septembre 2000.
+le nombre de structures déposées dans la PDB pour un jour donné. Par exemple,
+deux structures ont été déposées le 4 septembre 2000.
 ```
 >>> df["Deposit Date"].value_counts().head()
 1999-01-07    2
@@ -1388,7 +1386,7 @@ Les dates apparaissent maintenant comme le dernier jour de l'année mais désign
 bien l'année complète. Dans cet exemple, une seule structure de transferrine
 a été déposée dans la PDB entre le 1er janvier 1990 et le 31 décembre 1990.
 
-Pour connaître en quelle année, le plus de structures ont été déposées dans la PDB,
+Pour connaître en quelle année le plus de structures ont été déposées dans la PDB,
 il faut trier les valeurs obtenus du plus grand au plus petit avec la méthode
 `.sort_values()`. Comme on ne veut  connaître que les premières dates
 (celles où il y a eu le plus de dépôts), on utilisera également la méthode
@@ -1408,8 +1406,8 @@ il faut trier les valeurs obtenus du plus grand au plus petit avec la méthode
 Name: Deposit Date, dtype: int64
 ```
 
-En 2001, 5 structures de transferrine ont été déposées dans la PDB. La deuxième
-*meilleure* année est 2003 avec 4 structures.
+En 2001, cinq structures de transferrine ont été déposées dans la PDB. La deuxième
+« meilleure » année est 2003 avec quatre structures.
 
 Toutes ces méthodes, enchaînées les unes à la suite des autres, peuvent vous
 sembler complexes mais chacune d'elles correspond à une étape particulière
@@ -1417,7 +1415,7 @@ du traitement ded données. L'utilisation des parenthèses (ligne 1, juste avant
 `df["Deposit Date"]` et ligne 5, juste après `head()`) permet de répartir élégamment
 cette longue instruction sur plusieurs lignes.
 
-Bien sur, on aurait pu créer des variables intermédiaires
+Bien sûr, on aurait pu créer des variables intermédiaires
 pour chaque étape mais cela aurait été plus lourd :
 ```
 >>> date1 = df["Deposit Date"].value_counts()
@@ -1443,20 +1441,20 @@ close-box-more
 
 ## Exercices
 
-La barstar est un inhibiteur de ribonucléase. C'est une protéine relativement simple qui contient 89 acides aminés. Sa structure tridimensionnelle, obtenue par cristallographie aux rayons X, se trouve dans la *Protein Data Bank* sous le code 1BTA.
+La barstar est un inhibiteur de ribonucléase. C'est une protéine relativement simple qui contient 89 acides aminés. Sa structure tridimensionnelle, obtenue par cristallographie aux rayons X, se trouve dans la *Protein Data Bank* (PDB) sous le code 1BTA.
 
 
 ### Distance entre deux atomes carbones alpha consécutifs de la barstar
 
-L'objectif de cet exercice est de calculer la distance entre carbones alpha consécutifs le long de la chaîne peptidique. Il nécessite le module *NumPy*.
+L'objectif de cet exercice est de calculer la distance entre carbones alpha consécutifs le long de la chaîne peptidique avec module *NumPy*.
 
 #### Extraction des coordonnées atomiques
 
-Téléchargez le fichier `1BTA.pdb` qui correspond à la [structure la barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la PDB ([lien direct vers le fichier](https://files.rcsb.org/download/1BTA.pdb)).
+Téléchargez le fichier `1bta.pdb` qui correspond à la [structure de la barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la PDB ([lien direct vers le fichier](https://files.rcsb.org/download/1BTA.pdb)).
 
 Voici le code pour extraire les coordonnées atomiques des carbones alpha de la barstar :
 ```
-with open("1BTA.pdb", "r") as f_pdb, open("1BTA_CA.txt", "w") as f_CA:
+with open("1bta.pdb", "r") as f_pdb, open("1bta_CA.txt", "w") as f_CA:
     for ligne in f_pdb:
           if ligne.startswith("ATOM") and ligne[12:16].strip() == "CA":
                 x = ligne[30:38]
@@ -1465,33 +1463,33 @@ with open("1BTA.pdb", "r") as f_pdb, open("1BTA_CA.txt", "w") as f_CA:
                 f_CA.write("{} {} {} ".format(x, y, z))
 ```
 
-Ligne 1. On ouvre deux fichiers simultanément. Ici, le fichier `1BTA.pdb` est ouvert en lecture (`r`)
-et le fichier `1BTA_CA.txt` est ouvert en écriture (`w`).
+Ligne 1. On ouvre deux fichiers simultanément. Ici, le fichier `1bta.pdb` est ouvert en lecture (`r`)
+et le fichier `1bta_CA.txt` est ouvert en écriture (`w`).
 
 Pour chaque ligne du fichier PDB (ligne 2), si la ligne débute par `ATOM` et le  nom de l'atome est `CA` (ligne 3),
-alors on extrait les coordonnées atomiques (lignes 4 à 6) et on les écrit dans le fichier `1BTA_CA.txt` (ligne 7). Les coordonnées sont toutes enregistrées sur une seul ligne, les unes après les autres.
+alors on extrait les coordonnées atomiques (lignes 4 à 6) et on les écrit dans le fichier `1bta_CA.txt` (ligne 7). Les coordonnées sont toutes enregistrées sur une seule ligne, les unes après les autres.
 
 #### Lecture des coordonnées
 
-Ouvrez le fichier `1BTA_CA.txt` avec Python et créez une liste contenant toutes les coordonnées sous forme de *floats* avec les fonctions `split()` et `float()`.
+Ouvrez le fichier `1bta_CA.txt` avec Python et créez une liste contenant toutes les coordonnées sous forme de *floats* avec les fonctions `split()` et `float()`.
 
 Affichez à l'écran le nombre total de coordonnées.
 
 
 #### Construction de la matrice de coordonnées
 
-En ouvrant dans un éditeur de texte le fichier `1BTA.pdb`, trouvez le nombre d'acides aminés qui constituent la barstar.
+En ouvrant dans un éditeur de texte le fichier `1bta.pdb`, trouvez le nombre d'acides aminés qui constituent la barstar.
 
 Avec la fonction `array()` du module *NumPy*, convertissez la liste de coordonnées en `array`. Avec la fonction `reshape()` de *NumPy*, construisez ensuite une matrice à deux dimensions contenant les coordonnées des carbones alpha de la barstar. Affichez les dimensions de cette matrice.
 
 
 #### Calcul de la distance
 
-Créez maintenant une matrice qui contient les coordonnées des `n-1` premiers carbones alpha et une autre qui contient les coordonnées des `n-1` derniers carbones alpha. Affichez les dimensions des matrices pour vérification.
+Créez maintenant une matrice qui contient les coordonnées des $n-1$ premiers carbones alpha et une autre qui contient les coordonnées des $n-1$ derniers carbones alpha. Affichez les dimensions des matrices pour vérification.
 
-En utilisant les opérateurs mathématiques habituels (`-`, `+`, `**2`) et les fonctions `sqrt()` et `sum()` du module *NumPy*, calculez la distance entre les atomes `n` et `n+1`.
+En utilisant les opérateurs mathématiques habituels (`-`, `+`, `**2`) et les fonctions `sqrt()` et `sum()` du module *NumPy*, calculez la distance entre les atomes $n$ et $n+1$.
 
-Pour chaque atome, affichez le numéro de l'atome et la distances entre carbones alpha consécutifs avec un chiffres après la virgule. Repérez la valeur surprenante.
+Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones alpha consécutifs avec un chiffres après la virgule. Repérez la valeur surprenante.
 
 
 ### Années de publication des articles relatifs à la barstar
