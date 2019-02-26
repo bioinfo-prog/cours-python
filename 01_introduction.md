@@ -78,10 +78,9 @@ Pour approfondir la notion de *shell*, vous pouvez consulter les pages Wikipedia
 
 Un *shell* possède toujours une invite de commande, c'est-à-dire un message qui s'affiche avant l'endroit où on entre des commandes. Dans tout cet ouvrage, cette invite est représentée systématiquement par le symbole dollar `$`, et ce quel que soit le système d'exploitation.
 
-Par exemple, si on vous demande de lancer l'instruction suivante  :
-```
-$ python
-```
+Par exemple, si on vous demande de lancer l'instruction suivante :  
+
+`$ python`
 
 il faudra taper seulement `python` sans le `$` ni l'espace après le `$`.
 
