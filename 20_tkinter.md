@@ -644,17 +644,25 @@ Voici quelques ressources que vous pouvez utiliser pour continuer votre apprenti
 
 ## Exercices
 
-*Conseil* : dans tous les exercices qui suivent nous vous recommandons de concevoir des classes pour chaque exercice.
+*Conseil* : dans tous les exercices qui suivent nous vous recommandons de concevoir une classe pour chaque exercice.
 
 ### Application de base
 
 Concevez une application qui affiche l'heure dans un *label* (par exemple `09:10:55`) et qui possède un boutton quitter. L'heure affichée sera celle au moment du lancement de l'application. Pour « attraper » l'heure, vous pourrez utiliser la fonction `strftime()` du module `time`.
 
+### Horloge
+
+Sur la base de l'application précédente, faites une application qui affiche l'heure dans un *label* en se mettant à jour sur l'heure de l'ordinateur une fois par seconde. Vous concevrez une méthode `.mise_a_jour_heure()` qui met à jour l'heure dans le *label* et qui se rappelle elle-même toutes les secondes (n'oubliez pas la méthode `.after()`, cf. rubrique *Un canvas animé dans une classe* ci-dessus). Pour cette mise à jour, vous pourrez utiliser la méthode `.configure()`, par exemple :  
+`self.label.configure(text=heure)`  
+où `heure` est une chaîne de caractères représentant l'heure actuelle.
+
 ### Compte à rebours
 
-Sur la base de l'application précédente, créer une application proposant un compte à rebours. L'utilisateur pourra choisir entre 1 et 60 minutes à l'aide d'une liste déroulante, et il y aura un bouton « Lancer » pour démarrer le compte à rebours. Pour la mise à jour du *label*, vous pourrez utiliser la méthode `.configure()`, par exemple :  
-`self.label.configure(text=temps)`  
-où `temps` représente le temps restant à compter à rebours.
+Créer une application affichant un compte à rebours dans un *label*. L'utilisateur choisira entre 1 et 240 minutes en passant un argument au lancement du script, par exemple :  
+`python ./tk_compte_rebours.py 34`  
+signifiera un compte à rebours de 34' (le programme vérifiera qu'il s'agit d'un entier entre 1 et 240 inclus). Il y aura un bouton « Lancer » pour démarrer le compte à rebours et un boutton « Quitter » au cas où on veuille quitter avant la fin. A la fin du rebours, le programme affichera 10 fois la phrase « C'est fini !!! » dans l'interpréteur et quittera automatiquement le script. Une image du résultat attendu est montré dans la Figure @fig:compte_a_rebours.
+
+![Compte à rebours.](img/compte_a_rebours.png){ #fig:compte_a_rebours width=50% }
 
 ### Triangle de Sierpinski
 
@@ -670,13 +678,51 @@ pour i de 0 à 25000:
     dessiner(point)
 ```
 
-Le rendu final attendu est montré dans la Figure @fig:Sierpinski. On utilisera un canevas de 400x400 pixels.
+Le rendu final attendu est montré dans la Figure @fig:Sierpinski. On utilisera un canevas de 400x400 pixels. Il y a aura un bouton « Quitter » et un bouton « Launch ! » qui calculera et affichera 10000 points supplémentaires dans le triangle de Sierpinski.
 
 ![Triangle de Sierpinski.](img/Sierpinski.png){ #fig:Sierpinski width=50% }
 
-### Sierpinski++
+### Triangle de Sierpinski 2 (exercice +++)
 
-Améliorer l'application précédente en proposant une liste de choix supplémentaire demandant à l'utilisateur de choisir le nombre de sommets (de 3 à 10). Le programme calculera automatiquement la position des sommets.
+Améliorer l'application précédente en proposant une liste de choix supplémentaire demandant à l'utilisateur de choisir le nombre de sommets (de 3 à 10). Le programme calculera automatiquement la position des sommets. Pour prendre en main le *widget* listbox, voici un code minimal qui pourra vous aider. Celui-ci contient une listbox et permet d'afficher dans le terminal l'élément sélectionné). Nous vous conseillons d'avoir résolu l'exercice précédent, et de bien étudier le code ci-dessous avant de vous lancer !
+
+```
+import tkinter as tk
+
+class MaListBox(tk.Tk):
+    def __init__(self):
+        # Instanciation fenêtre Tk.
+        tk.Tk.__init__(self)
+        self.listbox = tk.Listbox(self, height=10, width=4)
+        self.listbox.pack()
+        # On ajoute des items à la listbox (entiers).
+        for i in range(1, 10+1):
+            # Utilisation de ma méthode .insert(index, element)
+            # On ajoute l'entier i (tk.END signifie en dernier).
+            self.listbox.insert(tk.END, i)
+        # Selectionne premier élément de listbox.
+        self.listbox.select_set(0)
+        # Lier une méthode quand clic sur listbox.
+        self.listbox.bind('<<ListboxSelect>>', self.clic_listbox)
+
+    def clic_listbox(self, event):
+        # Récup du widget à partir de l'objet event.
+        widget = event.widget
+        # Récup du choix sélectionné dans la listbox (tuple).
+        # (par exemple renvoie `(5,)` si on a cliqué sur `5`)
+        selection = widget.curselection()
+        # Récup du nombre sélectionné (déjà un entier).
+        choix_select = widget.get(selection[0])
+        # affichage
+        print("Le choix sélectionné est {}, son type est {}"
+              .format(choix_select, type(choix_select)))
+
+
+if __name__ == '__main__':
+    app = MaListBox()
+    app.title('MaListBox')
+    app.mainloop()
+```
 
 ### Projet simulation d'un pendule
 
