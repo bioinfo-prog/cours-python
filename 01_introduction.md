@@ -212,7 +212,7 @@ Par exemple, imaginons que nous souhaitions afficher chacune des bases d'une sé
 
 ![Notion d'indentation et de bloc d'instructions](img/indentation_bloc_instructions.png "Indentation et bloc d'instructions"){ #fig:indentation_bloc_instructions width=70% }
 
-Pour chaque base de la séquence ATCCGACTG, nous souhaitons effectuer deux actions : 1) afficher la base, et 2) compter une base de plus. Pour indiquer cela, on décalera vers la droite ces deux instructions par rapport à la ligne précédente (`pour chaque base [...]`). Ce décalage est appelé **indentation**, et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
+Pour chaque base de la séquence ATCCGACTG, nous souhaitons effectuer deux actions : afficher la base et compter une base de plus. Pour indiquer cela, on décalera vers la droite ces deux instructions par rapport à la ligne précédente (`pour chaque base [...]`). Ce décalage est appelé **indentation**, et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
 
 Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer à la suite, c'est-à-dire afficher la taille de la séquence. Pour bien préciser que cet affichage se fait à la fin, donc une fois le comptage et l'affichage de chaque base terminés, la ligne correspondante n'est pas indentée (c'est-à-dire pas décalée de quelques espaces).
 
