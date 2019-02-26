@@ -497,13 +497,13 @@ Pour plus d'informations, vous pouvez consulter la [documentation officielle de 
 
 Si vous souhaitez aller un peu plus loin en tkinter, voici quelques notions / remarques qui pourraient vous être utiles. Pour les débutants, vous pouvez passer cette section.
 
-**Les variables de contrôle**
+#### Les variables de contrôle
 
 Lorsque vous souhaitez mettre un jour un *widget* avec une certaine valeur (par exemple le texte d'un *label*), vous ne pouvez pas utiliser une variable Python ordinaire, il faudra utiliser une variable tkinter dite de contrôle. Par exemple, si on souhaitait afficher les coordonnées de notre baballe (cf. section précédente) dans un *label*, et que cet affichage se mette à jour au fur et à mesure des mouvements de la baballe, il faudrait utiliser des variables de contrôle. On peut créer de telles variables avec les classes `tk.StringVar` pour les chaînes de caractères, `tk.DoubleVar` pour les *floats*, et `tk.IntVar` pour les entiers. Une fois créée, par exemple avec l'instruction `var = tk.StringVar()`, on peut modifier la valeur d'une variable de contrôle avec la méthode `var.set(nouvelle_valeur)` : ceci mettra à jour tous les *widgets* utilisant cette variable `var`. Il existe aussi la méthode `var.get()` qui permet de récupérer la valeur actuelle contenue dans `var`. Enfin, il faudra lors de la création du label utiliser l'option `textvariable=` avec votre variable de contrôle (par exemple `tk.Label(..., textvariable=var, ...)`) pour que cela soit fonctionnel.
 
 A nouveau, vous trouverez une documentation précise sur le [site du MNT](https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/control-variables.html).
 
-**Autres méthodes de placement des widgets dans la fenêtre Tk**
+#### Autres méthodes de placement des widgets dans la fenêtre Tk
 
 Dans les exemples montrés dans ce chapitre, nous avons systématiquement utiliser la méthode `.pack()` pour placer les *widgets*. Cette méthode très simple et directe « empaquette » les *widgets* les uns contre les autres, et redimensionne la fenêtre automatiquement. Avec l'option `side=` et les variables `tk.BOTTOM`, `tk.LEFT`, `tk.TOP` et `tk.RIGHT` on place facilement les *widgets* les uns par rapport aux autres. Toutefois, la méthode `.pack()` peut parfois présenter des limitations, il existe alors deux autres alternatives. La méthode `.grid()` permet grâce à l'utilisation d'une grille un placement mieux contrôlé des différents *widgets*. La méthode `.place()` permet enfin de placer les *widgets* en utilisant les coordonnées de la fenêtre principale. Nous ne développerons pas plus ces méthodes, mais voici de la documentation supplémentaire en accès libre :
 
@@ -511,7 +511,7 @@ Dans les exemples montrés dans ce chapitre, nous avons systématiquement utilis
 - [`.grid()`](http://effbot.org/tkinterbook/grid.htm) [](https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/grid.html) ;
 - [`.place()`](http://effbot.org/tkinterbook/place.htm).
 
-**Hériter de la classe Frame pour vos applications ?**
+#### Hériter de la classe Frame pour vos applications ?
 
 Comme illustré dans nos exemples, nous vous recommandons pour vos classes applications tkinter d'hériter de la classe mère `tk.Tk` et d'utiliser le constructeur de la classe mère `tk.Tk.__init__()`. Toutefois, il se peut qu'en consultant d'autres ressources certains auteurs utilisent la technique d'héritage de la classe mère `tk.Frame` :
 
@@ -563,7 +563,7 @@ Dans un tel cas, l'argument `racine` prend la valeur par défaut `None` lorsque 
 
 Hériter de la classe Frame ou de la classe Tk sont deux manières tout à fait valides pour créer des applications tkinter. Le choix de l'une ou de l'autre relève plus de préférences que l'on acquiert en pratiquant, voire de convictions philosophiques sur la manière de programmer. Toutefois, nous pensons qu'hériter de la classe `tk.Tk` est une manière plus générale et plus compacte : tout ce qui concerne le fenêtrage tkinter se situera dans votre classe Application, et le programme principal n'aura qu'à instancier l'application et à lancer le gestionnaire d'évènements (les choses seront ainsi mieux « partitionnées »). C'est donc la méthode que nous vous recommandons.
 
-**Passage d'arguments avec \*args et \*\*kwargs**
+#### Passage d'arguments avec `*args` et `**kwargs`
 
 Si vous allez chercher de la documentation supplémentaire sur tkinter, il se peut que vous tombiez sur ce style de syntaxe lorsque vous créez votre classe contenant l'application graphique :
 
@@ -618,11 +618,11 @@ Même si cela est possible, nous vous conseillons de systématiquement préciser
 
 close-box-adv
 
-**Passage d'arguments à vos fonctions callback**
+#### Passage d'arguments à vos fonctions callback
 
 Comme vu dans nos exemples ci-dessus, les fonctions *callback* ne prennent pas d'arguments ce qui peut se révéler parfois limitant. Il existe toutefois une astuce qui utilise les fonctions *lambda* ; nous expliquons brièvement les fonctions lambda dans le Chapitre 21 *Remarques complémentaires*. Toutefois, nous ne développons pas leur utilisation avec tkinter et les fonctions *callback* car cela dépasse le cadre de cet ouvrage. Pour de plus amples explications sur cette question, vous pouvez consulter le site [pythonprogramming](https://pythonprogramming.net/passing-functions-parameters-tkinter-using-lambda/) et le [livre de Gérard Swinnen](https://inforef.be/swi/python.htm).
 
-**Application tkinter avec plusieurs pages**
+#### Application tkinter avec plusieurs pages
 
 Dans ce chapitre d'introduction, nous vous avons montré des GUI simples avec une seule page. Toutefois, si votre projet se complexifie, il se peut que vous ayez besoin de créer plusieurs fenêtre différentes. Le [livre de Gérard Swinnen](https://inforef.be/swi/python.htm) et le site [pythonprogramming](https://pythonprogramming.net/change-show-new-frame-tkinter/) sont des bonnes sources pour commencer et voir concrètement comment faire cela.
 
