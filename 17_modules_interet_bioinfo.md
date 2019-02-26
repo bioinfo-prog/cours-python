@@ -1508,7 +1508,7 @@ cherchez combien d'articles scientifiques sont relatifs à la barstar.
 
 Effectuez la même chose avec Python et la méthode `Entrez.esearch()` de *Biopython*.
 
-Prenez un des PMID renvoyé et vérifiez dans PubMed que l'article associé est bien à propos de la barstar. Pour cela, indiquez le PMID choisi dans la barre de recherche de PubMed et cliquez sur *Search*. Attention, l'association n'est pas toujours évidente. Cherchez éventuellement dans le résumé de l'article si besoin.
+Choisissez un des PMID renvoyé et vérifiez dans PubMed que l'article associé est bien à propos de la barstar. Pour cela, indiquez le PMID choisi dans la barre de recherche de PubMed et cliquez sur *Search*. Attention, l'association n'est pas toujours évidente. Cherchez éventuellement dans le résumé de l'article si besoin.
 
 Est-ce que le nombre total d'articles trouvés est cohérent avec celui obtenu sur le site de PubMed ?
 
@@ -1517,19 +1517,19 @@ Est-ce que le nombre total d'articles trouvés est cohérent avec celui obtenu s
 
 Récupérez les informations de la publication dont le PMID est [29701945](https://www.ncbi.nlm.nih.gov/pubmed/29701945). Vous utiliserez la méthode `Entrez.esummary()`.
 
-Affichez le titre, le DOI, le nom du journal (`Source`) et la date de publication (`PubDate`) de cet artice. Vérifiez que cela correspond bien à ce que vous avez lu sur [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/27902436).
+Affichez le titre, le DOI, le nom du journal (`Source`) et la date de publication (`PubDate`) de cet article. Vérifiez que cela correspond bien à ce que vous avez lu sur PubMed.
 
 
 #### Récupération du résumé d'une publication
 
-Récupérez le résumé de la publication dont le PMID est [29701945](https://www.ncbi.nlm.nih.gov/pubmed/29701945). Vous utiliserez la méthode `Entrez.efetch()`.
+Récupérez le résumé de la publication dont le PMID est 29701945. Vous utiliserez la méthode `Entrez.efetch()`.
 
 Affichez ce résumé. Combien de caractères contient-il ?
 
 
 #### Distribution des années de publication des articles relatifs à la barstar
 
-En utilisant la méthode `Entrez.esearch()`, récupérez tous les PMID relatifs à la barstar. Pour cela, pensez à augmenter le paramètre `retmax`. Vos PMID seront stockés dans la liste `pmids` sous forme de chaîne de caractères. Vérifiez sur PubMed que vous avez bien récupéré le bon nombre d'articles.
+En utilisant la méthode `Entrez.esearch()`, récupérez tous les PMID relatifs à la barstar. Pour cela, pensez à augmenter le paramètre `retmax`. Vos PMID seront stockés dans la liste `pmids` sous forme de chaînes de caractères. Vérifiez sur PubMed que vous avez bien récupéré le bon nombre d'articles.
 
 En utilisant maintenant la méthode `Entrez.esummary()` dans une boucle, récupérez la date de publication de chaque article. Stockez l'année sous forme d'un nombre entier dans la liste `years`. Cette étape peut prendre une dizaine de minutes, soyez patient. Vous pouvez dans votre boucle afficher un message qui indique où vous en êtes dans la récupération des articles.
 
@@ -1546,7 +1546,7 @@ plt.bar(x, y)
 plt.show()
 ```
 
-Vous pouvez également ajouter un peu de cosmétique et enregistrer le graphique sur le disque dur :
+Vous pouvez également ajouter un peu de cosmétique et enregistrer le graphique sur votre disque dur :
 ```
 import matplotlib.pyplot as plt
 
