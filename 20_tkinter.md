@@ -653,8 +653,7 @@ Concevez une application qui affiche l'heure dans un *label* (par exemple `09:10
 ### Compte à rebours
 
 Sur la base de l'application précédente, créer une application proposant un compte à rebours. L'utilisateur pourra choisir entre 1 et 60 minutes à l'aide d'une liste déroulante, et il y aura un bouton « Lancer » pour démarrer le compte à rebours. Pour la mise à jour du *label*, vous pourrez utiliser la méthode `.configure()`, par exemple :  
-`self.label.configure(text=temps)` 
-
+`self.label.configure(text=temps)`  
 où `temps` représente le temps restant à compter à rebours.
 
 ### Triangle de Sierpinski
