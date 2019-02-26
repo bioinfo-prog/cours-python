@@ -39,7 +39,7 @@ Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en
 
 Nous vous conseillons d'installer [Miniconda](https://conda.io/miniconda.html), logiciel gratuit, disponible pour Windows, Mac OS X et Linux, et qui installera pour vous Python 3.
 
-Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *biopython*), mais également les *notebooks* Jupyter. Vous trouverez en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod) une documentation pas à pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours.
+Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également les *notebooks* Jupyter. Vous trouverez en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod) une documentation pas à pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours.
 
 
 ### Éditeur de texte

@@ -1,6 +1,6 @@
 # Installation de Python
 
-Python est déjà présent sous Linux ou Mac OS X et s'installe très facilement sous Windows. Toutefois, on décrit dans cet ouvrage l'utilisation de modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *biopython*), mais également les *notebooks* Jupyter.
+Python est déjà présent sous Linux ou Mac OS X et s'installe très facilement sous Windows. Toutefois, on décrit dans cet ouvrage l'utilisation de modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également les *notebooks* Jupyter.
 
 On va donc utiliser un gestionnaire de paquets qui va installer ces modules supplémentaires. On souhaite également que ce gestionnaire de paquets soit disponible pour Windows, Mac OS X et Linux. Fin 2018, il y a deux grandes alternatives :
 
@@ -311,7 +311,7 @@ Dans le *shell*, tapez la ligne suivante puis appuyez sur la touche *Entrée* :
 $ conda install numpy pandas matplotlib scipy biopython jupyterlab
 ```
 
-Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib*, *scipy*, *BioPython* et *Jupyter lab*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien-sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copies d'écran prise sous Windows avec le PowerShell) :
+Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib*, *scipy*, *Biopython* et *Jupyter lab*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien-sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copies d'écran prise sous Windows avec le PowerShell) :
 
 ![Installation de packages avec conda (étape 1)](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=40%}
 
@@ -419,7 +419,7 @@ Si vous le souhaitez, vous pouvez également cochez la case *Activer l'indentati
 
 ### Installation et réglage de Notepad++ sous Windows
 
-Sous Windows, nous vous recommandons l'excellent éditeur [Notepad++](https://notepad-plus-plus.org/download). Une fois cet éditeur installé, il est important de le régler correctement. En suivant le menu `Paramètres`, `Préférences`, vous arriverez sur un panneau vous permettant de configurer Notepad++. 
+Sous Windows, nous vous recommandons l'excellent éditeur [Notepad++](https://notepad-plus-plus.org/download). Une fois cet éditeur installé, il est important de le régler correctement. En suivant le menu `Paramètres`, `Préférences`, vous arriverez sur un panneau vous permettant de configurer Notepad++.
 
 En premier on va configurer l'appui sur la touche *Tab* afin qu'il corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Dans la liste sur la gauche, cliquez sur `Langage`, puis à droite dans le carré `Tabulations` cochez la case `Insérer des espaces` en réglant sur 4 espaces comme indiqué dans la Figure #fig:notepad++.
 
