@@ -1,8 +1,8 @@
 # Quelques formats de données rencontrés en biologie
 
-## Fasta
+## FASTA
 
-Le format Fasta est utilisé pour stocker une ou plusieurs séquences, d'ADN, d'ARN ou de protéines.
+Le format FASTA est utilisé pour stocker une ou plusieurs séquences, d'ADN, d'ARN ou de protéines.
 
 Ces séquences sont classiquement représentées sous la forme :
 
@@ -15,18 +15,18 @@ séquence avec un nombre maximum de caractères par ligne
 séquence avec un nombre max
 ```
 
-La première ligne débute par le caractère `>` et contient une description de la séquence.
+La première ligne débute par le caractère `>` et contient une description de la séquence. On appelle souvent cette ligne « ligne de description » ou « ligne de commentaire ».
 
 Les lignes suivantes contiennent la séquence à proprement dite, mais avec un nombre maximum fixe de caractères par ligne. Ce nombre maximum est généralement fixé à 60, 70 ou 80 caractères. Une séquence de plusieurs centaines de bases ou de résidus est donc répartie sur plusieurs lignes.
 
-Un fichier est dit *multifasta* lorsqu'il contient plusieurs séquences au format Fasta, les unes à la suite des autres.
+Un fichier est dit *multifasta* lorsqu'il contient plusieurs séquences au format FASTA, les unes à la suite des autres.
 
-Les fichiers contenant une ou plusieurs séquences au format Fasta portent la plupart du temps l'extension `.fasta` mais on trouve également `.seq`, `.fas`, `.fna` ou `.faa`.
+Les fichiers contenant une ou plusieurs séquences au format FASTA portent la plupart du temps l'extension `.fasta` mais on trouve également `.seq`, `.fas`, `.fna` ou `.faa`.
 
 
 ### Exemples
 
-La séquence protéique au format Fasta de la sous-unité $\beta$ de l'[hémoglobine humaine](https://www.uniprot.org/uniprot/P68871), extraite de la base de données [UniProt](https://www.uniprot.org/), est :
+La séquence protéique au format FASTA de la sous-unité $\beta$ de l'[hémoglobine humaine](https://www.uniprot.org/uniprot/P68871), extraite de la base de données UniProt, est :
 ```
 >sp|P68871|HBB_HUMAN Hemoglobin subunit beta OS=Homo sapiens OX=9606 GN=HBB PE=1 SV=2
 MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK
@@ -36,17 +36,17 @@ KEFTPPVQAAYQKVVAGVANALAHKYH
 
 La première ligne contient la description de la séquence (*Hemoglobin subunit beta*), le type de base de données (ici *sp* qui signifie Swiss-Prot), son identifiant (*P68871*) et son nom (*HBB_HUMAN*) dans cette base de données, ainsi que d'autres informations (*S=Homo sapiens OX=9606 GN=HBB PE=1 SV=2*).
 
-Les lignes suivantes contiennent la séquence sur des lignes ne dépassant pas, ici, 60 caractères. La séquence de la sous-unité $\beta$ de l'hémoglobine humaine est composée de 147 acides aminés, soit 2 lignes de 60 caractères et une troisième de 27 caractères.
+Les lignes suivantes contiennent la séquence sur des lignes ne dépassant pas, ici, 60 caractères. La séquence de la sous-unité $\beta$ de l'hémoglobine humaine est composée de 147 acides aminés, soit deux lignes de 60 caractères et une troisième de 27 caractères.
 
 open-box-def
 
-UniProt est une base de données de séquences de protéines. Ces séquences proviennent
+[UniProt](https://www.uniprot.org/) est une base de données de séquences de protéines. Ces séquences proviennent
 elles-mêmes de deux autres bases de données : Swiss-Prot (où les séquences sont annotées
 manuellement) et TrEMBL (où les séquences sont annotées automatiquement).
 
 close-box-def
 
-Voici maintenant la séquence nucléique (ARN), au format Fasta, de l'[insuline humaine](https://www.ncbi.nlm.nih.gov/nuccore/BT006808.1?report=fasta), extraite de la base de données [GenBank](https://www.ncbi.nlm.nih.gov/nuccore/AY899304.1?report=genbank) :
+Voici maintenant la séquence nucléique (ARN), au format FASTA, de l'[insuline humaine](https://www.ncbi.nlm.nih.gov/nuccore/BT006808.1?report=fasta), extraite de la base de données [GenBank](https://www.ncbi.nlm.nih.gov/nuccore/AY899304.1?report=genbank) :
 ```
 >BT006808.1 Homo sapiens insulin mRNA, complete cds
 ATGGCCCTGTGGATGCGCCTCCTGCCCCTGCTGGCGCTGCTGGCCCTCTGGGGACCTGACCCAGCCGCAG
@@ -57,9 +57,9 @@ AATGCTGTACCAGCATCTGCTCCCTCTACCAGCTGGAGAACTACTGCAACTAG
 ```
 On retrouve sur la première ligne la description de la séquence (*Homo sapiens insulin mRNA*), ainsi que son identifiant (*BT006808.1*) dans la base de données GenBank.
 
-Les lignes suivantes contiennent les 333 bases de la séquence, réparties sur 5 lignes de 70 caractères maximum.
+Les lignes suivantes contiennent les 333 bases de la séquence, réparties sur cinq lignes de 70 caractères maximum. Il est curieux de trouver la base T (thymine) dans une séquence d'ARN qui ne devrait contenir normalement que les bases A, U, G et C. Ici, la représentation d'une séquence d'ARN avec les bases de l'ADN est une convention.
 
-Pour terminer, voici trois séquences protéiques, au format Fasta, qui correspondent à l'insuline chez humaine (*Homo sapiens*), féline (*Felis catus*) et bovine (*Bos taurus*) :
+Pour terminer, voici trois séquences protéiques, au format FASTA, qui correspondent à l'insuline chez humaine (*Homo sapiens*), féline (*Felis catus*) et bovine (*Bos taurus*) :
 ```
 >sp|P01308|INS_HUMAN Insulin OS=Homo sapiens OX=9606 GN=INS PE=1 SV=1
 MALWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAED
@@ -79,7 +79,7 @@ Chaque séquence est délimitée par la ligne d'en-tête qui débute par `>`.
 
 ### Manipulation avec Python
 
-À partir de l'exemple précédent des 3 séquences d'insuline, voici un exemple de code qui lit un fichier Fasta avec Python :
+À partir de l'exemple précédent des 3 séquences d'insuline, voici un exemple de code qui lit un fichier FASTA avec Python :
 ```
 prot_dict = {}
 with open("insulin.fasta", "r") as fasta_file:
@@ -94,7 +94,7 @@ with open("insulin.fasta", "r") as fasta_file:
         print(id)
         print(prot_dict[id][:30])
 ```
-Pour chaque séquence lue dans le fichier Fasta, on affiche son identifiant et son nom puis les 30 premiers résidus de sa séquence :
+Pour chaque séquence lue dans le fichier FASTA, on affiche son identifiant et son nom puis les 30 premiers résidus de sa séquence :
 ```
 sp|P06306|INS_FELCA
 MAPWTRLLPLLALLSLWIPAPTRAFVNQHL
@@ -105,7 +105,7 @@ MALWMRLLPLLALLALWGPDPAAAFVNQHL
 ```
 Notez que les protéines sont stockées dans un dictionnaire (`prot_dict`) où les clefs sont les identifiants et les valeurs les séquences.
 
-On peut faire la même chose avec le module Biopython :
+On peut faire la même chose avec le module *Biopython* :
 ```
 from Bio import SeqIO
 with open("insulin.fasta", "r") as fasta_file:
@@ -113,7 +113,7 @@ with open("insulin.fasta", "r") as fasta_file:
         print(record.id)
         print(str(record.seq)[:30])
 ```
-Cela produit le même résultat. L'utilisation de Biopython rend le code plus compacte car on utilise ici la fonction `SeqIO.parse()` qui s'occupe de lire le fichier Fasta.
+Cela produit le même résultat. L'utilisation de *Biopython* rend le code plus compacte car on utilise ici la fonction `SeqIO.parse()` qui s'occupe de lire le fichier FASTA.
 
 
 ## GenBank
@@ -121,8 +121,6 @@ Cela produit le même résultat. L'utilisation de Biopython rend le code plus co
 GenBank est une banque de séquences nucléiques. Le format de fichier associé contient l'information nécessaire pour décrire un gène ou une portion d'un génome. Les fichiers GenBank porte le plus souvent l'extension `.gbk`.
 
 Le format GenBank est décrit de manière très complète sur le site du [NCBI](https://www.ncbi.nlm.nih.gov/Sitemap/samplerecord.html). En voici néanmoins les principaux éléments avec l'exemple du gène qui code pour la [trypsine](https://www.ncbi.nlm.nih.gov/nuccore/M22612.1) chez l'Homme.
-
-*Remarque : [...] désigne une coupure des auteurs dans le fichier.*
 
 
 ### L'en-tête
@@ -140,9 +138,9 @@ SOURCE      Homo sapiens (human)
             Catarrhini; Hominidae; Homo.
 [...]
 ```
-Ligne 1 (`LOCUS`) : le nom du locus (*HUMTRPSGNA*), la taille du gène (800 paires de base), le type de molécule (ARN messager)
+Ligne 1 (`LOCUS`) : le nom du locus (*HUMTRPSGNA*), la taille du gène (800 paires de base), le type de molécule (ARN messager).
 
-Ligne 3 (`ACCESSION`) : l'identifiant de la séquence (*M22612*)
+Ligne 3 (`ACCESSION`) : l'identifiant de la séquence (*M22612*).
 
 Ligne 4 (`VERSION`) :  la version de la séquence (*M22612.1*). Le nombre qui est séparé de l'identifiant de la séquence par un point est incrémenté pour chaque nouvelle version de la fiche GenBank. Ici *.1* indique que nous en sommes à la première version.
 
@@ -183,15 +181,15 @@ FEATURES             Location/Qualifiers
 
 Ligne 9 (`gene            1..800`) : la délimitation du gène. Ici de la base 1 à la base 800. Par ailleurs, la notation `<x..y` indique que la séquence est partielle sur l'extrémité 5'. Réciproquement, `x..y>` indique que la séquence est partielle sur l'extrémité 3'. Enfin, pour les séquences d'ADN, la notation `complement(x..y)` indique que le gène se trouve de la base *x* à la base *y*, mais sur le brin complémentaire.
 
-Ligne 10 (`/gene="TRY1"`) : le nom du gène
+Ligne 10 (`/gene="TRY1"`) : le nom du gène.
 
-Ligne 11 (`CDS             7..750`) : la délimitation de la séquence codante
+Ligne 11 (`CDS             7..750`) : la délimitation de la séquence codante.
 
-Ligne 14 (`/product="trypsinogen"`) : le nom de la protéine produite
+Ligne 14 (`/product="trypsinogen"`) : le nom de la protéine produite.
 
-Ligne 17 à 20 (`/translation="MNPLLIL...`) : la séquence protéique issue de la traduction de la séquence codante
+Ligne 17 à 20 (`/translation="MNPLLIL...`) : la séquence protéique issue de la traduction de la séquence codante.
 
-Ligne 22 (`sig_peptide     7..51`) : la délimiation du peptide signal
+Ligne 22 (`sig_peptide     7..51`) : la délimitation du peptide signal.
 
 
 ### La séquence
@@ -225,7 +223,7 @@ Par exemple, ligne 10, le premier nucléotide de la ligne (`t`) est le numéro 4
 
 ### Manipulation avec Python
 
-À partir de l'exemple précédent, voici comment lire un fichier GenBank avec Python et le module Biopython :
+À partir de l'exemple précédent, voici comment lire un fichier GenBank avec Python et le module *Biopython* :
 ```
 from Bio import SeqIO
 with open("M22612.gbk", "r") as gbk_file:
@@ -242,7 +240,7 @@ Human pancreatic trypsin 1 (TRY1) mRNA, complete cds.
 ACCACCATGAATCCACTCCTGATCCTTACCTTTGTGGCAGCTGCTCTTGCTGCCCCCTTT
 ```
 
-Il est également possible de lire un fichier GenBank sans le module Biopython. Une activité dédiée est proposée dans l'annexe B *Mini-projets*.
+Il est également possible de lire un fichier GenBank sans le module *Biopython*. Une activité dédiée est proposée dans le chapitre 22 *Mini-projets*.
 
 
 ## PDB
@@ -251,7 +249,7 @@ La *[Protein Data Bank](https://www.rcsb.org/)* (PDB) est une banque de données
 
 Un fichier PDB est constitué de deux parties principales : l'en-tête et les coordonnées.
 L'en-tête est lisible et utilisable par un être humain (et aussi par une machine).
-À l'inverse les coordonnées sont surtout utilisables par une programme pour calculer certaines propriétés de la structure ou simplement la représenter sur l'écran d'un ordinateur. Bien sur, un utilisateur expérimenté peut parfaitement jeter un oeil à cette seconde partie.
+À l'inverse les coordonnées sont surtout utilisables par une programme pour calculer certaines propriétés de la structure ou simplement la représenter sur l'écran d'un ordinateur. Bien sûr, un utilisateur expérimenté peut parfaitement jeter un œil à cette seconde partie.
 
 Examinons ces deux parties avec la [trypsine bovine](https://www.rcsb.org/structure/2PTN).
 
@@ -290,13 +288,13 @@ SSBOND   2 CYS A   42    CYS A   58                          1555   1555  2.02
 [...]               
 ```
 
-Ligne 1. Cette ligne `HEADER` contient le nom de la protéine (*HYDROLASE (SERINE PROTEINASE)*), la date de dépôt de cette structure dans la banque de données (26 octobre 1981) et l'identifiant de la structure dans la PDB, on parle parfois de *code PDB* (2PTN).
+Ligne 1. Cette ligne `HEADER` contient le nom de la protéine (*HYDROLASE (SERINE PROTEINASE)*), la date de dépôt de cette structure dans la banque de données (26 octobre 1981) et l'identifiant de la structure dans la PDB, on parle souvent de « code PDB » (2PTN).
 
-Ligne 2. `TITLE` correspondent au titre de l'article scientifique dans lequel a été publié cette structure.
+Ligne 2. `TITLE` correspond au titre de l'article scientifique dans lequel a été publié cette structure.
 
-Lignes 4-6. `COMPND` indiquent que la trypsine est composé d'une seule chaîne peptidique, appelée ici `A`.
+Lignes 4-6. `COMPND` indique que la trypsine est composée d'une seule chaîne peptidique, appelée ici `A`.
 
-Ligne 8. `SOURCE` indique le nom scientifique de l'organisme dont provient cette protéine (ici, la boeuf).
+Ligne 8. `SOURCE` indique le nom scientifique de l'organisme dont provient cette protéine (ici, le bœuf).
 
 Ligne 10. `EXPDTA` précise la technique expérimentale employée pour déterminer cette structure. Ici, la cristallographie aux rayons X. Mais on peut également trouver *SOLUTION NMR* pour de la résonance magnétique nucléaire en solution, *ELECTRON MICROSCOPY* pour de la microscopie électronique...
 
@@ -308,7 +306,7 @@ Ligne 15-18. `SEQRES` donnent à la séquence de la protéine. Les résidus sont
 
 Lignes 20-22 et 23-24. `HELIX` et `SHEET` correspondent aux structures secondaires hélices $\alpha$ et brin $\beta$ de cette protéine. Ici, *H1 SER A  164  ILE A  176* indique qu'il y a une première hélice $\alpha$ (*H1*) comprise entre les résidus Ser164 et Ile176 de la chaîne A.
 
-Lignes 26-27. `SSBOND` indique les bonds disulfures. Par exemple, ici, entre les résidus Cys22 et Cys157 et entre les résidus Cys42 et Cys58.
+Lignes 26-27. `SSBOND` indique les bonds disulfures. Ici, entre les résidus Cys22 et Cys157 et entre les résidus Cys42 et Cys58.
 
 
 ### Coordonnées
@@ -329,14 +327,14 @@ ATOM    608  CD2 LEU A  99       7.323  19.236  19.952  1.00 18.18           C
 ```
 
 Chaque ligne correspond à un atome et débute par `ATOM` ou `HETATM`.
-`ATOM` désigne un atome de la structure de la biomolécules.
-`HETATM` est utilisé pour les atomes qui ne sont pas dans une biomolécules, comme les ions ou les molécules d'eau.
+`ATOM` désigne un atome de la structure de la biomolécule.
+`HETATM` est utilisé pour les atomes qui ne sont pas une biomolécule, comme les ions ou les molécules d'eau.
 
-Toutes les lignes de coordonnées ont sensiblement le même format. Par exemple pour la première ligne :
+Toutes les lignes de coordonnées ont sensiblement le même format. Par exemple, pour la première ligne :
 
-- `ATOM` (ou `HETATM`)
+- `ATOM` (ou `HETATM`).
 - `601` : le numéro de l'atome.
-- `N` : le nom de l'atome. Ici, un atome d'azote du squelette peptidique. La structure complète du résidu leucine est représentée figure @fig:leucine
+- `N` : le nom de l'atome. Ici, un atome d'azote du squelette peptidique. La structure complète du résidu leucine est représentée figure @fig:leucine.
 - `Leu` : le résidu dont fait partie l'atome. Ici une leucine.
 - `A` : le nom de la chaîne peptidique.
 - `99` : le numéro du résidu dans la protéine.
@@ -376,9 +374,9 @@ ATOM     15  CG2 VAL A  17      -9.737  11.970  15.970  1.00 11.95           C
 [...]
 ```
 
-Vous remarquerez que le numéro du premier résidu est 16 et non pas. Cela s'explique par la technique expérimentale utilisée qui n'a pas permis de déterminer la structure des 15 premiers résidus.
+Vous remarquez que le numéro du premier résidu est 16 et non pas 1. Cela s'explique par la technique expérimentale utilisée qui n'a pas permis de déterminer la structure des 15 premiers résidus.
 
-La structure de la trypsine bovine n'est constituée que d'une seule chaîne (notée `A`).
+La structure de la trypsine bovine n'est constituée que d'une seule chaîne peptidique (notée `A`).
 Lorsqu'une structure est composée de plusieurs chaînes, comme dans le cas de la structure du récepteur GABAB 1 et 2 chez la drosophile (code PDB [5X9X](http://www.rcsb.org/structure/5X9X)) :
 ```
 [...]
@@ -395,13 +393,11 @@ ATOM    768  C   GLY B  95     -20.207   2.755  11.976  1.00  0.00           C
 La première chaîne est notée `A` et la seconde `B`. La séparation entre
 les deux est marquée par la ligne `TER     765      ALA A  44 `.
 
-En cristallographie aux rayons X, il est possible de trouver plusieurs copies
-de la structure d'une même macromolécule. Chaque structure porte alors un
-nom de chaîne différent.
+Dans un fichier PDB, chaque structure porte un nom de chaîne différent.
 
 Enfin, lorsque la structure est déterminée par RMN, il est possible que plusieurs structures soient présentes
-dans le même fichier PDB. Toutes ces structures, ou modèles, sont des solutions possibles du jeu de contraintes mesurées
-expérimentalement en RMN. Voici un exemple, toujours pour structure du récepteur GABAB 1 et 2 chez la drosophile :
+dans le même fichier PDB. Toutes ces structures, ou « modèles », sont des solutions possibles du jeu de contraintes mesurées
+expérimentalement en RMN. Voici un exemple, toujours pour la structure du récepteur GABAB 1 et 2 chez la drosophile :
 ```
 [...]
 MODEL        1                                                                  
@@ -433,13 +429,13 @@ et
 ```
 ENDMDL
 ```
-où $n$ est le numéro du modèle. Pour la structure du récepteur GABAB 1 et 2,
+où *n* est le numéro du modèle. Pour la structure du récepteur GABAB 1 et 2,
 il y a 20 modèles de décrits dans le fichier PDB.
 
 
 ### Manipulation avec Python
 
-Le module Biopython peut également lire un fichier PDB.
+Le module *Biopython* peut également lire un fichier PDB.
 
 Chargement de la structure de la trypsine bovine :
 ```
@@ -449,8 +445,13 @@ prot_id = "2PTN"
 prot_file = "2PTN.pdb"
 structure = parser.get_structure(prot_id, prot_file)
 ```
-Remarque : les fichiers PDB sont parfois (très) mal formatés. Si Biopython ne parvient pas à lire un tel fichier,
+
+open-box-rem
+
+Les fichiers PDB sont parfois (très) mal formatés. Si *Biopython* ne parvient pas à lire un tel fichier,
 remplacez alors la 2e ligne par `parser = PDBParser(PERMISSIVE=1)`. Soyez néanmoins très prudent quant aux résultats obtenus.
+
+close-box-rem
 
 Affichage du nom de la structure et de la technique expérimentale utilisée pour déterminer la structure :
 ```
@@ -478,7 +479,7 @@ ILE [ -8.15499973   9.64799976  20.36499977]
 VAL [-10.35099983   9.44799995  16.15699959]
 ```
 
-L'objet `res1["N"].coord` est un *array* de numpy (voir le chapitre 17
+L'objet `res1["N"].coord` est un *array* de *NumPy* (voir le chapitre 17
 *Quelques modules d'intérêt en bioinformatique*). On peut alors obtenir
 simplement les coordonnées x, y et z d'un atome :
 ```
@@ -492,7 +493,8 @@ ce qui produit :
 
 open-box-rem
 
-Remarque : Biopython utilise la hiérarchie suivante : `structure > model > chain > residue > atom`,
+Biopython utilise la hiérarchie suivante :  
+`structure > model > chain > residue > atom`  
 même lorsque la structure ne contient qu'un seul modèle. C'est d'ailleurs
 le cas ici, puisque la structure
 a été obtenue par cristallographie aux rayons X.
@@ -525,15 +527,15 @@ ASN 25 [ -6.96999979  -3.43700004  31.02000046]
 ```
 
 Il est aussi très intéressant (et formateur) d'écrire son propre *parser* de fichier PDB,
-c'est-à-dire un programme qui lit un fichier PDB (sans le module Biopython).
+c'est-à-dire un programme qui lit un fichier PDB (sans le module *Biopython*).
 Dans ce cas, la figure @fig:format-pdb vous aidera à déterminer comment extraire
 les différentes informations d'une ligne de coordonnées `ATOM` ou `HETATM`.
 
-![Format PDB et les différents champs de coordonnées](img/pdb_format_33_rot90.png){  #fig:format-pdb width=95% }
+![Format PDB et les différents champs de coordonnées.](img/pdb_format_33_rot90.png){  #fig:format-pdb width=99% }
 
-Exemple : pour extraire le nom du résidu, il faut isoler le contenu des colonnes 18 à 20 du fichier PDB, ce qui correspond aux index de 17 à 19 pour une chaîne de caractère en Python, soit la tranche de chaîne de caractères `[17:20]` car la première borne est incluse et la seconde exclus.
+Exemple : pour extraire le nom du résidu, il faut isoler le contenu des colonnes 18 à 20 du fichier PDB, ce qui correspond aux index de 17 à 19 pour une chaîne de caractères en Python, soit la tranche de chaîne de caractères `[17:20]` car la première borne est incluse et la seconde exclue.
 
-Pour lire le fichier PDB de trypsine bovine (`2PTN.pdb`) et extraire (encore) les coordonnées des carbones $\alpha$ des 10 premiers résidus, nous pouvons utiliser le code suivant :
+Pour lire le fichier PDB de la trypsine bovine (`2PTN.pdb`) et extraire (encore) les coordonnées des carbones $\alpha$ des 10 premiers résidus, nous pouvons utiliser le code suivant :
 ```
 with open("2PTN.pdb", "r") as pdb_file:
     res_count = 0
@@ -565,8 +567,11 @@ ALA 24 -10.648 -2.627 30.361
 ASN 25 -6.97 -3.437 31.02
 ```
 
-Remarque : pour extraire des valeurs numériques, comme des numéros de résidus ou des coordonnées atomiques, il ne faudra pas oublier de les convertir en entiers ou en *floats*.
+open-box-rem
 
+Pour extraire des valeurs numériques, comme des numéros de résidus ou des coordonnées atomiques, il ne faudra pas oublier de les convertir en entiers ou en *floats*.
+
+close-box-rem
 
 ## Format XML, CSV et TSV
 
@@ -579,14 +584,14 @@ Ils sont tout autant très utilisés en biologie. En voici  quelques exemples.
 Le format XML est un format de fichier qui permet de stocker quasiment
 n'importe quel type d'information de façon structurée et hiérarchisée.
 L'acronyme XML signifie *Extensible Markup Language* qui pourrait se traduire
-en français par ["Langage de balisage extensible"](https://fr.wikipedia.org/wiki/Extensible_Markup_Language). Les balises
-donc il est question servent à délimiter du contenu :
+en français par « [Langage de balisage extensible](https://fr.wikipedia.org/wiki/Extensible_Markup_Language) ». Les balises
+dont il est question servent à délimiter du contenu :
 
 `<balise>contenu</balise>`
 
 La balise `<balise>` est une balise ouvrante.
 La balise `</balise>` est une balise fermante.
-Notez bien le caractères `/` qui marque la différence entre une balise ouvrante
+Notez le caractère `/` qui marque la différence entre une balise ouvrante
 et une balise fermante.
 
 Il existe également des balises vides, qui sont à la fois ouvrantes et fermantes :
@@ -612,10 +617,10 @@ Enfin, les balises peuvent être imbriquées les unes dans les autres :
 </protein>
 ```
 
-Dans cet exemple, nous avons 3 balises `element` qui sont contenues dans une balise
+Dans cet exemple, nous avons trois balises `element` qui sont contenues dans une balise
 `protein`.
 
-Voici un exemple avec l'enzyme [trypsine](https://www.uniprot.org/uniprot/P07477)
+Voici un autre exemple avec l'enzyme [trypsine](https://www.uniprot.org/uniprot/P07477)
 humaine (code [P07477](https://www.uniprot.org/uniprot/P07477.xml)) telle
 qu'on peut la trouver décrite dans la base de données UniProt :
 
@@ -649,13 +654,12 @@ NTIAANS
 La ligne 1 indique que nous avons bien un fichier au format XML.
 
 La ligne 3 indique que nous avons une entrée UniProt. Il s'afit d'une balise
-ouvrante avec plusieurs attributs (`dataset="Swiss-Prot"`, `created="1988-04-01"`,
-`modified="2018-09-12"`...).
+ouvrante avec plusieurs attributs (`dataset="Swiss-Prot"`, `created="1988-04-01"`...).
 
 Les lignes 4-6 précisent les numéros d'accession dans la base de données
 UniProt qui font référence à cette même protéine.
 
-Les lignes 8-13 listent les 4 gènes correspondants à cette protéine.
+Les lignes 8-13 listent les quatre gènes correspondants à cette protéine.
 Le premier gène porte l'attribut `type="primary"` est indique qu'il s'agit
 du nom officiel du gène de la trypsine.
 L'attribut `type="synonym"` pour les autres gènes indique qu'il s'agit bien de
@@ -687,33 +691,31 @@ print("sequence: {}".format(sequence.text.strip()))
 print("length: {}".format(sequence.get("length")))
 ```
 
-Quelques remarques sur ce code :
+Ligne 1. On utilise le sous-module `etree` du module *lxml* pour lire le fichier XML.
 
-Ligne 1, on utilise le sous-module `etree` du module `lxml` pour lire le fichier XML.
-
-Ligne 2, on utilise le module d'expressions régulières `re` pour supprimer
-tous attributs de la balise `uniprot` (ligne 6).
+Ligne 2. On utilise le module d'expressions régulières *re* pour supprimer
+tous les attributs de la balise `uniprot` (ligne 7).
 Nous ne rentrerons pas dans les détails, mais ces attributs rendent
 plus complexe la lecture du fichier XML.
 
-Ligne 7, la variable `root` contient le fichier XML prêt à être manipulé.
+Ligne 9. La variable `root` contient le fichier XML prêt à être manipulé.
 
-Ligne 8, on recherche les noms des gènes (balises `<name></name>`) associés
+Ligne 11. On recherche les noms des gènes (balises `<name></name>`) associés
 à la trypsine. Pour cela, on utilise la méthode `.xpath()` avec comme argument
 l'enchaînement des différentes balises qui conduisent aux noms des gènes.
 
-Ligne 9, pour chaque nom de gène, on va afficher son contenu (`gene.text`)
+Ligne 12. Pour chaque nom de gène, on va afficher son contenu (`gene.text`)
 et la valeur associée à l'attribut `type` avec la méthode `.get("type")`.
 
-Ligne 11, on stocke dans la variable `sequence` la balise associée
+Ligne 11. On stocke dans la variable `sequence` la balise associée
 à la séquence de la protéine. Comme `root.xpath("/uniprot/entry/sequence")`
 renvoie un itérateur et qu'il n'y a qu'une seule balise séquence, on
 prend ici le seul et unique élément `root.xpath("/uniprot/entry/sequence")[0]`.
 
-Ligne 12, on affiche le contenu de la séquence `sequence.text`, nettoyé
+Ligne 15. On affiche le contenu de la séquence `sequence.text`, nettoyé
 d'éventuels retours chariots ou espaces `sequence.text.strip()`.
 
-Ligne 13, on affiche la taille de la séquence en récupérant la valeur
+Ligne 16. On affiche la taille de la séquence en récupérant la valeur
 de l'attribut `length` (toujours de la balise `<sequence></sequence>`).
 
 Le résultat obtenu est le suivant :
@@ -735,16 +737,15 @@ length: 247
 
 #### Définition des formats
 
-L'acronyme CSV signifie *Comma-Separated values* qu'on peut traduire littéralement
-par valeurs séparées par des virgules. De façon similaire, TSV signifie *Tabulation-Separated Values*,
-soit des valeurs séparées par des tabulations.
+L'acronyme CSV signifie « *Comma-Separated values* » qu'on peut traduire littéralement
+par « valeurs séparées par des virgules ». De façon similaire, TSV signifie « *Tabulation-Separated Values* »,
+soit des « valeurs séparées par des tabulations ».
 
-Ces deux formats sont utiles pour stocker des données structurées sous forme de tableau
-(comme vous pourriez l'avoir dans un tableur).
+Ces deux formats sont utiles pour stocker des données structurées sous forme de tableau, comme vous pourriez l'avoir dans un tableur.
 
-À titre d'exemple, le tableau ci-dessous listent les structures associées à la transferrine,
+À titre d'exemple, le tableau ci-dessous liste les structures associées à la transferrine,
 protéine présente dans le plasma sanguin et impliquée dans la régulation du fer.
-Ces données proviennent de la *Protein Data Bank*. Pour chaque protéine (*PDB ID*),
+Ces données proviennent de la *Protein Data Bank* (PDB). Pour chaque protéine (*PDB ID*),
 est indiqué le nom de l'organisme associé (*Source*), la date à laquelle cette
 structure a été déposée dans la PDB (*Deposit Date*), le nombre d'acides aminés
 de la protéine et sa masse moléculaire (*MW*).
@@ -775,7 +776,7 @@ PDB ID,Source,Deposit Date,Length,MW
 [...]
 ```
 Sur chaque ligne, les différentes valeurs sont séparées par une virgule.
-La première ligne contient le nom des colonnes et est appelée ligne d'entête.
+La première ligne contient le nom des colonnes et est appelée ligne d'en-tête.
 
 
 L'équivalent en [TSV](https://python.sdv.univ-paris-diderot.fr/data-files/transferrin_report.tsv) est :
@@ -793,16 +794,19 @@ PDB ID	Source	Deposit Date	Length	MW
 ```
 Sur chaque ligne, les différentes valeurs sont séparées par une tabulation.
 
-Attention, le caractère tabulation est un caractère invisible élastique,
+open-box-warn
+
+Le caractère tabulation est un caractère invisible « élastique »,
 c'est-à-dire qu'il a une largeur variable suivant l'éditeur de texte utilisé.
-Par exemple, sur la ligne d'entête, l'espace entre *PDB ID* et *Source*
+Par exemple, dans la ligne d'en-tête, l'espace entre *PDB ID* et *Source*
 apparaît comme différent de l'espace entre *Deposit Date* et *Length* alors
 qu'il y a pourtant une seule tabulation à chaque fois.
 
+close-box-warn
 
 #### Lecture
 
-En Python, le module `csv` de la bibliothèque standard est très pratique
+En Python, le module *csv* de la bibliothèque standard est très pratique
 pour lire et écrire des fichiers au format CSV et TSV. Nous vous conseillons
 de lire la documentation très complète sur ce [module](https://docs.python.org/fr/3.7/library/csv.html).
 
@@ -816,15 +820,15 @@ with open("transferrin_report.csv") as f_in:
         print(row["PDB ID"], row["Deposit Date"], row["Length"])
 ```
 
-Ligne 1. Import du module `csv`
+Ligne 1. Chargement du module *csv*.
 
-Ligne 3. Ouverture du fichier
+Ligne 3. Ouverture du fichier.
 
-Ligne 4. Utilisation du module `csv` pour lire le fichier CSV comme un dictionnaire (fonction `DictReader()`). La ligne d'entête est utilisée automatiquement pour définir les clefs du dictionnaire.
+Ligne 4. Utilisation du module *csv* pour lire le fichier CSV comme un dictionnaire (fonction `DictReader()`). La ligne d'en-tête est utilisée automatiquement pour définir les clés du dictionnaire.
 
-Ligne 5. Parcours de toutes les lignes du fichiers CSV
+Ligne 5. Parcours de toutes les lignes du fichiers CSV.
 
-Ligne 6. Affichage des champs correspondants à *PDB ID*, *Deposit Date*, *Length*
+Ligne 6. Affichage des champs correspondants à *PDB ID*, *Deposit Date*, *Length*.
 
 Le résultat obtenu est :
 ```
@@ -837,7 +841,7 @@ Le résultat obtenu est :
 [...]
 ```
 
-Il suffit de légèrement modifier le script précédent pour lire un fichier TSV :
+Il suffit de modifier légèrement le script précédent pour lire un fichier TSV :
 ```
 import csv
 
@@ -874,11 +878,11 @@ Ligne 3. Ouverture du fichier `test.csv` en lecture.
 
 Ligne 4. Définition du nom des colonnes (*Name* et *Quantity*).
 
-Ligne 5. Utilisation du module `csv` pour écrire un fichier CSV à partir d'un dictionnaire.
+Ligne 5. Utilisation du module *csv* pour écrire un fichier CSV à partir d'un dictionnaire.
 
 Ligne 6. Écriture des noms des colonnes.
 
-Ligne 7-9. Écriture de 3 lignes. Pour chaque ligne, un dictionnaire dont les clefs sont les noms des colonnes est fourni comme argument à la méthode `.writerow()`.
+Ligne 7-9. Écriture de trois lignes. Pour chaque ligne, un dictionnaire dont les clefs sont les noms des colonnes est fourni comme argument à la méthode `.writerow()`.
 
 Le contenu du fichier `test.csv` est alors :
 ```
@@ -915,4 +919,10 @@ singe	8
 
 Vous êtes désormais capables de lire et écrire des fichiers aux formats CSV et TSV.
 Les codes que nous vous avons proposés ne sont que des exemples.
-À vous de poursuivre l'exploration du module `csv`.
+À vous de poursuivre l'exploration du module *csv*.
+
+open-box-rem
+
+Le module *pandas* décrit dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique* est tout à fait capable de lire et écrire des fichiers CSV et TSV. Nous vous conseillons de l'utiliser si vous analysez des données avec ces types de fichiers.
+
+close-box-rem
