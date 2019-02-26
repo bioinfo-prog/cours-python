@@ -587,7 +587,7 @@ Dans l'exemple ci-dessus, `*args` et `**kwargs` sont inutiles car lors de l'inst
 
 Toutefois, même si cela « ne coûte rien », nous vous recommandons de ne pas mettre ces `*args` et `**kwargs` si vous n'en avez pas besoin, comme nous vous l'avons montré dans les exemples de ce chapitre. Rappelons nous de la PEP 20 (cf. Chapitre 15 Bonnes Pratiques), les assertions *Simple is better than complex* ou *Sparse is better than dense* nous suggèrent qu'il est inutile d'ajouter des choses dont on ne se sert pas.
 
-**Toujours préciser l'instance de la fenêtre principale**
+#### Toujours préciser l'instance de la fenêtre principale
 
 Tkinter est parfois surprenant. Dans le code suivant on pourrait penser que celui-ci n'est pas fonctionnel :
 
