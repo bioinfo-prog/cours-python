@@ -27,10 +27,9 @@ ValueError: I/O operation on closed file.
 ```
 Il y a plusieurs commentaires à faire sur cet exemple :
 
-Ligne 1. L'instruction `open()` ouvre le fichier `zoo.txt`. Ce fichier est ouvert en lecture seule, comme l'indique le second argument `r` (pour *read*) de la fonction `open()`. Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (*un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu*). Le curseur de lecture est prêt à lire le premier caractère du fichier.
+Ligne 1. L'instruction `open()` ouvre le fichier `zoo.txt`. Ce fichier est ouvert en lecture seule, comme l'indique le second argument `r` (pour *read*) de la fonction `open()`. Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (*un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu*). Le curseur de lecture est prêt à lire le premier caractère du fichier. L'instruction `open("zoo.txt", "r")` suppose que le fichier `zoo.txt` est dans le répertoire depuis lequel l'interpréteur Python a été lancé. Si ce n'est pas le cas, il faut préciser le **chemin d'accès** au fichier. Par exemple, `/home/pierre/zoo.txt` pour Linux ou Mac OS X ou `C:\Users\pierre\zoo.txt` pour Windows.
 
-Ligne 2. Lorsqu'on affiche le contenu de la variable `filin`, vous voyez que Python la considère comme un objet de type fichier ouvert (ligne 3) :  
-`<_io.TextIOWrapper name='zoo.txt' mode='r' encoding='UTF-8'>`.
+Ligne 2. Lorsqu'on affiche le contenu de la variable `filin`, on se rend compte que Python la considère comme un objet de type fichier ouvert (ligne 3).
 
 Ligne 4. Nous utilisons à nouveau la syntaxe `objet.méthode()` (présentée dans le chapitre 3 *Affichage*). Ici la méthode `.readlines()` agit sur l'objet `filin` en déplaçant le curseur de lecture du début à la fin du fichier, puis elle renvoie une liste contenant toutes les lignes du fichier (*dans notre analogie avec un livre, ceci correspondrait à lire toutes les lignes du livre*).
 
@@ -182,11 +181,11 @@ Ligne 3. Parcours de la liste `animaux2` avec une boucle `for`.
 
 Ligne 4. À chaque itération de la boucle, nous avons écrit chaque élément de la liste dans le fichier. La méthode `.write()` s'applique sur l'objet `filout`. Notez qu'à chaque utilisation de la méthode `.write()`, celle-ci nous affiche le nombre d'octets (équivalent au nombre de caractères) écrits dans le fichier (lignes 6 à 8). Ceci est valable uniquement dans l'interpréteur, si vous créez un programme avec les mêmes lignes de code, ces valeurs ne s'afficheront pas à l'écran.
 
-Si nous ouvrons le fichier `zoo2.txt` avec un éditeur de texte, voici ce que nous obtenons
+Si nous ouvrons le fichier `zoo2.txt` avec un éditeur de texte, voici ce que nous obtenons :
 
 `poissonabeillechat`
 
-Ce n'est pas exactement le résultat attendu car implicitement nous voulions le nom de chaque animal sur une ligne. Nous avons donc oublié d'ajouter le caractère fin de ligne après chaque nom d'animal.
+Ce n'est pas exactement le résultat attendu car implicitement nous voulions le nom de chaque animal sur une ligne. Nous avons oublié d'ajouter le caractère fin de ligne après chaque nom d'animal.
 
 Pour ce faire, nous pouvons utiliser l'écriture formatée :
 ```
@@ -202,7 +201,7 @@ Pour ce faire, nous pouvons utiliser l'écriture formatée :
 
 Ligne 4. L'écriture formatée vue au chapitre 3 *Affichage* permet d'ajouter un retour à la ligne (`\n`) après le nom de chaque animal.
 
-Ligne 6 à 8. Le nombre d'octets écrits dans le fichier est augmenté de 1 par rapport à l'exemple précédent car le caractère retour à la ligne compte pour un seul octet.
+Lignes 6 à 8. Le nombre d'octets écrits dans le fichier est augmenté de 1 par rapport à l'exemple précédent car le caractère retour à la ligne compte pour un seul octet.
 
 Le contenu du fichier `zoo2.txt` est alors :
 ```
@@ -213,16 +212,10 @@ chat
 
 Vous voyez qu'il est extrêmement simple en Python de lire ou d'écrire dans un fichier.
 
-open-box-rem
-
-Si vous travaillez sous Linux ou Mac OS X, et si votre programme produit uniquement du texte, vous pouvez afficher ce texte sur la « sortie standard », c'est-à-dire l'écran, avec l'instruction `print()`. L'avantage dans ce cas est que l'utilisateur peut bénéficier de toutes les potentialités d'Unix (redirection, tri, *parsing*...). Si l'utilisateur veut écrire le résultat du programme dans un fichier, il pourra toujours le faire en redirigeant la sortie.
-
-close-box-rem
-
 
 ## Ouvrir deux fichiers avec l'instruction `with`
 
-L'instruction `with` permet même d'ouvrir deux fichiers (ou plus) en même temps.
+On peut avec l'instruction `with` ouvrir deux fichiers (ou plus) en même temps.
 Voyez l'exemple suivant :
 ```
 with open("zoo.txt", "r") as fichier1, open("zoo2.txt", "w") as fichier2:
@@ -269,23 +262,22 @@ Vous avez sans doute remarqué que les méthodes qui lisent un fichier (par exem
 
 Pour tenir compte de ces contraintes, il faudra utiliser les fonctions de conversions de types vues au chapitre 2 *Variables* : `int()`, `float()` et `str()`. Ces fonctions de conversion sont essentielles lorsqu'on lit ou écrit des nombres dans un fichier.
 
-En particulier, les nombres dans un fichier sont considérés comme du texte par la méthode `.readlines()`, par conséquent il faut les convertir (en entier ou en *float*) si on veut effectuer des opérations numériques avec.
+En particulier, les nombres dans un fichier sont considérés comme du texte, donc comme des chaînes de caractères, par la méthode `.readlines()`. Par conséquent, il faut les convertir (en entier ou en *float*) si on veut effectuer des opérations numériques avec.
 
 
 ## Du respect des formats de données et de fichiers
 
-Maintenant que vous savez lire et écrire des fichiers en Python, vous êtes capables de manipuler beaucoup d'information en biologie. Prenez garde cependant aux formats de fichiers, c'est-à-dire à la manière dont est stockée l'information biologique dans des fichiers. Nous vous renvoyons pour cela à l'annexe B *Quelques formats de données rencontrés en biologie*.
+Maintenant que vous savez lire et écrire des fichiers en Python, vous êtes capables de manipuler beaucoup d'information en biologie. Prenez garde cependant aux formats de fichiers, c'est-à-dire à la manière dont est stockée l'information biologique dans des fichiers. Nous vous renvoyons pour cela à l'annexe A *Quelques formats de données rencontrés en biologie*.
 
 
 ## Exercices
 
-*Conseil* : pour tous ces exercices, écrivez des scripts dans des fichiers,
-puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 
 ### Moyenne des notes
 
-Le fichiers [notes.txt](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
+Le fichiers [`notes.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
 
 Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
 
@@ -296,13 +288,13 @@ Terminez le script en calculant et affichant la moyenne des notes avec deux déc
 
 ### Admis ou recalé
 
-Le fichiers [notes.txt](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
+Le fichiers [`notes.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
 
 Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
 
 Créez un script Python qui lit chaque ligne de ce fichier, extrait les notes sous forme de *float* et les stocke dans une liste.
 
-Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une note par ligne suivie de `recalé` si la note est inférieure à 10 et `admis` si la note est supérieure ou égale à 10. Toutes les notes seront écrites avec une décimale. À titre d'exemple, voici les 3 premières lignes attendues pour le fichier `notes2.txt` :
+Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une note par ligne suivie de « recalé » si la note est inférieure à 10 et « admis » si la note est supérieure ou égale à 10. Toutes les notes seront écrites avec une décimale. À titre d'exemple, voici les 3 premières lignes attendues pour le fichier `notes2.txt` :
 ```
 13.5 admis
 17.0 admis
@@ -312,7 +304,7 @@ Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une not
 
 ### Spirale (exercice +++)
 
-Construisez un script `spirale.py` qui calcule les coordonnées cartésiennes d'une spirale.
+Créez un script `spirale.py` qui calcule les coordonnées cartésiennes d'une spirale.
 
 Les coordonnées cartésiennes $x_A$ et $y_A$ d'un point $A$ sur un cercle de rayon $r$ s'expriment en fonction de l'angle $\theta$ représenté sur la figure @fig:spirale comme :
 
