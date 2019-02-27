@@ -37,6 +37,7 @@ Virginie Martiny, Romain Laurent, Benjamin Boyer, Catherine Lesourd, Philippe La
 - Hubert Santuz,
 - Jonathan Barnoud,
 - Amélie Bâcle,
+- Thibault Tubiana,
 - Romain Retureau.
 
 Nous remercions aussi Denis Mestivier de qui nous nous sommes inspirés pour certains exercices.
