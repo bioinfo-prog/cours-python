@@ -11,7 +11,7 @@ close-box-adv
 Dans votre carrière « pythonesque » il se peut que vous soyez amené à vouloir développer une application graphique, on parle encore de *graphical user interface* ou GUI. Jusqu'à maintenant, vous avez fait en sorte qu'un utilisateur interagisse avec votre code via la ligne de commande, par exemple :
 
 ```
-python3 ./mon_script.py file.gbk -option1 blabla -option2 blublu
+python ./mon_script.py file.gbk -option1 blabla -option2 blublu
 ```
 
 Les arguments passés à la ligne de commande sont tout à fait classiques dans le monde de la bioinformatique. Toutefois, il se peut que vous développiez un programme pour une communauté élargie qui n'a pas forcément l'habitude d'utiliser un *shell* et la ligne de commande. C'est là qu'une GUI permettra un usage plus large de votre programme, il est donc intéressant de regarder comment s'y prendre. Dans notre exemple ci-dessus on pourrait par exemple développer une interface où l'utilisateur pourrait choisir le nom du fichier d'entrée par l'intermédiaire d'une boîte de dialogue, et de contrôler les options en cliquant sur des boutons, ou des « listes de choix ». Une telle GUI pourrait ressembler à la figure @fig:exemple_GUI.
@@ -149,7 +149,7 @@ print("C'est fini !")
 puis lançons ce script depuis le *shell* Unix :
 
 ```
-$ python3 ./tk_exemple.py
+$ python ./tk_exemple.py
 ```
 
 Vous voyez maintenant la même fenêtre avec les mêmes fonctionnalités par rapport à la version dans l'interpréteur (cf. figure @fig:exemple1_tkinter). Nous commentons ici les différences (dans le désordre !) :
@@ -204,7 +204,7 @@ Ligne 10. De même on crée un *widget* bouton en instanciant la classe `tk.Butt
 
 Lignes 11 et 12. On place les deux *widgets* dans la fenêtre avec la méthode `.pack()`.
 
-Ligne 14. Ici on permet le lancement de notre application tkinter en ligne de commande (`python3 ./tk_application.py`), ou bien de réutiliser notre classe en important `tk_application.py` en tant que module (`import tk_application`) (cf. chapitre 14).
+Ligne 14. Ici on permet le lancement de notre application tkinter en ligne de commande (`python ./tk_application.py`), ou bien de réutiliser notre classe en important `tk_application.py` en tant que module (`import tk_application`) (cf. chapitre 14).
 
 Ligne 15. On instancie notre application.
 
@@ -327,7 +327,7 @@ Dans ce dernier exemple, nous allons illustrer la puissance du *widget canvas* e
 ```
 """Super appli baballe !!!
 
-Usage: python3 ./tk_baballe.py
+Usage: python ./tk_baballe.py
 - clic gauche: faire grossir la baballe
 - clic droit: faire rétrécir la baballe
 - clic central: relance la baballe (depuis le  point du clic)

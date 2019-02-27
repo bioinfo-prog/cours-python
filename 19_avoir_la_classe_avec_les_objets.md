@@ -331,7 +331,7 @@ Lignes 8 et 9. On souhaite que notre méthode `.affiche_attributs()` affiche ens
 L'exécution de ce code donnera :
 
 ```
-$ python3 classe_exemple1.py
+$ python classe_exemple1.py
 <__main__.Citron object at 0x7f4e5fb71438>
 jaune
 Traceback (most recent call last):
@@ -573,7 +573,7 @@ j = -76
 L'exécution de `test_var_module.py` donnera :
 
 ```
-$ python3 ./test_var_module.py
+$ python ./test_var_module.py
 Dans prog principal i: 1000000
 Dans prog principal j: 2
 Dans module, i local: -27478524
