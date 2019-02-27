@@ -1688,11 +1688,9 @@ class Rectangle:
     self.largeur = larg
     self.couleur = coul
 
-
     def calcule_surface(self):
     """Méthode qui calcule la surface."""
     return self.longueur * self.largeur
-
 
     def change_carre(self, cote):
     """Méthode qui transforme un rectangle en carré."""

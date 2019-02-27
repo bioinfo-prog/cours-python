@@ -70,11 +70,13 @@ Sachez qu'il est possible de passer en argument une fonction à une autre foncti
 def fct_callback(arg):
     print("J'aime bien les {} !".format(arg))
 
+
 def une_fct(ma_callback):
     print("Je suis au début de une_fct(), "
           "et je vais exécuter la fonction callback :")
     ma_callback("fraises")
     print("Aye, une_fct() se termine.")
+
 
 # prog principal
 une_fct(fct_callback)
@@ -181,6 +183,7 @@ class Application(tk.Tk):
         self.bouton = tk.Button(self, text="Quitter", command=self.quit)
         self.label.pack()
         self.bouton.pack()
+
 
 if __name__ == '__main__':
     app = Application()
@@ -533,6 +536,7 @@ class Application(tk.Frame):
         self.label.pack()
         self.bouton.pack()
 
+
 if __name__ == '__main__':
     racine = tk.Tk()
     racine.title("Ma Première App :-)")
@@ -574,13 +578,13 @@ class MonApplication(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         # ici débute la construction de votre appli
-...
+[...]
 
 # programme principal
 if __name__ == '__main__':
-    ...
+    [...]
     app = MonApplication()
-    ...
+    [...]
 ```
 
 Les arguments `*args` et `**kwargs` permettent de récupérer facilement tous les arguments dits « positionnels » et « par mot-clé » respectivement. Pour plus de détails sur comment `*args` et `**kwargs` fonctionnent, reportez-vous au chapitre 21 *Remarques complémentaires*.
