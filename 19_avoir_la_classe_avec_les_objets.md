@@ -1,6 +1,6 @@
 # Avoir la classe avec les objets
 
-La programmation orientée objet (POO) est un concept de programmation très puissant qui permet de structurer ses programmes d'une manière nouvelle. En POO, on définit un *objet* qui peut contenir des *attributs* ainsi que des *méthodes* permettant d'agir sur lui-même. Par exemple, on pourrait définir un objet *citron* qui contient les attributs *acide* et *jaune*, et qui aurait une méthode *presser()* permettant d'en extraire le jus. En Python, on utilise ce qu'on appelle une *classe* pour construire un objet. Dans notre exemple, la classe correspondrait à l'arbre permettant de construire autant d'objets citrons que nécessaire. Une autre image pour comprendre ce que sont les classes et objets pourrait être la suivante : une classe correspond à une machine, et l'objet à une pièce fabriquée par cette machine, sachant que l'on peut construire autant de pièces que l'on veut.
+La programmation orientée objet (POO) est un concept de programmation très puissant qui permet de structurer ses programmes d'une manière nouvelle. En POO, on définit un *objet* qui peut contenir des *attributs* ainsi que des *méthodes*, permettant d'agir sur lui-même. Par exemple, on pourrait définir un objet *citron* qui contient les attributs *saveur* et *couleur*, et qui aurait une méthode *.presser()* permettant d'en extraire le jus. En Python, on utilise ce qu'on appelle une *classe* pour construire un objet. Dans notre exemple, la classe correspondrait à l'arbre permettant de construire autant d'objets citrons que nécessaire. Une autre image pour comprendre ce que sont les classes et objets pourrait être la suivante : une classe correspond à une machine, et l'objet à une pièce fabriquée par cette machine, sachant que l'on peut construire autant de pièces que l'on veut.
 
 open-box-def
 
@@ -12,13 +12,13 @@ Dans les chapitres précédents, nous avons déjà mentionné qu'en Python tout 
 
 La POO permet de rédiger du code plus compact et mieux ré-utilisable. L'utilisation de classes permet d'éviter l'utilisation de variables globales en créant ce qu'on appelle un *espace de noms* propre à chaque objet permettant d'y *encapsuler* des attributs et des méthodes. De plus, la POO amène de nouveaux concepts tels que le *polymorphisme* (capacité à redéfinir le comportement des opérateurs, nous avons déjà vu ces mots vous en souvenez-vous ?), ou bien encore l'*héritage* (capacité à définir une classe à partir d'une classe pré-existante et d'y ajouter de nouvelles fonctionnalités). Tous ces concepts seront définis dans ce chapitre.
 
-Malgré tous ces avantages, la POO peut paraître difficile à aborder pour le débutant, spécialement dans la conception des programmes / algorithmes. Elle nécessite donc la lecture de nombreux exemples, mais surtout beaucoup de pratique. Bien structurer ses programmes en POO est un véritable art. Il existe même des langages qui formalise la construction de programmes oriéntés objets, par exemple le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)).
+Malgré tous ces avantages, la POO peut paraître difficile à aborder pour le débutant, spécialement dans la conception des programmes / algorithmes. Elle nécessite donc la lecture de nombreux exemples, mais surtout beaucoup de pratique. Bien structurer ses programmes en POO est un véritable art. Il existe même des langages qui formalisent la construction de programmes oriéntés objets, par exemple le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)).
 
 Dans ce chapitre nous allons vous montrer une introduction à la POO avec Python. Nous allons vous donner tous les éléments pour démarrer la construction de vos premières classes.
 
 Après la lecture de ce chapitre, vous verrez d'un autre oeil de nombreux exemples évoqués dans les chapitres précédents, et vous comprendrez sans doute de nombreuses subtilités qui avaient pu vous paraître absconces.
 
-Enfin, il est vivement recommandé de lire ce chapitre avant d'aborder le Chapitre 20 sur le module tkinter et la programmation graphique.
+Enfin, il est vivement recommandé de lire ce chapitre avant d'aborder le chapitre 20 sur le module tkinter et la programmation graphique.
 
 ## Construction d'une classe
 
@@ -42,7 +42,7 @@ En Python, le mot-clé `class` permet de créer sa propre classe, suivi du nom d
 >>>
 ```
 
-Ligne 1. La classe Citron est définie. Pas besoin de parenthèses comme avec les fonctions dans un cas simple comme celui-là (nous verrons d'autres exemples plus loin où elles sont nécessaires).
+Ligne 1. La classe `Citron` est définie. Pas besoin de parenthèses comme avec les fonctions dans un cas simple comme celui-là (nous verrons d'autres exemples plus loin où elles sont nécessaires).
 
 Ligne 2. La classe ne contient rien, mais il faut mettre au moins une ligne, on met donc ici le mot-clé Python `pass` qui ne fait rien (comme dans une fonction qui ne fait rien).
 
@@ -50,7 +50,7 @@ Lignes 4 et 5. Quand on tape le nom de notre classe `Citron`, Python nous indiqu
 
 Lignes 6 et 7. Lorsqu'on regarde le type de notre classe `Citron`, Python nous indique qu'il s'agit d'un type au même titre que `type(int)`. Nous avons donc créé un nouveau type !
 
-Ligne 8. On crée une instance de la classe Citron, c'est-à-dire qu'on fabrique un représentant ou objet de la classe Citron que nous nommons `citron1`.
+Ligne 8. On crée une instance de la classe `Citron`, c'est-à-dire qu'on fabrique un représentant ou objet de la classe `Citron` que nous nommons `citron1`.
 
 Lignes 9 et 10. Lorsqu'on tape le nom de l'instance `citron1`, l'interpréteur nous rappelle qu'il s'agit d'un objet de type `Citron` ainsi que son adresse en mémoire.
 
@@ -63,7 +63,7 @@ True
 
 ### Ajout d'un attribut d'instance
 
-Nous reprenons notre classe Citron et l'instance `citron1` créée précédemment. Regardons les attributs et méthodes que cet objet possède, puis tentons de lui ajouter un attribut  :
+Nous reprenons notre classe `Citron` et l'instance `citron1` créée précédemment. Regardons les attributs et méthodes que cet objet possède, puis tentons de lui ajouter un attribut  :
 
 ```
 >>> dir(citron1)
@@ -94,7 +94,7 @@ L'attribut nommé `.__dict__` est particulièrement intéressant. Il s'agit d'un
 {'couleur': 'jaune'}
 ```
 
-L'ajout d'un attribut depuis l'extérieur de la classe (on parle aussi du côté "client") avec une syntaxe `instance.nouvel_attribut = valeur`, créera ce nouvel attribut uniquement pour cette instance :
+L'ajout d'un attribut depuis l'extérieur de la classe (on parle aussi du côté « client ») avec une syntaxe `instance.nouvel_attribut = valeur`, créera ce nouvel attribut uniquement pour cette instance :
 
 ```
 citron1 = Citron()
@@ -106,7 +106,8 @@ citron1.couleur = "jaune"
 {}
 ```
 
-Si on crée une nouvelle instance de Citron, ici `citron2` elle n'aura pas l'attribut `couleur` à sa création.
+Si on crée une nouvelle instance de Citron, ici `citron2`, elle n'aura pas l'attribut  
+`couleur` à sa création.
 
 open-box-def
 
@@ -114,7 +115,8 @@ Une *variable ou attribut d'instance* est une variable accrochée à une instanc
 
 close-box-def
 
-L'instruction `del` fonctionne bien-sûr pour détruire un objet (par exemple `del citron1`), mais permet également de détruire un attribut d'instance. Si on reprend notre exemple `citron1` ci-dessus :
+L'instruction `del` fonctionne bien sûr pour détruire un objet (par exemple  
+`del citron1`), mais permet également de détruire un attribut d'instance. Si on reprend notre exemple `citron1` ci-dessus :
 
 ```
 >>> citron1.__dict__
@@ -141,7 +143,7 @@ Une *variable ou attribut de classe* est un attribut qui sera identique pour cha
 
 close-box-def
 
-A l'extérieur ou à l'interieur d'une classe, un attribut de classe peut se retrouver avec une syntaxe `NomClasse.attribut`.
+À l'extérieur ou à l'interieur d'une classe, un attribut de classe peut se retrouver avec une syntaxe `NomClasse.attribut`.
 
 ```
 print(Citron.couleur)
@@ -169,7 +171,8 @@ jaune
 
 open-box-warn
 
-Même si on peut retrouver un attribut de classe avec une syntaxe `instance.attribut`, un tel attribut ne peut pas être modifié avec une syntaxe `instance.attribut = nouvelle_valeur` (cf. rubrique *Plus sur les attributs de classe et d'instance*).
+Même si on peut retrouver un attribut de classe avec une syntaxe `instance.attribut`, un tel attribut ne peut pas être modifié avec une syntaxe  
+`instance.attribut = nouvelle_valeur` (cf. rubrique *Plus sur les attributs de classe et d'instance*).
 
 close-box-warn
 
@@ -179,16 +182,16 @@ Dans notre classe on pourra aussi ajouter des fonctions.
 
 open-box-def
 
-Une fonction définie au sein d'une classe est appelée *méthode*. Pour exécuter une méthode à l'extérieur de la classe, la syntaxe générale est `instance.méthode()`. En général, on distingue attributs et méthodes (comme nous le ferons systématiquement dans ce chapitre). Toutefois il faut garder à l'esprit qu'une méthode est finalement un objet de type fonction. Ainsi, elle peut être vue comme un attribut également, concept que vous croiserez peut être en consultant de la documentation externe.
+Une fonction définie au sein d'une classe est appelée **méthode**. Pour exécuter une méthode à l'extérieur de la classe, la syntaxe générale est `instance.méthode()`. En général, on distingue attributs et méthodes (comme nous le ferons systématiquement dans ce chapitre). Toutefois il faut garder à l'esprit qu'une méthode est finalement un objet de type fonction. Ainsi, elle peut être vue comme un attribut également, concept que vous croiserez peut être en consultant de la documentation externe.
 
 close-box-def
 
-Voici un exemple d'ajout d'une fonction, donc d'une méthode, au sein d'une classe (attention à l'indentation !) :
+Voici un exemple d'ajout d'une fonction, ou plus exactement d'une méthode, au sein d'une classe (attention à l'indentation !) :
 
 ```
 class Citron:
     def coucou(self):
-	    print("Coucou, je suis la méthode .coucou() dans la classe Citron !")
+	    print("Coucou, je suis la mth .coucou() dans la classe Citron !")
 
 
 if __name__ == '__main__':
@@ -200,7 +203,7 @@ Lignes 2 et 3. On définit une méthode nommée `.coucou()` qui va afficher un p
 
 Ligne 6 et 7. On crée l'instance `citron1` de la classe `Citron`, puis on exécute la méthode `.coucou()` avec une syntaxe `instance.méthode()`.
 
-Une méthode étant une fonction, elle peut bien-sûr retourner une valeur :
+Une méthode étant une fonction, elle peut bien sûr retourner une valeur :
 
 ```
 class Citron:
@@ -219,7 +222,7 @@ Vous l'aurez deviné, ce code affichera `acide` à l'écran. Comme pour les fonc
 
 Lors de l'instanciation d'un objet à partir d'une classe, il peut être intéressant de lancer certaines instructions comme par exemple initialiser certaines variables. Pour cela, on peut ajouter une méthode spéciale nommée `.__init__()` : cette méthode s'appelle le constructeur de la classe. Il s'agit d'une méthode spéciale car son nom est entouré de doubles *underscores* : en effet, elle sert au fonctionnement interne de notre classe, et sauf cas extrêmement rare, elle n'est pas supposée être lancée comme une fonction classique par l'utilisateur de la classe. Ce constructeur est exécuté à chaque instanciation de notre classe, et ne renvoie pas de valeur, il ne possède donc pas de `return`.
 
-Pour bien comprendre comment cela fonctionne, nous allons suivre un exemple simple avec le site [Python Tutor](http://www.pythontutor.com) (déjà utilisé dans le Chapitre 9 et 12 sur les fonctions). N'hésitez pas à copier / coller ce petit code dans Python Tutor pour le tester vous-même :
+Pour bien comprendre comment cela fonctionne, nous allons suivre un exemple simple avec le site [*Python Tutor*](http://www.pythontutor.com) (déjà utilisé dans les chapitres 9 et 12 sur les fonctions). N'hésitez pas à copier/coller ce petit code dans *Python Tutor* pour le tester vous-même :
 
 ```
 class Citron:
@@ -232,21 +235,21 @@ if __name__ == '__main__':
     print(citron1.couleur)
 ```
 
-Etape 1 (cf. Figure @fig:classe_constructeur1). Au départ, Python Tutor nous montre que la classe `Citron` a été mise en mémoire, elle contient pour l'instant la méthode `.__init__()`.
+Étape 1 (cf. figure @fig:classe_constructeur1). Au départ, *Python Tutor* nous montre que la classe `Citron` a été mise en mémoire, elle contient pour l'instant la méthode `.__init__()`.
 
-![Fonctionnement d'un constructeur (étape 1)](img/classe_constructeur1.png){ #fig:classe_constructeur1 width=90%}
+![Fonctionnement d'un constructeur (étape 1).](img/classe_constructeur1.png){ #fig:classe_constructeur1 width=90%}
 
-Etape 2 (cf. Figure @fig:classe_constructeur2). Nous créons ensuite l'instance `citron1` à partir de la classe `Citron`. Notre classe `Citron` contenant une méthode `.__init__()` (le constructeur), celle-ci est immédiatement exécutée au moment de l'instanciation. Cette méthode prend un argument nommé `self` : cet argument est **obligatoire**. Il s'agit en fait d'une référence vers l'instance en cours (instance que nous appellerons `citron1` de retour dans le programme principal, mais cela serait vrai pour n'importe quel autre nom d'instance). Python Tutor nous indique cela par une flèche point vers un espace nommé `Citron instance`. La signification du `self` est expliquée en détail dans la rubrique suivante.
+Étape 2 (cf. figure @fig:classe_constructeur2). Nous créons ensuite l'instance `citron1` à partir de la classe `Citron`. Notre classe `Citron` contenant une méthode `.__init__()` (le constructeur), celle-ci est immédiatement exécutée au moment de l'instanciation. Cette méthode prend un argument nommé `self` : cet argument est **obligatoire**. Il s'agit en fait d'une référence vers l'instance en cours (instance que nous appellerons `citron1` de retour dans le programme principal, mais cela serait vrai pour n'importe quel autre nom d'instance). *Python Tutor* nous indique cela par une flèche point vers un espace nommé `Citron instance`. La signification du `self` est expliquée en détail dans la rubrique suivante.
 
-![Fonctionnement d'un constructeur (étape 2)](img/classe_constructeur2.png){ #fig:classe_constructeur2 width=90%}
+![Fonctionnement d'un constructeur (étape 2).](img/classe_constructeur2.png){ #fig:classe_constructeur2 width=90%}
 
-Etape 3 (cf. Figure @fig:classe_constructeur3). Un nouvel attribut est créé s'appellant `self.couleur`. La chaîne de caractères `couleur` est ainsi "accrochée" (grâce au caractère `.`) à l'instance en cours référencée par le `self`. Python Tutor nous indique cela par une flèche qui pointe depuis le `self` vers la variable `couleur` (qui se trouve elle-même dans l'espace nommé `Citron instance`). Si d'autres attributs étaient créés, ils seraient tous répertoriés dans cet espace `Citron instance` (cf. exemple de la Figure @fig:classe_var_instance). Vous l'aurez compris, l'attribut `couleur` est donc une variable d'instance (cf. rubrique *Ajout d'un attribut d'instance* ci-dessus). La méthode `.__init__()` étant intrinsèquement une fonction, Python Tutor nous rappelle qu'elle ne renvoie rien (d'où le `None` dans la case *Return value*) une fois son exécution terminée. Et comme avec les fonctions classiques, l'espace mémoire contenant les variables locales à cette méthode va être détruit une fois son exécution terminée.
+Étape 3 (cf. figure @fig:classe_constructeur3). Un nouvel attribut est créé s'appellant `self.couleur`. La chaîne de caractères `couleur` est ainsi « accrochée » (grâce au caractère `.`) à l'instance en cours référencée par le `self`. *Python Tutor* nous indique cela par une flèche qui pointe depuis le `self` vers la variable `couleur` (qui se trouve elle-même dans l'espace nommé `Citron instance`). Si d'autres attributs étaient créés, ils seraient tous répertoriés dans cet espace `Citron instance` (cf. exemple de la figure @fig:classe_var_instance). Vous l'aurez compris, l'attribut `couleur` est donc une variable d'instance (cf. rubrique *Ajout d'un attribut d'instance* ci-dessus). La méthode `.__init__()` étant intrinsèquement une fonction, *Python Tutor* nous rappelle qu'elle ne renvoie rien (d'où le `None` dans la case *Return value*) une fois son exécution terminée. Et comme avec les fonctions classiques, l'espace mémoire contenant les variables locales à cette méthode va être détruit une fois son exécution terminée.
 
-![Fonctionnement d'un constructeur (étape 3)](img/classe_constructeur3.png){ #fig:classe_constructeur3 width=90%}
+![Fonctionnement d'un constructeur (étape 3).](img/classe_constructeur3.png){ #fig:classe_constructeur3 width=90%}
 
-Etape 4 (cf. Figure @fig:classe_constructeur4). De retour dans le programme principal, Python Tutor nous indique que `citron1` est une instance de la classe `Citron` par une flèche pointant vers l'espace `Citron instance`. Cette instance contient un attribut nommé `couleur` auquel on accéde avec la syntaxe `citron1.couleur` dans le `print()`. Notez que si l'instance s'était appelée `enorme_citron`, on aurait utilisé `enorme_citron.couleur` pour accéder à l'attribut `couleur`.
+Étape 4 (cf. figure @fig:classe_constructeur4). De retour dans le programme principal, *Python Tutor* nous indique que `citron1` est une instance de la classe `Citron` par une flèche pointant vers l'espace `Citron instance`. Cette instance contient un attribut nommé `couleur` auquel on accéde avec la syntaxe `citron1.couleur` dans le `print()`. Notez que si l'instance s'était appelée `enorme_citron`, on aurait utilisé `enorme_citron.couleur` pour accéder à l'attribut `couleur`.
 
-![Fonctionnement d'un constructeur (étape 4)](img/classe_constructeur4.png){ #fig:classe_constructeur4 width=90%}
+![Fonctionnement d'un constructeur (étape 4).](img/classe_constructeur4.png){ #fig:classe_constructeur4 width=90%}
 
 open-box-adv
 
@@ -279,11 +282,12 @@ Ligne 3. On crée l'attribut `couleur` que l'on accroche à l'instance avec le `
 
 Ligne 4. Nous créons cette fois-ci une variable `var` sans l'accrocher au `self`.
 
-Ligne 6. Nous créons une nouvelle méthode dans la classe `Citron` qui se nomme `.affiche_attributs()`. Comme pour le constructeur, cette méthode prend comme premier argument une variable obligatoire, que nous avons à nouveau nommée `self`. Il s'agit encore une fois d'une référence vers l'objet ou instance créé(e). On va voir plus bas ce qu'elle contient exactement.
+Ligne 6. Nous créons une nouvelle méthode dans la classe `Citron` qui se nomme  
+`.affiche_attributs()`. Comme pour le constructeur, cette méthode prend comme premier argument une variable obligatoire, que nous avons à nouveau nommée `self`. Il s'agit encore une fois d'une référence vers l'objet ou instance créé(e). On va voir plus bas ce qu'elle contient exactement.
 
 open-box-warn
 
-On peut appeler cette référence comme on veut, toutefois nous vous conseillons vivement de l'appeler `self` car c'est une convention générale en Python. Ainsi quelqu'un qui lira votre code comprendra immédiatement de quoi il s'agit.
+On peut appeler cette référence comme on veut, toutefois nous vous conseillons vivement de l'appeler `self` car c'est une convention générale en Python. Ainsi, quelqu'un qui lira votre code comprendra immédiatement de quoi il s'agit.
 
 close-box-warn
 
@@ -307,9 +311,9 @@ NameError: name 'var' is not defined
 
 Ligne 2. La méthode `.affiche_attributs()` nous montre que le `self` est bien une référence vers l'instance (ou objet) `citron1` (ou vers n'importe quelle autre instance, par exemple si on crée `citron2 = Citron()` le `self` sera une référence vers `citron2`).
 
-Ligne 3. La méthode `.affiche_attributs()` affiche l'attribut `.couleur` qui avait été créé précédemment dans le constructeur. Vous voyez ici l'intérêt principal de l'argument `self` passé en premier à chaque méthode d'une classe : il permet "d'accrocher" n'importe quel attribut qui sera visible partout dans la classe, y compris dans une méthode où il n'a pas été défini.
+Ligne 3. La méthode `.affiche_attributs()` affiche l'attribut `.couleur` qui avait été créé précédemment dans le constructeur. Vous voyez ici l'intérêt principal de l'argument `self` passé en premier à chaque méthode d'une classe : il permet « d'accrocher » n'importe quel attribut qui sera visible partout dans la classe, y compris dans une méthode où il n'a pas été défini.
 
-Lignes 4 à 9. La création de la variable `var` dans la méthode `.__init__()` sans l'accrocher à l'objet `self` fait qu'elle n'est plus accessible en dehors de `.__init__()`. C'est exactement comme pour les fonctions classiques, `var` est finalement une variable locale au sein de la méthode `.__init__()` et n'est plus visible lorsque l'exécution de cette dernière est terminée (cf. Chapitres 9 et 12). Ainsi Python renvoie une erreur car `var` n'existe pas lorsque `.affiche_attributs()` est en exécution.
+Lignes 4 à 9. La création de la variable `var` dans la méthode `.__init__()` sans l'accrocher à l'objet `self` fait qu'elle n'est plus accessible en dehors de `.__init__()`. C'est exactement comme pour les fonctions classiques, `var` est finalement une variable locale au sein de la méthode `.__init__()` et n'est plus visible lorsque l'exécution de cette dernière est terminée (cf. chapitres 9 et 12). Ainsi, Python renvoie une erreur car `var` n'existe pas lorsque `.affiche_attributs()` est en exécution.
 
 En résumé, le `self` est nécessaire lorsqu'on a besoin d'accéder à différents attributs dans les différentes méthodes d'une classe. Le `self` est également nécessaire pour appeler une méthode de la classe depuis une autre méthode :
 
@@ -333,19 +337,23 @@ Lignes 6 et 7. La méthode `.affiche_message()` est exécutée. On peut se poser
 
 open-box-warn
 
-Même si on ne se sert d'aucun attribut dans une méthode, l'argument `self` (ou quel que soit son nom) est **strictement obligatoire**. En fait, la notation `citron1.affiche_message()` est équivalente à `Citron.affiche_message(citron1)` (testez les deux pour voir !) : dans cette dernière notation, on appelle la méthode accrochée à la classe `Citron` et on lui passe explicitement l'instance `citron1` en tant qu'argument. La notation `citron1.affiche_message()` contient donc en filligrane un argument, à savoir, la référence vers l'instance `citron1` que l'on appelle `self` au sein de la méthode.
+Même si on ne se sert d'aucun attribut dans une méthode, l'argument `self` (ou quel que soit son nom) est **strictement obligatoire**. En fait, la notation  
+`citron1.affiche_message()`  
+est équivalente à  
+`Citron.affiche_message(citron1)`  
+(testez les deux pour voir !) : dans cette dernière notation, on appelle la méthode accrochée à la classe `Citron` et on lui passe explicitement l'instance `citron1` en tant qu'argument. La notation `citron1.affiche_message()` contient donc en filligrane un argument, à savoir, la référence vers l'instance `citron1` que l'on appelle `self` au sein de la méthode.
 
 close-box-warn
 
 open-box-adv
 
-C'est bien-sûr la première notation `citron1.affiche_attributs()` (ou plus généralement `instance.méthode()`), plus compacte, qui sera toujours utilisée.
+C'est bien sûr la première notation `citron1.affiche_attributs()` (ou plus généralement `instance.méthode()`), plus compacte, qui sera toujours utilisée.
 
 close-box-adv
 
-Ligne 11. On crée l'instance `citron1` en lui passant l'argument `"jaune pâle"`. La variable d'instance `couleur` prendra ainsi cette valeur au lieu de celle par défaut ("jaune"). A noter, l'instanciation affichera le message `Le citron c'est trop bon !` puisque la méthode `.affiche_attributs()` est appelée dans le constructeur `.__init__()`.
+Ligne 11. On crée l'instance `citron1` en lui passant l'argument `"jaune pâle"`. La variable d'instance `couleur` prendra ainsi cette valeur au lieu de celle par défaut (`"jaune"`). À noter, l'instanciation affichera le message `Le citron c'est trop bon !` puisque la méthode `.affiche_attributs()` est appelée dans le constructeur `.__init__()`.
 
-Afin de bien comprendre les différentes étapes des codes de cette rubrique, nous vous conseillons de les retester de votre côté dans Python Tutor.
+Afin de bien comprendre les différentes étapes des codes de cette rubrique, nous vous conseillons de les retester de votre côté dans *Python Tutor*.
 
 ### Différence entre les attributs de classe et d'instance
 
@@ -385,13 +393,13 @@ Lignes 6 à 8. Nous créons trois variables d'instance qui seront spécifiques �
 
 Lignes 10 et 11. On crée une nouvelle méthode `.ajoute_masse()` qui augmente l'attribut d'instance `.masse`.
 
-Ligne 14 à 21. Dans le programme principal, on instancie la classe Citron sans passer d'argument (les valeurs par défaut `"jaune"`, `"standard"` et `0` seront donc prises), puis on imprime les attributs.
+Ligne 14 à 21. Dans le programme principal, on instancie la classe `Citron` sans passer d'argument (les valeurs par défaut `"jaune"`, `"standard"` et `0` seront donc prises), puis on imprime les attributs.
 
-Regardons l'état des variables après avoir exécuté ce code grâce au site [Python Tutor](http://www.pythontutor.com) dans la Figure @fig:classe_var_instance.
+Regardons l'état des variables après avoir exécuté ce code grâce au site [*Python Tutor*](http://www.pythontutor.com) dans la figure @fig:classe_var_instance.
 
-![Illustration de la signification des attributs de classe et d'instance avec Python Tutor](img/classe_var_instance.png){ #fig:classe_var_instance width=90%}
+![Illustration de la signification des attributs de classe et d'instance avec *Python Tutor*.](img/classe_var_instance.png){ #fig:classe_var_instance width=90%}
 
-Python Tutor nous montre bien la différence entre les variables de classe `forme` et `saveur` qui apparaissent directement dans les attributs de la classe `Citron` lors de sa définition, et les trois variables d'instance `couleur`, `taille` et `masse` qui sont liées à l'instance `citron1`. Pour autant, on peut voir dans la dernière instruction `print()` qu'on accède de la même manière aux variables de classe ou d'instance, lorsqu'on est à l'extérieur, avec une syntaxe `instance.attribut`.
+*Python Tutor* nous montre bien la différence entre les variables de classe `forme` et `saveur` qui apparaissent directement dans les attributs de la classe `Citron` lors de sa définition, et les trois variables d'instance `couleur`, `taille` et `masse` qui sont liées à l'instance `citron1`. Pour autant, on peut voir dans la dernière instruction `print()` qu'on accède de la même manière aux variables de classe ou d'instance, lorsqu'on est à l'extérieur, avec une syntaxe `instance.attribut`.
 
 Au sein des méthodes, on accède également de la même manière aux attributs de classe ou d'instance, avec une syntaxe `self.attribut` :
 
@@ -412,11 +420,17 @@ if __name__ == '__main__':
     citron1.affiche_attributs()
 ```
 
-Ce code va afficher la phrase `attribut de classe: acide, attribut d'instance: jaune`.
+Ce code va afficher la phrase
+
+```
+attribut de classe: acide, attribut d'instance: jaune
+```
 
 En résumé, qu'on ait des attributs de classe ou d'instance, on peut accèder à eux de l'extérieur par `instance.attribut` et de l'intérieur par `self.attribut`.
 
-Qu'en est-il de la manière de modifier ces deux types d'attributs ? Les attributs d'instance peuvent se modifier sans problème de l'extérieur avec une syntaxe `instance.attribut_d_instance = nouvelle_valeur` et de l'intérieur avec une syntaxe `self.attribut_d_instance = nouvelle_valeur`. Ce n'est pas du tout le cas avec les attributs de classe.
+Qu'en est-il de la manière de modifier ces deux types d'attributs ? Les attributs d'instance peuvent se modifier sans problème de l'extérieur avec une syntaxe  
+`instance.attribut_d_instance = nouvelle_valeur` et de l'intérieur avec une syntaxe  
+`self.attribut_d_instance = nouvelle_valeur`. Ce n'est pas du tout le cas avec les attributs de classe.
 
 open-box-warn
 
@@ -440,13 +454,13 @@ if __name__ == '__main__':
     del citron1.saveur
 ```
 
-A la Ligne 7, on pourrait penser qu'on modifie l'attribut de classe `saveur` avec une syntaxe `instance.attribut_de_classe = nouvelle_valeur`. Que se passe-t-il exactement ? La Figure @fig:classe_var_instance3 nous montre l'état des variables grâce au site Python Tutor. Celui-ci indique que la Ligne 7 a en fait créé un nouvel attribut d'instance `citron1.saveur` (contenant la valeur `sucrée`) qui est bien distinct de l'attribut de classe auquel on accédait avant par le même nom !
+À la ligne 7, on pourrait penser qu'on modifie l'attribut de classe `saveur` avec une syntaxe `instance.attribut_de_classe = nouvelle_valeur`. Que se passe-t-il exactement ? La figure @fig:classe_var_instance3 nous montre l'état des variables grâce au site *Python Tutor*. Celui-ci indique que la ligne 7 a en fait créé un nouvel attribut d'instance `citron1.saveur` (contenant la valeur `sucrée`) qui est bien distinct de l'attribut de classe auquel on accédait avant par le même nom !
 
-![Illustration avec Python Tutor de la non destruction d'un attribut de classe (étape 1)](img/classe_var_instance2.png){ #fig:classe_var_instance2 width=90%}
+![Illustration avec *Python Tutor* de la non destruction d'un attribut de classe (étape 1).](img/classe_var_instance2.png){ #fig:classe_var_instance2 width=90%}
 
-A la Ligne 9, on détruit finalement l'attribut d'instance `citron1.saveur` qui contenait la valeur `sucrée`. Python Tutor nous montre que la notation `citron1.saveur` pointe maintenant vers l'espace `Citron instance` qui est vide ; ainsi, Python utilisera alors l'attribut de classe `.saveur` qui contient toujours la valeur `acide` (cf. Figure @fig:classe_var_instance3).
+À la ligne 9, on détruit finalement l'attribut d'instance `citron1.saveur` qui contenait la valeur `sucrée`. *Python Tutor* nous montre que la notation `citron1.saveur` pointe maintenant vers l'espace `Citron instance` qui est vide ; ainsi, Python utilisera alors l'attribut de classe `.saveur` qui contient toujours la valeur `acide` (cf. figure @fig:classe_var_instance3).
 
-![Illustration avec Python Tutor de la non destruction d'un attribut de classe (étape 3)](img/classe_var_instance3.png){ #fig:classe_var_instance3 width=90%}
+![Illustration avec *Python Tutor* de la non destruction d'un attribut de classe (étape 3).](img/classe_var_instance3.png){ #fig:classe_var_instance3 width=90%}
 
 La ligne 11 va tenter de détruire l'attribut de classe `.saveur`. Toutefois, Python interdit cela, ainsi l'erreur suivante sera générée :
 
@@ -457,7 +471,9 @@ Traceback (most recent call last):
 AttributeError: saveur
 ```
 
-En fait, la seule manière de modifier un attribut de classe est d'utiliser une syntaxe `NomClasse.attribut_de_classe = nouvelle_valeur`, dans l'exemple ci-dessus cela aurait été `Citron.saveur = "sucrée"`. De même, pour sa destruction, il faudra utiliser la même syntaxe : `del Citron.saveur`.
+En fait, la seule manière de modifier un attribut de classe est d'utiliser une syntaxe  
+`NomClasse.attribut_de_classe = nouvelle_valeur`,  
+dans l'exemple ci-dessus cela aurait été `Citron.saveur = "sucrée"`. De même, pour sa destruction, il faudra utiliser la même syntaxe : `del Citron.saveur`.
 
 open-box-adv
 
@@ -469,21 +485,21 @@ close-box-adv
 
 ## Espace de noms
 
-Nous faisons ici une petite digression sur le concept d'**espace de noms**, car il est important de bien le comprendre lorsqu'on étudie les classes. Nous avons déjà croisé ce concept à plusieurs reprises. D'abord dans les modules (Chapitre 8), puis dans les fonctions (chapitres 9 et 12), et maintenant dans les classes (présent chapitre). De quoi s'agit-il ?
+Nous faisons ici une petite digression sur le concept d'**espace de noms**, car il est important de bien le comprendre lorsqu'on étudie les classes. Nous avons déjà croisé ce concept à plusieurs reprises. D'abord dans les modules (chapitre 8), puis dans les fonctions (chapitres 9 et 12), et maintenant dans les classes (présent chapitre). De quoi s'agit-il ?
 
 open-box-def
 
-Dans la [documentation officielle](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces), un espace de noms est défini comme suit : *a namespace is a mapping from names to objects*. Un espace de noms, c'est finalement une correspondance entre des noms et des objets. Un espace de noms peut être vu aussi comme une capsule dans laquelle on trouve des noms d'objets : par exemple, le programme principal ou une fonction représentent chacun un espace de noms, un module aussi, et bien-sûr une classe ou l'instance d'une classe également.
+Dans la [documentation officielle](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces), un espace de noms est défini comme suit : « *a namespace is a mapping from names to objects* ». Un espace de noms, c'est finalement une correspondance entre des noms et des objets. Un espace de noms peut être vu aussi comme une capsule dans laquelle on trouve des noms d'objets : par exemple, le programme principal ou une fonction représentent chacun un espace de noms, un module aussi, et bien sûr une classe ou l'instance d'une classe également.
 
 close-box-def
 
-Différents espaces de noms peuvent contenir des objets de même nom sans que cela ne pose de problème. Parce-qu'ils sont chacun dans un espace différent, ils peuvent cohabiter sans risque d'écrasement de l'un par l'autre. Par exemple, à chaque fois que l'on appelle une fonction, un espace de noms est créé pour cette fonction (Python Tutor nous montre cet espace sous la forme d'un carré bleu, cf. Chapitres 9 et 12 sur les fonctions). Si cette fonction appelle une autre fonction, un nouvel espace est créé, bien distinct de la fonction appelante (ce nouvel espace peut donc contenir un objet de même nom). Finalement, ce qui va compter, c'est de savoir quelles règles Python va utiliser pour chercher les différents espaces de noms pour finalement accéder à un objet.
+Différents espaces de noms peuvent contenir des objets de même nom sans que cela ne pose de problème. Parce qu'ils sont chacun dans un espace différent, ils peuvent cohabiter sans risque d'écrasement de l'un par l'autre. Par exemple, à chaque fois que l'on appelle une fonction, un espace de noms est créé pour cette fonction (*Python Tutor* nous montre cet espace sous la forme d'un carré bleu, cf. chapitres 9 et 12 sur les fonctions). Si cette fonction appelle une autre fonction, un nouvel espace est créé, bien distinct de la fonction appelante (ce nouvel espace peut donc contenir un objet de même nom). Finalement, ce qui va compter, c'est de savoir quelles règles Python va utiliser pour chercher les différents espaces de noms pour finalement accéder à un objet.
 
 Nous allons dans cette rubrique refaire le point sur ce que l'on a appris dans cet ouvrage sur les espaces de noms en Python, puis se pencher sur les spécificités de ce concept dans les classes.
 
 ### Rappel sur la règle LGI
 
-Comme vu dans le Chapitre 9, la règle LGI peut être résumée ainsi : *Local > Global > Interne*. Lorsque Python rencontre un objet il utilise cette règle de priorité pour accéder à la valeur de celui-ci. Si on est dans une fonction (ou une méthode), Python va d'abord chercher l'espace de noms *local* à cette fonction. S'il ne trouve pas de nom il va ensuite chercher l'espace de noms du programme principal (ou celui du module), donc des variables *globales* s'y trouvant. S'il ne trouve pas de nom, il va chercher dans les commandes *internes* à Python (on parle des [*Built-in Functions*](https://docs.python.org/3/library/functions.html) et des [*Built-in Constants*](https://docs.python.org/3/library/constants.html)). Si aucun objet n'est trouvé, Python renvoie une erreur.
+Comme vu dans le chapitre 9, la règle LGI peut être résumée ainsi : *Local > Global > Interne*. Lorsque Python rencontre un objet, il utilise cette règle de priorité pour accéder à la valeur de celui-ci. Si on est dans une fonction (ou une méthode), Python va d'abord chercher l'espace de noms *local* à cette fonction. S'il ne trouve pas de nom il va ensuite chercher l'espace de noms du programme principal (ou celui du module), donc des variables *globales* s'y trouvant. S'il ne trouve pas de nom, il va chercher dans les commandes *internes* à Python (on parle des [*Built-in Functions*](https://docs.python.org/3/library/functions.html) et des [*Built-in Constants*](https://docs.python.org/3/library/constants.html)). Si aucun objet n'est trouvé, Python renvoie une erreur.
 
 ### Gestion des noms dans les modules
 
@@ -537,7 +553,7 @@ Lignes 4 et 5. Lorsqu'on exécute `mod.fct()`, la valeur de `i` sera celle défi
 
 Lignes 6 et 7. De retour dans notre programme principal, les variables `i` et `j` existent toujours et n'ont pas été modifiées par l'exécution de fonctions du module `mod.py`.
 
-En résumé, lorsqu'on lance une méthode d'un module, c'est l'espace de noms de celui-ci qui est utilisé. Bien-sûr, toutes les variables du programme principal / fonction / méthode appelant ce module sont conservées telles quelles, et on les retrouve intactes lorsque la méthode du module est terminée. Un module a donc son propre espace de noms qui est bien distinct de tout programme principal / fonction / méthode appelant un composant de ce module.
+En résumé, lorsqu'on lance une méthode d'un module, c'est l'espace de noms de celui-ci qui est utilisé. Bien sûr, toutes les variables du programme principal / fonction / méthode appelant ce module sont conservées telles quelles, et on les retrouve intactes lorsque la méthode du module est terminée. Un module a donc son propre espace de noms qui est bien distinct de tout programme principal / fonction / méthode appelant un composant de ce module.
 
 ### Gestion des noms avec les classes
 
@@ -573,7 +589,7 @@ Dans citron1.affiche_attributs(): jaune foncé, très acide
 Dans prog principal: sucrée, orange
 ```
 
-Les deux variables globales `saveur` et `couleur` du programme principal ne peuvent pas être confondues avec les variables d'instance portant le même nom. Au sein de la classe, on utilisera pour récupérer ces dernières `self.saveur` et `self.couleur`. A l'extérieur, on utilisera `instance.saveur` et `instance.couleur`. Il n'y a donc aucun risque de confusion possible avec les variables globales `saveur` et `couleur`, on accède à chaque variable de la classe avec un nom distinct (qu'on soit à l'intérieur ou à l'extérieur de la classe).
+Les deux variables globales `saveur` et `couleur` du programme principal ne peuvent pas être confondues avec les variables d'instance portant le même nom. Au sein de la classe, on utilisera pour récupérer ces dernières `self.saveur` et `self.couleur`. À l'extérieur, on utilisera `instance.saveur` et `instance.couleur`. Il n'y a donc aucun risque de confusion possible avec les variables globales `saveur` et `couleur`, on accède à chaque variable de la classe avec un nom distinct (qu'on soit à l'intérieur ou à l'extérieur de la classe).
 
 Ceci est également vrai pour les méthodes. Si par exemple, on a une méthode avec un certain nom, et une fonction du module principal avec le même nom, regardons ce qui se passe :
 
@@ -607,11 +623,11 @@ Coucou interne !
 Coucou externe
 ```
 
-A nouveau, il n'y a pas de conflit possible pour l'utilisation d'une méthode ou d'une fonction avec le même nom. A l'intérieur de la classe on utilise `self.affiche_coucou()` pour la méthode et `affiche_coucou()` pour la fonction. A l'extérieur de la classe, on utilise `instance.affiche_coucou()` pour la méthode et `affiche_coucou()` pour la fonction.
+À nouveau, il n'y a pas de conflit possible pour l'utilisation d'une méthode ou d'une fonction avec le même nom. À l'intérieur de la classe on utilise `self.affiche_coucou()` pour la méthode et `affiche_coucou()` pour la fonction. À l'extérieur de la classe, on utilise `instance.affiche_coucou()` pour la méthode et `affiche_coucou()` pour la fonction.
 
-Dans cette rubrique, nous venons de voir une propriété des classes extrêmement puissante : **une classe crée automatiquement son propre espace de noms**. Cela permet d'encapsuler à l'intérieur tous les attributs et méthodes dont on a besoin, sans avoir aucun risque de conflit de nom avec l'extérieur (variables locales, globales, ou provenant de modules). L'utilisation de classes permettra ainsi d'éviter l'utilisation de variables globales, qui on l'a vu au Chapitres 9 et 12 sur les fonctions sont à proscrire absolument. Tout cela concourt à rendre le code plus lisible.
+Dans cette rubrique, nous venons de voir une propriété des classes extrêmement puissante : **une classe crée automatiquement son propre espace de noms**. Cela permet d'encapsuler à l'intérieur tous les attributs et méthodes dont on a besoin, sans avoir aucun risque de conflit de nom avec l'extérieur (variables locales, globales ou provenant de modules). L'utilisation de classes permettra ainsi d'éviter l'utilisation de variables globales qui, on l'a vu aux chapitres 9 et 12 sur les fonctions, sont à proscrire absolument. Tout cela concourt à rendre le code plus lisible.
 
-Dans le Chapitre 20 *Fenêtres graphiques et tkinter*, vous verrez une démonstration de l'utilité de tout encapsuler dans une classe afin d'éviter les variables globales.
+Dans le chapitre 20 *Fenêtres graphiques et tkinter*, vous verrez une démonstration de l'utilité de tout encapsuler dans une classe afin d'éviter les variables globales.
 
 ### Gestion des noms entre les attributs de classe et d'instance
 
@@ -619,23 +635,20 @@ Si vous lisez cette rubrique sur l'espace de noms sans avoir lu ce chapitre depu
 
 ### Pour aller plus loin
 
-open-box-more
+Il existe d'autres règles concernant les espace de noms. L'une d'elle, que vous pourriez rencontrer, concerne la gestion des noms avec des fonctions imbriquées. Et oui, Python autorise cela ! Par exemple :
 
-- Il existe d'autres règles concernant les espace de noms. L'une d'elle que vous pourriez rencontrer concerne la gestion des noms avec des fonctions imbriquées. Et oui Python autorise cela ! Par exemple :
+```
+def fonction1():
+    [...]
 
-	```
-	def fonction1():
+    def fct_dans_fonction1():
         [...]
+```
 
-        def fct_dans_fonction1():
-            [...]
-	```
-
-	Là encore, il existe certaines règles de priorités d'accès aux objets spécifiques à ce genre de cas, avec l'apparition d'un nouveau mot-clé nommé `nonlocal`. Toutefois ces aspects vont au-delà du présent ouvrage. Pour plus d'informations sur les fonctions imbriquées et la directive `nonlocal`, vous pouvez consulter la [documentation officielle](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces).
+Là encore, il existe certaines règles de priorités d'accès aux objets spécifiques à ce genre de cas, avec l'apparition d'un nouveau mot-clé nommé `nonlocal`. Toutefois ces aspects vont au-delà du présent ouvrage. Pour plus d'informations sur les fonctions imbriquées et la directive `nonlocal`, vous pouvez consulter la [documentation officielle](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces).
 
 - D'autres subtilités concerneront la gestion des noms en cas de définition d'une nouvelle classe héritant d'une classe mère. Ces aspects sont présentés dans la rubrique *Héritage* de ce chapitre.
 
-close-box-more
 
 ## Polymorphisme
 
@@ -675,13 +688,13 @@ Un exemple classique de redéfinition des opérateurs concerne l'opérateur `+`.
 'titi'
 ```
 
-Nous verrons dans la rubrique suivante sur *l'héritage* qu'il est également possible de redéfinir des méthodes d'une classe, c'est à dire leur donner une nouvelle définition.
+Nous verrons dans la rubrique suivante sur *l'héritage* qu'il est également possible de redéfinir des méthodes d'une classe, c'est-à-dire leur donner une nouvelle définition.
 
 Comment Python permet-il ces prouesses que sont le polymorphisme et la redéfinition des opérateurs ? Et bien, il utilise des méthodes dites *magiques*.
 
 open-box-def
 
-Une méthode magique (*magic method*) est une méthode spéciale dont le nom est entouré de double *underscores*. Par exemple, la méthode `.__init__()` est une méthode magique. Ces méthodes sont la plupart du temps destinées au fonctionnement interne de la classe. Beaucoup d'entre elles permettent de changer le comportement de fonctions ou opérateurs internes à Python avec les instances d'une classe que l'on a créée.
+Une méthode magique (*magic method*) est une méthode spéciale dont le nom est entouré de double *underscores*. Par exemple, la méthode `.__init__()` est une méthode magique. Ces méthodes sont, la plupart du temps, destinées au fonctionnement interne de la classe. Beaucoup d'entre elles permettent de changer le comportement de fonctions ou opérateurs internes à Python avec les instances d'une classe que l'on a créée.
 
 close-box-def
 
@@ -738,7 +751,7 @@ Si on conçoit une classe produisant des objets séquentiels (comme des listes o
 - `.__len__()` : redéfinit le comportement de la fonction `len()`
 - `.__getslice__()` : redéfinit le comportement avec les tranches
 
-Certaines méthodes magiques permettent de faire des choses assez impressionnantes. La méthode `.__call__()` permet de créer des instances que l'on peut appeler comme des fonctions ! Dans cet exemple nous allons vous montrer que l'on peut ainsi créer un moyen innatendu pour mettre à jour des attributs d'instance :
+Certaines méthodes magiques permettent de faire des choses assez impressionnantes. La méthode `.__call__()` permet de créer des instances que l'on peut appeler comme des fonctions ! Dans cet exemple, nous allons vous montrer que l'on peut ainsi créer un moyen innatendu pour mettre à jour des attributs d'instance :
 
 ```
 class Citronnier:
@@ -749,7 +762,8 @@ class Citronnier:
         self.nbcitrons, self.age = nbcitrons, age
 
     def __repr__(self):
-        return "Ce citronnier a {} ans et {} citrons".format(self.age, self.nbcitrons)
+        return "Ce citronnier a {} ans et {} citrons" \
+               .format(self.age, self.nbcitrons)
 
 
 if __name__ == '__main__':
@@ -759,7 +773,7 @@ if __name__ == '__main__':
     print(citronnier1)
 ```
 
-A la Ligne 15, on utilise une notation `instance(arg1, arg2)`, ce qui va automatiquement appeler la méthode magique `.__call__()` qui mettra à jour les deux attributs d'instance `nbcitrons` et `age` (Lignes 5 et 6). Ce code affichera la sortie suivante :
+À la ligne 15, on utilise une notation `instance(arg1, arg2)`, ce qui va automatiquement appeler la méthode magique `.__call__()` qui mettra à jour les deux attributs d'instance `nbcitrons` et `age` (Lignes 5 et 6). Ce code affichera la sortie suivante :
 
 ```
 Ce citronnier a 3 ans et 10 citrons
@@ -768,7 +782,7 @@ Ce citronnier a 4 ans et 30 citrons
 
 open-box-more
 
-- Nous vous avons montré l'idée qu'il y avait derrière le polymorphisme, et avec cela vous avez assez pour vous jeter à l'eau et commencer à construire vos propres classes. L'apprentissage de toutes les méthodes magiques va bien-sûr au-delà du présent ouvrage. Toutefois, si vous souhaitez aller plus loin, nous vous conseillons la [page de Rafe Kettler](https://rszalski.github.io/magicmethods) qui est particulièrement complète et très bien faite.
+- Nous vous avons montré l'idée qu'il y avait derrière le polymorphisme, et avec cela vous avez assez pour vous jeter à l'eau et commencer à construire vos propres classes. L'apprentissage de toutes les méthodes magiques va bien sûr au-delà du présent ouvrage. Toutefois, si vous souhaitez aller plus loin, nous vous conseillons la [page de Rafe Kettler](https://rszalski.github.io/magicmethods) qui est particulièrement complète et très bien faite.
 
 close-box-more
 
@@ -784,7 +798,7 @@ En programmation, l'héritage est la capacité d'une classe d'hériter des propr
 
 close-box-def
 
-En Python, lorsque l'on veut créer une classe héritant d'une autre classe, on ajoutera après le nom de la classe fille le nom de la ou des classes mère(s) entre parenthèses :
+En Python, lorsque l'on veut créer une classe héritant d'une autre classe, on ajoutera après le nom de la classe fille le nom de la ou des classe(s) mère(s) entre parenthèses :
 
 ```
 class Mere1:
@@ -803,7 +817,7 @@ class Fille2(Mere1, Mere2):
     # contenu de la classe fille 2
 ```
 
-Dans cet exemple, la classe Fille1 hérite de la classe Mere1, et la classe Fille2 hérite des deux classes Mere1 et Mere2. Voyons maintenant un exemple concret :
+Dans cet exemple, la classe `Fille1` hérite de la classe `Mere1`, et la classe `Fille2` hérite des deux classes `Mere1` et `Mere2`. Voyons maintenant un exemple concret :
 
 ```
 class Mere:
@@ -845,7 +859,9 @@ True
 True
 ```
 
-Si une méthode de la classe fille possède le même nom que celle de la classe mère, c'est la première qui prend la priorité. Dans ce cas, on dit que la méthode est *redéfinie* (en anglais on parle de *method overriding*), tout comme on parlait de *redéfinition des opérateurs* un peu plus haut. C'est le même mécanisme, car la redéfinition des opérateurs revient finalement à redéfinir une méthode magique (comme par exemple la méthode `.__add__()` pour l'opérateur `+`). Voyons un exemple :
+Si une méthode de la classe fille possède le même nom que celle de la classe mère, c'est la première qui prend la priorité. Dans ce cas, on dit que la méthode est *redéfinie* (en anglais on parle de *method overriding*), tout comme on parlait de *redéfinition des opérateurs* un peu plus haut. C'est le même mécanisme, car la redéfinition des opérateurs revient finalement à redéfinir une méthode magique (comme par exemple la méthode `.__add__()` pour l'opérateur `+`).
+
+Voyons un exemple :
 
 ```
 class Mere:
@@ -867,13 +883,13 @@ Ce code va afficher `Vous avez le bonjour de la classe fille !`. La méthode `.b
 
 open-box-rem
 
-A ce point, nous pouvons faire une note de sémantique importante. Python utilise le mécanisme de *redéfinition de méthode* (*method overriding*), c'est à dire qu'on redéfinit une méthode héritée d'une classe mère. Il ne faut pas confondre cela avec la *surcharge de fonction* (*function overloading*) qui désigne le fait d'avoir plusieurs définitions d'une fonction selon le nombres d'arguments et/ou leur type (la surcharge n'est pas supportée par Python contrairement à d'autres langages orientés objet).
+À ce point, nous pouvons faire une note de sémantique importante. Python utilise le mécanisme de *redéfinition de méthode* (*method overriding*), c'est à dire qu'on redéfinit une méthode héritée d'une classe mère. Il ne faut pas confondre cela avec la *surcharge de fonction* (*function overloading*) qui désigne le fait d'avoir plusieurs définitions d'une fonction selon le nombres d'arguments et/ou leur type (la surcharge n'est pas supportée par Python contrairement à d'autres langages orientés objet).
 
 close-box-rem
 
 ### Ordre de résolution
 
-Vous l'avez compris, il y aura un ordre pour la résolution des noms d'attributs ou de méthodes en fonction du ou des héritage(s) de notre classe. Prenons l'exemple d'une classe déclarée comme suit `class Fille(Mere1, Mere2):`. Si on invoque un attribut ou une méthode sur une instance de cette classe, Python cherchera d'abord dans la classe `Fille`. S'il ne trouve pas, il cherchera ensuite dans la première classe mère (`Mere1` dans notre exemple). S'il ne trouve pas, il cherchera dans les ancêtres de cette première mère (si elle en a), et ce en remontant la filiation (d'abord la grand-mère, puis l'arrière grand-mère, etc). S'il n'a toujours pas trouvé, il cherchera dans la deuxième classe mère (`Mere2` dans notre exemple) puis dans tous ses ancêtres. Et ainsi de suite, s'il y a plus de deux classes mères. Bien-sûr, si aucun attribut ou méthode n'est trouvé(e), Python renverra une erreur.
+Vous l'avez compris, il y aura un ordre pour la résolution des noms d'attributs ou de méthodes en fonction du ou des héritage(s) de notre classe. Prenons l'exemple d'une classe déclarée comme suit `class Fille(Mere1, Mere2):`. Si on invoque un attribut ou une méthode sur une instance de cette classe, Python cherchera d'abord dans la classe `Fille`. S'il ne trouve pas, il cherchera ensuite dans la première classe mère (`Mere1` dans notre exemple). S'il ne trouve pas, il cherchera dans les ancêtres de cette première mère (si elle en a), et ce en remontant la filiation (d'abord la grand-mère, puis l'arrière grand-mère, etc). S'il n'a toujours pas trouvé, il cherchera dans la deuxième classe mère (`Mere2` dans notre exemple) puis dans tous ses ancêtres. Et ainsi de suite, s'il y a plus de deux classes mères. Bien sûr, si aucun attribut ou méthode n'est trouvé, Python renverra une erreur.
 
 Il est en général possible d'avoir des informations sur l'ordre de résolution des méthodes d'une classe en évoquant la commande `help()` sur celle-ci ou une de ses instances. Par exemple, nous verrons dans le chapitre suivant le module *tkinter*, imaginons que nous créions une instance de la classe principale du module *tkinter* nommée `Tk` :
 
@@ -931,7 +947,7 @@ L'aide nous montre que `Citron` a hérité de `builtins.object` bien que nous ne
 
 open-box-rem
 
-Le module `builtins` possède toutes les fonctions internes à Python. Il est donc pratique pour avoir une liste de toutes ces fonctions internes en un coup d'oeil. Essayons par exemple `import builtins` puis `dir(builtins)` :
+Le module `builtins` possède toutes les fonctions internes à Python. Il est donc pratique pour avoir une liste de toutes ces fonctions internes en un coup d'œil. Essayons par exemple `import builtins` puis `dir(builtins)` :
 
 ```
 >>> import builtins
@@ -946,7 +962,9 @@ Au début, on y trouve les exceptions commençant par une lettre majuscule (cf. 
 
 close-box-rem
 
-En résumé, la syntaxe `class Citron:` sera équivalente à `class Citron(builtins.object):` ou à `class Citron(object):`.
+En résumé, la syntaxe `class Citron:` sera équivalente à  
+`class Citron(builtins.object):`  
+ou à `class Citron(object):`.
 
 Ainsi, même si on crée une classe `Citron` vide (contenant seulement une commande `pass`), elle possède déjà tout une panoplie de méthodes héritées de la classe `object`. Regardez l'exemple suivant :
 
@@ -956,23 +974,24 @@ Ainsi, même si on crée une classe `Citron` vide (contenant seulement une comma
 ...
 >>> c = Citron()
 >>> dir(c)
-['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__',
-'__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__',
-'__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__',
-'__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
+'__format__', '__ge__', '__getattribute__', '__gt__', '__hash__',
+'__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__',
+'__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
+'__str__', '__subclasshook__', '__weakref__']
 >>> o = object()
 >>> dir(o)
-['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
-'__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__ne__',
-'__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
-'__str__', '__subclasshook__']
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__',
+'__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__',
+'__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__',
+'__setattr__', '__sizeof__', '__str__', '__subclasshook__']
 ```
 
-La quasi totalité des attributs / méthodes de base de la classe Citron sont donc hérité(e)s de la classe *object*. Par exemple, lorsqu'on instancie un objet Citron `c = Citron()`, Python utilisera la méthode `.__init__()` héritée de la classe *object*.
+La quasi-totalité des attributs / méthodes de base de la classe `Citron` sont donc hérités de la classe *object*. Par exemple, lorsqu'on instancie un objet Citron `c = Citron()`, Python utilisera la méthode `.__init__()` héritée de la classe *object*.
 
 ### Un exemple concret d'héritage
 
-Nous allons maintenant prendre un exemple un peu plus conséquent pour illustrer la puissance de l'héritage en programmation. D'abord quelques mots à propos de la conception. Imaginons que nous souhaitions créer plusieurs classes correspondant à nos fruits favoris, par exemple le citron (comme par hasard !), l'orange, le kaki, etc. Chaque fruit a ses propres particularités, mais il y a aussi de nombreux points communs. Nous pourrions donc concevoir une classe `Fruit` permettant par exemple d'instancier un fruit, ajouter des méthodes d'affichage commune à n'importe quel fruit, et ajouter toute méthode pouvant être utilisée pour n'importe quel fruit. Nous pourrions alors créer des classes comme `Citron`, `Orange` (etc), héritant de la classe `Fruit` et ainsi nous économiser des lignes de code identiques à ajouter pour chaque fruit. Regardons l'exemple suivant que nous avons garni de `print()` pour bien comprendre ce qui se passe :
+Nous allons maintenant prendre un exemple un peu plus conséquent pour illustrer la puissance de l'héritage en programmation. D'abord quelques mots à propos de la conception. Imaginons que nous souhaitions créer plusieurs classes correspondant à nos fruits favoris, par exemple le citron (comme par hasard !), l'orange, le kaki, etc. Chaque fruit a ses propres particularités, mais il y a aussi de nombreux points communs. Nous pourrions donc concevoir une classe `Fruit` permettant par exemple d'instancier un fruit, ajouter des méthodes d'affichage commune à n'importe quel fruit, et ajouter toute méthode pouvant être utilisée pour n'importe quel fruit. Nous pourrions alors créer des classes comme `Citron`, `Orange` (etc.), héritant de la classe `Fruit` et ainsi nous économiser des lignes de code identiques à ajouter pour chaque fruit. Regardons l'exemple suivant que nous avons garni de `print()` pour bien comprendre ce qui se passe :
 
 ```
 class Fruit:
@@ -982,12 +1001,12 @@ class Fruit:
         self.masse = masse # en gramme
         self.saveur = saveur
         self.forme = forme
-        print("Je viens de créer self.taille, self.masse, self.saveur et "
-              "self.forme")
+        print("Je viens de créer self.taille, self.masse, self.saveur "
+              "et self.forme")
 
     def affiche_conseil(self, type_fruit, conseil):
-        print("(2) Je suis dans la méthode .affiche_conseil() de la classe "
-              "Fruit\n")
+        print("(2) Je suis dans la méthode .affiche_conseil() de la "
+              "classe Fruit\n")
         return ("Instance {}\ntaille: {}, masse: {},\n"
                 "saveur: {}, forme: {}\nconseil: {}\n"
                 .format(type_fruit, self.taille, self.masse, self.saveur,
@@ -996,7 +1015,8 @@ class Fruit:
 
 class Citron(Fruit):
     def __init__(self, taille=None, masse=None, saveur=None, forme=None):
-        print("(1) Je rentre dans le constructeur de Citron, et je vais appeler\n"
+        print("(1) Je rentre dans le constructeur de Citron, et je vais"
+              "appeler\n"
               "le constructeur de la classe mère Fruit !")
         Fruit.__init__(self, taille, masse, saveur, forme)
         print("(3) J'ai fini dans le constructeur de Citron, "
@@ -1005,8 +1025,9 @@ class Citron(Fruit):
               .format(self.taille, self.masse, self.saveur, self.forme))
 
     def __repr__(self):
-        print("(1) Je rentre dans la méthode .__repr__() de la classe Citron")
-        print("Je vais lancer la méthode .affiche_conseil() héritée "
+        print("(1) Je rentre dans la méthode .__repr__() de la classe " \
+              "Citron")
+        print("Je vais lancer la méthode .affiche_conseil() héritée " \
               "de la classe Fruit")
         return self.affiche_conseil("Citron", "Bon en tarte :-p !")
 
@@ -1022,9 +1043,11 @@ Lignes 1 à 9. On crée la classe `Fruit` avec son constructeur qui initialisera
 
 Lignes 11 à 17. Création d'une méthode `.affiche_conseil()` qui retourne une chaîne contenant le type de fruit, les attributs d'instance du fruit, et un conseil de consommation.
 
-Lignes 20 à 28. Création de la classe `Citron` qui hérite de la classe `Fruit`. Le constructeur de `Citron` prend les mêmes arguments que ceux du constructeur de `Fruit`. La Ligne 24 est une étape importante que nous n'avons encore jamais vue : l'instruction `Fruit.__init__()` est un appel au constructeur de la classe mère (cf. explications plus bas). Notez bien que le premier argument passé au constructeur de la classe mère sera systématiquement l'instance en cours `self`. Le `print()` en Lignes 25-28 illustre qu'après l'appel du constructeur de la classe mère  tous les attributs d'instance (`self.taille`, `self.poids`, etc) ont bel et bien été créés.
+Lignes 20 à 28. Création de la classe `Citron` qui hérite de la classe `Fruit`. Le constructeur de `Citron` prend les mêmes arguments que ceux du constructeur de `Fruit`. La ligne 24 est une étape importante que nous n'avons encore jamais vue :  
+l'instruction `Fruit.__init__()` est un appel au constructeur de la classe mère (cf. explications plus bas). Notez bien que le premier argument passé au constructeur de la classe mère sera systématiquement l'instance en cours `self`. Le `print()` en lignes 25-28 illustre qu'après l'appel du constructeur de la classe mère  tous les attributs d'instance  
+(`self.taille`, `self.poids`, etc.) ont bel et bien été créés.
 
-Lignes 30 à 34. On définit la méthode `.__repr__()` qui va modifier le comportement de notre classe avec print. Celui-ci fait également appel à une méthode de la classe mère nommée `.affiche_conseil()`. Comme on a l'a héritée, elle est directement accessible avec un `self.méthode()` (et de l'extérieur ce serait `instance.méthode()`).
+Lignes 30 à 34. On définit la méthode `.__repr__()` qui va modifier le comportement de notre classe avec `print()`. Celui-ci fait également appel à une méthode de la classe mère nommée `.affiche_conseil()`. Comme on a l'a héritée, elle est directement accessible avec un `self.méthode()` (et de l'extérieur ce serait `instance.méthode()`).
 
 Lignes 37 à 40. Dans le programme principal, on instancie un objet `Citron`, puis on utilise `print()` sur l'instance.
 
@@ -1051,18 +1074,21 @@ conseil: Bon en tarte :-p !
 
 Prenez bien le temps de suivre ce code pas à pas pour bien en comprendre toutes les étapes.
 
-Vous pourrez vous poser la question *Pourquoi utilise-t-on en Ligne 24 la syntaxe* `Fruit.__init__()` *?*. Cette syntaxe est souvent utilisée lorsqu'une classe hérite d'une autre classe pour faire appel au constructeur de la classe mère. La raison est que nous souhaitons appeler une méthode de la classe mère qui a le même nom qu'une méthode de la classe fille. Dans ce cas, si on utilisait `self.__init__()`, cela correspondrait à la fonction de notre classe fille Citron. En mettant systématiquement une syntaxe `ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *tkinter* (cf. chapitre 20) permettant de construire des interfaces graphiques, nous en verrons de nombreux exemples.
+Vous pourrez vous poser la question *Pourquoi utilise-t-on en ligne 24 la syntaxe*  
+`Fruit.__init__()` *?*. Cette syntaxe est souvent utilisée lorsqu'une classe hérite d'une autre classe pour faire appel au constructeur de la classe mère. La raison est que nous souhaitons appeler une méthode de la classe mère qui a le même nom qu'une méthode de la classe fille. Dans ce cas, si on utilisait `self.__init__()`, cela correspondrait à la fonction de notre classe fille Citron. En mettant systématiquement une syntaxe  
+`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *tkinter* (cf. chapitre 20) permettant de construire des interfaces graphiques, nous en verrons de nombreux exemples.
 
 open-box-rem
 
-Si vous utilisez des ressources externes, il se peut que vous rencontriez une syntaxe `super().__init__()`. La fonction Python interne `super()` permet d'appeler automatiquement la classe mère sans que vous ayez à donner son nom. Même si cela peut paraître pratique, nous vous conseillons d'utiliser dans un premier temps la syntaxe `ClasseMere.__init__()` qui est selon nous plus lisible (on voit explicitement le nom de la classe utilisée, même s'il y a plusieurs classes mères).
+Si vous utilisez des ressources externes, il se peut que vous rencontriez une syntaxe `super().__init__()`. La fonction Python interne `super()` permet d'appeler automatiquement la classe mère sans que vous ayez à donner son nom. Même si cela peut paraître pratique, nous vous conseillons d'utiliser dans un premier temps la syntaxe  
+`ClasseMere.__init__()` qui est selon nous plus lisible (on voit explicitement le nom de la classe utilisée, même s'il y a plusieurs classes mères).
 
 close-box-rem
 
 Ce mécanisme n'est pas obligatoirement utilisé, mais il est très utile lorsqu'une classe fille a besoin d'initialiser des attributs définis dans la classe mère. On le croise donc souvent car :
 
 - Cela permet d'avoir la garantie que toutes les variables de la classe mère sont bien initialisées. On réduit ainsi les risques de dysfonctionnement des méthodes héritées de la classe mère.
-- Finalement, autant ré-utiliser les "moulinettes" de la classe mère, c'est justement à ça que sert l'héritage ! Au final, on écrit moins de lignes de code.
+- Finalement, autant ré-utiliser les « moulinettes » de la classe mère, c'est justement à ça que sert l'héritage ! Au final, on écrit moins de lignes de code.
 
 Vous avez à présent bien compris le fonctionnement du mécanisme de l'héritage. Dans notre exemple, nous pourrions créer de nouveaux fruits avec un minimum d'effort. Ceux-ci pourraient hériter de la classe mère `Fruit` à nouveau, et nous n'aurions pas à ré-écrire les mêmes méthodes pour chaque fruit, simplement à les appeler. Par exemple :
 
@@ -1072,7 +1098,8 @@ class Kaki(Fruit):
         Fruit.__init__(self, taille, masse, saveur, forme)
 
     def __repr__(self):
-        return Fruit.affiche_conseil(self, "Kaki", "Bon à manger cru, miam !")
+        return Fruit.affiche_conseil(self, "Kaki",
+                                     "Bon à manger cru, miam !")
 
 
 class Orange(Fruit):
@@ -1083,23 +1110,21 @@ class Orange(Fruit):
         return Fruit.affiche_conseil(self, "Orange", "Trop bon en jus !")
 ```
 
-Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on peut les utiliser en Python. Bien-sûr cet exemple reste simpliste et n'est qu'une "mise en bouche". Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 20 *Tkinter* sur les interfaces graphiques ainsi que dans les exercices du présent chapitre. En tkinter, chaque objet graphique (boutton, zone de texte, etc) est en fait une classe : ainsi on peut créer de nouvelles classes héritant des classes tkinter afin de personnaliser chaque objet graphique.
+Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on peut les utiliser en Python. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 20 *Tkinter* sur les interfaces graphiques ainsi que dans les exercices du présent chapitre. En tkinter, chaque objet graphique (boutton, zone de texte, etc.) est en fait une classe : ainsi on peut créer de nouvelles classes héritant des classes tkinter afin de personnaliser chaque objet graphique.
 
 ### Pour aller plus loin
 
-open-box-more
+À ce stade, nous pouvons émettre deux remarques :
 
-- L'héritage et le polymorphisme donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entrainer sur un maximim d'exemples.
+- L'héritage et le polymorphisme donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entrainer sur un maximum d'exemples.
 - Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), et [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
-
-close-box-more
 
 
 ## Accès et modifications des attributs depuis l'extérieur
 
 ### Le problème
 
-On a vu jusqu'à maintenant que Python était très permissif concernant le changement de valeur de n'importe quel attribut depuis l'extérieur. On a vu aussi qu'il était même possible de créer de nouveaux attributs depuis l'extérieur ! Dans d'autres langages orientés objet ceci n'est pas considéré comme une bonne pratique. Il est plutôt recommandé de définir une *interface*, c'est-à-dire tout un jeu de méthodes accédant ou modifiant les attributs. Ainsi, le concepteur de la classe peut avoir la garantie que celle-ci est utilisée correctement du "côté client".
+On a vu jusqu'à maintenant que Python était très permissif concernant le changement de valeur de n'importe quel attribut depuis l'extérieur. On a vu aussi qu'il était même possible de créer de nouveaux attributs depuis l'extérieur ! Dans d'autres langages orientés objet ceci n'est pas considéré comme une bonne pratique. Il est plutôt recommandé de définir une *interface*, c'est-à-dire tout un jeu de méthodes accédant ou modifiant les attributs. Ainsi, le concepteur de la classe peut avoir la garantie que celle-ci est utilisée correctement du « côté client ».
 
 open-box-rem
 
@@ -1142,7 +1167,7 @@ if __name__ == '__main__':
 
 Lignes 6 à 10. On définit deux méthodes *getters* permettant d'accéder à chaque attribut.
 
-Lignes 12 à 18. On définit deux méthodes *setters* permettant de modifier chaque attribut. Notez qu'en ligne 17 nous testons si la masse est négative, si tel est le cas nous générons une erreur avec le mot-clé `raise` (cf. rubrique *Erreurs et Exceptions* dans le chapitre 21 *Remarques complémentaires*). Ceci représente un des avantages des *setters* : contrôler la validité des attributs (on pourrait aussi vérifier qu'il s'agit d'une entier, etc).
+Lignes 12 à 18. On définit deux méthodes *setters* permettant de modifier chaque attribut. Notez qu'en ligne 17 nous testons si la masse est négative, si tel est le cas nous générons une erreur avec le mot-clé `raise` (cf. chapitre 21 *Remarques complémentaires*). Ceci représente un des avantages des *setters* : contrôler la validité des attributs (on pourrait aussi vérifier qu'il s'agit d'une entier, etc.).
 
 Lignes 21 à 28. Après instanciation, on affiche la valeur des attributs avec les deux fonctions *getters*, puis on les modifie avec les *setters* et on les réaffiche à nouveau.
 
@@ -1153,7 +1178,7 @@ jaune 0
 jaune foncé 100
 ```
 
-Si on avait mis `citron1.set_masse(-100)` en Ligne 26, la sortie aurait été la suivante :
+Si on avait mis `citron1.set_masse(-100)` en ligne 26, la sortie aurait été la suivante :
 
 ```
 jaune 0
@@ -1167,7 +1192,7 @@ ValueError: Z'avez déjà vu une masse négative ???
 
 La fonction interne `raise` nous a permis de générer une erreur car l'utilisateur de la classe (c'est-à-dire nous dans le programme principal !) n'a pas rentré une valeur correcte.
 
-On comprends bien l'utilité d'une stratégie avec des *getters* et *setters* dans cet exemple. Toutefois, en Python, on peut très bien accéder et modifier les attributs même si on a des *getters* et des *setters* dans la classe. Imaginons la même classe Citron que ci-dessus, mais on utilise le programme principal suivant (notez que nous avons simplement ajouter les Lignes 9 à 12 ci-dessous) :
+On comprends bien l'utilité d'une stratégie avec des *getters* et *setters* dans cet exemple. Toutefois, en Python, on peut très bien accéder et modifier les attributs même si on a des *getters* et des *setters* dans la classe. Imaginons la même classe `Citron` que ci-dessus, mais on utilise le programme principal suivant (notez que nous avons simplement ajouter les lignes 9 à 12 ci-dessous) :
 
 ```
 if __name__ == '__main__':
@@ -1194,7 +1219,7 @@ pourpre profond -15
 
 Malgré la présence des *getters* et des *setters*, nous avons réussi à accéder et à modifier la valeur des attributs. De plus, nous avons pu mettre une valeur aberrante (masse négative) sans que cela ne génère une erreur !
 
-Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt de mettre des *getters* et des *setters* en Python ? La réponse est très simple : cette  stratégie n'est pas une manière pythonique d'opérer (cf. chapitre 15 *Bonnes pratiques* pour la définition de "pythonique"). En Python, la lisibilité est la priorité. Souvenez-vous du Zen de Python *Readability counts* (cf. chapitre 15).
+Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt de mettre des *getters* et des *setters* en Python ? La réponse est très simple : cette  stratégie n'est pas une manière pythonique d'opérer (cf. chapitre 15 *Bonnes pratiques* pour la définition de « pythonique »). En Python, la lisibilité est la priorité. Souvenez-vous du Zen de Python *Readability counts* (cf. chapitre 15).
 
 De manière générale, une syntaxe avec des *getters* et *setters* du côté client surcharge la lecture. Imaginons que l'on ait une instance nommée `obj` et que l'on souhaite faire la somme de ses trois attributs `x`, `y` et `z` :
 
@@ -1206,9 +1231,9 @@ obj.x + obj.y + obj.z
 obj.get_x() + obj.get_y() + obj.get_z()
 ```
 
-La méthode pythonique est plus "douce" à lire, on parle aussi de *syntactic sugar* ou littéralement en français *sucre syntaxique*. De plus, à l'intérieur de la classe, il faut définir un *getter* et un *setter* pour chaque attribut, ce qui multiple les lignes de code.
+La méthode pythonique est plus « douce » à lire, on parle aussi de *syntactic sugar* ou littéralement en français *sucre syntaxique*. De plus, à l'intérieur de la classe, il faut définir un *getter* et un *setter* pour chaque attribut, ce qui multiple les lignes de code.
 
-Très bien. Donc en Python, on n'utilise pas comme dans les autres langages orientés objet les *getters* et les *setters*  ? Mais tout de même cela avait l'air une bonne idée de pouvoir contrôler comment un utilisateur de la classe interagit avec certains attributs (par exemple, rentre-t-il une bonne valeur ?). N'existe-t-il pas un moyen de faire ça en Python ? La réponse est : bien-sûr il existe un moyen pythonique, la classe *property*. Nous allons voir cette nouvelle classe dans la prochaine rubrique et nous vous dirons comment opérer systématiquement pour accéder, modifier, voire détruire, chaque attribut d'instance de votre classe.
+Très bien. Donc en Python, on n'utilise pas comme dans les autres langages orientés objet les *getters* et les *setters*  ? Mais, tout de même, cela avait l'air une bonne idée de pouvoir contrôler comment un utilisateur de la classe interagit avec certains attributs (par exemple, rentre-t-il une bonne valeur ?). N'existe-t-il pas un moyen de faire ça en Python ? La réponse est : bien sûr il existe un moyen pythonique, la classe *property*. Nous allons voir cette nouvelle classe dans la prochaine rubrique et nous vous dirons comment opérer systématiquement pour accéder, modifier, voire détruire, chaque attribut d'instance de votre classe.
 
 ### La solution : la classe property
 
@@ -1220,13 +1245,15 @@ Toutefois, si on souhaite contrôler l'accès, la modification (voire la destruc
 attribut = property(fget=accesseur, fset=mutateur, fdel=destructeur)
 ```
 
-Les arguments passés à `property()` sont systématiquement des méthodes dites *callback*, c'est-à-dire, des noms de fonctions que l'on a définies précédemment dans notre classe, mais on ne précise aucun argument ni parenthèse (cf. Chapitre 20 *Tkinter*). Avec cette ligne de code, `attribut` est un objet de type *property* qui fonctionne de la manière suivante à l'extérieur de la classe :
+Les arguments passés à `property()` sont systématiquement des méthodes dites *callback*, c'est-à-dire des noms de fonctions que l'on a définies précédemment dans notre classe, mais on ne précise aucun argument ni parenthèse (cf. chapitre 20 *Tkinter*). Avec cette ligne de code, `attribut` est un objet de type *property* qui fonctionne de la manière suivante à l'extérieur de la classe :
 
 - L'instruction `instance.attribut` appellera la méthode `.accesseur()`.
-- L'instruction `instance.attribut = valeur` appellera la méthode `.mutateur()`.
-- L'instruction `del instance.attribut` appellera la méthode `.destructeur()`.
+- L'instruction `instance.attribut = valeur` appellera la méthode  
+`.mutateur()`.
+- L'instruction `del instance.attribut` appellera la méthode  
+`.destructeur()`.
 
-L'objet `attribut` est de type *property*, et la vraie valeur de l'attribut est stocké par Python dans une variable d'instance qui s'appellera `_attribut` (même nom mais commençant par un *underscore* unique).
+L'objet `attribut` est de type *property*, et la vraie valeur de l'attribut est stockée par Python dans une variable d'instance qui s'appellera `_attribut` (même nom mais commençant par un *underscore* unique).
 
 Comment cela fonctionne-t-il concrètement dans un code ? Regardons cet exemple (nous avons mis des `print()` un peu partout pour bien comprendre ce qui se passe) :
 
@@ -1243,7 +1270,8 @@ class Citron:
     def set_masse(self, valeur):
         print("Coucou je suis dans le set")
         if valeur < 0:
-            raise ValueError("Z'avez déjà vu une masse négative ? C'est nawak")
+            raise ValueError("Z'avez déjà vu une masse négative ?" \
+                             "C'est nawak")
         self._masse = valeur
 
     masse = property(fget=get_masse, fset=set_masse)
@@ -1263,21 +1291,22 @@ if __name__ == '__main__':
 
 Pour une fois, nous allons commenter les lignes dans le désordre :
 
-Ligne 16. Il s'agit de la commande clé pour mettre en place le système : `masse` devient ici un objet de type *property* (si on regarde son contenu avec une syntaxe `NomClasse.attribut_property`, donc ici `Citron.masse`, Python nous renverra quelque chose de ce style : `<property object at 0x7fd3615aeef8>`). Qu'est-ce que cela signifie ? Et bien la prochaine fois qu'on voudra accéder au contenu de cet attribut `.masse` Python appellera la méthode `.get_masse()`, et quand on voudra le modifier Python appellera la méthode `.set_masse()` (ceci sera valable de l'intérieur ou de l'extérieur de la classe). Comme il n'y a pas de méthode destructeur (passée avec l'argument `fdel`), on ne pourra pas détruire cet attribut : un `del c.masse` conduirait à une erreur de ce type : `AttributeError: can't delete attribute`.
+Ligne 16. Il s'agit de la commande clé pour mettre en place le système : `masse` devient ici un objet de type *property* (si on regarde son contenu avec une syntaxe  
+`NomClasse.attribut_property`, donc ici `Citron.masse`, Python nous renverra quelque chose de ce style : `<property object at 0x7fd3615aeef8>`). Qu'est-ce que cela signifie ? Et bien la prochaine fois qu'on voudra accéder au contenu de cet attribut `.masse`, Python appellera la méthode `.get_masse()`, et quand on voudra le modifier, Python appellera la méthode `.set_masse()` (ceci sera valable de l'intérieur ou de l'extérieur de la classe). Comme il n'y a pas de méthode destructeur (passée avec l'argument `fdel`), on ne pourra pas détruire cet attribut : un `del c.masse` conduirait à une erreur de ce type : `AttributeError: can't delete attribute`.
 
-Ligne 4. Si vous avez bien suivi, cette commande `self.masse = masse` dans le constructeur va appeler automatiquement la méthode `.set_masse()`. Attention, dans cette commande, la variable `masse` à droite du signe `=` est une variable *locale* passée en argument. Par contre, `self.masse` sera l'objet de type *property*. Si vous avez bien lu la rubrique *Différence entre les attributs de classe et d’instance*, l'objet `masse` créé en Ligne 16 est un attribut de classe, on peut donc y accéder avec une syntaxe `self.masse` au sein d'une méthode.
+Ligne 4. Si vous avez bien suivi, cette commande `self.masse = masse` dans le constructeur va appeler automatiquement la méthode `.set_masse()`. Attention, dans cette commande, la variable `masse` à droite du signe `=` est une variable *locale* passée en argument. Par contre, `self.masse` sera l'objet de type *property*. Si vous avez bien lu la rubrique *Différence entre les attributs de classe et d’instance*, l'objet `masse` créé en ligne 16 est un attribut de classe, on peut donc y accéder avec une syntaxe `self.masse` au sein d'une méthode.
 
 open-box-adv
 
-Notez bien l'utilisation de `self.masse` dans le constructeur (en Ligne 4) plutôt que `self._masse`. Comme `self.masse` appelle la méthode `.set_masse()`, cela permet de contrôler si la valeur est correcte dès l'instanciation. C'est donc une pratique que nous vous recommandons. Si on avait utilisé `self._masse`, il n'y aurait pas eu d'appel à la fonction mutateur et on aurait pu mettre n'importe quoi, y compris une valeur aberrante.
+Notez bien l'utilisation de `self.masse` dans le constructeur (en ligne 4) plutôt que `self._masse`. Comme `self.masse` appelle la méthode `.set_masse()`, cela permet de contrôler si la valeur est correcte dès l'instanciation. C'est donc une pratique que nous vous recommandons. Si on avait utilisé `self._masse`, il n'y aurait pas eu d'appel à la fonction mutateur et on aurait pu mettre n'importe quoi, y compris une valeur aberrante.
 
 close-box-adv
 
-Lignes 6 à 14. Dans les méthodes accesseur et mutateur, on utilise **toujours** la variable `self._masse` qui contiendra la vrai valeur de la masse du citron (cela serait vrai pour tout autre objet de type *property*).
+Lignes 6 à 14. Dans les méthodes accesseur et mutateur, on utilise **toujours** la variable `self._masse` qui contiendra la vraie valeur de la masse du citron (cela serait vrai pour tout autre objet de type *property*).
 
 open-box-warn
 
-Dans les méthodes accesseur et mutateur il ne faut surtout pas utiliser `self.masse` à la place de `self._masse`. Pourquoi ? Par exemple, dans l'accesseur, si on met `self.masse` cela signifie que l'on souhaite accéder à la valeur de l'attribut (comme dans le constructeur !). Ainsi, Python rappellera l'accesseur, et retombera sur `self.masse`, ce qui rappellera l'accesseur et ainsi de suite : vous l'aurez compris, cela partira dans une récursion infinie et mènera à une erreur du type `RecursionError: maximum recursion depth exceeded`. Cela serait vrai aussi si vous aviez une fonction destructeur, il faudrait utiliser `self._masse`).
+Dans les méthodes accesseur et mutateur il ne faut surtout pas utiliser `self.masse` à la place de `self._masse`. Pourquoi ? Par exemple, dans l'accesseur, si on met `self.masse` cela signifie que l'on souhaite accéder à la valeur de l'attribut (comme dans le constructeur !). Ainsi, Python rappellera l'accesseur et retombera sur `self.masse`, ce qui rappellera l'accesseur et ainsi de suite : vous l'aurez compris, cela partira dans une récursion infinie et mènera à une erreur du type `RecursionError: maximum recursion depth exceeded`. Cela serait vrai aussi si vous aviez une fonction destructeur, il faudrait utiliser `self._masse`).
 
 close-box-warn
 
@@ -1300,7 +1329,8 @@ Cette exécution montre qu'à chaque appel de `self.masse` ou `citron.masse` on 
 
 open-box-more
 
-Il existe une autre syntaxe considérée comme plus élégante pour mettre en place les objets *property*. Il s'agit des *décorateurs* `@property`, `@attribut.setter` et  `@attribut.deleter`. Toutefois, la notion de décorateur va au-delà du présent ouvrage. Si vous souhaitez plus d'informations, vous pouvez consulter par exemple le [site programiz](https://www.programiz.com/python-programming/property>) ou le livre de [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
+Il existe une autre syntaxe considérée comme plus élégante pour mettre en place les objets *property*. Il s'agit des *décorateurs* `@property`, `@attribut.setter` et  
+`@attribut.deleter`. Toutefois, la notion de décorateur va au-delà du présent ouvrage. Si vous souhaitez plus d'informations, vous pouvez consulter par exemple le [site programiz](https://www.programiz.com/python-programming/property>) ou le livre de [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
 
 close-box-more
 
@@ -1310,20 +1340,22 @@ Nous allons voir dans cette rubrique certaines pratiques que nous vous recommand
 
 ### L'accès aux attributs
 
-On a vu dans la rubrique *Accès et modifications des attributs depuis l'extérieur* que nous avions le moyen de contrôler cet accès avec la classe *property*. Toutefois, cela peut parfois alourdir inutilement le code, ce qui va à l'encontre de certains préceptes de la PEP20 comme *Sparse is better than dense*, *Readability counts*, etc (cf. chapitre 15 *Bonnes pratiques*).
+On a vu dans la rubrique *Accès et modifications des attributs depuis l'extérieur* que nous avions le moyen de contrôler cet accès avec la classe *property*. Toutefois, cela peut parfois alourdir inutilement le code, ce qui va à l'encontre de certains préceptes de la PEP20 comme *Sparse is better than dense*, *Readability counts*, etc. (cf. chapitre 15 *Bonnes pratiques*).
 
 open-box-adv
 
-Si on souhaite contrôler ce que fait le client de la classe pour certains attributs "délicats" ou "stratégiques", on peut utiliser la classe *property*. Toutefois, nous vous conseillons de ne l'utiliser que lorsque cela se révèle vraiment nécessaire, donc avec parcimonie. Le but étant de ne pas surcharger le code inutilement. Cela va dans le sens des recommandations des développeurs de Python (comme décrit dans la PEP8).
+Si on souhaite contrôler ce que fait le client de la classe pour certains attributs « délicats » ou « stratégiques », on peut utiliser la classe *property*. Toutefois, nous vous conseillons de ne l'utiliser que lorsque cela se révèle vraiment nécessaire, donc avec parcimonie. Le but étant de ne pas surcharger le code inutilement. Cela va dans le sens des recommandations des développeurs de Python (comme décrit dans la PEP8).
 
 close-box-adv
 
 Les objets *property* ont deux avantages principaux :
 
-- ils permettent de garder une lisibilité du côté client avec une syntaxe `instance.attribut` ;
-- même si un jour vous décidez de modifier votre classe et de mettre en place un contrôle d'accès à certains attributs avec des objets *property*, cela ne changera rien du côté client. Ce dernier utilisera toujours `instance.attribut` ou `instance.attribut = valeur`. Tout cela contribuera à une meilleure maintenance du code client utilisant votre classe.
+- ils permettent de garder une lisibilité du côté client avec une syntaxe  
+`instance.attribut` ;
+- même si un jour vous décidez de modifier votre classe et de mettre en place un contrôle d'accès à certains attributs avec des objets *property*, cela ne changera rien du côté client. Ce dernier utilisera toujours `instance.attribut` ou  
+`instance.attribut = valeur`. Tout cela contribuera à une meilleure maintenance du code client utilisant votre classe.
 
-Certains détracteurs disent qu'il est parfois difficile de pister qu'un attribut est contrôlé avec un objet *property*. La réponse à cela est simple, dites le clairement dans la documentation de votre classe via les *docstrings* (cf. rubrique ci-dessous).
+Certains détracteurs disent qu'il est parfois difficile de pister qu'un attribut est contrôlé avec un objet *property*. La réponse à cela est simple, dites-le clairement dans la documentation de votre classe via les *docstrings* (cf. rubrique ci-dessous).
 
 ### Note sur les attributs publics et non publics
 
@@ -1331,7 +1363,7 @@ Certains langages orientés objet mettent en place des attributs dits *privés* 
 
 open-box-warn
 
-En Python, il n'existe pas d'attributs privés comme dans d'autres langages oriéntés objet. L'utilisateur peut avoir accès à tous les attributs quels qu'ils soient, même s'ils contiennent un ou plusieurs caractère(s) *underscore(s)* (cf. ci-desssous) !
+En Python, il n'existe pas d'attributs privés comme dans d'autres langages orientés objet. L'utilisateur peut avoir accès à tous les attributs quels qu'ils soient, même s'ils contiennent un ou plusieurs caractère(s) *underscore(s)* (cf. ci-desssous) !
 
 close-box-warn
 
@@ -1345,7 +1377,8 @@ close-box-def
 
 La présence des *underscores* dans les noms d'attributs est un signe clair que le client ne doit pas y toucher. Toutefois, cela n'est qu'une convention, et comme dit ci-dessus le client peut tout de même modifier ces attributs.
 
-Par exemple, reprenons la classe Citron de la rubrique précédente dont l'attribut `.masse` est contrôlé avec un objet *property* :
+Par exemple, reprenons la classe `Citron` de la rubrique précédente dont l'attribut  
+`.masse` est contrôlé avec un objet *property* :
 
 ```
 >>> citron = Citron()
@@ -1441,12 +1474,12 @@ if __name__ == '__main__':
     citron1.print_masse()
 ```
 
-Ce code affiche `100` puis `200`. La Ligne 12 a permis d'accéder à l'attribut `.__mass` de la classe mère Fruit, et la Ligne 13 a permis d'accéder à l'attribut `.__mass` de la classe Citron.
+Ce code affiche `100` puis `200`. La ligne 12 a permis d'accéder à l'attribut `.__mass` de la classe mère Fruit, et la ligne 13 a permis d'accéder à l'attribut `.__mass` de la classe `Citron`.
 
 
-Le *name mangling* n'est donc pas un mécanisme de "protection" d'un attribut, il n'a pas été conçu pour ça. Les concepteurs de Python le disent clairement dans la PEP8: *Generally, double leading underscores should be used only to avoid name conflicts with attributes in classes designed to be subclassed*.
+Le *name mangling* n'est donc pas un mécanisme de « protection » d'un attribut, il n'a pas été conçu pour ça. Les concepteurs de Python le disent clairement dans la PEP8: « *Generally, double leading underscores should be used only to avoid name conflicts with attributes in classes designed to be subclassed* ».
 
-Donc en Python, on peut tout détruire, même les attributs délicats contenant des *underscores*. Pourquoi Python permet un tel paradoxe ? Et bien selon le concepteur Guido van Rossum : *We’re all consenting adults here*, nous sommes ici entre adultes. Autrement dit nous savons ce que nous faisons !
+Donc en Python, on peut tout détruire, même les attributs délicats contenant des *underscores*. Pourquoi Python permet-il un tel paradoxe ? Et bien selon le concepteur Guido van Rossum : « *We’re all consenting adults here* », nous sommes ici entre adultes. Autrement dit nous savons ce que nous faisons !
 
 open-box-adv
 
@@ -1454,33 +1487,38 @@ En résumé, n'essayez pas de mettre des barrières inutiles vers vos attributs.
 
 close-box-adv
 
-### Classes et docstrings
+### Classes et *docstrings*
 
-Les classes peuvent bien-sûr contenir des *docstrings* comme les fonctions et les modules. C'est d'ailleurs une pratique vivement recommandée ! Voici un exemple sur notre désormais familière classe Citron :
+Les classes peuvent bien sûr contenir des *docstrings* comme les fonctions et les modules. C'est d'ailleurs une pratique vivement recommandée ! Voici un exemple sur notre désormais familière classe `Citron` :
 
 ```
 class Citron:
     """Voici la classe Citron.
 
-    Il s'agit d'une classe assez impressionnante qui crée des objets citrons.
+    Il s'agit d'une classe assez impressionnante qui crée des objets 
+	citrons.
     Par défaut une instance de Citron contient l'attribut saveur.
     """
     saveur = "acide"
 
     def __init__(self, couleur="jaune", taille="standard"):
-        """Constructeur de la classe Citron : prend deux arguments par mot-clé couleur et taille."""
+        """Constructeur de la classe Citron : prend deux arguments 
+		par mot-clé couleur et taille."""
         self.couleur = couleur
         self.taille = taille
 
     def get_attributs(self):
-        """Cette méthode renvoie un tuple contenant les attributs de l'instance en cours."""
+        """Cette méthode renvoie un tuple contenant les attributs de 
+		l'instance en cours."""
         return self.couleur, self.taille
 
     def set_attributs(self, taille=None, couleur=None):
-        """Méthode permettant de modifier les attributs d'une instance Citron.
+        """Méthode permettant de modifier les attributs d'une instance 
+		Citron.
 
         Il suffit de passer en argument un ou deux attributs.
-        Il est vivement conseillé d'utiliser le(s) nom(s) de l'argument, par exemple:
+        Il est vivement conseillé d'utiliser le(s) nom(s) de l'argument, 
+		par exemple:
         instance.set_attributs(couleur="jaunatre", taille="énorme")
         plutôt que instance.set_attributs("jaunatre", "énorme")
         ainsi vous pouvez les passer dans le désordre.
@@ -1505,16 +1543,19 @@ class Citron(builtins.object)
  |  Methods defined here:
  |  
  |  __init__(self, couleur='jaune', taille='standard')
- |      Constructeur de la classe Citron : prend deux arguments par mot-clé couleur et taille.
+ |      Constructeur de la classe Citron : prend deux arguments par mot-clé 
+ couleur et taille.
  |  
  |  get_attributs(self)
- |      Cette méthode renvoie un tuple contenant les attributs de l'instance en cours.
+ |      Cette méthode renvoie un tuple contenant les attributs de l'instance 
+ en cours.
  |  
  |  set_attributs(self, taille=None, couleur=None)
  |      Méthode permettant de modifier les attributs d'une instance Citron.
  |      
  |      Il suffit de passer en argument un ou deux attributs.
- |      Il est vivement conseillé d'utiliser le(s) nom(s) de l'argument, par exemple:
+ |      Il est vivement conseillé d'utiliser le(s) nom(s) de l'argument, par 
+ exemple:
  |      instance.set_attributs(couleur="jaunatre", taille="énorme")
  |      plutôt que instance.set_attributs("jaunatre", "énorme")
  |      ainsi vous pouvez les passer dans le désordre.
@@ -1534,49 +1575,54 @@ class Citron(builtins.object)
  |  saveur = 'acide'
 ```
 
-Vous voyez que Python va formatter automatiquement l'aide comme il le faisait avec les modules (cf. Chapitre 14). Comme nous avons dit dans le Chapitre 15 *Bonnes pratiques*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
+Vous voyez que Python va formatter automatiquement l'aide comme il le faisait avec les modules (cf. chapitre 14). Comme nous avons dit dans le chapitre 15 *Bonnes pratiques*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
 
-On pourra noter que si on instancie la classe `citron1 = Citron()`, et qu'on invoque l'aide sur l'instance `help(citron1)`, on obtiendra la même page d'aide. Comme pour les modules, si on invoque l'aide pour une méthode de la classe `help(citron1.get_attributs)`, on obtiendra l'aide pour cette méthode seulement.
+On pourra noter que si on instancie la classe `citron1 = Citron()` et qu'on invoque l'aide sur l'instance `help(citron1)`, on obtiendra la même page d'aide. Comme pour les modules, si on invoque l'aide pour une méthode de la classe  
+`help(citron1.get_attributs)`, on obtiendra l'aide pour cette méthode seulement.
 
-Toutes les *docstrings* d'une classe, sont en fait stockées dans un attribut spécial nommé `instance.__doc__`. Cet attribut est en fait une chaîne de caractères contenant la *docstring* générale de la classe. Ceci est également vrai pour les modules, méthodes et fonctions également. Si on reprend notre exemple ci-dessus :
+Toutes les *docstrings* d'une classe sont en fait stockées dans un attribut spécial nommé `instance.__doc__`. Cet attribut est en fait une chaîne de caractères contenant la *docstring* générale de la classe. Ceci est également vrai pour les modules, méthodes et fonctions. Si on reprend notre exemple ci-dessus :
 
 ```
 >>> citron1 = Citron()
 >>> print(citron1.__doc__)
 Voici la classe Citron.
 
-    Il s'agit d'une classe assez impressionnante qui crée des objets citrons.
+    Il s'agit d'une classe assez impressionnante qui crée des objets 
+	citrons.
     Par défaut une instance de Citron contient l'attribut saveur.
 
 >>>  print(citron1.get_attributs.__doc__)
-Cette méthode renvoie un tuple contenant les attributs de l'instance en cours.
+Cette méthode renvoie un tuple contenant les attributs de l'instance 
+en cours.
 >>>
 ```
 
-Finalement, l'attribut `.__doc__` est automatiquement créé par Python au moment de la mise en mémoire de la classe (ou module, méthode, fonction, etc).
+Finalement, l'attribut `.__doc__` est automatiquement créé par Python au moment de la mise en mémoire de la classe (ou module, méthode, fonction, etc.).
 
 ### Autres bonnes pratiques
 
 Voici quelques points en vrac auxquels nous vous conseillons de faire attention :
 
-- Comme vu dans la rubrique *Différence entre les attributs de classe et d'instance* : attributs de classe = constantes ==> **on ne les modifie pas**
-- attributs d'instance ==> on les crée et on les initialise dans la méthode `.__init__()` (et nulle part ailleurs).
-- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou on veut donner des noms au variables (plutôt qu'un indice), utiliser plutôt les dictionnaires.
-- Surtout ne jamais mettre comme param par défaut une liste vide :
+- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utiliser plutôt les dictionnaires.
+- Nous vous déconseillons de mettre comme paramètre par défaut une liste vide (ou tout autre objet séquentiel modifiable) :
 
 	```
 	def __init__(self, liste=[]):
-        liste.append("quelque chose")
+		self.liste = liste
 	```
+Si vous créez des instances sans passer d'argument lors de l'instanciation, toutes ces instances pointeront vers la même liste. Cela peut avoir des effets désastreux.
 
-- Ne pas mettre non plus une liste vide comme attribut de classe !!!
+- Ne mettez pas non plus une liste vide (ou tout autre objet séquentiel modifiable) comme attribut de classe.
 
 	```
 	class Citron:
         liste = []
 	```
 
-- Pour ces deux exemples, mettre plutôt une liste vide dans le constructeur qui sera indépendante pour chaque instance :
+Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souvenez vous, la modification des attributs de classe doit se faire par une syntaxe `Citron.attribut = valeur` (et non pas via les instances).
+
+- Comme vu dans la rubrique *Différence entre les attributs de classe et d'instance*, nous vous conseillons de ne jamais modifier les attributs de classe (vous pouvez les utiliser comme constantes).
+- Si vous avez besoin d'attributs modifiables, utilisez des attributs d'instance et initialisez les dans la méthode `.__init__()` (et nulle part ailleurs). Par exemple, si vous avez besoin d'une liste comme attribut, créez la plutôt dans le constructeur :
 
 	```
 	class Citron:
@@ -1584,10 +1630,11 @@ Voici quelques points en vrac auxquels nous vous conseillons de faire attention 
         self.liste = []
 	```
 
+Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
 ## Exercices
 
-Conseil : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
 
 ### Classe Rectangle (1)
 
@@ -1641,4 +1688,5 @@ Créez une nouvelle classe `Atome` avec les attributs `x`, `y`, `z` (qui contien
 
 ### Classe Atome améliorée
 
-Améliorez la classe `Atome` en lui ajoutant un nouvel attribut  `masse` qui correspond à la masse atomique et `numero_atomique`) et une nouvelles méthodes`calcule_centre_masse`.
+Améliorez la classe `Atome` en lui ajoutant un nouvel attribut  `masse` qui correspond à la masse atomique et `numero_atomique`) et une nouvelle méthode  
+`.calcule_centre_masse()`.
