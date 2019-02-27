@@ -48,11 +48,11 @@ Une fonction *callback* est une fonction passée en argument d'une autre fonctio
 
 close-box-def
 
-Un exemple de fonction *callback* est présenté dans la section suivante.
+Un exemple de fonction *callback* est présenté dans la rubrique suivante.
 
 ## Notion de fonction *callback*
 
-*Conseil* : pour les débutants, vous pouvez passer cette section.
+*Conseil* : pour les débutants, vous pouvez passer cette rubrique.
 
 Jusqu'à maintenant nous avons toujours appelé les fonctions ou les méthodes de cette manière :
 
@@ -309,7 +309,7 @@ if __name__ == "__main__":
     app.mainloop()
 ```
 
-Lignes 4 à 6. Comme montré dans la section *Construire une application tkinter avec une classe*, notre classe `AppliCanevas` hérite de la classe générale `tk.Tk` et la fenêtre Tk se retrouve dans la variable `self`.
+Lignes 4 à 6. Comme montré dans la rubrique *Construire une application tkinter avec une classe*, notre classe `AppliCanevas` hérite de la classe générale `tk.Tk` et la fenêtre Tk se retrouve dans la variable `self`.
 
 Ligne 7. On crée un attribut de la classe `self.size` qui contiendra la taille (hauteur et largeur) du *canvas*. On rappelle cet attribut sera visible dans l'ensemble de la classe puisqu'il est « accroché » à celle-ci par le `self`.
 
@@ -481,7 +481,7 @@ Il existe par ailleurs des *widgets* qui peuvent contenir d'autres widgets et qu
 - Toplevel : permet de créer des fenêtres indépendantes.
 - PanedWindow : container pour d'autres *widgets*, mais ici l'utilisateur peut réajuster les zones affectées à chaque *widget* fils.
 
-Vous trouverez la documentation exhaustive pour tous ces *widgets* (ainsi que ceux que nous avons décrits dans les sections précédentes) sur le [site de l'Institut des mines et de technologie du Nouveau Mexique](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html) (MNT). Par ailleurs, la [page *Universal widget methods*](https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/universal.html) vous donnera une vue d'ensemble des différentes méthodes associées à chaque widget.
+Vous trouverez la documentation exhaustive pour tous ces *widgets* (ainsi que ceux que nous avons décrits dans les rubriques précédentes) sur le [site de l'Institut des mines et de technologie du Nouveau Mexique](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html) (MNT). Par ailleurs, la [page *Universal widget methods*](https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/universal.html) vous donnera une vue d'ensemble des différentes méthodes associées à chaque widget.
 
 Il existe également une extension de tkinter nommée *ttk*, réimplémentant la plupart des *widgets* de base de tkinter et qui en propose de nouveaux (Combobox, Notebook, Progressbar, Separator, Sizegrip et Treeview). Typiquement, si vous utilisez ttk, nous vous conseillons d'utiliser les *widgets* ttk en priorité, et pour ceux qui n'existent pas dans ttk, ceux de tkinter (comme Canvas qui n'existe que dans tkinter). Vous pouvez importer le sous-module ttk de cette manière : `import tkinter.ttk as ttk`.
 
@@ -498,11 +498,11 @@ Pour plus d'informations, vous pouvez consulter la [documentation officielle de 
 
 ### Autres pistes à approfondir
 
-Si vous souhaitez aller un peu plus loin en tkinter, voici quelques notions / remarques qui pourraient vous être utiles. Pour les débutants, vous pouvez passer cette section.
+Si vous souhaitez aller un peu plus loin en tkinter, voici quelques notions / remarques qui pourraient vous être utiles. Pour les débutants, vous pouvez passer cette rubrique.
 
 #### Les variables de contrôle
 
-Lorsque vous souhaitez mettre un jour un *widget* avec une certaine valeur (par exemple le texte d'un *label*), vous ne pouvez pas utiliser une variable Python ordinaire, il faudra utiliser une variable tkinter dite de contrôle. Par exemple, si on souhaitait afficher les coordonnées de notre baballe (cf. section précédente) dans un *label*, et que cet affichage se mette à jour au fur et à mesure des mouvements de la baballe, il faudrait utiliser des variables de contrôle. On peut créer de telles variables avec les classes `tk.StringVar` pour les chaînes de caractères, `tk.DoubleVar` pour les *floats*, et `tk.IntVar` pour les entiers. Une fois créée, par exemple avec l'instruction `var = tk.StringVar()`, on peut modifier la valeur d'une variable de contrôle avec la méthode `var.set(nouvelle_valeur)` : ceci mettra à jour tous les *widgets* utilisant cette variable `var`. Il existe aussi la méthode `var.get()` qui permet de récupérer la valeur actuelle contenue dans `var`. Enfin, il faudra lors de la création du label utiliser l'option `textvariable=` avec votre variable de contrôle (par exemple `tk.Label(..., textvariable=var, ...)`) pour que cela soit fonctionnel.
+Lorsque vous souhaitez mettre un jour un *widget* avec une certaine valeur (par exemple le texte d'un *label*), vous ne pouvez pas utiliser une variable Python ordinaire, il faudra utiliser une variable tkinter dite de contrôle. Par exemple, si on souhaitait afficher les coordonnées de notre baballe (cf. rubrique précédente) dans un *label*, et que cet affichage se mette à jour au fur et à mesure des mouvements de la baballe, il faudrait utiliser des variables de contrôle. On peut créer de telles variables avec les classes `tk.StringVar` pour les chaînes de caractères, `tk.DoubleVar` pour les *floats*, et `tk.IntVar` pour les entiers. Une fois créée, par exemple avec l'instruction `var = tk.StringVar()`, on peut modifier la valeur d'une variable de contrôle avec la méthode `var.set(nouvelle_valeur)` : ceci mettra à jour tous les *widgets* utilisant cette variable `var`. Il existe aussi la méthode `var.get()` qui permet de récupérer la valeur actuelle contenue dans `var`. Enfin, il faudra lors de la création du label utiliser l'option `textvariable=` avec votre variable de contrôle (par exemple `tk.Label(..., textvariable=var, ...)`) pour que cela soit fonctionnel.
 
 À nouveau, vous trouverez une documentation précise sur le [site du MNT](https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/control-variables.html).
 

@@ -13,7 +13,7 @@ On va donc utiliser un gestionnaire de paquets qui va installer ces modules supp
 
 Quel que soit le système d'exploitation, on recommande l'utilisation de Miniconda dont la procédure d'installation est détaillée ci-dessous pour Windows, Mac OS X et Linux. Le gestionnaire de paquets *conda* est très efficace. Il gère la version de Python et les paquets compatibles avec cette dernière très efficacement.
 
-Par ailleurs, on vous recommande vivement la lecture de la section sur les [éditeurs de texte](#les-éditeurs-de-texte). Il est en effet fondamental d'utiliser un éditeur robuste et de savoir le configurer pour "pythonner" efficacement.
+Par ailleurs, on vous recommande vivement la lecture de la rubrique sur les [éditeurs de texte](#les-éditeurs-de-texte). Il est en effet fondamental d'utiliser un éditeur robuste et de savoir le configurer pour "pythonner" efficacement.
 
 Enfin, dans tout ce qui suit, on part du principe que vous installerez Miniconda  **en tant qu'utilisateur**, et non pas en tant qu'administrateur. Autrement dit, vous n'aurez pas besoin de droits spéciaux pour pouvoir installer Miniconda et les autres modules nécessaires. La procédure proposée a été testée avec succès sous Windows (7 et 10), Mac OS C (Mac OS High Sierra version 10.13.6) et Linux (Ubuntu 16.04, Ubuntu 18.04).
 
@@ -108,7 +108,7 @@ positional arguments:
 [...]
 ```
 
-Si c'est bien le cas, bravo, *conda* et bien installé et vous pouvez passez à la suite (rendez-vous à la section [Installation des modules supplémentaires](#installation-des-modules-supplémentaires)) !
+Si c'est bien le cas, bravo, *conda* et bien installé et vous pouvez passez à la suite (rendez-vous à la rubrique [Installation des modules supplémentaires](#installation-des-modules-supplémentaires)) !
 
 
 #### Désinstallation de Miniconda
@@ -133,7 +133,7 @@ Vous allez télécharger un fichier dont le nom ressemble à quelque chose du ty
 
 `Miniconda3-latest-MacOSX-x86_64.sh`.
 
-Le système d'exploitation Mac OS X étant basé sur Unix, la suite de la procédure est en tout point identique à la procédure détaillée à la [section précédente](#installation-de-python-avec-miniconda-sous-linux) pour Linux.
+Le système d'exploitation Mac OS X étant basé sur Unix, la suite de la procédure est en tout point identique à la procédure détaillée à la [rubrique précédente](#installation-de-python-avec-miniconda-sous-linux) pour Linux.
 
 Donc, lancez la commande :
 
@@ -141,12 +141,12 @@ Donc, lancez la commande :
 $ bash Miniconda3-latest-MacOSX-x86_64.sh
 ```
 
-puis suivez les mêmes instructions que dans la section précédente (la seule petite subtilité est pour le chemin, choisissez `/User/votre_nom_utilisateur/miniconda3` sous Mac au lieu de `/home/votre_nom_utilisateur/miniconda3` sous Linux).
+puis suivez les mêmes instructions que dans la rubrique précédente (la seule petite subtilité est pour le chemin, choisissez `/User/votre_nom_utilisateur/miniconda3` sous Mac au lieu de `/home/votre_nom_utilisateur/miniconda3` sous Linux).
 
 
 ### Installation de Python avec Miniconda pour Windows 7 et 10
 
-Dans cette section, nous détaillons l'installation de Miniconda sous Windows.
+Dans cette rubrique, nous détaillons l'installation de Miniconda sous Windows.
 
 open-box-warn
 
@@ -267,7 +267,7 @@ conda commands available from other packages:
 PS C:\Users\Pat>
 ```
 
-Si c'est le cas, bravo, *conda* est bien installé et vous pouvez passez à la suite (rendez-vous à la section [Installation des modules supplémentaires](#installation-des-modules-supplémentaires)) !
+Si c'est le cas, bravo, *conda* est bien installé et vous pouvez passez à la suite (rendez-vous à la rubrique [Installation des modules supplémentaires](#installation-des-modules-supplémentaires)) !
 
 
 #### Désinstallation de Miniconda
@@ -381,7 +381,7 @@ Si tous ces tests ont bien fonctionné, bravo, vous avez installé correctement 
 
 ### Un mot sur pip pour installer des modules complémentaires
 
-*Conseil* : Pour les débutants, vous pouvez sauter cette section.
+*Conseil* : Pour les débutants, vous pouvez sauter cette rubrique.
 
 Comme indiqué au début de ce chapitre, [pip](https://pip.pypa.io/en/stable/) est un gestionnaire de paquets pour Python et permet d'installer des modules externes. *Pip* est également présent dans Miniconda, donc utilisable et parfaitement fonctionnel. Vous pouvez vous poser la question "Pourquoi utiliser le gestionnaire de paquets *pip* si le gestionnaire de paquets `conda` est déjà présent ?". La réponse est simple, certains modules ne sont présents que sur les dépôts *pip*. Si vous souhaitez les installer il  faudra impérativement utiliser *pip*. Inversement, certains modules ne sont présent que dans les dépôts de *conda*. Toutefois, pour les modules classiques (comme *NumPy*, *scipy*, etc), tout est gérable avec *conda*.
 
