@@ -247,7 +247,7 @@ Si vous souhaitez aller plus loin, sachez que l'instruction `with`
 
 ## Note sur les retours à la ligne sous Unix et sous Windows
 
-*Conseil* : si vous êtes débutant, vous pouvez sauter cette section.
+*Conseil* : si vous êtes débutant, vous pouvez sauter cette rubrique.
 
 On a vu plus haut que le caractère spécial `\n` correspondait à un retour à la ligne. C'est le standard sous Unix (Mac OS X et Linux).
 

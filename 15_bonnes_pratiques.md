@@ -241,7 +241,7 @@ On peut aussi utiliser les parenthèses pour évaluer un expression trop longue 
 ma variable vaut 3
 ```
 
-Les parenthèses sont aussi très utiles lorsqu'on a besoin d’enchaîner des méthodes les unes à la suite des autres. Un exemple se trouve dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*, dans la section consacrée au module *pandas*.
+Les parenthèses sont aussi très utiles lorsqu'on a besoin d’enchaîner des méthodes les unes à la suite des autres. Un exemple se trouve dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*, dans la partie consacrée au module *pandas*.
 
 Enfin, il est possible de créer des listes ou des dictionnaires sur plusieurs lignes, en sautant une ligne après une virgule :
 ```
