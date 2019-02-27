@@ -585,7 +585,13 @@ if __name__ == '__main__':
 
 Les arguments `*args` et `**kwargs` permettent de récupérer facilement tous les arguments dits « positionnels » et « par mot-clé » respectivement. Pour plus de détails sur comment `*args` et `**kwargs` fonctionnent, reportez-vous au chapitre 21 *Remarques complémentaires*.
 
-Dans l'exemple ci-dessus, `*args` et `**kwargs` sont inutiles car lors de l'instanciation de notre application, on ne passe aucun argument : `app = MonApplication()`. Toutefois, on pourrait être intéressé à récupérer des arguments à passer au constructeur, par exemple : `app = MonApplication(arg1, arg2, option1=val1, option2=val2)`. Ainsi certains auteurs laissent toujours ces `*args` et `**kwargs` au cas où on en ait besoin dans le futur. Cela est bien utile lorsqu'on distribue notre classe Application à la communauté, et que l'on souhaite que les futurs utilisateurs puissent passer des arguments tkinter au constructeur de notre classe.
+Dans l'exemple ci-dessus, `*args` et `**kwargs` sont inutiles car lors de l'instanciation de notre application, on ne passe aucun argument : `app = MonApplication()`. Toutefois, on pourrait être intéressé à récupérer des arguments à passer au constructeur, par exemple : 
+
+```
+app = MonApplication(arg1, arg2, option1=val1, option2=val2)
+```
+
+Ainsi certains auteurs laissent toujours ces `*args` et `**kwargs` au cas où on en ait besoin dans le futur. Cela est bien utile lorsqu'on distribue notre classe Application à la communauté, et que l'on souhaite que les futurs utilisateurs puissent passer des arguments tkinter au constructeur de notre classe.
 
 Toutefois, même si cela « ne coûte rien », nous vous recommandons de ne pas mettre ces `*args` et `**kwargs` si vous n'en avez pas besoin, comme nous vous l'avons montré dans les exemples de ce chapitre. Rappelons nous de la PEP 20 (cf. chapitre 15 *Bonnes Pratiques*), les assertions *Simple is better than complex* ou *Sparse is better than dense* nous suggèrent qu'il est inutile d'ajouter des choses dont on ne se sert pas.
 
@@ -684,7 +690,7 @@ Le rendu final attendu est montré dans la figure @fig:Sierpinski. On utilisera 
 
 ![Triangle de Sierpinski.](img/Sierpinski.png){ #fig:Sierpinski width=50% }
 
-### Triangle de Sierpinski 2 (exercice +++)
+### Polygone de Sierpinski (exercice +++)
 
 Améliorer l'application précédente en proposant une liste de choix supplémentaire demandant à l'utilisateur de choisir le nombre de sommets (de 3 à 10). Le programme calculera automatiquement la position des sommets. Pour prendre en main le *widget* listbox, voici un code minimal qui pourra vous aider. Celui-ci contient une listbox et permet d'afficher dans le terminal l'élément sélectionné). Nous vous conseillons d'avoir résolu l'exercice précédent, et de bien étudier le code ci-dessous avant de vous lancer !
 
