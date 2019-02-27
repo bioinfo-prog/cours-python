@@ -171,7 +171,7 @@ Un argument défini avec une syntaxe `def fct(arg=val):` est appelé **argument 
 
 close-box-def
 
-Il est bien-sûr possible de passer plusieurs arguments par mot-clé :
+Il est bien sûr possible de passer plusieurs arguments par mot-clé :
 
 ```
 >>> def fct(x=0, y=0, z=0):
