@@ -262,7 +262,7 @@ Nous aurons de nombreuses occasions de revoir cette notation `objet.méthode()`.
 
 Ouvrez l'interpréteur Python et tapez l'instruction `1+1`. Que se passe-t-il ?
 
-Écrivez la même chose dans un script `test.py` que vous allez créer avec un éditeur de texte. Exécutez ce script en tapant `python3 test.py` dans un *shell*. Que se passe-t-il ? Pourquoi ? Faites en sorte d'afficher le résultat de l'addition `1+1` en exécutant le script dans un *shell*.
+Écrivez la même chose dans un script `test.py` que vous allez créer avec un éditeur de texte. Exécutez ce script en tapant `python test.py` dans un *shell*. Que se passe-t-il ? Pourquoi ? Faites en sorte d'afficher le résultat de l'addition `1+1` en exécutant le script dans un *shell*.
 
 
 ### Poly-A
