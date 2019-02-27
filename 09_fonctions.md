@@ -6,7 +6,7 @@ En programmation, les **fonctions** sont très utiles pour réaliser plusieurs f
 
 Vous connaissez déjà certaines fonctions Python. Par exemple `math.cos(angle)` du module `math` renvoie le cosinus de la variable `angle` exprimé en radian. Vous connaissez aussi des fonctions internes à Python comme `range()` ou `len()`. Pour l'instant, une fonction est à vos yeux une sorte de « boîte noire » (voir figure @fig:schema_fonction) :
 
-1. À laquelle vous passez aucune, une ou plusieurs variable(s) entre parenthèses. Ces variables sont encore appelées arguments. Il peut s'agir de n'importe quel type d'objet Python.
+1. À laquelle vous passez aucune, une ou plusieurs variable(s) entre parenthèses. Ces variables sont appelées **arguments**. Il peut s'agir de n'importe quel type d'objet Python.
 2. Qui effectue une action.
 3. Et qui renvoie un objet Python ou rien du tout.
 
@@ -20,11 +20,11 @@ Par exemple, si vous appelez la fonction `len()` de la manière suivante :
 
 voici ce qui se passe :
 
-1. vous appelez `len()` en lui passant une liste en argument (`[0, 1, 2]`) ;
+1. vous appelez `len()` en lui passant une liste en argument (ici `[0, 1, 2]`) ;
 2. la fonction calcule la longueur de cette liste ;
 3. elle vous renvoie un entier égal à cette longueur.
 
-Autre exemple, si vous appelez la méthode `ma_liste.append()` (n'oubliez pas, une **méthode** est une **fonction** qui agit en général sur l'objet auquel elle est attachée par un point) :
+Autre exemple, si vous appelez la méthode `ma_liste.append()` (n'oubliez pas, une **méthode** est une **fonction** qui agit sur l'objet auquel elle est attachée par un point) :
 
 ```
 >>> ma_liste.append(5)
@@ -34,9 +34,9 @@ Autre exemple, si vous appelez la méthode `ma_liste.append()` (n'oubliez pas, u
 2. la méthode `append()` ajoute l'entier `5` à l'objet `ma_liste` ;
 3. et elle ne renvoie rien.
 
-Aux yeux du programmeur au contraire, une fonction est une portion de code effectuant une suite d'instructions bien particulière. Mais avant de vous présenter la syntaxe et la manière de construire une fonction, revenons une dernière fois sur cette notion de *boîte noire* :
+Aux yeux du programmeur au contraire, une fonction est une portion de code effectuant une suite d'instructions bien particulière. Mais avant de vous présenter la syntaxe et la manière de construire une fonction, revenons une dernière fois sur cette notion de « boîte noire » :
 
-- Une fonction effectue une tâche. Pour cela, elle reçoit éventuellement des arguments et renvoie éventuellement quelque chose. L'algorithme utilisé au sein de la fonction n'intéresse pas directement l'utilisateur. Par exemple, il est inutile de savoir comment la fonction `math.cos()` calcule un cosinus, on a juste besoin de savoir qu'il faut lui passer en argument un angle en radian et qu'elle renvoie le cosinus de cet angle. Ce qui se passe à l'intérieur de la fonction ne regarde que le programmeur (c'est-à-dire vous dans ce chapitre).
+- Une fonction effectue une tâche. Pour cela, elle reçoit éventuellement des arguments et renvoie éventuellement quelque chose. L'algorithme utilisé au sein de la fonction n'intéresse pas directement l'utilisateur. Par exemple, il est inutile de savoir comment la fonction `math.cos()` calcule un cosinus. On a juste besoin de savoir qu'il faut lui passer en argument un angle en radian et qu'elle renvoie le cosinus de cet angle. Ce qui se passe à l'intérieur de la fonction ne regarde que le programmeur.
 
 - Chaque fonction effectue en général une tâche **unique et précise**. Si cela se complique, il est plus judicieux d'écrire plusieurs fonctions (qui peuvent éventuellement s'appeler les unes les autres). Cette **modularité** améliore la qualité générale et la lisibilité du code. Vous verrez qu'en Python, les fonctions présentent une grande flexibilité.
 
@@ -55,7 +55,7 @@ Pour définir une fonction, Python utilise le mot-clé `def` et si on veut que c
 ```
 Notez que la syntaxe de `def` utilise les deux-points comme les boucles `for` et `while` ainsi que les tests `if`, un bloc d’instructions est donc attendu. De même que pour les boucles et les tests, l'**indentation** de ce bloc d'instructions (qu'on appelle le corps de la fonction) est **obligatoire**.
 
-Dans l'exemple précédent, nous avons passé un argument à la fonction `carre()` qui nous a renvoyé (ou retourné) une valeur que nous avons immédiatement affichée à l'écran avec l'instruction `print()`. Que veut dire valeur renvoyée ? Et bien cela signifie que cette dernière est stockable dans une variable :
+Dans l'exemple précédent, nous avons passé un argument à la fonction `carre()` qui nous a renvoyé (ou retourné) une valeur que nous avons immédiatement affichée à l'écran avec l'instruction `print()`. Que veut dire valeur renvoyée ? Et bien cela signifie que cette dernière est récupérable dans une variable :
 ```
 >>> res = carre(2)
 >>> print(res)
@@ -82,9 +82,9 @@ Ceci n'est pas une faute car Python n'émet pas d'erreur, toutefois cela ne pré
 
 ## Passage d'arguments
 
-Le nombre d'argument(s) que l'on peut passer à une fonction est variable. Nous avons vu ci-dessus des fonctions auxquelles on passait 0 ou 1 argument. Dans les chapitres précédents, vous avez rencontré des fonctions internes à Python qui prenaient au moins 2 arguments. Souvenez-vous par exemple de `range(1, 10)` ou encore `range(1, 10, 2)`. Le nombre d'argument est donc laissé libre à l'initiative du programmeur qui développe une nouvelle fonction.
+Le nombre d'arguments que l'on peut passer à une fonction est variable. Nous avons vu ci-dessus des fonctions auxquelles on passait 0 ou 1 argument. Dans les chapitres précédents, vous avez rencontré des fonctions internes à Python qui prenaient au moins 2 arguments. Souvenez-vous par exemple de `range(1, 10)` ou encore `range(1, 10, 2)`. Le nombre d'argument est donc laissé libre à l'initiative du programmeur qui développe une nouvelle fonction.
 
-Une particularité des fonctions en Python est que vous n'êtes pas obligé de préciser le type des arguments que vous lui passez, dès lors que les opérations que vous effectuez avec ces arguments sont valides. Python est en effet connu comme étant un langage au « typage dynamique », c'est-à-dire qui reconnaît pour vous le type des variables au moment de l'exécution. Par exemple :
+Une particularité des fonctions en Python est que vous n'êtes pas obligé de préciser le type des arguments que vous lui passez, dès lors que les opérations que vous effectuez avec ces arguments sont valides. Python est en effet connu comme étant un langage au « typage dynamique », c'est-à-dire qu'il reconnaît pour vous le type des variables au moment de l'exécution. Par exemple :
 ```
 >>> def fois(x, y):
 ...     return x*y
@@ -97,7 +97,7 @@ Une particularité des fonctions en Python est que vous n'êtes pas obligé de p
 'toto'
 ```
 
-L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de caractères). Notre fonction `fois()` est donc capable d'effectuer des tâches différentes ! Même si Python permet cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait mener à des surprises dans vos futurs programmes. En général, il est plus judicieux que chaque argument ait un type précis (entiers, *floats*, chaînes de caractères, etc) et pas l'un ou l'autre.
+L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de caractères). Notre fonction `fois()` est donc capable d'effectuer des tâches différentes ! Même si Python autorise cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait conduire à des surprises dans vos futurs programmes. En général, il est plus judicieux que chaque argument ait un type précis (entiers, *floats*, chaînes de caractères, etc) et pas l'un ou l'autre.
 
 
 ## Renvoi de résultats
@@ -110,7 +110,7 @@ Un énorme avantage en Python est que les fonctions sont capables de renvoyer pl
 >>> carre_cube(2)
 (4, 8)
 ```
-En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séquentiel, c'est-à-dire contenir lui même plusieurs objets. Dans notre exemple Python renvoie un objet de type `tuple`, type que nous verrons dans le chapitre 13 *Dictionnaires et tuples* (mais *grosso modo*, il s'agit d'une sorte de liste avec des propriétés différentes). Notre fonction pourrait tout autant renvoyer une liste :
+En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séquentiel, c'est-à-dire contenir lui même d'autres objets. Dans notre exemple Python renvoie un objet de type `tuple`, type que nous verrons dans le chapitre 13 *Dictionnaires et tuples* (mais *grosso modo*, il s'agit d'une sorte de liste avec des propriétés différentes). Notre fonction pourrait tout autant renvoyer une liste :
 ```
 >>> def carre_cube2(x):
 ...     return [x**2, x**3]
@@ -118,7 +118,7 @@ En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séque
 >>> carre_cube2(3)
 [9, 27]
 ```
-Renvoyer un *tuple* ou une liste de deux éléments (ou plus) est notamment très pratique en conjonction avec l'**affectation multiple**, par exemple :
+Renvoyer un *tuple* ou une liste de deux éléments (ou plus) est très pratique en conjonction avec l'**affectation multiple**, par exemple :
 ```
 >>> z1, z2 = carre_cube2(3)
 >>> z1
@@ -149,7 +149,7 @@ On constate que passer un seul argument à une fonction qui en attend deux condu
 
 open-box-def
 
-Lorsqu'on définit une fonction `def fct(x, y):` les arguments `x` et `y` sont appelés **arguments positionnels** (en anglais *positional arguments*). Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x`, `3` correspondra à `y`. Finalement, tout dépendra de leur position, d'où leur qualification de positionnel.
+Lorsqu'on définit une fonction `def fct(x, y):` les arguments `x` et `y` sont appelés **arguments positionnels** (en anglais *positional arguments*). Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x` et `3` correspondra à `y`. Finalement, tout dépendra de leur position, d'où leur qualification de positionnel.
 
 close-box-def
 
@@ -228,7 +228,7 @@ TypeError: fct() missing 2 required positional arguments: 'a' and 'b'
 
 open-box-adv
 
-Préciser le nom des arguments par mot-clé lors de l'appel d'une fonction est une pratique que nous vous recommandons. Cela permet de les distinguer clairement des arguments positionnels.
+Préciser le nom des arguments par mot-clé lors de l'appel d'une fonction est une pratique que nous vous recommandons. Cela les distingue clairement des arguments positionnels.
 
 close-box-adv
 
@@ -237,7 +237,7 @@ L'utilisation d'arguments par mot-clé est habituelle en Python. Elle permet de 
 >>> print("Message ", end="")
 Message >>>
 ```
-Nous verrons, dans le chapitre 20 *Tkinter*, que l'utilisation d'arguments par mot-clé est systématique lorsqu'on crée un objet graphique (une fenêtre, un bouton, etc).
+Nous verrons, dans le chapitre 20 *Tkinter*, que l'utilisation d'arguments par mot-clé est systématique lorsqu'on crée un objet graphique (une fenêtre, un bouton, etc.).
 
 
 ## Variables locales et variables globales
@@ -269,7 +269,7 @@ Regardons maintenant ce qui se passe dans le code ci-dessus, étape par étape :
 \
 
 
-- Étape 2 : Python met en mémoire la fonction `carre()`. Notez qu'il ne l'exécute pas ! La fonction est mise dans un espace de la mémoire nommé *Global frame*, il s'agit de l'espace du programme principal. Y seront stockées toutes les variables *globales* créées dans le programme. Python est maintenant prêt à exécuter le programme principal.
+- Étape 2 : Python met en mémoire la fonction `carre()`. Notez qu'il ne l'exécute pas ! La fonction est mise dans un espace de la mémoire nommé *Global frame*, il s'agit de l'espace du programme principal. Dans cet espace, seront stockées toutes les variables *globales* créées dans le programme. Python est maintenant prêt à exécuter le programme principal.
 
 ![Étape 2.](img/fct_step2.png){ #fig:fct_step2 width=80% }
 \
@@ -324,7 +324,7 @@ Enfin, comme vous avez pu le constater, *Python Tutor* nous a grandement aidé �
 
 ## Exercices
 
-*Conseil* : pour le premier exercice, utilisez *Python Tutor*. Pour les exercices suivants, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour le premier exercice, utilisez *Python Tutor*. Pour les exercices suivants, créez des scripts puis exécutez-les dans un *shell*.
 
 
 ### Carré et factorielle
@@ -394,7 +394,7 @@ Dans un script `pyra.py`, créez une fonction `gen_pyramide()` à laquelle vous 
 
 Reprenez l'exercice du chapitre 6 *Tests* sur les nombres premiers.
 
-Créez une fonction `est_premier())` qui prend en argument un nombre entier positif *n* (supérieur à 2) et qui renvoie un booléen : `True` si *n* est premier et `False` si *n* n'est pas premier. Déterminez tous les nombres premiers de 2 à 100. On souhaite avoir une sortie similaire à celle-ci :
+Créez une fonction `est_premier()` qui prend comme argument un nombre entier positif *n* (supérieur à 2) et qui renvoie le booléen `True` si *n* est premier et `False` si *n* n'est pas premier. Déterminez tous les nombres premiers de 2 à 100. On souhaite avoir une sortie similaire à celle-ci :
 ```
   2 est premier
   3 est premier
@@ -409,7 +409,7 @@ Créez une fonction `est_premier())` qui prend en argument un nombre entier posi
 Créez une fonction `seq_comp()` qui prend comme argument une liste de bases et qui renvoie la séquence complémentaire d'une séquence d'ADN sous forme de liste.
 
 Dans le programme principal, à partir de la séquence d'ADN  
-`seq = ['A', 'T', 'C', 'G', 'A', 'T', 'C', 'G', 'A', 'T', 'C', 'G', 'C']`  
+`seq = ["A", "T", "C", "G", "A", "T", "C", "G", "A", "T", "C"]`  
 affichez `seq` et sa séquence complémentaire (en utilisant votre fonction `seq_comp()`).
 
 Rappel : la séquence complémentaire s'obtient en remplaçant A par T, T par A, C par G et G par C.
@@ -440,7 +440,7 @@ Créez une fonction `gen_distrib()` qui prend comme argument trois entiers : *de
 ```
 Avec la fonction `random.uniform()`, les bornes passées en argument sont incluses, c'est-à-dire qu'ici, le nombre aléatoire renvoyé est dans l'intervalle [0, 10].
 
-Créez une autre fonction `calc_stat()` qui prend en argument une liste de *floats* et qui renvoie une liste de 4 éléments contenant respectivement le minimum, le maximum, la moyenne et la médiane de la liste.
+Créez une autre fonction `calc_stat()` qui prend en argument une liste de *floats* et qui renvoie une liste de trois éléments contenant respectivement le minimum, le maximum et la moyenne de la liste.
 
 Dans le programme principal, générez 20 listes aléatoires de 100 *floats* compris entre 0 et 100 et affichez le minimum (`min()`), le maximum (`max()`) et la moyenne pour chacune d'entre elles. La moyenne pourra être calculée avec les fonctions `sum()` et `len()`.
 
@@ -461,7 +461,7 @@ Les écarts sur les statistiques entre les différentes listes sont-ils importan
 
 En reprenant votre fonction de calcul de distance euclidienne en 3D `calc_distance_3D()`, faites-en une version pour deux dimensions que vous appellerez `calc_distance_2D()`.
 
-Créez une autre fonction `calc_dist2ori()` à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées en 2D d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$).
+Créez une autre fonction `calc_dist2ori()` à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$).
 
 La figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en trait épais). Chaque trait pointillé représente la distance que l'on cherche à calculer entre les points de la courbe et l'origine du repère de coordonnées (0, 0).
 

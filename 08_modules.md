@@ -11,7 +11,7 @@ La plupart de ces modules sont déjà installés dans les versions standards de 
 
 ## Importation de modules
 
-Dans les chapitres précédents, nous avons rencontré la notion de module quelques fois. Notamment lorsque nous avons voulu tirer un nombre aléatoire :
+Dans les chapitres précédents, nous avons rencontré la notion de module plusieurs fois. Notamment lorsque nous avons voulu tirer un nombre aléatoire :
 ```
 >>> import random
 >>> random.randint(0, 10)
@@ -20,7 +20,7 @@ Dans les chapitres précédents, nous avons rencontré la notion de module quelq
 
 Regardons de plus près cet exemple :
 
-- Ligne 1, l'instruction `import` permet d'accéder à toutes les fonctions du module [*random*](https://docs.python.org/fr/3/library/random.html#module-random).
+- Ligne 1, l'instruction `import` donne accès à toutes les fonctions du module [*random*](https://docs.python.org/fr/3/library/random.html#module-random).
 - Ensuite, ligne 2, nous utilisons la fonction `randint(0, 10)` du module *random*. Cette fonction renvoie un nombre entier tiré aléatoirement entre `0` inclus et `10` inclus.
 
 Nous avons également croisé le module *math* lors de l'exercice sur la spirale (voir chapitre 7 *Fichiers*). Ce module nous a donné accès aux fonctions trigonométriques et à la constante $\pi$ :
@@ -33,11 +33,11 @@ Nous avons également croisé le module *math* lors de l'exercice sur la spirale
 1.0
 ```
 
-En résumé, l'utilisation de la syntaxe `import module` permet d'importer tout une série de fonctions organisées par « thèmes ». Par exemple, les fonctions gérant les nombres aléatoires avec *random* et les fonctions mathématiques avec *math*. Python comprend de nombreux autres modules internes (c'est-à-dire présent de base lorsqu'on installe Python).
+En résumé, l'utilisation de la syntaxe `import module` permet d'importer tout une série de fonctions organisées par « thèmes ». Par exemple, les fonctions gérant les nombres aléatoires avec *random* et les fonctions mathématiques avec *math*. Python possède de nombreux autres modules internes (c'est-à-dire présent de base lorsqu'on installe Python).
 
 open-box-rem
 
-Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` avec `truc` étant un objet et `.bidule()` une méthode. Nous vous avions expliqué qu'une *méthode* était en définitive une fonction un peu particulière :
+Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` avec `truc` étant un objet et `.bidule()` une méthode. Nous vous avions expliqué qu'une *méthode* était une fonction un peu particulière :
 
 - elle était liée à un objet par un point ;
 - en général, elle agissait sur ou utilisait l'objet auquel elle était liée.
@@ -50,7 +50,7 @@ utilise l'objet chaîne de caractères `"{}"` (auquel elle est liée) pour final
 
 Avec les modules, nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode. En fait la [documentation officielle de Python](https://docs.python.org/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Dans cet ouvrage, nous utiliserons systématiquement le mot **fonction** lorsqu'on évoquera des fonctions issues de modules.
 
-Si cela vous parait encore ardu, ne vous inquiétez pas, c'est à force de pratiquer et de lire que vous vous approprierez le vocabulaire. Ici, la syntaxe `module.fonction()` est là pour rappeler d'où provient la fonction en un coup d’œil !
+Si cela vous parait encore ardu, ne vous inquiétez pas, c'est à force de pratiquer et de lire que vous vous approprierez le vocabulaire. Ici, la syntaxe `module.fonction()` est là pour rappeler de quel module provient la fonction en un coup d’œil !
 
 close-box-rem
 
@@ -78,7 +78,7 @@ On peut également importer toutes les fonctions d'un module :
 >>> uniform(0,2.5)
 0.64943174760727951
 ```
-L'instruction `from random import *` importe toutes les fonctions du module `random`. On peut ainsi utiliser toutes ses fonctions directement, comme par exemple `shuffle()` qui permute une liste aléatoirement.
+L'instruction `from random import *` importe toutes les fonctions du module *random*. On peut ainsi utiliser toutes ses fonctions directement, comme par exemple `shuffle()` qui permute une liste aléatoirement.
 
 Dans la pratique, plutôt que de charger toutes les fonctions d'un module en une seule fois :
 ```
@@ -101,7 +101,7 @@ Il est également possible de définir un alias (un nom plus court) pour un modu
 >>> rand.uniform(1, 3)
 2.643472616544236
 ```
-Dans cet exemple, les fonctions du module `random` sont accessibles via l'alias `rand`.
+Dans cet exemple, les fonctions du module *random* sont accessibles via l'alias `rand`.
 
 
 Enfin, pour vider de la mémoire un module déjà chargé, on peut utiliser l'instruction `del` :
@@ -115,7 +115,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in ?
 NameError: name 'random' is not defined
 ```
-On constate alors qu'un rappel d'une fonction du module `random` après l'avoir vidé de la mémoire retourne un message d'erreur.
+On constate alors qu'un rappel d'une fonction du module *random* après l'avoir vidé de la mémoire retourne un message d'erreur.
 
 
 ## Obtenir de l'aide sur les modules importés
@@ -215,9 +215,9 @@ Il existe une série de modules que vous serez probablement amenés à utiliser 
 
 Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir toutes leurs potentialités.
 
-Nous verrons dans le chapitre 14 *Création de module* comment créer notre propre module lorsqu'on souhaite réutiliser souvent ses propres fonctions.
+Vous verrez dans le chapitre 14 *Création de module* comment créer votre propre module lorsque vous souhaitez réutiliser souvent vos propres fonctions.
 
-Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique (au sens large) et en analyse de données. Citons-en quelques-uns: *NumPy* (notion de matrice, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (construction de graphiques), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
+Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Citons-en quelques-uns: *NumPy* (notion de matrice, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (construction de graphiques), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
 
 
 
@@ -225,19 +225,19 @@ Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas in
 
 Le module [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) contient des fonctions et des variables spécifiques à l'interpréteur Python lui-même. Ce module est particulièrement intéressant pour récupérer les arguments passés à un script Python lorsque celui-ci est appelé en ligne de commande.
 
-Dans cet exemple, écrivons le court script suivant que l'on enregistrera sous le nom `test.py ` :
+Dans cet exemple, créons le court script suivant que l'on enregistrera sous le nom `test.py ` :
 ```
 import sys
 print(sys.argv)
 ```
 
-Ensuite, lançons `test.py` suivi de plusieurs arguments. Par exemple :
+Ensuite, dans un *shell*, exécutons le script `test.py` suivi de plusieurs arguments. Par exemple :
 ```
 $ python test.py salut girafe 42
 ['test.py', 'salut', 'girafe', '42']
 ```
 
-Ligne 1, le caractère `$` représente l'invite du *shell*, `test.py` est le nom du script Python, `salut`, `girafe` et `42` sont les arguments passés au script (tous séparés par un espace).
+Ligne 1. Le caractère `$` représente l'invite du *shell*, `test.py` est le nom du script Python, `salut`, `girafe` et `42` sont les arguments passés au script (tous séparés par un espace).
 
 Ligne 2. Le script affiche le contenu de la variable `sys.argv`. Cette variable est une liste qui contient tous les arguments de la ligne de commande, y compris le nom du script lui-même qu'on retrouve comme premier élément de cette liste dans `sys.argv[0]`. On peut donc accéder à chacun des arguments du script avec `sys.argv[1]`, `sys.argv[2]`...
 
@@ -265,7 +265,7 @@ Argument vaut : 42
 
 Notez qu'ici on vérifie que le script possède deux arguments car le nom du script lui-même compte pour un argument (le tout premier).
 
-L'intérêt de récupérer des arguments passés dans la ligne de commande à l'appel du script est de pouvoir ensuite les utiliser dans le script Python.
+L'intérêt de récupérer des arguments passés dans la ligne de commande à l'appel du script est de pouvoir ensuite les utiliser dans le script.
 
 Voici à titre d'exemple le script `compte_lignes.py` qui va prendre comme argument le nom d'un fichier puis afficher le nombre de lignes qu'il contient.
 ```
@@ -327,7 +327,7 @@ La lecture de la partie suivante va nous permettre d'améliorer notre script `co
 
 Le module [*os*](https://docs.python.org/fr/3/library/os.html#module-os) gère l'interface avec le système d'exploitation.
 
-La fonction `os.path.exists()` est une fonction pratique de ce module qui vérifie la présence d'un fichier sur le disque.
+La fonction `os.path.exists()` est une fonction pratique de ce module qui vérifie la présence d'un fichier sur le disque dur.
 ```
 >>> import sys
 >>> import os
@@ -344,7 +344,7 @@ Dans cet exemple, si le fichier n'existe pas sur le disque, on quitte le program
 La fonction `os.getcwd()` renvoie le répertoire (sous forme de chemin complet) depuis lequel est lancé Python :
 ```
 >>> import os
->>> os.listdir()
+>>> os.getcwd()
 '/home/pierre'
 ```
 
@@ -359,7 +359,7 @@ Le résultat est renvoyé sous forme d'une liste contenant à la fois le nom des
 
 ## Exercices
 
-*Conseils* : pour les trois premiers exercices, utilisez l'interpréteur Python. Pour les exercices suivants, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseils* : pour les trois premiers exercices, utilisez l'interpréteur Python. Pour les exercices suivants, créez des scripts puis exécutez-les dans un *shell*.
 
 
 ### Racine carrée
@@ -417,7 +417,7 @@ Documentation de la fonction `time.sleep()` :
 
 ### Séquences aléatoires de chiffres
 
-Générez une séquence aléatoire de 6 chiffres, ceux-ci étant des entiers tirés entre 1 et 4. Utilisez le module `random` et la fonction `randint()`.
+Générez une séquence aléatoire de 6 chiffres, ceux-ci étant des entiers tirés entre 1 et 4. Utilisez le module *random* avec la fonction `randint()`.
 
 Documentation de la fonction `random.randint()` :
 
@@ -426,7 +426,7 @@ Documentation de la fonction `random.randint()` :
 
 ### Séquences aléatoires d'ADN
 
-Générez une séquence aléatoire d'ADN de 20 bases de deux manières différentes. Utilisez le module `random` avec la fonction `randint()` ou `choice()`.
+Générez une séquence aléatoire d'ADN de 20 bases de deux manières différentes. Utilisez le module *random* avec la fonction `randint()` ou `choice()`.
 
 Documentation de la fonction `random.randint()` :
 
@@ -443,7 +443,7 @@ Créez un script `dna_random.py` qui prend comme argument un nombre de bases, co
 
 Le script devra vérifier qu'un argument est bien fourni et renvoyer un message d'erreur si ce n'est pas le cas.
 
-*Conseil* : pour générer la séquence d'ADN, vous utiliserez, au choix, la fonction `random.randint()` ou `random.choice()` abordée dans l'exercice précédent.
+*Conseil* : pour générer la séquence d'ADN, vous utiliserez, au choix, la fonction `random.randint()` ou `random.choice()` abordées dans l'exercice précédent.
 
 
 ### Compteur de lignes
