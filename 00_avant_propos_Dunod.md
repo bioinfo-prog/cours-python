@@ -27,7 +27,7 @@ Nous espérons que vous aurez autant de plaisir à apprendre Python que nous en 
 
 Un grand merci à Sander Nabuurs du *Centre for Molecular and Biomolecular Informatic* de Nijmegen aux Pays-Bas pour la toute [première version](http://www.cmbi.ru.nl/pythoncourse/spy/index.spy?site=python&action=Home) de ce cours qui remonte à l'année 2003.
 
-Nous remercions le professeur Philip Guo de l'UC San Diego, pour nous avoir autorisé à utiliser des copies d'écran de son excellent site [Python Tutor](http://pythontutor.com/).
+Nous remercions le professeur Philip Guo de l'UC San Diego, pour nous avoir autorisé à utiliser des copies d'écran de son excellent site [*Python Tutor*](http://pythontutor.com/).
 
 Merci également à tous les contributeurs, occasionnels ou réguliers :
 Virginie Martiny, Romain Laurent, Benjamin Boyer, Catherine Lesourd, Philippe Label, Rémi Cuchillo, Cédric Gageat, Philibert Malbranche, Mikaël Naveau, Alexandra Moine-Franel, et plus généralement les promotions des masters de biologie informatique, *in silico drug design* et récemment les stagiaires du diplôme universitaire en bioinformatique intégrative. Parmi tous les étudiants que nous avons croisés, certains sont devenus des collègues et ont contribué au présent ouvrage. Nous les remercions sincèrement, notamment :
