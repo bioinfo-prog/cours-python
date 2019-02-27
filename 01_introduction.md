@@ -87,7 +87,7 @@ il faudra taper seulement `python` sans le `$` ni l'espace après le `$`.
 
 ## Premier contact avec Python
 
-Python est un langage interprété, c'est-à-dire que chaque ligne de code est lue puis interprétée afin d'être exécutée par l'ordinateur. Pour vous en rendre compte, ouvrez un *shell*, activez conda pour Linux et Mac OSX seulement (tapez `conda activate` et pour plus d'informations reportez-vous à la rubrique *Installation de Python* [en ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod)), puis lancez la commande :
+Python est un langage interprété, c'est-à-dire que chaque ligne de code est lue puis interprétée afin d'être exécutée par l'ordinateur. Pour vous en rendre compte, ouvrez un *shell* puis lancez la commande :
 
 `python`
 
@@ -116,6 +116,7 @@ Python 3.7.1 (default, Dec 14 2018, 19:28:38)
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
+
 Les blocs
 
 - `PS C:\Users\pierre>` pour Windows,
@@ -125,11 +126,11 @@ Les blocs
 représentent l'invite de commande de votre *shell*. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
 
 Le triple chevron `>>>` est l'invite de commande de Python (*prompt* en anglais), ce qui signifie que Python attend une commande.
-Tapez par exemple l'instruction
+Tapez par exemple l'instruction :
 
 `print("Hello world!")`
 
-puis validez votre commande en appuyant sur la touche `Entrée`.
+puis validez cette commande en appuyant sur la touche `Entrée`.
 
 Python a exécuté la commande directement et a affiché le texte `Hello world!`. Il attend ensuite votre prochaine instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a dû apparaître sur votre écran :
 ```
@@ -153,9 +154,9 @@ Il existe de nombreux autres langages interprétés tels que [Perl](http://www.p
 
 ## Premier programme en Python
 
-Bien sûr, l'interpréteur présente vite des limites dès lors que l'on veut exécuter une suite d'instructions plus complexe. Comme tout langage informatique, on peut enregistrer ces instructions dans un fichier, que l'on appelle communément un script Python.
+Bien sûr, l'interpréteur présente vite des limites dès lors que l'on veut exécuter une suite d'instructions plus complexe. Comme tout langage informatique, on peut enregistrer ces instructions dans un fichier, que l'on appelle communément un script (ou programme) Python.
 
-Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à la rubrique *Installation de Python* en ligne) et entrez le code suivant :
+Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à la rubrique *Installation de Python* en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod)) et entrez le code suivant :
 
 `print("Hello world!")`
 
