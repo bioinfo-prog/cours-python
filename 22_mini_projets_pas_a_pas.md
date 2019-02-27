@@ -1,16 +1,17 @@
-# Mini-projets
+## Accompagnement pas à pas
 
-Dans ce chapitre, nous vous proposons quelques scénarios pour développer vos compétences en Python et mettre en œuvre les concepts que vous avez rencontrés dans les chapitres précédents.
+Vous trouverez ci-après les différentes étapes pour réaliser les mini-projets proposés. Prenez le temps de bien comprendre une étape avant de passer à la suivante.
 
-## Mots anglais dans le protéome humain
+
+### Mots anglais dans le protéome humain
 
 L'objectif de ce premier projet est de découvrir si des mots anglais peuvent se retrouver dans les séquences du protéome humain, c'est-à-dire dans les séquences de l'ensemble des protéines humaines.
 
-### Composition aminée
+#### Composition aminée
 
 Dans un premier temps, composez 5 mots anglais avec les 20 acides aminés.
 
-### Des mots
+#### Des mots
 
 Téléchargez le fichier [english-common-words.txt](https://python.sdv.univ-paris-diderot.fr/data-files/english-common-words.txt). Ce fichier contient les 3000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
 
@@ -18,7 +19,7 @@ Créez un script `words-in-proteome.py` et écrivez la fonction `read_words()` q
 
 Dans le programme principal, affichez le nombre de mots sélectionnés.
 
-### Des protéines
+#### Des protéines
 
 Téléchargez maintenant le fichier [human-proteome.fasta](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta). Attention, ce fichier est assez gros. Ce fichier provient de la banque de données UniProt à partir de cette [page](https://www.uniprot.org/help/human_proteome).
 
@@ -41,7 +42,7 @@ Toujours dans le script  `words-in-proteome.py`, écrivez la fonction `read_sequ
 Dans le programme principal, affichez le nombre de séquences lues.
 À des fins de test, affichez également la séquence associée à la protéine `O95139`.
 
-### À la pêche aux mots
+#### À la pêche aux mots
 
 Écrivez maintenant la fonction `search_words_in_proteome()` qui prend en argument la liste de mots et le dictionnaire contenant les séquences des protéines et qui va compter le nombre de séquences dans lesquelles un mot est présent. Cette fonction renverra un dictionnaire dont les clefs sont les mots et les valeurs le nombre de séquences qui contiennent ces mots. La fonction affichera également le message suivant pour les mots trouvés dans le protéome :
 ```
@@ -53,7 +54,7 @@ ACT found in 805 sequences
 
 Cette étape prend quelques minutes. Soyez patient.
 
-### Et le mot le plus fréquent est...
+#### Et le mot le plus fréquent est...
 
 Pour terminer, écrivez maintenant la fonction `find_most_frequent_word()` qui prend en argument le dictionnaire renvoyé par la précédente fonction `search_words_in_proteome()` et qui affiche le mot trouvé dans le plus de protéines, ainsi que le nombre de séquences dans lesquelles il a été trouvé, sous la forme :
 ```
@@ -64,7 +65,7 @@ Quel est ce mot ?
 
 Quel pourcentage des séquences du protéome contiennent ce mot ?
 
-### Pour être plus complet
+#### Pour être plus complet
 
 Jusqu'à présent, nous avions déterminé, pour chaque mot, le nombre de séquences dans lesquelles il apparaissait.
 Nous pourrions aller plus loin et calculer aussi le nombre de fois que chaque mot apparaît dans les séquences.
@@ -75,22 +76,13 @@ La méthode `.count()` vous sera utile.
 Déterminez alors quel mot est le plus fréquent dans le protéome humain.
 
 
-## genbank2fasta
+### genbank2fasta (sans expression régulière)
 
-Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au format FASTA.
+Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au format FASTA. L'annexe A *Quelques formats de données rencontrés en biologie* rappelle les caractéristiques de ces deux formats de fichiers.
 
-Pour cela, nous allons utiliser le fichier GenBank du chromosome I de la levure du boulanger *Saccharomyces cerevisiae*. Vous pouvez télécharger ce fichier :
+Le jeu de données avec lequel nous allons travailler est le fichier GenBank du chromosome I de la levure du boulanger *Saccharomyces cerevisiae*. Les indications pour le télécharger sont indiqués dans la description du projet.
 
-- soit via le lien sur le site du cours [NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk);
-- soit directement sur la page de [Saccharomyces cerevisiae S288c chromosome I, complete sequence](https://www.ncbi.nlm.nih.gov/nuccore/NC_001133) sur le site du NCBI, puis en cliquant sur *Send to*, puis *Complete Record*, puis *Choose Destination: File*, puis *Format: GenBank  (full)* et enfin sur le bouton *Create File*.
-
-Vous pouvez consulter les caractéristiques des formats FASTA et GenBank dans l'annexe *Quelques formats de données rencontrés en biologie*.
-
-Dans la suite, nous vous proposons deux manières de procéder, avec et sans expression régulière selon si vous avez ou non lu et acquis les expressions régulières (Chapitre 15).
-
-### genbank2fasta sans expression régulière
-
-Si vous n'avez pas encore travailler les expressions régulières (Chapitre 15), vous êtes au bon endroit ! Ces fameuses expressions régulières permettent de traiter ce problème de manière puissante et élégante, mais il est tout à fait possible de réaliser ce mini projet sans elles.
+Dans cette rubrique, nous allons réaliser ce projet **sans expression régulière**.
 
 #### Lecture du fichier
 
@@ -134,15 +126,19 @@ ou
 
 Les valeurs numériques séparées par `..` indiquent la position du gène dans le génome (numéro de la première base,  numéro de la dernière base).
 
-Remarque : le symbole `<` indique un gène partiel sur l'extrémité 5', c'est-à-dire que le codon START correspondant est incomplet. Respectivement, le symbole `>` désigne un gène partiel sur l'extrémité 3', c'est-à-dire que le codon STOP correspondant est incomplet. Pour plus de détails, consultez la documentation du NCBI sur les [délimitations des gènes](https://www.ncbi.nlm.nih.gov/Sitemap/samplerecord.html#BaseSpanB). Nous vous proposons ici d'ignorer ces symboles `>` et `<`.
+open-box-rem
 
-Repérez ces différents gènes dans le fichier `NC_001133.gbk`. Pour récupérer ces lignes de gènes il suffira donc de tester si la ligne commence par
+Le symbole `<` indique un gène partiel sur l'extrémité 5', c'est-à-dire que le codon START correspondant est incomplet. Respectivement, le symbole `>` désigne un gène partiel sur l'extrémité 3', c'est-à-dire que le codon STOP correspondant est incomplet. Pour plus de détails, consultez la documentation du NCBI sur les [délimitations des gènes](https://www.ncbi.nlm.nih.gov/Sitemap/samplerecord.html#BaseSpanB). Nous vous proposons ici d'ignorer ces symboles `>` et `<`.
+
+close-box-rem
+
+Repérez ces différents gènes dans le fichier `NC_001133.gbk`. Pour récupérer ces lignes de gènes il faut tester si la ligne commence par
 
 ```
      gene            
 ```
 
-(c'est à dire 5 espaces, suivi du mot `gene`, suivi de 12 espaces). Pour savoir s'il s'agit d'un gène sur le brin direct ou complémentaire, il suffira de tester la présence du mot `complement` dans la ligne lue.
+(c'est-à-dire 5 espaces, suivi du mot `gene`, suivi de 12 espaces). Pour savoir s'il s'agit d'un gène sur le brin direct ou complémentaire, il faut tester la présence du mot `complement` dans la ligne lue.
 
 Ensuite si vous souhaitez récupérer la position de début et de fin de gène, nous vous conseillons d'utiliser la fonction `replace()` et de ne garder que les chiffres et les `.` Par exemple
 
@@ -156,7 +152,7 @@ sera transformé en
 2480..2707
 ```
 
-Enfin, avec la fonction `split()` vous pourrez facilement récupérer les deux entiers de début et de fin de gène.
+Enfin, avec la méthode `.split()` vous pourrez facilement récupérer les deux entiers de début et de fin de gène.
 
 Dans le même script `genbank2fasta.py`, ajoutez la fonction `recherche_genes()` qui prend en argument le contenu du fichier (sous la forme d'une liste de lignes) et qui renvoie la liste des gènes.
 
@@ -244,10 +240,10 @@ Toujours dans le même script, ajoutez la fonction `extrait_genes()` qui prend e
 
 - extrait la séquence du gène dans la séquence complète ;
 - prend la séquence complémentaire inverse (avec la fonction `construit_comp_inverse()` si le gène est antisens ;
-- enregistre le gène dans un fichier au format fasta (avec la fonction `ecrit_fasta()`) ;
-- affiche à l'écran le numéro du gène et le nom du fichier fasta créé.
+- enregistre le gène dans un fichier au format FASTA (avec la fonction `ecrit_fasta()`) ;
+- affiche à l'écran le numéro du gène et le nom du fichier FASTA créé.
 
-La première ligne des fichiers fasta sera de la forme :
+La première ligne des fichiers FASTA sera de la forme :
 
 ```
 >nom-organisme|numéro-du-gène|début|fin|sens ou antisens
@@ -267,7 +263,7 @@ Vous afficherez un message d'erreur si :
 - le script `genbank2fasta.py` est utilisé sans argument,
 - le fichier fourni en argument n'existe pas.
 
-Pour vous aider, n'hésitez pas à jeter un oeil aux descriptions des modules *sys* et *os* dans le chapitre 8 *Modules*.
+Pour vous aider, n'hésitez pas à jeter un œil aux descriptions des modules *sys* et *os* dans le chapitre 8 *Modules*.
 
 Testez votre script ainsi finalisé.
 
@@ -275,10 +271,13 @@ Bravo, si vous êtes arrivés jusqu'à cette étape.
 
 
 
-### genbank2fasta avec expression régulière
+### genbank2fasta (avec expression régulière)
 
-Nous allons reproduire l'activité précédente, mais cette fois en utilisant le module d'expressions régulières `re`.
- et le fichier GenBank du chromosome I de la levure du boulanger *Saccharomyces cerevisiae*. Vous pouvez télécharger ce fichier :
+Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au format FASTA. L'annexe A *Quelques formats de données rencontrés en biologie* rappelle les caractéristiques de ces deux formats de fichiers.
+
+Le jeu de données avec lequel nous allons travailler est le fichier GenBank du chromosome I de la levure du boulanger *Saccharomyces cerevisiae*. Les indications pour le télécharger sont indiqués dans la description du projet.
+
+Dans cette rubrique, nous allons réaliser ce projet **avec des expression régulières** en utilisant le module *re*.
 
 
 #### Lecture du fichier
@@ -323,7 +322,11 @@ ou
 
 Les valeurs numériques séparées par `..` indiquent la position du gène dans le génome (numéro de la première base,  numéro de la dernière base).
 
-Remarque : le symbole `<` indique un gène partiel sur l'extrémité 5', c'est-à-dire que le codon START correspondant est incomplet. Respectivement, le symbole `>` désigne un gène partiel sur l'extrémité 3', c'est-à-dire que le codon STOP correspondant est incomplet. Pour plus de détails, consultez la documentation du NCBI sur les [délimitations des gènes](https://www.ncbi.nlm.nih.gov/Sitemap/samplerecord.html#BaseSpanB).
+open-box-rem
+
+Le symbole `<` indique un gène partiel sur l'extrémité 5', c'est-à-dire que le codon START correspondant est incomplet. Respectivement, le symbole `>` désigne un gène partiel sur l'extrémité 3', c'est-à-dire que le codon STOP correspondant est incomplet. Pour plus de détails, consultez la documentation du NCBI sur les [délimitations des gènes](https://www.ncbi.nlm.nih.gov/Sitemap/samplerecord.html#BaseSpanB).
+
+close-box-rem
 
 Repérez ces différents gènes dans le fichier `NC_001133.gbk`. Construisez deux expressions régulières pour extraire du fichier GenBank les gènes sens et les gènes antisens.
 
@@ -427,6 +430,9 @@ Vous afficherez un message d'erreur si :
 - le script `genbank2fasta.py` est utilisé sans argument,
 - le fichier fourni en argument n'existe pas.
 
-Pour vous aider, n'hésitez pas à jeter un œil aux descriptions des modules `sys` et `os` dans le chapitre 8 sur les modules.
+Pour vous aider, n'hésitez pas à jeter un œil aux descriptions des modules *sys* et *os* dans le chapitre 8 sur les modules.
 
 Testez votre script ainsi finalisé.
+
+
+### Simulation d'un pendule
