@@ -48,7 +48,7 @@ Attention ! En Python 2, la division de deux entiers avec l'opérateur `/` corre
 Faites très attention à cet aspect si vous programmez encore en Python 2, c'est une source d'erreur récurrente.
 
 
-### La fonction range()
+### La fonction `range()`
 
 En Python 3, la fonction `range()` est un générateur, c'est-à-dire que cette fonction va itérer sur le nombre entier donner en argument. On ne peut pas l'utiliser seule :
 ```
@@ -149,7 +149,7 @@ Voici quelques exemples.
 
 Exemple d'une séquence constituée de 150 alanines :
 ```
-# exemple d'une séquence de 150 alanines
+# Exemple d'une séquence de 150 alanines.
 >>> seq = "A"*150
 >>> width = 60
 >>> seq_split = [seq[i:i+width] for i in range(0,len(seq),width)]
@@ -159,7 +159,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
 
-### Formatage fasta d'une séquence (avec la ligne de commentaire)
+### Formatage FASTA d'une séquence (avec la ligne de commentaire)
 
 Exemple d'une séquence constituée de 150 alanines :
 ```
