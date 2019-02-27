@@ -200,7 +200,7 @@ Lorsque l'on souhaite tester la valeur d'une variable de type *float*, le premie
 True
 ```
 
-Toutefois, nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques des *floats* sous forme de nombres flottants (d'où leur nom !), et cela mène à certaines [limitations](https://docs.python.org/3/tutorial/floatingpoint.html). Regardez l'exemple suivant :
+Toutefois, nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques des *floats* sous forme de nombres flottants (d'où leur nom !), et cela mène à certaines [limitations](https://docs.python.org/fr/3/tutorial/floatingpoint.html). Observez l'exemple suivant :
 ```
 >>> (3 - 2.7) == 0.3
 False
@@ -210,7 +210,7 @@ False
 
 Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False` ligne 2.
 
-En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont un ordinateur traite les nombres flottants (comme un rapport de nombres binaires). Ainsi certaines valeurs de *float* ne peuvent être qu'approchées. Une manière de s'en rendre compte est d'utiliser l'écriture formatée en demandant un grand nombre de décimales :
+En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont un ordinateur traite les nombres flottants (comme un rapport de nombres binaires). Ainsi certaines valeurs de *float* ne peuvent être qu'approchées. Une manière de s'en rendre compte est d'utiliser l'écriture formatée en demandant l'affichage d'un grand nombre de décimales :
 
 ```
 >>> 0.3
@@ -247,7 +247,7 @@ close-box-adv
 
 ## Exercices
 
-*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 
 ### Jours de la semaine
@@ -269,14 +269,14 @@ La liste ci-dessous représente la séquence d'un brin d'ADN :
 
 `["A","C","G","T","T","A","G","C","T","A","A","C","G"]`
 
-Écrivez un script qui transforme cette séquence en sa séquence complémentaire.
+Créez un script qui transforme cette séquence en sa séquence complémentaire.
 
 Rappel : la séquence complémentaire s'obtient en remplaçant A par T, T par A, C par G et G par C.
 
 
 ### Minimum d'une liste
 
-La fonction `min()` de Python renvoie l'élément le plus petit d'une liste constituée de valeurs numériques ou de chaînes de caractères. Sans utiliser cette fonction, écrivez un script qui détermine le plus petit élément de la liste `[8, 4, 6, 1, 5]`.
+La fonction `min()` de Python renvoie l'élément le plus petit d'une liste constituée de valeurs numériques ou de chaînes de caractères. Sans utiliser cette fonction, créez un script qui détermine le plus petit élément de la liste `[8, 4, 6, 1, 5]`.
 
 
 ### Fréquence des acides aminés
@@ -290,7 +290,7 @@ Calculez la fréquence des acides aminés alanine (A), arginine (R), tryptophane
 
 ### Notes et mention d'un étudiant
 
-Voici les notes d'un étudiant : 14, 9, 13, 15 et 12. Écrivez un script qui affiche la note maximum (utilisez la fonction `max()`), la note minimum (utilisez la fonction `min()`) et qui calcule la moyenne.
+Voici les notes d'un étudiant : 14, 9, 13, 15 et 12. Créez un script qui affiche la note maximum (utilisez la fonction `max()`), la note minimum (utilisez la fonction `min()`) et qui calcule la moyenne.
 
 Affichez la valeur de la moyenne avec deux décimales. Affichez aussi la mention obtenue sachant que la mention est « passable » si la moyenne est entre 10 inclus et 12 exclus, « assez bien » entre 12 inclus et 14 exclus et « bien » au-delà de 14.
 
@@ -328,7 +328,7 @@ Jusqu'à présent, la conjecture de Syracuse, selon laquelle depuis n'importe qu
 
 Par exemple, les premiers éléments de la suite de Syracuse si on prend comme point de départ 10 sont : 10, 5, 16, 8, 4, 2, 1...
 
-Écrivez un script qui, partant d'un entier positif *n* (par exemple 10 ou 20), crée une liste des nombres de la suite de Syracuse. Avec différents points de départ (c'est-à-dire avec différentes valeurs de *n*), la conjecture de Syracuse est-elle toujours vérifiée ? Quels sont les nombres qui constituent le cycle trivial ?
+Créez un script qui, partant d'un entier positif *n* (par exemple 10 ou 20), crée une liste des nombres de la suite de Syracuse. Avec différents points de départ (c'est-à-dire avec différentes valeurs de *n*), la conjecture de Syracuse est-elle toujours vérifiée ? Quels sont les nombres qui constituent le cycle trivial ?
 
 open-box-rem
 
@@ -355,7 +355,7 @@ Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles p
 
 Pour le premier acide aminé, l'angle phi vaut *48.6* et l'angle psi *53.4*. Pour le deuxième, l'angle phi vaut *-124.9* et l'angle psi *156.7*, etc.
 
-En utilisant cette liste, écrivez un script qui teste, pour chaque acide aminé, s'il est ou non en hélice et affiche les valeurs des angles phi et psi et le message adapté *est en hélice* ou *n'est pas en hélice*.
+En utilisant cette liste, créez un script qui teste, pour chaque acide aminé, s'il est ou non en hélice et affiche les valeurs des angles phi et psi et le message adapté *est en hélice* ou *n'est pas en hélice*.
 
 Par exemple, pour les 3 premiers acides aminés :
 ```
@@ -383,18 +383,11 @@ Voici un extrait de l'article sur les nombres premiers tiré de l'encyclopédie 
 Déterminez les nombres premiers inférieurs à 100. Combien y a-t-il de nombres premiers entre 0 et 100 ?
 Pour vous aider, nous vous proposons plusieurs méthodes.
 
-**Méthode 1** (peu optimale mais assez intuitive)
+####  Méthode 1 (peu optimale mais assez intuitive)
 
 Pour chaque nombre de 2 à 100, calculez le reste de la division entière (avec l'opérateur modulo `%`) depuis 1 jusqu'à lui-même. Si c'est un nombre premier, il aura exactement deux nombres pour lesquels le reste de la division entière est égal à 0 (1 et lui-même). Si ce n'est pas un nombre premier, il aura plus de deux nombres pour lesquels le reste de la division entière est égal à 0.
 
-**Méthode 1++**
-
-Vous pouvez facilement améliorer la méthode 1 avec quelques astuces. Nous vous mettons sur la piste avec ces deux questions :
-
-- Y a-t-il des diviseurs que l'on teste à chaque fois et pour lesquels on connait déjà le résultat ?
-- Lorsqu'on trouve un (ou possiblement plusieurs) diviseur(s) en cours de route, y a-t-il moyen d'affirmer tout de suite que le nombre considéré n'est pas premier ?
-
-**Méthode 2** (plus optimale et plus rapide, mais un peu plus compliquée)
+#### Méthode 2 (plus optimale et plus rapide, mais un peu plus compliquée)
 
 Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire qu'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier. Attention, pour cette méthode, il faudra initialiser la liste de nombres premiers avec le premier nombre premier (donc 2 !).
 
@@ -429,7 +422,7 @@ Pour arriver rapidement à deviner le nombre, l'astuce consiste à prendre à ch
 6. le nombre se trouve entre 78 et 81, on propose 79 ( 78 + (81-78)/2 ).
 
 
-Écrivez un script qui reproduit ce jeu de devinettes. Vous pensez à un nombre entre 1 et 100 et l'ordinateur essaie de le deviner par dichotomie en vous posant des questions.
+Créez un script qui reproduit ce jeu de devinettes. Vous pensez à un nombre entre 1 et 100 et l'ordinateur essaie de le deviner par dichotomie en vous posant des questions.
 
 Votre programme utilisera la fonction `input()` pour interagir avec l'utilisateur. Voici un exemple de son fonctionnement :
 ```

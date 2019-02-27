@@ -2,7 +2,7 @@
 
 ## Définition
 
-Une **liste** est une structure de données qui contient une série de valeurs. Python autorise la construction de liste contenant des valeurs de type différent (par exemple entier et chaîne de caractères), ce qui leur confère une grande flexibilité. Une liste est déclarée par une série de valeurs (n'oubliez pas les guillemets, simples ou doubles, s'il s'agit de chaînes de caractères) séparées par des **virgules**, et le tout encadré par des **crochets**. En voici quelques exemples :
+Une **liste** est une structure de données qui contient une série de valeurs. Python autorise la construction de liste contenant des valeurs de types différents (par exemple entier et chaîne de caractères), ce qui leur confère une grande flexibilité. Une liste est déclarée par une série de valeurs (n'oubliez pas les guillemets, simples ou doubles, s'il s'agit de chaînes de caractères) séparées par des **virgules**, et le tout encadré par des **crochets**. En voici quelques exemples :
 ```
 >>> animaux = ['girafe','tigre','singe','souris']
 >>> tailles = [5, 2.5, 1.75, 0.15]
@@ -44,7 +44,7 @@ Traceback (innermost last):
 IndexError: list index out of range
 ```
 
-N'oubliez pas ceci ou vous risqueriez d'obtenir des bugs inattendus !
+N'oubliez pas ceci ou vous risquez d'obtenir des bugs inattendus !
 
 
 ## Opération sur les listes
@@ -145,7 +145,7 @@ Un autre avantage des listes est la possibilité de sélectionner une partie d'u
 
 Notez que lorsqu'aucun indice n'est indiqué à gauche ou à droite du symbole deux-points, Python prend par défaut tous les éléments depuis le début ou tous les éléments jusqu'à la fin respectivement.
 
-On peut aussi préciser le pas en ajoutant un `:` supplémentaire et en indiquant le pas par un entier.
+On peut aussi préciser le pas en ajoutant un symbole deux-points supplémentaire et en indiquant le pas par un entier.
 ```
 >>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> animaux[0:3:2]
@@ -163,7 +163,7 @@ On peut aussi préciser le pas en ajoutant un `:` supplémentaire et en indiquan
 [1, 4]
 ```
 
-Finalement, on voit que l'accès au contenu d'une liste avec des crochets fonctionne sur le modèle `liste[début:fin:pas]`.
+Finalement, on se rend compte que l'accès au contenu d'une liste fonctionne sur le modèle `liste[début:fin:pas]`.
 
 
 ## Fonction `len()`
@@ -186,7 +186,7 @@ L'instruction `range()` est une fonction spéciale en Python qui  génère des n
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-La commande `list(range(10))` a généré une liste contenant tous les nombres entiers de 0 inclus à 10 **exclu**. Nous verrons l'utilisation de la fonction `range()` toute seule dans le chapitre suivant sur les *Boucles et comparaisons*.
+La commande `list(range(10))` a généré une liste contenant tous les nombres entiers de 0 inclus à 10 **exclu**. Nous verrons l'utilisation de la fonction `range()` toute seule dans le chapitre 5 *Boucles et comparaisons*.
 
 Dans l'exemple ci-dessus, la fonction `range()` a pris un argument, mais elle peut également prendre deux ou trois arguments, voyez plutôt :
 ```
@@ -207,7 +207,7 @@ Enfin, prenez garde aux arguments optionnels par défaut (`0` pour `début` et `
 >>> list(range(10,0))
 []
 ```
-Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 1. Ainsi, si on commence à 10 et qu'on avance par pas de 1, on ne pourra jamais atteindre 0. Python génère ainsi une liste vide. Pour éviter ça, il faudrait, par exemple, préciser un pas de -1 pour une liste d'entiers décroissants :
+Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 1. Ainsi, si on commence à 10 et qu'on avance par pas de 1, on ne pourra jamais atteindre 0. Python génère ainsi une liste vide. Pour éviter ça, il faudrait, par exemple, préciser un pas de -1 pour obtenir une liste d'entiers décroissants :
 ```
 >>> list(range(10,0,-1))
 [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
@@ -215,7 +215,7 @@ Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 
 
 ## Listes de listes
 
-Pour finir, sachez qu'il est tout à fait possible de construire des listes de listes. Cette fonctionnalité peut être parfois très pratique. Par exemple :
+Pour finir, sachez qu'il est tout à fait possible de construire des listes de listes. Cette fonctionnalité peut parfois être très pratique. Par exemple :
 ```
 >>> enclos1 = ['girafe', 4]
 >>> enclos2 = ['tigre', 2]
@@ -240,7 +240,7 @@ Pour accéder à un élément de la sous-liste, on utilise un double indiçage :
 2
 ```
 
-On verra un peu plus loin qu'il existe en Python des dictionnaires qui sont également très pratiques pour stocker de l'information structurée. On verra aussi qu'il existe un module nommé *NumPy* qui permet de créer des listes ou tableaux de nombres (vecteurs et matrices), ainsi que de les manipuler.
+On verra un peu plus loin qu'il existe en Python des dictionnaires qui sont également très pratiques pour stocker de l'information structurée. On verra aussi qu'il existe un module nommé *NumPy* qui permet de créer des listes ou des tableaux de nombres (vecteurs et matrices) et de les manipuler.
 
 
 ## Exercices

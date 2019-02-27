@@ -28,7 +28,7 @@ souris
 ```
 Commentons en détails ce qu'il s'est passé dans cet exemple :
 
-La variable `animal` est appelée **variable d'itération**, elle prend successivement les différentes valeurs de la liste `animaux` à chaque itération de la boucle. On verra un peu plus loin dans ce chapitre que l'on peut choisir le nom que l'on veut pour cette variable. Celle-ci est créée par Python la première fois que la ligne contenant le `for` est exécutée (si elle existait déjà son contenu serait écrasé). Une fois la boucle terminée, cette variable d'itération `animal` ne sera pas détruite et contiendra ainsi la dernière valeur de la liste `animaux` (ici la chaîne `souris`).
+La variable `animal` est appelée **variable d'itération**, elle prend successivement les différentes valeurs de la liste `animaux` à chaque itération de la boucle. On verra un peu plus loin dans ce chapitre que l'on peut choisir le nom que l'on veut pour cette variable. Celle-ci est créée par Python la première fois que la ligne contenant le `for` est exécutée (si elle existait déjà son contenu serait écrasé). Une fois la boucle terminée, cette variable d'itération `animal` ne sera pas détruite et contiendra ainsi la dernière valeur de la liste `animaux` (ici la chaîne de caractères `souris`).
 
 Notez bien les types des variables utilisées ici : `animaux` est une **liste** sur laquelle on itère, et `animal` est une **chaîne de caractères** car chaque élément de la liste est une chaîne de caractères. Nous verrons plus loin que la variable d'itération peut être de n'importe quel type selon la liste parcourue. En Python, une boucle itère toujours sur un objet dit **séquentiel** (c'est-à-dire un objet constitué d'autres objets) tel qu'une liste. Nous verrons aussi plus tard d'autres objets séquentiels sur lesquels on peut itérer dans une boucle.
 
@@ -40,7 +40,7 @@ Les notions de bloc d'instruction et d'indentations avait été abordées rapide
 
 close-box-rem
 
-Dans l'exemple suivant, le corps de la boucle contient deux instructions : `print(animal*2)` et `print(animal)` car elles sont indentées par rapport à la ligne débutant par `for` :
+Dans l'exemple suivant, le corps de la boucle contient deux instructions : `print(animal)` et `print(animal*2)` car elles sont indentées par rapport à la ligne débutant par `for` :
 ```
 for animal in animaux:
     print(animal)
@@ -52,9 +52,9 @@ La ligne 4 `print("C'est fini")` ne fait pas partie du corps de la boucle car el
 
 open-box-rem
 
-Outre une meilleure lisibilité, les `:` et l'**indentation** sont formellement requis en Python. Même si on peut indenter comme on veut en Python (plusieurs espaces ou plusieurs tabulations, mais pas une combinaison des deux), les développeurs recommandent l'utilisation de 4 espaces. Vous pouvez consulter à ce sujet le chapitre 15 *Bonnes pratiques de programmation* en Python.
+Outre une meilleure lisibilité, les deux-points et l'**indentation** sont formellement requis en Python. Même si on peut indenter comme on veut (plusieurs espaces ou plusieurs tabulations, mais pas une combinaison des deux), les développeurs recommandent l'utilisation de quatre espaces. Vous pouvez consulter à ce sujet le chapitre 15 *Bonnes pratiques de programmation* en Python.
 
-Faites en sorte de configurer votre éditeur de texte favori de façon à écrire 4 espaces lorsque vous tapez sur la touche *Tab* (tabulation).
+Faites en sorte de configurer votre éditeur de texte favori de façon à écrire quatre espaces lorsque vous tapez sur la touche *Tab* (tabulation).
 
 close-box-rem
 
@@ -78,7 +78,7 @@ tigre
 singe
 ```
 
-On a vu que les boucles `for` pouvaient utiliser une liste contenant des chaînes de caractères, mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou n'importe quel type de variable finalement).
+On a vu que les boucles `for` pouvaient utiliser une liste contenant des chaînes de caractères, mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou n'importe quel type de variable).
 ```
 >>> for i in [1,2,3]:
 ...     print(i)
@@ -87,6 +87,7 @@ On a vu que les boucles `for` pouvaient utiliser une liste contenant des chaîne
 2
 3
 ```
+
 
 ### Fonction `range()`
 
@@ -108,7 +109,7 @@ Contrairement à la création de liste avec `list(range(4))`, la fonction `range
 
 même si cela fonctionnerait également.
 
-Comment cela est-il possible ? Et bien `range()` est une fonction qui a été spécialement conçue pour [cela](https://docs.python.org/3/library/stdtypes.html#typesseq-range), c'est-à-dire que l'on peut itérer directement dessus. Pour Python, il s'agit d'un nouveau type, par exemple dans l'instruction `x = range(3)` la variable `x` est de type *range* (tout comme on avait les types *int*, *float*, *str* ou *list*) à utiliser spécialement avec les boucles.
+Comment cela est-ce possible ? Et bien `range()` est une fonction qui a été spécialement conçue pour [cela](https://docs.python.org/fr/3/library/stdtypes.html#typesseq-range), c'est-à-dire que l'on peut itérer directement dessus. Pour Python, il s'agit d'un nouveau type, par exemple dans l'instruction `x = range(3)` la variable `x` est de type *range* (tout comme on avait les types *int*, *float*, *str* ou *list*) à utiliser spécialement avec les boucles.
 
 L'instruction `list(range(4))` se contente de transformer un objet de type *range* en un objet de type *list*. Si vous vous souvenez bien, il s'agit d'une fonction de *casting*, qui convertit un type en un autre (voir chapitre 2 *Variables*). Il n'y aucun intérêt à utiliser dans une boucle la construction `for i in list(range(4)):`. C'est même contre-productif. En effet, `range()` se contente de stocker l'entier actuel, le pas pour passer à l'entier suivant, et le dernier entier à parcourir, ce qui revient à stocker seulement 3 nombres entiers et ce quelle que soit la longueur de la séquence, même avec un `range(1000000)`. Si on utilisait `list(range(1000000))`, Python construirait d'abord une liste de 1 million d'éléments dans la mémoire puis itérerait dessus, d'où une énorme perte de temps !
 
@@ -276,7 +277,8 @@ La fonction `input()` prend en argument un message (sous la forme d'une chaîne 
 
 ## Exercices
 
-*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
 
 ### Boucles de base
 
@@ -309,7 +311,9 @@ Voici les notes d'un étudiant `[14, 9, 6, 8, 12]`. Calculez la moyenne de ces n
 
 ### Produit de nombres consécutifs
 
-Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. Calculez le produit des nombres consécutifs deux à deux de `entiers` en utilisant une boucle. Exemple pour les premières itérations :
+Avez les fonctions `list()` et `range()`, créez la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus.
+
+Calculez ensuite le produit des nombres consécutifs deux à deux de `entiers` en utilisant une boucle. Exemple pour les premières itérations :
 
 ```
 8
@@ -318,9 +322,10 @@ Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. C
 [...]
 ```
 
+
 ### Triangle
 
-Écrivez un script qui dessine un triangle comme celui-ci :
+Créez un script qui dessine un triangle comme celui-ci :
 ```
 *
 **
@@ -333,10 +338,11 @@ Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. C
 *********
 **********
 ```
+
 
 ### Triangle inversé
 
-Écrivez un script qui dessine un triangle comme celui-ci :
+Créez un script qui dessine un triangle comme celui-ci :
 ```
 **********
 *********
@@ -350,9 +356,10 @@ Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. C
 *
 ```
 
+
 ### Triangle gauche
 
-Écrivez un script qui dessine un triangle comme celui-ci :
+Créez un script qui dessine un triangle comme celui-ci :
 ```
          *
         **
@@ -366,9 +373,10 @@ Soit la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus. C
 **********
 ```
 
+
 ### Pyramide
 
-Écrivez un script `pyra.py` qui dessine une pyramide comme celle-ci :
+Créez un script `pyra.py` qui dessine une pyramide comme celle-ci :
 ```
          *
         ***
@@ -394,7 +402,7 @@ N = int(reponse)
 
 Imaginons que l'on souhaite parcourir tous les éléments d'une matrice carrée, c'est-à-dire d'une matrice qui est constituée d'autant de lignes que de colonnes.
 
-Écrivez un script qui parcourt chaque élément de la matrice et qui affiche le numéro de ligne et de colonne uniquement avec des boucles `for`.
+Créez un script qui parcourt chaque élément de la matrice et qui affiche le numéro de ligne et de colonne uniquement avec des boucles `for`.
 
 Pour une matrice 2 $\times$ 2, le schéma de la figure @fig:parcoursmatrice vous indique comment parcourir une telle matrice. L'affichage attendu est :
 
@@ -410,16 +418,16 @@ ligne colonne
 
 Attention à bien respecter l'alignement des chiffres qui doit être justifié à droite sur 4 caractères. Testez pour une matrice 3 $\times$ 3, puis 5 $\times$ 5, et enfin 10 $\times$ 10.
 
-Écrivez une seconde version de votre script, cette fois-ci avec deux boucles `while`.
+Créez une seconde version de votre script, cette fois-ci avec deux boucles `while`.
 
 
 ### Parcours de demi-matrice sans la diagonale (exercice ++)
 
-En se basant sur le script précédent, on souhaite réaliser le parcours d'une demi-matrice carrée sans la diagonale. On peut noter que cela donne tous les couples possibles une seule fois (1 et 2 est équivalent à 2 et 1), en excluant par ailleurs chaque élément avec lui même (1 et 1, 2 et 2, etc). Pour mieux comprendre ce qui est demandé, la figure @fig:demimatrice indique les cases à parcourir en gris :
+En se basant sur le script précédent, on souhaite réaliser le parcours d'une demi-matrice carrée sans la diagonale. On peut noter que cela produit tous les couples possibles une seule fois (1 et 2 est équivalent à 2 et 1), en excluant par ailleurs chaque élément avec lui même (1 et 1, 2 et 2, etc). Pour mieux comprendre ce qui est demandé, la figure @fig:demimatrice indique les cases à parcourir en gris :
 
 ![Demi-matrice sans la diagonale (en gris).](img/demi-matrice-sans-diag.png "Demi-matrice sans la diagonale (en gris)"){ #fig:demimatrice width=30% }
 
-Écrivez un script qui affiche le numéro de ligne et de colonne, puis la taille de la matrice $N \times N$ et le nombre total de cases parcourues. Par exemple pour une matrice 4 $\times$ 4 (N=4) :
+Créez un script qui affiche le numéro de ligne et de colonne, puis la taille de la matrice $N \times N$ et le nombre total de cases parcourues. Par exemple pour une matrice 4 $\times$ 4 (N=4) :
 ```
 ligne colonne
    1    2
@@ -446,14 +454,8 @@ Avec une boucle `while`, simuler le mouvement de cette puce de l'emplacement ini
 ![Sauts de puce.](img/sauts-de-puce.png "Sauts de puce"){ #fig:saut-de-puce width=50% }
 
 
-*Conseil* : vous utiliserez l'instruction
-
-`random.choice([-1,1])`
-
-qui renvoie au hasard les valeurs -1 ou 1 avec la même probabilité. Avant d'utiliser cette commande vous mettrez au tout début de votre script la ligne
-
-`import random`
-
+*Conseil* : vous utiliserez l'instruction `random.choice([-1,1])` qui renvoie au hasard les valeurs -1 ou 1 avec la même probabilité. Avant d'utiliser cette instruction vous mettrez au tout début de votre script la ligne  
+`import random`  
 Nous reverrons la signification de cette syntaxe particulière dans le chapitre 8 *Modules*.
 
 
@@ -461,7 +463,7 @@ Nous reverrons la signification de cette syntaxe particulière dans le chapitre 
 
 La [suite de Fibonacci](https://fr.wikipedia.org/wiki/Suite_de_Fibonacci) est une suite mathématique qui porte le nom de Leonardo Fibonacci, un mathématicien italien du XIII$^{\rm e}$ siècle. Initialement, cette suite a été conçue pour décrire la croissance d'une population de lapins, mais elle peut également être utilisée pour décrire certains motifs géométriques retrouvés dans la nature (coquillages, fleurs de tournesol...).
 
-Pour la suite de Fibonacci $x_n$, le terme au rang *n* (avec $n > 1$) est la somme des nombres aux rangs $n - 1$ et $n - 2$ :
+Pour la suite de Fibonacci $(x_n)$, le terme au rang *n* (avec $n > 1$) est la somme des nombres aux rangs $n - 1$ et $n - 2$ :
 
 $x_n = x_{n-1} + x_{n-2}$
 
@@ -469,6 +471,6 @@ Par définition, les deux premiers termes sont $x_0 = 0$ et $x_1 = 1$.
 
 À titre d'exemple, les 10 premiers termes de la suite de Fibonacci sont donc 0, 1, 1, 2, 3, 5, 8, 13, 21 et 34.
 
-Écrivez un script qui construit une liste `fibo` des 15 premiers termes de la suite de Fibonacci puis l'affiche.
+Créez un script qui construit une liste `fibo` avec les 15 premiers termes de la suite de Fibonacci puis l'affiche.
 
 Améliorez ce script en affichant, pour chaque élément de la liste `fibo` avec $n > 1$, le rapport entre l'élément de rang $n$ et l'élément de rang $n - 1$. Ce rapport tend-il vers une constante ? Si oui, laquelle ?

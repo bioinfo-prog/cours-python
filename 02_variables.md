@@ -1,8 +1,8 @@
 # Variables
 
-## Définition d'une variable
+## Définition
 
-Une **variable** est une zone de la mémoire dans laquelle une **valeur** est stockée. Aux yeux du programmeur, cette variable est définie par un **nom**, alors que pour l'ordinateur, il s'agit en fait d'une adresse, c'est-à-dire d'une zone particulière de la mémoire.
+Une **variable** est une zone de la mémoire de l'ordinateur dans laquelle une **valeur** est stockée. Aux yeux du programmeur, cette variable est définie par un **nom**, alors que pour l'ordinateur, il s'agit en fait d'une adresse, c'est-à-dire d'une zone particulière de la mémoire.
 
 En Python, la **déclaration** d'une variable et son **initialisation** (c'est-à-dire la première valeur que l'on va stocker dedans) se font en même temps. Pour vous en convaincre, testez les instructions suivantes après avoir lancé l'interpréteur :
 
@@ -14,13 +14,13 @@ En Python, la **déclaration** d'une variable et son **initialisation** (c'est-�
 
 Ligne 1. Dans cet exemple, nous avons déclaré, puis initialisé la variable `x` avec la valeur 2. Notez bien qu'en réalité, il s'est passé plusieurs choses :
 
-- Python a *deviné* que la variable était un entier. On dit que Python est un langage au *typage dynamique*.
-- Python a alloué (réservé) l'espace en mémoire pour y accueillir un entier (chaque type de variable prend plus ou moins d'espace en mémoire), et a fait en sorte qu'on puisse retrouver la variable sous le nom `x`.
-- Python a assigné la valeur 2 à la variable `x`.
+- Python a « deviné » que la variable était un entier. On dit que Python est un langage au **typage dynamique**.
+- Python a alloué (réservé) l'espace en mémoire pour y accueillir un entier. Chaque type de variable prend plus ou moins d'espace en mémoire. Python a aussi fait en sorte qu'on puisse retrouver la variable sous le nom `x`.
+- Enfin, Python a assigné la valeur 2 à la variable `x`.
 
 Dans d'autres langages (en C par exemple), il faut coder ces différentes étapes une par une. Python étant un langage dit de *haut niveau*, la simple instruction `x = 2` a suffi à réaliser les 3 étapes en une fois !
 
-Lignes 2 et 3, l'interpréteur nous a permis de connaître le contenu de la variable juste en tapant son nom. Retenez ceci car c'est une **spécificité de l'interpréteur Python**, très pratique pour chasser les erreurs (*debugging*) dans un programme. Par contre, la ligne d'un script Python qui contient seulement le nom d'une variable (sans aucune autre indication) n'affichera pas la valeur de la variable à l'écran (pour autant, cette instruction reste valide et ne générera pas d'erreur).
+Lignes 2 et 3. L'interpréteur nous a permis de connaître le contenu de la variable juste en tapant son nom. Retenez ceci car c'est une **spécificité de l'interpréteur Python**, très pratique pour chasser (*debugger*)les erreurs dans un programme. Par contre, la ligne d'un script Python qui contient seulement le nom d'une variable (sans aucune autre indication) n'affichera pas la valeur de la variable à l'écran (pour autant, cette instruction reste valide et ne générera pas d'erreur).
 
 Sachez par ailleurs que l'opérateur d'affectation `=` s'utilise dans un certain sens. Par exemple, l'instruction  `x = 2` signifie qu'on attribue la valeur située à droite de l'opérateur `=` (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`.
 
@@ -28,7 +28,7 @@ Enfin, dans l'instruction `x = y - 3`, l'opération `y - 3` est d'abord évalué
 
 ## Les types de variables
 
-Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers (*integer* ou *int*), les nombres décimaux que nous appellerons *float* et les chaînes de caractères (*string* ou *str*). Bien sûr, il existe de nombreux autres types (par exemple, les nombres complexes), c'est d'ailleurs un des gros avantages de Python (si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/3.7/library/stdtypes.html)).
+Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers (*integer* ou *int*), les nombres décimaux que nous appellerons *floats* et les chaînes de caractères (*string* ou *str*). Bien sûr, il existe de nombreux autres types (par exemple, les booléens, les nombres complexes, etc.), c'est d'ailleurs un des gros avantages de Python. Si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/fr/3.7/library/stdtypes.html).
 
 Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la variable `x`, mais il est tout à fait possible de stocker des *floats*, des chaînes de caractères (*string* ou *str*) ou plein d'autres types de variables que nous verrons par la suite :
 ```
@@ -59,7 +59,7 @@ En Python, comme dans la plupart des langages de programmation, c'est le point q
 
 close-box-rem
 
-## Nommage des variables
+## Nommage
 
 Le nom des variables en Python peut être constitué de lettres minuscules (`a` à `z`), de lettres majuscules (`A` à `Z`), de nombres (`0` à `9`) ou du caractère souligné (`_`). Vous ne pouvez pas utiliser d'espace dans un nom de variable.
 
@@ -91,7 +91,7 @@ Les quatre opérations arithmétiques de base se font de manière simple sur les
 ```
 Remarquez toutefois que si vous mélangez les types entiers et *floats*, le résultat est renvoyé comme un *float* (car ce type est plus général). Par ailleurs, l'utilisation de parenthèses permet de gérer les priorités.
 
-L'opérateur `/` permet d'effectuer une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
+L'opérateur `/` effectue une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
 ```
 >>> 3 / 4
 0.75
@@ -99,7 +99,7 @@ L'opérateur `/` permet d'effectuer une division. Contrairement aux opérateurs 
 1.25
 ```
 
-L'opérateur puissance utilise le symbole `**` :
+L'opérateur puissance utilise les symboles `**` :
 ```
 >>> 2**3
 8
@@ -120,7 +120,7 @@ Pour obtenir le quotient et le reste d'une division entière (voir [ici](https:/
 0
 ```
 
-Les symboles `+`, `-`, `*`, `/`, `**`, `//` et `%` sont appelés **opérateurs**, car ils permettent de faire des opérations sur les variables.
+Les symboles `+`, `-`, `*`, `/`, `**`, `//` et `%` sont appelés **opérateurs**, car ils réalisent des opérations sur les variables.
 
 Enfin, il existe des opérateurs « combinés » qui effectue une opération et une affectation en une seule étape :
 
@@ -160,7 +160,7 @@ L'opérateur de multiplication `*` entre un nombre entier et une chaîne de cara
 
 open-box-warn
 
-Vous observez que les opérateurs `+` et `*` se comportent différemment selon s'il s'agisse d'entiers ou de chaînes de caractères : `2 + 2` est une addition alors que `"2" + "2"` est une concaténation. On appelle ce comportement **redéfinition des opérateurs**. Nous serons amenés à revoir cette notion dans le chapitre 19 *Avoir la classe avec les objets*.
+Vous observez que les opérateurs `+` et `*` se comportent différemment selon qu'il s'agisse d'entiers ou de chaînes de caractères : `2 + 2` est une addition alors que `"2" + "2"` est une concaténation. On appelle ce comportement **redéfinition des opérateurs**. Nous serons amenés à revoir cette notion dans le chapitre 19 *Avoir la classe avec les objets*.
 
 close-box-warn
 
@@ -197,9 +197,16 @@ Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type
 <class 'str'>
 ```
 
-Faites bien attention, car pour Python, la valeur `2` (nombre entier) est différente de `2.0` (*float*) et est aussi différente de `'2'` (chaîne de caractères).
-
 Nous verrons plus tard ce que signifie le mot *class*.
+
+open-box-warn
+
+Pour Python, la valeur `2` (nombre entier) est différente de `2.0` (*float*) et est aussi différente de `'2'` (chaîne de caractères).
+
+close-box-warn
+
+
+
 
 
 ## Conversion de types
@@ -235,11 +242,11 @@ Notez bien qu'en Python 3, la division de deux nombres entiers renvoie par défa
 <class 'float'>
 ```
 
-open-box-warn
+open-box-rem
 
 Ceci n'était pas le cas en Python 2. Pour en savoir plus sur ce point, vous pouvez consulter le chapitre 21 *Remarques complémentaires*.
 
-close-box-warn
+close-box-rem
 
 
 ## Note sur le vocabulaire et la syntaxe

@@ -11,13 +11,13 @@ Hello world!
 Hello world!>>>
 ```
 
-Ligne 1, on a utilisé l'instruction `print()` classique en passant la chaîne de caractères `"Hello world!"` en argument.
+Ligne 1. On a utilisé l'instruction `print()` classiquement en passant la chaîne de caractères `"Hello world!"` en argument.
 
-Ligne 3, on a ajouté un deuxième argument `end=""`, en précisant le mot-clé `end`. Nous aborderons les arguments par mot-clé dans le chapitre 9 *Fonctions*. Pour l'instant, disons-nous que cela modifie le comportement par défaut des fonctions.
+Ligne 3. On a ajouté un second argument `end=""`, en précisant le mot-clé `end`. Nous aborderons les arguments par mot-clé dans le chapitre 9 *Fonctions*. Pour l'instant, dites-vous que cela modifie le comportement par défaut des fonctions.
 
-Ligne 4, l'effet du `end=""` fait que les trois chevrons `>>>` se retrouvent collés après la chaîne de caractères `"Hello world!"`.
+Ligne 4. L'effet de l'argument `end=""` est que les trois chevrons `>>>` se retrouvent collés après la chaîne de caractères `"Hello world!"`.
 
-Une autre manière de s'en rendre compte et d'utiliser deux fonctions `print()` à la suite. Dans la portion de code suivante, le caractère « `;` » sert à séparer plusieurs instructions Python sur une même ligne :
+Une autre manière de s'en rendre compte est d'utiliser deux fonctions `print()` à la suite. Dans la portion de code suivante, le caractère « `;` » sert à séparer plusieurs instructions Python sur une même ligne :
 
 ```
 >>> print("Hello") ; print("Joe")
@@ -44,7 +44,7 @@ Il est également possible d'afficher le contenu de plusieurs variables (quel qu
 >>> print(nom , "a" , x , "ans")
 John a 32 ans
 ```
-Python a donc écrit une phrase complète en remplaçant les variables `x` et `nom` par leur contenu. Vous remarquerez que pour afficher plusieurs éléments de texte sur une seule ligne, nous avons utilisé le séparateur « `,` » entre les différents éléments. Python a également ajouté un espace à chaque fois que l'on utilisait le séparateur « `,` ». On peut modifier ce comportement en passant à la fonction `print()` l'argument par mot-clé `sep` :
+Python a écrit une phrase complète en remplaçant les variables `x` et `nom` par leur contenu. Vous remarquerez que pour afficher plusieurs éléments de texte sur une seule ligne, nous avons utilisé le séparateur « `,` » entre les différents éléments. Python a également ajouté un espace à chaque fois que l'on utilisait le séparateur « `,` ». On peut modifier ce comportement en passant à la fonction `print()` l'argument par mot-clé `sep` :
 ```
 >>> x = 32
 >>> nom = "John"
@@ -69,7 +69,7 @@ chatsouris
 
 ## Écriture formatée
 
-La méthode `.format()` permet une meilleure organisation de l'affichage des variables (nous expliquerons à la fin de ce chapitre ce que signifie le terme *méthode* en Python).
+La méthode `.format()` permet une meilleure organisation de l'affichage des variables (nous expliquerons à la fin de ce chapitre ce que le terme « méthode » signifie en Python).
 
 Si on reprend l'exemple précédent :
 ```
@@ -125,7 +125,7 @@ prop GC(2 déci.) = 0.48, prop GC(3 déci.) = 0.478
 ```
 Vous remarquerez qu'on utilise ici la même variable (`prop_GC`) à deux endroits différents.
 
-Vous pouvez aussi formater des entiers avec la lettre `d`,
+Vous pouvez aussi formater des entiers avec la lettre `d` :
 ```
 >>> nb_G = 4500
 >>> print("Ce génome contient {:d} guanines".format(nb_G))
@@ -194,7 +194,7 @@ Pour les *floats*, il est possible de combiner le nombre de caractères à affic
     47.804
 ```
 
-L'instruction `7.3f` signifie que l'on souhaite écrire le *float* avec 3 décimales et formaté sur 7 caractères (par défaut justifiés à droite). L'instruction `10.3f` fait la même chose sur 10 caractères. Remarquez que le séparateur décimal `.` compte pour un caractère.
+L'instruction `7.3f` signifie que l'on souhaite écrire un *float* avec 3 décimales et formaté sur 7 caractères (par défaut justifiés à droite). L'instruction `10.3f` fait la même chose sur 10 caractères. Remarquez que le séparateur décimal `.` compte pour un caractère.
 
 Enfin, si on veut afficher des accolades littérales et utiliser la méthode `.format()` en même temps, il faut doubler les accolades pour échapper au formatage :
 ```
@@ -202,7 +202,7 @@ Enfin, si on veut afficher des accolades littérales et utiliser la méthode `.f
 Accolades littérales {} et pour le formatage 10
 ```
 
-La méthode `.format()` agit sur la chaîne de caractères à laquelle elle est *attachée* par un `.` et n'a rien à voir avec la fonction `print()`. Si on donne une chaîne de caractères suivie d'un `.format()` à la fonction `print()`, Python évalue d'abord le formatage et c'est la chaîne de caractères qui en résulte qui est affichée à l'écran. Tout comme dans l'instruction `print(5*5)`, c'est d'abord la multiplication (`5*5`) qui est évaluée, puis son résultat qui est affiché à l'écran. On peut s'en rendre compte de la manière suivante dans l'interpréteur :
+La méthode `.format()` agit sur la chaîne de caractères à laquelle elle est *attachée* par un point et n'a rien à voir avec la fonction `print()`. Si on donne une chaîne de caractères suivie d'un `.format()` à la fonction `print()`, Python évalue d'abord le formatage et c'est la chaîne de caractères qui en résulte qui est affichée à l'écran. Tout comme dans l'instruction `print(5*5)`, c'est d'abord la multiplication (`5*5`) qui est évaluée, puis son résultat qui est affiché à l'écran. On peut s'en rendre compte de la manière suivante dans l'interpréteur :
 ```
 >>> "{:10.3f}".format(perc_GC)
 '    47.804'
@@ -214,7 +214,7 @@ Python affiche le résultat de l'instruction `"{:10.3f}".format(perc_GC)` comme 
 
 ## Ancienne méthode de formatage des chaînes de caractères
 
-*Conseil* : Pour les débutants, vous pouvez passer cette section.
+*Conseil* : Pour les débutants, vous pouvez passer cette rubrique.
 
 Dans d'anciens livres ou programmes Python, il se peut que vous rencontriez l'écriture formatée avec le style suivant :
 ```
@@ -236,12 +236,12 @@ La syntaxe est légèrement différente. Le symbole `%` est d'abord appelé dans
 
 Le signe `%` est rappelé une seconde fois (`% (nb_G, nb_C, prop_GC)`) pour indiquer les variables à formater.
 
-Cette ancienne façon de formater vous est présentée à titre d'information. Ne l'utilisez pas dans vos programmes.
+Cette ancienne façon de formater une chaîne de caractères vous est présentée à titre d'information. Ne l'utilisez pas dans vos programmes.
 
 
 ## Note sur le vocabulaire et la syntaxe
 
-Revenons quelques instants sur la notion de **méthode** abordée dans ce chapitre avec `.format()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est du type `objet.méthode()`.
+Revenons quelques instants sur la notion de **méthode** abordée dans ce chapitre avec `.format()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est de la forme `objet.méthode()`.
 
 Dans l'exemple suivant :
 ```
@@ -272,7 +272,7 @@ Générez une chaîne de caractères représentant un brin d'ADN poly-A (c'est-�
 
 ### Poly-A et poly-GC
 
-Suivant le modèle de l'exercice précédent, générez en une ligne de code un brin d'ADN poly-A (AAAA...) de 20 bases suivi d'un poly-GC régulier (GCGCGC...) de 40 bases.
+Sur le modèle de l'exercice précédent, générez en une ligne de code un brin d'ADN poly-A (AAAA...) de 20 bases suivi d'un poly-GC régulier (GCGCGC...) de 40 bases.
 
 
 ### Écriture formatée

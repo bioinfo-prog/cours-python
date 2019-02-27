@@ -6,11 +6,11 @@ Le langage de programmation Python a été créé en 1989 par Guido van Rossum, 
 
 La dernière version de Python est la version 3. Plus précisément, la version 3.7 a été publiée en juin 2018. La version 2 de Python est désormais obsolète et cessera d'être maintenue après le 1er janvier 2020. Dans la mesure du possible évitez de l'utiliser.
 
-La *Python Software Foundation* est l'association qui organise le développement de Python et anime la communauté de développeurs et d'utilisateurs.
+La [*Python Software Foundation*](https://www.python.org/psf/) est l'association qui organise le développement de Python et anime la communauté de développeurs et d'utilisateurs.
 
 Ce langage de programmation présente de nombreuses caractéristiques intéressantes :
 
-- Il est multiplateforme. C'est-à-dire qu'il fonctionne sur de nombreux systèmes d'exploitation : Windows, Mac OS, Linux, Android, iOS, depuis les mini-ordinateurs Raspberry Pi jusqu'aux supercalculateurs.
+- Il est multiplateforme. C'est-à-dire qu'il fonctionne sur de nombreux systèmes d'exploitation : Windows, Mac OS X, Linux, Android, iOS, depuis les mini-ordinateurs Raspberry Pi jusqu'aux supercalculateurs.
 - Il est gratuit. Vous pouvez l'installer sur autant d'ordinateurs que vous voulez.
 - C'est un langage de haut niveau. Il demande relativement peu de connaissance sur le fonctionnement d'un ordinateur pour être utilisé.
 - C'est un langage interprété. Chaque script Python n'a pas besoin d'être compilé pour pouvoir l'utiliser, contrairement à des langages comme le C ou le C++.
@@ -67,9 +67,7 @@ Par ailleurs, dans le cas de programmes, de contenus de fichiers ou de résultat
 
 ## Introduction au *shell*
 
-Un *shell* est un interpréteur de commande interactif permettant d'interagir avec l'ordinateur.
-
-On utilisera le *shell* pour lancer l'interpréteur Python.
+Un *shell* est un interpréteur de commandes interactif permettant d'interagir avec l'ordinateur. On utilisera le *shell* pour lancer l'interpréteur Python.
 
 Pour approfondir la notion de *shell*, vous pouvez consulter les pages Wikipedia :
 
@@ -130,7 +128,7 @@ Tapez par exemple l'instruction :
 
 `print("Hello world!")`
 
-puis validez cette commande en appuyant sur la touche `Entrée`.
+puis validez cette commande en appuyant sur la touche *Entrée*.
 
 Python a exécuté la commande directement et a affiché le texte `Hello world!`. Il attend ensuite votre prochaine instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a dû apparaître sur votre écran :
 ```
@@ -138,7 +136,7 @@ Python a exécuté la commande directement et a affiché le texte `Hello world!`
 Hello world!
 >>>
 ```
-Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteur comme d'une calculatrice.
+Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteur comme d'une calculatrice :
 ```
 >>> 1+1
 2
@@ -149,10 +147,10 @@ Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteu
 
 L'interpréteur Python est donc un système interactif dans lequel vous pouvez entrer des commandes, que Python exécutera sous vos yeux (au moment où vous validerez la commande en appuyant sur la touche *Entrée*).
 
-Il existe de nombreux autres langages interprétés tels que [Perl](http://www.perl.org) ou [R](http://www.r-project.org). Le gros avantage de ce type de langage est qu'on peut immédiatement tester une commande à l'aide de l'interpréteur, ce qui est très utile pour débugger (c'est-à-dire corriger les éventuelles erreurs d'un programme). Gardez bien en mémoire cette propriété de Python qui pourra parfois vous faire gagner un temps précieux !
+Il existe de nombreux autres langages interprétés comme que [Perl](http://www.perl.org) ou [R](http://www.r-project.org). Le gros avantage de ce type de langage est qu'on peut immédiatement tester une commande à l'aide de l'interpréteur, ce qui est très utile pour débugger (c'est-à-dire trouver et corriger les éventuelles erreurs d'un programme). Gardez bien en mémoire cette propriété de Python qui pourra parfois vous faire gagner un temps précieux !
 
 
-## Premier programme en Python
+## Premier programme
 
 Bien sûr, l'interpréteur présente vite des limites dès lors que l'on veut exécuter une suite d'instructions plus complexe. Comme tout langage informatique, on peut enregistrer ces instructions dans un fichier, que l'on appelle communément un script (ou programme) Python.
 
@@ -210,18 +208,18 @@ En programmation, il est courant de répéter un certain nombre de choses (avec 
 
 Par exemple, imaginons que nous souhaitions afficher chacune des bases d'une séquence d'ADN, les compter puis afficher le nombre total de bases à la fin. Nous pourrions utiliser l'algorithme présenté en pseudo-code dans la figure @fig:indentation_bloc_instructions.
 
-![Notion d'indentation et de bloc d'instructions](img/indentation_bloc_instructions.png "Indentation et bloc d'instructions"){ #fig:indentation_bloc_instructions width=70% }
+![Notion d'indentation et de bloc d'instructions.](img/indentation_bloc_instructions.png "Indentation et bloc d'instructions"){ #fig:indentation_bloc_instructions width=70% }
 
-Pour chaque base de la séquence ATCCGACTG, nous souhaitons effectuer deux actions : afficher la base et compter une base de plus. Pour indiquer cela, on décalera vers la droite ces deux instructions par rapport à la ligne précédente (`pour chaque base [...]`). Ce décalage est appelé **indentation**, et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
+Pour chaque base de la séquence ATCCGACTG, nous souhaitons effectuer deux actions : d'abord afficher la base puis compter une base de plus. Pour indiquer cela, on décalera vers la droite ces deux instructions par rapport à la ligne précédente (`pour chaque base [...]`). Ce décalage est appelé **indentation**, et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
 
-Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer à la suite, c'est-à-dire afficher la taille de la séquence. Pour bien préciser que cet affichage se fait à la fin, donc une fois le comptage et l'affichage de chaque base terminés, la ligne correspondante n'est pas indentée (c'est-à-dire pas décalée de quelques espaces).
+Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer à la suite, c'est-à-dire afficher la taille de la séquence. Pour bien préciser que cet affichage se fait à la fin, donc une fois l'affichage puis le comptage de chaque base terminés, la ligne correspondante n'est pas indentée (c'est-à-dire qu'elle n'est pas décalée vers la droite).
 
 Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
 
 Si tout cela semble un peu complexe, ne vous inquiétez pas. Vous allez comprendre tous ces détails chapitre après chapitre.
 
 
-## Ressources complémentaires
+## Autres ressources
 
 Pour compléter votre apprentissage de Python, nous vous conseillons les ressources suivantes :  
 
