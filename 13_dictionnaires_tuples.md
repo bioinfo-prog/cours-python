@@ -174,7 +174,7 @@ Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()
 
 ## Exercices
 
-*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 
 ### Composition en acides aminés

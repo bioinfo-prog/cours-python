@@ -355,7 +355,7 @@ Nous espérons vous avoir convaincu de la puissance du module *re* et des expres
 
 ## Exercices
 
-*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 
 ### *Regex* de base

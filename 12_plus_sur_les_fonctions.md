@@ -229,7 +229,6 @@ Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué 
 
 ## Exercices
 
-*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
 
 ### Prédire la sortie
 

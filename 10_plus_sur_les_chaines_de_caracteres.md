@@ -38,12 +38,12 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
 ```
-Par conséquent, si vous voulez modifier une chaîne de caractères, vous êtes obligé d'en construire une nouvelle. Pour cela, n'oubliez pas que les opérateurs de concaténation (`+`) et de duplication (`*`) (voir le chapitre 2 *Variables*) peuvent vous aider. Vous pouvez également générer une liste, qui elle est modifiable, puis revenir à une chaîne de caractères.
+Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez en construire une nouvelle. Pour cela, n'oubliez pas que les opérateurs de concaténation (`+`) et de duplication (`*`) (introduits dans le chapitre 2 *Variables*) peuvent vous aider. Vous pouvez également générer une liste, qui elle est modifiable, puis revenir à une chaîne de caractères.
 
 
 ## Caractères spéciaux
 
-Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` permet d'écrire une tabulation. Si vous voulez écrire des guillemets simples ou doubles (et que ceux-ci ne soit pas confondus avec les guillemets de déclaration de la chaîne de caractères), vous pouvez utiliser `\'` ou `\"` ou utiliser respectivement des guillemets doubles ou simples pour déclarer votre chaîne de caractères.
+Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` produit une tabulation. Si vous voulez écrire des guillemets simples ou doubles et que ceux-ci ne soient pas confondus avec les guillemets de déclaration de la chaîne de caractères, vous pouvez utiliser `\'` ou `\"` ou utiliser respectivement des guillemets doubles ou simples pour déclarer votre chaîne de caractères.
 ```
 >>> print("Un retour à la ligne\npuis une tabulation\t puis un guillemet\"")
 Un retour à la ligne
@@ -55,7 +55,7 @@ Un brin d'ADN
 >>> print('Python est un "super" langage de programmation')
 Python est un "super" langage de programmation
 ```
-Quand on souhaite écrire un texte sur plusieurs lignes, il est très commode d'utiliser les guillemets triples permettant de conserver le formatage (notamment les retours à la ligne):
+Quand on souhaite écrire un texte sur plusieurs lignes, il est très commode d'utiliser les guillemets triples qui conservent le formatage (notamment les retours à la ligne):
 ```
 >>> x = """souris
 ... chat
@@ -111,7 +111,7 @@ La méthode `.split()` découpe une chaîne de caractères en plusieurs élémen
 
 open-box-def
 
-Un [espace blanc](https://en.wikipedia.org/wiki/Whitespace_character) (en anglais on parle de *whitespace*) correspond aux caractères qui sont invisibles à l'œil, mais qui occupent de l'espace dans un texte. Les espaces blancs les plus classiques sont l'espace, la tabulation et le saut à la ligne.
+Un [espace blanc](https://en.wikipedia.org/wiki/Whitespace_character) (*whitespace* en anglais) correspond aux caractères qui sont invisibles à l'œil, mais qui occupent de l'espace dans un texte. Les espaces blancs les plus classiques sont l'espace, la tabulation et le saut à la ligne.
 
 close-box-def
 
@@ -193,7 +193,7 @@ Enfin, la méthode `.strip()` permet de « nettoyer les bords » d'une chaîne d
 'Comment enlever les espaces au début et à la fin ?'
 ```
 
-La méthode `.strip()` n'enlève que les espaces situés sur les bords de la chaîne de caractère, mais pas à l'intérieur (c'est à dire entre le premier et dernier  mots ou caractères visibles). En réalité, cette méthode enlève n'importe quel combinaison « d'espace(s) blanc(s) » sur les bords, par exemple :
+La méthode `.strip()` enlève les espaces situés sur les bords de la chaîne de caractère mais pas ceux situés entre des caractères visibles. En réalité, cette méthode enlève n'importe quel combinaison « d'espace(s) blanc(s) » sur les bords, par exemple :
 
 ```
 >>> chaine = "  \tfonctionne avec les tabulations et les sauts à la ligne\n"
@@ -295,7 +295,7 @@ Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L
 
 ## Exercices
 
-*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 
 ### Parcours d'une liste de chaînes de caractères
@@ -312,7 +312,7 @@ Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier F
 Utilisez ensuite cette fonction pour récupérer la séquence d'ADN dans la variable `sequence` puis pour afficher les informations suivantes :
 
 - le nom du fichier FASTA,
-- la longueur de la séquence,
+- la longueur de la séquence (c'est-à-dire le nombre de bases qu'elle contient),
 - un message vérifiant que le nombre de base est (ou non) un multiple de 3,
 - le nombre de codons (on rappelle qu'un codon est un bloc de 3 bases),
 - les 10 premières bases,

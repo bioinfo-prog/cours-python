@@ -203,7 +203,7 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 
 ## Exercices
 
-*Conseil* : pour ces exercices, écrivez des scripts dans des fichiers, puis exécutez-les dans un *shell*.
+*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 
 ### Tri de liste

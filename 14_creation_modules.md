@@ -208,9 +208,6 @@ Au delà de la commodité de pouvoir utiliser votre script en tant que programme
 
 ## Exercice
 
-*Conseil* : pour cet exercice, écrivez un script dans un fichier, puis exécutez-le dans un *shell*.
-
-
 ### Module ADN
 
 Dans le script `adn.py`, construisez un module qui va contenir les fonctions et constantes suivantes.
