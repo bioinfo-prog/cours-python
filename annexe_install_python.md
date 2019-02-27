@@ -206,7 +206,7 @@ Nous sommes maintenant prêts à tester l'interpréteur Python. En premier lieu,
 
 ![Menu pour lancer un PowerShell](img/menu_Windows10_powershell.png){ #fig:miniconda_launch_shell width=40% }
 
-Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell avec un fond bleu (couleur que l'on peut bien-sûr modifier en cliquant sur la petite icône représentant un terminal dans la barre de titre). Pour tester si Python est bien installé, il suffit alors de lancer l'interpréteur Python en tapant la commande `python` :
+Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell avec un fond bleu (couleur que l'on peut bien sûr modifier en cliquant sur la petite icône représentant un terminal dans la barre de titre). Pour tester si Python est bien installé, il suffit alors de lancer l'interpréteur Python en tapant la commande `python` :
 
 ![Lancement de l'interpréteur Python dans un PowerShell](img/test_python_powershell.png){ #fig:miniconda_test_interpreter width=40% }
 
@@ -311,7 +311,7 @@ Dans le *shell*, tapez la ligne suivante puis appuyez sur la touche *Entrée* :
 $ conda install numpy pandas matplotlib scipy biopython jupyterlab
 ```
 
-Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib*, *scipy*, *Biopython* et *Jupyter lab*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien-sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copies d'écran prise sous Windows avec le PowerShell) :
+Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib*, *scipy*, *Biopython* et *Jupyter lab*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copies d'écran prise sous Windows avec le PowerShell) :
 
 ![Installation de packages avec conda (étape 1)](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=40%}
 

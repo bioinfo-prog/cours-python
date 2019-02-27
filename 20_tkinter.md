@@ -32,7 +32,7 @@ Les *widgets* (*window gadget*) sont des objets graphiques permettant à l'utili
 
 close-box-def
 
-L'utilisation d'une GUI va amener une nouvelle manière d'aborder le déroulement d'un programme, il s'agit de la programmation dite « évenementielle ». Jusqu'à maintenant vous avez programmé « linéairement », c'est-à-dire que les instructions du programme principal s'enchaînaient les unes derrière les autres (avec bien-sûr de possibles appels à des fonctions). Avec une GUI, l'exécution est décidée par l'utilisateur en fonction de ses interactions avec les différents *widgets*. Comme c'est l'utilisateur qui décide lorsqu'il souhaite cliquer ici et là, il va falloir mettre en place ce qu'on appelle un « gestionnaire d'événements ».
+L'utilisation d'une GUI va amener une nouvelle manière d'aborder le déroulement d'un programme, il s'agit de la programmation dite « évenementielle ». Jusqu'à maintenant vous avez programmé « linéairement », c'est-à-dire que les instructions du programme principal s'enchaînaient les unes derrière les autres (avec bien sûr de possibles appels à des fonctions). Avec une GUI, l'exécution est décidée par l'utilisateur en fonction de ses interactions avec les différents *widgets*. Comme c'est l'utilisateur qui décide lorsqu'il souhaite cliquer ici et là, il va falloir mettre en place ce qu'on appelle un « gestionnaire d'événements ».
 
 open-box-def
 
@@ -97,7 +97,7 @@ Dans une telle construction, `fct_callback("scoubidous")` serait d'abord évalu�
 
 ![Exemple de fonction *callback* dans *Python Tutor*.](img/fonction_callback_pythontutor.png "Fonction *callback* dans *Python Tutor*"){ #fig:fonction_callback_pythontutor width=80% }
 
-Lorsqu'on est dans `une_fct()` on pourra utiliser bien-sûr des arguments lors de l'appel de notre fonction *callback* si on le souhaite. Notez enfin que dans `une_fct()` la fonction *callback* reçue en argument peut avoir un nom différent (comme pour tout type de variable).
+Lorsqu'on est dans `une_fct()` on pourra utiliser bien sûr des arguments lors de l'appel de notre fonction *callback* si on le souhaite. Notez enfin que dans `une_fct()` la fonction *callback* reçue en argument peut avoir un nom différent (comme pour tout type de variable).
 
 À quoi cela sert-il ? À première vue cette construction peut sembler ardue et inutile. Toutefois, vous verrez que dans le module tkinter les fonctions *callback* sont incontournables. En effet, on utilise cette construction pour lancer une fonction lors de l'interaction de l'utilisateur avec un *widget* : par exemple, lorsque l'utilisateur clique sur un bouton et qu'on souhaite lancer une fonction particulière suite à ce clic. Par ailleurs, nous avons vu une exemple dans le chapitre 12, où le passage d'une fonction mathématique en argument permettait de créer un code très compact pour calculer une intégrale.
 
