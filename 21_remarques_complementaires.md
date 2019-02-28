@@ -36,7 +36,7 @@ Il est également possible de réaliser une division entière avec l'opérateur 
 >>> 3 // 4
 0
 ```
-La division entière renvoie finalement la partie entière du nombre `0.75`, c'est à dire `0`.
+La division entière renvoie finalement la partie entière du nombre `0.75`, c'est-à-dire `0`.
 
 Attention ! En Python 2, la division de deux entiers avec l'opérateur `/` correspond à la division entière, c'est-à-dire le résultat arrondi à l'entier inférieur. Par exemple :
 ```

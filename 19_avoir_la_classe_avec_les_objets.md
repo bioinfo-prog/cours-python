@@ -158,7 +158,7 @@ class Citron:
     couleur = "jaune"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     print(citron1.couleur)
     citron2 = Citron()
@@ -198,7 +198,7 @@ class Citron:
 	    print("Coucou, je suis la mth .coucou() dans la classe Citron !")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     citron1.coucou()
 ```
@@ -215,7 +215,7 @@ class Citron:
 	    return "acide"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     saveur_citron1 = citron1.recup_saveur()
     print(saveur_citron1)
@@ -242,7 +242,7 @@ class Citron:
 	    self.couleur = "jaune"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     print(citron1.couleur)
 ```
@@ -281,7 +281,7 @@ class Citron:
         self.couleur = couleur
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron(100)
 	print("citron1:", citron1.__dict__)
 	citron2 = Citron(150, couleur="blanc")
@@ -312,7 +312,7 @@ class Citron:
         print(var)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     citron1.affiche_attributs()
 ```
@@ -366,7 +366,7 @@ class Citron:
         print("Le citron c'est trop bon !")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron("jaune pâle")
 ```
 
@@ -413,7 +413,7 @@ class Citron:
         self.masse += valeur
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     print("Attributs de classe :", citron1.forme, citron1.saveur)
     print("Attributs d'instance :", citron1.taille, citron1.couleur,
@@ -451,7 +451,7 @@ class Citron:
               .format(self.saveur, self.couleur))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     citron1.affiche_attributs()
 ```
@@ -480,7 +480,7 @@ Regardons l'exemple suivant illustrant cela :
 class Citron:
     saveur = "acide"
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     print(citron1.saveur)
     citron1.saveur = "sucrée"
@@ -613,7 +613,7 @@ class Citron:
         return "{}, {}".format(self.saveur, self.couleur)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     saveur = "sucrée"
     couleur = "orange"
     print("Dans prog principal: {}, {}".format(saveur, couleur))
@@ -650,7 +650,7 @@ def affiche_coucou():
     print("Coucou externe")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     citron1.affiche_coucou()
     affiche_coucou()
@@ -759,7 +759,7 @@ class CitronCool:
                .format(self.couleur, self.taille))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = CitronBasique()
     print(citron1)
     citron2 = CitronCool("jaune foncée", "minuscule")
@@ -809,7 +809,7 @@ class Citronnier:
                .format(self.age, self.nbcitrons)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citronnier1 = Citronnier(10, 3)
     print(citronnier1)
     citronnier1(30, 4)
@@ -873,7 +873,7 @@ class Fille(Mere):
         return "Un salut de la classe fille !"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     fille = Fille()
     print(fille.salut())
     print(fille.bonjour())
@@ -919,7 +919,7 @@ class Fille2(Mere):
         return "Vous avez le bonjour de la classe fille !"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     fille = Fille2()
     print(fille.bonjour())
 ```
@@ -1078,7 +1078,7 @@ class Citron(Fruit):
         return self.affiche_conseil("Citron", "Bon en tarte :-p !")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # on crée un citron
     citron1 = Citron(taille="petite", saveur="acide", forme="ellipsoïde",
                      masse=50)
@@ -1208,7 +1208,7 @@ class Citron:
         self.masse = value
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # définition de citron1
     citron1 = Citron()
     print(citron1.get_couleur(), citron1.get_masse())
@@ -1248,7 +1248,7 @@ La fonction interne `raise` nous a permis de générer une erreur car l'utilisat
 On comprends bien l'utilité d'une stratégie avec des *getters* et *setters* dans cet exemple. Toutefois, en Python, on peut très bien accéder et modifier les attributs même si on a des *getters* et des *setters* dans la classe. Imaginons la même classe `Citron` que ci-dessus, mais on utilise le programme principal suivant (notez que nous avons simplement ajouter les lignes 9 à 12 ci-dessous) :
 
 ```
-if __name__ == '__main__':
+if __name__ == "__main__":
     # définition de citron1
     citron1 = Citron()
     print(citron1.get_couleur(), citron1.get_masse())
@@ -1330,7 +1330,7 @@ class Citron:
     masse = property(fget=get_masse, fset=set_masse)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
      print("(1) Je suis dans le programme principal, "
            "je vais instancier un Citron")
      citron = Citron(masse=100)
@@ -1479,7 +1479,7 @@ class Citron:
         return self.__mass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     print(citron1.get_mass())
     print(citron1.__mass)
@@ -1498,7 +1498,7 @@ AttributeError: 'Citron' object has no attribute '__mass'
 La ligne 12 du code a donc conduit à une erreur : Python prétend ne pas connaître l'attribut `.__mass`. On pourrait croire que cela constitue un mécanisme de protection des attributs. En fait il n'en est rien, car on va voir que l'attribut est toujours accessible et modifiable. Si on modifiait le programme principal comme suit :
 
 ```
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     print(citron1.__dict__)
 ```
@@ -1523,7 +1523,7 @@ class Citron(Fruit):
         print(self.__mass)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     citron1 = Citron()
     citron1.print_masse()
 ```

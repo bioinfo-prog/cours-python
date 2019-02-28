@@ -185,7 +185,7 @@ class Application(tk.Tk):
         self.bouton.pack()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = Application()
     app.title("Ma Première App :-)")
     app.mainloop()
@@ -195,7 +195,7 @@ Ligne 3. On crée notre application en tant que classe. Notez que cette classe p
 
 Ligne 4. On crée un constructeur, c'est-à-dire une méthode qui sera exécutée lors de l'instanciation de notre classe (à la ligne 15).
 
-Ligne 5. On appelle ici le constructeur de la classe mère `tk.Tk.__init__()`. Pourquoi fait-on cela ? On se souvient dans la version linéaire de l'application, on avait utilisé une instanciation classique : `racine = tk.Tk()`. Ici, l'effet de l'appel du constructeur de la classe mère permet d'instancier la fenêtre Tk dans la variable `self` directement. C'est à dire que la prochaine fois que l'on aura besoin de cette instance (lors de la création des *widgets* par exemple, cf. lignes 9 et 10), on utilisera directement `self` plutôt que `racine` ou tout autre nom donné à l'instance. Comme vu dans le chapitre 19 *Avoir la classe avec les objets*, appeler le constructeur de la classe mère est une pratique classique lorsqu'une classe hérite d'une autre classe.
+Ligne 5. On appelle ici le constructeur de la classe mère `tk.Tk.__init__()`. Pourquoi fait-on cela ? On se souvient dans la version linéaire de l'application, on avait utilisé une instanciation classique : `racine = tk.Tk()`. Ici, l'effet de l'appel du constructeur de la classe mère permet d'instancier la fenêtre Tk dans la variable `self` directement. C'est-à-dire que la prochaine fois que l'on aura besoin de cette instance (lors de la création des *widgets* par exemple, cf. lignes 9 et 10), on utilisera directement `self` plutôt que `racine` ou tout autre nom donné à l'instance. Comme vu dans le chapitre 19 *Avoir la classe avec les objets*, appeler le constructeur de la classe mère est une pratique classique lorsqu'une classe hérite d'une autre classe.
 
 Ligne 6. On appelle la méthode `self.creer_widgets()` de notre classe Application. Pour rappel, le `self` avant le `.creer_widgets()` indique qu'il s'agit d'une méthode de notre classe (et non pas d'une fonction classique).
 
@@ -537,7 +537,7 @@ class Application(tk.Frame):
         self.bouton.pack()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     racine = tk.Tk()
     racine.title("Ma Première App :-)")
     app = Application(racine)
@@ -560,7 +560,7 @@ class Application(tk.Frame):
         self.racine = racine
 		[...]
 [...]
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = Application()
     app.mainloop()
 ```
@@ -581,7 +581,7 @@ class MonApplication(tk.Tk):
 [...]
 
 # programme principal
-if __name__ == '__main__':
+if __name__ == "__main__":
     [...]
     app = MonApplication()
     [...]
@@ -730,7 +730,7 @@ class MaListBox(tk.Tk):
               .format(choix_select, type(choix_select)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = MaListBox()
     app.title("MaListBox")
     app.mainloop()

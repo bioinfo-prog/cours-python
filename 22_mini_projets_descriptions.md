@@ -44,6 +44,6 @@ Pour trouver la valeur de $\theta$ en fonction du temps, on pourra utiliser la m
 
 Pour la visualisation, vous pourrez utiliser le *widget canvas* du module *Tkinter* (voir le chapitre 20 *Tkinter*, rubrique *Un canvas animé dans une classe*). On cherche à obtenir un résultat comme montré dans la figure @fig:pendule.
 
-Nous vous conseillons de procéder d'abord par la mise en place du simulateur physique (c'est à dire obtenir $\theta$ en fonction du temps). Faites par exemple un premier script Python qui sort un fichier à deux colonnes (temps et valeur de $\theta$). Une fois que cela fonctionne bien, il vous faudra construire l'interface Tkinter et l'animer.
+Nous vous conseillons de procéder d'abord par la mise en place du simulateur physique (c'est-à-dire obtenir $\theta$ en fonction du temps). Faites par exemple un premier script Python qui sort un fichier à deux colonnes (temps et valeur de $\theta$). Une fois que cela fonctionne bien, il vous faudra construire l'interface Tkinter et l'animer.
 
 N'oubliez pas, il faudra mettre dans votre programme final une fonction qui convertit l'angle $\theta$ en coordonnées cartésiennes $x$ et $y$ dans le plan du *canvas*. Faites également attention au système de coordonnées du *canvas* où les ordonnées sont inversées par rapport à un repère mathématique.
