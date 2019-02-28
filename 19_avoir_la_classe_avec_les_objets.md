@@ -1122,7 +1122,7 @@ Prenez bien le temps de suivre ce code pas à pas pour bien en comprendre toutes
 
 Vous pourrez vous poser la question *Pourquoi utilise-t-on en ligne 24 la syntaxe*  
 `Fruit.__init__()` *?*. Cette syntaxe est souvent utilisée lorsqu'une classe hérite d'une autre classe pour faire appel au constructeur de la classe mère. La raison est que nous souhaitons appeler une méthode de la classe mère qui a le même nom qu'une méthode de la classe fille. Dans ce cas, si on utilisait `self.__init__()`, cela correspondrait à la fonction de notre classe fille Citron. En mettant systématiquement une syntaxe  
-`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *tkinter* (cf. chapitre 20) permettant de construire des interfaces graphiques, nous en verrons de nombreux exemples.
+`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *Tkinter* (cf. chapitre 20) permettant de construire des interfaces graphiques, nous en verrons de nombreux exemples.
 
 open-box-rem
 
@@ -1163,7 +1163,7 @@ class Orange(Fruit):
 ```
 
 Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on peut les utiliser en Python. Pour chaque fruit, on utilise la méthode  
-`.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 20 *Tkinter* sur les interfaces graphiques ainsi que dans les exercices du présent chapitre. En tkinter, chaque objet graphique (boutton, zone de texte, etc.) est en fait une classe : ainsi on peut créer de nouvelles classes héritant des classes tkinter afin de personnaliser chaque objet graphique.
+`.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 20 *Tkinter* sur les interfaces graphiques ainsi que dans les exercices du présent chapitre. En *Tkinter*, chaque objet graphique (boutton, zone de texte, etc.) est en fait une classe : ainsi on peut créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
 
 ### Pour aller plus loin
 
