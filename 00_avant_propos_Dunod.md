@@ -17,9 +17,9 @@ L'annexe A présente quelques formats de données rencontrés en biologie et les
 L'ensemble du cours décrit dans cet ouvrage est toujours accessible en ligne, à l'adresse suivante :
 <https://python.sdv.univ-paris-diderot.fr/>.
 
-Cette page web est régulièrement mise à jour en fonction des retours de nos étudiants et plus généralement des utilisateurs de ce cours.
+Cette page web est régulièrement mise à jour en fonction des retours de nos étudiants et plus généralement des utilisateurs. Ainsi, il se peut qu'elle diffère du présent ouvrage dans le futur.
 
-Afin de promouvoir le partage des connaissances et le logiciel libre, nos droits d'auteurs provenant de la vente de cet ouvrage seront reversés à deux associations. [Wikimédia France](https://www.wikimedia.fr/) qui s'occupe notamment de l'encyclopédie en ligne Wikipédia. [NumFOCUS](https://numfocus.org/) qui soutient le développement de logiciels libres scientifiques et notamment l'écosystème scientifique autour de Python.
+Afin de promouvoir le partage des connaissances et le logiciel libre, nos droits d'auteurs provenant de la vente de cet ouvrage seront reversés à deux associations. [Wikimédia France](https://www.wikimedia.fr/) qui s'occupe notamment de l'encyclopédie libre Wikipédia. [NumFOCUS](https://numfocus.org/) qui soutient le développement de logiciels libres scientifiques et notamment l'écosystème scientifique autour de Python.
 
 Nous espérons que vous aurez autant de plaisir à apprendre Python que nous en avons à l'enseigner, tous les ans, avec la même ardeur !
 
