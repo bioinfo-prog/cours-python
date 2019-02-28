@@ -442,14 +442,14 @@ Ligne 3. On lance la requête (`transferrin`) sur le moteur de recherche `pubmed
 Ligne 4. Le résultat est lu et stocké dans la variable `res_esearch`.
 
 Sans être un vrai dictionnaire, la variable `res_esearch` en a cependant plusieurs propriétés.
-Voici ses clefs :
+Voici ses clés :
 ```
 >>> res_esearch.keys()
 dict_keys(['Count', 'RetMax', 'RetStart', 'IdList', 'TranslationSet',
 'TranslationStack', 'QueryTranslation'])
 ```
 
-La valeur associée à la clef `IdList` est une liste qui contient les identifiants
+La valeur associée à la clé `IdList` est une liste qui contient les identifiants
 (PMID) des articles scientifiques associés à la requête (ici `transferrin`) :
 
 ```
@@ -488,7 +488,7 @@ Nous allons pour cela utiliser la fonction `Entrez.esummary()`
 ```
 
 La variable `res_esummary` n'est pas réellement une liste mais en a plusieurs propriétés.
-Cette pseudo-liste n'a qu'un seul élément, qui est lui-même un pseudo-dictionnaire dont voici les clefs :
+Cette pseudo-liste n'a qu'un seul élément, qui est lui-même un pseudo-dictionnaire dont voici les clés :
 ```
 >>> res_esummary[0].keys()
 dict_keys(['Item', 'Id', 'PubDate', 'EPubDate', 'Source', 'AuthorList',
@@ -813,7 +813,7 @@ souris  30  31  32  33
 ```
 
 Lignes 1-4. Le dictionnaire `data` contient les données en colonnes.
-La clef associée à chaque colonne est le nom de la colonne.
+La clé associée à chaque colonne est le nom de la colonne.
 
 Ligne 5. Le *dataframe* est créé avec la fonction `pd.DataFrame.from_dict()`
 à laquelle on passe `data` en argument.
@@ -1535,9 +1535,9 @@ En utilisant maintenant la méthode `Entrez.esummary()` dans une boucle, récup�
 
 À la fin vérifiez que votre liste `years` contient bien autant d'éléments que la liste `pmids`.
 
-Calculez maintenant le nombre de publications par année. Vous créerez pour cela un dictionnaire `freq` qui aura pour clef les années (oui, une clef peut aussi être un entier) et pour valeurs le nombre de publications associées à une année données.
+Calculez maintenant le nombre de publications par année. Vous créerez pour cela un dictionnaire `freq` qui aura pour clé les années (oui, une clé de dictionnaire peut aussi être un entier) et pour valeurs le nombre de publications associées à une année données.
 
-Créez une liste `x` qui contient les clefs du dictionnaire `freq`. Ordonnez les valeurs dans `x` avec la méthode `.sort()`. Créez maintenant une seconde liste `y` qui contient, dans l'ordre, le nombre de publications associées à chaque années. Bien évidemment, les listes `x` et `y` doivent avoir la même taille. Au fait, en quelle année la barstar apparaît pour la première fois dans une publication scientifique ?
+Créez une liste `x` qui contient les clés du dictionnaire `freq`. Ordonnez les valeurs dans `x` avec la méthode `.sort()`. Créez maintenant une seconde liste `y` qui contient, dans l'ordre, le nombre de publications associées à chaque années. Bien évidemment, les listes `x` et `y` doivent avoir la même taille. Au fait, en quelle année la barstar apparaît pour la première fois dans une publication scientifique ?
 
 Ensuite, avec le module *matplotlib*, vous allez pouvoir afficher la distribution des publications en fonction des années :
 ```

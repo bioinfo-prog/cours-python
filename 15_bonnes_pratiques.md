@@ -134,11 +134,11 @@ Il n'y a, par contre, pas d'espace à l'intérieur de crochets, d'accolades et d
 ```
 # code recommandé :
 ma_liste[1]
-mon_dico{"clef"}
+mon_dico{"clé"}
 ma_fonction(argument)
 # code non recommandé :
 ma_liste[ 1 ]
-mon_dico{"clef" }
+mon_dico{"clé" }
 ma_fonction( argument )
 ```
 
@@ -146,11 +146,11 @@ Ni juste avant la parenthèse ouvrante d'une fonction ou le crochet ouvrant d'un
 ```
 # code recommandé :
 ma_liste[1]
-mon_dico{"clef"}
+mon_dico{"clé"}
 ma_fonction(argument)
 # code non recommandé :
 ma_liste [1]
-mon_dico {"clef"}
+mon_dico {"clé"}
 ma_fonction (argument)
 ```
 
@@ -159,11 +159,11 @@ On met un espace après les caractères `:` et `,` (mais pas avant) :
 ```
 # code recommandé :
 ma_liste = [1, 2, 3]
-mon_dico = {"clef1": "valeur1", "clef2": "valeur2"}
+mon_dico = {"clé1": "valeur1", "clé2": "valeur2"}
 ma_fonction(argument1, argument2)
 # code non recommandé :
 ma_liste = [1 , 2 ,3]
-mon_dico = {"clef1":"valeur1", "clef2":"valeur2"}
+mon_dico = {"clé1":"valeur1", "clé2":"valeur2"}
 ma_fonction(argument1 ,argument2)
 ```
 
@@ -248,9 +248,9 @@ Enfin, il est possible de créer des listes ou des dictionnaires sur plusieurs l
 >>> ma_liste = [1, 2, 3,
 ...             4, 5, 6,
 ...             7, 8, 9]
->>> mon_dico = {"clef1": 13,
-...             "clef2": 42,
-...             "clef3": -10}
+>>> mon_dico = {"clé1": 13,
+...             "clé2": 42,
+...             "clé3": -10}
 ```
 
 
