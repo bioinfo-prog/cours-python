@@ -1,4 +1,4 @@
-# Fenêtres graphiques et tkinter
+# Fenêtres graphiques et *Tkinter*
 
 open-box-adv
 
@@ -158,7 +158,7 @@ Vous voyez maintenant la même fenêtre avec les mêmes fonctionnalités par rap
 
 Ligne 6. Le bouton a été créé en ligne 5, mais on voit qu'il est possible de préciser une option de rendu du widget après cette création (ici on met le texte en rouge avec l'option `"fg"`). La notation ressemble à celle d'un dictionnaire avec une syntaxe générale `widget["option"] = valeur`.
 
-Ligne 9. L'instruction `racine.mainloop()` va lancer le gestionnaire d'événements que nous avons évoqué ci-dessus. C'est lui qui interceptera la moindre action de l'utilisateur, et qui lancera les portions de code associées à chacune de ses actions. Bien sûr, comme nous développerons dans ce qui va suivre toutes nos applications tkinter dans des scripts (et non pas dans l'interpréteur), cette ligne sera systématiquement présente. Elle sera souvent à la fin du script, puisque, à l'image de ce script, on écrit d'abord le code construisant l'interface, et on lance le gestionnaire d'événements une fois l'interface complètement décrite, ce qui lancera au final l'application. 
+Ligne 9. L'instruction `racine.mainloop()` va lancer le gestionnaire d'événements que nous avons évoqué ci-dessus. C'est lui qui interceptera la moindre action de l'utilisateur, et qui lancera les portions de code associées à chacune de ses actions. Bien sûr, comme nous développerons dans ce qui va suivre toutes nos applications tkinter dans des scripts (et non pas dans l'interpréteur), cette ligne sera systématiquement présente. Elle sera souvent à la fin du script, puisque, à l'image de ce script, on écrit d'abord le code construisant l'interface, et on lance le gestionnaire d'événements une fois l'interface complètement décrite, ce qui lancera au final l'application.
 
 Ligne 10. Cette ligne ne s'exécute qu'après l'arrêt de l'application (soit en cliquant sur le bouton « Quitter », soit en cliquant sur la croix).
 
@@ -211,7 +211,7 @@ Ligne 14. Ici on permet le lancement de notre application tkinter en ligne de co
 
 Ligne 15. On instancie notre application.
 
-Ligne 16. On donne un titre dans la fenêtre de notre application. Comme on utilise de petits *widgets* avec la méthode `pack()`, il se peut que le titre ne soit pas visible lors du lancement de l'application. Toutefois, si on « étire » la fenêtre à la souris, le titre deviendra visible. On pourra noter que cette méthode `.title()` est héritée de la classe mère Tk. 
+Ligne 16. On donne un titre dans la fenêtre de notre application. Comme on utilise de petits *widgets* avec la méthode `pack()`, il se peut que le titre ne soit pas visible lors du lancement de l'application. Toutefois, si on « étire » la fenêtre à la souris, le titre deviendra visible. On pourra noter que cette méthode `.title()` est héritée de la classe mère Tk.
 
 Ligne 17. On lance le gestionnaire d'événements.
 
@@ -241,7 +241,7 @@ Ligne 4. On voit qu'il faut d'abord créer le *widget* *canvas*, comme d'habitud
 
 Ligne 6 à 8. Nous dessinons maintenant des objets graphiques à l'intérieur du canevas avec les méthodes `.create_oval()` (dessine une ellipse) et `.create_line()` (dessine une ligne). Les arguments obligatoires sont les coordonnées de l'ellipse (les deux points englobant l'ellipse, cf. [ce lien](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_oval.html) pour la définition exacte) ou de la ligne. Ensuite, on passe comme d'habitude des arguments par mot-clé (vous commencez à avoir l'habitude !) pour mettre en forme ces objets graphiques.
 
-Le rendu de l'image est montré dans la figure @fig:exemple1_canvas ainsi que le système de coordonnées associé au *canvas*. Comme dans la plupart des bibliothèques graphiques, l'origine du repère du *canvas* (*i.e.* la coordonnée $(0,0)$ est en haut à gauche). Les $x$ vont de gauche à droite, et les $y$ vont de haut en bas. 
+Le rendu de l'image est montré dans la figure @fig:exemple1_canvas ainsi que le système de coordonnées associé au *canvas*. Comme dans la plupart des bibliothèques graphiques, l'origine du repère du *canvas* (*i.e.* la coordonnée $(0,0)$ est en haut à gauche). Les $x$ vont de gauche à droite, et les $y$ vont de haut en bas.
 
 ![Exemple 1 de *canvas* avec le système de coordonnées (le système de coordonnées est montré en vert et n'apparaît pas sur la vraie fenêtre tkinter).](img/example_canvas1_coor.png "Exemple 1 de canvas avec coordonnées"){ #fig:exemple1_canvas width=60% }
 
@@ -418,7 +418,7 @@ if __name__ == "__main__":
     myapp.mainloop()
 ```
 
-Lignes 19 à 23. Les coordonnées de la baballe, ses pas de déplacement, et sa taille sont créés en tant qu'attributs de notre classe. Ainsi ils seront visibles partout dans la classe. 
+Lignes 19 à 23. Les coordonnées de la baballe, ses pas de déplacement, et sa taille sont créés en tant qu'attributs de notre classe. Ainsi ils seront visibles partout dans la classe.
 
 Lignes 25 à 31. Le *canvas* est ensuite créé et placé dans la fenêtre, puis on définit notre fameuse baballe. À noter, les coordonnées `self.x` et `self.y` de la baballe représentent en fait son côté « nord-ouest » (en haut à gauche, voir [le point ($x_0$, $y_0$) dans la documentation officielle](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_oval.html)).
 
@@ -508,7 +508,7 @@ Lorsque vous souhaitez mettre un jour un *widget* avec une certaine valeur (par 
 
 #### Autres méthodes de placement des *widgets* dans la fenêtre Tk
 
-Dans les exemples montrés dans ce chapitre, nous avons systématiquement utiliser la méthode `.pack()` pour placer les *widgets*. Cette méthode très simple et directe « empaquette » les *widgets* les uns contre les autres et redimensionne la fenêtre automatiquement. Avec l'option `side=` et les variables `tk.BOTTOM`, `tk.LEFT`, `tk.TOP` et `tk.RIGHT` on place facilement les *widgets* les uns par rapport aux autres. Toutefois, la méthode `.pack()` peut parfois présenter des limites, il existe alors deux autres alternatives. 
+Dans les exemples montrés dans ce chapitre, nous avons systématiquement utiliser la méthode `.pack()` pour placer les *widgets*. Cette méthode très simple et directe « empaquette » les *widgets* les uns contre les autres et redimensionne la fenêtre automatiquement. Avec l'option `side=` et les variables `tk.BOTTOM`, `tk.LEFT`, `tk.TOP` et `tk.RIGHT` on place facilement les *widgets* les uns par rapport aux autres. Toutefois, la méthode `.pack()` peut parfois présenter des limites, il existe alors deux autres alternatives.
 
 La méthode `.grid()` permet, grâce à l'utilisation d'une grille, un placement mieux contrôlé des différents *widgets*. La méthode `.place()` permet enfin de placer les *widgets* en utilisant les coordonnées de la fenêtre principale. Nous ne développerons pas plus ces méthodes, mais voici de la documentation supplémentaire en accès libre :
 
@@ -546,7 +546,7 @@ if __name__ == '__main__':
 
 Lignes 17 à 20. Commentons d'abord le programme principal : ici on crée la fenêtre principale dans l'instance `racine` puis on instancie notre classe en passant `racine` en argument.
 
-Lignes 4 et 5. Ici réside la principale différence par rapport à ce que nous vous avons montré dans ce chapitre : en ligne 4 on passe l'argument `racine` à notre constructeur, puis en ligne 5 on passe ce même argument `racine` lors de l'appel du constructeur de la classe tk.Frame (ce qui était inutile lorsqu'on héritait de la classe Tk). 
+Lignes 4 et 5. Ici réside la principale différence par rapport à ce que nous vous avons montré dans ce chapitre : en ligne 4 on passe l'argument `racine` à notre constructeur, puis en ligne 5 on passe ce même argument `racine` lors de l'appel du constructeur de la classe tk.Frame (ce qui était inutile lorsqu'on héritait de la classe Tk).
 
 Ligne 6. L'argument `racine` passé à la méthode `.__init__()` est finalement une variable locale. Comme il s'agit de l'instance de notre fenêtre principale à passer à tous nos *widgets*, il faut qu'elle soit visible dans toute la classe. La variable `self.racine` est ainsi créée afin d'être réutilisée dans d'autres méthodes.
 
@@ -589,7 +589,7 @@ if __name__ == '__main__':
 
 Les arguments `*args` et `**kwargs` permettent de récupérer facilement tous les arguments dits « positionnels » et « par mot-clé » respectivement. Pour plus de détails sur comment `*args` et `**kwargs` fonctionnent, reportez-vous au chapitre 21 *Remarques complémentaires*.
 
-Dans l'exemple ci-dessus, `*args` et `**kwargs` sont inutiles car lors de l'instanciation de notre application, on ne passe aucun argument : `app = MonApplication()`. Toutefois, on pourrait être intéressé à récupérer des arguments à passer au constructeur, par exemple : 
+Dans l'exemple ci-dessus, `*args` et `**kwargs` sont inutiles car lors de l'instanciation de notre application, on ne passe aucun argument : `app = MonApplication()`. Toutefois, on pourrait être intéressé à récupérer des arguments à passer au constructeur, par exemple :
 
 ```
 app = MonApplication(arg1, arg2, option1=val1, option2=val2)
@@ -640,7 +640,7 @@ Dans ce chapitre d'introduction, nous vous avons montré des GUI simples avec un
 
 ### Bibliographie pour aller plus loin
 
-Voici quelques ressources que vous pouvez utiliser pour continuer votre apprentissage de tkinter : 
+Voici quelques ressources que vous pouvez utiliser pour continuer votre apprentissage de tkinter :
 
 1. En anglais :
   - La [Documentation officielle](https://wiki.python.org/moin/TkInter) de Python.

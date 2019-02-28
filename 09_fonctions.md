@@ -237,7 +237,7 @@ L'utilisation d'arguments par mot-clé est habituelle en Python. Elle permet de 
 >>> print("Message ", end="")
 Message >>>
 ```
-Nous verrons, dans le chapitre 20 *Tkinter*, que l'utilisation d'arguments par mot-clé est systématique lorsqu'on crée un objet graphique (une fenêtre, un bouton, etc.).
+Nous verrons, dans le chapitre 20 *Fenêtres graphiques et Tkinter*, que l'utilisation d'arguments par mot-clé est systématique lorsqu'on crée un objet graphique (une fenêtre, un bouton, etc.).
 
 
 ## Variables locales et variables globales
