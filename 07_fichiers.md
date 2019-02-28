@@ -20,7 +20,7 @@ Ensuite, testez le code suivant dans l'interpréteur Python :
 >>> filin.readlines()
 ['girafe\n', 'tigre\n', 'singe\n', 'souris\n']
 >>> filin.close()
->>> f.readlines()
+>>> filin.readlines()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ValueError: I/O operation on closed file.

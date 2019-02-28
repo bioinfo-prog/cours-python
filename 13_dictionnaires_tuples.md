@@ -169,7 +169,7 @@ Les listes, les dictionnaires et les tuples sont des objets qui peuvent contenir
 
 close-box-rem
 
-Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons* qui renvoie l'indice de l'élément et l'élément d'une liste, ainsi dans le chapitre 9 *Fonctions* lorsqu'on voulait qu'une fonction renvoie plusieurs valeurs (par exemple dans l'instruction `return x,y`, le couple `x,y` est un tuple).
+Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons* qui renvoie l'indice de l'élément et l'élément d'une liste, ainsi dans le chapitre 9 *Fonctions* lorsqu'on voulait qu'une fonction renvoie plusieurs valeurs (par exemple dans l'instruction `return x,y`, le couple `x,y` est un tuple). Cela revenait à faire une affectation multiple du type `x, y = 1, 2`.
 
 
 ## Exercices
@@ -262,4 +262,5 @@ $$ G_z =  \frac{1}{n} \sum_{i=1}^{n} {\rm CA}_{i,z} $$
 
 Créez une fonction `calcule_barycentre()` qui prend comme argument une liste de dictionnaires dont les clés (`resid`, `x`, `y` et `z`) sont celles de l'exercice précédent et qui renvoie les coordonnées du barycentre sous la forme d'une liste de *floats*.
 
-Utilisez la fonction `trouve_calpha()` de l'exercice précédent et la fonction `calcule_barycentre()`pour afficher, avec deux chiffres significatifs, les coordonnées du barycentre des carbones alpha de la barstar.
+Utilisez la fonction `trouve_calpha()` de l'exercice précédent et la fonction  
+`calcule_barycentre()`pour afficher, avec deux chiffres significatifs, les coordonnées du barycentre des carbones alpha de la barstar.
