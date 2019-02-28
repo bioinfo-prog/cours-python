@@ -671,10 +671,10 @@ où `heure` est une chaîne de caractères représentant l'heure actuelle.
 ### Compte à rebours
 
 Créer une application affichant un compte à rebours dans un *label*. L'utilisateur choisira entre 1 et 240 minutes en passant un argument au lancement du script, par exemple :  
-`python ./tk_compte_rebours.py 34`  
-signifiera un compte à rebours de 34' (le programme vérifiera qu'il s'agit d'un entier entre 1 et 240 inclus). Il y aura un bouton « Lancer » pour démarrer le compte à rebours et un boutton « Quitter » au cas où on veuille quitter avant la fin. À la fin du rebours, le programme affichera 10 fois la phrase « C'est fini !!! » dans l'interpréteur et quittera automatiquement le script. Une image du résultat attendu est montré dans la figure @fig:compte_a_rebours.
+`python ./tk_compte_a_rebours.py 34`  
+signifiera un compte à rebours de 34' (le programme vérifiera qu'il s'agit d'un entier entre 1 et 240 inclus). Il y aura un bouton « Lancer » pour démarrer le compte à rebours et un boutton « Quitter » au cas où on veuille quitter avant la fin. À la fin du rebours, le programme affichera 10 fois la phrase « C'est fini !!! » dans l'interpréteur et quittera automatiquement le script. Une image du résultat attendu est montrée dans la figure @fig:tk_compte_a_rebours.
 
-![Compte à rebours.](img/compte_a_rebours.png){ #fig:compte_a_rebours width=50% }
+![Compte à rebours.](img/tk_compte_a_rebours.png){ #fig:tk_compte_a_rebours width=50% }
 
 ### Triangle de Sierpinski
 
@@ -690,13 +690,13 @@ pour i de 0 à 25000:
     dessiner(point)
 ```
 
-Le rendu final attendu est montré dans la figure @fig:Sierpinski. On utilisera un canevas de 400x400 pixels. Il y a aura un bouton « Quitter » et un bouton « Launch ! » qui calculera et affichera 10000 points supplémentaires dans le triangle de Sierpinski.
+Le rendu final attendu est montré dans la figure @fig:tk_Sierpinski. On utilisera un canevas de 400x400 pixels. Il y a aura un bouton « Quitter » et un bouton « Launch ! » qui calculera et affichera 10000 points supplémentaires dans le triangle de Sierpinski.
 
-![Triangle de Sierpinski.](img/Sierpinski.png){ #fig:Sierpinski width=50% }
+![Triangle de Sierpinski.](img/tk_Sierpinski.png){ #fig:tk_Sierpinski width=50% }
 
 ### Polygone de Sierpinski (exercice +++)
 
-Améliorer l'application précédente en proposant une liste de choix supplémentaire demandant à l'utilisateur de choisir le nombre de sommets (de 3 à 10). Le programme calculera automatiquement la position des sommets. Pour prendre en main le *widget* listbox, voici un code minimal qui pourra vous aider. Celui-ci contient une listbox et permet d'afficher dans le terminal l'élément sélectionné). Nous vous conseillons d'avoir résolu l'exercice précédent, et de bien étudier le code ci-dessous avant de vous lancer !
+Améliorer l'application précédente en proposant une liste de choix supplémentaire demandant à l'utilisateur de choisir le nombre de sommets (de 3 à 10). Le programme calculera automatiquement la position des sommets. Pour prendre en main le *widget* listbox, voici un code minimal qui pourra vous aider. Celui-ci contient une Listbox et permet d'afficher dans le terminal l'élément sélectionné. Nous vous conseillons de bien étudier le code ci-dessous et d'avoir résolu l'exercice précédent avant de vous lancer !
 
 ```
 import tkinter as tk
@@ -738,4 +738,4 @@ if __name__ == '__main__':
 
 ### Projet simulation d'un pendule
 
-Vous souhaitez aller plus loin après ces exercices de mise en jambe ? Nous vous conseillons d'aller directement au chapitre 22 *Mini projets*. Nous vous proposons de réaliser une application *Tkinter* qui simule le mouvement d'un pendule. En réalisant une application complète de ce genre, un peu plus conséquente, vous serez armé pour construire vos propres applications.
+Vous souhaitez aller plus loin après ces exercices de  « mise en jambe » ? Nous vous conseillons d'aller directement au chapitre 22 *Mini projets*. Nous vous proposons de réaliser une application *Tkinter* qui simule le mouvement d'un pendule. En réalisant une application complète de ce genre, un peu plus conséquente, vous serez armé pour construire vos propres applications.
