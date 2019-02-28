@@ -18,7 +18,7 @@ Dans ce chapitre nous allons vous présenter une introduction à la POO avec Pyt
 
 Après la lecture de ce chapitre, vous verrez d'un autre œil de nombreux exemples évoqués dans les chapitres précédents, et vous comprendrez sans doute de nombreuses subtilités qui avaient pu vous paraître absconses.
 
-Enfin, il est vivement recommandé de lire ce chapitre avant d'aborder le chapitre 20 sur le module *Tkinter* et la programmation graphique.
+Enfin, il est vivement recommandé de lire ce chapitre avant d'aborder le chapitre 20 *Fenêtres graphiques et Tkinter*.
 
 
 ## Construction d'une classe
@@ -1122,7 +1122,7 @@ Prenez bien le temps de suivre ce code pas à pas pour bien en comprendre toutes
 
 Vous pourrez vous poser la question *Pourquoi utilise-t-on en ligne 24 la syntaxe*  
 `Fruit.__init__()` *?*. Cette syntaxe est souvent utilisée lorsqu'une classe hérite d'une autre classe pour faire appel au constructeur de la classe mère. La raison est que nous souhaitons appeler une méthode de la classe mère qui a le même nom qu'une méthode de la classe fille. Dans ce cas, si on utilisait `self.__init__()`, cela correspondrait à la fonction de notre classe fille Citron. En mettant systématiquement une syntaxe  
-`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *Tkinter* (cf. chapitre 20) permettant de construire des interfaces graphiques, nous en verrons de nombreux exemples.
+`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *Tkinter* (voir chapitre 20) permettant de construire des interfaces graphiques, nous en verrons de nombreux exemples.
 
 open-box-rem
 
@@ -1163,13 +1163,14 @@ class Orange(Fruit):
 ```
 
 Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on peut les utiliser en Python. Pour chaque fruit, on utilise la méthode  
-`.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 20 *Tkinter* sur les interfaces graphiques ainsi que dans les exercices du présent chapitre. En *Tkinter*, chaque objet graphique (boutton, zone de texte, etc.) est en fait une classe : ainsi on peut créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
+`.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 20 *Fenêtres graphiques et Tkinter* ainsi que dans les exercices du présent chapitre. Avec le module *Tkinter*, chaque objet graphique (bouton, zone de texte, etc.) est en fait une classe. On peut ainsi créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
+
 
 ### Pour aller plus loin
 
 À ce stade, nous pouvons émettre deux remarques :
 
-- L'héritage et le polymorphisme donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entrainer sur un maximum d'exemples.
+- L'héritage et le polymorphisme donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entraîner sur un maximum d'exemples.
 - Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), et [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
 
 
@@ -1298,7 +1299,7 @@ Toutefois, si on souhaite contrôler l'accès, la modification (voire la destruc
 attribut = property(fget=accesseur, fset=mutateur, fdel=destructeur)
 ```
 
-Les arguments passés à `property()` sont systématiquement des méthodes dites *callback*, c'est-à-dire des noms de fonctions que l'on a définies précédemment dans notre classe, mais on ne précise aucun argument ni parenthèse (cf. chapitre 20 *Tkinter*). Avec cette ligne de code, `attribut` est un objet de type *property* qui fonctionne de la manière suivante à l'extérieur de la classe :
+Les arguments passés à `property()` sont systématiquement des méthodes dites *callback*, c'est-à-dire des noms de fonctions que l'on a définies précédemment dans notre classe, mais on ne précise aucun argument ni parenthèse (voir le chapitre 20 *Fenêtres graphiques et Tkinter*). Avec cette ligne de code, `attribut` est un objet de type *property* qui fonctionne de la manière suivante à l'extérieur de la classe :
 
 - L'instruction `instance.attribut` appellera la méthode `.accesseur()`.
 - L'instruction `instance.attribut = valeur` appellera la méthode  
