@@ -13,7 +13,7 @@ On va donc utiliser un gestionnaire de paquets qui va installer ces modules supp
 
 Quel que soit le système d'exploitation, on recommande l'utilisation de Miniconda dont la procédure d'installation est détaillée ci-dessous pour Windows, Mac OS X et Linux. Le gestionnaire de paquets *conda* est très efficace. Il gère la version de Python et les paquets compatibles avec cette dernière très efficacement.
 
-Par ailleurs, on vous recommande vivement la lecture de la rubrique sur les [éditeurs de texte](#les-éditeurs-de-texte). Il est en effet fondamental d'utiliser un éditeur robuste et de savoir le configurer pour "pythonner" efficacement.
+Par ailleurs, on vous recommande vivement la lecture de la rubrique sur les [éditeurs de texte](#les-éditeurs-de-texte). Il est en effet fondamental d'utiliser un éditeur robuste et de savoir le configurer pour « pythonner » efficacement.
 
 Enfin, dans tout ce qui suit, on part du principe que vous installerez Miniconda  **en tant qu'utilisateur**, et non pas en tant qu'administrateur. Autrement dit, vous n'aurez pas besoin de droits spéciaux pour pouvoir installer Miniconda et les autres modules nécessaires. La procédure proposée a été testée avec succès sous Windows (7 et 10), Mac OS C (Mac OS High Sierra version 10.13.6) et Linux (Ubuntu 16.04, Ubuntu 18.04).
 
