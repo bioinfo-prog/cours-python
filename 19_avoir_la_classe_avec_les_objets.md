@@ -1679,23 +1679,22 @@ class Rectangle:
     """Ceci est la classe Rectangle."""
 
     def __init__(self, long=0.0, larg=0.0, coul="blanc"):
-    """
-    Initialisation d'un objet.
+        """Initialisation d'un objet.
 
-    Définition des attributs avec des valeurs par défaut.
-    """
-    self.longueur = long
-    self.largeur = larg
-    self.couleur = coul
+        Définition des attributs avec des valeurs par défaut.
+        """
+        self.longueur = long
+        self.largeur = larg
+        self.couleur = coul
 
     def calcule_surface(self):
-    """Méthode qui calcule la surface."""
-    return self.longueur * self.largeur
+        """Méthode qui calcule la surface."""
+        return self.longueur * self.largeur
 
     def change_carre(self, cote):
-    """Méthode qui transforme un rectangle en carré."""
-    self.longueur = cote
-    self.largeur = cote
+        """Méthode qui transforme un rectangle en carré."""
+        self.longueur = cote
+        self.largeur = cote
 ```
 
 Concevez un programme principal qui :
@@ -1720,5 +1719,9 @@ Créez une nouvelle classe `Atome` avec les attributs `x`, `y`, `z` (qui contien
 
 ### Classe Atome améliorée
 
-Améliorez la classe `Atome` en lui ajoutant un nouvel attribut  `masse` qui correspond à la masse atomique et `numero_atomique`) et une nouvelle méthode  
-`.calcule_centre_masse()`.
+Améliorez la classe `Atome` en lui ajoutant un nouvel attribut  `masse` qui correspond à la masse atomique ainsi qu'une nouvelle méthode  
+`.calcule_centre_masse()`. Redéfinissez le comportement avec `print()` (à l'aide de la méthode magique `.__str__()`) de manière à afficher les coordonnées et la masse de l'atome.
+
+### Autres exercices +++
+
+D'autres exercices plus approfondis sur les classes sont accessibles sur notre [site internet](https://python.sdv.univ-paris-diderot.fr/livre-dunod). N'hésitez pas à aller visiter le site.
