@@ -1680,7 +1680,7 @@ Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 *Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 
-### Classe Rectangle (1)
+### Classe Rectangle
 
 Voici une classe nommée `Rectangle` à copier / coller dans un script `rectangle.py` :
 
@@ -1717,7 +1717,7 @@ Concevez un programme principal qui :
 - calcule et affiche la surface de ce carré ;
 - crée une autre instance `rectangle2` aux dimensions et à la couleur que vous souhaitez (soyez créatif(ve) !) et qui affiche les attributs et la surface de ce nouveau rectangle.
 
-### Classe Rectangle (2)
+### Classe Rectangle améliorée
 
 Entraînez-vous avec la classe `Rectangle`. Créez la méthode `calcule_perimetre()` qui calcule le périmètre d'un objet rectangle. Testez sur un exemple simple (largeur = 10 m, longueur = 20 m).
 
@@ -1734,4 +1734,4 @@ Améliorez la classe `Atome` en lui ajoutant un nouvel attribut  `masse` qui cor
 
 ### Autres exercices +++
 
-D'autres exercices plus approfondis sur les classes sont accessibles sur notre [site internet](https://python.sdv.univ-paris-diderot.fr/livre-dunod). N'hésitez pas à aller visiter le site.
+D'autres exercices plus approfondis sur les classes sont accessibles sur notre [site internet](https://python.sdv.univ-paris-diderot.fr/livre-dunod). N'hésitez pas à aller le visiter.
