@@ -239,42 +239,60 @@ Prédisez le comportement des codes suivant, sans les recopier dans un script ni
 def hello(prenom):
   print("Bonjour {}".format(prenom))
 
+
+# programme principal
 hello("Patrick")
 print(x)
 ```
 
 #### Code 2
 ```
-x = 10
-
 def hello(prenom):
   print("Bonjour {}".format(prenom))
 
+
+# programme principal
+x = 10
 hello("Patrick")
 print(x)
 ```
 
 #### Code 3
 ```
-x = 10
-
 def hello(prenom):
   print("Bonjour {}".format(prenom))
   print(x)
 
+
+# programme principal
+x = 10
 hello("Patrick")
 print(x)
 ```
 
 #### Code 4
 ```
-x = 10
-
 def hello(prenom):
   x = 42
   print("Bonjour {}".format(prenom))
   print(x)
 
+
+# programme principal
+x = 10
 hello("Patrick")
 print(x)
 ```
+
+### Passage de liste à une fonction
+
+Créer une fonction `ajoute_nb_alea(liste)` qui prend en argument une liste et qui ajoute un entier aléatoire entre -10 et 10 (inclus) à chaque élément. La fonction affichera à l'écran cette nouvelle liste modifiée.
+
+Dans le programme principal, on effectuera les actions suivantes :
+
+1. créer une variable `ma_liste = [7, 3, 8, 4, 5, 1, 9, 10, 2, 6]`.
+2. Afficher `ma_liste` à l'écran.
+3. Appeler la fonction `ajoute_nb_alea()` en lui passant `ma_liste` en argument.
+4. Afficher à nouveau `ma_liste` à l'écran.
+
+Comment expliquez-vous le résultat obtenu ?
