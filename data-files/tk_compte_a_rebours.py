@@ -11,7 +11,7 @@ class CompteARebours(tk.Tk):
         # Création label.
         temps_affiche = self.seconds2time(self.secondes_rebours)
         self.label_heure = tk.Label(self, text=temps_affiche, fg="blue",
-                                    font=("Arial", 30))
+                                    font=("Arial", 50))
         self.label_heure.pack()
         # Création bouton quitter.
         self.bouton = tk.Button(self, text="Quitter", command=self.quit)
@@ -20,7 +20,7 @@ class CompteARebours(tk.Tk):
         self.bouton2 = tk.Button(self, text="Lancer",
                                  command=self.mise_a_jour_rebours)
         self.bouton2.pack()
-        
+
     # Fonction qui prend un nb de secondes en arguments et renvoie
     # une string formatée HH:MM:SS.
     def seconds2time(self, total_secondes):
@@ -45,18 +45,18 @@ class CompteARebours(tk.Tk):
         self.after(1000, self.mise_a_jour_rebours)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     if len(sys.argv) != 2:
         exit("Usage: tk_compte_rebours.py temps_rebours\n"
              "temps_rebours = nombre de minutes entre 1 et 240 (entier)")
     try:
         temps_rebours = int(sys.argv[1])
     except:
-        exit("Rentrez un nombre de minutes entre 1 et 240")
+        exit("Entrez un nombre de minutes entre 1 et 240")
     if temps_rebours < 1 or temps_rebours > 240:
-        raise ValueError("Rentrez un nombre de minutes entre 1 et 240")
+        raise ValueError("Entrez un nombre de minutes entre 1 et 240")
     app = CompteARebours(temps_rebours)
-    app.title('Compte à rebours')
+    app.title("Compte à rebours")
     # Règle la taille de la fenêtre initiale.
-    app.geometry('300x100')
+    app.geometry("300x150")
     app.mainloop()

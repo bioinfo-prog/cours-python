@@ -8,7 +8,7 @@ class Horloge(tk.Tk):
         # Création label.
         heure = time.strftime("%H:%M:%S")
         self.label_heure = tk.Label(self, text=heure, fg="blue",
-                                    font=("Arial", 30))
+                                    font=("Arial", 50))
         self.label_heure.pack()
         # Création bouton quitter.
         self.bouton = tk.Button(self, text="Quitter", command=self.quit)
@@ -22,8 +22,8 @@ class Horloge(tk.Tk):
         self.after(1000, self.mise_a_jour_heure)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = Horloge()
-    app.title('Horloge')
-    app.geometry('250x80')
+    app.title("Horloge")
+    app.geometry("300x120")
     app.mainloop()

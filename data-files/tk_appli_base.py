@@ -7,15 +7,15 @@ class MonApp(tk.Tk):
         tk.Tk.__init__(self)
         # Création label.
         heure = time.strftime("%H:%M:%S")
-        label_heure = tk.Label(self, text=heure, fg="blue", font=("Arial", 30))
+        label_heure = tk.Label(self, text=heure, fg="blue", font=("Arial", 50))
         label_heure.pack()
         # Création bouton quitter.
         bouton = tk.Button(self, text="Quitter", command=self.quit)
         bouton.pack()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = MonApp()
-    app.title('Appli de base')
-    app.geometry('250x80')
+    app.title("Appli de base")
+    app.geometry("300x120")
     app.mainloop()
