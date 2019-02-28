@@ -148,13 +148,13 @@ racine.mainloop()
 print("C'est fini !")
 ```
 
-puis lançons ce script depuis le *shell* Unix :
+puis lançons ce script depuis un *shell* :
 
 ```
-$ python ./tk_exemple.py
+$ python tk_exemple.py
 ```
 
-Vous voyez maintenant la même fenêtre avec les mêmes fonctionnalités par rapport à la version dans l'interpréteur (cf. figure @fig:exemple1_tkinter). Nous commentons ici les différences (dans le désordre !) :
+Vous voyez maintenant la même fenêtre avec les mêmes fonctionnalités par rapport à la version dans l'interpréteur (voir la figure @fig:exemple1_tkinter). Nous commentons ici les différences (dans le désordre !) :
 
 Ligne 6. Le bouton a été créé en ligne 5, mais on voit qu'il est possible de préciser une option de rendu du widget après cette création (ici on met le texte en rouge avec l'option `"fg"`). La notation ressemble à celle d'un dictionnaire avec une syntaxe générale `widget["option"] = valeur`.
 
