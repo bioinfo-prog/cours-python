@@ -715,7 +715,7 @@ class MaListBox(tk.Tk):
         # Selectionne premier élément de listbox.
         self.listbox.select_set(0)
         # Lier une méthode quand clic sur listbox.
-        self.listbox.bind('<<ListboxSelect>>', self.clic_listbox)
+        self.listbox.bind("<<ListboxSelect>>", self.clic_listbox)
 
     def clic_listbox(self, event):
         # Récup du widget à partir de l'objet event.
@@ -732,7 +732,7 @@ class MaListBox(tk.Tk):
 
 if __name__ == '__main__':
     app = MaListBox()
-    app.title('MaListBox')
+    app.title("MaListBox")
     app.mainloop()
 ```
 
