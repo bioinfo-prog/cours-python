@@ -1,16 +1,16 @@
 # Avoir la classe avec les objets
 
-La programmation orientée objet (POO) est un concept de programmation très puissant qui permet de structurer ses programmes d'une manière nouvelle. En POO, on définit un « objet » qui peut contenir des « attributs » ainsi que des « méthodes », permettant d'agir sur lui-même. Par exemple, on pourrait définir un objet « citron  qui contient les attributs « saveur » et « couleur », et qui aurait une méthode « presser » permettant d'en extraire le jus. En Python, on utilise ce qu'on appelle une « classe » pour construire un objet. Dans notre exemple, la classe correspondrait au « moule » permettant de construire autant d'objets citrons que nécessaire.
+La programmation orientée objet (POO) est un concept de programmation très puissant qui permet de structurer ses programmes d'une manière nouvelle. En POO, on définit un « objet » qui peut contenir des « attributs » ainsi que des « méthodes » qui agissent sur lui-même. Par exemple, on définit un objet « citron  qui contient les attributs « saveur » et « couleur », ainsi qu'une méthode « presser » permettant d'en extraire le jus. En Python, on utilise une « classe » pour construire un objet. Dans notre exemple, la classe correspondrait au « moule » utilisé pour construire autant d'objets citrons que nécessaire.
 
 open-box-def
 
-Une **classe** permet de définir des **objets** qui sont des **instances** (des représentants) de cette classe. Dans ce chapitre on utilisera les mots *objet* ou *instance* pour désigner la même chose. Les objets peuvent posséder des **attributs** (variables associées aux objets) et des **méthodes** (qui peuvent être vues comme des fonctions associées aux objets et qui peuvent agir sur ces derniers ou encore les utiliser).
+Une **classe** définit des **objets** qui sont des **instances** (des représentants) de cette classe. Dans ce chapitre on utilisera les mots *objet* ou *instance* pour désigner la même chose. Les objets peuvent posséder des **attributs** (variables associées aux objets) et des **méthodes** (qui sont des fonctions associées aux objets et qui peuvent agir sur ces derniers ou encore les utiliser).
 
 close-box-def
 
 Dans les chapitres précédents, nous avons déjà mentionné qu'en Python tout est objet. Une variable de type *int* est en fait un objet de type *int*, donc construit à partir de la classe *int*. Pareil pour les *float* et *string*. Mais également pour les *list*, *tuple*, *dict*, etc. Voilà pourquoi nous avons rencontré de nombreuses notations et mots de vocabulaire associés à la POO depuis le début de ce cours.
 
-La POO permet de rédiger du code plus compact et mieux ré-utilisable. L'utilisation de classes permet d'éviter l'utilisation de variables globales en créant ce qu'on appelle un *espace de noms* propre à chaque objet permettant d'y *encapsuler* des attributs et des méthodes. De plus, la POO amène de nouveaux concepts tels que le *polymorphisme* (capacité à redéfinir le comportement des opérateurs, nous avons déjà vu ces mots vous en souvenez-vous ?), ou bien encore l'*héritage* (capacité à définir une classe à partir d'une classe pré-existante et d'y ajouter de nouvelles fonctionnalités). Tous ces concepts seront définis dans ce chapitre.
+La POO permet de rédiger du code plus compact et mieux ré-utilisable. L'utilisation de classes évite l'utilisation de variables globales en créant ce qu'on appelle un *espace de noms* propre à chaque objet permettant d'y *encapsuler* des attributs et des méthodes. De plus, la POO amène de nouveaux concepts tels que le *polymorphisme* (capacité à redéfinir le comportement des opérateurs, nous avons déjà vu ces mots vous en souvenez-vous ?), ou bien encore l'*héritage* (capacité à définir une classe à partir d'une classe pré-existante et d'y ajouter de nouvelles fonctionnalités). Tous ces concepts seront définis dans ce chapitre.
 
 Malgré tous ces avantages, la POO peut paraître difficile à aborder pour le débutant, spécialement dans la conception des programmes / algorithmes. Elle nécessite donc la lecture de nombreux exemples, mais surtout beaucoup de pratique. Bien structurer ses programmes en POO est un véritable art. Il existe même des langages qui formalisent la construction de programmes orientés objets, par exemple le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)).
 
@@ -82,7 +82,7 @@ Ligne 3. Ici on ajoute un attribut `.couleur` à l'instance `citron1`. Notez bie
 
 Lignes 4 à 6. La fonction `dir()` nous montre que l'attribut `.couleur` a bien été ajouté à l'objet.
 
-Lignes 7. La notation `instance.attribut` permet d'avoir accès à l'attribut de l'objet, de même que l'on utilisait par exemple `math.pi` avec les modules.
+Lignes 7. La notation `instance.attribut` donne accès à l'attribut de l'objet, de même que l'on utilisait par exemple `math.pi` avec les modules.
 
 L'attribut nommé `.__dict__` est particulièrement intéressant. Il s'agit d'un dictionnaire qui listera les attributs créés dynamiquement dans l'instance en cours :
 
@@ -186,7 +186,7 @@ Dans notre classe on pourra aussi ajouter des fonctions.
 
 open-box-def
 
-Une fonction définie au sein d'une classe est appelée **méthode**. Pour exécuter une méthode à l'extérieur de la classe, la syntaxe générale est `instance.méthode()`. En général, on distingue attributs et méthodes (comme nous le ferons systématiquement dans ce chapitre). Toutefois il faut garder à l'esprit qu'une méthode est finalement un objet de type fonction. Ainsi, elle peut être vue comme un attribut également, concept que vous croiserez peut être en consultant de la documentation externe.
+Une fonction définie au sein d'une classe est appelée **méthode**. Pour exécuter une méthode à l'extérieur de la classe, la syntaxe générale est `instance.méthode()`. En général, on distingue attributs et méthodes (comme nous le ferons systématiquement dans ce chapitre). Toutefois il faut garder à l'esprit qu'une méthode est finalement un objet de type fonction. Ainsi, elle peut être vue comme un attribut également, concept que vous croiserez peut-être en consultant de la documentation externe.
 
 close-box-def
 
@@ -226,7 +226,7 @@ Vous l'aurez deviné, ce code affichera `acide` à l'écran. Comme pour les fonc
 
 ### Le constructeur
 
-Lors de l'instanciation d'un objet à partir d'une classe, il peut être intéressant de lancer certaines instructions comme par exemple initialiser certaines variables. Pour cela, on peut ajouter une méthode spéciale nommée `.__init__()` : cette méthode s'appelle le « constructeur » de la classe. Il s'agit d'une méthode spéciale dont le nom est entouré de doubles *underscores* : en effet, elle sert au fonctionnement interne de notre classe, et sauf cas extrêmement rare, elle n'est pas supposée être lancée comme une fonction classique par l'utilisateur de la classe. Ce constructeur est exécuté à chaque instanciation de notre classe, et ne renvoie pas de valeur, il ne possède donc pas de `return`.
+Lors de l'instanciation d'un objet à partir d'une classe, il peut être intéressant de lancer certaines instructions comme par exemple initialiser certaines variables. Pour cela, on ajoute une méthode spéciale nommée `.__init__()` : cette méthode s'appelle le « constructeur » de la classe. Il s'agit d'une méthode spéciale dont le nom est entouré de doubles *underscores* : en effet, elle sert au fonctionnement interne de notre classe, et sauf cas extrêmement rare, elle n'est pas supposée être lancée comme une fonction classique par l'utilisateur de la classe. Ce constructeur est exécuté à chaque instanciation de notre classe, et ne renvoie pas de valeur, il ne possède donc pas de `return`.
 
 open-box-rem
 
@@ -330,7 +330,7 @@ On peut appeler cette référence comme on veut, toutefois nous vous conseillons
 
 close-box-warn
 
-Ligne 7. Cette ligne va nous permettre de voir ce que contient cette variable `self`.
+Ligne 7. Cette ligne va afficher le contenu de la variable `self`.
 
 Lignes 8 et 9. On souhaite que notre méthode `.affiche_attributs()` affiche ensuite l'attribut de classe `.couleur` ainsi que la variable `var` créée dans le constructeur `.__init__()`.
 
@@ -350,7 +350,7 @@ NameError: name 'var' is not defined
 
 Ligne 2. La méthode `.affiche_attributs()` montre que le `self` est bien une référence vers l'instance (ou objet) `citron1` (ou vers n'importe quelle autre instance, par exemple si on crée `citron2 = Citron()` le `self` sera une référence vers `citron2`).
 
-Ligne 3. La méthode `.affiche_attributs()` affiche l'attribut `.couleur` qui avait été créé précédemment dans le constructeur. Vous voyez ici l'intérêt principal de l'argument `self` passé en premier à chaque méthode d'une classe : il permet « d'accrocher » n'importe quel attribut qui sera visible partout dans la classe, y compris dans une méthode où il n'a pas été défini.
+Ligne 3. La méthode `.affiche_attributs()` affiche l'attribut `.couleur` qui avait été créé précédemment dans le constructeur. Vous voyez ici l'intérêt principal de l'argument `self` passé en premier à chaque méthode d'une classe : il « accroche » n'importe quel attribut qui sera visible partout dans la classe, y compris dans une méthode où il n'a pas été défini.
 
 Lignes 4 à 9. La création de la variable `var` dans la méthode `.__init__()` sans l'accrocher à l'objet `self` fait qu'elle n'est plus accessible en dehors de `.__init__()`. C'est exactement comme pour les fonctions classiques, `var` est finalement une variable locale au sein de la méthode `.__init__()` et n'est plus visible lorsque l'exécution de cette dernière est terminée (cf. chapitres 9 et 12). Ainsi, Python renvoie une erreur car `var` n'existe pas lorsque `.affiche_attributs()` est en exécution.
 
@@ -435,7 +435,7 @@ La figure @fig:classe_var_instance montre l'état des variables après avoir ex�
 
 ![Illustration de la signification des attributs de classe et d'instance avec *Python Tutor*.](img/classe_var_instance.png){ #fig:classe_var_instance width=90%}
 
-*Python Tutor* montre bien la différence entre les variables de classe `forme` et `saveur` qui apparaissent directement dans les attributs de la classe `Citron` lors de sa définition, et les trois variables d'instance `couleur`, `taille` et `masse` qui sont liées à l'instance `citron1`. Pour autant, on peut voir dans la dernière instruction `print()` qu'on accède de la même manière aux variables de classe ou d'instance, lorsqu'on est à l'extérieur, avec une syntaxe `instance.attribut`.
+*Python Tutor* montre bien la différence entre les variables de classe `forme` et `saveur` qui apparaissent directement dans les attributs de la classe `Citron` lors de sa définition, et les trois variables d'instance `couleur`, `taille` et `masse` qui sont liées à l'instance `citron1`. Pour autant, on voit dans la dernière instruction `print()` qu'on accède de la même manière aux variables de classe ou d'instance, lorsqu'on est à l'extérieur, avec une syntaxe `instance.attribut`.
 
 Au sein des méthodes, on accède également de la même manière aux attributs de classe ou d'instance, avec une syntaxe `self.attribut` :
 
@@ -667,7 +667,7 @@ Coucou externe
 
 À nouveau, il n'y a pas de conflit possible pour l'utilisation d'une méthode ou d'une fonction avec le même nom. À l'intérieur de la classe on utilise `self.affiche_coucou()` pour la méthode et `affiche_coucou()` pour la fonction. À l'extérieur de la classe, on utilise `instance.affiche_coucou()` pour la méthode et `affiche_coucou()` pour la fonction.
 
-Dans cette rubrique, nous venons de voir une propriété des classes extrêmement puissante : **une classe crée automatiquement son propre espace de noms**. Cela permet d'encapsuler à l'intérieur tous les attributs et méthodes dont on a besoin, sans avoir aucun risque de conflit de nom avec l'extérieur (variables locales, globales ou provenant de modules). L'utilisation de classes permettra ainsi d'éviter l'utilisation de variables globales qui, on l'a vu aux chapitres 9 et 12 sur les fonctions, sont à proscrire absolument. Tout cela concourt à rendre le code plus lisible.
+Dans cette rubrique, nous venons de voir une propriété des classes extrêmement puissante : **une classe crée automatiquement son propre espace de noms**. Cela permet d'encapsuler à l'intérieur tous les attributs et méthodes dont on a besoin, sans avoir aucun risque de conflit de nom avec l'extérieur (variables locales, globales ou provenant de modules). L'utilisation de classes évitera ainsi l'utilisation de variables globales qui, on l'a vu aux chapitres 9 et 12 sur les fonctions, sont à proscrire absolument. Tout cela concourt à rendre le code plus lisible.
 
 Dans le chapitre 20 *Fenêtres graphiques et Tkinter*, vous verrez une démonstration de l'utilité de tout encapsuler dans une classe afin d'éviter les variables globales.
 
@@ -736,7 +736,7 @@ Comment Python permet-il ces prouesses que sont le polymorphisme et la redéfini
 
 open-box-def
 
-Une méthode magique (*magic method*) est une méthode spéciale dont le nom est entouré de double *underscores*. Par exemple, la méthode `.__init__()` est une méthode magique. Ces méthodes sont, la plupart du temps, destinées au fonctionnement interne de la classe. Beaucoup d'entre elles permettent de changer le comportement de fonctions ou opérateurs internes à Python avec les instances d'une classe que l'on a créée.
+Une méthode magique (*magic method*) est une méthode spéciale dont le nom est entouré de double *underscores*. Par exemple, la méthode `.__init__()` est une méthode magique. Ces méthodes sont, la plupart du temps, destinées au fonctionnement interne de la classe. Beaucoup d'entre elles sont destinées à changer le comportement de fonctions ou opérateurs internes à Python avec les instances d'une classe que l'on a créée.
 
 close-box-def
 
@@ -794,7 +794,7 @@ Si on conçoit une classe produisant des objets séquentiels (comme des listes o
 - `.__getitem__()` : redéfinit le comportement pour récupérer un élément ;
 - `.__getslice__()` : redéfinit le comportement avec les tranches.
 
-Certaines méthodes magiques permettent de faire des choses assez impressionnantes. La méthode `.__call__()` permet de créer des instances que l'on peut appeler comme des fonctions ! Dans cet exemple, nous allons vous montrer que l'on peut ainsi créer un moyen inattendu pour mettre à jour des attributs d'instance :
+Certaines méthodes magiques font des choses assez impressionnantes. La méthode `.__call__()` crée des instances que l'on peut appeler comme des fonctions ! Dans cet exemple, nous allons vous montrer que l'on peut ainsi créer un moyen inattendu pour mettre à jour des attributs d'instance :
 
 ```
 class Citronnier:
@@ -1122,18 +1122,18 @@ Prenez bien le temps de suivre ce code pas à pas pour bien en comprendre toutes
 
 Vous pourrez vous poser la question *Pourquoi utilise-t-on en ligne 24 la syntaxe*  
 `Fruit.__init__()` *?*. Cette syntaxe est souvent utilisée lorsqu'une classe hérite d'une autre classe pour faire appel au constructeur de la classe mère. La raison est que nous souhaitons appeler une méthode de la classe mère qui a le même nom qu'une méthode de la classe fille. Dans ce cas, si on utilisait `self.__init__()`, cela correspondrait à la fonction de notre classe fille Citron. En mettant systématiquement une syntaxe  
-`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *Tkinter* (voir chapitre 20) permettant de construire des interfaces graphiques, nous en verrons de nombreux exemples.
+`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *Tkinter* (voir chapitre 20) pour la construction d'interfaces graphiques, nous en verrons de nombreux exemples.
 
 open-box-rem
 
-Si vous utilisez des ressources externes, il se peut que vous rencontriez une syntaxe `super().__init__()`. La fonction Python interne `super()` permet d'appeler automatiquement la classe mère sans que vous ayez à donner son nom. Même si cela peut paraître pratique, nous vous conseillons d'utiliser dans un premier temps la syntaxe  
+Si vous utilisez des ressources externes, il se peut que vous rencontriez une syntaxe `super().__init__()`. La fonction Python interne `super()` appelle automatiquement la classe mère sans que vous ayez à donner son nom. Même si cela peut paraître pratique, nous vous conseillons d'utiliser dans un premier temps la syntaxe  
 `ClasseMere.__init__()` qui est selon nous plus lisible (on voit explicitement le nom de la classe utilisée, même s'il y a plusieurs classes mères).
 
 close-box-rem
 
 Ce mécanisme n'est pas obligatoirement utilisé, mais il est très utile lorsqu'une classe fille a besoin d'initialiser des attributs définis dans la classe mère. On le croise donc souvent car :
 
-- Cela permet d'avoir la garantie que toutes les variables de la classe mère sont bien initialisées. On réduit ainsi les risques de dysfonctionnement des méthodes héritées de la classe mère.
+- Cela donne la garantie que toutes les variables de la classe mère sont bien initialisées. On réduit ainsi les risques de dysfonctionnement des méthodes héritées de la classe mère.
 - Finalement, autant ré-utiliser les « moulinettes » de la classe mère, c'est justement à ça que sert l'héritage ! Au final, on écrit moins de lignes de code.
 
 open-box-adv
@@ -1162,7 +1162,7 @@ class Orange(Fruit):
         return Fruit.affiche_conseil(self, "Orange", "Trop bon en jus !")
 ```
 
-Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on peut les utiliser en Python. Pour chaque fruit, on utilise la méthode  
+Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on les utilise en Python. Pour chaque fruit, on utilise la méthode  
 `.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 20 *Fenêtres graphiques et Tkinter* ainsi que dans les exercices du présent chapitre. Avec le module *Tkinter*, chaque objet graphique (bouton, zone de texte, etc.) est en fait une classe. On peut ainsi créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
 
 
@@ -1178,7 +1178,7 @@ Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facili
 
 ### Le problème
 
-On a vu jusqu'à maintenant que Python était très permissif concernant le changement de valeur de n'importe quel attribut depuis l'extérieur. On a vu aussi qu'il était même possible de créer de nouveaux attributs depuis l'extérieur ! Dans d'autres langages orientés objet ceci n'est pas considéré comme une bonne pratique. Il est plutôt recommandé de définir une *interface*, c'est-à-dire tout un jeu de méthodes accédant ou modifiant les attributs. Ainsi, le concepteur de la classe peut avoir la garantie que celle-ci est utilisée correctement du « côté client ».
+On a vu jusqu'à maintenant que Python était très permissif concernant le changement de valeur de n'importe quel attribut depuis l'extérieur. On a vu aussi qu'il était même possible de créer de nouveaux attributs depuis l'extérieur ! Dans d'autres langages orientés objet ceci n'est pas considéré comme une bonne pratique. Il est plutôt recommandé de définir une *interface*, c'est-à-dire tout un jeu de méthodes accédant ou modifiant les attributs. Ainsi, le concepteur de la classe a la garantie que celle-ci est utilisée correctement du « côté client ».
 
 open-box-rem
 
@@ -1219,9 +1219,9 @@ if __name__ == "__main__":
     print(citron1.get_couleur(), citron1.get_masse())
 ```
 
-Lignes 6 à 10. On définit deux méthodes *getters* permettant d'accéder à chaque attribut.
+Lignes 6 à 10. On définit deux méthodes *getters* pour accéder à chaque attribut.
 
-Lignes 12 à 18. On définit deux méthodes *setters* permettant de modifier chaque attribut. Notez qu'en ligne 17 nous testons si la masse est négative, si tel est le cas nous générons une erreur avec le mot-clé `raise` (cf. chapitre 21 *Remarques complémentaires*). Ceci représente un des avantages des *setters* : contrôler la validité des attributs (on pourrait aussi vérifier qu'il s'agit d'un entier, etc.).
+Lignes 12 à 18. On définit deux méthodes *setters* pour modifier chaque attribut. Notez qu'en ligne 17 nous testons si la masse est négative, si tel est le cas nous générons une erreur avec le mot-clé `raise` (cf. chapitre 21 *Remarques complémentaires*). Ceci représente un des avantages des *setters* : contrôler la validité des attributs (on pourrait aussi vérifier qu'il s'agit d'un entier, etc.).
 
 Lignes 21 à 28. Après instanciation, on affiche la valeur des attributs avec les deux fonctions *getters*, puis on les modifie avec les *setters* et on les réaffiche à nouveau.
 
@@ -1419,7 +1419,7 @@ Certains langages orientés objet mettent en place des attributs dits *privés* 
 
 open-box-warn
 
-En Python, il n'existe pas d'attributs privés comme dans d'autres langages orientés objet. L'utilisateur peut avoir accès à tous les attributs quels qu'ils soient, même s'ils contiennent un ou plusieurs caractère(s) *underscore(s)* (cf. ci-desssous) !
+En Python, il n'existe pas d'attributs privés comme dans d'autres langages orientés objet. L'utilisateur a accès à tous les attributs quels qu'ils soient, même s'ils contiennent un ou plusieurs caractère(s) *underscore(s)* (cf. ci-desssous) !
 
 close-box-warn
 
@@ -1462,7 +1462,7 @@ Coucou je suis dans le get
 >>>
 ```
 
-Nous n'avons pas encore croisé d'attribut dont le nom commence par deux caractères *undercores*. Ces derniers permettent de mettre en place le *name mangling*.
+Nous n'avons pas encore croisé d'attribut dont le nom commence par deux caractères *undercores*. Ces derniers mettent en place le *name mangling*.
 
 open-box-def
 
