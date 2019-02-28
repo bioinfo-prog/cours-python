@@ -27,7 +27,7 @@ Nous allons voir dans cette rubrique comment définir une classe en reprenant no
 
 ### La classe minimale
 
-En Python, le mot-clé `class` permet de créer sa propre classe, suivi du nom de cette classe. On se souvient, un nom de classe commence toujours par une majuscule (voir la hapite 15 *Bonnes pratiques*). Comme d'habitude, cette ligne attend un bloc d'instructions indenté définissant le corps de la classe. Voyons un exemple simple dans l'interpréteur :
+En Python, le mot-clé `class` permet de créer sa propre classe, suivi du nom de cette classe. On se souvient, un nom de classe commence toujours par une majuscule (voir le chapitre 15 *Bonnes pratiques en programmation Python*). Comme d'habitude, cette ligne attend un bloc d'instructions indenté définissant le corps de la classe. Voyons un exemple simple dans l'interpréteur :
 
 ```
 >>> class Citron:
@@ -1272,7 +1272,7 @@ pourpre profond -15
 
 Malgré la présence des *getters* et des *setters*, nous avons réussi à accéder et à modifier la valeur des attributs. De plus, nous avons pu mettre une valeur aberrante (masse négative) sans que cela ne génère une erreur !
 
-Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt de mettre des *getters* et des *setters* en Python ? La réponse est très simple : cette  stratégie n'est pas une manière « pythonique » d'opérer (voir le chapitre 15 *Bonnes pratiques* pour la définition de « pythonique »). En Python, la lisibilité est la priorité. Souvenez-vous du Zen de Python *Readability counts* (voir  le chapitre 15).
+Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt de mettre des *getters* et des *setters* en Python ? La réponse est très simple : cette  stratégie n'est pas une manière « pythonique » d'opérer (voir le chapitre 15 *Bonnes pratiques en programmation Python* pour la définition de « pythonique »). En Python, la lisibilité est la priorité. Souvenez-vous du Zen de Python *Readability counts* (voir  le chapitre 15).
 
 De manière générale, une syntaxe avec des *getters* et *setters* du côté client surcharge la lecture. Imaginons que l'on ait une instance nommée `obj` et que l'on souhaite faire la somme de ses trois attributs `x`, `y` et `z` :
 
@@ -1388,13 +1388,14 @@ Il existe une autre syntaxe considérée comme plus élégante pour mettre en pl
 
 close-box-more
 
+
 ## Bonnes pratiques pour construire et manipuler ses classes
 
 Nous allons voir dans cette rubrique certaines pratiques que nous vous recommandons lorsque vous construisez vos propres classes.
 
 ### L'accès aux attributs
 
-On a vu dans la rubrique *Accès et modifications des attributs depuis l'extérieur* que nous avions le moyen de contrôler cet accès avec la classe *property*. Toutefois, cela peut parfois alourdir inutilement le code, ce qui va à l'encontre de certains préceptes de la PEP 20 comme *Sparse is better than dense*, *Readability counts*, etc. (voir le chapitre 15 *Bonnes pratiques*).
+On a vu dans la rubrique *Accès et modifications des attributs depuis l'extérieur* que nous avions le moyen de contrôler cet accès avec la classe *property*. Toutefois, cela peut parfois alourdir inutilement le code, ce qui va à l'encontre de certains préceptes de la PEP 20 comme *Sparse is better than dense*, *Readability counts*, etc. (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
 
 open-box-adv
 
@@ -1619,7 +1620,7 @@ class Citron(builtins.object)
  |  saveur = 'acide'
 ```
 
-Vous voyez que Python va formater automatiquement l'aide comme il le faisait avec les modules (voir chapitre 14). Comme nous l'avons dit dans le chapitre 15 *Bonnes pratiques*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
+Vous voyez que Python va formater automatiquement l'aide comme il le faisait avec les modules (voir chapitre 14). Comme nous l'avons dit dans le chapitre 15 *Bonnes pratiques en programmation Python*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
 
 On pourra noter que si on instancie la classe `citron1 = Citron()` et qu'on invoque l'aide sur l'instance `help(citron1)`, on obtiendra la même page d'aide. Comme pour les modules, si on invoque l'aide pour une méthode de la classe  
 `help(citron1.affiche_coucou)`, on obtiendra l'aide pour cette méthode seulement.
@@ -1664,7 +1665,7 @@ Si vous créez des instances sans passer d'argument lors de l'instanciation, tou
 
 Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souvenez vous, la modification des attributs de classe doit se faire par une syntaxe `Citron.attribut = valeur` (et non pas via les instances).
 
-- Comme abordé dans la rubrique *Différence entre les attributs de classe et d'instance*, nous vous conseillons de ne jamais modifier les attributs de classe (vous pouvez les utiliser comme constantes).
+- Comme abordé dans la rubrique *Différence entre les attributs de classe et d'instance*, nous vous conseillons de ne jamais modifier les attributs de classe. Vous pouvez néanmois les utiliser comme constantes.
 - Si vous avez besoin d'attributs modifiables, utilisez des attributs d'instance et initialisez les dans la méthode `.__init__()` (et nulle part ailleurs). Par exemple, si vous avez besoin d'une liste comme attribut, créez la plutôt dans le constructeur :
 
 	```
@@ -1675,12 +1676,13 @@ Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souv
 
 Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
+
 ## Exercices
 
 *Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 
-### Classe Rectangle
+### Classe `Rectangle`
 
 Voici une classe nommée `Rectangle` à copier / coller dans un script `rectangle.py` :
 
@@ -1717,20 +1719,22 @@ Concevez un programme principal qui :
 - calcule et affiche la surface de ce carré ;
 - crée une autre instance `rectangle2` aux dimensions et à la couleur que vous souhaitez (soyez créatif(ve) !) et qui affiche les attributs et la surface de ce nouveau rectangle.
 
-### Classe Rectangle améliorée
+
+### Classe `Rectangle` améliorée
 
 Entraînez-vous avec la classe `Rectangle`. Créez la méthode `calcule_perimetre()` qui calcule le périmètre d'un objet rectangle. Testez sur un exemple simple (largeur = 10 m, longueur = 20 m).
 
 
-### Classe Atome
+### Classe `Atome`
 
 Créez une nouvelle classe `Atome` avec les attributs `x`, `y`, `z` (qui contiennent les coordonnées atomiques) et la méthode `calcul_distance()` qui calcule la distance entre deux atomes. Testez cette classe sur plusieurs exemples.
 
 
-### Classe Atome améliorée
+### Classe `Atome` améliorée
 
 Améliorez la classe `Atome` en lui ajoutant un nouvel attribut  `masse` qui correspond à la masse atomique ainsi qu'une nouvelle méthode  
 `.calcule_centre_masse()`. Redéfinissez le comportement avec `print()` (à l'aide de la méthode magique `.__str__()`) de manière à afficher les coordonnées et la masse de l'atome.
+
 
 ### Autres exercices +++
 
