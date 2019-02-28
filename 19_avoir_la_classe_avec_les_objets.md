@@ -1606,25 +1606,17 @@ class Citron(builtins.object)
  |  affiche_coucou(self)
  |      Méthode inutile qui affiche coucou.
  |
- |  ----------------------------------------------------------------------
- |  Data descriptors defined here:
+ [...]
  |
- |  __dict__
- |      dictionary for instance variables (if defined)
- |
- |  __weakref__
- |      list of weak references to the object (if defined)
- |
- |  ----------------------------------------------------------------------
  |  Data and other attributes defined here:
  |
  |  saveur = 'acide'
 ```
 
-Vous voyez que Python va formater automatiquement l'aide comme il le faisait avec les modules (voir chapitre 14). Comme nous l'avons dit dans le chapitre 15 *Bonnes pratiques en programmation Python*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
+Python formate automatiquement l'aide comme il le fait avec les modules (voir chapitre 14 *Modules*). Comme nous l'avons dit dans le chapitre 15 *Bonnes pratiques en programmation Python*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
 
-On pourra noter que si on instancie la classe `citron1 = Citron()` et qu'on invoque l'aide sur l'instance `help(citron1)`, on obtiendra la même page d'aide. Comme pour les modules, si on invoque l'aide pour une méthode de la classe  
-`help(citron1.affiche_coucou)`, on obtiendra l'aide pour cette méthode seulement.
+Notez que si on instancie la classe `citron1 = Citron()` et qu'on invoque l'aide sur l'instance `help(citron1)`, on obtient la même page d'aide. Comme pour les modules, si on invoque l'aide pour une méthode de la classe  
+`help(citron1.affiche_coucou)`, on obtient l'aide pour cette méthode seulement.
 
 Toutes les *docstrings* d'une classe sont en fait stockées dans un attribut spécial nommé `instance.__doc__`. Cet attribut est une chaîne de caractères contenant la *docstring* générale de la classe. Ceci est également vrai pour les modules, méthodes et fonctions. Si on reprend notre exemple ci-dessus :
 
@@ -1685,34 +1677,11 @@ Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
 ### Classe `Rectangle`
 
-Voici une classe nommée `Rectangle` à copier / coller dans un script `rectangle.py` :
+Téléchargez le script [`rectangle.py`]((https://python.sdv.univ-paris-diderot.fr/data-files/rectangle.py) qui implémente la classe `Rectangle`.
 
-```
-class Rectangle:
-    """Ceci est la classe Rectangle."""
+Complétez le programme principal pour que le script :
 
-    def __init__(self, long=0.0, larg=0.0, coul="blanc"):
-        """Initialisation d'un objet.
-
-        Définition des attributs avec des valeurs par défaut.
-        """
-        self.longueur = long
-        self.largeur = larg
-        self.couleur = coul
-
-    def calcule_surface(self):
-        """Méthode qui calcule la surface."""
-        return self.longueur * self.largeur
-
-    def change_carre(self, cote):
-        """Méthode qui transforme un rectangle en carré."""
-        self.longueur = cote
-        self.largeur = cote
-```
-
-Concevez un programme principal qui :
-
-- crée une instance `rectangle` de la classe Rectangle ;
+- crée une instance `rectangle` de la classe `Rectangle` ;
 - affiche les attributs d'instance `largeur`, `longueur` et `coul` ;
 - calcule et affiche la surface de `rectangle` ;
 - affiche une ligne vide ;
