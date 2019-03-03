@@ -436,3 +436,17 @@ Testez votre script ainsi finalisé.
 
 
 ### Simulation d'un pendule
+
+L'objectif de ce projet est de simuler un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple) en 2 dimensions, puis de le visualiser à l'aide du module *Tkinter*. Le projet peut s'avérer complexe. Tout d'abord, il y a l'aspect physique du projet. Nous allons faire ici tous les rappels de mécanique nécessaires à la réalisation du projet. Ensuite, il y a la partie *Tkinter* qui n'est pas évidente au premier abord. Nous conseillons de bien séparer les deux parties. D'abord réaliser la simulation physique et vérifier qu'elle fonctionne (par exemple, en écrivant un fichier de sortie permettant cette vérification). Ensuite passer à la partie graphique *Tkinter* **si et seulement si** la première partie est fonctionnelle.
+
+#### Mécanique d'un pendule simple
+
+Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple).  Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. 
+
+Commençons par définir le système. La figure @fig:pendulum_sketch montre tous les détails.
+
+![Définition ](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
+
+La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées $(x, y)$ pour l'affichage dans un *canvas Tkinter*. Nous choisissons arbitrairement de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. 
+
+Si on déplace le pendule de sa position d'équilibre, il sera mû par la force de gravité. Comme le système est considéré parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$, il montera de l'autre côté à $\theta = -20 deg$, puis il continuera indéfiniment.
