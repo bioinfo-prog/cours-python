@@ -4,81 +4,111 @@
 
 Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leur sont propres et qui peuvent se révéler très pratiques. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
 
-Observez les exemples suivants :
 
-- `.append()` que l'on a déjà vu au chapitre 4 *Listes* et qui ajoute un élément à la fin d'une liste existante.
-    ```
-    >>> a = [1,2,3]
-    >>> a.append(5)
-    >>> a
-    [1, 2, 3, 5]
-    ```
-    qui est équivalent à
-    ```
-    >>> a = [1,2,3]
-    >>> a = a + [5]
-    >>> a
-    [1, 2, 3, 5]
-    ```
-    *Conseil*: préférez la version avec `.append()` qui est plus compacte et facile à lire.
+### `.append()`
 
-- `.insert()` pour insérer un objet dans une liste avec un indice déterminé.
-    ```
-    >>> a.insert(2,-15)
-    >>> a
-    [1, 2, -15, 3, 5]
-    ```
+La méthode `.append()`, que l'on a déjà vu au chapitre 4 *Listes*, ajoute un élément à la fin d'une liste :
+```
+>>> a = [1,2,3]
+>>> a.append(5)
+>>> a
+[1, 2, 3, 5]
+```
+qui est équivalent à :
+```
+>>> a = [1,2,3]
+>>> a = a + [5]
+>>> a
+[1, 2, 3, 5]
+```
 
-- `del` pour supprimer un élément d'une liste à une indice déterminé.
-    ```
-    >>> del a[1]
-    >>> a
-    [1, -15, 3, 5]
-    ```
-    **Remarque** : Contrairement aux autres méthodes associées aux listes, `del` est une instruction générale de Python (utilisable pour d'autres objets que les listes). Celle-ci ne prend pas de parenthèses.
+*Conseil* : préférez la version avec `.append()` qui est plus compacte et facile à lire.
 
-- `.remove()` pour supprimer un élément d'une liste à partir de sa valeur.
-    ```
-    >>> a.remove(5)
-    >>> a
-    [1, -15, 3]
-    ```
 
-- `.sort()` pour trier une liste.
-    ```
-    >>> a.sort()
-    >>> a
-    [-15, 1, 3]
-    ```
+### `.insert()`
 
-- `.reverse()` pour inverser une liste.
-    ```
-    >>> a.reverse()
-    >>> a
-    [3, 1, -15]
-    ```
+La méthode `.insert()` insère un objet dans une liste avec un indice déterminé :
+```
+>>> a.insert(2,-15)
+>>> a
+[1, 2, -15, 3, 5]
+```
 
-- `.count()` pour compter le nombre d'éléments (passés en argument) dans une liste.
-    ```
-    >>> a=[1, 2, 4, 3, 1, 1]
-    >>> a.count(1)
-    3
-    >>> a.count(4)
-    1
-    >>> a.count(23)
-    0
-    ```
 
-open-box-warn
+### `del`
 
-Dans de nombreux exemples de méthodes ci-dessus, une liste modifiée (par exemple `a.sort()`) n'est pas renvoyée. La liste est modifiée de manière interne, mais l'appel de la méthode ne renvoie rien, c'est-à-dire qu'elle ne renvoie pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes.
+L'instruction `del` supprime un élément d'une liste à une indice déterminé :
+```
+>>> del a[1]
+>>> a
+[1, -15, 3, 5]
+```
+
+open-box-rem
+
+Contrairement aux autres méthodes associées aux listes, `del` est une instruction générale de Python, utilisable pour d'autres objets que des listes. Celle-ci ne prend pas de parenthèse.
+
+close-box-rem
+
+
+### `.remove()`
+
+La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur :
+```
+>>> a.remove(5)
+>>> a
+[1, -15, 3]
+```
+
+
+### `.sort()`
+
+La méthode `.sort()` trie une liste :
+```
+>>> a.sort()
+>>> a
+[-15, 1, 3]
+```
+
+
+### `.reverse()`
+
+La méthode `.reverse()` inverse une liste :
+```
+>>> a.reverse()
+>>> a
+[3, 1, -15]
+```
+
+
+### `.count()`
+
+La méthode `.count()` compte le nombre d'éléments (passés en argument) dans une liste :
+```
+>>> a=[1, 2, 4, 3, 1, 1]
+>>> a.count(1)
+3
+>>> a.count(4)
+1
+>>> a.count(23)
+0
+```
+
+
+### Actions sur les listes
+
+De nombreux méthodes ci-dessus (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes.
 
 Certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
 
-close-box-warn
+Enfin, pour obtenir une liste exhaustive des méthodes disponibles pour les listes, utilisez la fonction `dir(ma_liste)` (`ma_liste` étant une liste).
 
 
-La méthode `.append()` est très pratique car elle permet de construire une liste au fur et à mesure des itérations d'une boucle. Pour cela, il est commode de définir préalablement une liste vide de la forme `maliste = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
+## Construction d'une liste par itération
+
+La méthode `.append()` est très pratique car on peut l'utiliser pour construire une liste au fur et à mesure des itérations d'une boucle.
+
+Pour cela, il est commode de définir préalablement une liste vide de la forme `maliste = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
 ```
 >>> seq = "CAAAGGTAACGC"
 >>> seq_list = []
@@ -91,21 +121,19 @@ La méthode `.append()` est très pratique car elle permet de construire une lis
 ['C', 'A', 'A', 'A', 'G', 'G', 'T', 'A', 'A', 'C', 'G', 'C']
 ```
 
-Remarquez que vous pouvez directement utiliser la fonction `list()` qui prend n'importe quel objet séquentiel (liste, chaîne de caractères, etc.) et qui renvoie une liste :
+Remarquez que dans cet exemple, vous pouvez directement utiliser la fonction `list()` qui prend n'importe quel objet séquentiel (liste, chaîne de caractères, etc.) et qui renvoie une liste :
 ```
 >>> seq = "CAAAGGTAACGC"
 >>> list(seq)
 ['C', 'A', 'A', 'A', 'G', 'G', 'T', 'A', 'A', 'C', 'G', 'C']
 ```
 
-Cette méthode est certes plus simple, mais il arrive parfois qu'on doive utiliser les boucles tout de même, comme lorsqu'on lit un fichier. On rappelle que l'instruction `list(seq)` convertit un objet de type chaîne de caractères en un objet de type liste (il s'agit donc d'une opération de *casting*). De même que `list(range(10))` convertit un objet de type `range` en un objet de type `list`.
-
-Enfin, si vous voulez obtenir une liste exhaustive des méthodes disponibles pour les listes, vous pouvez toujours utiliser la fonction `dir(ma_liste)` (`ma_liste` étant un objet de type `list`).
+Cette méthode est certes plus simple, mais il arrive parfois qu'on doive utiliser des boucles tout de même, comme lorsqu'on lit un fichier. On rappelle que l'instruction `list(seq)` convertit un objet de type chaîne de caractères en un objet de type liste (il s'agit donc d'une opération de *casting*). De même que `list(range(10))` convertit un objet de type `range` en un objet de type `list`.
 
 
 ## Test d'appartenance
 
-L'opérateur `in` permet de tester si un élément fait partie d'une liste.
+L'opérateur `in` teste si un élément fait partie d'une liste.
 ```
 liste = [1, 3, 5, 7, 9]
 >>> 3 in liste
@@ -220,11 +248,11 @@ Utilisez cette fonction pour générer aléatoirement une séquence d'ADN de 15 
 
 ### Séquence d'ADN complémentaire inverse
 
-Créez une fonction `comp_inv()` qui prend comme argument une séquence d'ADN sous la forme d'une chaîne de caractères et qui renvoie la séquence complémentaire inverse sous la forme d'une autre chaîne de caractères. Cette fonction utilisera le maximum de méthodes associées aux listes.
+Créez une fonction `comp_inv()` qui prend comme argument une séquence d'ADN sous la forme d'une chaîne de caractères, qui renvoie la séquence complémentaire inverse sous la forme d'une autre chaîne de caractères et qui utilise des méthodes associées aux listes.
 
 Utilisez cette fonction pour transformer la séquence d'ADN `TCTGTTAACCATCCACTTCG` en sa séquence complémentaire inverse.
 
-Rappel : la séquence complémentaire inverse doit être « inversée ». Autrement dit, la séquence complémentaire inverse de la séquence `ATCG` est `CGAT`.
+Rappel : la séquence complémentaire inverse doit être « inversée ». Par exemple, la séquence complémentaire inverse de la séquence `ATCG` est `CGAT`.
 
 
 ### Doublons
