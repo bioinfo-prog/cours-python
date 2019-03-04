@@ -1,6 +1,6 @@
 # Plus sur les listes
 
-## Propriétés des listes
+## Méthodes associées aux listes
 
 Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leur sont propres et qui peuvent se révéler très pratiques. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
 
