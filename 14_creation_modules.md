@@ -189,7 +189,7 @@ if __name__ == "__main__":
 
 À la ligne 9, l'instruction `if __name__ == "__main__":` indique à Python :
 
-- Si le programme `message2.py` est exécuté en tant que script, le résultat du test `if` sera alors `True` et le bloc d'instructions correspondant (ligne 10) sera exécuté :
+- Si le programme `message2.py` est exécuté en tant que script dans un *shell*, le résultat du test `if` sera alors `True` et le bloc d'instructions correspondant (ligne 10) sera exécuté :
 
     ```
     $ python message2.py
