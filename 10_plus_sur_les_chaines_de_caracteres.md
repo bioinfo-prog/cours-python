@@ -118,10 +118,12 @@ close-box-def
 
 Il est possible de modifier le séparateur de champs, par exemple :
 ```
->>> animaux = "girafe:tigre:singe:souris"
+>>> animaux = "girafe:tigre:singe::souris"
 >>> animaux.split(":")
-['girafe', 'tigre', 'singe', 'souris']
+['girafe', 'tigre', 'singe', '', 'souris']
 ```
+
+Attention, dans cet exemple, le séparateur est un seul caractères `:` (et non pas une combinaison de un ou plusieurs `:`) menant ainsi à une chaîne vide entre `singe` et `souris`.
 
 Il est également intéressant d'indiquer à `.split()` le nombre de fois qu'on souhaite découper la chaîne de caractères avec l'argument `maxsplit()` :
 ```
