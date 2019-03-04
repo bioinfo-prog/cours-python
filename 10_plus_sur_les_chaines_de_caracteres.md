@@ -111,7 +111,7 @@ La méthode `.split()` découpe une chaîne de caractères en plusieurs élémen
 
 open-box-def
 
-Un [espace blanc](https://en.wikipedia.org/wiki/Whitespace_character) (*whitespace* en anglais) correspond aux caractères qui sont invisibles à l'œil, mais qui occupent de l'espace dans un texte. Les espaces blancs les plus classiques sont l'espace, la tabulation et le saut à la ligne.
+Un [espace blanc](https://en.wikipedia.org/wiki/Whitespace_character) (*whitespace* en anglais) correspond aux caractères qui sont invisibles à l'œil, mais qui occupent de l'espace dans un texte. Les espaces blancs les plus classiques sont l'espace, la tabulation et le retour à la ligne.
 
 close-box-def
 
@@ -198,12 +198,12 @@ Enfin, la méthode `.strip()` permet de « nettoyer les bords » d'une chaîne d
 La méthode `.strip()` enlève les espaces situés sur les bords de la chaîne de caractère mais pas ceux situés entre des caractères visibles. En réalité, cette méthode enlève n'importe quel combinaison « d'espace(s) blanc(s) » sur les bords, par exemple :
 
 ```
->>> chaine = "  \tfonctionne avec les tabulations et les sauts à la ligne\n"
+>>> chaine = "  \tfonctionne avec les tabulations et les retours à la ligne\n"
 >>> chaine.strip()
-'fonctionne avec les tabulations et les sauts à la ligne'
+'fonctionne avec les tabulations et les retours à la ligne'
 ```
 
-La méthode `.strip()` est très pratique quand on lit un fichier et qu'on veut se débarrasser des sauts à la ligne.
+La méthode `.strip()` est très pratique quand on lit un fichier et qu'on veut se débarrasser des retours à la ligne.
 
 
 ## Extraction de valeurs numériques d'une chaîne de caractères
@@ -474,7 +474,7 @@ Lire toutes les lignes du fichier:
 	si la ligne contient //:
 	    drapeau <- Faux
 	si drapeau est Vrai:
-	    on ajoute à seq la ligne (sans espaces, chiffres et saut à la ligne)
+	    on ajoute à seq la ligne (sans espaces, chiffres et retour à la ligne)
 	si la ligne contient ORIGIN
 	    drapeau <- Vrai
 ```
