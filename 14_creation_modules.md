@@ -139,7 +139,7 @@ La visibilité des fonctions au sein des modules suit des règles simples :
 
 - Les fonctions dans un module peuvent appeler des fonctions situées dans un autre module s'il a été préalablement importé. Par exemple, si la commande `import autremodule` est utilisée dans un module, il est possible d'appeler une fonction avec `autremodule.fonction()`.
 
-Toutes ces règles viennent de la manière dont Python gère les **espaces de nom**. De plus amples explications sont données sur ce concept dans le chapitre 19 *Avoir la classe avec les objets*.
+Toutes ces règles viennent de la manière dont Python gère les **espaces de noms**. De plus amples explications sont données sur ce concept dans le chapitre 19 *Avoir la classe avec les objets*.
 
 
 ## Module ou script ?

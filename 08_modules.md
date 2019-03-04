@@ -217,7 +217,7 @@ Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir 
 
 Vous verrez dans le chapitre 14 *Création de module* comment créer votre propre module lorsque vous souhaitez réutiliser souvent vos propres fonctions.
 
-Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Citons-en quelques-uns: *NumPy* (notion de matrice, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (construction de graphiques), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
+Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Citons-en quelques-uns: *NumPy* (manipulations de vecteurs, matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (construction de graphiques), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
 
 
 
@@ -320,7 +320,8 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: 'zoo3.txt'
 ```
 
-La lecture de la partie suivante va nous permettre d'améliorer notre script `compte_lignes.py`.
+La lecture de la partie suivante va nous permettre d'améliorer notre script  
+`compte_lignes.py`.
 
 
 ## Module *os* : interaction avec le système d'exploitation
@@ -443,7 +444,8 @@ Créez un script `dna_random.py` qui prend comme argument un nombre de bases, co
 
 Le script devra vérifier qu'un argument est bien fourni et renvoyer un message d'erreur si ce n'est pas le cas.
 
-*Conseil* : pour générer la séquence d'ADN, vous utiliserez, au choix, la fonction `random.randint()` ou `random.choice()` abordées dans l'exercice précédent.
+*Conseil* : pour générer la séquence d'ADN, vous utiliserez, au choix, la fonction  
+`random.randint()` ou `random.choice()` abordées dans l'exercice précédent.
 
 
 ### Compteur de lignes
