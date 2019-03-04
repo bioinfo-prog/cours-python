@@ -37,7 +37,7 @@ La méthode `.insert()` insère un objet dans une liste avec un indice détermin
 
 ### `del`
 
-L'instruction `del` supprime un élément d'une liste à une indice déterminé :
+L'instruction `del` supprime un élément d'une liste à un indice déterminé :
 ```
 >>> del a[1]
 >>> a
