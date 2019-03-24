@@ -441,12 +441,24 @@ L'objectif de ce projet est de simuler un [pendule simple](https://fr.wikipedia.
 
 #### Mécanique d'un pendule simple
 
-Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple).  Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. 
+Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple). Notamment, nous allons vous montrer comment dériver l'équation différentielle permettant de calculer la position du pendule à tout moment en fonction des conditions initiales. Cette page est largement inspirée de la [page Wikipedia en anglais](https://en.wikipedia.org/wiki/Pendulum_(mathematics)).
 
-Commençons par définir le système. La figure @fig:pendulum_sketch montre tous les détails.
+Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. La figure @fig:pendulum_sketch montre un schéma du système ainsi qu'un bilan des forces agissant sur la masse.
 
-![Définition ](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
+![Bilan des forces dans un pendule simple](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
+
+Les deux forces agissant sur la boule sont son poids (*P*) et la tension due à la tige (*T*). La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur de la tige (dessiné en pointillé). La force de tension étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur la vitesse du pendule. Au final, on ne prendra en compte que la composante tangentielle due au poids (la composante orthognale due au poids n'a pas d'effet non plus. La figure @fig:pendulum_sketch2 montre cela et définit les grandeurs utiles pour la suite du traitement. 
+
+![Caractérisation d'un pendule simple](img/pendulum_sketch2.png){ #fig:pendulum_sketch2 width=80% }
 
 La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées $(x, y)$ pour l'affichage dans un *canvas Tkinter*. Nous choisissons arbitrairement de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. 
 
-Si on déplace le pendule de sa position d'équilibre, il sera mû par la force de gravité. Comme le système est considéré parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$, il montera de l'autre côté à $\theta = -20 deg$, puis il continuera indéfiniment.
+Si on déplace le pendule de sa position d'équilibre, il sera mû par la force de gravité. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment. Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement.
+
+Le problème peut être décrit de la sorte. 
+
+Sans rentrer dans un cours de mécanique pointu, nous allons utiliser u
+- [Rmk] Utiliser la page wikipedia Pendule simple pour dériver l'équation thetadotdot=-(g/L)sin(theta)
+- http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Pendulum/Pendulum.html
+- https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
+- https://github.com/pierrepo/cours-python/blob/master/cours/22_mini_projets_pas_a_pas.md
