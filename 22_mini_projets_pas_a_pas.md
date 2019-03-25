@@ -447,19 +447,21 @@ Un pendule simple est représenté par une masse ponctuelle (la boule du pendule
 
 ![Bilan des forces dans un pendule simple.](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
 
-Les deux forces agissant sur la boule sont son poids (*P*) et la tension due à la tige (*T*). La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur de la tige (dessiné en pointillé). La force de tension étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur la vitesse du pendule. Au final, on ne prendra en compte que la composante tangentielle due au poids (la composante orthognale due au poids n'a pas d'effet non plus). La figure @fig:pendulum_sketch2 montre cela et définit les grandeurs utiles pour la suite du traitement. 
+Les deux forces agissant sur la boule sont son poids (*P*) et la tension due à la tige (*T*). La norme de ses deux forces est constante.
 
 ![Caractérisation géométrique d'un pendule simple.](img/pendulum_sketch2.png){ #fig:pendulum_sketch2 width=80% }
 
-La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées $(x, y)$ pour l'affichage dans un *canvas Tkinter*. Nous choisissons arbitrairement de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. Le vecteur **g** décrit l'accélération due à la gravité. Les deux composantes (tangentielle et orthogonale) au mouvement du pendule sont représentées sur le schéma.
+La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées $(x, y)$ pour l'affichage dans un *canvas Tkinter*. Nous choisissons arbitrairement de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. *g* décrit l'accélération due à la gravité. Ses deux composantes (tangentielle et orthogonale) au mouvement du pendule sont représentées sur le schéma.
 
-Si on déplace le pendule de sa position d'équilibre, il sera mû par la force de gravité. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé et parfait (c'st-à-dire sans « fuite » d'énergie). 
+Si on déplace le pendule de sa position d'équilibre, il sera mû par la force due à son poids. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé (c'est-à-dire sans « fuite » d'énergie). 
 
 Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement. D'après la seconde loi de Newton, la force (*F*) agissant sur la boule est égale à sa masse (*m*) fois son accélération (*a*) : 
 
 $$F=ma$$
 
-La force et l'accélération sont des grandeurs vectorielles, mais on utilise ici leur normer (d'où l'absence de flèche au dessus de leur nom). Par ailleurs, on rappelle que les lois de Newton décrivent les systèmes en utilisant les coordonnées cartésiennes des différentes grandeurs. Comme on considère le pendule comme idéal, on considèrera les coordonnées de n'importe quel point ou vecteur dans le plan 2D, par exemple $(x, y)$.
+La force et l'accélération sont des grandeurs vectorielles, mais on utilise ici leur norme (d'où l'absence de flèche au dessus de leur nom). Par ailleurs, on rappelle que les lois de Newton décrivent les systèmes en utilisant les coordonnées cartésiennes $(x, y)$ des différentes grandeurs (ici dans un plan à deux dimensions).
+
+Intéressons nous à cette force *F* influant sur l'accélération *a*. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). La force de tension *T* étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur l'accélération. De même, la composante orthognale $mgcos \theta$ due au poids n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $-mg sin \theta$. La figure @fig:pendulum_sketch2 montre cela et définit les grandeurs utiles pour la suite du traitement. 
 
 Comme expliqué ci-dessus, seule la composante tangentielle du poids rentre en compte dans la force qui meut le pendule, c'est-à-dire $mg sin \theta$. Ainsi : 
 
@@ -469,7 +471,7 @@ Si on exprime l'accélération, on trouve ce résultat qui peut sembler peu intu
 
 $$a=-g sin \theta$$
 
-Le mouvement du pendule ne dépend donc pas de sa masse !
+Le mouvement du pendule ne dépend donc pas de sa masse ! Autre particularité, le signe $-$ dans cette formule montre que l'accélération s'oppose à $\theta$. Lorsque cet angle devient plus positif, ou plus négatif, l'accélération tendra toujours à le faire revenir à sa position d'équilibre ($\theta = 0$).
 
 Qqs ressources :
 
