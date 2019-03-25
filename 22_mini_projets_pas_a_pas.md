@@ -445,20 +445,35 @@ Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un
 
 Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. La figure @fig:pendulum_sketch montre un schéma du système ainsi qu'un bilan des forces agissant sur la masse.
 
-![Bilan des forces dans un pendule simple](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
+![Bilan des forces dans un pendule simple.](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
 
-Les deux forces agissant sur la boule sont son poids (*P*) et la tension due à la tige (*T*). La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur de la tige (dessiné en pointillé). La force de tension étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur la vitesse du pendule. Au final, on ne prendra en compte que la composante tangentielle due au poids (la composante orthognale due au poids n'a pas d'effet non plus. La figure @fig:pendulum_sketch2 montre cela et définit les grandeurs utiles pour la suite du traitement. 
+Les deux forces agissant sur la boule sont son poids (*P*) et la tension due à la tige (*T*). La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur de la tige (dessiné en pointillé). La force de tension étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur la vitesse du pendule. Au final, on ne prendra en compte que la composante tangentielle due au poids (la composante orthognale due au poids n'a pas d'effet non plus). La figure @fig:pendulum_sketch2 montre cela et définit les grandeurs utiles pour la suite du traitement. 
 
-![Caractérisation d'un pendule simple](img/pendulum_sketch2.png){ #fig:pendulum_sketch2 width=80% }
+![Caractérisation géométrique d'un pendule simple.](img/pendulum_sketch2.png){ #fig:pendulum_sketch2 width=80% }
 
-La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées $(x, y)$ pour l'affichage dans un *canvas Tkinter*. Nous choisissons arbitrairement de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. 
+La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées $(x, y)$ pour l'affichage dans un *canvas Tkinter*. Nous choisissons arbitrairement de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. Le vecteur **g** décrit l'accélération due à la gravité. Les deux composantes (tangentielle et orthogonale) au mouvement du pendule sont représentées sur le schéma.
 
-Si on déplace le pendule de sa position d'équilibre, il sera mû par la force de gravité. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment. Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement.
+Si on déplace le pendule de sa position d'équilibre, il sera mû par la force de gravité. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé et parfait (c'st-à-dire sans « fuite » d'énergie). 
 
-Le problème peut être décrit de la sorte. 
+Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement. D'après la seconde loi de Newton, la force (*F*) agissant sur la boule est égale à sa masse (*m*) fois son accélération (*a*) : 
 
-Sans rentrer dans un cours de mécanique pointu, nous allons utiliser u
+$$F=ma$$
+
+La force et l'accélération sont des grandeurs vectorielles, mais on utilise ici leur normer (d'où l'absence de flèche au dessus de leur nom). Par ailleurs, on rappelle que les lois de Newton décrivent les systèmes en utilisant les coordonnées cartésiennes des différentes grandeurs. Comme on considère le pendule comme idéal, on considèrera les coordonnées de n'importe quel point ou vecteur dans le plan 2D, par exemple $(x, y)$.
+
+Comme expliqué ci-dessus, seule la composante tangentielle du poids rentre en compte dans la force qui meut le pendule, c'est-à-dire $mg sin \theta$. Ainsi : 
+
+$$F=ma=-mg sin \theta$$
+
+Si on exprime l'accélération, on trouve ce résultat qui peut sembler peu intuitif au premier abord :
+
+$$a=-g sin \theta$$
+
+Le mouvement du pendule ne dépend donc pas de sa masse !
+
+Qqs ressources :
+
 - [Rmk] Utiliser la page wikipedia Pendule simple pour dériver l'équation thetadotdot=-(g/L)sin(theta)
 - http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Pendulum/Pendulum.html
 - https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
-- https://github.com/pierrepo/cours-python/blob/master/cours/22_mini_projets_pas_a_pas.md
+- https://en.wikipedia.org/wiki/Pendulum_(mathematics)

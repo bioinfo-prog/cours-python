@@ -70,3 +70,15 @@ class: 19_avoir_la_classe_avec_les_objets.md ../template.latex
 classclean:
 	rm -rf class_tmp.*
 
+projpap: 22_mini_projets_pas_a_pas.md ../template.latex
+	$(SOURCE_ACTIVATE) && \
+	pandoc -o projpap.tex  \
+		-S --toc \
+		-M links-as-notes \
+		--filter pandoc-fignos \
+		--template="../template.latex" \
+		22_mini_projets_pas_a_pas.md
+	pdflatex projpap.tex projpap.pdf
+
+projpap_clean:
+	rm -rf tk_tmp.*
