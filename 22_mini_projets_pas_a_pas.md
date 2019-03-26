@@ -441,45 +441,49 @@ L'objectif de ce projet est de simuler un [pendule simple](https://fr.wikipedia.
 
 #### Mécanique d'un pendule simple
 
-Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple). Notamment, nous allons vous montrer comment dériver l'équation différentielle permettant de calculer la position du pendule à tout moment en fonction des conditions initiales. Cette page est largement inspirée de la [page Wikipedia en anglais](https://en.wikipedia.org/wiki/Pendulum_(mathematics)). Dans la suite, une grandeur représentée en gras, par exemple **P**, représente un vecteur avec deux composantes $(P_x, P_y)$. La même grandeur représentée en italique, par exemple *P*, représente la norme du vecteur **P**.
+Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple). Notamment, nous allons vous montrer comment dériver l'équation différentielle permettant de calculer la position du pendule à tout moment en fonction des conditions initiales. Cette page est largement inspirée de la [page Wikipedia en anglais](https://en.wikipedia.org/wiki/Pendulum_(mathematics)). Dans la suite, une grandeur représentée en gras, par exemple **P**, représente un vecteur avec deux composantes $(P_x, P_y)$. Cette notation en gras est équivalente à la notation avec une flèche au dessus de la lettre. La même grandeur représentée en italique, par exemple *P*, représente la norme du vecteur **P**.
 
 Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. La figure @fig:pendulum_sketch montre un schéma du système ainsi qu'un bilan des forces agissant sur la masse. Les deux forces agissant sur la boule sont son poids (*P*) et la tension due à la tige (*T*). La norme de ces deux forces est constante.
 
 ![Bilan des forces dans un pendule simple.](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
 
-La figure @fig:pendulum_sketch2 montre un schéma des différentes grandeurs caractérisant le pendule. La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées cartésiennes pour l'affichage dans un *canvas tkinter*. Nous choisissons de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. Nous choisissons par ailleurs de considérer $\theta$ positif lorsque le pendule se balance à droite, et négatif de l'autre côté. *g* décrit l'accélération due à la gravité, avec $P = mg$. Les deux composantes tangentielle et orthogonale au mouvement du pendule de *P* sont représentées sur le schéma.
+La figure @fig:pendulum_sketch2 montre un schéma des différentes grandeurs caractérisant le pendule. La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées cartésiennes pour l'affichage dans un *canvas tkinter*. Nous choisissons de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. Nous choisissons par ailleurs de considérer $\theta$ positif lorsque le pendule se balance à droite, et négatif de l'autre côté. **g** décrit l'accélération due à la gravité, avec $\boldsymbol{P} = m \boldsymbol{g}$, ou si on raisonne en norme $P = mg$. Les deux vecteurs représentant les composantes tangentielle et orthogonale au mouvement du pendule de **P** sont représentées sur le schéma (les annotations indique leur norme).
 
 ![Caractérisation géométrique d'un pendule simple.](img/pendulum_sketch2.png){ #fig:pendulum_sketch2 width=80% }
 
-Si on déplace le pendule de sa position d'équilibre, il sera mû par la force due à son poids *P*. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé (c'est-à-dire sans « fuite » d'énergie). 
+Si on déplace le pendule de sa position d'équilibre, il sera mû par la force due à son poids **P**. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé (c'est-à-dire sans « fuite » d'énergie). 
 
-Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement. D'après la seconde loi de Newton, la force (*F*) agissant sur la boule est égale à sa masse (*m*) fois son accélération (*a*) : 
+Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement. D'après la seconde loi de Newton, la force (**F**) agissant sur la boule est égale à sa masse (*m*) fois son accélération (**a**) : 
+
+$$\boldsymbol{\mathbf F} = m \boldsymbol{\mathbf a}$$
+
+Cette loi est exprimée ici dans le système de coordonnées cartésiennes (le plan à 2 dimensions). La force **F** et l'accélération **a** sont des vecteurs dont les composantes sont respectivement $(F_{x}, F_{y})$ et $(a_{x}, a_{y})$. La loi peut être également écrite avec les normes :
 
 $$F = ma$$
 
-La force et l'accélération sont des grandeurs vectorielles, mais on utilise ici leur norme (d'où l'absence de flèche au dessus de leur nom). Par ailleurs, on rappelle que les lois de Newton décrivent les systèmes en utilisant les coordonnées cartésiennes $(x, y)$ des différentes grandeurs (ici dans un plan à deux dimensions).
-
-Intéressons nous à cette force *F* influant sur l'accélération *a*. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). La force de tension *T* étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur l'accélération. De même, la composante orthognale $mgcos \theta$ due au poids n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $-mg sin \theta$ (cf. figure @fig:pendulum_sketch2). Notez bien le signe négatif provenant des règles de trigonométrie.
+Intéressons nous maintenant à cette force **F** influant sur l'accélération **a**. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). La force de tension **T** étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur l'accélération. De même, la composante orthognale $mgcos \theta$ due au poids n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $mg sin \theta$ (cf. figure @fig:pendulum_sketch2).
 
 Comme expliqué ci-dessus, seule la composante tangentielle du poids rentre en compte dans la force qui meut le pendule, c'est-à-dire $mg sin \theta$. Ainsi : 
 
 $$F = ma =-mg sin \theta$$
 
+Le signe $-$ dans cette formule est très important. Il indique que l'accélération s'oppose systématiquement à $\theta$. Si le pendule se balance vers la droite et que $\theta$ devient plus positif, l'accélération tendra toujours à faire revenir la boule vers sa position d'équilibre à $\theta = 0$. On peut faire un raisonnement équivalent lorsque le pendule se balance vers la gauche et que $\theta$ devient plus négatif.
+
 Si on exprime l'accélération en fonction de $\theta$, on trouve ce résultat qui peut sembler peu intuitif au premier abord :
 
 $$a = -g sin \theta$$
 
-Le mouvement du pendule ne dépend pas de sa masse ! Autre particularité, le signe $-$ dans cette formule montre que l'accélération s'oppose systématiquement à $\theta$. Lorsque cet angle devient plus positif, ou plus négatif, l'accélération tendra toujours à faire revenir la boule à sa position d'équilibre ($\theta = 0$).
+Le mouvement du pendule ne dépend pas de sa masse !
 
-Chose importante, la formule ci-dessus exprime l'accélération dans le système de coordonnées cartésiennes, c'est à dire que **a** est un vecteur de norme *a* avec deux composantes *(a_x, a_y)*. Idéalement, nous souhaitons résoudre cette équation en l'exprimant en fonction de $\theta$ seulement. Cela est possible en reliant $\theta$ à la longueur effective de l'arc $s$ parcourue par le pendule :
+Idéalement, nous souhaiterions résoudre cette équation en l'exprimant en fonction de $\theta$ seulement. Cela est possible en reliant $\theta$ à la longueur effective de l'arc $s$ parcourue par le pendule :
 
 $$s = \theta L$$
 
-Pour bien comprendre cette formule, souvenez-vous de la formule bien connue du cercle $circonférence = 2 \pi rayon$ ! Elle signifie, pour une certaine valeur de $\theta$ quelle est la distance de l'arc depuis l'origine à $\theta = 0$. On peut donc exprimer la vitesse du pendule en dérivant $s$ par rapport au temps $t$ :
+Pour bien comprendre cette formule, souvenez-vous de la formule bien connue du cercle $circonférence = 2 \pi rayon$ ! Elle relie la valeur de $\theta$ à la distance de l'arc entre la position actuelle de la boule et l'origine (à $\theta = 0$). On peut donc exprimer la vitesse du pendule en dérivant $s$ par rapport au temps $t$ :
 
 $$v = \frac{ds}{dt} = L\frac{d \theta}{dt}$$
 
-On peut aussi calculer l'accélération en dérivant une deuxième fois par rapport à *t* :
+On peut aussi exprimer l'accélération *a* en dérivant l'arc *s* deux fois par rapport à *t* :
 
 $$a = \frac{d^2s}{dt^2} = L\frac{d^2 \theta}{dt^2}$$
 
