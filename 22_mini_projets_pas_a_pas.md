@@ -441,37 +441,61 @@ L'objectif de ce projet est de simuler un [pendule simple](https://fr.wikipedia.
 
 #### Mécanique d'un pendule simple
 
-Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple). Notamment, nous allons vous montrer comment dériver l'équation différentielle permettant de calculer la position du pendule à tout moment en fonction des conditions initiales. Cette page est largement inspirée de la [page Wikipedia en anglais](https://en.wikipedia.org/wiki/Pendulum_(mathematics)).
+Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple). Notamment, nous allons vous montrer comment dériver l'équation différentielle permettant de calculer la position du pendule à tout moment en fonction des conditions initiales. Cette page est largement inspirée de la [page Wikipedia en anglais](https://en.wikipedia.org/wiki/Pendulum_(mathematics)). Dans la suite, une grandeur représentée en gras, par exemple **P**, représente un vecteur avec deux composantes $(P_x, P_y)$. La même grandeur représentée en italique, par exemple *P*, représente la norme du vecteur **P**.
 
-Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. La figure @fig:pendulum_sketch montre un schéma du système ainsi qu'un bilan des forces agissant sur la masse.
+Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. La figure @fig:pendulum_sketch montre un schéma du système ainsi qu'un bilan des forces agissant sur la masse. Les deux forces agissant sur la boule sont son poids (*P*) et la tension due à la tige (*T*). La norme de ces deux forces est constante.
 
 ![Bilan des forces dans un pendule simple.](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
 
-Les deux forces agissant sur la boule sont son poids (*P*) et la tension due à la tige (*T*). La norme de ses deux forces est constante.
+La figure @fig:pendulum_sketch2 montre un schéma des différentes grandeurs caractérisant le pendule. La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées cartésiennes pour l'affichage dans un *canvas tkinter*. Nous choisissons de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. Nous choisissons par ailleurs de considérer $\theta$ positif lorsque le pendule se balance à droite, et négatif de l'autre côté. *g* décrit l'accélération due à la gravité, avec $P = mg$. Les deux composantes tangentielle et orthogonale au mouvement du pendule de *P* sont représentées sur le schéma.
 
 ![Caractérisation géométrique d'un pendule simple.](img/pendulum_sketch2.png){ #fig:pendulum_sketch2 width=80% }
 
-La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées $(x, y)$ pour l'affichage dans un *canvas Tkinter*. Nous choisissons arbitrairement de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la masse ponctuelle est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. *g* décrit l'accélération due à la gravité. Ses deux composantes (tangentielle et orthogonale) au mouvement du pendule sont représentées sur le schéma.
-
-Si on déplace le pendule de sa position d'équilibre, il sera mû par la force due à son poids. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé (c'est-à-dire sans « fuite » d'énergie). 
+Si on déplace le pendule de sa position d'équilibre, il sera mû par la force due à son poids *P*. Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20 deg$ et qu'on le lâche, le pendule redescendra en passant par $\theta = 0 deg$, remontera de l'autre côté à $\theta = -20 deg$, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé (c'est-à-dire sans « fuite » d'énergie). 
 
 Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement. D'après la seconde loi de Newton, la force (*F*) agissant sur la boule est égale à sa masse (*m*) fois son accélération (*a*) : 
 
-$$F=ma$$
+$$F = ma$$
 
 La force et l'accélération sont des grandeurs vectorielles, mais on utilise ici leur norme (d'où l'absence de flèche au dessus de leur nom). Par ailleurs, on rappelle que les lois de Newton décrivent les systèmes en utilisant les coordonnées cartésiennes $(x, y)$ des différentes grandeurs (ici dans un plan à deux dimensions).
 
-Intéressons nous à cette force *F* influant sur l'accélération *a*. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). La force de tension *T* étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur l'accélération. De même, la composante orthognale $mgcos \theta$ due au poids n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $-mg sin \theta$. La figure @fig:pendulum_sketch2 montre cela et définit les grandeurs utiles pour la suite du traitement. 
+Intéressons nous à cette force *F* influant sur l'accélération *a*. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). La force de tension *T* étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur l'accélération. De même, la composante orthognale $mgcos \theta$ due au poids n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $-mg sin \theta$ (cf. figure @fig:pendulum_sketch2). Notez bien le signe négatif provenant des règles de trigonométrie.
 
 Comme expliqué ci-dessus, seule la composante tangentielle du poids rentre en compte dans la force qui meut le pendule, c'est-à-dire $mg sin \theta$. Ainsi : 
 
-$$F=ma=-mg sin \theta$$
+$$F = ma =-mg sin \theta$$
 
-Si on exprime l'accélération, on trouve ce résultat qui peut sembler peu intuitif au premier abord :
+Si on exprime l'accélération en fonction de $\theta$, on trouve ce résultat qui peut sembler peu intuitif au premier abord :
 
-$$a=-g sin \theta$$
+$$a = -g sin \theta$$
 
-Le mouvement du pendule ne dépend donc pas de sa masse ! Autre particularité, le signe $-$ dans cette formule montre que l'accélération s'oppose à $\theta$. Lorsque cet angle devient plus positif, ou plus négatif, l'accélération tendra toujours à le faire revenir à sa position d'équilibre ($\theta = 0$).
+Le mouvement du pendule ne dépend pas de sa masse ! Autre particularité, le signe $-$ dans cette formule montre que l'accélération s'oppose systématiquement à $\theta$. Lorsque cet angle devient plus positif, ou plus négatif, l'accélération tendra toujours à faire revenir la boule à sa position d'équilibre ($\theta = 0$).
+
+Chose importante, la formule ci-dessus exprime l'accélération dans le système de coordonnées cartésiennes, c'est à dire que **a** est un vecteur de norme *a* avec deux composantes *(a_x, a_y)*. Idéalement, nous souhaitons résoudre cette équation en l'exprimant en fonction de $\theta$ seulement. Cela est possible en reliant $\theta$ à la longueur effective de l'arc $s$ parcourue par le pendule :
+
+$$s = \theta L$$
+
+Pour bien comprendre cette formule, souvenez-vous de la formule bien connue du cercle $circonférence = 2 \pi rayon$ ! Elle signifie, pour une certaine valeur de $\theta$ quelle est la distance de l'arc depuis l'origine à $\theta = 0$. On peut donc exprimer la vitesse du pendule en dérivant $s$ par rapport au temps $t$ :
+
+$$v = \frac{ds}{dt} = L\frac{d \theta}{dt}$$
+
+On peut aussi calculer l'accélération en dérivant une deuxième fois par rapport à *t* :
+
+$$a = \frac{d^2s}{dt^2} = L\frac{d^2 \theta}{dt^2}$$
+
+Si on remplace *a* dans la formule ci-dessus, on trouve :
+
+$$L \frac{d^2 \theta}{dt^2} = -g sin \theta$$
+
+Soit en remaniant, on trouve l'équation différentielle en $\theta$ décrivant le mouvement du pendule :
+
+$$\frac{d^2 \theta}{dt^2} + \frac{g}{L} sin \theta = 0$$
+
+Dans la section suivante, nous allons voir comment résoudre numériquement cette équation différentielle.
+
+#### Résolution de l'équation différentielle du pendule
+
+BLABLABLA
 
 Qqs ressources :
 
