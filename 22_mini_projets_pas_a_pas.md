@@ -495,11 +495,46 @@ Dans la section suivante, nous allons voir comment résoudre numériquement cett
 
 #### Résolution de l'équation différentielle du pendule
 
-BLABLABLA
+Il existe de nombreuses [méthodes numériques de résolution d'équations différentielles](https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations). L'objet ici n'est pas de faire un rappel sur toutes ces méthodes ni de les comparer, mais juste d'expliquer une de ces méthodes fonctionnant efficacement pour simuler notre pendule. 
 
-Qqs ressources :
+Nous allons utiliser la [méthode semi-implicite d'Euler](https://en.wikipedia.org/wiki/Semi-implicit_Euler_method). Celle-ci est relativement intuitive à comprendre.
+
+Commençons d'abord par calculer l'accélération angulaire $a_{\theta}$ au temps *t* en utilisant l'équation différentielle précédemment établie :
+
+$$a_{\theta}(t) = \frac{d^2 \theta}{dt^2} = - \frac{g}{L} sin \theta(t)$$
+
+L'astuce sera de calculer la vitesse angulaire au pas suivant $t + \delta t$ grâce à la relation :
+
+$$v_{\theta}(t+\delta t) = v_{\theta}(t) + a_{\theta}(t) \times \delta t$$
+
+Cette vitesse va nous permettre de calculer $\theta$ au temps $t + \delta t$ :
+
+$$\theta (t + \delta t) = \theta (t) + v_{\theta}(t+\delta t) \times \delta t$$
+
+Dans une réalisation alogorithmique, nous pourrions donc :
+
+```
+L <- 1          # longueur tige en m
+t <- 0          # temps initial en s
+theta <- pi / 4 # angle initial en rad
+dt <- 0.05      # pas de temps en s
+dtheta <- 0     # vitesse angulaire initiale en rad/s
+Tant qu'on n'arrête pas le pendule:
+    # acc angulaire au tps t
+    d2theta <- -(g/L) * sin(theta)
+	# v angulaire mise à jour de t -> t + dt
+    dtheta <- dtheta + d2theta * dt 
+    # theta mis à jour de t -> t + dt
+    theta <- theta + dtheta * dt
+    # t mis à jour
+    t <- t + dt
+    # mettre à jour l'affichage
+    afficher_position_pendule(theta)
+```
+
+#### Quelques ressources
 
 - [Rmk] Utiliser la page wikipedia Pendule simple pour dériver l'équation thetadotdot=-(g/L)sin(theta)
 - http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Pendulum/Pendulum.html
-- https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
+- 
 - https://en.wikipedia.org/wiki/Pendulum_(mathematics)
