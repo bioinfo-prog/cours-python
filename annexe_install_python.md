@@ -421,13 +421,13 @@ Si vous le souhaitez, vous pouvez également cochez la case *Activer l'indentati
 
 Sous Windows, nous vous recommandons l'excellent éditeur [Notepad++](https://notepad-plus-plus.org/download). Une fois cet éditeur installé, il est important de le régler correctement. En suivant le menu `Paramètres`, `Préférences`, vous arriverez sur un panneau vous permettant de configurer Notepad++.
 
-En premier on va configurer l'appui sur la touche *Tab* afin qu'il corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Dans la liste sur la gauche, cliquez sur `Langage`, puis à droite dans le carré `Tabulations` cochez la case `Insérer des espaces` en réglant sur 4 espaces comme indiqué dans la Figure #fig:notepad++.
+En premier on va configurer l'appui sur la touche *Tab* afin qu'il corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Dans la liste sur la gauche, cliquez sur `Langage`, puis à droite dans le carré `Tabulations` cochez la case `Insérer des espaces` en réglant sur 4 espaces comme indiqué dans la Figure @fig:notepadpp.
 
-![Configuration de *Notepad++ : indentation avec des espaces*](img/notepad++.png){ #fig:notepad++ width=40% }
+![Configuration de *Notepad++* : indentation avec des espaces.](img/notepad++.png){ #fig:notepadpp width=40% }
 
-Ensuite, il est important de faire en sorte que Notepad++ affiche les numéros de ligne sur la gauche (très pratique lorsque l'interpréteur nous indique qu'il y a une erreur, par exemple, à la ligne 47). Toujours dans la fenêtre `Préférences`, dans la liste sur la gauche cliquez sur `Zones d'édition`, puis sur la droite cochez la case `Afficher la numérotation des lignes` comme indiqué dans Figure #fig:notepad++_2.
+Ensuite, il est important de faire en sorte que Notepad++ affiche les numéros de ligne sur la gauche (très pratique lorsque l'interpréteur nous indique qu'il y a une erreur, par exemple, à la ligne 47). Toujours dans la fenêtre `Préférences`, dans la liste sur la gauche cliquez sur `Zones d'édition`, puis sur la droite cochez la case `Afficher la numérotation des lignes` comme indiqué dans Figure @fig:notepadpp_2.
 
-![Configuration de *Notepad++ : numéro de ligne*](img/notepad++_2.png){ #fig:notepad++_2 width=40% }
+![Configuration de *Notepad++* : numéro de ligne.](img/notepad++_2.png){ #fig:notepadpp_2 width=40% }
 
 
 ### Installation et réglage de TextWrangler/BBedit sous Mac
