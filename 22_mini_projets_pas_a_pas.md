@@ -439,6 +439,7 @@ Testez votre script ainsi finalisé.
 
 L'objectif de ce projet est de simuler un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple) en 2 dimensions, puis de le visualiser à l'aide du module *tkinter*. Le projet peut s'avérer complexe. Tout d'abord, il y a l'aspect physique du projet. Nous allons faire ici tous les rappels de mécanique nécessaires à la réalisation du projet. Ensuite, il y a la partie *tkinter* qui n'est pas évidente au premier abord. Nous conseillons de bien séparer les deux parties. D'abord réaliser la simulation physique et vérifier qu'elle fonctionne (par exemple, en écrivant un fichier de sortie permettant cette vérification). Ensuite passer à la partie graphique *tkinter* **si et seulement si** la première partie est fonctionnelle.
 
+
 #### Mécanique d'un pendule simple
 
 Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un pendule simple. Notamment, nous allons vous montrer comment dériver l'équation différentielle permettant de calculer la position du pendule à tout moment en fonction des conditions initiales. Cette page est largement inspirée de la [page Wikipedia en anglais](https://en.wikipedia.org/wiki/Pendulum_(mathematics)). Dans la suite, une grandeur représentée en gras, par exemple **P**, représente un vecteur avec deux composantes dans le plan 2D $(P_{x}, P_{y})$. Cette notation en gras est équivalente à la notation avec une flèche au dessus de la lettre. La même grandeur représentée en italique, par exemple *P*, représente le nombre scalaire correspondant. Ce nombre peut être positif ou négatif, et sa valeur absolue vaut la norme du vecteur.
@@ -451,9 +452,9 @@ La figure @fig:pendulum_sketch2 montre un schéma des différentes grandeurs car
 
 ![Caractérisation géométrique d'un pendule simple.](img/pendulum_sketch2.png){ #fig:pendulum_sketch2 width=80% }
 
-Si on déplace le pendule de sa position d'équilibre, il sera mû par la force **F** résultant de la tension **T** et de son poids **P** (cf. plus bas). Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20$ deg et qu'on le lâche, le pendule redescendra en passant par $\theta = 0$ deg, remontera de l'autre côté à $\theta = -20$ deg, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé (c'est-à-dire sans « fuite » d'énergie). 
+Si on déplace le pendule de sa position d'équilibre, il sera mû par la force **F** résultant de la tension **T** et de son poids **P** (cf. plus bas). Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20$ deg et qu'on le lâche, le pendule redescendra en passant par $\theta = 0$ deg, remontera de l'autre côté à $\theta = -20$ deg, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé (c'est-à-dire sans « fuite » d'énergie).
 
-Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement. D'après la seconde loi de Newton, la force (**F**) agissant sur la boule est égale à sa masse (*m*) fois son accélération (**a**) : 
+Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement de Newton](https://fr.wikipedia.org/wiki/Lois_du_mouvement_de_Newton) et en résolvant les équations correspondantes numériquement. D'après la seconde loi de Newton, la force (**F**) agissant sur la boule est égale à sa masse (*m*) fois son accélération (**a**) :
 
 $$\boldsymbol{\mathbf F} = m \boldsymbol{\mathbf a}$$
 
@@ -495,7 +496,7 @@ Dans la section suivante, nous allons voir comment résoudre numériquement cett
 
 #### Résolution de l'équation différentielle du pendule
 
-Il existe de nombreuses [méthodes numériques de résolution d'équations différentielles](https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations). L'objet ici n'est pas de faire un rappel sur toutes ces méthodes ni de les comparer, mais juste d'expliquer une de ces méthodes fonctionnant efficacement pour simuler notre pendule. 
+Il existe de nombreuses [méthodes numériques de résolution d'équations différentielles](https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations). L'objet ici n'est pas de faire un rappel sur toutes ces méthodes ni de les comparer, mais juste d'expliquer une de ces méthodes fonctionnant efficacement pour simuler notre pendule.
 
 Nous allons utiliser la [méthode semi-implicite d'Euler](https://en.wikipedia.org/wiki/Semi-implicit_Euler_method). Celle-ci est relativement intuitive à comprendre.
 
@@ -511,7 +512,7 @@ Cette vitesse va nous permettre de calculer $\theta$ au temps $t + \delta t$ :
 
 $$\theta (t + \delta t) = \theta (t) + v_{\theta}(t+\delta t) \times \delta t$$
 
-Dans une réalisation alogorithmique, nous pourrions donc :
+Dans une réalisation algorithmique, nous pourrions donc :
 
 ```
 L <- 1          # longueur tige en m
@@ -523,7 +524,7 @@ Tant qu'on n'arrête pas le pendule:
     # acc angulaire au tps t
     d2theta <- -(g/L) * sin(theta)
 	# v angulaire mise à jour de t -> t + dt
-    dtheta <- dtheta + d2theta * dt 
+    dtheta <- dtheta + d2theta * dt
     # theta mis à jour de t -> t + dt
     theta <- theta + dtheta * dt
     # t mis à jour
@@ -536,5 +537,4 @@ Tant qu'on n'arrête pas le pendule:
 
 - [Rmk] Utiliser la page wikipedia Pendule simple pour dériver l'équation thetadotdot=-(g/L)sin(theta)
 - http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Pendulum/Pendulum.html
-- 
 - https://en.wikipedia.org/wiki/Pendulum_(mathematics)
