@@ -452,9 +452,9 @@ Ligne 60 à 66. On définit la méthode `.boom()` de notre classe qui on se souv
 
 Lignes 68 à 78. On a ici deux méthodes `.incr()` et `.decr()` appelées lors d'un clic gauche ou droit. Deux choses sont à noter : i) l'attribut `self.size` est modifié dans les deux fonctions, mais le changement de diamètre de la boule ne sera effectif dans le *canvas* que lors de la prochaine exécution de l'instruction `self.canv.coords()` (dans la méthode `.move()`); ii) de même que pour la méthode `.boom()`, ces deux méthodes prennent un argument après le `self` (`lclick` ou `rclick`) récupérant ainsi des informations sur l'événement de l'utilisateur. Même si on ne s'en sert pas, cet argument après le `self` est obligatoire car il est imposé par la méthode `.bind()`.
 
-Lignes 80 à 82. Cette méthode quitte l'application lorsque l'utilisateur fait un clic sur la touche Esc.
+Lignes 80 à 82. Cette méthode quitte l'application lorsque l'utilisateur fait un clic sur la touche *Esc*.
 
-![Exemple de *canvas* animé à deux instants de l'exécution (panneau de gauche: au moment où on effectue un clic central ; panneau de droite: après avoir effectué plusieurs clics gauches).](img/example_canvas_baballe.png "Exemple de canvas animé"){ #fig:canvas_anime width=80%}
+![Exemple de *canvas* animé à deux instants de l'exécution (panneau de gauche: au moment où on effectue un clic central ; panneau de droite: après avoir effectué plusieurs clics gauches).](img/example_canvas_baballe.png "Exemple de canvas animé"){ #fig:canvas_anime width=80% }
 
 Il existe de nombreux autres événements que l'on peut capturer et lier à des méthodes / fonctions *callback*. Vous trouverez une liste complète [ici](http://effbot.org/tkinterbook/tkinter-events-and-bindings.htm).
 
