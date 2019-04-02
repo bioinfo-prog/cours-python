@@ -313,19 +313,19 @@ $ conda install numpy pandas matplotlib scipy biopython jupyterlab
 
 Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib*, *scipy*, *Biopython* et *Jupyter lab*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copies d'écran prise sous Windows avec le PowerShell) :
 
-![Installation de packages avec conda (étape 1)](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=40%}
+![Installation de packages avec conda (étape 1)](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=40% }
 
 Une fois que les versions des paquets ont été déterminées, *conda* vous demande confirmation avant de démarrer le téléchargement :
 
-![Installation de packages avec conda (étape 2)](img/miniconda_install_packages2.png){ #fig:miniconda_install_packages2 width=40%}
+![Installation de packages avec conda (étape 2)](img/miniconda_install_packages2.png){ #fig:miniconda_install_packages2 width=40% }
 
 Tapez `y` puis appuyez sur la touche *Entrée* pour confirmer. S'en suit alors le téléchargement et l'installation de tous les packages (cela prendra quelques minutes) :
 
-![Installation de packages avec conda (étape 3)](img/miniconda_install_packages3.png){ #fig:miniconda_install_packages3 width=40%}
+![Installation de packages avec conda (étape 3)](img/miniconda_install_packages3.png){ #fig:miniconda_install_packages3 width=40% }
 
 Une fois que tout cela est terminé, vous récupérez la main dans le *shell* :
 
-![Installation de packages avec conda (étape 4)](img/miniconda_install_packages4.png){ #fig:miniconda_install_packages4 width=40%}
+![Installation de packages avec conda (étape 4)](img/miniconda_install_packages4.png){ #fig:miniconda_install_packages4 width=40% }
 
 
 ### Test des modules supplémentaires
@@ -408,13 +408,13 @@ Il faudra entrer votre mot de passe utilisateur puis valider en appuyant sur la 
 
 Pour lancer cet éditeur, tapez la commande `gedit` dans un *shell* ou cherchez *gedit* dans le lanceur d'applications. Vous devriez obtenir une fenêtre similaire à celle de la figure @fig:gedit1.
 
-![Éditeur de texte *gedit*](img/gedit_1.png){ #fig:gedit1 width=40% }
+![Éditeur de texte *gedit*.](img/gedit_1.png){ #fig:gedit1 width=80% }
 
-On configure ensuite *gedit* pour que l'appuie sur la touche *Tab* corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Pour cela, cliquez sur l'icône en forme de 3 petites barres horizontales en haut à droite de la fenêtre de *gedit*, puis sélectionnez *Préférences*. Dans la nouvelle fenêtre qui s'ouvre, sélectionnez l'onglet *Éditeur* puis fixez la largeur des tabulations à 4 et cochez la case *Insérer des espaces au lieu des tabulations* (comme sur la figure #fig:gedit2).
+On configure ensuite *gedit* pour que l'appuie sur la touche *Tab* corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Pour cela, cliquez sur l'icône en forme de 3 petites barres horizontales en haut à droite de la fenêtre de *gedit*, puis sélectionnez *Préférences*. Dans la nouvelle fenêtre qui s'ouvre, sélectionnez l'onglet *Éditeur* puis fixez la largeur des tabulations à 4 et cochez la case *Insérer des espaces au lieu des tabulations* (comme sur la figure @fig:gedit2).
 
 Si vous le souhaitez, vous pouvez également cochez la case *Activer l'indentation automatique* qui indentera automatiquement votre code quand vous êtes dans un bloc d'instructions. Fermez la fenêtre de paramètres une fois la configuration terminée.
 
-![Configuration de *gedit*](img/gedit_2.png){ #fig:gedit2 width=40% }
+![Configuration de *gedit*.](img/gedit_2.png){ #fig:gedit2 width=80% }
 
 
 ### Installation et réglage de Notepad++ sous Windows
@@ -423,11 +423,11 @@ Sous Windows, nous vous recommandons l'excellent éditeur [Notepad++](https://no
 
 En premier on va configurer l'appui sur la touche *Tab* afin qu'il corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Dans la liste sur la gauche, cliquez sur `Langage`, puis à droite dans le carré `Tabulations` cochez la case `Insérer des espaces` en réglant sur 4 espaces comme indiqué dans la Figure @fig:notepadpp.
 
-![Configuration de *Notepad++* : indentation avec des espaces.](img/notepad++.png){ #fig:notepadpp width=40% }
+![Configuration de *Notepad++* : indentation avec des espaces.](img/notepad++.png){ #fig:notepadpp width=80% }
 
 Ensuite, il est important de faire en sorte que Notepad++ affiche les numéros de ligne sur la gauche (très pratique lorsque l'interpréteur nous indique qu'il y a une erreur, par exemple, à la ligne 47). Toujours dans la fenêtre `Préférences`, dans la liste sur la gauche cliquez sur `Zones d'édition`, puis sur la droite cochez la case `Afficher la numérotation des lignes` comme indiqué dans Figure @fig:notepadpp_2.
 
-![Configuration de *Notepad++* : numéro de ligne.](img/notepad++_2.png){ #fig:notepadpp_2 width=40% }
+![Configuration de *Notepad++* : numéro de ligne.](img/notepad++_2.png){ #fig:notepadpp_2 width=80% }
 
 
 ### Installation et réglage de TextWrangler/BBedit sous Mac
@@ -440,15 +440,15 @@ Notre livre n'est pas un cours d'Unix mais il convient au moins de savoir se dé
 
 Sous Windows, il existe une astuce très pratique. Lorsqu'on utilise l'explorateur Windows et que l'on est dans un répertoire donné, par exemple :
 
-![Lancement d'un *powershell* depuis un répertoire donné (étape 1)](img/lancement_shell_Windows1.png){ #fig:lancement_shell_Windows1 width=50% }
+![Lancement d'un *powershell* depuis un répertoire donné (étape 1)](img/lancement_shell_Windows1.png){ #fig:lancement_shell_Windows1 width=90% }
 
 Il suffit de taper `powershell` dans la barre qui indique le chemin :
 
-![Lancement d'un *powershell* depuis un répertoire donné (étape 2)](img/lancement_shell_Windows2.png){ #fig:lancement_shell_Windows2 width=50% }
+![Lancement d'un *powershell* depuis un répertoire donné (étape 2)](img/lancement_shell_Windows2.png){ #fig:lancement_shell_Windows2 width=90% }
 
 puis on appuie sur entrée et le PowerShell se lance en étant directement dans le bon répertoire :
 
-![Lancement d'un *powershell* depuis un répertoire donné (étape 3)](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=40% }
+![Lancement d'un *powershell* depuis un répertoire donné (étape 3)](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=90% }
 
 Dans ce PowerShell, nous avons lancé la commande `ls` qui affiche le nom du répertoire courant (celui dans lequel on se trouve, dans notre exemple `D:\PAT\Python`) ainsi que les fichiers s'y trouvant (ici il n'y a qu'un fichier : `test.py`). Ensuite nous avons lancé l'exécution de ce fichier `test.py` en tapant `python test.py`.
 

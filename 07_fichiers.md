@@ -312,7 +312,7 @@ $$ x_A = \cos(\theta) \times r$$
 
 $$ y_A = \sin(\theta) \times r$$
 
-![Point A sur le cercle de rayon r.](img/spirale_coord.png){  #fig:spirale width=50% }
+![Point A sur le cercle de rayon r.](img/spirale_coord.png){ #fig:spirale width=50% }
 
 Pour calculer les coordonnées cartésiennes qui décrivent la spirale, vous allez faire varier deux variables en même temps :
 
