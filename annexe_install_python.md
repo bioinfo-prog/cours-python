@@ -150,7 +150,7 @@ Dans cette rubrique, nous détaillons l'installation de Miniconda sous Windows.
 
 open-box-warn
 
-Nous partons du principe qu'aucune version d'Anaconda, Miniconda, ou encore de Python "classique" (obtenue sur le [site officiel de Python](https://www.python.org/downloads/)) n'est installée sur votre ordinateur. Si tel est le cas, nous recommandons vivement de la désinstaller pour éviter des conflits de version.
+Nous partons du principe qu'aucune version d'Anaconda, Miniconda, ou encore de Python « classique » (obtenue sur le [site officiel de Python](https://www.python.org/downloads/)) n'est installée sur votre ordinateur. Si tel est le cas, nous recommandons vivement de la désinstaller pour éviter des conflits de version.
 
 Par ailleurs, la procédure détaillée ci-dessous rendra la version de Miniconda **prioritaire** sur toute autre version de Python (raison pour laquelle nous vous demandons de cocher une case non recommandée par l'installateur, cf. Figure @fig:install_miniconda5bis). Si vous désinstallez toute version de Python existante, tout se passera sans problème.
 
@@ -164,39 +164,39 @@ Vous allez télécharger un fichier dont le nom ressemble à quelque chose du ty
 
 Une fois téléchargé, double-cliquez sur ce fichier, cela lancera l'installateur de Miniconda :
 
-![Installation Miniconda étape 1](img/miniconda1.png){ #fig:install_miniconda1 width=40% }
+![Installation Miniconda étape 1.](img/miniconda1.png){ #fig:install_miniconda1 width=60% }
 
 Cliquez sur *Next*, puis vous arrivez sur :
 
-![Installation Miniconda étape 2](img/miniconda2.png){ #fig:install_miniconda2 width=40% }
+![Installation Miniconda étape 2.](img/miniconda2.png){ #fig:install_miniconda2 width=60% }
 
 Lisez la licence et (si vous êtes d'accord) cliquez sur *I agree*. Vous aurez ensuite :
 
-![Installation Miniconda étape 3](img/miniconda3.png){ #fig:install_miniconda3 width=40% }
+![Installation Miniconda étape 3.](img/miniconda3.png){ #fig:install_miniconda3 width=60% }
 
 Gardez le choix de l'installation seulement pour vous (case cochée à *Just me (recommended)*), puis cliquez sur *Next*. Vous aurez ensuite :
 
-![Installation Miniconda étape 4](img/miniconda4.png){ #fig:install_miniconda4 width=40% }
+![Installation Miniconda étape 4.](img/miniconda4.png){ #fig:install_miniconda4 width=60% }
 
 L'installateur vous demande où installer Miniconda, nous vous recommandons de laisser le choix par défaut (ressemblant à `C:\Users\votre_nom_utilisateur\Miniconda3`). Cliquez sur *Next*, vous arriverez sur :
 
-![Installation Miniconda étape 5](img/miniconda5.png){ #fig:install_miniconda5 width=40% }
+![Installation Miniconda étape 5.](img/miniconda5.png){ #fig:install_miniconda5 width=60% }
 
 Gardez la case *Register Anaconda as my default Python 3.7* cochée et cochez la case *Add Anaconda to my PATH environment variable*. En cochant cette dernière option, le texte s'est mis en rouge car ce n'est pas une option recommandée. Nous vous recommandons de choisir tout de même cette option car elle permet d'avoir accès à conda (et donc Python) dans le *shell* Windows nommé PowerShell (*shell* beaucoup plus puissant que l'ancien *shell* nommé cmd qui devient progressivement obsolète).
 
-![Installation Miniconda étape 5bis](img/miniconda5bis.png){ #fig:install_miniconda5bis width=40% }
+![Installation Miniconda étape 5bis](img/miniconda5bis.png){ #fig:install_miniconda5bis width=60% }
 
 Cliquez ensuite sur *Install*, l'installation se lance et durera quelques minutes :
 
-![Installation Miniconda étape 6](img/miniconda6.png){ #fig:install_miniconda6 width=40% }
+![Installation Miniconda étape 6.](img/miniconda6.png){ #fig:install_miniconda6 width=60% }
 
 À la fin, vous obtiendrez cette fenêtre :
 
-![Installation Miniconda étape 7](img/miniconda7.png){ #fig:install_miniconda7 width=40% }
+![Installation Miniconda étape 7.](img/miniconda7.png){ #fig:install_miniconda7 width=60% }
 
 Cliquez sur *Next*, vous arriverez sur la dernière fenêtre :
 
-![Installation Miniconda étape 8](img/miniconda8.png){ #fig:install_miniconda8 width=40% }
+![Installation Miniconda étape 8.](img/miniconda8.png){ #fig:install_miniconda8 width=60% }
 
 Décochez les cases *Learn more about Anaconda Cloud* et *Learn how to get started with Anaconda* et cliquez sur *Finish*. Miniconda est maintenant installé.
 
@@ -204,11 +204,11 @@ Décochez les cases *Learn more about Anaconda Cloud* et *Learn how to get start
 
 Nous sommes maintenant prêts à tester l'interpréteur Python. En premier lieu, il faut lancer un *shell* PowerShell. Pour cela, cliquez sur le bouton Windows et tapez `powershell`. Vous devriez voir apparaitre le menu suivant :
 
-![Menu pour lancer un PowerShell](img/menu_Windows10_powershell.png){ #fig:miniconda_launch_shell width=40% }
+![Menu pour lancer un PowerShell.](img/menu_Windows10_powershell.png){ #fig:miniconda_launch_shell width=60% }
 
 Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell avec un fond bleu (couleur que l'on peut bien sûr modifier en cliquant sur la petite icône représentant un terminal dans la barre de titre). Pour tester si Python est bien installé, il suffit alors de lancer l'interpréteur Python en tapant la commande `python` :
 
-![Lancement de l'interpréteur Python dans un PowerShell](img/test_python_powershell.png){ #fig:miniconda_test_interpreter width=40% }
+![Lancement de l'interpréteur Python dans un PowerShell.](img/test_python_powershell.png){ #fig:miniconda_test_interpreter width=60% }
 
 Si tout s'est bien passé, vous devriez avoir l'affichage suivant :
 
@@ -274,27 +274,27 @@ Si c'est le cas, bravo, *conda* est bien installé et vous pouvez passez à la s
 
 Si vous souhaitez désinstaller Miniconda, rien de plus simple. Dans un explorateur, dirigez-vous dans le répertoire où vous avez installé Miniconda (dans notre exemple il s'agit de `C:\Users\votre_nom_utilisateur\Miniconda3`). Attention, si votre Windows est installé en français, il se peut qu'il faille cliquer sur `C:\` puis sur `Utilisateurs` plutôt que `Users` comme montré ici :
 
-![Désinstallation de Miniconda (étape 1)](img/uninstall_miniconda1.png){ #fig:uninstall_miniconda width=40% }
+![Désinstallation de Miniconda (étape 1).](img/uninstall_miniconda1.png){ #fig:uninstall_miniconda width=60% }
 
 Cliquez ensuite sur le fichier `Uninstall-Miniconda3.exe`. Vous aurez alors l'écran suivant :
 
-![Désinstallation de Miniconda (étape 2)](img/uninstall_miniconda2.png){ #fig:uninstall_miniconda2 width=40% }
+![Désinstallation de Miniconda (étape 2).](img/uninstall_miniconda2.png){ #fig:uninstall_miniconda2 width=60% }
 
 Cliquez sur *Next*, puis à l'écran suivant cliquez sur *Uninstall* :
 
-![Désinstallation de Miniconda (étape 3)](img/uninstall_miniconda3.png){ #fig:uninstall_miniconda3 width=40% }
+![Désinstallation de Miniconda (étape 3).](img/uninstall_miniconda3.png){ #fig:uninstall_miniconda3 width=60% }
 
 Le désinstallateur se lancera alors (cela peut prendre quelques minutes) :
 
-![Désinstallation de Miniconda (étape 4)](img/uninstall_miniconda4.png){ #fig:uninstall_miniconda4 width=40% }
+![Désinstallation de Miniconda (étape 4).](img/uninstall_miniconda4.png){ #fig:uninstall_miniconda4 width=60% }
 
 Une fois la désinstallation terminée, cliquez sur *Next* :
 
-![Désinstallation de Miniconda (étape 5)](img/uninstall_miniconda5.png){ #fig:uninstall_miniconda5 width=40% }
+![Désinstallation de Miniconda (étape 5).](img/uninstall_miniconda5.png){ #fig:uninstall_miniconda5 width=60% }
 
 Puis enfin sur *Finish* :
 
-![Désinstallation de Miniconda (étape 6)](img/uninstall_miniconda6.png){ #fig:uninstall_miniconda6 width=40% }
+![Désinstallation de Miniconda (étape 6).](img/uninstall_miniconda6.png){ #fig:uninstall_miniconda6 width=60% }
 
 À ce point, Miniconda est bien désinstallé.
 
@@ -313,19 +313,19 @@ $ conda install numpy pandas matplotlib scipy biopython jupyterlab
 
 Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib*, *scipy*, *Biopython* et *Jupyter lab*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copies d'écran prise sous Windows avec le PowerShell) :
 
-![Installation de packages avec conda (étape 1)](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=40% }
+![Installation de packages avec conda (étape 1).](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=60% }
 
 Une fois que les versions des paquets ont été déterminées, *conda* vous demande confirmation avant de démarrer le téléchargement :
 
-![Installation de packages avec conda (étape 2)](img/miniconda_install_packages2.png){ #fig:miniconda_install_packages2 width=40% }
+![Installation de packages avec conda (étape 2).](img/miniconda_install_packages2.png){ #fig:miniconda_install_packages2 width=60% }
 
 Tapez `y` puis appuyez sur la touche *Entrée* pour confirmer. S'en suit alors le téléchargement et l'installation de tous les packages (cela prendra quelques minutes) :
 
-![Installation de packages avec conda (étape 3)](img/miniconda_install_packages3.png){ #fig:miniconda_install_packages3 width=40% }
+![Installation de packages avec conda (étape 3).](img/miniconda_install_packages3.png){ #fig:miniconda_install_packages3 width=60% }
 
 Une fois que tout cela est terminé, vous récupérez la main dans le *shell* :
 
-![Installation de packages avec conda (étape 4)](img/miniconda_install_packages4.png){ #fig:miniconda_install_packages4 width=40% }
+![Installation de packages avec conda (étape 4).](img/miniconda_install_packages4.png){ #fig:miniconda_install_packages4 width=60% }
 
 
 ### Test des modules supplémentaires
@@ -348,7 +348,7 @@ import pandas
 
 Vous devriez obtenir la sortie suivante (ici sous Windows) :
 
-![Test installation de modules Python avec Miniconda](img/miniconda_test_packages.png){ #fig:miniconda_test_packages width=40% }
+![Test installation de modules Python avec Miniconda.](img/miniconda_test_packages.png){ #fig:miniconda_test_packages width=60% }
 
 Si aucune erreur ne s'affiche et que vous récupérez la main dans l'interpréteur, bravo, ces modules sont bien installés. Quittez l'interpréteur Python en tapant la commande `exit()` puis en appuyant sur la touche *Entrée*.
 
@@ -360,7 +360,7 @@ $ jupyter lab
 
 Cette commande devrait ouvrir votre navigateur internet par défaut et lancer Jupyter :
 
-![Test de Jupyter : ouverture dans un navigateur](img/miniconda_test_jupyter.png){ #fig:miniconda_test_jupyter width=40% }
+![Test de Jupyter : ouverture dans un navigateur.](img/miniconda_test_jupyter.png){ #fig:miniconda_test_jupyter width=40% }
 
 Pour quitter Jupyter, allez dans le menu *File* puis sélectionnez *Quit*. Vous pourrez alors fermer l'onglet de Jupyter. Pendant ces manipulations dans le navigateur, de nombreuses lignes ont été affichées dans l'interpréteur :
 
@@ -383,7 +383,7 @@ Si tous ces tests ont bien fonctionné, bravo, vous avez installé correctement 
 
 *Conseil* : Pour les débutants, vous pouvez sauter cette rubrique.
 
-Comme indiqué au début de ce chapitre, [pip](https://pip.pypa.io/en/stable/) est un gestionnaire de paquets pour Python et permet d'installer des modules externes. *Pip* est également présent dans Miniconda, donc utilisable et parfaitement fonctionnel. Vous pouvez vous poser la question "Pourquoi utiliser le gestionnaire de paquets *pip* si le gestionnaire de paquets `conda` est déjà présent ?". La réponse est simple, certains modules ne sont présents que sur les dépôts *pip*. Si vous souhaitez les installer il  faudra impérativement utiliser *pip*. Inversement, certains modules ne sont présent que dans les dépôts de *conda*. Toutefois, pour les modules classiques (comme *NumPy*, *scipy*, etc), tout est gérable avec *conda*.
+Comme indiqué au début de ce chapitre, [pip](https://pip.pypa.io/en/stable/) est un gestionnaire de paquets pour Python et permet d'installer des modules externes. *Pip* est également présent dans Miniconda, donc utilisable et parfaitement fonctionnel. Vous pouvez vous poser la question « Pourquoi utiliser le gestionnaire de paquets *pip* si le gestionnaire de paquets `conda` est déjà présent ? ». La réponse est simple, certains modules ne sont présents que sur les dépôts *pip*. Si vous souhaitez les installer il  faudra impérativement utiliser *pip*. Inversement, certains modules ne sont présent que dans les dépôts de *conda*. Toutefois, pour les modules classiques (comme *NumPy*, *scipy*, etc), tout est gérable avec *conda*.
 
 **Sauf cas exceptionnel, on vous conseille l'utilisation de *conda* pour gérer l'installation de modules supplémentaires**.
 
@@ -440,15 +440,15 @@ Notre livre n'est pas un cours d'Unix mais il convient au moins de savoir se dé
 
 Sous Windows, il existe une astuce très pratique. Lorsqu'on utilise l'explorateur Windows et que l'on est dans un répertoire donné, par exemple :
 
-![Lancement d'un *powershell* depuis un répertoire donné (étape 1)](img/lancement_shell_Windows1.png){ #fig:lancement_shell_Windows1 width=90% }
+![Lancement d'un *powershell* depuis un répertoire donné (étape 1).](img/lancement_shell_Windows1.png){ #fig:lancement_shell_Windows1 width=90% }
 
 Il suffit de taper `powershell` dans la barre qui indique le chemin :
 
-![Lancement d'un *powershell* depuis un répertoire donné (étape 2)](img/lancement_shell_Windows2.png){ #fig:lancement_shell_Windows2 width=90% }
+![Lancement d'un *powershell* depuis un répertoire donné (étape 2).](img/lancement_shell_Windows2.png){ #fig:lancement_shell_Windows2 width=90% }
 
 puis on appuie sur entrée et le PowerShell se lance en étant directement dans le bon répertoire :
 
-![Lancement d'un *powershell* depuis un répertoire donné (étape 3)](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=90% }
+![Lancement d'un *powershell* depuis un répertoire donné (étape 3).](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=90% }
 
 Dans ce PowerShell, nous avons lancé la commande `ls` qui affiche le nom du répertoire courant (celui dans lequel on se trouve, dans notre exemple `D:\PAT\Python`) ainsi que les fichiers s'y trouvant (ici il n'y a qu'un fichier : `test.py`). Ensuite nous avons lancé l'exécution de ce fichier `test.py` en tapant `python test.py`.
 
