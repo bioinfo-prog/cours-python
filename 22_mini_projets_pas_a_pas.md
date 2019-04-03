@@ -512,16 +512,55 @@ Cette vitesse va nous permettre de calculer $\theta$ au temps $t + \delta t$ :
 
 $$\theta (t + \delta t) = \theta (t) + v_{\theta}(t+\delta t) \times \delta t$$
 
-Dans une réalisation algorithmique, nous pourrions donc :
+Dans une réalisation algorithmique, il suffira d'initialiser les variables de notre système puis de faire une boucle sur un nombre de pas de simulation. A chaque pas, on calculera $a_{\theta}(t)$, puis $v_{\theta}(t+\delta t)$ et enfin $\theta (t + \delta t)$.
+
+L'initialisation des variables pourra ressembler à cela :
 
 ```
 L <- 1          # longueur tige en m
+g <- 9.8        # accélération gravitationnelle en m/s^2
 t <- 0          # temps initial en s
-theta <- pi / 4 # angle initial en rad
 dt <- 0.05      # pas de temps en s
+# conditions initiales
+theta <- pi / 4 # angle initial en rad
 dtheta <- 0     # vitesse angulaire initiale en rad/s
-Tant qu'on n'arrête pas le pendule:
-    # acc angulaire au tps t
+
+afficher_position_pendule(theta) # afficher position de départ
+```
+
+L'initialisation des valeurs de `theta` et `dtheta` est très importante car elle détermine le comportement du pendule. Nous avons choisi ici d'avoir une vitesse angulaire nulle et un angle de départ du pendule $\theta = \pi / 4$ rad $= 45$ deg. Le pas $dt$ est également très important, c'est lui qui déterminera l'erreur faite sur l'intégration de l'équation différentielle. Plus ce pas est petit, plus on est précis, mais plus le calcul sera long. Ici on a choisi un pas $dt$ de 0.05 s qui constitue un bon compromis.
+
+A ce stade, vous avez tous les éléments pour tester votre pendule. Essayez de réaliser un petit programme python `pendule_xy.py` qui utilise les conditions initiales ci-dessus et simule le mouvement du pendule. A la fin de cette rubrique, nous proposons une solution en langage algorithmique. Essayez dans un premier temps de le faire vous-même. A chaque pas, le programme écrira le temps $t$ et l'angle $\theta$ dans un fichier `pendule_xy.dat`. Dans les équations, $\theta$ doit être exprimé en radian, mais nous conseillons de convertir cet angle en degré dans le fichier (plus facile à lire pour un humain !). Une fois ce fichier généré, vous pourrez observer le graphe correspondant avec *matplotlib*. Vous pouvez utiliser le code suivant pour cela :
+
+```
+import matplotlib.pyplot as plt
+
+x = []
+y = []
+with open("pendule_xy.dat", "r") as f_in:
+    for line in f_in:
+        coords = line.split()
+        x.append(float(coords[0]))
+        y.append(float(coords[1]))
+
+plt.figure(figsize=(8,8))
+mini = min(y) * 1.2
+maxi = max(y) * 1.2
+plt.xlim(0, max(x))
+plt.ylim(mini, maxi)
+plt.xlabel('t (s)')
+plt.ylabel('theta (deg)')
+plt.plot(x, y)
+plt.savefig("pendule_xy.png")
+```
+
+Si vous observez une sinusoïde, bravo, vous venez de réaliser votre première simulation de pendule ! Vous avez maintenant le « squelette » de votre « moteur » de simulation. N'hésitez pas à vous amuser avec d'autres conditions initiales. Ensuite vous pourrez passer à la rubrique suivante.
+
+Si vous avez bloqué dans l'écriture de la boucle, voici ce à quoi elle pourrait ressembler en langage algorithmique :
+
+```
+tant qu'on n'arrête pas le pendule:
+    # acc angulaire au tps t (en rad/s^2)
     d2theta <- -(g/L) * sin(theta)
 	# v angulaire mise à jour de t -> t + dt
     dtheta <- dtheta + d2theta * dt
@@ -532,6 +571,11 @@ Tant qu'on n'arrête pas le pendule:
     # mettre à jour l'affichage
     afficher_position_pendule(theta)
 ```
+
+#### Construction de l'application en tkinter
+
+
+
 
 #### Quelques ressources
 
