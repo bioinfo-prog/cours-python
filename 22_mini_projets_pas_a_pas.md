@@ -444,7 +444,7 @@ L'objectif de ce projet est de simuler un [pendule simple](https://fr.wikipedia.
 
 Nous allons décrire ici ce dont nous avons besoin concernant la mécanique d'un pendule simple. Notamment, nous allons vous montrer comment dériver l'équation différentielle permettant de calculer la position du pendule à tout moment en fonction des conditions initiales. Cette page est largement inspirée de la [page Wikipedia en anglais](https://en.wikipedia.org/wiki/Pendulum_(mathematics)). Dans la suite, une grandeur représentée en gras, par exemple **P**, représente un vecteur avec deux composantes dans le plan 2D $(P_{x}, P_{y})$. Cette notation en gras est équivalente à la notation avec une flèche au dessus de la lettre. La même grandeur représentée en italique, par exemple *P*, représente le nombre scalaire correspondant. Ce nombre peut être positif ou négatif, et sa valeur absolue vaut la norme du vecteur.
 
-Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. On néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. La figure @fig:pendulum_sketch montre un schéma du système ainsi qu'un bilan des forces agissant sur la masse. Les deux forces agissant sur la boule sont son poids **P** et la tension due **T** à la tige.
+Un pendule simple est représenté par une masse ponctuelle (la boule du pendule) reliée à un axe immobile par une tige rigide et sans masse. Le pendule simple est un système idéal. Ainsi, on néglige les effets de frottement et on considère le champ gravitationnel comme uniforme. La figure @fig:pendulum_sketch montre un schéma du système ainsi qu'un bilan des forces agissant sur la masse. Les deux forces agissant sur la boule sont son poids **P** et la tension **T** due à la tige.
 
 ![Bilan des forces dans un pendule simple.](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
 
@@ -458,7 +458,7 @@ Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement d
 
 $$\boldsymbol{\mathbf F} = m \boldsymbol{\mathbf a}$$
 
-Cette loi est exprimée ici dans le système de coordonnées cartésiennes (le plan à 2 dimensions). La force **F** et l'accélération **a** sont des vecteurs dont les composantes sont respectivement $(F_{x}, F_{y})$ et $(a_{x}, a_{y})$. La force **F** correspond à la somme vectorielle de **T** et **P**. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). La force de tension **T** étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet sur l'accélération. De même, la composante orthogonale $mgcos \theta$ due au poids **P** n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $mg sin \theta$ (cf. figure @fig:pendulum_sketch2). Comme on se restreint aux composantes tangentielles de **F** et **a**, on peut écrire l'expression suivante en raisonnant sur les valeurs scalaires :
+Cette loi est exprimée ici dans le système de coordonnées cartésiennes (le plan à 2 dimensions). La force **F** et l'accélération **a** sont des vecteurs dont les composantes sont respectivement $(F_{x}, F_{y})$ et $(a_{x}, a_{y})$. La force **F** correspond à la somme vectorielle de **T** et **P**. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). Ainsi, seule la composante tangentielle de l'accélération **a** sera prise en compte dans ce mouvement. Comment la calculer ? La force de tension **T** étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet. De même, la composante orthogonale $mgcos \theta$ due au poids **P** n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $mg sin \theta$ (cf. figure @fig:pendulum_sketch2). Au final, on peut écrire l'expression suivante en raisonnant sur les valeurs scalaires :
 
 $$F = ma = -mg sin \theta$$
 
@@ -482,7 +482,7 @@ On peut aussi exprimer l'accélération *a* en dérivant l'arc *s* deux fois par
 
 $$a = \frac{d^2s}{dt^2} = L\frac{d^2 \theta}{dt^2}$$
 
-Attention, cette dernière formule exprime l'accélération de la boule lorsque le mouvement de celle-ci est restreint sur le cercle pointillé car la tige est rigide. Si la tige n'était pas rigide, l'expression serait différente.
+A nouveau, cette dernière formule exprime l'accélération de la boule lorsque le mouvement de celle-ci est restreint sur le cercle pointillé. Si la tige n'était pas rigide, l'expression serait différente.
 
 Si on remplace *a* dans la formule ci-dessus, on trouve :
 
@@ -502,17 +502,17 @@ Nous allons utiliser la [méthode semi-implicite d'Euler](https://en.wikipedia.o
 
 Commençons d'abord par calculer l'accélération angulaire $a_{\theta}$ au temps *t* en utilisant l'équation différentielle précédemment établie :
 
-$$a_{\theta}(t) = \frac{d^2 \theta}{dt^2} = - \frac{g}{L} sin \theta(t)$$
+$$a_{\theta}(t) = \frac{d^2 \theta}{dt^2}(t) = - \frac{g}{L} sin \theta(t)$$
 
-L'astuce sera de calculer la vitesse angulaire au pas suivant $t + \delta t$ grâce à la relation :
+L'astuce sera de calculer ensuite la vitesse angulaire au pas suivant $t + \delta t$ grâce à la relation :
 
-$$v_{\theta}(t+\delta t) = v_{\theta}(t) + a_{\theta}(t) \times \delta t$$
+$$v_{\theta}(t+\delta t) = \frac{d\theta}{dt}(t+\delta t) \approx v_{\theta}(t) + a_{\theta}(t) \times \delta t$$
 
-Cette vitesse va nous permettre de calculer $\theta$ au temps $t + \delta t$ :
+Cette équation est ni plus ni moins qu'un remaniement de la définition de l'accélération, à savoir, la variation de vitesse par rapport à un temps. Cette vitesse $v_{\theta}(t+\delta t)$ permettra au final de calculer $\theta$ au temps $t + \delta t$ (c'est-à-dire ce que l'on cherche !) :
 
-$$\theta (t + \delta t) = \theta (t) + v_{\theta}(t+\delta t) \times \delta t$$
+$$\theta (t + \delta t) \approx \theta (t) + v_{\theta}(t+\delta t) \times \delta t$$
 
-Dans une réalisation algorithmique, il suffira d'initialiser les variables de notre système puis de faire une boucle sur un nombre de pas de simulation. A chaque pas, on calculera $a_{\theta}(t)$, puis $v_{\theta}(t+\delta t)$ et enfin $\theta (t + \delta t)$.
+Dans une réalisation algorithmique, il suffira d'initialiser les variables de notre système puis de faire une boucle sur un nombre de pas de simulation. A chaque pas, on calculera $a_{\theta}(t)$, puis $v_{\theta}(t+\delta t)$ et enfin $\theta (t + \delta t)$ à l'aide des formules ci-dessus.
 
 L'initialisation des variables pourra ressembler à cela :
 
@@ -525,38 +525,38 @@ dt <- 0.05      # pas de temps en s
 theta <- pi / 4 # angle initial en rad
 dtheta <- 0     # vitesse angulaire initiale en rad/s
 
-afficher_position_pendule(theta) # afficher position de départ
+afficher_position_pendule(t, theta) # afficher position de départ
 ```
 
-L'initialisation des valeurs de `theta` et `dtheta` est très importante car elle détermine le comportement du pendule. Nous avons choisi ici d'avoir une vitesse angulaire nulle et un angle de départ du pendule $\theta = \pi / 4$ rad $= 45$ deg. Le pas $dt$ est également très important, c'est lui qui déterminera l'erreur faite sur l'intégration de l'équation différentielle. Plus ce pas est petit, plus on est précis, mais plus le calcul sera long. Ici on a choisi un pas $dt$ de 0.05 s qui constitue un bon compromis.
+L'initialisation des valeurs de `theta` et `dtheta` est très importante car elle détermine le comportement du pendule. Nous avons choisi ici d'avoir une vitesse angulaire nulle et un angle de départ du pendule $\theta = \pi / 4$ rad $= 45$ deg. Le pas `dt` est également très important, c'est lui qui déterminera l'erreur faite sur l'intégration de l'équation différentielle. Plus ce pas est petit, plus on est précis, mais plus le calcul sera long. Ici, on choisit un pas `dt` de 0.05 s qui constitue un bon compromis.
 
-A ce stade, vous avez tous les éléments pour tester votre pendule. Essayez de réaliser un petit programme python `pendule_xy.py` qui utilise les conditions initiales ci-dessus et simule le mouvement du pendule. A la fin de cette rubrique, nous proposons une solution en langage algorithmique. Essayez dans un premier temps de le faire vous-même. A chaque pas, le programme écrira le temps $t$ et l'angle $\theta$ dans un fichier `pendule_xy.dat`. Dans les équations, $\theta$ doit être exprimé en radian, mais nous conseillons de convertir cet angle en degré dans le fichier (plus facile à lire pour un humain !). Une fois ce fichier généré, vous pourrez observer le graphe correspondant avec *matplotlib*. Vous pouvez utiliser le code suivant pour cela :
+A ce stade, vous avez tous les éléments pour tester votre pendule. Essayez de réaliser un petit programme python `pendule_basic.py` qui utilise les conditions initiales ci-dessus et simule le mouvement du pendule. A la fin de cette rubrique, nous proposons une solution en langage algorithmique. Essayez dans un premier temps de le faire vous-même. A chaque pas, le programme écrira le temps $t$ et l'angle $\theta$ dans un fichier `pendule_basic.dat`. Dans les équations, $\theta$ doit être exprimé en radian, mais nous vous conseillons de convertir cet angle en degré dans le fichier (plus facile à comprendre pour un humain !). Une fois ce fichier généré, vous pourrez observer le graphe correspondant avec *matplotlib* en utilisant le code suivant :
 
 ```
 import matplotlib.pyplot as plt
+import numpy as np
 
-x = []
-y = []
-with open("pendule_xy.dat", "r") as f_in:
-    for line in f_in:
-        coords = line.split()
-        x.append(float(coords[0]))
-        y.append(float(coords[1]))
+# la fonction np.genfromtxt() renvoie un array à 2 dim
+array_data = np.genfromtxt("pendule_basic.dat")
+# col 0: t, col 1: theta
+t = array_data[:,0]
+theta = array_data[:,1]
 
+# plot
 plt.figure(figsize=(8,8))
-mini = min(y) * 1.2
-maxi = max(y) * 1.2
-plt.xlim(0, max(x))
+mini = min(theta) * 1.2
+maxi = max(theta) * 1.2
+plt.xlim(0, max(t))
 plt.ylim(mini, maxi)
 plt.xlabel('t (s)')
 plt.ylabel('theta (deg)')
-plt.plot(x, y)
-plt.savefig("pendule_xy.png")
+plt.plot(t, theta)
+plt.savefig("pendule_basic.png")
 ```
 
 Si vous observez une sinusoïde, bravo, vous venez de réaliser votre première simulation de pendule ! Vous avez maintenant le « squelette » de votre « moteur » de simulation. N'hésitez pas à vous amuser avec d'autres conditions initiales. Ensuite vous pourrez passer à la rubrique suivante.
 
-Si vous avez bloqué dans l'écriture de la boucle, voici ce à quoi elle pourrait ressembler en langage algorithmique :
+Si vous avez bloqué dans l'écriture de la boucle, voici à quoi elle pourrait ressembler en langage algorithmique :
 
 ```
 tant qu'on n'arrête pas le pendule:
@@ -569,16 +569,104 @@ tant qu'on n'arrête pas le pendule:
     # t mis à jour
     t <- t + dt
     # mettre à jour l'affichage
-    afficher_position_pendule(theta)
+    afficher_position_pendule(t, theta)
 ```
 
-#### Construction de l'application en tkinter
+#### Constructeur de l'application en *tkinter*
 
+Nous allons maintenant construire l'application *tkinter* en vous guidant pas à pas. Il est bien sûr conseillé de relire le chapitre 20 sur *tkinter* avant de vous lancer dans cette partie.
 
+Comme expliqué largement dans le chapitre 20, nous allons construire l'application avec une classe. Le programme principal sera donc très allégé et se contentera d'instancier l'application, puis de lancer le gestionnaire d'événements :
 
+```
+if __name__ == "__main__":
+    """Programme principal (instancie la classe principale, donne un
+    titre et lance le gestionnaire d'événements)
+    """
+    app_pendule = AppliPendule()
+    app_pendule.title("Pendule")
+    app_pendule.mainloop()
+```
 
-#### Quelques ressources
+Ensuite, nous commençons par écrire le constructeur de la classe. Dans ce constructeur, nous aurons une section initialisant toutes les variables utilisées pour simuler le pendule (cf. rubrique précédente), puis, une autre partie générant les *widgets* et tous les éléments graphiques. Nous vous conseillons vivement de bien les séparer, et surtout de **mettre des commentaires** pour pouvoir s'y retrouver. Voici un « squelette » pour vous aider :
 
-- [Rmk] Utiliser la page wikipedia Pendule simple pour dériver l'équation thetadotdot=-(g/L)sin(theta)
-- http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Pendulum/Pendulum.html
-- https://en.wikipedia.org/wiki/Pendulum_(mathematics)
+```
+class AppliPendule(tk.Tk):
+    def __init__(self):
+        # instanciation de la classe Tk
+        tk.Tk.__init__(self)
+        # ici vous pouvez définir toutes les variables
+        # concernant la physique du pendule
+		self.theta = np.pi / 4 # valeur intiale theta
+		self.dtheta = 0 # vitesse angulaire initiale
+		[...]
+        self.g = 9.8 # cst gravitationnelle en m/s^2
+        [...]
+        # ici vous pouvez construire l'application graphique
+        self.canv = tk.Canvas(self, bg='gray', height=400, width=400)
+        # création d'un boutton demarrer, arreter, quitter
+        # penser à placer les widgets avec .pack()
+		[...]
+```
+
+La figure @fig:pendule vous montre un aperçu de ce que l'on voudrait obtenir.
+
+![Application pendule.](img/pendule.png){ #fig:pendule width=60% }
+
+Pour le moment, vous pouvez oublier la réglette fixant la valeur initiale de $\theta$, les *labels* affichant la valeur de $\theta$ et $v_{\theta}$ ainsi que les points violets « laissés en route » par le pendule. De même, nous dessinerons le pivot, la boule et la tige plus tard. A ce stade, il est fondamental de tout de suite lancer votre application pour vérifier que les *widgets* sont bien placés. N'oubliez pas, un code complexe se teste **au fur et à mesure** lors de son développement.
+
+*Conseil* : pour éviter un message d'erreur si toutes les méthodes n'existe pas encore, vous pouvez indiquer `command=self.quit` pour chaque bouton (vous le changerez après).
+
+#### Créations des dessins dans le canvas
+
+Le pivot et la boule pourront être créés avec la méthode `.create_oval()`, la tige le sera avec la méthode `.create_line()`. Pensez à créer des variables pour la tige et la boule lors de l'instanciation car celles-ci bougeront par la suite.
+
+Comment placer ces éléments dans le *canvas* ? Vous avez remarqué que lors de la création de ce dernier, nous avons fixé une dimension de 400 $\times$ 400 pixels. Le pivot se trouve au centre, c'est-à-dire au point $(200, 200)$ . Pour la tige et la boule il sera nécessaire de connaître la position de la boule cette dernière **dans le repère du canvas**. Or, pour l'instant, nous définissons la position de la boule avec l'angle $\theta$. Il va donc nous falloir convertir $\theta$ en coordonnées cartésiennes $(x, y)$ dans le repère mathématique défini dans la figure @fig:pendulum_sketch2, puis dans le repère du *canvas* $(x_{c}, y_{c})$ (cf. rubrique suivante).
+
+##### Conversion de $\theta$ en coordonnées $(x, y)$
+
+Cette étape est relativement simple si on considère le pivot comme le centre du repère. Avec les fonctions trigonométriques `sin()` et `cos()`, vous pourrez calculer la position de la boule (cf. exercice sur la spirale dans le chapitre 7). Faites attention toutefois aux deux aspects suivants : 
+
+- la trajectoire de la boule suit les coordonnées d'un cercle de rayon *L* (si on choisit *L* = 1 m, ce sera plus simple) ;
+- nous sommes décalés par rapport au cercle trigonométrique classique ; si on considère *L* = 1 m : 
+	- quand $\theta = 0$, on a le point $(0, -1)$ ;
+	- quand $\theta = + \pi / 2 = 90$ deg, on a $(1, 0)$ ;
+	- quand $\theta = - \pi / 2 = -90$ deg, on a $(-1, 0)$ ;
+	- quand $\theta = \pm \pi = \pm 180$ deg, on a $(0, 1)$.
+
+Si vous n'avez pas trouvé, voici la solution :
+
+```
+self.x = np.sin(self.theta) * self.L
+self.y = -np.cos(self.theta) * self.L
+```
+
+##### Méthode convertissant $\theta$ en coordonnées $(x, y)$
+
+Il nous faut maintenant convertir $(x, y)$ en coordonnées $(x_{c}, y_{c})$ dans le *canvas*. Plusieurs choses sont importantes pour cela :
+
+- le centre du repère mathématique $(0, 0)$ a la coordonnée $(200, 200)$ dans le *canvas* ;
+- il faut choisir un facteur de conversion : par exemple, si on choisit *L* = 1 m, on peut proposer le facteur 1 m $\rightarrow$ 100 pixels ;
+- l'axe des ordonnées dans le *canvas* est **inversé** par rapport au repère mathématique.
+
+open-box-adv
+
+Il est essentiel d'écrire une méthode qui convertira $\theta$ en $(x, y)$ puis $(x_{c}, y_{c})$ dans votre classe. Vous pouvez l'appeler par exemple `.theta2xc_yc()`.
+
+close-box-adv
+
+Si vous n'avez pas trouvé, voici la solution :
+
+```
+self.conv_factor = 100
+self.x_c = self.x*self.conv_factor + 200
+self.y_c = -self.y*self.conv_factor + 200
+```
+
+TODO:
+
+- mouvement du pendule: mth .start(), .stop(), .move() (se référer à la baballe)
+
+#### Ressource complémentaire
+
+Si vous souhaitez aller plus loin sur les différentes méthodes numériques de résolution d'équation différentielle associées au pendule, nous vous conseillons le site de [James Sethna](http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Pendulum/Pendulum.html) de l'université de Cornell.
