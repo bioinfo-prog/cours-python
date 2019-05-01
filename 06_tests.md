@@ -396,19 +396,19 @@ Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c
 
 La recherche par [dichotomie](https://fr.wikipedia.org/wiki/Dichotomie) est une méthode qui consiste à diviser (en général en parties égales) un problème pour en trouver la solution. À titre d'exemple, voici une discussion entre Pierre et Patrick dans laquelle Pierre essaie de deviner le nombre (compris entre 1 et 100 inclus) auquel Patrick a pensé.
 
-- [Patrick] "C'est bon, j'ai pensé à un nombre entre 1 et 100."
-- [Pierre] "OK, je vais essayer de le deviner. Est-ce que ton nombre est plus petit ou plus grand que 50 ?"
-- [Patrick] "Plus grand."
-- [Pierre] "Est-ce que ton nombre est plus petit, plus grand ou égal à 75 ?"
-- [Patrick] "Plus grand."
-- [Pierre] "Est-ce que ton nombre est plus petit, plus grand ou égal à 87 ?"
-- [Patrick] "Plus petit."
-- [Pierre] "Est-ce que ton nombre est plus petit, plus grand ou égal à 81 ?"
-- [Patrick] "Plus petit."
-- [Pierre] "Est-ce que ton nombre est plus petit, plus grand ou égal à 78 ?"
-- [Patrick] "Plus grand."
-- [Pierre] "Est-ce que ton nombre est plus petit, plus grand ou égal à 79 "?
-- [Patrick] "Egal. C'est le nombre auquel j'avais pensé. Bravo !"
+- [Patrick] « C'est bon, j'ai pensé à un nombre entre 1 et 100. »
+- [Pierre]  « OK, je vais essayer de le deviner. Est-ce que ton nombre est plus petit ou plus grand que 50 ? »
+- [Patrick] « Plus grand. »
+- [Pierre]  « Est-ce que ton nombre est plus petit, plus grand ou égal à 75 ? »
+- [Patrick] « Plus grand. »
+- [Pierre]  « Est-ce que ton nombre est plus petit, plus grand ou égal à 87 ? »
+- [Patrick] « Plus petit. »
+- [Pierre]  « Est-ce que ton nombre est plus petit, plus grand ou égal à 81 ? »
+- [Patrick] « Plus petit. »
+- [Pierre]  « Est-ce que ton nombre est plus petit, plus grand ou égal à 78 ? »
+- [Patrick] « Plus grand. »
+- [Pierre]  « Est-ce que ton nombre est plus petit, plus grand ou égal à 79 ? »
+- [Patrick] « Égal. C'est le nombre auquel j'avais pensé. Bravo ! »
 
 
 Pour arriver rapidement à deviner le nombre, l'astuce consiste à prendre à chaque fois la moitié de l'intervalle dans lequel se trouve le nombre. Voici le détail des différentes étapes :

@@ -143,7 +143,7 @@ La commande précédente (`%matplotlib inline`) est une *magic command*. Il en e
 
 ![*Magic command* `%whos`.](img/jupyter-whos.png){ #fig:jupyter-whos width=80% }
 
-![*Magic command* `%history`.](img/jupyter-history.png){ #fig:jupyter-whos width=80% }
+![*Magic command* `%history`.](img/jupyter-history.png){ #fig:jupyter-history width=80% }
 
 Enfin, avec les environnements Linux ou Mac OS X, il est possible de lancer une commande Unix depuis un notebook Jupyter. Il faut pour cela précéder la commande du symbole `!`. La figure @fig:jupyter-ls illustre cette possibilité avec la commande `ls` qui affiche le contenu d'un répertoire.
 
