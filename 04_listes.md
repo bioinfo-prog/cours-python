@@ -4,7 +4,7 @@
 
 Une **liste** est une structure de données qui contient une série de valeurs. Python autorise la construction de liste contenant des valeurs de types différents (par exemple entier et chaîne de caractères), ce qui leur confère une grande flexibilité. Une liste est déclarée par une série de valeurs (n'oubliez pas les guillemets, simples ou doubles, s'il s'agit de chaînes de caractères) séparées par des **virgules**, et le tout encadré par des **crochets**. En voici quelques exemples :
 ```
->>> animaux = ['girafe','tigre','singe','souris']
+>>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> tailles = [5, 2.5, 1.75, 0.15]
 >>> mixte = ['girafe', 5, 'souris', 0.15]
 >>> animaux
@@ -20,7 +20,7 @@ Lorsque l'on affiche une liste, Python la restitue telle qu'elle a été saisie.
 
 ## Utilisation
 
-Un des gros avantages d'une liste est que vous pouvez appeler ses éléments par leur position. Ce numéro est appelé **indice** (ou index) de la liste.
+Un des gros avantages d'une liste est que vous pouvez appeler ses éléments par leur position. Ce numéro est appelé **indice** (ou *index*) de la liste.
 ```
 liste  : ['girafe', 'tigre', 'singe', 'souris']
 indice :        0        1        2         3
@@ -51,8 +51,8 @@ N'oubliez pas ceci ou vous risquez d'obtenir des bugs inattendus !
 
 Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de concaténation, ainsi que l'opérateur `*` pour la duplication :
 ```
->>> ani1 = ['girafe','tigre']
->>> ani2 = ['singe','souris']
+>>> ani1 = ['girafe', 'tigre']
+>>> ani2 = ['singe', 'souris']
 >>> ani1 + ani2
 ['girafe', 'tigre', 'singe', 'souris']
 >>> ani1 * 3
@@ -190,13 +190,13 @@ La commande `list(range(10))` a généré une liste contenant tous les nombres e
 
 Dans l'exemple ci-dessus, la fonction `range()` a pris un argument, mais elle peut également prendre deux ou trois arguments, voyez plutôt :
 ```
->>> list(range(0,5))
+>>> list(range(0, 5))
 [0, 1, 2, 3, 4]
->>> list(range(15,20))
+>>> list(range(15, 20))
 [15, 16, 17, 18, 19]
->>> list(range(0,1000,200))
+>>> list(range(0, 1000, 200))
 [0, 200, 400, 600, 800]
->>> list(range(2,-2,-1))
+>>> list(range(2, -2, -1))
 [2, 1, 0, -1]
 ```
 
@@ -275,4 +275,4 @@ Affichez la table de multiplication par 9 en une seule commande avec les instruc
 
 ### Nombres pairs
 
-Répondez à la question suivante en une seule commande. Combien y a-t-il de nombres pairs dans l'intervalle [2 , 10000] inclus ?
+Répondez à la question suivante en une seule commande. Combien y a-t-il de nombres pairs dans l'intervalle `[2, 10000]` inclus ?

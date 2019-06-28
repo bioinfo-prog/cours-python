@@ -22,8 +22,8 @@ Il y a plusieurs remarques à faire concernant ces deux exemples :
 - Dans le premier exemple, le test étant vrai, l'instruction
     `print("Le test est vrai !")`
     est exécutée. Dans le second exemple, le test est faux et rien n'est affiché.
-- Les blocs d'instruction dans les tests doivent forcément être indentés comme pour les boucles `for` et `while`.  L'indentation indique la portée des instructions à exécuter si le test est vrai.
-- Et comme avec les boucles `for` et `while`, la ligne qui contient l'instruction `if` se termine par le caractère deux-points « `:`».
+- Les blocs d'instructions dans les tests doivent forcément être indentés comme pour les boucles `for` et `while`.  L'indentation indique la portée des instructions à exécuter si le test est vrai.
+- Comme avec les boucles `for` et `while`, la ligne qui contient l'instruction `if` se termine par le caractère deux-points « `:`».
 
 
 ## Tests à plusieurs cas
@@ -101,7 +101,7 @@ car la variable nb vaut 5
 car la variable nb vaut 6
 ```
 
-Les deux codes pourtant très similaires produisent des résultats très différents. Si vous observez avec attention l'indentation des instructions sur la ligne 5, vous remarquerez que dans le code 1, l'instruction est indentée deux fois, ce qui signifie qu'elle appartient au bloc d'instructions du test `if`. Dans le code 2, l'instruction de la ligne 5 n'est indentée qu'une seule fois, ce qui fait qu'elle appartient au bloc d'instructions de la boucle `for`, d'où l'affichage de `car la variable nb vaut xx` pour toutes les valeurs de `nb`.
+Les deux codes pourtant très similaires produisent des résultats très différents. Si vous observez avec attention l'indentation des instructions sur la ligne 5, vous remarquerez que dans le code 1, l'instruction est indentée deux fois, ce qui signifie qu'elle appartient au bloc d'instructions du test `if`. Dans le code 2, l'instruction de la ligne 5 n'est indentée qu'une seule fois, ce qui fait qu'elle n'appartient plus au bloc d'instructions du test `if`, d'où l'affichage de `car la variable nb vaut xx` pour toutes les valeurs de `nb`.
 
 
 ## Tests multiples
@@ -208,7 +208,7 @@ False
 0.2999999999999998
 ```
 
-Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False` ligne 2.
+Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False` en ligne 2.
 
 En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont un ordinateur traite les nombres flottants (comme un rapport de nombres binaires). Ainsi certaines valeurs de *float* ne peuvent être qu'approchées. Une manière de s'en rendre compte est d'utiliser l'écriture formatée en demandant l'affichage d'un grand nombre de décimales :
 
@@ -346,11 +346,11 @@ Par exemples, les angles phi et psi d'une conformation en « hélice alpha » pa
 
 Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles phi et psi de 15 acides aminés de la protéine [1TFE](https://www.rcsb.org/structure/1TFE) :
 ```
-[[48.6,53.4],[-124.9,156.7],[-66.2,-30.8], \
-[-58.8,-43.1],[-73.9,-40.6],[-53.7,-37.5], \
-[-80.6,-26.0],[-68.5,135.0],[-64.9,-23.5], \
-[-66.9,-45.5],[-69.6,-41.0],[-62.7,-37.5], \
-[-68.2,-38.3],[-61.2,-49.1],[-59.7,-41.1]]
+[[48.6, 53.4],[-124.9, 156.7],[-66.2, -30.8], \
+[-58.8, -43.1],[-73.9, -40.6],[-53.7, -37.5], \
+[-80.6, -26.0],[-68.5, 135.0],[-64.9, -23.5], \
+[-66.9, -45.5],[-69.6, -41.0],[-62.7, -37.5], \
+[-68.2, -38.3],[-61.2, -49.1],[-59.7, -41.1]]
 ```
 
 Pour le premier acide aminé, l'angle phi vaut *48.6* et l'angle psi *53.4*. Pour le deuxième, l'angle phi vaut *-124.9* et l'angle psi *156.7*, etc.

@@ -8,7 +8,7 @@ En programmation, on est souvent amené à répéter plusieurs fois une instruct
 
 Imaginez par exemple que vous souhaitiez afficher les éléments d'une liste les uns après les autres. Dans l'état actuel de vos connaissances, il faudrait taper quelque chose du style :
 ```
-animaux = ['girafe','tigre','singe','souris']
+animaux = ['girafe', 'tigre', 'singe', 'souris']
 print(animaux[0])
 print(animaux[1])
 print(animaux[2])
@@ -17,7 +17,7 @@ print(animaux[3])
 
 Si votre liste ne contient que 4 éléments, ceci est encore faisable mais imaginez qu'elle en contienne 100 voire 1000 ! Pour remédier à cela, il faut utiliser les boucles. Regardez l'exemple suivant :
 ```
->>> animaux = ['girafe','tigre','singe','souris']
+>>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for animal in animaux:
 ...     print(animal)
 ...
@@ -70,7 +70,7 @@ IndentationError: expected an indented block
 
 Dans les exemples ci-dessus, nous avons exécuté une boucle en itérant directement sur une liste. Une tranche d'une liste étant elle même une liste, on peut également itérer dessus :
 ```
->>> animaux = ['girafe','tigre','singe','souris']
+>>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for animal in animaux[1:3]:
 ...     print(animal)
 ...
@@ -80,7 +80,7 @@ singe
 
 On a vu que les boucles `for` pouvaient utiliser une liste contenant des chaînes de caractères, mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou n'importe quel type de variable).
 ```
->>> for i in [1,2,3]:
+>>> for i in [1, 2, 3]:
 ...     print(i)
 ...
 1
@@ -103,11 +103,7 @@ Python possède la fonction `range()` que nous avons rencontrée précédemment 
 ```
 Dans cet exemple, nous pouvons faire plusieurs remarques importantes :
 
-Contrairement à la création de liste avec `list(range(4))`, la fonction `range()` peut être utilisée telle quelle dans une boucle. Il n'est pas nécessaire de taper
-
-`for i in list(range(4)):`
-
-même si cela fonctionnerait également.
+Contrairement à la création de liste avec `list(range(4))`, la fonction `range()` peut être utilisée telle quelle dans une boucle. Il n'est pas nécessaire de taper `for i in list(range(4)):` même si cela fonctionnerait également.
 
 Comment cela est-ce possible ? Et bien `range()` est une fonction qui a été spécialement conçue pour [cela](https://docs.python.org/fr/3/library/stdtypes.html#typesseq-range), c'est-à-dire que l'on peut itérer directement dessus. Pour Python, il s'agit d'un nouveau type, par exemple dans l'instruction `x = range(3)` la variable `x` est de type *range* (tout comme on avait les types *int*, *float*, *str* ou *list*) à utiliser spécialement avec les boucles.
 
@@ -141,7 +137,7 @@ La variable `i` prendra les valeurs successives 0, 1, 2 et 3 et on accèdera à 
 
 Quand utiliser l'une ou l'autre des 2 méthodes ? La plus efficace est celle qui réalise **les itérations directement sur les éléments** :
 ```
->>> animaux = ['girafe','tigre','singe','souris']
+>>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for animal in animaux:
 ...     print(animal)
 ...
@@ -152,7 +148,7 @@ souris
 ```
 Toutefois, il se peut qu'au cours d'une boucle vous ayez besoin des indices, auquel cas vous devrez itérer sur les indices :
 ```
->>> animaux = ['girafe','tigre','singe','souris']
+>>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for i in range(len(animaux)):
 ...     print("L'animal {} est un(e) {}".format(i, animaux[i]))
 ...
@@ -245,9 +241,9 @@ Remarquez qu'il est encore une fois nécessaire d'indenter le bloc d'instruction
 
 Une boucle `while` nécessite généralement **trois éléments** pour fonctionner correctement :
 
-1. Initialisation de la variable de test avant la boucle (ligne 1).
-2. Test de la variable associée à l'instruction `while` (ligne 2).
-3. Mise à jour de la variable de test dans le corps de la boucle (ligne 4).
+1. Initialisation de la variable d'itération avant la boucle (ligne 1).
+2. Test de la variable d'itération associée à l'instruction `while` (ligne 2).
+3. Mise à jour de la variable d'itération dans le corps de la boucle (ligne 4).
 
 Faites bien attention aux tests et à l'incrémentation que vous utilisez car une erreur mène souvent à des « boucles infinies » qui ne s'arrêtent jamais. Vous pouvez néanmoins toujours stopper l'exécution d'un script Python à l'aide de la combinaison de touches *Ctrl-C* (c'est-à-dire en pressant simultanément les touches *Ctrl* et *C*). Par exemple :
 ```
@@ -282,7 +278,7 @@ La fonction `input()` prend en argument un message (sous la forme d'une chaîne 
 
 ### Boucles de base
 
-Soit la liste `['vache','souris','levure','bacterie']`. Affichez l'ensemble des éléments de cette liste (un élément par ligne) de trois manières différentes (deux avec `for` et une avec `while`).
+Soit la liste `['vache', 'souris', 'levure', 'bacterie']`. Affichez l'ensemble des éléments de cette liste (un élément par ligne) de trois manières différentes (deux avec `for` et une avec `while`).
 
 
 ### Boucle et jours de la semaine

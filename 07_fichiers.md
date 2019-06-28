@@ -2,7 +2,9 @@
 
 ## Lecture dans un fichier
 
-Une grande partie de l'information en biologie est stockée sous forme de fichiers. Pour traiter cette information, vous devez le plus souvent lire ou écrire dans un ou plusieurs fichiers. Python possède pour cela de nombreux outils qui vous simplifient la vie.
+Une grande partie de l'information en biologie est stockée sous forme de texte dans des fichiers. Pour traiter cette information, vous devez le plus souvent lire ou écrire dans un ou plusieurs fichiers. Python possède pour cela de nombreux outils qui vous simplifient la vie.
+
+### Méthode `.readlines()`
 
 Avant de passer à un exemple concret, créez un fichier dans un éditeur de texte que vous enregistrerez dans votre répertoire courant avec le nom `zoo.txt` et le contenu suivant :
 ```
@@ -105,7 +107,7 @@ Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fich
 
 ### Méthode `.readline()`
 
-La méthode `.readline()` (sans `s` à la fin) lit une ligne d'un fichier et la renvoie sous forme d'une chaîne de caractères. À chaque nouvel appel de `.readline()`, la ligne suivante est renvoyée. Associée à la boucle `while`, cette méthode permet de lire un fichier ligne par ligne.
+La méthode `.readline()` (sans `s` à la fin) lit une ligne d'un fichier et la renvoie sous forme de chaîne de caractères. À chaque nouvel appel de `.readline()`, la ligne suivante est renvoyée. Associée à la boucle `while`, cette méthode permet de lire un fichier ligne par ligne.
 
 ```
 >>> with open("zoo.txt", "r") as filin:
@@ -148,7 +150,7 @@ souris
 ```
 
 
-La boucle `for` va demander à Python d'aller lire le fichier ligne par ligne. Privilégiez cette méthode par la suite.
+L'objet `filin` est « itérable », ainsi la boucle `for` va demander à Python d'aller lire le fichier ligne par ligne. Privilégiez cette méthode par la suite.
 
 open-box-rem
 
@@ -173,7 +175,7 @@ close-box-rem
 
 Quelques commentaires sur cet exemple :
 
-Ligne 1. Création de liste de chaînes de caractères `animaux2`.
+Ligne 1. Création d'une liste de chaînes de caractères `animaux2`.
 
 Ligne 2. Ouverture du fichier `zoo2.txt` en mode écriture, avec le caractère `w` pour *write*. L'instruction `with` crée un bloc d'instructions qui doit être indenté.
 
@@ -253,7 +255,7 @@ On a vu plus haut que le caractère spécial `\n` correspondait à un retour à 
 
 Toutefois, Windows utilise deux caractères spéciaux pour le retour à la ligne : `\r` correspondant à un retour chariot (hérité des machines à écrire) et `\n` comme sous Unix.
 
-Si vous avez commencé à programmer en Python 2, vous aurez peut-être remarqué que selon les versions, la lecture de fichier supprimait parfois les `\r` et d'autres fois les laissait. Heureusement, la fonction [`open()` dans Python 3](https://docs.python.org/fr/3/library/functions.html#open) gère tout ça automatiquement et renvoie uniquement des sauts de ligne sous forme de `\n` (même si le fichier a été conçu sous Windows et qu'il contient initialement des `\r`).
+Si vous avez commencé à programmer en Python 2, vous aurez peut-être remarqué que selon les versions, la lecture de fichier supprimait parfois les `\r` et d'autres fois les laissait. Heureusement, la fonction [`open()` dans Python 3](https://docs.python.org/fr/3/library/functions.html#open) gère tout ça automatiquement et renvoie uniquement des sauts de ligne sous forme d'un seul `\n` (même si le fichier a été conçu sous Windows et qu'il contient initialement des `\r`).
 
 
 ## Importance des conversions de types avec les fichiers
@@ -262,7 +264,7 @@ Vous avez sans doute remarqué que les méthodes qui lisent un fichier (par exem
 
 Pour tenir compte de ces contraintes, il faudra utiliser les fonctions de conversions de types vues au chapitre 2 *Variables* : `int()`, `float()` et `str()`. Ces fonctions de conversion sont essentielles lorsqu'on lit ou écrit des nombres dans un fichier.
 
-En particulier, les nombres dans un fichier sont considérés comme du texte, donc comme des chaînes de caractères, par la méthode `.readlines()`. Par conséquent, il faut les convertir (en entier ou en *float*) si on veut effectuer des opérations numériques avec.
+En effet, les nombres dans un fichier sont considérés comme du texte, donc comme des chaînes de caractères, par la méthode `.readlines()`. Par conséquent, il faut les convertir (en entier ou en *float*) si on veut effectuer des opérations numériques avec.
 
 
 ## Du respect des formats de données et de fichiers
@@ -279,7 +281,7 @@ Maintenant que vous savez lire et écrire des fichiers en Python, vous êtes cap
 
 Le fichier [`notes.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
 
-Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
+Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas à l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
 
 Créez un script Python qui lit chaque ligne de ce fichier, extrait les notes sous forme de *float* et les stocke dans une liste.
 
@@ -304,7 +306,7 @@ Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une not
 
 ### Spirale (exercice +++)
 
-Créez un script `spirale.py` qui calcule les coordonnées cartésiennes d'une spirale.
+Créez un script `spirale.py` qui calcule les coordonnées cartésiennes d'une spirale à deux dimensions.
 
 Les coordonnées cartésiennes $x_A$ et $y_A$ d'un point $A$ sur un cercle de rayon $r$ s'expriment en fonction de l'angle $\theta$ représenté sur la figure @fig:spirale comme :
 
@@ -316,19 +318,19 @@ $$ y_A = \sin(\theta) \times r$$
 
 Pour calculer les coordonnées cartésiennes qui décrivent la spirale, vous allez faire varier deux variables en même temps :
 
-- l'angle $\theta$, qui va prendre des valeurs de 0 à $4\pi$ par pas de 0.1, ce qui correspond à deux tours complets ;
+- l'angle $\theta$, qui va prendre des valeurs de 0 à $4\pi$ radians par pas de 0.1, ce qui correspond à deux tours complets ;
 - le rayon du cercle $r$, qui va prendre comme valeur initiale 0.5 puis que vous allez incrémenter (c'est-à-dire augmenter) par pas de 0.1.
 
 Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module *math* que vous découvrirez plus en détails dans le chapitre 8 *Modules*. Pour les utiliser, vous ajouterez au début de votre script l'instruction :
 
 `import math`
 
-la fonction sinus sera `math.sin()` et la fonction cosinus `math.cos()`. Ces deux fonctions prennent comme argument une valeur d'angle en radian. La constante mathématique $\pi$ sera également accessible grâce à ce module via `math.pi`.
+La fonction sinus sera `math.sin()` et la fonction cosinus `math.cos()`. Ces deux fonctions prennent comme argument une valeur d'angle en radian. La constante mathématique $\pi$ sera également accessible grâce à ce module via `math.pi`.
 
 Sauvegardez ensuite les coordonnées cartésiennes dans le fichier `spirale.dat` en respectant le format suivant :
 
 - un couple de coordonnées ($x_A$ et $y_A$) par ligne ;
-- un espace entre les deux coordonnées $x_A$ et $y_A$ ;
+- au moins un espace entre les deux coordonnées $x_A$ et $y_A$ ;
 - les coordonnées affichées sur 10 caractères avec 5 chiffres après la virgule.
 
 Les premières lignes de `spirale.dat` devrait ressembler à :
@@ -372,4 +374,4 @@ Le module *matplotlib* est utilisé ici pour la visualisation de la spirale. Son
 
 close-box-rem
 
-Essayez de jouer sur les paramètres $\theta$ et $r$, et leurs pas d'incrémentation, pour construire de nouvelles spirales.
+Essayez de jouer sur les paramètres $\theta$ et $r$, et leur pas d'incrémentation, pour construire de nouvelles spirales.

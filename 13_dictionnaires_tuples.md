@@ -37,7 +37,7 @@ Pour récupérer la valeur associée à une clé donnée, il suffit d'utiliser l
 
 open-box-rem
 
-Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. Rien n'empêche d'utiliser d'autres types d'objets comme des entiers ou des *floats*, cela peut parfois s'avérer très utile.
+Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. Rien n'empêche d'utiliser d'autres types d'objets comme des entiers (voire même des *tuples*, cf. rubrique suivante), cela peut parfois s'avérer très utile.
 
 Néanmoins, nous vous conseillons, autant que possible, d'utiliser systématiquement des chaînes de caractères pour vos clés de dictionnaire.
 
@@ -76,10 +76,11 @@ dict_values(['singe', 70, 1.75])
 ['singe', 70, 1.75]
 ```
 
+Toutefois, ce sont des objets « itérables », donc utilisables dans une boucle.
 
 ### Existence d'une clé
 
-Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` :
+Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` qui renvoie un booléen :
 ```
 >>> if "poids" in ani2:
 ...     print("La clé 'poids' existe pour ani2")
@@ -111,14 +112,14 @@ girafe
 singe
 ```
 
-Vous constater ainsi que les dictionnaires permettent de gérer des structures complexes de manière plus explicite que les listes.
+Vous constatez ainsi que les dictionnaires permettent de gérer des structures complexes de manière plus explicite que les listes.
 
 
 ## Tuples
 
-Les **tuples** correspondent aux listes à la différence qu'ils sont **non modifiables**. On a vu dans le chapitre 11 *Plus sur les listes* que les listes pouvaient être modifiées par références, notamment lors de la copie de listes. Les tuples s'affranchissent de ce problème puisqu'ils sont non modifiables. Pratiquement, ils utilisent les parenthèses au lieu des crochets :
+Les **tuples** (« n-uplets » en français) correspondent aux listes à la différence qu'ils sont **non modifiables**. On a vu dans le chapitre 11 *Plus sur les listes* que les listes pouvaient être modifiées par références, notamment lors de la copie de listes. Les tuples s'affranchissent de ce problème puisqu'ils sont non modifiables. Pratiquement, ils utilisent les parenthèses au lieu des crochets :
 ```
->>> x = (1,2,3)
+>>> x = (1, 2, 3)
 >>> x
 (1, 2, 3)
 >>> x[2]
@@ -133,7 +134,7 @@ TypeError: object doesn't support item assignment
 
 L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple, Python renvoie un message d'erreur. Si vous voulez ajouter un élément (ou le modifier), vous devez créer un autre tuple :
 ```
->>> x = (1,2,3)
+>>> x = (1, 2, 3)
 >>> x + (2,)
 (1, 2, 3, 2)
 ```
@@ -144,10 +145,10 @@ Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec
 
 Autre particularité des tuples, il est possible d'en créer de nouveaux sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :
 ```
->>> x = (1,2,3)
+>>> x = (1, 2, 3)
 >>> x
 (1, 2, 3)
->>> x = 1,2,3
+>>> x = 1, 2, 3
 >>> x
 (1, 2, 3)
 ```
@@ -252,7 +253,7 @@ Utilisez la fonction `trouve_calpha()` pour afficher à l'écran le nombre total
 
 Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
 
-Un atome de carbone alpha est présent dans chaque résidu (acide aminé) d'une protéine. On peut obtenir une bonne approximation du barycentre d'une protéine en calculant le barycentre de ses carbones alpha.
+Un carbone alpha est présent dans chaque résidu (acide aminé) d'une protéine. On peut obtenir une bonne approximation du barycentre d'une protéine en calculant le barycentre de ses carbones alpha.
 
 Le barycentre $G$ de coordonnées ($G_x$, $G_y$, $G_z$) est obtenu à partir des $n$ carbones alpha (CA) de coordonnées (${\rm CA}_{x}$, ${\rm CA}_{y}$, ${\rm CA}_{z}$) avec :
 

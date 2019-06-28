@@ -9,14 +9,14 @@ Comme pour les chaînes de caractères, les listes possèdent de nombreuses **m�
 
 La méthode `.append()`, que l'on a déjà vu au chapitre 4 *Listes*, ajoute un élément à la fin d'une liste :
 ```
->>> a = [1,2,3]
+>>> a = [1, 2, 3]
 >>> a.append(5)
 >>> a
 [1, 2, 3, 5]
 ```
 qui est équivalent à :
 ```
->>> a = [1,2,3]
+>>> a = [1, 2, 3]
 >>> a = a + [5]
 >>> a
 [1, 2, 3, 5]
@@ -29,7 +29,7 @@ qui est équivalent à :
 
 La méthode `.insert()` insère un objet dans une liste avec un indice déterminé :
 ```
->>> a.insert(2,-15)
+>>> a.insert(2, -15)
 >>> a
 [1, 2, -15, 3, 5]
 ```
@@ -95,9 +95,9 @@ La méthode `.count()` compte le nombre d'éléments (passés en argument) dans 
 ```
 
 
-### Actions sur les listes
+### Particularités des méthodes associées aux listes
 
-De nombreux méthodes ci-dessus (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes.
+De nombreuses méthodes ci-dessus (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes.
 
 Certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
 
@@ -171,7 +171,7 @@ Techniquement, Python utilise des pointeurs (comme dans le langage de programmat
 
 Pour éviter ce problème, il va falloir créer une copie explicite de la liste initiale. Observez cet exemple :
 ```
->>> x = [1,2,3]
+>>> x = [1, 2, 3]
 >>> y = x[:]
 >>> x[1] = -15
 >>> y
@@ -180,20 +180,20 @@ Pour éviter ce problème, il va falloir créer une copie explicite de la liste 
 
 L'instruction `x[:]` a créé une copie « à la volée » de la liste `x`. Vous pouvez utiliser aussi la fonction `list()` qui renvoie explicitement une liste:
 ```
->>> x = [1,2,3]
+>>> x = [1, 2, 3]
 >>> y = list(x)
 >>> x[1] = -15
 >>> y
 [1, 2, 3]
 ```
-Si on regarde à nouveau dans *Python Tutor* (Figure @fig:copy_list2), on voit clairement que l'utilisation des tranches `[:]` ou de la fonction `list()` crée des copies explicites. Chaque flèche pointe vers une liste différente, indépendante des autres.
+Si on regarde à nouveau dans *Python Tutor* (Figure @fig:copy_list2), on voit clairement que l'utilisation d'une tranche `[:]` ou de la fonction `list()` crée des copies explicites. Chaque flèche pointe vers une liste différente, indépendante des autres.
 
 ![Copie de liste avec une tranche `[:]` et la fonction `list()`.](img/copy_list2.png){ #fig:copy_list2 width=80% }
 
 Attention, les deux techniques précédentes ne fonctionnent que pour les listes à une dimension, autrement dit les listes qui ne contiennent pas elles-mêmes d'autres listes. Voyez par exemple :
 
 ```
->>> x = [[1,2],[3,4]]
+>>> x = [[1, 2], [3, 4]]
 >>> x
 [[1, 2], [3, 4]]
 >>> y = x[:]
@@ -217,7 +217,7 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 
 ```
 >>> import copy
->>> x = [[1,2],[3,4]]
+>>> x = [[1, 2], [3, 4]]
 >>> x
 [[1, 2], [3, 4]]
 >>> y = copy.deepcopy(x)
@@ -281,7 +281,7 @@ Trouvez le nombre mystère qui répond aux conditions suivantes :
 - *Deux de ses chiffres sont identiques*.
 - *La somme de ses chiffres est égale à 7*.
 
-On vous propose d'employer une méthode dite « brute force », c'est-à-dire d'utiliser une boucle et à chaque itération de tester les différentes conditions.
+On vous propose d'employer une méthode dite « *brute force* », c'est-à-dire d'utiliser une boucle et à chaque itération de tester les différentes conditions.
 
 
 ### Triangle de Pascal (exercice +++)

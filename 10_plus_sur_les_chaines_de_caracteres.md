@@ -38,7 +38,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
 ```
-Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez en construire une nouvelle. Pour cela, n'oubliez pas que les opérateurs de concaténation (`+`) et de duplication (`*`) (introduits dans le chapitre 2 *Variables*) peuvent vous aider. Vous pouvez également générer une liste, qui elle est modifiable, puis revenir à une chaîne de caractères.
+Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez en construire une nouvelle. Pour cela, n'oubliez pas que les opérateurs de concaténation (`+`) et de duplication (`*`) (introduits dans le chapitre 2 *Variables*) peuvent vous aider. Vous pouvez également générer une liste, qui elle est modifiable, puis revenir à une chaîne de caractères (cf. plus bas).
 
 
 ## Caractères spéciaux
@@ -217,7 +217,7 @@ On considère par exemple la chaîne de caractères `val` :
 
 On souhaite extraire les valeurs `3.4` et `17.2` pour ensuite les additionner.
 
-Dans un premier temps, on découpe la chaîne de caractères avec l'instruction `.split()` :
+Dans un premier temps, on découpe la chaîne de caractères avec la méthode `.split()` :
 ```
 >>> val2 = val.split()
 >>> val2
@@ -292,7 +292,7 @@ split(...)
     whitespace string is a separator.
 (END)
 ```
-Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L'instruction correcte est `help(animaux.split)` et pas `help(animaux.split())`.
+Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L'instruction correcte est `help(animaux.split)` et non pas `help(animaux.split())`.
 
 
 ## Exercices
@@ -307,7 +307,7 @@ Soit la liste `['girafe', 'tigre', 'singe', 'souris']`. Avec une boucle, affiche
 
 ### Lecture d'une séquence à partir d'un fichier FASTA
 
-Le fichier [UBI4_SCerevisiae.fasta](https://python.sdv.univ-paris-diderot.fr/data-files/UBI4_SCerevisiae.fasta) contient une séquence d'ADN au format FASTA.
+Le fichier [`UBI4_SCerevisiae.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/UBI4_SCerevisiae.fasta) contient une séquence d'ADN au format FASTA.
 
 Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier FASTA sous la forme d'une chaîne de caractères, lit la séquence dans le fichier FASTA et la renvoie sous la forme d'une chaîne de caractères.
 
@@ -389,16 +389,16 @@ puis entre les séquences
 
 ### Palindrome
 
-Un palindrome est un mot ou une phrase dont l'ordre des lettres reste le même si on le lit de gauche à droite ou de droite à gauche. Par exemple, « ressasser » et « Engage le jeu que je le gagne » sont des palindromes.
+Un palindrome est un mot ou une phrase dont l'ordre des lettres reste le même si on le lit de gauche à droite ou de droite à gauche. Par exemple, « ressasser » et « engage le jeu que je le gagne » sont des palindromes.
 
 Créez la fonction `test_palindrome()` qui prend en argument une chaîne de caractères et qui affiche `xxx est un palindrome` si la chaîne de caractères `xxx` passée en argument est un palindrome ou `xxx n'est pas un palindrome` sinon. Pensez à vous débarrasser au préalable des majuscules et des espaces.
 
 Testez ensuite si les expressions suivantes sont des palindromes :
 
-- Radar
-- Never odd or even
-- Karine alla en Iran
-- Un roc si biscornu
+- `radar`
+- `never odd or even`
+- `karine alla en Iran`
+- `un roc si biscornu`
 
 
 ### Mot composable
@@ -436,7 +436,7 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 
 ### Lecture d'une séquence à partir d'un fichier GenBank (exercice +++)
 
-On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk).
+On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [`NC_001133.gbk`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk).
 
 Le format GenBank est présenté en détails dans l'annexe A *Quelques formats de données rencontrés en biologie*. Pour cet exercice, vous devez savoir que la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par les caractères `//` :
 
@@ -474,8 +474,8 @@ Lire toutes les lignes du fichier:
 	si la ligne contient //:
 	    drapeau <- Faux
 	si drapeau est Vrai:
-	    on ajoute à seq la ligne (sans espaces, chiffres et retour à la ligne)
-	si la ligne contient ORIGIN
+	    on ajoute à seq la ligne (sans espace, chiffre et retour à la ligne)
+	si la ligne contient ORIGIN:
 	    drapeau <- Vrai
 ```
 

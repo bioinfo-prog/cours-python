@@ -15,15 +15,15 @@ def polynome(x):
 
 def calc_vals(debut, fin):
     liste_vals = []
-    for x in range(debut,fin + 1):
+    for x in range(debut, fin + 1):
         liste_vals.append(polynome(x))
     return liste_vals
 
 # programme principal
-print(calc_vals(-5,5))
+print(calc_vals(-5, 5))
 ```
 
-Nous appelons depuis le programme principal la fonction `calc_vals()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `polynome()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `polynome()` est exécutée (Figure @fig:appel_fct_ds_fct) :
+Nous appelons depuis le programme principal la fonction `calc_vals()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `polynome()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `polynome()` est exécutée dans la Figure @fig:appel_fct_ds_fct.
 
 ![Appel d'une fonction dans une fonction.](img/appel_fct_ds_fct.png){ #fig:appel_fct_ds_fct width=90% }
 
@@ -39,7 +39,7 @@ Ainsi, le programmeur est libre de faire tous les appels qu'il souhaite. Une fon
 
 Une fonction récursive est une fonction qui s'appelle elle-même. Les fonctions récursives permettent d'obtenir une efficacité redoutable dans la résolution de certains algorithmes comme le [tri rapide](https://fr.wikipedia.org/wiki/Tri_rapide) (en anglais *quicksort*).
 
-Oublions la recherche d'efficacité pour l'instant et concentrons-nous sur l'exemple de la fonction mathématique factorielle. Nous vous rappelons que factorielle s'écrit avec `!` et produit les résultats suivants:
+Oublions la recherche d'efficacité pour l'instant et concentrons-nous sur l'exemple de la fonction mathématique factorielle. Nous vous rappelons que la factorielle s'écrit avec un `!` et se définit de la manière suivante :
 $$
 \begin{split}
 3! = & 3 \times 2 \times 1 = 6 \\
@@ -48,7 +48,7 @@ n! = & n \times n - 1 \times \ldots \times 2 \times 1
 \end{split}
 $$
 
-Si nous essayons de coder cette fonction mathématique en Python, voici ce que nous pourrions écrire :
+Voici le code Python avec une fonction récursive :
 
 ```
 def calc_factorielle(nb):
@@ -61,7 +61,7 @@ def calc_factorielle(nb):
 print(calc_factorielle(4))
 ```
 
-Pas très facile à comprendre, n'est-ce pas ? À nouveau, demandons l'aide à *Python Tutor* pour visualiser ce qui se passe (nous vous conseillons bien sûr de tester vous-même cet exemple) :
+Pas très facile à comprendre, n'est-ce pas ? À nouveau, nous nous aidons de *Python Tutor* pour visualiser ce qui se passe (nous vous conseillons bien sûr de tester vous-même cet exemple qui est décrit dans la figure @fig:fct-recursive-factorielle) :
 
 ![Fonction récursive : factorielle.](img/fct_recursive_factorielle.png){ #fig:fct-recursive-factorielle width=90% }
 
@@ -72,7 +72,7 @@ Même si les fonctions récursives peuvent être ardues à comprendre, notre pro
 
 ## Portée des variables
 
-Il est très important, lorsque l'on manipule des fonctions, de connaître la portée des variables. On a vu que les variables créées au sein d'une fonction ne sont pas visibles à l'extérieur de celle-ci car elles étaient **locales** à la fonction. Observez le code suivant :
+Il est très important lorsque l'on manipule des fonctions de connaître la portée des variables (*scope* en anglais), c'est-à-dire savoir là où elles sont visibles. On a vu que les variables créées au sein d'une fonction ne sont pas visibles à l'extérieur de celle-ci car elles étaient **locales** à la fonction. Observez le code suivant :
 ```
 >>> def ma_fonction():
 ...     x = 2
@@ -100,7 +100,7 @@ Traceback (most recent call last):
 NameError: name 'x' is not defined
 ```
 
-Lorsqu'une variable est déclarée à la racine du module (c'est aussi comme cela que l'on appelle un programme Python), elle est visible dans tout le module. On a vu qu'on parlait de variable **globale** :
+Lorsqu'une variable est déclarée dans le programme principal, elle est visible dans celui-ci ainsi que dans toutes les fonctions. On a vu qu'on parlait de variable **globale** :
 ```
 >>> def ma_fonction():
 ...     print(x)
@@ -167,14 +167,14 @@ De même, si vous passez une liste en argument, elle est modifiable au sein de l
 >>> y
 [1, -15, 3]
 ```
-Si vous voulez éviter ce problème, utilisez des tuples (ils seront présentés dans le chapitre 13 *Dictionnaires et tuples*), Python renverra une erreur puisque ces derniers sont non modifiables.
+Si vous voulez éviter ce problème, utilisez des tuples (ils seront présentés dans le chapitre 13 *Dictionnaires et tuples*), Python renverra une erreur car ces derniers sont non modifiables.
 
 Une autre solution pour éviter la modification d'une liste, lorsqu'elle est passée comme argument à une fonction, est de la passer explicitement (comme nous l'avons fait pour la copie de liste) afin qu'elle reste intacte dans le programme principal.
 ```
 >>> def ma_fonction(x):
 ...     x[1] = -15
 ...
->>> y = [1,2,3]
+>>> y = [1, 2, 3]
 >>> ma_fonction(y[:])
 >>> y
 [1, 2, 3]
@@ -207,7 +207,7 @@ Même si Python peut reconnaître une variable ayant le même nom que ses propre
 
 close-box-adv
 
-De manière générale la règle LGI découle de la manière dont Python gère ce que l'on appelle « les espaces de noms ». Nous en parlerons plus longuement dans le chapitre 19 *Avoir la classe avec les objets*.
+De manière générale la règle LGI découle de la manière dont Python gère ce que l'on appelle « les espaces de noms ». C'est cette gestion qui définit la portée (visibilité) de chaque variable. Nous en parlerons plus longuement dans le chapitre 19 *Avoir la classe avec les objets*.
 
 
 ## Recommandations
@@ -219,6 +219,37 @@ Parfois on veut faire vite et on crée une variable globale visible partout dans
 Heureusement, Python est orienté objet et permet « d'encapsuler » des variables dans des objets et de s'affranchir définitivement des variables globales (nous verrons cela dans le chapitre 19 *Avoir la classe avec les objets*). En attendant, et si vous ne souhaitez pas aller plus loin sur les notions d'objet (on peut tout à fait « pythonner » sans cela), retenez la chose suivante sur les fonctions et les variables globales :
 
 **Plutôt que d'utiliser des variables globales, passez vos variables explicitement aux fonctions comme des argument(s)**.
+
+Concernant les fonctions qui modifient une liste, nous vous conseillons de l'indiquer clairement dans votre code, par exemple :
+
+```
+def ajoute_un(liste):
+    for i in range(len(liste)):
+        liste[i] += 1
+        return liste
+
+# Programme principal.
+liste_notes = [10, 8, 16, 7, 15]
+liste_notes = ajoute_un(liste_notes)
+print(liste_notes)
+```
+
+La ligne 8 indique clairement que la liste `liste_notes` passée à la fonction est écrasée par la liste renvoyée par la fonction. 
+
+Le code suivant produirait la même sortie :
+
+```
+def ajoute_un(liste):
+    for i in range(len(liste)):
+        liste[i] += 1
+
+# Programme principal.
+liste_notes = [10, 8, 16, 7, 15]
+ajoute_un(liste_notes)
+print(liste_notes)
+```
+
+Cela reste moins intuitif car il n'est pas forcément évident de comprendre que la liste est modifiée dans la fonction en lisant la ligne 8. Dans un tel cas, il serait essentiel d'indiquer dans la documentation de la fonction que la liste est modifiée « sur place » dans la fonction (on dit en anglais *the list is modified in place*). Vous verrez dans le chapitre 14 *Création de modules* comment documenter vos fonctions.
 
 Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué en introduction du chapitre 9, elles sont incontournables et tout programmeur se doit de les maîtriser. Voici les derniers conseils que nous pouvons vous donnez :
 

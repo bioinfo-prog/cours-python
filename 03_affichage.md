@@ -41,16 +41,16 @@ Il est également possible d'afficher le contenu de plusieurs variables (quel qu
 ```
 >>> x = 32
 >>> nom = "John"
->>> print(nom , "a" , x , "ans")
+>>> print(nom, "a", x, "ans")
 John a 32 ans
 ```
 Python a écrit une phrase complète en remplaçant les variables `x` et `nom` par leur contenu. Vous remarquerez que pour afficher plusieurs éléments de texte sur une seule ligne, nous avons utilisé le séparateur « `,` » entre les différents éléments. Python a également ajouté un espace à chaque fois que l'on utilisait le séparateur « `,` ». On peut modifier ce comportement en passant à la fonction `print()` l'argument par mot-clé `sep` :
 ```
 >>> x = 32
 >>> nom = "John"
->>> print(nom , "a" , x , "ans", sep="")
+>>> print(nom, "a", x, "ans", sep="")
 Johna32ans
->>> print(nom , "a" , x , "ans", sep="-")
+>>> print(nom, "a", x, "ans", sep="-")
 John-a-32-ans
 ```
 
@@ -76,7 +76,7 @@ Si on reprend l'exemple précédent :
 >>> x = 32
 >>> nom = "John"
 >>> print("{} a {} ans".format(nom, x))
-John  a  32  ans
+John a 32 ans
 ```
 - Dans la chaîne de caractères, les accolades vides `{}` précisent l'endroit où le contenu de la variable doit être inséré.
 - Juste après la chaîne de caractères, l'instruction `.format(nom, x)` fournie la liste des variables à insérer, d'abord la variable `nom` puis la variable `x`. La méthode `.format()` agit sur la chaîne de caractères à laquelle elle est attachée par le point.
@@ -174,7 +174,7 @@ Enfin, il est possible de préciser sur combien de caractères vous voulez qu'un
 
 Notez que `>` spécifie un alignement à droite, `<` spécifie un alignement à gauche et `^` spécifie un alignement centré. Il est également possible d'indiquer le caractère qui servira de remplissage lors des alignements (l'espace est le caractère par défaut).
 
-Ce formatage est également possible sur des chaînes de caractères, notées `s` (comme *string*) :
+Ce formatage est également possible sur des chaînes de caractères avec la lettre `s` (comme *string*) :
 ```
 >>> print("atom HN") ; print("atom HDE1")
 atom HN

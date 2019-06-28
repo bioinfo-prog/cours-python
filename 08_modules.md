@@ -4,7 +4,7 @@
 
 Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à réutiliser souvent (on les appelle aussi bibliothèques ou *libraries*). Ce sont des « boîtes à outils » qui vont vous être très utiles.
 
-Les développeurs de Python ont mis au point de nombreux modules qui effectuent une quantité phénoménale de tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe déjà pas sous forme de module.
+Les développeurs de Python ont mis au point de nombreux modules qui effectuent une quantité phénoménale de tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module.
 
 La plupart de ces modules sont déjà installés dans les versions standards de Python. Vous pouvez accéder à une [documentation exhaustive](https://docs.python.org/3/py-modindex.html) sur le site de Python. N'hésitez pas à explorer un peu ce site, la quantité de modules disponibles est impressionnante (plus de 300).
 
@@ -42,13 +42,9 @@ Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` 
 - elle était liée à un objet par un point ;
 - en général, elle agissait sur ou utilisait l'objet auquel elle était liée.
 
-Par exemple, la méthode `.format()` dans l'instruction
+Par exemple, la méthode `.format()` dans l'instruction `"{}".format(3.14)` utilise l'objet chaîne de caractères `"{}"` (auquel elle est liée) pour finalement renvoyer une autre chaîne de caractères `"3.14"`.
 
-`"{}".format(3.14)`
-
-utilise l'objet chaîne de caractères `"{}"` (auquel elle est liée) pour finalement renvoyer une autre chaîne de caractères `"3.14"`.
-
-Avec les modules, nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode. En fait la [documentation officielle de Python](https://docs.python.org/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Dans cet ouvrage, nous utiliserons systématiquement le mot **fonction** lorsqu'on évoquera des fonctions issues de modules.
+Avec les modules, nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode. En fait la [documentation officielle de Python](https://docs.python.org/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Dans cet ouvrage, nous utiliserons ainsi le mot **fonction** lorsqu'on évoquera des fonctions issues de modules.
 
 Si cela vous parait encore ardu, ne vous inquiétez pas, c'est à force de pratiquer et de lire que vous vous approprierez le vocabulaire. Ici, la syntaxe `module.fonction()` est là pour rappeler de quel module provient la fonction en un coup d’œil !
 
@@ -61,7 +57,7 @@ Il existe un autre moyen d'importer une ou plusieurs fonctions d'un module :
 7
 ```
 
-À l'aide du mot-clé `from`, on peut importer une fonction spécifique d'un module donné. Remarquez que dans ce cas, il est inutile de répéter le nom du module, seul le nom de la fonction en question est requis.
+À l'aide du mot-clé `from`, on peut importer une fonction spécifique d'un module donné. Remarquez bien qu'il est inutile de répéter le nom du module dans ce cas, seul le nom de la fonction en question est requis.
 
 On peut également importer toutes les fonctions d'un module :
 ```
@@ -84,7 +80,7 @@ Dans la pratique, plutôt que de charger toutes les fonctions d'un module en une
 ```
 from random import *
 ```
-nous vous conseillons de charger le module seul :
+nous vous conseillons de charger le module seul de la manière suivante :
 ```
 import random
 ```
@@ -124,7 +120,7 @@ Pour obtenir de l'aide sur un module rien de plus simple, il suffit d'utiliser l
 ```
 >>> import random
 >>> help(random)
-...
+[...]
 ```
 
 Ce qui renvoie quelque chose du type :
@@ -205,13 +201,13 @@ etrandbits', 'getstate', 'jumpahead', 'lognormvariate', 'normalvariate',
 Il existe une série de modules que vous serez probablement amenés à utiliser si vous programmez en Python. En voici une liste non exhaustive. Pour la liste complète, reportez-vous à [la page des modules](https://docs.python.org/fr/3/py-modindex.html) sur le site de Python :
 
 - [*math*](https://docs.python.org/fr/3/library/math.html#module-math) : fonctions et constantes mathématiques de base (sin, cos, exp, pi...).
-- [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) : interaction avec l'interpréteur Python, passage d'arguments.
-- [*os*](https://docs.python.org/fr/3/library/os.html#module-os) : dialogue avec le système d'exploitation.
+- [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) : interaction avec l'interpréteur Python, passage d'arguments (cf. plus bas).
+- [*os*](https://docs.python.org/fr/3/library/os.html#module-os) : dialogue avec le système d'exploitation (cf. plus bas).
 - [*random*](https://docs.python.org/fr/3/library/random.html#module-random) : génération de nombres aléatoires.
 - [*time*](https://docs.python.org/fr/3/library/time.html#module-time) : accès à l'heure de l'ordinateur et aux fonctions gérant le temps.
 - [*urllib*](https://docs.python.org/fr/3/library/urllib.html#module-urllib) : récupération de données sur internet depuis Python.
-- [*Tkinter*](https://docs.python.org/fr/3/library/tkinter.html#module-tkinter) : interface python avec Tk. Création d'objets graphiques.
-- [*re*](https://docs.python.org/fr/3/library/re.html#module-re) : gestion des expressions régulières.
+- [*Tkinter*](https://docs.python.org/fr/3/library/tkinter.html#module-tkinter) : interface python avec Tk. Création d'objets graphiques (cf. chapitre 20 *Fenêtres graphiques et Tkinter*).
+- [*re*](https://docs.python.org/fr/3/library/re.html#module-re) : gestion des expressions régulières (cf. chapitre 16 *Expressions régulières et *parsing*).
 
 Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir toutes leurs potentialités.
 
@@ -357,6 +353,7 @@ Enfin, la fonction `os.listdir()` renvoie le contenu du répertoire depuis leque
 ```
 Le résultat est renvoyé sous forme d'une liste contenant à la fois le nom des fichiers et des répertoires.
 
+Il existe de nombreuse autres fonctions dans le module *os*, n'hésitez pas à consulter la documentation.
 
 ## Exercices
 

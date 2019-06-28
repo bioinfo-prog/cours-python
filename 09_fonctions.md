@@ -110,7 +110,7 @@ Un énorme avantage en Python est que les fonctions sont capables de renvoyer pl
 >>> carre_cube(2)
 (4, 8)
 ```
-En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séquentiel, c'est-à-dire contenir lui même d'autres objets. Dans notre exemple Python renvoie un objet de type `tuple`, type que nous verrons dans le chapitre 13 *Dictionnaires et tuples* (mais *grosso modo*, il s'agit d'une sorte de liste avec des propriétés différentes). Notre fonction pourrait tout autant renvoyer une liste :
+En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séquentiel, c'est-à-dire contenir lui même d'autres objets. Dans notre exemple Python renvoie un objet de type `tuple`, type que nous verrons dans le chapitre 13 *Dictionnaires et tuples* (*grosso modo*, il s'agit d'une sorte de liste avec des propriétés différentes). Notre fonction pourrait tout autant renvoyer une liste :
 ```
 >>> def carre_cube2(x):
 ...     return [x**2, x**3]
@@ -346,7 +346,7 @@ Analysez ensuite le code suivant et tentez de prédire sa sortie :
 ```
 def calc_factorielle(n):
     fact = 1
-    for i in range(2,n+1):
+    for i in range(2, n+1):
         fact = fact * i
     return fact
 
@@ -354,9 +354,9 @@ def calc_factorielle(n):
 # programme principal
 nb = 4
 factorielle_nb = calc_factorielle(nb)
-print("{}! = {}".format(nb,factorielle_nb))
+print("{}! = {}".format(nb, factorielle_nb))
 nb2 = 10
-print("{}! = {}".format(nb2,calc_factorielle(nb2)))
+print("{}! = {}".format(nb2, calc_factorielle(nb2)))
 ```
 Testez ensuite cette portion de code avec *Python Tutor* en cherchant à bien comprendre chaque étape.
 Avez-vous réussi à prédire la sortie correctement ?
@@ -364,7 +364,7 @@ Avez-vous réussi à prédire la sortie correctement ?
 
 ### Puissance
 
-Créez une fonction `calc_puissance(x,y)` qui renvoie $x^y$ en utilisant l'opérateur `**`. Pour rappel :
+Créez une fonction `calc_puissance(x, y)` qui renvoie $x^y$ en utilisant l'opérateur `**`. Pour rappel :
 ```
 >>> 2**2
 4
@@ -373,7 +373,7 @@ Créez une fonction `calc_puissance(x,y)` qui renvoie $x^y$ en utilisant l'opér
 >>> 2**4
 16
 ```
-Dans le programme principal, calculez et affichez à l'écran $2^i$ avec $i$ variant de 0 à 20 inclus. On veut que le résultat soit présenté avec le formatage suivant :
+Dans le programme principal, calculez et affichez à l'écran $2^i$ avec $i$ variant de 0 à 20 inclus. On souhaite que le résultat soit présenté avec le formatage suivant :
 ```
 2^ 0 =       1
 2^ 1 =       2
@@ -408,8 +408,8 @@ Créez une fonction `est_premier()` qui prend comme argument un nombre entier po
 
 Créez une fonction `seq_comp()` qui prend comme argument une liste de bases et qui renvoie la séquence complémentaire d'une séquence d'ADN sous forme de liste.
 
-Dans le programme principal, à partir de la séquence d'ADN  
-`seq = ["A", "T", "C", "G", "A", "T", "C", "G", "A", "T", "C"]`  
+Dans le programme principal, à partir de la séquence d'ADN 
+`seq = ["A", "T", "C", "G", "A", "T", "C", "G", "A", "T", "C"]` 
 affichez `seq` et sa séquence complémentaire (en utilisant votre fonction `seq_comp()`).
 
 Rappel : la séquence complémentaire s'obtient en remplaçant A par T, T par A, C par G et G par C.
@@ -438,7 +438,7 @@ Créez une fonction `gen_distrib()` qui prend comme argument trois entiers : *de
 >>> random.uniform(1, 10)
 9.000404025130946
 ```
-Avec la fonction `random.uniform()`, les bornes passées en argument sont incluses, c'est-à-dire qu'ici, le nombre aléatoire renvoyé est dans l'intervalle [0, 10].
+Avec la fonction `random.uniform()`, les bornes passées en argument sont incluses, c'est-à-dire qu'ici, le nombre aléatoire renvoyé est dans l'intervalle [1, 10].
 
 Créez une autre fonction `calc_stat()` qui prend en argument une liste de *floats* et qui renvoie une liste de trois éléments contenant respectivement le minimum, le maximum et la moyenne de la liste.
 

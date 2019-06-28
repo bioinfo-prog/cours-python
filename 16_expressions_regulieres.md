@@ -60,7 +60,7 @@ Après avoir introduit le vocabulaire des *regex*, voici quelques éléments de 
 
 :   Le caractère A ou B ou C (un seul caractère).
 
-    Exemple : la *regex* `T[ABC]G` est retrouvée dans `TAG`, `TBG` ou `TCG`, mais pas à `TG`.
+    Exemple : la *regex* `T[ABC]G` est retrouvée dans `TAG`, `TBG` ou `TCG`, mais pas dans `TG`.
 
 `[A-Z]`
 
@@ -292,7 +292,7 @@ Les méthodes `.start()` et `.end()` donnent respectivement la position de débu
 
 ### La méthode `.findall()`
 
-Pour récupérer chaque zone, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance.
+Pour récupérer chaque zone s'il y en a plusieurs, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance.
 
 ```
 >>> regex = re.compile("[0-9]+\.[0-9]+")
@@ -313,7 +313,7 @@ L'utilisation des groupes entre parenthèses est également possible et ceux-ci 
 
 ### La méthode `.sub()`
 
-Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants. Par défaut la méthode `.sub(chaine1,chaine2)` remplace toutes les occurrences trouvées par l'expression régulière dans `chaine2` par `chaine1`. Si vous souhaitez ne remplacer que les *n* premières occurrences, utilisez l'argument `count=n` :
+Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants. Par défaut la méthode `.sub(chaine1, chaine2)` remplace toutes les occurrences trouvées par l'expression régulière dans `chaine2` par `chaine1`. Si vous souhaitez ne remplacer que les *n* premières occurrences, utilisez l'argument `count=n` :
 
 ```
 >>> regex = re.compile("[0-9]+\.[0-9]+")
@@ -334,7 +334,7 @@ Encore plus puissant, il est possible d'utiliser dans le remplacement des groupe
 'pi vaut approximativement 3 (puis .14) et e vaut approximativement 2 (puis .72)'
 ```
 
-Si vous avez capturé des groupes, il suffit d'utiliser `\\1`, `\\2` (etc.) pour utiliser les groupes correspondants dans la chaîne de caractères substituée. On notera que la syntaxe générale pour récupérer des groupes dans les outils qui gèrent les *regex* est `\1`, `\2` (etc.). Toutefois, Python nous oblige à mettre un deuxième *backslash* car il y a ici deux niveaux : un premier niveau Python où on veut mettre un *backslash* littéral (donc `\\`), puis un second niveau *regex* dans lequel on veut retrouver `\1`. Si cela est confus, retenez seulement qu'il faut mettre un `\\` devant le numéro de groupe.
+Si vous avez capturé des groupes, il suffit d'utiliser `\\1`, `\\2` (etc.) pour utiliser les groupes correspondants dans la chaîne de caractères substituée. On notera que la syntaxe générale pour récupérer des groupes dans les outils qui gèrent les *regex* est `\1`, `\2`, etc. Toutefois, Python nous oblige à mettre un deuxième *backslash* car il y a ici deux niveaux : un premier niveau Python où on veut mettre un *backslash* littéral (donc `\\`), puis un second niveau *regex* dans lequel on veut retrouver `\1`. Si cela est confus, retenez seulement qu'il faut mettre un `\\` devant le numéro de groupe.
 
 Enfin, sachez que la réutilisation d'un groupe précédemment capturé est aussi utilisable lors d'une utilisation classique de *regex*. Par exemple :
 
@@ -350,7 +350,7 @@ Dans la *regex* `(pan)\\1`, on capture d'abord le groupe `(pan)` grâce aux pare
 Bien sûr, si on avait eu un deuxième groupe, on aurait pu le réutiliser avec `\\2`, un troisième groupe avec `\\3`, etc.
 
 
-Nous espérons vous avoir convaincu de la puissance du module *re* et des expressions régulières. Alors, plus de temps à perdre et à vos *regex* !
+Nous espérons vous avoir convaincu de la puissance du module *re* et des expressions régulières. Alors, plus de temps à perdre, à vos *regex* !
 
 
 ## Exercices
@@ -398,7 +398,7 @@ Créez un script `cigale_fourmi.py` qui grâce à une *regex* et à la fonction 
 
 ### Liste des protéines humaines
 
-Téléchargez le fichier [`human-proteome.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta) qui contient le protéome humaine, c'est-à-dire les séquences de l'ensemble des protéines chez l'Homme. Ce fichier est au format FASTA.
+Téléchargez le fichier [`human-proteome.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta) qui contient le protéome humain, c'est-à-dire les séquences de l'ensemble des protéines chez l'Homme. Ce fichier est au format FASTA.
 
 On souhaite lister toutes ces protéines et les indexer avec un numéro croissant.
 
@@ -440,7 +440,7 @@ Nous vous conseillons tout d'abord d'ouvrir le fichier HTML dans un éditeur de 
 
 ### Nettoyeur de doublons (exercice +++)
 
-Téléchargez le fichier [`breves_doublons.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/breves_doublons.txt) qui contient des mots répétés deux fois. Par exmple :
+Téléchargez le fichier [`breves_doublons.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/breves_doublons.txt) qui contient des mots répétés deux fois. Par exemple :
 ```
 Le cinéma est devenu parlant, la radio radio finira en images.
 La sardine, c'est un petit petit poisson sans tête qui vit dans l'huile.

@@ -14,7 +14,7 @@ et [PDF](https://python.sdv.univ-paris-diderot.fr/cours-python.pdf).
 
 ## Remerciements {.unnumbered}
 
-Un grand merci à [Sander](http://sander.nabuurs.org/) du *Centre for Molecular and Biomolecular Informatic* de Nijmegen aux Pays-Bas pour la toute [première version](http://www.cmbi.ru.nl/pythoncourse/spy/index.spy?site=python&action=Home) de ce cours qui remonte à l'année 2003.
+Un grand merci à [Sander](http://sander.nabuurs.org/) du *Centre for Molecular and Biomolecular Informatics* de Nijmegen aux Pays-Bas pour la toute [première version](http://www.cmbi.ru.nl/pythoncourse/spy/index.spy?site=python&action=Home) de ce cours qui remonte à l'année 2003.
 
 Nous remercions le professeur [Philip Guo](http://pgbovine.net/) de l'UC San Diego, pour nous avoir autorisé à utiliser des copies d'écran de son excellent site [*Python Tutor*](http://pythontutor.com/).
 
