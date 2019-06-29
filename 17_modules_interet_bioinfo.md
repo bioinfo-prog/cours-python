@@ -29,7 +29,7 @@ On peut également définir un nom raccourci pour *NumPy* :
 Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un objet séquentiel (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple simple de conversion d'une liste à une dimension en objet *array* :
 ```
 >>> import numpy as np
->>> a = [1,2,3]
+>>> a = [1, 2, 3]
 >>> np.array(a)
 array([1, 2, 3])
 >>> b = np.array(a)
@@ -39,7 +39,7 @@ array([1, 2, 3])
 <type 'numpy.ndarray'>
 ```
 
-Nous avons converti la liste `[1, 2, 3]` en *array*. Nous aurions obtenu le même résultat si nous avions converti le tuple `(1,2,3)` en *array*.
+Nous avons converti la liste `[1, 2, 3]` en *array*. Nous aurions obtenu le même résultat si nous avions converti le tuple `(1, 2, 3)` en *array*.
 
 Par ailleurs, lorsqu'on demande à Python d'afficher le contenu d'un objet *array*, les symboles `([` et `])` sont utilisés pour le distinguer d'une liste (délimitée par les caractères `[` et `]`) ou d'un tuple (délimité par les caractères `(` et `)`).
 
@@ -67,12 +67,10 @@ array([1. , 2. , 3.5])
 
 Ici, la notation `1.` indique qu'il s'agit du *float* `1.0000...` et pas de l'entier `1`.
 
-Le module *NumPy* est très performant pour manipuler des valeurs numériques (entières ou *floats*). Nous vous recommandons ne n'utiliser que des valeurs numériques avec *NumPy*.
-
 close-box-rem
 
 
-Contrairement à la fonction `range()`, la fonction `arange()` permet de construire un *array* à une dimension de manière simple.
+Sur un modèle similaire à la fonction `range()`, la fonction `arange()` permet de construire un *array* à une dimension de manière simple.
 ```
 >>> np.arange(10)
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -80,7 +78,7 @@ array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 Comme avec `range()`, on peut spécifier en argument une borne de début, une borne de fin et un pas :
 ```
->>> np.arange(10,0,-1)
+>>> np.arange(10, 0, -1)
 array([10,  9,  8,  7,  6,  5,  4,  3,  2,  1])
 ```
 
@@ -175,7 +173,7 @@ Et la méthode `.reshape()` modifie les dimensions d'un *array* :
 array([0, 1, 2, 3, 4, 5])
 >>> a.shape
 (6,)
->>> b = t.reshape((2, 3))
+>>> b = a.reshape((2, 3))
 >>> b
 array([[0, 1, 2],
      [3, 4, 5]])
@@ -193,8 +191,8 @@ array([[0, 1],
 (3, 2)
 ```
 
-La méthode `.reshape()` attend que les nouvelles dimensions soient **compatibles** avec la dimension initiale de l'objet *array*, c'est-à-dire que le nombre d'éléments contenus dans les différents *array* soit le même.
-Dans nos exemples précédents, $6 = 2 \times 3 = 3 \times 3$.
+La méthode `.reshape()` attend que les nouvelles dimensions soient **compatibles** avec la dimension initiale de l'objet *array*, c'est-à-dire que le nombre d'éléments contenus dans les différents *arrays* soit le même.
+Dans nos exemples précédents, $6 = 2 \times 3 = 3 \times 2$.
 
 Si les nouvelles dimensions ne sont pas compatibles avec les dimensions initiales, la méthode `.reshape()` génère une erreur.
 ```
@@ -214,7 +212,7 @@ La méthode `.resize()` par contre ne déclenche pas d'erreur dans une telle sit
 >>> a = np.arange(0, 6)
 >>> a.shape
 (6,)
->>> a.resize((3,3))
+>>> a.resize((3, 3))
 >>> a.shape
 (3, 3)
 >>> a
@@ -227,7 +225,7 @@ array([[0, 1, 2],
 >>> b = np.arange(0, 10)
 >>> b.shape
 (10,)
->>> b.resize((2,3))
+>>> b.resize((2, 3))
 >>> b.shape
 (2, 3)
 >>> b
@@ -282,12 +280,12 @@ La syntaxe `a[m,:]` renvoie la ligne `m-1`, et `a[:,n]` renvoie la colonne `n-1`
 
 ### Construction automatique de matrices
 
-Il peut être parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour construire des matrices à partir de rien. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
+Il peut être parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
 ```
->>> np.zeros((2,3))
+>>> np.zeros((2, 3))
 array([[0., 0., 0.],
        [0., 0., 0.]])
->>> np.ones((3,3))
+>>> np.ones((3, 3))
 array([[1., 1., 1.],
       [1., 1., 1.],
       [1., 1., 1.]])
@@ -302,14 +300,14 @@ array([[0, 0, 0],
 
 Enfin, si vous voulez construire une matrice avec autre chose que des 0 ou des 1, vous avez à votre disposition la fonction `full()` :
 ```
->>> np.full((2,3), 7, int)
+>>> np.full((2, 3), 7, int)
 array([[7, 7, 7],
        [7, 7, 7]])
->>> np.full((2,3), 7, float)
+>>> np.full((2, 3), 7, float)
 array([[ 7.,  7.,  7.],
        [ 7.,  7.,  7.]])
 ```
-Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes et qui ne contient que le chiffre 7, sous formes d'entiers (`int`) dans le premier cas et de *floats* dans le second.
+Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes. Celle-ci ne contient que le chiffre 7 sous formes d'entiers (`int`) dans le premier cas et de *floats* dans le second.
 
 
 ### Un peu d'algèbre linéaire
@@ -318,7 +316,7 @@ Après avoir manipulé les objets *array* comme des vecteurs et des matrices, vo
 
 La fonction `transpose()` renvoie la transposée d'un *array*. Par exemple, pour une matrice :
 ```
->>> a = np.resize(np.arange(1,10), (3,3))
+>>> a = np.resize(np.arange(1, 10), (3, 3))
 >>> a
 array([[1, 2, 3],
        [4, 5, 6],
@@ -331,7 +329,7 @@ array([[1, 4, 7],
 
 La fonction `dot()` vous permet de réaliser une multiplication de matrices.
 ```
->>> a = np.resize(np.arange(4), (2,2))
+>>> a = np.resize(np.arange(4), (2, 2))
 >>> a
 array([[0, 1],
        [2, 3]])
@@ -342,7 +340,7 @@ array([[ 2,  3],
 array([[0, 1],
        [4, 9]])
 ```
-Notez bien que `dot(a,a)` renvoie le **produit matriciel** entre deux matrices, alors que `a * a` renvoie le produit **élément par élément**.
+Notez bien que `dot(a, a)` renvoie le **produit matriciel** entre deux matrices, alors que `a * a` renvoie le produit **élément par élément**.
 
 open-box-rem
 
@@ -395,7 +393,7 @@ Seq('ATATCGGCTATAGCATGCA', IUPACUnambiguousDNA())
 
 Ligne 1. Le module *Biopython* s'appelle `Bio`.
 
-Ligne 4. L'expression `IUPAC.unambiguous_dna` signifie que la séquence entrée est bien une séquence d'ADN.
+Ligne 4. L'expression `IUPAC.unambiguous_dna` signifie que la séquence entrée est bien une séquence d'ADN non ambigu (c'est-à-dire que chaque base est bien déterminée).
 
 Obtention de la séquence complémentaire et complémentaire inverse :
 ```
@@ -473,10 +471,10 @@ En réalité, le nombre exact de publications est connu :
 ```
 
 Pour ne pas saturer les serveurs du NCBI, seulement 20 PMID sont renvoyés par défaut.
-Mais vous pouvez augmenter cette limite en utilisant le paramètre `retmax` dans la fonction `Entre.esearch()`.
+Mais vous pouvez augmenter cette limite en utilisant le paramètre `retmax` dans la fonction `Entrez.esearch()`.
 
 Nous pouvons maintenant récupérer des informations sur une publication précise
-en connaissant son PMID. Par exemple, l'article avec le PMID [22294463](https://www.ncbi.nlm.nih.gov/pubmed/22294463) et dont un aperçu est sur la figure @fig:entrez-transferrin.
+en connaissant son PMID. Par exemple, l'article avec le PMID [22294463](https://www.ncbi.nlm.nih.gov/pubmed/22294463) dont un aperçu est sur la figure @fig:entrez-transferrin.
 
 ![Aperçu de la publication *Known and potential roles of transferrin in iron biology* depuis le site PubMed.](img/entrez-transferrin.png "Aperçu de la publication Known and potential roles of transferrin in iron biology"){ #fig:entrez-transferrin width=80% }
 
@@ -546,7 +544,7 @@ Ce qui est bien le résumé que nous obtenons sur la figure @fig:entrez-transfer
 
 ## Module *matplotlib*
 
-Le module [*matplotlib*](https://matplotlib.org/) permet de générer des graphiques depuis Python. Il est l'outil complémentaire de *NumPy*, *scipy* ou *pandas* (qu'on verra juste après) lorsqu'on veut faire de l'analyse de données.
+Le module [*matplotlib*](https://matplotlib.org/) permet de générer des graphiques depuis Python. Il est l'outil complémentaire de *NumPy*, *scipy* ou *pandas* (que l'on verra juste après) lorsqu'on veut faire de l'analyse de données.
 
 ### Représentation sous forme de points
 
@@ -582,7 +580,7 @@ Vous devriez obtenir une fenêtre graphique **interactive** qui vous permet de m
 
 Revenons maintenant sur le code.
 
-Ligne 1. Tout d'abord, on importe le sous-module `pyplot` du module *matplotlib* et on lui donne le nom court `plt` pour l'utiliser plus rapidement ensuite.
+Ligne 1. Tout d'abord, on importe le sous-module `pyplot` du module *matplotlib* et on lui donne l'alias `plt` pour l'utiliser plus rapidement ensuite (cet alias est standard, utilisez-la systématiquement).
 
 Lignes 3 et 4. On définit les variables `temps` et `concentration` comme des listes. Les deux listes doivent avoir la même longueur (7 éléments dans le cas présent).
 
@@ -608,7 +606,7 @@ plt.scatter(temps, concentration, marker='o', color = 'blue')
 plt.xlabel("Temps (h)")
 plt.ylabel("Concentration (mg/L)")
 plt.title("Concentration de produit en fonction du temps")
-x = np.linspace( min(temps), max(temps), 50)
+x = np.linspace(min(temps), max(temps), 50)
 y = 2 + 3 * x
 plt.plot(x, y, color='green', ls="--")
 plt.grid()
@@ -661,21 +659,21 @@ On obtient alors le graphique de la figure @fig:distribution.
 
 Prenons le temps d'examiner les différentes étapes du script précédent :
 
-Lignes 3 à 5. On définit les variables `sequence`, `bases` et `distribution` qu'on utilise ensuite.
+Lignes 4 à 6. On définit les variables `sequence`, `bases` et `distribution` qu'on utilise ensuite.
 
-Lignes 6 et 7. On calcule la distribution des différentes bases dans la séquence. On utilise pour cela la méthode `count()` qui renvoie le nombre de fois qu'une chaîne de caractères (les différentes bases) se trouve dans une autre (la séquence).
+Lignes 7 et 8. On calcule la distribution des différentes bases dans la séquence. On utilise pour cela la méthode `count()` qui renvoie le nombre de fois qu'une chaîne de caractères (les différentes bases) se trouve dans une autre (la séquence).
 
-Ligne 9. On définit la position en abscisse des barres. Dans cet exemple, la variable `x` vaut `array([0, 1, 2, 3])`.
+Ligne 10. On définit la position en abscisse des barres. Dans cet exemple, la variable `x` vaut `array([0, 1, 2, 3])`.
 
-Ligne 10. La fonction `bar()` construit le diagramme en bâtons. Elle prend en argument la position des barres (`x`) et leurs hauteurs (`distribution`).
+Ligne 11. La fonction `bar()` construit le diagramme en bâtons. Elle prend en argument la position des barres (`x`) et leurs hauteurs (`distribution`).
 
-Ligne 11. La fonction `xtics()` redéfinit les étiquettes (c'est-à-dire le nom des bases) sur l'axe des abscisses.
+Ligne 12. La fonction `xtics()` redéfinit les étiquettes (c'est-à-dire le nom des bases) sur l'axe des abscisses.
 
-Lignes 12 à 14. On définit les légendes des axes et le titre du graphique. On insère un retour à la ligne `\n` dans le titre pour qu'il soit réparti sur deux lignes.
+Lignes 13 à 15. On définit les légendes des axes et le titre du graphique. On insère un retour à la ligne `\n` dans le titre pour qu'il soit réparti sur deux lignes.
 
-Ligne 15. Enfin, on enregistre le graphique généré au format png.
+Ligne 16. Enfin, on enregistre le graphique généré au format png.
 
-On espère que ces courts exemples vous auront convaincu de l'utilité du module *matplotlib*. Sachez qu'il peut faire bien plus, par exemple générer des histogrammes ou toutes sortes de graphiques utiles en analyse de données. Le site du *matplotlib* fournit de nombreux [exemples détaillés](https://matplotlib.org/gallery/index.html), n'hésitez pas à le consulter.
+On espère que ces courts exemples vous auront convaincu de l'utilité du module *matplotlib*. Sachez qu'il peut faire bien plus, par exemple générer des histogrammes ou toutes sortes de graphiques utiles en analyse de données. Le site de *matplotlib* fournit de nombreux [exemples détaillés](https://matplotlib.org/gallery/index.html), n'hésitez pas à le consulter.
 
 
 ## Module *pandas*
@@ -689,7 +687,7 @@ Pour charger *pandas* dans la mémoire de Python, on utilise la commande `import
 
 Pandas est souvent chargé avec un nom raccourci, comme pour *NumPy* et *matplotlib* :
 ```
->>> import panda as pd
+>>> import pandas as pd
 ```
 
 
@@ -761,8 +759,8 @@ dtype: int64
 
 ### *Dataframes*
 
-Un autre type d'objet particulièrement intéressant et introduit par *pandas*
-sont les *dataframes*, qui correspondent à des tableaux à deux dimensions
+Un autre type d'objet particulièrement intéressant introduit par *pandas*
+sont les *dataframes*. Ceux-ci correspondent à des tableaux à deux dimensions
 avec des étiquettes pour nommer les lignes et les colonnes.
 
 open-box-rem
@@ -786,7 +784,7 @@ chat    10  11  12  13
 singe   20  21  22  23
 souris  30  31  32  33
 ```
-Ligne 1. Le *dataframe* est créé avec la fonction `pd.DataFrame()` à laquelle
+Ligne 1. Le *dataframe* est créé avec la fonction `DataFrame()` à laquelle
 on fournit plusieurs arguments.
 L'argument `columns` indique le nom des colonnes, sous forme d'une liste.
 
@@ -1017,7 +1015,7 @@ lapin       14           8
 
 On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les 4 villes (Lyon, Paris, Nantes et Strasbourg) le nombre d'animaux. On remarque d'ores et déjà qu'il y a des singes à Lyon et Paris mais pas de lapin et qu'il y a des lapins à Nantes et Strasbourg mais pas de singe. Nous allons voir comment gérer cette situation.
 
-*pandas* propose pour cela la fonction [`.concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html) qui prend comme argument une liste de *dataframes* :
+*pandas* propose pour cela la fonction [`concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html) qui prend comme argument une liste de *dataframes* :
 
 ```
 >>> pd.concat([df1, df2])
@@ -1050,7 +1048,7 @@ chat      10      3       3           5
 souris    17     20       9          10
 ```
 
-Un autre comportement par défaut de `.concat()` est que cette fonction va combiner les *dataframes* en se basant sur leurs index. Il est néanmoins possible de préciser, pour chaque *dataframe*, le nom de la colonne qui sera utilisée comme référence avec l'argument `join_axes`.
+Un autre comportement par défaut de `concat()` est que cette fonction va combiner les *dataframes* en se basant sur leurs index. Il est néanmoins possible de préciser, pour chaque *dataframe*, le nom de la colonne qui sera utilisée comme référence avec l'argument `join_axes`.
 
 
 ## Un exemple plus complet
@@ -1079,7 +1077,7 @@ un fichier au format `.csv` :
 ```
 Le contenu est chargé sous la forme d'un *dataframe* dans la variable `df`.
 
-Le fichier contient 41 lignes de données plus une ligne d'entête. Cette dernière
+Le fichier contient 41 lignes de données plus une ligne d'en-tête. Cette dernière
  est automatiquement utilisée par *pandas* pour nommer les différentes colonnes.
  Voici un aperçu des premières lignes :
 ```
@@ -1411,7 +1409,7 @@ En 2001, cinq structures de transferrine ont été déposées dans la PDB. La de
 
 Toutes ces méthodes, enchaînées les unes à la suite des autres, peuvent vous
 sembler complexes mais chacune d'elles correspond à une étape particulière
-du traitement ded données. L'utilisation des parenthèses (ligne 1, juste avant
+du traitement des données. L'utilisation des parenthèses (ligne 1, juste avant
 `df["Deposit Date"]` et ligne 5, juste après `head()`) permet de répartir élégamment
 cette longue instruction sur plusieurs lignes.
 
@@ -1433,7 +1431,7 @@ Name: Deposit Date, dtype: int64
 
 open-box-more
 
-- Le livre de Nicolas Rougier [*From Python to Numpy*](https://www.labri.fr/perso/nrougier/from-python-to-numpy/) est une excellente ressource pour explorer plus en détails les possibilités de *NumPy*.
+- Le livre de Nicolas Rougier [*From Python to Numpy*](https://www.labri.fr/perso/nrougier/from-python-to-numpy/) est une excellente ressource pour explorer plus en détails les possibilités de *NumPy*. L'auteur y aborde notamment la notion puissante de « masque ».
 - Les ouvrages *Python for Data Analysis* de Wes McKinney et *Pandas Cookbook* de Theodore Petrou sont d'excellentes références pour *pandas*.
 
 close-box-more
@@ -1535,7 +1533,7 @@ En utilisant maintenant la méthode `Entrez.esummary()` dans une boucle, récup�
 
 À la fin vérifiez que votre liste `years` contient bien autant d'éléments que la liste `pmids`.
 
-Calculez maintenant le nombre de publications par année. Vous créerez pour cela un dictionnaire `freq` qui aura pour clé les années (oui, une clé de dictionnaire peut aussi être un entier) et pour valeurs le nombre de publications associées à une année données.
+Calculez maintenant le nombre de publications par année. Vous créerez pour cela un dictionnaire `freq` qui aura pour clé les années (oui, une clé de dictionnaire peut aussi être un entier) et pour valeur le nombre de publications associées à une année données.
 
 Créez une liste `x` qui contient les clés du dictionnaire `freq`. Ordonnez les valeurs dans `x` avec la méthode `.sort()`. Créez maintenant une seconde liste `y` qui contient, dans l'ordre, le nombre de publications associées à chaque années. Bien évidemment, les listes `x` et `y` doivent avoir la même taille. Au fait, en quelle année la barstar apparaît pour la première fois dans une publication scientifique ?
 

@@ -2,7 +2,7 @@
 
 Les notebooks Jupyter sont des cahiers électroniques qui, dans le même document, peuvent rassembler du texte, des images, des formules mathématiques et du code informatique exécutable. Ils sont manipulables interactivement dans un navigateur web.
 
-Initialement développés pour les langages de programmation Julia, Python et R (d'où son nom), les notebooks Jupyter supportent près de 40 langages différents.
+Initialement développés pour les langages de programmation Julia, Python et R (d'où le nom Jupyter), les notebooks Jupyter supportent près de 40 langages différents.
 
 La cellule est l'élément de base d'un notebook Jupyter. Elle peut contenir du texte formaté au format Markdown ou du code informatique qui pourra être exécuté.
 
@@ -145,7 +145,7 @@ La commande précédente (`%matplotlib inline`) est une *magic command*. Il en e
 
 ![*Magic command* `%history`.](img/jupyter-history.png){ #fig:jupyter-history width=80% }
 
-Enfin, avec les environnements Linux ou Mac OS X, il est possible de lancer une commande Unix depuis un notebook Jupyter. Il faut pour cela précéder la commande du symbole `!`. La figure @fig:jupyter-ls illustre cette possibilité avec la commande `ls` qui affiche le contenu d'un répertoire.
+Enfin, avec les environnements Linux ou Mac OS X, il est possible de lancer une commande Unix depuis un notebook Jupyter. Il faut pour cela précéder la commande du symbole « `!` ». La figure @fig:jupyter-ls illustre cette possibilité avec la commande `ls` qui affiche le contenu d'un répertoire.
 
 ![Lancement d'une commande Unix.](img/jupyter-ls.png){ #fig:jupyter-ls width=80% }
 
@@ -174,3 +174,9 @@ obtenir une interface similaire à la figure @fig:jupyterlab-1.
 L'interface proposée par JupyterLab est très riche. On peut y organiser un notebook Jupyter « classique » avec une figure en encart, un *shell* (voir figure @fig:jupyterlab-2)... Les possibilités sont infinies !
 
 ![JupyterLab comme environnement d'analyse.](img/jupyterlab-2.png "JupyterLab comme environnement d'analyse."){ #fig:jupyterlab-2 width=95% }
+
+open-box-more
+
+Les *notebooks* Jupyter sont particulièrement adaptés à l'analyse de données en combinaison avec les modules *matplotlib* et *pandas*.
+
+close-box-more
