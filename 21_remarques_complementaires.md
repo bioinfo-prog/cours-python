@@ -2,20 +2,22 @@
 
 ## Différences Python 2 et Python 3
 
-Python 3 est la version de Python qu'il faut utilisé.
+Python 3 est la version de Python qu'il faut utiliser.
 
 Néanmoins, Python 2 a été employé pendant de nombreuses années par la communauté scientifique et vous serez certainement confrontés à un programme écrit en Python 2. Voici quelques éléments pour vous en sortir :
 
-### La fonction print()
+### Le mot-clé `print` / la fonction `print()`
 
-La fonction `print()` en Python 2 s'utilise sans parenthèse. Par exemple :
+En Python 2 `print` est un mot-clé du langage (en anglais *statement*) au même titre que `for`, `if`, `def`, etc. Il s'utilise ainsi sans parenthèse. Par exemple :
+
 ```
 >>> print 12
 12
 >>> print "girafe"
 girafe
 ```
-Par contre en Python 3, si vous n'utilisez pas de parenthèse, Python vous renverra une erreur :
+
+Par contre en Python 3, `print()` est une fonction. Ainsi, si vous n'utilisez pas de parenthèse, Python vous renverra une erreur :
 ```
 >>> print 12
   File "<stdin>", line 1
@@ -56,7 +58,7 @@ En Python 3, la fonction `range()` est un générateur, c'est-à-dire que cette 
 range(0, 3)
 ```
 
-Lorsqu'on l'utilise dans une boucle `for`, `range(3)` va produire successivement les nombres `0`, puis `1` puis `2`. Par exemple :
+Lorsqu'on utilise `range(3)` dans une boucle, cela va produire successivement les nombres `0`, puis `1` puis `2`. Par exemple :
 ```
 >>> for i in range(3):
 ...     print(i)
@@ -127,13 +129,13 @@ close-box-rem
 
 ## Liste de compréhension
 
-Une manière originale et très puissante de générer des listes est la compréhension de listes. Pour plus de détails, consultez à ce sujet le site de [Python](http://www.python.org/dev/peps/pep-0202/) et celui de [Wikipédia](http://fr.wikipedia.org/wiki/Comprehension_de_liste).
+Une manière originale et très puissante de générer des listes est liste de compréhension (ou la la compréhension de listes). Pour plus de détails, consultez à ce sujet le site de [Python](http://www.python.org/dev/peps/pep-0202/) et celui de [Wikipédia](http://fr.wikipedia.org/wiki/Comprehension_de_liste).
 
 Voici quelques exemples.
 
 ### Nombres pairs compris entre 0 et 30
 ```
->>> print([i for i in range() if i%2 == 0])
+>>> print([i for i in range(31) if i % 2 == 0])
 [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
 ```
 
@@ -150,9 +152,9 @@ Voici quelques exemples.
 Exemple d'une séquence constituée de 150 alanines :
 ```
 # Exemple d'une séquence de 150 alanines.
->>> seq = "A"*150
+>>> seq = "A" * 150
 >>> width = 60
->>> seq_split = [seq[i:i+width] for i in range(0,len(seq),width)]
+>>> seq_split = [seq[i:i+width] for i in range(0, len(seq), width)]
 >>> print("\n".join(seq_split))
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -164,9 +166,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Exemple d'une séquence constituée de 150 alanines :
 ```
 >>> com = "Séquence de 150 alanines"
->>> seq = "A"*150
+>>> seq = "A" * 150
 >>> width = 60
->>> seq_split = [seq[i:i+width] for i in range(0,len(seq),width)]
+>>> seq_split = [seq[i:i+width] for i in range(0, len(seq), width)]
 >>> print(">"+com+"\n"+"\n".join(seq_split))
 >séquence de 150 alanines
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -188,7 +190,7 @@ Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?str
 
 ## Gestion des erreurs
 
-La gestion des erreurs permet d'éviter que votre programme plante en prévoyant vous même les sources d'erreurs éventuelles.
+La gestion des erreurs permet d'éviter que votre programme « plante » en prévoyant vous même les sources d'erreurs éventuelles.
 
 Voici un exemple dans lequel on demande à l'utilisateur d'entrer un nombre entier, puis on affiche ce nombre.
 ```
@@ -277,7 +279,7 @@ Vous n'avez pas entré un nombre entier !
 
 Ici, on intercepte une erreur de type `ValueError`, ce qui correspond bien à un problème de conversion avec `int()`. Il existe d'autres types d'erreurs comme `RuntimeError`, `TypeError`, `NameError`, `IOError`, etc.
 
-Enfin, on peut aussi être très précis dans le message d'erreur. Observez la fonction `download_page()` qui, avec le module `urllib`, télécharge un fichier sur internet.
+Enfin, on peut aussi être très précis dans le message d'erreur. Observez la fonction `download_page()` qui, avec le module *urllib*, télécharge un fichier sur internet.
 ```
 import urllib.request
 
@@ -304,6 +306,6 @@ else:
     print("Protéine enregistrée")
 ```
 
-La variable `e` est une instance (un représentant) de l'erreur de type `IOError`. Certains de ces attributs sont testés avec la fonction `hasattr()` pour ainsi affiner le message renvoyé (ici contenu dans la variable `error`).
+La variable `e` est une instance de l'erreur de type `IOError`. Certains de ces attributs sont testés avec la fonction `hasattr()` pour ainsi affiner le message renvoyé (ici contenu dans la variable `error`).
 
 Si tout se passe bien, la page est téléchargée et stockée dans la variable `data`, puis ensuite enregistrée sur le disque dur.

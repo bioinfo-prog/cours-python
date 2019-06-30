@@ -249,7 +249,7 @@ La *[Protein Data Bank](https://www.rcsb.org/)* (PDB) est une banque de données
 
 Un fichier PDB est constitué de deux parties principales : l'en-tête et les coordonnées.
 L'en-tête est lisible et utilisable par un être humain (et aussi par une machine).
-À l'inverse les coordonnées sont surtout utilisables par une programme pour calculer certaines propriétés de la structure ou simplement la représenter sur l'écran d'un ordinateur. Bien sûr, un utilisateur expérimenté peut parfaitement jeter un œil à cette seconde partie.
+À l'inverse les coordonnées sont surtout utilisables par un programme pour calculer certaines propriétés de la structure ou simplement la représenter sur l'écran d'un ordinateur. Bien sûr, un utilisateur expérimenté peut parfaitement jeter un œil à cette seconde partie.
 
 Examinons ces deux parties avec la [trypsine bovine](https://www.rcsb.org/structure/2PTN).
 
@@ -298,7 +298,7 @@ Ligne 8. `SOURCE` indique le nom scientifique de l'organisme dont provient cette
 
 Ligne 10. `EXPDTA` précise la technique expérimentale employée pour déterminer cette structure. Ici, la cristallographie aux rayons X. Mais on peut également trouver *SOLUTION NMR* pour de la résonance magnétique nucléaire en solution, *ELECTRON MICROSCOPY* pour de la microscopie électronique...
 
-Ligne 12. `REMARK   2` précise, dans le cas d'une détermination par cristallographie aux rayons X, la résolution obtenue, ici 1,55 Angstroems.
+Ligne 12. `REMARK   2` précise, dans le cas d'une détermination par cristallographie aux rayons X, la résolution obtenue, ici 1,55 Angströms.
 
 Ligne 14. `DBREF` indique les liens éventuels vers d'autres banques de données. Ici, l'identifiant correspondant à cette protéine dans UniProt (*UNP*) est [P00760](https://www.uniprot.org/uniprot/P00760).
 
@@ -335,13 +335,13 @@ Toutes les lignes de coordonnées ont sensiblement le même format. Par exemple,
 - `ATOM` (ou `HETATM`).
 - `601` : le numéro de l'atome.
 - `N` : le nom de l'atome. Ici, un atome d'azote du squelette peptidique. La structure complète du résidu leucine est représentée figure @fig:leucine.
-- `Leu` : le résidu dont fait partie l'atome. Ici une leucine.
+- `LEU` : le résidu dont fait partie l'atome. Ici une leucine.
 - `A` : le nom de la chaîne peptidique.
 - `99` : le numéro du résidu dans la protéine.
 - `10.007` : la coordonnées *x* de l'atome.
 - `19.687` : la coordonnées *y* de l'atome.
 - `17.536` : la coordonnées *z* de l'atome.
-- `1.00` : le facteur d'occupation, c'est-à-dire la probabilité de trouver l'atome à cette position dans l'espace.
+- `1.00` : le facteur d'occupation, c'est-à-dire la probabilité de trouver l'atome à cette position dans l'espace en moyenne.
 Cette probabilité est inférieure à 1 lorsque, expérimentalement, on n'a pas pu
 déterminer avec une totale certitude la position de l'atome. Par exemple dans le cas d'un atome très mobile dans une structure, qui est déterminé comme étant à deux positions possibles, chaque position aura alors la probabilité 0,50.
 - `12.25` : le facteur de température qui est proportionnel à la mobilité de l'atome dans l'espace. Les atomes situés en périphérie d'une structure sont souvent plus mobiles que ceux situés au coeur de la structure.
@@ -660,7 +660,7 @@ Les lignes 4-6 précisent les numéros d'accession dans la base de données
 UniProt qui font référence à cette même protéine.
 
 Les lignes 8-13 listent les quatre gènes correspondants à cette protéine.
-Le premier gène porte l'attribut `type="primary"` est indique qu'il s'agit
+Le premier gène porte l'attribut `type="primary"` et indique qu'il s'agit
 du nom officiel du gène de la trypsine.
 L'attribut `type="synonym"` pour les autres gènes indique qu'il s'agit bien de
 noms synonymes pour le gène `PRSS1`.
