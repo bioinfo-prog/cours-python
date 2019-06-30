@@ -61,7 +61,7 @@ def calc_factorielle(nb):
 print(calc_factorielle(4))
 ```
 
-Pas très facile à comprendre, n'est-ce pas ? À nouveau, nous nous aidons de *Python Tutor* pour visualiser ce qui se passe (nous vous conseillons bien sûr de tester vous-même cet exemple qui est décrit dans la figure @fig:fct-recursive-factorielle) :
+Pas très facile à comprendre, n'est-ce pas ? À nouveau, nous nous aidons de *Python Tutor* pour visualiser ce qui se passe dans la figure @fig:fct-recursive-factorielle (nous vous conseillons bien sûr de tester vous-même cet exemple) :
 
 ![Fonction récursive : factorielle.](img/fct_recursive_factorielle.png){ #fig:fct-recursive-factorielle width=90% }
 
