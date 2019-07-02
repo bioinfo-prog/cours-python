@@ -212,15 +212,23 @@ De manière générale la règle LGI découle de la manière dont Python gère c
 
 ## Recommandations
 
-Dans ce chapitre nous avons *joué* avec les fonctions (et les listes) afin de vous montrer comment Python réagit. Toutefois, notez bien que **l'utilisation de variables globales est à bannir définitivement de votre pratique de la programmation**.
+### Évitez les variables globales
+
+Dans ce chapitre nous avons *joué* avec les fonctions (et les listes) afin de vous montrer comment Python réagissait. Toutefois, notez bien que **l'utilisation de variables globales est à bannir définitivement de votre pratique de la programmation**.
 
 Parfois on veut faire vite et on crée une variable globale visible partout dans le programme (donc dans toutes les fonctions), car « *Ça va plus vite, c'est plus simple* ». C'est un très mauvais calcul, ne serait-ce que parce que vos fonctions ne seront pas réutilisables dans un autre contexte si elles utilisent des variables globales ! Ensuite, arriverez-vous à vous relire dans six mois ? Quelqu'un d'autre pourrait-il comprendre votre programme ? Il existe de nombreuses autres [raisons](http://wiki.c2.com/?GlobalVariablesAreBad) que nous ne développerons pas ici, mais libre à vous de consulter de la documentation externe.
 
 Heureusement, Python est orienté objet et permet « d'encapsuler » des variables dans des objets et de s'affranchir définitivement des variables globales (nous verrons cela dans le chapitre 19 *Avoir la classe avec les objets*). En attendant, et si vous ne souhaitez pas aller plus loin sur les notions d'objet (on peut tout à fait « pythonner » sans cela), retenez la chose suivante sur les fonctions et les variables globales :
 
-**Plutôt que d'utiliser des variables globales, passez vos variables explicitement aux fonctions comme des argument(s)**.
+open-box-adv
 
-Concernant les fonctions qui modifient une liste, nous vous conseillons de l'indiquer clairement dans votre code, par exemple :
+Plutôt que d'utiliser des variables globales, passez vos variables explicitement aux fonctions comme des argument(s).
+
+close-box-adv
+
+### Modification d'une liste dans une fonction
+
+Concernant les fonctions qui modifient une liste, nous vous conseillons de l'indiquer clairement dans votre code. Pour cela, faites en sorte que la fonction renvoie la liste modifiée et de récupérer cette liste renvoyée dans une variable portant le même nom. Par exemple :
 
 ```
 def ajoute_un(liste):
@@ -234,7 +242,7 @@ liste_notes = ajoute_un(liste_notes)
 print(liste_notes)
 ```
 
-La ligne 8 indique clairement que la liste `liste_notes` passée à la fonction est écrasée par la liste renvoyée par la fonction. 
+La ligne 8 indique que la liste `liste_notes` passée à la fonction est écrasée par la liste renvoyée par la fonction. 
 
 Le code suivant produirait la même sortie :
 
@@ -249,7 +257,19 @@ ajoute_un(liste_notes)
 print(liste_notes)
 ```
 
-Cela reste moins intuitif car il n'est pas forcément évident de comprendre que la liste est modifiée dans la fonction en lisant la ligne 8. Dans un tel cas, il serait essentiel d'indiquer dans la documentation de la fonction que la liste est modifiée « sur place » dans la fonction (on dit en anglais *the list is modified in place*). Vous verrez dans le chapitre 14 *Création de modules* comment documenter vos fonctions.
+Cela reste toutefois moins intuitif car il n'est pas forcément évident de comprendre que la liste est modifiée dans la fonction en lisant la ligne 8. Dans un tel cas, il serait essentiel d'indiquer dans la documentation de la fonction que la liste est modifiée « sur place »  (*in place* en anglais) dans la fonction. Vous verrez dans le chapitre 14 *Création de modules* comment documenter vos fonctions.
+
+open-box-adv
+
+Pour les raisons évoquées ci-dessus, nous vous conseillons de privilégier la première version :
+
+```
+liste_notes = ajoute_un(liste_notes)
+```
+
+close-box-adv
+
+### Conclusion
 
 Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué en introduction du chapitre 9, elles sont incontournables et tout programmeur se doit de les maîtriser. Voici les derniers conseils que nous pouvons vous donnez :
 

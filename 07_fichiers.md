@@ -150,7 +150,13 @@ souris
 ```
 
 
-L'objet `filin` est « itérable », ainsi la boucle `for` va demander à Python d'aller lire le fichier ligne par ligne. Privilégiez cette méthode par la suite.
+L'objet `filin` est « itérable », ainsi la boucle `for` va demander à Python d'aller lire le fichier ligne par ligne. 
+
+open-box-adv
+
+Privilégiez cette méthode par la suite.
+
+close-box-adv
 
 open-box-rem
 
