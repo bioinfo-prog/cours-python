@@ -15,7 +15,7 @@ Dans un premier temps, composez 5 mots anglais avec les 20 acides aminés.
 
 Téléchargez le fichier [english-common-words.txt](https://python.sdv.univ-paris-diderot.fr/data-files/english-common-words.txt). Ce fichier contient les 3000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
 
-Créez un script `words-in-proteome.py` et écrivez la fonction `read_words()` qui va lire les mots contenus dans le fichier dont le nom est fourni en argument du script et renvoyer une liste contenant les mots convertis en majuscule et composés de 3 caractères ou plus.
+Créez un script `words_in_proteome.py` et écrivez la fonction `read_words()` qui va lire les mots contenus dans le fichier dont le nom est fourni en argument du script et renvoyer une liste contenant les mots convertis en majuscule et composés de 3 caractères ou plus.
 
 Dans le programme principal, affichez le nombre de mots sélectionnés.
 
@@ -37,7 +37,7 @@ RVHFDQFKEALILILSRTLSNEEHFQEPDCSLEAQPKYVRGGKRYGRRSLPEFQESVEEF
 PEVTVIEPLDEEARPSHIPAGDCSEHWKTQRSEEYEAEGQLRFWNPDDLNASQSGSSPPQ
 ```
 
-Toujours dans le script  `words-in-proteome.py`, écrivez la fonction `read_sequences()` qui va lire le protéome dans le fichier dont le nom est fourni en second argument du script. Cette fonction va renvoyer un dictionnaire dont les clefs sont les identifiants des protéines (par exemple, `O95139`, `O75438`, `Q8N4C6`) et dont les valeurs associées sont les séquences.
+Toujours dans le script  `words_in_proteome.py`, écrivez la fonction `read_sequences()` qui va lire le protéome dans le fichier dont le nom est fourni en second argument du script. Cette fonction va renvoyer un dictionnaire dont les clefs sont les identifiants des protéines (par exemple, `O95139`, `O75438`, `Q8N4C6`) et dont les valeurs associées sont les séquences.
 
 Dans le programme principal, affichez le nombre de séquences lues.
 À des fins de test, affichez également la séquence associée à la protéine `O95139`.
@@ -271,13 +271,13 @@ Bravo, si vous êtes arrivés jusqu'à cette étape.
 
 
 
-### genbank2fasta (avec expression régulière)
+### genbank2fasta (avec expressions régulières)
 
 Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au format FASTA. L'annexe A *Quelques formats de données rencontrés en biologie* rappelle les caractéristiques de ces deux formats de fichiers.
 
 Le jeu de données avec lequel nous allons travailler est le fichier GenBank du chromosome I de la levure du boulanger *Saccharomyces cerevisiae*. Les indications pour le télécharger sont indiqués dans la description du projet.
 
-Dans cette rubrique, nous allons réaliser ce projet **avec des expression régulières** en utilisant le module *re*.
+Dans cette rubrique, nous allons réaliser ce projet **avec des expressions régulières** en utilisant le module *re*.
 
 
 #### Lecture du fichier
@@ -670,3 +670,21 @@ TODO:
 #### Ressource complémentaire
 
 Si vous souhaitez aller plus loin sur les différentes méthodes numériques de résolution d'équation différentielle associées au pendule, nous vous conseillons le site de [James Sethna](http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Pendulum/Pendulum.html) de l'université de Cornell.
+
+
+## Scripts de correction
+
+Voici les scripts corrigés pour les différents mini-projets.
+
+
+open-box-rem
+
+- Prenez le temps de chercher par vous-même avant de télécharger les scripts de correction.
+- Nous proposons une correction. D'autres solutions sont possibles.
+
+close-box-rem
+
+- Mots anglais dans le protéome humain : [words_in_proteome.py](https://python.sdv.univ-paris-diderot.fr/data-files/words_in_proteome.py)
+- Genbank2fasta (sans expression régulière) : [genbank2fasta_sans_regex.py](https://python.sdv.univ-paris-diderot.fr/data-files/genbank2fasta_sans_regex.py)
+- Genbank2fasta (avec expressions régulières) : [genbank2fasta_avec_regex.py]https://python.sdv.univ-paris-diderot.fr/data-files/genbank2fasta_avec_regex.py)
+- Simulation d'un pendule :
