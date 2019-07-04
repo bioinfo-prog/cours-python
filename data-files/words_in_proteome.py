@@ -3,6 +3,7 @@
 __authors__ = ("Pierre Poulain", "Patrick Fuchs")
 __version__ = "1.0.0"
 __date__ = "2018-11-23"
+__license__ = "BSD 3-Clause"
 
 import sys
 
