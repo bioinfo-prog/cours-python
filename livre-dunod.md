@@ -10,7 +10,7 @@ Vous trouverez des conseils pour installer Python avec la distribution Miniconda
 
 ## Chapitre 19 - Avoir la classe avec les objets
 
-Des exercices supplémentaires se trouvent dans la [version en ligne de ce chapitre](https://python.sdv.univ-paris-diderot.fr/19_avoir_la_classe_avec_les_objets/).
+Des exercices supplémentaires seront ajoutés au fur et à mesure dans la [version en ligne de ce chapitre](https://python.sdv.univ-paris-diderot.fr/19_avoir_la_classe_avec_les_objets/).
 
 
 ## Chapitre 21 - Remarques complémentaires 
