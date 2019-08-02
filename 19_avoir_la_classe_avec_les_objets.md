@@ -424,7 +424,7 @@ Lignes 2 et 3. Nous créons deux variables de classe qui seront communes à tout
 
 Lignes 6 à 8. Nous créons trois variables d'instance qui seront spécifiques à chaque instance (disons que la taille, la couleur et la masse d'un citron peuvent varier !), avec des valeurs par défaut.
 
-Lignes 10 et 11. On crée une nouvelle méthode `.ajoute_masse()` qui augmente l'attribut d'instance `.masse`.
+Lignes 10 et 11. On crée une nouvelle méthode `.augmente_masse()` qui augmente l'attribut d'instance `.masse`.
 
 Ligne 14 à 21. Dans le programme principal, on instancie la classe `Citron` sans passer d'argument (les valeurs par défaut `"jaune"`, `"standard"` et `0` seront donc prises), puis on imprime les attributs.
 
