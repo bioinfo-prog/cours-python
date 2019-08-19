@@ -197,7 +197,7 @@ print('Hello world!')
 
 open-box-rem
 
-On appelle souvent à tord le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe)) ».
+On appelle souvent à tort le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe)) ».
 
 close-box-rem
 
