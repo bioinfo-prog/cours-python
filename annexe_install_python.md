@@ -1,6 +1,6 @@
 # Installation de Python
 
-Python est déjà présent sous Linux ou Mac OS X et s'installe très facilement sous Windows. Toutefois, on décrit dans cet ouvrage l'utilisation de modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également les *notebooks* Jupyter.
+Python est déjà présent sous Linux ou Mac OS X et s'installe très facilement sous Windows. Toutefois, nous décrivons dans cet ouvrage l'utilisation de modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également les *notebooks* Jupyter.
 
 On va donc utiliser un gestionnaire de paquets qui va installer ces modules supplémentaires. On souhaite également que ce gestionnaire de paquets soit disponible pour Windows, Mac OS X et Linux. Fin 2018, il y a deux grandes alternatives :
 
@@ -11,7 +11,7 @@ On va donc utiliser un gestionnaire de paquets qui va installer ces modules supp
 
 ## Que recommande-t-on pour l'installation de Python ?
 
-Quel que soit le système d'exploitation, on recommande l'utilisation de Miniconda dont la procédure d'installation est détaillée ci-dessous pour Windows, Mac OS X et Linux. Le gestionnaire de paquets *conda* est très efficace. Il gère la version de Python et les paquets compatibles avec cette dernière très efficacement.
+Quel que soit le système d'exploitation, nous recommandons l'utilisation de Miniconda dont la procédure d'installation est détaillée ci-dessous pour Windows, Mac OS X et Linux. Le gestionnaire de paquets *conda* est très efficace. Il gère la version de Python et les paquets compatibles avec cette dernière très efficacement.
 
 Par ailleurs, on vous recommande vivement la lecture de la rubrique sur les [éditeurs de texte](#les-éditeurs-de-texte). Il est en effet fondamental d'utiliser un éditeur robuste et de savoir le configurer pour « pythonner » efficacement.
 
@@ -395,12 +395,14 @@ $ pip install nom_du_package
 
 ## Choisir un bon éditeur de texte
 
+La programmation nécessite d'écrire des lignes de code en utilisant un éditeur de texte. Le choix de cet éditeur est donc fondamental afin d'être efficace. Outre les fonctions de manipulation / remplacement / recherche de texte, un bon éditeur doit posséder absolument la **coloration syntaxique** (*syntax highlighting* en anglais). Celle-ci change la couleur et / ou la police de certaines zones du code comme les mot-clés du langage, les zones entre guillemets, les commentaires, etc. Dans ce qui suit, nous vous montrons des éditeurs faciles à prendre en main par les débutants pour Linux, Windows et Mac.
 
 ### Installation et réglage de gedit sous Linux
 
 Pour Linux, on vous recommande l'utilisation de l'éditeur de texte *gedit* qui a les avantages d'être simple à utiliser et présent dans la plupart des distributions Linux.
 
-Si *gedit* n'est pas installé, vous pouvez l'installer avec la commande
+Si *gedit* n'est pas installé, vous pouvez l'installer avec la commande :
+
 ```
 $ sudo apt install -y gedit
 ```
@@ -431,6 +433,15 @@ Ensuite, il est important de faire en sorte que Notepad++ affiche les numéros d
 
 
 ### Installation et réglage de TextWrangler/BBedit sous Mac
+
+Sur les anciennes versions de Mac (< 10.14), [TextWrangler](http://www.barebones.com/products/textwrangler/) était un éditeur de texte simple, intuitif et efficace. Toutefois son développement a été arrêté car il fonctionnait en 32-bits. Il a été remplacé par [BBedit](https://www.barebones.com/products/bbedit/) qui possède de nombreuses fonctionnalités supplémentaires mais qui doit en principe être acheté. Toutefois, ce dernier est utilisable gratuitement avec les mêmes fonctionnalités que TextWrangler, sans les nouvelles fonctionnalités étendues. Ne possédant pas de Mac, nous nous contentons ici de vous donner quelques liens utiles :
+- La page de [téléchargement](http://www.barebones.com/products/bbedit/download.html) ;
+- La page vers de nombreuses [ressources](https://www.barebones.com/support/bbedit/) utiles ;
+- Le [manuel d'utilisation](https://s3.amazonaws.com/BBSW-download/BBEdit_12.6.6_User_Manual.pdf) (avec toutes les instructions pour son installation au chapitre 2).
+
+### Pour aller plus loin
+
+Jusque là, nous vous avons montré des éditeurs de texte simples qui sont, selon nous, idéaux pour apprendre un langage de programmation. Ainsi, on se concentre sur le langage Python plutôt que toutes les options de l'éditeur. Toutefois, pour les utilisateurs plus avancés, nous vous conseillons des éditeurs plus puissants comme par exemple [Sublime Text](https://www.sublimetext.com/) ou [Atom](https://atom.io/). Pour aller encore plus loin, il existe aussi des [plateformes de développement](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) ou IDE (*integrated development environment*) qui, au-delà de l'édition, permettent par exemple d'exécuter le code et de le *debugger* (c'est-à-dire, y chasser les erreurs). On peut citer par exemple [Visual Studio code](https://code.visualstudio.com/) et [Spyder](https://www.spyder-ide.org/).
 
 ## Comment se mettre dans le bon répertoire dans le shell
 
