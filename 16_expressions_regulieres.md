@@ -433,7 +433,7 @@ protein 20373 Q96HZ7
 
 Le format HTML permet d'afficher des pages web dans un navigateur. Il s'agit d'un langage à balise qui fonctionne avec des balises ouvrantes `<balise>` et des balises fermantes `</balise>`.
 
-Créez un script `dehtmliseur.py` qui lit le fichier [`fichier_a_dehtmliser.html`](https://python.sdv.univ-paris-diderot.fr/data-files/fichier_a_dhtmliser.html) au format HTML et qui renvoie à l'écran tout le texte de ce fichier sans les balises HTML.
+Créez un script `dehtmliseur.py` qui lit le fichier [`fichier_a_dehtmliser.html`](https://python.sdv.univ-paris-diderot.fr/data-files/fichier_a_dehtmliser.html) au format HTML et qui renvoie à l'écran tout le texte de ce fichier sans les balises HTML.
 
 Nous vous conseillons tout d'abord d'ouvrir le fichier HTML dans un éditeur de texte et de bien l'observer. N'hésitez pas à vous aider des sites mentionnés dans les ressources en ligne
 
