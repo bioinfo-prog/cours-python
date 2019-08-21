@@ -11,11 +11,11 @@ On va donc utiliser un gestionnaire de paquets qui va installer ces modules supp
 
 ## Que recommande-t-on pour l'installation de Python ?
 
-Quel que soit le système d'exploitation, nous recommandons l'utilisation de Miniconda dont la procédure d'installation est détaillée ci-dessous pour Windows, Mac OS X et Linux. Le gestionnaire de paquets *conda* est très efficace. Il gère la version de Python et les paquets compatibles avec cette dernière très efficacement.
+Quel que soit le système d'exploitation, nous recommandons l'utilisation de Miniconda dont la procédure d'installation est détaillée ci-dessous pour Windows, Mac OS X et Linux. Le gestionnaire de paquets *conda* est très efficace. Il gère la version de Python et les paquets compatibles avec cette dernière de manière optimale.
 
-Par ailleurs, on vous recommande vivement la lecture de la rubrique sur les [éditeurs de texte](#les-éditeurs-de-texte). Il est en effet fondamental d'utiliser un éditeur robuste et de savoir le configurer pour « pythonner » efficacement.
+Par ailleurs, nous vous recommandons vivement la lecture de la rubrique sur les [éditeurs de texte](#les-éditeurs-de-texte). Il est en effet fondamental d'utiliser un éditeur robuste et de savoir le configurer pour « pythonner » efficacement.
 
-Enfin, dans tout ce qui suit, on part du principe que vous installerez Miniconda  **en tant qu'utilisateur**, et non pas en tant qu'administrateur. Autrement dit, vous n'aurez pas besoin de droits spéciaux pour pouvoir installer Miniconda et les autres modules nécessaires. La procédure proposée a été testée avec succès sous Windows (7 et 10), Mac OS C (Mac OS High Sierra version 10.13.6) et Linux (Ubuntu 16.04, Ubuntu 18.04).
+Enfin, dans tout ce qui suit, nous partons du principe que vous installerez Miniconda  **en tant qu'utilisateur**, et non pas en tant qu'administrateur. Autrement dit, vous n'aurez pas besoin de droits spéciaux pour pouvoir installer Miniconda et les autres modules nécessaires. La procédure proposée a été testée avec succès sous Windows (7 et 10), Mac OS C (Mac OS High Sierra version 10.13.6) et Linux (Ubuntu 16.04, Ubuntu 18.04).
 
 
 ## Installation de Python avec Miniconda
@@ -25,6 +25,7 @@ Nous vous conseillons l'installation de la distribution [Miniconda](https://cond
 ```
 $
 ```
+
 signifie l'invite d'un *shell* quel qu'il soit (PowerShell sous Windows, bash sous Mac OS X et Linux).
 
 ### Installation de Python avec Miniconda pour Linux
@@ -152,63 +153,70 @@ open-box-warn
 
 Nous partons du principe qu'aucune version d'Anaconda, Miniconda, ou encore de Python « classique » (obtenue sur le [site officiel de Python](https://www.python.org/downloads/)) n'est installée sur votre ordinateur. Si tel est le cas, nous recommandons vivement de la désinstaller pour éviter des conflits de version.
 
-Par ailleurs, la procédure détaillée ci-dessous rendra la version de Miniconda **prioritaire** sur toute autre version de Python (raison pour laquelle nous vous demandons de cocher une case non recommandée par l'installateur, cf. Figure @fig:install_miniconda5bis). Si vous désinstallez toute version de Python existante, tout se passera sans problème.
+Par ailleurs, la procédure détaillée ci-dessous rendra la version de Miniconda **prioritaire** sur toute autre version de Python (raison pour laquelle nous vous demandons de cocher une case non recommandée par l'installateur en figure @fig:install_miniconda5bis). Si vous désinstallez toute version de Python existante, tout se passera sans problème.
 
 close-box-warn
 
-Dans un navigateur internet, ouvrez la page du site Miniconda <https://conda.io/miniconda.html> puis cliquez sur le lien *64-bit (exe installer)* correspondant à Windows et Python 3.7. Bien sur, si votre machine est en 32-bit (ce qui est maintenant assez rare), vous cliquerez sur le lien *32-bit (exe installer)*.
+- Dans un navigateur internet, ouvrez la page du site Miniconda <https://conda.io/miniconda.html> puis cliquez sur le lien *64-bit (exe installer)* correspondant à Windows et Python 3.7. Bien sur, si votre machine est en 32-bit (ce qui est maintenant assez rare), vous cliquerez sur le lien *32-bit (exe installer)*. Vous allez télécharger un fichier dont le nom ressemble à quelque chose du type : `Miniconda3-latest-Windows-x86_64.exe`.
 
-Vous allez télécharger un fichier dont le nom ressemble à quelque chose du type :
+- Une fois téléchargé, double-cliquez sur ce fichier, cela lancera l'installateur de Miniconda :
 
-`Miniconda3-latest-Windows-x86_64.exe`.
+![Installation Miniconda étape 1.](img/miniconda1.png){ #fig:install_miniconda1 width=50% }
+\
 
-Une fois téléchargé, double-cliquez sur ce fichier, cela lancera l'installateur de Miniconda :
+- Cliquez sur *Next*, vous arrivez alors sur l'écran suivant :
 
-![Installation Miniconda étape 1.](img/miniconda1.png){ #fig:install_miniconda1 width=60% }
+![Installation Miniconda étape 2.](img/miniconda2.png){ #fig:install_miniconda2 width=50% }
+\
 
-Cliquez sur *Next*, puis vous arrivez sur :
+- Lisez la licence et (si vous êtes d'accord) cliquez sur *I agree*. Vous aurez ensuite :
 
-![Installation Miniconda étape 2.](img/miniconda2.png){ #fig:install_miniconda2 width=60% }
+![Installation Miniconda étape 3.](img/miniconda3.png){ #fig:install_miniconda3 width=50% }
+\
 
-Lisez la licence et (si vous êtes d'accord) cliquez sur *I agree*. Vous aurez ensuite :
+- Gardez le choix de l'installation seulement pour vous (case cochée à *Just me (recommended)*), puis cliquez sur *Next*. Vous aurez ensuite :
 
-![Installation Miniconda étape 3.](img/miniconda3.png){ #fig:install_miniconda3 width=60% }
+![Installation Miniconda étape 4.](img/miniconda4.png){ #fig:install_miniconda4 width=50% }
+\
 
-Gardez le choix de l'installation seulement pour vous (case cochée à *Just me (recommended)*), puis cliquez sur *Next*. Vous aurez ensuite :
+- L'installateur vous demande où installer Miniconda, nous vous recommandons de laisser le choix par défaut (ressemblant à `C:\Users\votre_nom_utilisateur\Miniconda3`). Cliquez sur *Next*, vous arriverez sur :
 
-![Installation Miniconda étape 4.](img/miniconda4.png){ #fig:install_miniconda4 width=60% }
+![Installation Miniconda étape 5.](img/miniconda5.png){ #fig:install_miniconda5 width=50% }
+\
 
-L'installateur vous demande où installer Miniconda, nous vous recommandons de laisser le choix par défaut (ressemblant à `C:\Users\votre_nom_utilisateur\Miniconda3`). Cliquez sur *Next*, vous arriverez sur :
+- Gardez la case *Register Anaconda as my default Python 3.7* cochée et cochez la case *Add Anaconda to my PATH environment variable*. En cochant cette dernière option, le texte s'est mis en rouge car ce n'est pas une option recommandée. Nous vous recommandons de choisir tout de même cette option car elle permet d'avoir accès à conda (et donc Python) dans le *shell* Windows nommé PowerShell (*shell* beaucoup plus puissant que l'ancien *shell* nommé cmd qui devient progressivement obsolète) :
 
-![Installation Miniconda étape 5.](img/miniconda5.png){ #fig:install_miniconda5 width=60% }
+![Installation Miniconda étape 5bis](img/miniconda5bis.png){ #fig:install_miniconda5bis width=50% }
+\
 
-Gardez la case *Register Anaconda as my default Python 3.7* cochée et cochez la case *Add Anaconda to my PATH environment variable*. En cochant cette dernière option, le texte s'est mis en rouge car ce n'est pas une option recommandée. Nous vous recommandons de choisir tout de même cette option car elle permet d'avoir accès à conda (et donc Python) dans le *shell* Windows nommé PowerShell (*shell* beaucoup plus puissant que l'ancien *shell* nommé cmd qui devient progressivement obsolète).
+- Cliquez ensuite sur *Install*, l'installation se lance et durera quelques minutes :
 
-![Installation Miniconda étape 5bis](img/miniconda5bis.png){ #fig:install_miniconda5bis width=60% }
+![Installation Miniconda étape 6.](img/miniconda6.png){ #fig:install_miniconda6 width=50% }
+\
 
-Cliquez ensuite sur *Install*, l'installation se lance et durera quelques minutes :
+- À la fin, vous obtiendrez :
 
-![Installation Miniconda étape 6.](img/miniconda6.png){ #fig:install_miniconda6 width=60% }
+![Installation Miniconda étape 7.](img/miniconda7.png){ #fig:install_miniconda7 width=50% }
+\
 
-À la fin, vous obtiendrez cette fenêtre :
+- Cliquez sur *Next*, vous arriverez sur la dernière fenêtre :
 
-![Installation Miniconda étape 7.](img/miniconda7.png){ #fig:install_miniconda7 width=60% }
+![Installation Miniconda étape 8.](img/miniconda8.png){ #fig:install_miniconda8 width=50% }
+\
 
-Cliquez sur *Next*, vous arriverez sur la dernière fenêtre :
-
-![Installation Miniconda étape 8.](img/miniconda8.png){ #fig:install_miniconda8 width=60% }
-
-Décochez les cases *Learn more about Anaconda Cloud* et *Learn how to get started with Anaconda* et cliquez sur *Finish*. Miniconda est maintenant installé.
+- Décochez les cases *Learn more about Anaconda Cloud* et *Learn how to get started with Anaconda* et cliquez sur *Finish*. Miniconda est maintenant installé.
 
 #### Test de l'interpréteur Python
 
 Nous sommes maintenant prêts à tester l'interpréteur Python. En premier lieu, il faut lancer un *shell* PowerShell. Pour cela, cliquez sur le bouton Windows et tapez `powershell`. Vous devriez voir apparaitre le menu suivant :
 
-![Menu pour lancer un PowerShell.](img/menu_Windows10_powershell.png){ #fig:miniconda_launch_shell width=60% }
+![Menu pour lancer un PowerShell.](img/menu_Windows10_powershell.png){ #fig:miniconda_launch_shell width=40% }
+\
 
 Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell avec un fond bleu (couleur que l'on peut bien sûr modifier en cliquant sur la petite icône représentant un terminal dans la barre de titre). Pour tester si Python est bien installé, il suffit alors de lancer l'interpréteur Python en tapant la commande `python` :
 
 ![Lancement de l'interpréteur Python dans un PowerShell.](img/test_python_powershell.png){ #fig:miniconda_test_interpreter width=60% }
+\
 
 Si tout s'est bien passé, vous devriez avoir l'affichage suivant :
 
@@ -275,26 +283,32 @@ Si c'est le cas, bravo, *conda* est bien installé et vous pouvez passez à la s
 Si vous souhaitez désinstaller Miniconda, rien de plus simple. Dans un explorateur, dirigez-vous dans le répertoire où vous avez installé Miniconda (dans notre exemple il s'agit de `C:\Users\votre_nom_utilisateur\Miniconda3`). Attention, si votre Windows est installé en français, il se peut qu'il faille cliquer sur `C:\` puis sur `Utilisateurs` plutôt que `Users` comme montré ici :
 
 ![Désinstallation de Miniconda (étape 1).](img/uninstall_miniconda1.png){ #fig:uninstall_miniconda width=60% }
+\
 
 Cliquez ensuite sur le fichier `Uninstall-Miniconda3.exe`. Vous aurez alors l'écran suivant :
 
-![Désinstallation de Miniconda (étape 2).](img/uninstall_miniconda2.png){ #fig:uninstall_miniconda2 width=60% }
+![Désinstallation de Miniconda (étape 2).](img/uninstall_miniconda2.png){ #fig:uninstall_miniconda2 width=50% }
+\
 
 Cliquez sur *Next*, puis à l'écran suivant cliquez sur *Uninstall* :
 
-![Désinstallation de Miniconda (étape 3).](img/uninstall_miniconda3.png){ #fig:uninstall_miniconda3 width=60% }
+![Désinstallation de Miniconda (étape 3).](img/uninstall_miniconda3.png){ #fig:uninstall_miniconda3 width=50% }
+\
 
 Le désinstallateur se lancera alors (cela peut prendre quelques minutes) :
 
-![Désinstallation de Miniconda (étape 4).](img/uninstall_miniconda4.png){ #fig:uninstall_miniconda4 width=60% }
+![Désinstallation de Miniconda (étape 4).](img/uninstall_miniconda4.png){ #fig:uninstall_miniconda4 width=50% }
+\
 
 Une fois la désinstallation terminée, cliquez sur *Next* :
 
-![Désinstallation de Miniconda (étape 5).](img/uninstall_miniconda5.png){ #fig:uninstall_miniconda5 width=60% }
+![Désinstallation de Miniconda (étape 5).](img/uninstall_miniconda5.png){ #fig:uninstall_miniconda5 width=50% }
+\
 
 Puis enfin sur *Finish* :
 
-![Désinstallation de Miniconda (étape 6).](img/uninstall_miniconda6.png){ #fig:uninstall_miniconda6 width=60% }
+![Désinstallation de Miniconda (étape 6).](img/uninstall_miniconda6.png){ #fig:uninstall_miniconda6 width=50% }
+\
 
 À ce point, Miniconda est bien désinstallé.
 
@@ -313,20 +327,23 @@ $ conda install numpy pandas matplotlib scipy biopython jupyterlab
 
 Cette commande va lancer l'installation des modules externes *NumPy*, *pandas*, *matplotlib*, *scipy*, *Biopython* et *Jupyter lab*. Ces modules vont être téléchargés depuis internet par *conda*, il faut bien sûr que votre connexion internent soit fonctionnelle. Au début, *conda* va déterminer les versions des paquets à télécharger en fonction de la version de Python ainsi que d'autres paramètres (cela prend une à deux minutes). Cela devrait donner la sortie suivante (copies d'écran prise sous Windows avec le PowerShell) :
 
-![Installation de packages avec conda (étape 1).](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=60% }
+![Installation de paquets avec conda (étape 1).](img/miniconda_install_packages1.png){ #fig:miniconda_install_packages1 width=60% }
+\
 
 Une fois que les versions des paquets ont été déterminées, *conda* vous demande confirmation avant de démarrer le téléchargement :
 
-![Installation de packages avec conda (étape 2).](img/miniconda_install_packages2.png){ #fig:miniconda_install_packages2 width=60% }
+![Installation de paquets avec conda (étape 2).](img/miniconda_install_packages2.png){ #fig:miniconda_install_packages2 width=60% }
+\
 
-Tapez `y` puis appuyez sur la touche *Entrée* pour confirmer. S'en suit alors le téléchargement et l'installation de tous les packages (cela prendra quelques minutes) :
+Tapez `y` puis appuyez sur la touche *Entrée* pour confirmer. S'en suit alors le téléchargement et l'installation de tous les paquets (cela prendra quelques minutes) :
 
-![Installation de packages avec conda (étape 3).](img/miniconda_install_packages3.png){ #fig:miniconda_install_packages3 width=60% }
+![Installation de paquets avec conda (étape 3).](img/miniconda_install_packages3.png){ #fig:miniconda_install_packages3 width=60% }
+\
 
 Une fois que tout cela est terminé, vous récupérez la main dans le *shell* :
 
-![Installation de packages avec conda (étape 4).](img/miniconda_install_packages4.png){ #fig:miniconda_install_packages4 width=60% }
-
+![Installation de paquets avec conda (étape 4).](img/miniconda_install_packages4.png){ #fig:miniconda_install_packages4 width=60% }
+\
 
 ### Test des modules supplémentaires
 
@@ -349,6 +366,7 @@ import pandas
 Vous devriez obtenir la sortie suivante (ici sous Windows) :
 
 ![Test installation de modules Python avec Miniconda.](img/miniconda_test_packages.png){ #fig:miniconda_test_packages width=60% }
+\
 
 Si aucune erreur ne s'affiche et que vous récupérez la main dans l'interpréteur, bravo, ces modules sont bien installés. Quittez l'interpréteur Python en tapant la commande `exit()` puis en appuyant sur la touche *Entrée*.
 
@@ -361,6 +379,7 @@ $ jupyter lab
 Cette commande devrait ouvrir votre navigateur internet par défaut et lancer Jupyter :
 
 ![Test de Jupyter : ouverture dans un navigateur.](img/miniconda_test_jupyter.png){ #fig:miniconda_test_jupyter width=40% }
+\
 
 Pour quitter Jupyter, allez dans le menu *File* puis sélectionnez *Quit*. Vous pourrez alors fermer l'onglet de Jupyter. Pendant ces manipulations dans le navigateur, de nombreuses lignes ont été affichées dans l'interpréteur :
 
@@ -385,17 +404,17 @@ Si tous ces tests ont bien fonctionné, bravo, vous avez installé correctement 
 
 Comme indiqué au début de ce chapitre, [pip](https://pip.pypa.io/en/stable/) est un gestionnaire de paquets pour Python et permet d'installer des modules externes. *Pip* est également présent dans Miniconda, donc utilisable et parfaitement fonctionnel. Vous pouvez vous poser la question « Pourquoi utiliser le gestionnaire de paquets *pip* si le gestionnaire de paquets `conda` est déjà présent ? ». La réponse est simple, certains modules ne sont présents que sur les dépôts *pip*. Si vous souhaitez les installer il  faudra impérativement utiliser *pip*. Inversement, certains modules ne sont présent que dans les dépôts de *conda*. Toutefois, pour les modules classiques (comme *NumPy*, *scipy*, etc), tout est gérable avec *conda*.
 
-**Sauf cas exceptionnel, on vous conseille l'utilisation de *conda* pour gérer l'installation de modules supplémentaires**.
+**Sauf cas exceptionnel, nous vous conseillons l'utilisation de *conda* pour gérer l'installation de modules supplémentaires**.
 
-Si vous souhaitez installer un package qui n'est pas présent sur un dépôt *conda* avec *pip*, la syntaxe est très simple :
+Si vous souhaitez installer un paquet qui n'est pas présent sur un dépôt *conda* avec *pip*, assuez vous d'abord que votre environnement *conda* est bien activé (avec `conda activate` ou `conda activate nom_environnement`). La syntaxe est ensuite très simple :
 
 ```
-$ pip install nom_du_package
+$ pip install nom_du_paquet
 ```
 
 ## Choisir un bon éditeur de texte
 
-La programmation nécessite d'écrire des lignes de code en utilisant un éditeur de texte. Le choix de cet éditeur est donc fondamental afin d'être efficace. Outre les fonctions de manipulation / remplacement / recherche de texte, un bon éditeur doit posséder absolument la **coloration syntaxique** (*syntax highlighting* en anglais). Celle-ci change la couleur et / ou la police de certaines zones du code comme les mot-clés du langage, les zones entre guillemets, les commentaires, etc. Dans ce qui suit, nous vous montrons des éditeurs faciles à prendre en main par les débutants pour Linux, Windows et Mac.
+La programmation nécessite d'écrire des lignes de code en utilisant un éditeur de texte. Le choix de cet éditeur est donc fondamental, celui-ci doit nous aider à repérer rapidement certaines zones du programme afin d'être efficace. Outre les fonctions de manipulation / remplacement / recherche de texte, un bon éditeur doit absolument posséder la **coloration syntaxique** (*syntax highlighting* en anglais). Celle-ci change la couleur et / ou la police de certaines zones du code comme les mot-clés du langage, les zones entre guillemets, les commentaires, etc. Dans ce qui suit, nous vous montrons des éditeurs faciles à prendre en main par les débutants pour Linux, Windows et Mac.
 
 ### Installation et réglage de gedit sous Linux
 
@@ -408,33 +427,37 @@ $ sudo apt install -y gedit
 ```
 Il faudra entrer votre mot de passe utilisateur puis valider en appuyant sur la touche *Entrée*.
 
-Pour lancer cet éditeur, tapez la commande `gedit` dans un *shell* ou cherchez *gedit* dans le lanceur d'applications. Vous devriez obtenir une fenêtre similaire à celle de la figure @fig:gedit1.
+Pour lancer cet éditeur, tapez la commande `gedit` dans un *shell* ou cherchez *gedit* dans le lanceur d'applications. Vous devriez obtenir une fenêtre similaire à celle-ci :
 
-![Éditeur de texte *gedit*.](img/gedit_1.png){ #fig:gedit1 width=80% }
+![Éditeur de texte *gedit*.](img/gedit_1.png){ #fig:gedit1 width=60% }
+\
 
-On configure ensuite *gedit* pour que l'appuie sur la touche *Tab* corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Pour cela, cliquez sur l'icône en forme de 3 petites barres horizontales en haut à droite de la fenêtre de *gedit*, puis sélectionnez *Préférences*. Dans la nouvelle fenêtre qui s'ouvre, sélectionnez l'onglet *Éditeur* puis fixez la largeur des tabulations à 4 et cochez la case *Insérer des espaces au lieu des tabulations* (comme sur la figure @fig:gedit2).
+On configure ensuite *gedit* pour que l'appui sur la touche *Tab* corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Pour cela, cliquez sur l'icône en forme de 3 petites barres horizontales en haut à droite de la fenêtre de *gedit*, puis sélectionnez *Préférences*. Dans la nouvelle fenêtre qui s'ouvre, sélectionnez l'onglet *Éditeur* puis fixez la largeur des tabulations à 4 et cochez la case *Insérer des espaces au lieu des tabulations* :
+
+![Configuration de *gedit*.](img/gedit_2.png){ #fig:gedit2 width=60% }
+\
 
 Si vous le souhaitez, vous pouvez également cochez la case *Activer l'indentation automatique* qui indentera automatiquement votre code quand vous êtes dans un bloc d'instructions. Fermez la fenêtre de paramètres une fois la configuration terminée.
-
-![Configuration de *gedit*.](img/gedit_2.png){ #fig:gedit2 width=80% }
 
 
 ### Installation et réglage de Notepad++ sous Windows
 
 Sous Windows, nous vous recommandons l'excellent éditeur [Notepad++](https://notepad-plus-plus.org/download). Une fois cet éditeur installé, il est important de le régler correctement. En suivant le menu `Paramètres`, `Préférences`, vous arriverez sur un panneau vous permettant de configurer Notepad++.
 
-En premier on va configurer l'appui sur la touche *Tab* afin qu'il corresponde à une indentation de 4 espaces, comme recommandée par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Dans la liste sur la gauche, cliquez sur `Langage`, puis à droite dans le carré `Tabulations` cochez la case `Insérer des espaces` en réglant sur 4 espaces comme indiqué dans la Figure @fig:notepadpp.
+En premier on va configurer l'appui sur la touche *Tab* afin qu'il corresponde à une indentation de 4 espaces, comme recommandé par la PEP 8 (chapitre 15 *Bonnes pratiques en programmation Python*). Dans la liste sur la gauche, cliquez sur `Langage`, puis à droite dans le carré `Tabulations` cochez la case `Insérer des espaces` en réglant sur 4 espaces comme indiqué ci-dessous :
 
-![Configuration de *Notepad++* : indentation avec des espaces.](img/notepad++.png){ #fig:notepadpp width=80% }
+![Configuration de *Notepad++* : indentation avec des espaces.](img/notepad++.png){ #fig:notepadpp width=70% }
+\
 
-Ensuite, il est important de faire en sorte que Notepad++ affiche les numéros de ligne sur la gauche (très pratique lorsque l'interpréteur nous indique qu'il y a une erreur, par exemple, à la ligne 47). Toujours dans la fenêtre `Préférences`, dans la liste sur la gauche cliquez sur `Zones d'édition`, puis sur la droite cochez la case `Afficher la numérotation des lignes` comme indiqué dans Figure @fig:notepadpp_2.
+Ensuite, il est important de faire en sorte que Notepad++ affiche les numéros de ligne sur la gauche (très pratique lorsque l'interpréteur nous indique qu'il y a une erreur, par exemple, à la ligne 47). Toujours dans la fenêtre `Préférences`, dans la liste sur la gauche cliquez sur `Zones d'édition`, puis sur la droite cochez la case `Afficher la numérotation des lignes` comme indiqué ici :
 
-![Configuration de *Notepad++* : numéro de ligne.](img/notepad++_2.png){ #fig:notepadpp_2 width=80% }
-
+![Configuration de *Notepad++* : numéro de ligne.](img/notepad++_2.png){ #fig:notepadpp_2 width=70% }
+\
 
 ### Installation et réglage de TextWrangler/BBedit sous Mac
 
 Sur les anciennes versions de Mac (< 10.14), [TextWrangler](http://www.barebones.com/products/textwrangler/) était un éditeur de texte simple, intuitif et efficace. Toutefois son développement a été arrêté car il fonctionnait en 32-bits. Il a été remplacé par [BBedit](https://www.barebones.com/products/bbedit/) qui possède de nombreuses fonctionnalités supplémentaires mais qui doit en principe être acheté. Toutefois, ce dernier est utilisable gratuitement avec les mêmes fonctionnalités que TextWrangler, sans les nouvelles fonctionnalités étendues. Ne possédant pas de Mac, nous nous contentons ici de vous donner quelques liens utiles :
+
 - La page de [téléchargement](http://www.barebones.com/products/bbedit/download.html) ;
 - La page vers de nombreuses [ressources](https://www.barebones.com/support/bbedit/) utiles ;
 - Le [manuel d'utilisation](https://s3.amazonaws.com/BBSW-download/BBEdit_12.6.6_User_Manual.pdf) (avec toutes les instructions pour son installation au chapitre 2) ;
@@ -453,14 +476,17 @@ Notre livre n'est pas un cours d'Unix mais il convient au moins de savoir se dé
 Sous Windows, il existe une astuce très pratique. Lorsqu'on utilise l'explorateur Windows et que l'on est dans un répertoire donné, par exemple :
 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 1).](img/lancement_shell_Windows1.png){ #fig:lancement_shell_Windows1 width=90% }
+\
 
 Il suffit de taper `powershell` dans la barre qui indique le chemin :
 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 2).](img/lancement_shell_Windows2.png){ #fig:lancement_shell_Windows2 width=90% }
+\
 
 puis on appuie sur entrée et le PowerShell se lance en étant directement dans le bon répertoire :
 
-![Lancement d'un *powershell* depuis un répertoire donné (étape 3).](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=90% }
+![Lancement d'un *powershell* depuis un répertoire donné (étape 3).](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=70% }
+\
 
 Dans ce PowerShell, nous avons lancé la commande `ls` qui affiche le nom du répertoire courant (celui dans lequel on se trouve, dans notre exemple `D:\PAT\Python`) ainsi que les fichiers s'y trouvant (ici il n'y a qu'un fichier : `test.py`). Ensuite nous avons lancé l'exécution de ce fichier `test.py` en tapant `python test.py`.
 
@@ -481,7 +507,7 @@ racine.mainloop()
 print("C'est fini !")
 ```
 
-Ouvrez un *shell* et déplacez-vous dans le répertoire où se trouve `test.py`. Lancez le script avec l'interpréteur Python :
+Comme nous vous l'avons montré ci-dessus, ouvrez un *shell* et déplacez-vous dans le répertoire où se trouve `test.py`. Lancez le script avec l'interpréteur Python :
 
 ```
 $ python test.py
