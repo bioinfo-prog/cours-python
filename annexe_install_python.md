@@ -359,7 +359,11 @@ Puis enfin sur *Finish* :
 ![Désinstallation de Miniconda (étape 6).](img/uninstall_miniconda6.png){ #fig:uninstall_miniconda6 width=50% }
 \
 
-À ce point, Miniconda est bien désinstallé. Il reste toutefois une dernière manipulation que l'installateur n'a pas effectué : il faut détruire à la main le fichier `C:\Users\nom_utilisateur\Documents\WindowsPowerShell\profile.ps1` (bien sûr, remplacez `nom_utilisateur` par votre propre nom d'utilisateur). Si vous ne le faites pas, cela afficher un message d'erreur à chaque fois que vous lancerez un Powershell.
+À ce point, Miniconda est bien désinstallé. Il reste toutefois une dernière manipulation que l'installateur n'a pas effectué : il faut détruire à la main le fichier 
+
+`C:\Users\nom_utilisateur\Documents\WindowsPowerShell\profile.ps1` 
+
+(bien sûr, remplacez `nom_utilisateur` par votre propre nom d'utilisateur). Si vous ne le faites pas, cela affichera un message d'erreur à chaque fois que vous lancerez un Powershell.
 
 ## Utilisation de conda pour installer des modules complémentaires
 
@@ -432,13 +436,13 @@ Cette commande devrait ouvrir votre navigateur internet par défaut et lancer Ju
 Pour quitter Jupyter, allez dans le menu *File* puis sélectionnez *Quit*. Vous pourrez alors fermer l'onglet de Jupyter. Pendant ces manipulations dans le navigateur, de nombreuses lignes ont été affichées dans l'interpréteur :
 
 ```
-PS C:\Users\Pat> jupyter lab
-[I 18:38:17.644 LabApp] JupyterLab extension loaded from C:\Users\Pat\Miniconda3\lib\site-packages\jupyterlab
-[I 18:38:17.644 LabApp] JupyterLab application directory is C:\Users\Pat\Miniconda3\share\jupyter\lab
+(base) PS C:\Users\Pat> jupyter lab
+[I 18:26:05.544 LabApp] JupyterLab extension loaded from C:\Users\Pat\Miniconda3\lib\site-packages\jupyterlab
+[I 18:26:05.544 LabApp] JupyterLab application directory is C:\Users\Pat\Miniconda3\share\jupyter\lab
 [...]
-[I 18:38:28.904 LabApp] Shutting down on /api/shutdown request.
-[I 18:38:28.919 LabApp] Shutting down 0 kernels
-PS C:\Users\Pat>
+[I 18:27:20.645 LabApp] Interrupted...
+[I 18:27:32.986 LabApp] Shutting down 0 kernels
+(base) PS C:\Users\Pat>
 ```
 
 Il s'agit d'un comportement normal. Quand Jupyter est actif, vous n'avez plus la main dans l'interpréteur et tous ces messages s'affichent. Une fois que vous quittez Jupyter, vous devriez récupérer la main dans l'interpréteur. Si ce n'est pas le cas, pressez deux fois la combinaison de touches *Ctrl* + *C*
