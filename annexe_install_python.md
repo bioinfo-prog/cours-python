@@ -155,7 +155,7 @@ Nous partons du principe qu'aucune version d'Anaconda, Miniconda, ou encore de P
 
 close-box-warn
 
-- Dans un navigateur internet, ouvrez la page du site Miniconda <https://conda.io/miniconda.html> puis cliquez sur le lien *64-bit (exe installer)* correspondant à Windows et Python 3.7. Bien sur, si votre machine est en 32-bit (ce qui est maintenant assez rare), vous cliquerez sur le lien *32-bit (exe installer)*. Vous allez télécharger un fichier dont le nom ressemble à quelque chose du type : `Miniconda3-latest-Windows-x86_64.exe`.
+- Dans un navigateur internet, ouvrez la page du site Miniconda <https://conda.io/miniconda.html> puis cliquez sur le lien *64-bit (exe installer)* correspondant à Windows et Python 3.7. Bien sûr, si votre machine est en 32-bit (ce qui est maintenant assez rare), vous cliquerez sur le lien *32-bit (exe installer)*. Vous allez télécharger un fichier dont le nom ressemble à quelque chose du type : `Miniconda3-latest-Windows-x86_64.exe`.
 
 - Une fois téléchargé, double-cliquez sur ce fichier, cela lancera l'installateur de Miniconda :
 
@@ -205,7 +205,7 @@ Il nous faut maintenant initialiser *conda*. Cette manipulation va permettre de 
 
 L'installateur a en principe ajouté une nouvelle section dans le Menu Démarrer nommée `Anaconda3 (64-bit)` :
 
-![Menu Anaconda Powershell Prompt](cours/img/menu_anaconda_W10.png){ #fig:menu_anaconda_W10 width=40% }
+![Menu Anaconda Powershell Prompt](img/menu_anaconda_W10.png){ #fig:menu_anaconda_W10 width=40% }
 \
 
 Cette section contient deux éléments :
@@ -215,7 +215,7 @@ Cette section contient deux éléments :
 
 Nous allons maintenant initialiser *conda* « à la main ». Cliquez sur `Anaconda Powershell Prompt (Miniconda3)` qui va lancer un Powershell avec *conda* activé, puis tapez la commande `conda init` :
 
-![Initialisation de conda](cours/img/conda_init_W10.png){ #fig:conda_init_W10 width=60% }
+![Initialisation de conda](img/conda_init_W10.png){ #fig:conda_init_W10 width=60% }
 \
 
 Lorsque vous presserez la touche Entrée vous obtiendrez une sortie de ce style :
@@ -249,7 +249,11 @@ modified      HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun
 ==> For changes to take effect, close and re-open your current shell. <==
 ```
 
-A noter, cette manipulation créera automatiquement un fichier `C:\Users\nom_utilisateur\Documents\WindowsPowerShell\profile.ps1`. Ce fichier sera exécuté à chaque lancement d'un Powershell (équivalent du `.bashrc` sous bash) et fera en sorte que *conda* soit bien activé.
+A noter, cette manipulation créera automatiquement un fichier 
+
+`C:\Users\nom_utilisateur\Documents\WindowsPowerShell\profile.ps1`. 
+
+Ce fichier sera exécuté à chaque lancement d'un Powershell (équivalent du `.bashrc` sous bash) et fera en sorte que *conda* soit bien activé.
 
 #### Test de l'interpréteur Python
 
@@ -258,16 +262,16 @@ Nous sommes maintenant prêts à tester l'interpréteur Python. En premier lieu,
 ![Menu pour lancer un PowerShell.](img/menu_Windows10_powershell.png){ #fig:miniconda_launch_shell width=40% }
 \
 
-Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell avec un fond bleu (couleur que l'on peut bien sûr modifier en cliquant sur la petite icône représentant un terminal dans la barre de titre). Pour tester si Python est bien installé, il suffit alors de lancer l'interpréteur Python en tapant la commande `python` :
+Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell avec un fond bleu (couleur que l'on peut bien sûr modifier en cliquant sur la petite icône représentant un terminal dans la barre de titre). En principe, l'invite du shell doit ressembler à `(base) PS C:\Users\Pat>`. La partie `(base)` indique que conda a bien été activé suite à l'initialisation faite si dessus (plus exactement c'est son environnement de base qui est activé, mais ça ne nous importe pas pour l'instant). Pour tester si Python est bien installé, il suffit alors de lancer l'interpréteur Python en tapant la commande `python` :
 
 ![Lancement de l'interpréteur Python dans un PowerShell.](img/test_python_powershell.png){ #fig:miniconda_test_interpreter width=60% }
 \
 
-Si tout s'est bien passé, vous devriez avoir l'affichage suivant :
+Si tout s'est bien passé, vous devriez avoir un affichage de ce style :
 
 ```
-PS C:\Users\Pat> python
-Python 3.7.1 (default, Dec 10 2018, 22:54:23) [MSC v.1915 64 bit (AMD64)] :: Anaconda, Inc. on win32
+(base) PS C:\Users\Pat> python
+Python 3.7.3 (default, Apr 24 2019, 15:29:51) [MSC v.1915 64 bit (AMD64)] :: Anaconda, Inc. on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -279,7 +283,7 @@ Cela signifie que vous êtes bien dans l'interpréteur Python. À partir de là 
 Une fois revenu dans le *shell*, tapez la commande `conda`, vous devriez obtenir :
 
 ```
-PS C:\Users\Pat> conda
+(base) PS C:\Users\Pat> conda
 usage: conda-script.py [-h] [-V] command ...
 
 conda is a tool for managing and deploying applications, environments and packages.
@@ -317,7 +321,7 @@ optional arguments:
 
 conda commands available from other packages:
   env
-PS C:\Users\Pat>
+(base) PS C:\Users\Pat>
 ```
 
 Si c'est le cas, bravo, *conda* est bien installé et vous pouvez passez à la suite (rendez-vous à la rubrique [Installation des modules supplémentaires](#installation-des-modules-supplémentaires)) !
