@@ -151,9 +151,7 @@ Dans cette rubrique, nous détaillons l'installation de Miniconda sous Windows.
 
 open-box-warn
 
-Nous partons du principe qu'aucune version d'Anaconda, Miniconda, ou encore de Python « classique » (obtenue sur le [site officiel de Python](https://www.python.org/downloads/)) n'est installée sur votre ordinateur. Si tel est le cas, nous recommandons vivement de la désinstaller pour éviter des conflits de version.
-
-Par ailleurs, la procédure détaillée ci-dessous rendra la version de Miniconda **prioritaire** sur toute autre version de Python (raison pour laquelle nous vous demandons de cocher une case non recommandée par l'installateur en figure @fig:install_miniconda5bis). Si vous désinstallez toute version de Python existante, tout se passera sans problème.
+Nous partons du principe qu'aucune version d'Anaconda, Miniconda, ou encore de Python « classique » (obtenue sur le [site officiel de Python](https://www.python.org/downloads/)) n'est installée sur votre ordinateur. Si tel est le cas, nous vous recommandons vivement de la désinstaller pour éviter des conflits de version.
 
 close-box-warn
 
@@ -184,12 +182,7 @@ close-box-warn
 ![Installation Miniconda étape 5.](img/miniconda5.png){ #fig:install_miniconda5 width=50% }
 \
 
-- Gardez la case *Register Anaconda as my default Python 3.7* cochée et cochez la case *Add Anaconda to my PATH environment variable*. En cochant cette dernière option, le texte s'est mis en rouge car ce n'est pas une option recommandée. Nous vous recommandons de choisir tout de même cette option car elle permet d'avoir accès à conda (et donc Python) dans le *shell* Windows nommé PowerShell (*shell* beaucoup plus puissant que l'ancien *shell* nommé cmd qui devient progressivement obsolète) :
-
-![Installation Miniconda étape 5bis](img/miniconda5bis.png){ #fig:install_miniconda5bis width=50% }
-\
-
-- Cliquez ensuite sur *Install*, l'installation se lance et durera quelques minutes :
+- Gardez la case *Register Anaconda as my default Python 3.7* cochée et ne cochez pas la case *Add Anaconda to my PATH environment variable*. Cliquez ensuite sur *Install*, l'installation se lance et durera quelques minutes :
 
 ![Installation Miniconda étape 6.](img/miniconda6.png){ #fig:install_miniconda6 width=50% }
 \
@@ -205,6 +198,58 @@ close-box-warn
 \
 
 - Décochez les cases *Learn more about Anaconda Cloud* et *Learn how to get started with Anaconda* et cliquez sur *Finish*. Miniconda est maintenant installé.
+
+#### Initialisation de conda
+
+Il nous faut maintenant initialiser *conda*. Cette manipulation va permettre de le rendre visible dans n'importe quel *shell* Powershell.
+
+L'installateur a en principe ajouté une nouvelle section dans le Menu Démarrer nommée `Anaconda3 (64-bit)` :
+
+![Menu Anaconda Powershell Prompt](cours/img/menu_anaconda_W10.png){ #fig:menu_anaconda_W10 width=40% }
+\
+
+Cette section contient deux éléments :
+
+- `Anaconda Powershell Prompt (Miniconda3)` : pour lancer un *shell* Powershell (shell standard de Windows équivalent du bash sous Linux) avec *conda* qui est activé correctement ;
+- `Anaconda Prompt (Miniconda3)` : même chose mais avec le *shell* nommé cmd ; ce vieux shell est limité et nous vous en déconseillons l'utilisation. 
+
+Nous allons maintenant initialiser *conda* « à la main ». Cliquez sur `Anaconda Powershell Prompt (Miniconda3)` qui va lancer un Powershell avec *conda* activé, puis tapez la commande `conda init` :
+
+![Initialisation de conda](cours/img/conda_init_W10.png){ #fig:conda_init_W10 width=60% }
+\
+
+Lorsque vous presserez la touche Entrée vous obtiendrez une sortie de ce style :
+
+```
+$ conda init
+no change     C:\Users\Pat\Miniconda3\Scripts\conda.exe
+no change     C:\Users\Pat\Miniconda3\Scripts\conda-env.exe
+no change     C:\Users\Pat\Miniconda3\Scripts\conda-script.py
+no change     C:\Users\Pat\Miniconda3\Scripts\conda-env-script.py
+no change     C:\Users\Pat\Miniconda3\condabin\conda.bat
+no change     C:\Users\Pat\Miniconda3\Library\bin\conda.bat
+no change     C:\Users\Pat\Miniconda3\condabin\_conda_activate.bat
+no change     C:\Users\Pat\Miniconda3\condabin\rename_tmp.bat
+no change     C:\Users\Pat\Miniconda3\condabin\conda_auto_activate.bat
+no change     C:\Users\Pat\Miniconda3\condabin\conda_hook.bat
+no change     C:\Users\Pat\Miniconda3\Scripts\activate.bat
+no change     C:\Users\Pat\Miniconda3\condabin\activate.bat
+no change     C:\Users\Pat\Miniconda3\condabin\deactivate.bat
+modified      C:\Users\Pat\Miniconda3\Scripts\activate
+modified      C:\Users\Pat\Miniconda3\Scripts\deactivate
+modified      C:\Users\Pat\Miniconda3\etc\profile.d\conda.sh
+modified      C:\Users\Pat\Miniconda3\etc\fish\conf.d\conda.fish
+no change     C:\Users\Pat\Miniconda3\shell\condabin\Conda.psm1
+modified      C:\Users\Pat\Miniconda3\shell\condabin\conda-hook.ps1
+modified      C:\Users\Pat\Miniconda3\Lib\site-packages\xontrib\conda.xsh
+modified      C:\Users\Pat\Miniconda3\etc\profile.d\conda.csh
+modified      C:\Users\Pat\Documents\WindowsPowerShell\profile.ps1
+modified      HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun
+
+==> For changes to take effect, close and re-open your current shell. <==
+```
+
+A noter, cette manipulation créera automatiquement un fichier `C:\Users\nom_utilisateur\Documents\WindowsPowerShell\profile.ps1`. Ce fichier sera exécuté à chaque lancement d'un Powershell (équivalent du `.bashrc` sous bash) et fera en sorte que *conda* soit bien activé.
 
 #### Test de l'interpréteur Python
 
@@ -310,8 +355,7 @@ Puis enfin sur *Finish* :
 ![Désinstallation de Miniconda (étape 6).](img/uninstall_miniconda6.png){ #fig:uninstall_miniconda6 width=50% }
 \
 
-À ce point, Miniconda est bien désinstallé.
-
+À ce point, Miniconda est bien désinstallé. Il reste toutefois une dernière manipulation que l'installateur n'a pas effectué : il faut détruire à la main le fichier `C:\Users\nom_utilisateur\Documents\WindowsPowerShell\profile.ps1` (bien sûr, remplacez `nom_utilisateur` par votre propre nom d'utilisateur). Si vous ne le faites pas, cela afficher un message d'erreur à chaque fois que vous lancerez un Powershell.
 
 ## Utilisation de conda pour installer des modules complémentaires
 
@@ -414,7 +458,7 @@ $ pip install nom_du_paquet
 
 ## Choisir un bon éditeur de texte
 
-La programmation nécessite d'écrire des lignes de code en utilisant un éditeur de texte. Le choix de cet éditeur est donc fondamental, celui-ci doit nous aider à repérer rapidement certaines zones du programme afin d'être efficace. Outre les fonctions de manipulation / remplacement / recherche de texte, un bon éditeur doit absolument posséder la **coloration syntaxique** (*syntax highlighting* en anglais). Celle-ci change la couleur et / ou la police de certaines zones du code comme les mot-clés du langage, les zones entre guillemets, les commentaires, etc. Dans ce qui suit, nous vous montrons des éditeurs faciles à prendre en main par les débutants pour Linux, Windows et Mac.
+La programmation nécessite d'écrire des lignes de code en utilisant un éditeur de texte. Le choix de cet éditeur est donc fondamental, celui-ci doit nous aider à repérer rapidement certaines zones du programme afin d'être efficace. Outre les fonctions de manipulation / remplacement / recherche de texte, un bon éditeur doit absolument posséder la **coloration syntaxique** (*syntax highlighting* en anglais). Celle-ci change la couleur et / ou la police de certaines zones du code comme les mot-clés du langage, les zones entre guillemets, les commentaires, etc. Dans ce qui suit, nous vous montrons des éditeurs faciles à prendre en main par les débutants pour Linux, Windows et Mac OS X.
 
 ### Installation et réglage de gedit sous Linux
 
@@ -454,9 +498,9 @@ Ensuite, il est important de faire en sorte que Notepad++ affiche les numéros d
 ![Configuration de *Notepad++* : numéro de ligne.](img/notepad++_2.png){ #fig:notepadpp_2 width=70% }
 \
 
-### Installation et réglage de TextWrangler/BBedit sous Mac
+### Installation et réglage de TextWrangler/BBedit sous Mac OS X
 
-Sur les anciennes versions de Mac (< 10.14), [TextWrangler](http://www.barebones.com/products/textwrangler/) était un éditeur de texte simple, intuitif et efficace. Toutefois son développement a été arrêté car il fonctionnait en 32-bits. Il a été remplacé par [BBedit](https://www.barebones.com/products/bbedit/) qui possède de nombreuses fonctionnalités supplémentaires mais qui doit en principe être acheté. Toutefois, ce dernier est utilisable gratuitement avec les mêmes fonctionnalités que TextWrangler, sans les nouvelles fonctionnalités étendues. Ne possédant pas de Mac, nous nous contentons ici de vous donner quelques liens utiles :
+Sur les anciennes versions de Mac OS X (< 10.14), [TextWrangler](http://www.barebones.com/products/textwrangler/) était un éditeur de texte simple, intuitif et efficace. Toutefois son développement a été arrêté car il fonctionnait en 32-bits. Il a été remplacé par [BBedit](https://www.barebones.com/products/bbedit/) qui possède de nombreuses fonctionnalités supplémentaires mais qui doit en principe être acheté. Toutefois, ce dernier est utilisable gratuitement avec les mêmes fonctionnalités que TextWrangler, sans les nouvelles fonctionnalités étendues. Ne possédant pas de Mac, nous nous contentons ici de vous donner quelques liens utiles :
 
 - La page de [téléchargement](http://www.barebones.com/products/bbedit/download.html) ;
 - La page vers de nombreuses [ressources](https://www.barebones.com/support/bbedit/) utiles ;
