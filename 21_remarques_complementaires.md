@@ -190,7 +190,7 @@ Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?str
 
 ## Gestion des exceptions
 
-Les langages de programmation comme Python contiennent un système [système de gestion des **exceptions**](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_d%27exceptions). Qu'est-ce qu'une exception ? Sur la [page anglaise de Wikipedia](https://en.wikipedia.org/wiki/Exception_handling), une exception est définie comme une anomalie de l'exécution d'un programme requérant une action spéciale, en général l'arrêt de l'exécution. Le plus souvent, **une exception correspond à une erreur** que Python rencontre lorsqu'il tente d'exécuter les lignes de code qu'on lui soumet. Par exemple, un problème de syntaxe, une variable ou objet prend une valeur abberrante (par exemple diviser par 0, chercher dans une liste du nombre d'éléments, etc), etc. 
+Les langages de programmation comme Python contiennent un système [système de gestion des **exceptions**](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_d%27exceptions). Qu'est-ce qu'une exception ? Sur la [page anglaise de Wikipedia](https://en.wikipedia.org/wiki/Exception_handling), une exception est définie comme une anomalie de l'exécution d'un programme requérant une action spéciale, en général l'arrêt de l'exécution. Le plus souvent, **une exception correspond à une erreur** que Python rencontre lorsqu'il tente d'exécuter les lignes de code qu'on lui soumet. Par exemple, un problème de syntaxe, une variable ou objet qui prend une valeur abberrante (par exemple diviser par 0, chercher dans une liste au delà du nombre d'éléments, etc), etc. 
 
 Le système de gestion des exceptions permet d'éviter que votre programme « plante » en prévoyant vous même les sources d'erreurs éventuelles.
 
@@ -213,9 +213,10 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: 'ATCG'
 ```
 
-L'erreur provient de la fonction `int()` qui n'a pas pu convertir la chaîne de caractères `"ATCG"` en nombre entier, ce qui est parfaitement normal. En termes plus techniques, on dira que « Python a levé une exception de type `ValueError` » (eh oui il y a de nombreux types d'exceptions différents (cf. plus bas) !). Le nom de l'exception apparaît toujours comme le premier mot de la dernière ligne du message d'erreur. Si nous lancions ces lignes de code sous forme de script (du style `python ./script.py`), cet exemple conduirait à l'arrêt de l'exécution du programme.
+L'erreur provient de la fonction `int()` qui n'a pas pu convertir la chaîne de caractères `"ATCG"` en nombre entier, ce qui est parfaitement normal. En termes plus techniques, on dira que « Python a levé une exception de type `ValueError` ». Eh oui il y a de nombreux types d'exceptions différents (cf. plus bas) ! Le nom de l'exception apparaît toujours comme le premier mot de la dernière ligne du message d'erreur. Si nous lancions ces lignes de code sous forme de script (du style `python ./script.py`), cet exemple conduirait à l'arrêt de l'exécution du programme.
 
 Le jeu d'instructions `try` / `except` permet de tester l'exécution d'une commande et d'intervenir en cas de levée d'exception.
+
 ```
 >>> try:
 ...     nb = int(input("Entrez un nombre entier : "))
@@ -294,7 +295,7 @@ Traceback (most recent call last):
 NameError: name 'variable' is not defined
 ```
 
-Ici l'exception levée est de type `NameError` car `variable` n'existe pas. Alors que si vous mettez `except` tout court, cela intercept n'importe quelle exception.
+Ici l'exception levée est de type `NameError` car `variable` n'existe pas. Alors que si vous mettez `except` tout court, cela intercepte n'importe quelle exception.
 
 ```
 >>> try:
@@ -306,12 +307,12 @@ Vous n'avez pas entré un nombre entier !
 >>>
 ```
 
-Vous voyez, qu'ici cela pose problème car le message d'erreur ne correspond pas à l'exception levée !
+Vous voyez qu'ici cela pose problème : le message d'erreur ne correspond pas à l'exception levée !
 
 open-box-adv
 
 - Nous vous conseillons vivement de toujours préciser le type d'exception dans vos `except`. Cela évite d'intercepter une exception que vous n'aviez pas prévue. Il est possible d'intercepter plusieurs types d'exceptions en passant un tuple à `except`, par exemple : `except (Exception1, Exception2)`. 
-- Pa ailleurs, ne mettez pas trop de lignes dans le bloc du `try`. Dans un tel cas, il peut être très pénible de trouver la ligne qui a conduit à l'exécution du `except`. Pire encore, il se peut que des lignes que vous aviez prévues ne seront pas exécutée ! Donc gardez des choses simples dans un premier temps, comme par exemple tester les conversions de type ou vérifier qu'un fichier existe bien.
+- Pa ailleurs, ne mettez pas trop de lignes dans le bloc du `try`. Dans un tel cas, il peut être très pénible de trouver la ligne qui a conduit à l'exécution du `except`. Pire encore, il se peut que des lignes que vous aviez prévues ne seront pas exécutées ! Donc gardez des choses simples dans un premier temps, comme par exemple tester les conversions de type ou vérifier qu'un fichier existe bien et que vous pouvez l'ouvrir.
 
 close-box-adv
 
@@ -326,7 +327,7 @@ Il existe de nombreux types d'exception comme `RuntimeError`, `TypeError`, `Name
 [...]
 ```
 
-Leur présence dans le module `builtins` signifie qu'elles font vraiment partie du langage lui même, au même titre que les fonctions de base comme `range`, `list`, etc. Avez-vous remarqué que leur nom commence toujours par une majuscule et qu'il peut en contenir plusieurs à la façon *CamelCase* ? Si vous avez bien lu le chapitre 15 *Bonnes Pratiques*, avez-vous deviné pourquoi ? Et bien, c'est parce que **les exceptions sont des classes**. Cela est très puissant car il est ainsi possible d'utiliser l'héritage pour créer ses propres exceptions à partir d'exceptions pré-existantes. Nous ne développerons pas cet aspect, mais en guise d'illustration, regardez ce que renvoit  un `help()` de l'exception `OverflowError`.
+Leur présence dans le module `builtins` signifie qu'elles font vraiment partie du langage lui même, au même titre que les fonctions de base comme `range()`, `list()`, etc. Avez-vous remarqué que leur nom commence toujours par une majuscule et qu'il peut en contenir plusieurs à la façon *CamelCase* ? Si vous avez bien lu le chapitre 15 *Bonnes Pratiques*, avez-vous deviné pourquoi ? Et bien, c'est parce que **les exceptions sont des classes**. Cela est très puissant car il est ainsi possible d'utiliser l'héritage pour créer ses propres exceptions à partir d'exceptions pré-existantes. Nous ne développerons pas cet aspect, mais en guise d'illustration, regardez ce que renvoit  un `help()` de l'exception `OverflowError`.
 
 ```
 >>> help(OverflowError)
@@ -342,9 +343,9 @@ class OverflowError(ArithmeticError)
  |      object
 ```
 
-`OverflowError` hérite de `ArithmeticError`.
+`OverflowError` hérite de `ArithmeticError`, c'est-à-dire `OverflowError` a été conçue à partir de `ArithmeticError` et en hérite de tous ses attributs.
 
-Un autre aspect très important que nous avons croisé au chapitre 19 est la possibilité de lever vous-même une exception avec le mot-clé `raise`. Nous avions le code suivant :
+Un autre aspect très important que nous avons croisé au chapitre 19 est la possibilité de lever vous-même une exception avec le mot-clé `raise`. Nous avions vu le code suivant :
 
 
 ```
@@ -352,7 +353,7 @@ if valeur < 0:
     raise ValueError("Z'avez déjà vu une masse négative ? C'est nawak")
 ```
 
-La ligne 2 lève une exception `ValueError` lorsque la variable `valeur` est négative. Ainsi, le `raise` est bien pratique lorsque vous souhaitez stopper l'exécution si une variable ne se trouve pas dans tel intervalle, ou ne contient pas la bonne valeur. Vous avez sans doute compris maintenant pourquoi on parlait de « levée » d'exception... pour les non anglophones, allez voir ce que signifie *raise* en anglais ;-) !
+La ligne 2 lève une exception `ValueError` lorsque la variable `valeur` est négative. Ainsi, le `raise` est bien pratique lorsque vous souhaitez stopper l'exécution si une variable ne se trouve pas dans tel intervalle, ou ne contient pas la bonne valeur. Vous avez sans doute compris maintenant pourquoi on parlait de « levée » d'exception... Pour les non anglophones, allez voir ce que signifie *raise* en anglais ;-) !
 
 Enfin, on peut aussi être très précis dans le message d'erreur. Observez la fonction `download_page()` qui, avec le module *urllib*, télécharge un fichier sur internet.
 
