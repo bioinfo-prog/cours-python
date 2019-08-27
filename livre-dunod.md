@@ -22,3 +22,14 @@ D'autres remarques complémentaires se trouvent dans la [version en ligne de ce 
 
 Pour chaque mini-projet, vous trouverez un accompagnement guidé pas à pas ainsi qu'un script de correction sur la [version en ligne de ce chapitre](https://python.sdv.univ-paris-diderot.fr/22_mini_projets/).
 
+
+## Erratum
+
+Malgré toute notre attention, quelques erreurs ont pu se glisser dans cet ouvrage. Les voici corrigées avec toutes nos excuses.
+
+Page 5. Chapitre 1. Dans la remarque en bas de la page. Il faut lire « On appelle souvent à tort » (et non pas à « tord »).
+
+Page 144. Chapitre 16. Exercice 16.5. Le lien correct vers le fichier à dé-htmliser est 
+<https://python.sdv.univ-paris-diderot.fr/data-files/fichier_a_dehtmliser.html>
+
+Page 196. Chapitre 19. Première ligne de la page. La nouvelle méthode est bien `.augmente_masse()` et pas `.ajoute_masse()`.
