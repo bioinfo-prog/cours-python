@@ -1,5 +1,11 @@
 # Installation de Python
 
+open-box-warn
+
+Miniconda a été mis à jour le 29 juillet 2019, la procédure d'installation décrite ci-dessous concerne cette version.
+
+close-box-warn
+
 Python est déjà présent sous Linux ou Mac OS X et s'installe très facilement sous Windows. Toutefois, nous décrivons dans cet ouvrage l'utilisation de modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également les *notebooks* Jupyter.
 
 On va donc utiliser un gestionnaire de paquets qui va installer ces modules supplémentaires. On souhaite également que ce gestionnaire de paquets soit disponible pour Windows, Mac OS X et Linux. Fin 2018, il y a deux grandes alternatives :
