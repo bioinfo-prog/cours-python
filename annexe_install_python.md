@@ -49,14 +49,14 @@ $ bash Miniconda3-latest-Linux-x86_64.sh
 
 Dans un premier temps, validez la lecture de la licence d'utilisation :
 ```
-Welcome to Miniconda3 4.5.11
+Welcome to Miniconda3 4.7.10
 
 In order to continue the installation process, please review the license
 agreement.
 Please, press ENTER to continue
 >>>
 ```
-En appuyant sur la touche *Espace* faites défiler la licence d'utilisation puis tapez `yes` puis appuyez sur la touche *Entrée* pour la valider :
+Comme demandé, appuyez sur la touche *Entrée*. Faites ensuite défiler la licence d'utilisation avec la touche *Espace*. Tapez `yes` puis appuyez sur la touche *Entrée* pour valider :
 ```
 Do you accept the license terms? [yes|no]
 [no] >>> yes
@@ -75,27 +75,29 @@ Miniconda3 will now be installed into this location:
 ```
 Le programme d'installation va alors installer Python et le gestionnaire de paquets *conda*.
 
-Cette étape terminée, le programme d'installation vous propose de modifier le fichier de configuration de votre *shell* Bash pour que *conda* soit pris en compte (c'est-à-dire accessible à chaque fois que vous ouvrez un *shell*). Nous vous conseillons d'accepter en tapant `yes` puis en appuyant sur la touche *Entrée*.
+Cette étape terminée, le programme d'installation vous propose d'initialiser *conda* pour que celui-ci soit accessible à chaque fois que vous ouvrez un *shell*. Nous vous conseillons d'accepter en tapant `yes` puis en appuyant sur la touche *Entrée*.
 ```
 Do you wish the installer to initialize Miniconda3
-in your /home/pierre/.bashrc ? [yes|no]
+by running conda init? [yes|no]
 [no] >>> yes
 ```
 
-L'installation de Miniconda est terminée. L'espace utilisé par Miniconda sur votre disque dur est d'environ 300 Mo.
+L'installation de Miniconda est terminée. L'espace utilisé par Miniconda sur votre disque dur est d'environ 450 Mo.
+
 
 #### Test de l'interpréteur Python
 
 Ouvrez un nouveau *shell*. À partir de maintenant, lorsque vous taperez la commande `python`, c'est le Python 3 de Miniconda qui sera lancé :
 ```
 $ python
-Python 3.7.1 (default, Dec 14 2018, 19:28:38)
+Python 3.7.3 (default, Mar 27 2019, 22:11:17) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
 Quittez Python en tapant la commande `exit()` puis appuyant sur la touche *Entrée*.
+
 
 #### Test du gestionnaire de paquets *conda*
 
@@ -126,9 +128,13 @@ Si vous souhaitez supprimer Miniconda, rien de plus simple, il suffit de suivre 
     ```
     $ rm -rf /home/pierre/miniconda3
     ```
-2. Restaurer votre fichier de configuration du *shell Bash* en utilisant la copie de sauvegarde qu'a créée Miniconda lors de l'installation :
+2. Dans le fichier de configuration du *shell Bash*, supprimer les lignes comprises entre 
     ```
-    $ mv .bashrc-miniconda3.bak .bashrc
+    # >>> conda initialize >>>
+    ```
+    et
+    ```
+    # <<< conda initialize <<<
     ```
 
 
