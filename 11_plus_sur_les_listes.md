@@ -257,9 +257,9 @@ Rappel : la séquence complémentaire inverse doit être « inversée ». Par ex
 
 ### Doublons
 
-Soit la liste de nombres `[5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]`.
+Soit la liste de nombres `liste = [5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]`.
 
-Retirez les doublons de cette liste, triez-la et affichez-la.
+A partir de `liste`, créez une nouvelle liste sans les doublons, triez-la et affichez-la.
 
 
 ### Séquence d'ADN aléatoire 2

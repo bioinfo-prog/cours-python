@@ -215,7 +215,7 @@ Au delà de la commodité de pouvoir utiliser votre script en tant que programme
 Dans le script `adn.py`, construisez un module qui va contenir les fonctions et constantes suivantes.
 
 - Fonction `lit_fasta()` : prend en argument un nom de fichier sous forme d'une chaîne de caractères et renvoie la séquence d'ADN lue dans le fichier sous forme d'une chaîne de caractères.
-- Fonction `seq_alea()` : prend en argument une taille de séquence sous forme d'un entier et renvoie une séquence d'ADN de la taille correspondante sous forme d'une chaîne de caractères.
+- Fonction `seq_alea()` : prend en argument une taille de séquence sous forme d'un entier et renvoie une séquence aléatoire d'ADN de la taille correspondante sous forme d'une chaîne de caractères.
 - Fonction `comp_inv()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la séquence complémentaire inverse (aussi sous forme d'une chaîne de caractères).
 - Fonction `prop_gc()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la proportion en GC de la séquence sous forme d'un *float*. Nous vous rappelons que la proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G).
 
