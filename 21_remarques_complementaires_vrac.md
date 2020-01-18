@@ -126,7 +126,7 @@ Dans un tel cas, il faudra obligatoirement passer les deux arguments `a` et `b` 
 
 open-box-adv
 
-Les noms `*args` et `**kwargs` sont des conventions en Python. Nous vous conseillons de respecter ces conventions pour faciliter la lecture de votre code par d'autres personnes.
+Les noms `*args` et `**kwargs` sont des conventions en Python, ils rappellent les mots *arguments* et *keyword arguments*. Bien qu'on puisse mettre ce que l'on veut, nous vous conseillons de respecter ces conventions pour faciliter la lecture de votre code par d'autres personnes.
 
 close-box-adv
 
