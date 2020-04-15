@@ -32,7 +32,7 @@ On a vu que l'indentation est obligatoire en Python pour séparer les blocs d'in
 
 open-box-warn
 
-Afin de toujours utiliser cette règle des 4 espaces pour l'indentation, il est essentiel de régler correctement votre éditeur de texte. Consultez pour cela l'annexe *Installation de Python* disponible en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod)). Avant d'écrire la moindre ligne de code, faites en sorte que lorsque vous pressez la touche tabulation, cela ajoute 4 espaces (et non pas un caractère tabulation).
+Afin de toujours utiliser cette règle des 4 espaces pour l'indentation, il est essentiel de régler correctement votre éditeur de texte. Consultez pour cela l'annexe *Installation de Python* disponible en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod). Avant d'écrire la moindre ligne de code, faites en sorte que lorsque vous pressez la touche tabulation, cela ajoute 4 espaces (et non pas un caractère tabulation).
 
 close-box-warn
 
