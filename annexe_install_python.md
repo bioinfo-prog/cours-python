@@ -537,22 +537,37 @@ Pour apprendre Python, nous allons devoir écrire des scripts, les enregistrer d
 
 Notre livre n'est pas un cours d'Unix mais il convient au moins de savoir se déplacer dans l'arborescence avant de lancer Python. Sous Linux et sous Mac il est donc fondamental de connaître les commandes Unix `cd`, `pwd`, `ls` et la signification de `..`(point point).
 
-Sous Windows, il existe une astuce très pratique. Lorsqu'on utilise l'explorateur Windows et que l'on est dans un répertoire donné, par exemple :
+Sous Windows, il existe deux astuces très pratiques. Lorsqu'on utilise l'explorateur Windows et que l'on est dans un répertoire donné :
 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 1).](img/lancement_shell_Windows1.png){ #fig:lancement_shell_Windows1 width=90% }
 \
+
+Il est possible d'ouvrir un PowerShell directement dans ce répertoire :
+
+**Première astuce**
 
 Il suffit de taper `powershell` dans la barre qui indique le chemin :
 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 2).](img/lancement_shell_Windows2.png){ #fig:lancement_shell_Windows2 width=90% }
 \
 
-puis on appuie sur entrée et le PowerShell se lance en étant directement dans le bon répertoire :
+puis on appuie sur entrée et le PowerShell se lance en étant directement dans le bon répertoire !
+
+**Deuxième astuce**
+
+En pressant la touche shift et en faisant un clic droit dans un endroit de l'explorateur qui ne contient pas de fichier (attention, ne pas faire de clic droit sur un fichier !). Vous verrez alors s'afficher le menu contextuel suivant :
+
+![Lancement d'un *powershell* depuis un répertoire donné (étape 2bis).](img/lancement_shell_Windows4.png){ #fig:lancement_shell_Windows4 width=90% }
+\
+
+Cliquez sur *Ouvrir la fenêtre PowerShell ici*, à nouveau votre Powershell sera directement dans le bon répertoire !
+
+**Vérification**
+
+La figure suivante montre le PowerShell, ouvert de la première ou la deuxième façon, dans lequel nous avons lancé la commande `ls` qui affiche le nom du répertoire courant (celui dans lequel on se trouve, dans notre exemple `D:\PAT\Python`) ainsi que les fichiers s'y trouvant (ici il n'y a qu'un fichier : `test.py`). Ensuite nous avons lancé l'exécution de ce fichier `test.py` en tapant `python test.py`.
 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 3).](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=70% }
 \
-
-Dans ce PowerShell, nous avons lancé la commande `ls` qui affiche le nom du répertoire courant (celui dans lequel on se trouve, dans notre exemple `D:\PAT\Python`) ainsi que les fichiers s'y trouvant (ici il n'y a qu'un fichier : `test.py`). Ensuite nous avons lancé l'exécution de ce fichier `test.py` en tapant `python test.py`.
 
 **A votre tour !**
 
