@@ -249,7 +249,7 @@ Essayez encore
 Entrez un nombre entier : 3.2
 Vous n'avez pas entré un nombre entier !
 Essayez encore
-Entrez un nombre : 55
+Entrez un nombre entier : 55
 Le nombre est 55
 ```
 Notez que dans cet exemple, l'instruction `while True` est une boucle infinie car la condition `True` est toujours vérifiée. L'arrêt de cette boucle est alors forcé par la commande `break` lorsque l'utilisateur a effectivement entré un nombre entier.
