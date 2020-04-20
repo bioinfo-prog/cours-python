@@ -113,7 +113,7 @@ On peut bien sûr transformer dans l'autre sens un *set* en liste. Cela permet p
 [3, 5, 6, 7, 8, 9]
 ```
 
-L'élimination des doublons grâce aux *set* permet de réaliser des choses très puissantes. Par exemple, faire un compteur de lettres en combinaison avec une liste de compréhension en une ligne !
+On peut ainsi faire des choses très puissantes. Par exemple, un compteur de lettres en combinaison avec une liste de compréhension, le tout en une ligne !
  
 ```
 >>> seq = "atctcgatcgatcgcgctagctagctcgccatacgtacgactacgt"
