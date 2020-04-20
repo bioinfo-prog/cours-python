@@ -50,7 +50,7 @@ close-box-def
 
 ## Les containers de type *set*
 
-Les containers de type *set* représentent un nouveau type d'objet séquentiel qui peut se révéler très pratique. Ils ont la particularité d'être non modifiables, non ordonnés et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau *set* on peut utiliser les accolades :
+Les containers de type *set* représentent un autre type d'objet séquentiel qui peut se révéler très pratique. Ils ont la particularité d'être non modifiables, non ordonnés et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau *set* on peut utiliser les accolades :
 
 ```
 >>> s = {1, 2, 3, 3}
@@ -104,10 +104,16 @@ Les containers de type *set* sont très utiles pour rechercher les éléments un
 [7, 9, 6, 6, 7, 3, 8, 5, 6, 7]
 >>> set(l)
 {3, 5, 6, 7, 8, 9}
-
 ```
 
-Le *set* nous donne bien une seule copie de chaque élément. Cela permet de réaliser des choses très puissantes. Par exemple, faire un compteur de lettres en combinaison avec une liste de compréhension en une ligne !
+On peut bien sûr transformer dans l'autre sens un *set* en liste. Cela permet par exemple d'éliminer les doublons de la liste initiale tout en récupérant une liste à la fin :
+
+```
+>>> list(set([7, 9, 6, 6, 7, 3, 8, 5, 6, 7]))
+[3, 5, 6, 7, 8, 9]
+```
+
+L'élimination des doublons grâce aux *set* permet de réaliser des choses très puissantes. Par exemple, faire un compteur de lettres en combinaison avec une liste de compréhension en une ligne !
  
 ```
 >>> seq = "atctcgatcgatcgcgctagctagctcgccatacgtacgactacgt"
@@ -117,7 +123,7 @@ Le *set* nous donne bien une seule copie de chaque élément. Cela permet de ré
 [('c', 15), ('g', 10), ('t', 11), ('a', 10)]
 ```
 
-Les *sets* peuvent être aussi utilisés pour réaliser des unions ou des intersections mathématiques. Pour cela on utiliser respectivement les opérateurs `|` et `&` :
+Les *sets* permettent aussi l'évaluation d'union ou d'intersection mathématiques en conjonction avec les opérateurs respectivement `|` et `&` :
 
 ```
 >>> l = [3, 3, 5, 1, 3, 4, 1, 1, 4, 4]
