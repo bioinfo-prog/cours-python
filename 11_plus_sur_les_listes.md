@@ -1,5 +1,7 @@
 # Plus sur les listes
 
+Nous avons vu les listes dès le chapitre 4 et les avons largement utilisées depuis le début de ce cours. Dans ce chapitre nous allons plus loin avec les méthodes associées aux listes, ainsi que d'autres caractéristiques très puissantes telles que les tests d'appartenance ou les listes de compréhension.
+
 ## Méthodes associées aux listes
 
 Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leur sont propres et qui peuvent se révéler très pratiques. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
@@ -228,6 +230,68 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 [[1, 2], [3, 4]]
 ```
 
+## Liste de compréhension
+
+*Conseil* : pour les débutants, vous pouvez passer cette rubrique.
+
+Une manière originale et très puissante de générer des listes est liste de compréhension (ou la la compréhension de listes). Pour plus de détails, consultez à ce sujet le site de [Python](http://www.python.org/dev/peps/pep-0202/) et celui de [Wikipédia](http://fr.wikipedia.org/wiki/Comprehension_de_liste).
+
+Voici quelques exemples.
+
+### Nombres pairs compris entre 0 et 30
+```
+>>> print([i for i in range(31) if i % 2 == 0])
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+```
+
+### Jeu sur la casse des mots d'une phrase
+```
+>>> message = "C'est sympa la BioInfo"
+>>> msg_lst = message.split()
+>>> print([[m.upper(), len(m)] for m in msg_lst])
+[["C'EST", 5], ['SYMPA', 5], ['LA', 2], ['BIOINFO', 7]]
+```
+
+### Formatage d'une séquence avec 60 caractères par ligne
+
+Exemple d'une séquence constituée de 150 alanines :
+```
+# Exemple d'une séquence de 150 alanines.
+>>> seq = "A" * 150
+>>> width = 60
+>>> seq_split = [seq[i:i+width] for i in range(0, len(seq), width)]
+>>> print("\n".join(seq_split))
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+```
+
+### Formatage FASTA d'une séquence (avec la ligne de commentaire)
+
+Exemple d'une séquence constituée de 150 alanines :
+```
+>>> com = "Séquence de 150 alanines"
+>>> seq = "A" * 150
+>>> width = 60
+>>> seq_split = [seq[i:i+width] for i in range(0, len(seq), width)]
+>>> print(">"+com+"\n"+"\n".join(seq_split))
+>séquence de 150 alanines
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+```
+
+### Sélection des carbones alpha dans un fichier pdb
+
+Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) :
+```
+>>> with open("1bta.pdb", "r") as f_pdb:
+...     CA_lines = [line for line in f_pdb if line.startswith("ATOM")
+                                           and line[12:16].strip() == "CA"]
+...
+>>> print(len(CA_lines))
+89
+```
 
 ## Exercices
 

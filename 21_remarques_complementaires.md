@@ -126,68 +126,6 @@ mais c'est un peu plus long à écrire.
 
 close-box-rem
 
-
-## Liste de compréhension
-
-Une manière originale et très puissante de générer des listes est liste de compréhension (ou la la compréhension de listes). Pour plus de détails, consultez à ce sujet le site de [Python](http://www.python.org/dev/peps/pep-0202/) et celui de [Wikipédia](http://fr.wikipedia.org/wiki/Comprehension_de_liste).
-
-Voici quelques exemples.
-
-### Nombres pairs compris entre 0 et 30
-```
->>> print([i for i in range(31) if i % 2 == 0])
-[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
-```
-
-### Jeu sur la casse des mots d'une phrase
-```
->>> message = "C'est sympa la BioInfo"
->>> msg_lst = message.split()
->>> print([[m.upper(), len(m)] for m in msg_lst])
-[["C'EST", 5], ['SYMPA', 5], ['LA', 2], ['BIOINFO', 7]]
-```
-
-### Formatage d'une séquence avec 60 caractères par ligne
-
-Exemple d'une séquence constituée de 150 alanines :
-```
-# Exemple d'une séquence de 150 alanines.
->>> seq = "A" * 150
->>> width = 60
->>> seq_split = [seq[i:i+width] for i in range(0, len(seq), width)]
->>> print("\n".join(seq_split))
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-```
-
-### Formatage FASTA d'une séquence (avec la ligne de commentaire)
-
-Exemple d'une séquence constituée de 150 alanines :
-```
->>> com = "Séquence de 150 alanines"
->>> seq = "A" * 150
->>> width = 60
->>> seq_split = [seq[i:i+width] for i in range(0, len(seq), width)]
->>> print(">"+com+"\n"+"\n".join(seq_split))
->séquence de 150 alanines
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-```
-
-### Sélection des carbones alpha dans un fichier pdb
-
-Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) :
-```
->>> with open("1bta.pdb", "r") as f_pdb:
-...     CA_lines = [line for line in f_pdb if line.startswith("ATOM")
-                                           and line[12:16].strip() == "CA"]
-...
->>> print(len(CA_lines))
-89
-```
-
 ## Gestion des exceptions
 
 Les langages de programmation comme Python contiennent un [système de gestion des **exceptions**](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_d%27exceptions). Qu'est-ce qu'une exception ? Sur la [page anglaise de Wikipedia](https://en.wikipedia.org/wiki/Exception_handling), une exception est définie comme une anomalie de l'exécution d'un programme requérant une action spéciale, en général l'arrêt de l'exécution. Le plus souvent, **une exception correspond à une erreur** que Python rencontre lorsqu'il tente d'exécuter les lignes de code qu'on lui soumet. Par exemple, un problème de syntaxe, une variable ou objet qui prend une valeur aberrante (par exemple diviser par 0, parcourir une liste au delà du nombre d'éléments, etc.). 
