@@ -66,7 +66,7 @@ taille 1.75
 ```
 
 
-### Méthodes `.keys()` et `.values()`
+### Méthodes `.keys()`, `.values()` et `.items()`
 
 Les méthodes `.keys()` et `.values()` renvoient, comme vous pouvez vous en doutez, les clés et les valeurs d'un dictionnaire :
 ```
@@ -76,7 +76,7 @@ dict_keys(['poids', 'nom', 'taille'])
 dict_values([70, 'singe', 1.75])
 ```
 
-Les mentions `dict_keys` et `dict_values` indiquent que nous avons affaire à des objets un peu particuliers. Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
+Les mentions `dict_keys` et `dict_values` indiquent que nous avons affaire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice, du style `obj[0]`). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
 ```
 >>> ani2.values()
 dict_values(['singe', 70, 1.75])
@@ -85,6 +85,30 @@ dict_values(['singe', 70, 1.75])
 ```
 
 Toutefois, ce sont des objets « itérables », donc utilisables dans une boucle.
+
+*Conseil* : pour les débutants, vous pouvez sauter cette fin de rubrique.
+
+Enfin, il existe la méthode `.items()` qui renvoie un nouvel objet `dict_items` :
+
+```
+>>> dico = {0: 't', 1: 'o', 2: 't', 3: 'o'}
+>>> dico.items()
+dict_items([(0, 't'), (1, 'o'), (2, 't'), (3, 'o')])
+```
+
+Celui-ci n'est pas indexable (on ne peut pas retrouver un élément par indice, du style `obj[0]`) mais il est itérable :
+
+```
+>>> for k, v in dico.items():
+...    print(k, v)
+...
+0 t
+1 o
+2 t
+3 o
+```
+
+On verra plus bas que cela peut-être utile pour construire les dictionnaires de compréhension.
 
 ### Existence d'une clé
 
@@ -267,6 +291,39 @@ Les *sets* permettent aussi l'évaluation d'union ou d'intersection mathématiqu
 ```
 
 Pour aller plus loin, vous pouvez consulter deux articles sur les sites [programiz](https://www.programiz.com/python-programming/set) et [towardsdatascience](https://towardsdatascience.com/python-sets-and-set-theory-2ace093d1607).
+
+## Dictionnaires et *sets* de compréhension
+
+*Conseil* : pour les débutants, vous pouvez passer cette rubrique.
+
+Nous avons vu au chapitre précédent les listes de compréhension. De même, il est possible de générer des dictionnaires de compréhension :
+
+```
+>>> dico = {'a': 10, 'g': 10, 't': 11, 'c': 15}
+>>> dico.items()
+dict_items([('a', 10), ('g', 10), ('t', 11), ('c', 15)])
+>>> {k:v*2 for k, v in dico.items()}
+{'a': 20, 'g': 20, 't': 22, 'c': 30}
+>>>
+>>> {k:v for k, v in enumerate("toto")}
+{0: 't', 1: 'o', 2: 't', 3: 'o'}
+>>>
+>>> seq = "atctcgatcgatcgcgctagctagctcgccatacgtacgactacgt"
+>>> {base:seq.count(base) for base in set(seq)}
+{'a': 10, 'g': 10, 't': 11, 'c': 15}
+>>> 
+```
+
+De manière générale, tout objet sur lequel on peut faire une double itération du type `for var1, var2 in obj` est utilisable pour créer un dictionnaire de compréhension. Si vous souhaitez aller plus loin, vous pouvez consulter cet [article](https://www.datacamp.com/community/tutorials/python-dictionary-comprehension) sur le site *Datacamp*.
+
+Il est également possible de générer des *sets* de compréhension sur le même modèle que les listes de compréhension :
+
+```
+>>> {i for i in range(10)}
+{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+>>> {i**2 for i in range(10)}
+{0, 1, 64, 4, 36, 9, 16, 49, 81, 25}
+```
 
 ## Exercices
 
