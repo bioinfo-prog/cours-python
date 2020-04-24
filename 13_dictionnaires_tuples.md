@@ -1,4 +1,12 @@
-# Dictionnaires et tuples
+# Dictionnaires, tuples et *sets*
+
+Jusqu'à maintenant nous avons vu et manipuler le type d'objet séquentiel le plus classique : les listes. On se rappelle qu'elles sont modifiables, ordonnées et itérables. Dans ce chapitre nous allons voir trois nouveaux types d'objet séquentiel avec des propriétés différentes : les dictionnaires, les tuples et les *sets*.
+
+open-box-rem
+
+Les objets séquentiels peuvent être aussi appelés parfois **containers**. 
+
+close-box-rem
 
 ## Dictionnaires
 
@@ -172,6 +180,93 @@ close-box-rem
 
 Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons* qui renvoie l'indice de l'élément et l'élément d'une liste, ainsi dans le chapitre 9 *Fonctions* lorsqu'on voulait qu'une fonction renvoie plusieurs valeurs (par exemple dans l'instruction `return x,y`, le couple `x,y` est un tuple). Cela revenait à faire une affectation multiple du type `x, y = 1, 2`.
 
+## *Sets*
+
+Les containers de type *set* représentent un autre type d'objet séquentiel qui peut se révéler très pratique. Ils ont la particularité d'être non modifiables, non ordonnés et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau *set* on peut utiliser les accolades :
+
+```
+>>> s = {1, 2, 3, 3}
+>>> s
+{1, 2, 3}
+>>> type(s)
+<class 'set'>
+```
+
+Notez que la répétition du 3 dans la définition du *set* en ligne 1 donne au final un seul 3 car chaque élément ne peut être présent qu'une seule fois. A quoi différencie-t-on un *set* d'un dictionnaire alors que les deux utilisent des accolades ? Le *set* sera défini seulement par des valeurs `{val1, val2, ...}` alors que le dictionnaire aura toujours des couples clé/valeur `{clé1: val1, clé2: val2, ...}`.
+
+En général, on utilisera la fonction interne à Python `set()` pour générer un nouveau *set*. Celle-ci prend en argument n'importe quel objet itérable :
+
+```
+>>> set([1, 2, 4, 1])
+{1, 2, 4}
+>>> set((2, 2, 2, 1))
+{1, 2}
+>>> set(range(5))
+{0, 1, 2, 3, 4}
+>>> set({"clé1": 1, "clé2": 2})
+{'clé1', 'clé2'}
+>>> set(["ti", "to", "to"])
+{'ti', 'to'}
+>>> set("Maître corbeau sur un arbre perché")
+{'h', 'u', 'o', 'b', ' ', 'M', 'a', 'p', 'n', 'e', 'é', 'c', 'î', 's', 't', 'r'}
+```
+
+Nous avons dit plus haut que les *sets* ne sont pas ordonnés, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments. Par contre, les *sets* sont itérables :
+
+```
+>>> s = set([1, 2, 4, 1])
+>>> s[1]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'set' object is not subscriptable
+>>> for elt in s:
+...     print(elt)
+...
+1
+2
+4
+```
+
+Les containers de type *set* sont très utiles pour rechercher les éléments uniques d'une suite d'éléments. Cela revient à éliminer tous les doublons. Par exemple :
+
+```
+>>> import random as rd
+>>> l = [rd.randint(0, 9) for i in range(10)]
+>>> l
+[7, 9, 6, 6, 7, 3, 8, 5, 6, 7]
+>>> set(l)
+{3, 5, 6, 7, 8, 9}
+```
+
+On peut bien sûr transformer dans l'autre sens un *set* en liste. Cela permet par exemple d'éliminer les doublons de la liste initiale tout en récupérant une liste à la fin :
+
+```
+>>> list(set([7, 9, 6, 6, 7, 3, 8, 5, 6, 7]))
+[3, 5, 6, 7, 8, 9]
+```
+
+On peut faire des choses très puissantes. Par exemple, un compteur de lettres en combinaison avec une liste de compréhension, le tout en une ligne !
+ 
+```
+>>> seq = "atctcgatcgatcgcgctagctagctcgccatacgtacgactacgt"
+>>> set(seq)
+{'c', 'g', 't', 'a'}
+>>> [(base, seq.count(base)) for base in set(seq)]
+[('c', 15), ('g', 10), ('t', 11), ('a', 10)]
+```
+
+Les *sets* permettent aussi l'évaluation d'union ou d'intersection mathématiques en conjonction avec les opérateurs respectivement `|` et `&` :
+
+```
+>>> l = [3, 3, 5, 1, 3, 4, 1, 1, 4, 4]
+>>> l2 = [3, 0, 5, 3, 3, 1, 1, 1, 2, 2]
+>>> set(l) & set(l2)
+{1, 3, 5}
+>>> set(l) | set(l2)
+{0, 1, 2, 3, 4, 5}
+```
+
+Pour aller plus loin, vous pouvez consulter deux articles sur les sites [programiz](https://www.programiz.com/python-programming/set) et [towardsdatascience](https://towardsdatascience.com/python-sets-and-set-theory-2ace093d1607).
 
 ## Exercices
 
