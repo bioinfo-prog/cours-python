@@ -486,6 +486,33 @@ Il est également possible de générer des *sets* de compréhension sur le mêm
 {0, 1, 64, 4, 36, 9, 16, 49, 81, 25}
 ```
 
+## Module *collections*
+
+*Conseil* : pour les débutants, vous pouvez passer cette rubrique.
+
+Le [module *collections*](https://docs.python.org/fr/3/library/collections.html) contient d'autres types de *containers* qui peuvent se révéler utiles, c'est une véritable mine d'or ! Nous n'aborderons pas tous ces objets ici, mais nous pouvons cités tout de même certains d'entre eux si vous souhaitez aller un peu plus loin :
+
+- les [dictionnaires ordonnés](https://docs.python.org/fr/3/library/collections.html#collections.OrderedDict) qui se comportent comme les dictionnaires classiques mais qui sont ordonnés ; 
+- les [*defautdict*](https://docs.python.org/fr/3/library/collections.html#collections.defaultdict) permettant de générer des valeurs par défaut quand on demande une clé qui n'existe pas (cela évite que Python génère une erreur) ;
+- les [compteurs](https://docs.python.org/fr/3/library/collections.html#collections.Counter) dont un exemple est montré ci-dessous ;
+- les [namedtuple()](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) que nous évoquerons au chapitre 19 *Avoir la classe avec les objets*.
+
+L'objet `collection.Counter()` est particulièrement intéressant et facile à utiliser. Il crée des compteurs à partir d'objets itérables, par exemple :
+
+```
+>>> compo_seq = collections.Counter("aatctccgatcgatcgatcgatgatc")
+>>> compo_seq
+Counter({'a': 7, 't': 7, 'c': 7, 'g': 5})
+>>> type(compo_seq)
+<class 'collections.Counter'>
+>>> compo_seq["a"]
+7
+>>> compo_seq["n"]
+0
+```
+
+On voit que Python a automatiquement compté chaque atgc de la chaîne de caractères passé en argument ! Cela crée un objet de type `Counter`qui se comporte ensuite comme un dictionnaire, à une exception près : si on appelle une clé qui n'existe pas dans l'itérable initiale (comme le `n` ci-dessus) cela renvoie 0.
+
 ## Exercices
 
 *Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
