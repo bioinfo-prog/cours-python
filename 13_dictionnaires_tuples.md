@@ -152,7 +152,7 @@ Vous constatez ainsi que les dictionnaires permettent de gérer des structures c
 
 *Conseil* : Pour les débutants vous pouvez sauter cette rubrique.
 
-La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de *casting* comme `int()`, `str()`, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière. Soit une liste de listes de 2 éléments :
+La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de *casting* comme `int()`, `str()`, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière : un objet séquentiel contenant d'autres objets séquentiels de 2 éléments. Par exemple, une liste de listes de 2 éléments :
 
 ```
 >>> liste_animaux = [["girafe", 2], ["singe", 3]]
@@ -160,7 +160,7 @@ La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire.
 {'girafe': 2, 'singe': 3}
 ```
 
-Soit un *tuple* de *tuples* de 2 éléments (cf. rubrique suivante pour la définition d'un *tuple*), ou bien n'importe quelle combinaison (liste de *tuples* de 2 éléments ou *tuple* de listes de 2 éléments) :
+Ou un *tuple* de *tuples* de 2 éléments (cf. rubrique suivante pour la définition d'un *tuple*), ou encore une combinaison liste / *tuple* :
 
 ```
 >>> tuple_animaux = (("girafe", 2), ("singe", 3))
@@ -171,7 +171,7 @@ Soit un *tuple* de *tuples* de 2 éléments (cf. rubrique suivante pour la défi
 {'girafe': 2, 'singe': 3}
 ```
 
-Une chose est strictement requise : chaque sous-élément doit contenir lui même 2 éléments. Sinon Python renvoie une erreur :
+Si un des sous-éléments a plus de 2 éléments (ou moins), Python renvoie une erreur :
 
 ```
 >>> dict([("girafe", 2), ("singe", 3, 4)])
@@ -325,7 +325,7 @@ Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien 
 
 close-box-adv
 
-Quand une fonction renvoie plusieurs valeurs mais seules certaines d'entre elles nous intéresse, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que l'on est pas intéressé par certaines valeurs :
+Quand une fonction renvoie plusieurs valeurs mais seules certaines d'entre elles nous intéresse, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que l'on n'est pas intéressé par certaines valeurs :
 
 ```
 >>> def fct():
@@ -338,7 +338,7 @@ Quand une fonction renvoie plusieurs valeurs mais seules certaines d'entre elles
 3
 ```
 
-Cela envoie le message à celui qui lit le code « je me fiche de ces variables ». Notez que l'on peut en utiliser une ou plusieurs. Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyée par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
+Cela envoie le message à celui qui lit le code « je me fiche de ces variables ». Notez que l'on peut en utiliser un ou plusieurs. Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyée par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
 
 open-box-rem
 
@@ -571,7 +571,9 @@ Un carbone alpha est présent dans chaque résidu (acide aminé) d'une protéine
 Le barycentre $G$ de coordonnées ($G_x$, $G_y$, $G_z$) est obtenu à partir des $n$ carbones alpha (CA) de coordonnées (${\rm CA}_{x}$, ${\rm CA}_{y}$, ${\rm CA}_{z}$) avec :
 
 $$ G_x =  \frac{1}{n} \sum_{i=1}^{n} {\rm CA}_{i,x} $$
+
 $$ G_y =  \frac{1}{n} \sum_{i=1}^{n} {\rm CA}_{i,y} $$
+
 $$ G_z =  \frac{1}{n} \sum_{i=1}^{n} {\rm CA}_{i,z} $$
 
 Créez une fonction `calcule_barycentre()` qui prend comme argument une liste de dictionnaires dont les clés (`resid`, `x`, `y` et `z`) sont celles de l'exercice précédent et qui renvoie les coordonnées du barycentre sous la forme d'une liste de *floats*.
