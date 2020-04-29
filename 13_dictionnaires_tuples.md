@@ -1,6 +1,6 @@
 # Dictionnaires, tuples et *sets*
 
-Jusqu'à maintenant nous avons vu et manipuler le type d'objet séquentiel le plus classique : les listes. On se rappelle qu'elles sont modifiables, ordonnées et itérables. Dans ce chapitre nous allons voir trois nouveaux types d'objet séquentiel avec des propriétés différentes : les dictionnaires, les tuples et les *sets*.
+Jusqu'à maintenant nous avons vu et manipulé le type d'objet séquentiel le plus classique : les listes. On se rappelle qu'elles sont modifiables, ordonnées et itérables. Dans ce chapitre nous allons voir trois nouveaux types d'objet séquentiel avec des propriétés différentes : les dictionnaires, les tuples et les *sets*.
 
 open-box-rem
 
@@ -9,6 +9,8 @@ Les objets séquentiels peuvent être aussi appelés parfois **containers**.
 close-box-rem
 
 ## Dictionnaires
+
+### Définition
 
 Les **dictionnaires** se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. Les dictionnaires sont des collections non ordonnées d'objets, c'est-à-dire qu'il n'y a pas de notion d'ordre  (*i.e.* pas d'indice). On accède aux **valeurs** d'un dictionnaire par des **clés**. Ceci semble un peu confus ? Regardez l'exemple suivant :
 ```
@@ -76,7 +78,7 @@ dict_keys(['poids', 'nom', 'taille'])
 dict_values([70, 'singe', 1.75])
 ```
 
-Les mentions `dict_keys` et `dict_values` indiquent que nous avons affaire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice, du style `obj[0]`). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
+Les mentions `dict_keys` et `dict_values` indiquent que nous avons à faire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice, du style `obj[0]`). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
 ```
 >>> ani2.values()
 dict_values(['singe', 70, 1.75])
@@ -99,8 +101,8 @@ dict_items([(0, 't'), (1, 'o'), (2, 't'), (3, 'o')])
 Celui-ci n'est pas indexable (on ne peut pas retrouver un élément par indice, du style `obj[0]`) mais il est itérable :
 
 ```
->>> for k, v in dico.items():
-...    print(k, v)
+>>> for key, val in dico.items():
+...    print(key, val)
 ...
 0 t
 1 o
@@ -108,7 +110,7 @@ Celui-ci n'est pas indexable (on ne peut pas retrouver un élément par indice, 
 3 o
 ```
 
-On verra plus bas que cela peut-être utile pour construire les dictionnaires de compréhension.
+Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. On verra plus bas que cela peut-être utile pour construire les dictionnaires de compréhension.
 
 ### Existence d'une clé
 
@@ -146,8 +148,41 @@ singe
 
 Vous constatez ainsi que les dictionnaires permettent de gérer des structures complexes de manière plus explicite que les listes.
 
+### Fonction `dict()`
+
+*Conseil* : Pour les débutants vous pouvez sauter cette rubrique.
+
+La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de *casting* comme `int()`, `str()`, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière. Soit une liste de listes de 2 éléments :
+
+```
+>>> liste_animaux = [["girafe", 2], ["singe", 3]]
+>>> dict(liste_animaux)
+{'girafe': 2, 'singe': 3}
+```
+
+Soit un *tuple* de *tuples* de 2 éléments (cf. rubrique suivante pour la définition d'un *tuple*), ou bien n'importe quelle combinaison (liste de *tuples* de 2 éléments ou *tuple* de listes de 2 éléments) :
+
+```
+>>> tuple_animaux = (("girafe", 2), ("singe", 3))
+>>> dict(tuple_animaux)
+{'girafe': 2, 'singe': 3}
+>>>
+>>> dict([("girafe", 2), ("singe", 3)])
+{'girafe': 2, 'singe': 3}
+```
+
+Une chose est strictement requise : chaque sous-élément doit contenir lui même 2 éléments. Sinon Python renvoie une erreur :
+
+```
+>>> dict([("girafe", 2), ("singe", 3, 4)])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: dictionary update sequence element #1 has length 3; 2 is required
+```
 
 ## Tuples
+
+### Définition
 
 Les **tuples** (« n-uplets » en français) correspondent aux listes à la différence qu'ils sont **non modifiables**. On a vu dans le chapitre 11 *Plus sur les listes* que les listes pouvaient être modifiées par références, notamment lors de la copie de listes. Les tuples s'affranchissent de ce problème puisqu'ils sont non modifiables. Pratiquement, ils utilisent les parenthèses au lieu des crochets :
 ```
@@ -202,7 +237,133 @@ Les listes, les dictionnaires et les tuples sont des objets qui peuvent contenir
 
 close-box-rem
 
-Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons* qui renvoie l'indice de l'élément et l'élément d'une liste, ainsi dans le chapitre 9 *Fonctions* lorsqu'on voulait qu'une fonction renvoie plusieurs valeurs (par exemple dans l'instruction `return x,y`, le couple `x,y` est un tuple). Cela revenait à faire une affectation multiple du type `x, y = 1, 2`.
+### Itérations sur plusieurs valeurs à la fois
+
+Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons*. Cette dernière permettait d'itérer **en même temps** sur les indices et les éléments d'une liste :
+
+```
+>>> for i, elt in enumerate([75, -75, 0]):
+...     print(i, elt)
+...
+0 75
+1 -75
+2 0
+>>> for obj in enumerate([75, -75, 0]):
+...     print(obj)
+...
+(0, 75)
+(1, -75)
+(2, 0)
+```
+
+En fin de compte, la fonction `enumerate()` itère sur une série de *tuples*. Pouvoir séparer `i` et `elt` dans la boucle est possible du fait que Python autorise l'affectation multiple du style `i, elt = 0, 75` (cf. rubrique suivante). 
+
+Dans le même ordre d'idée, nous avons vu à la rubrique précédente la méthode `.dict_items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
+
+```
+>>> dico = {"pinson": 2, "merle": 3}
+>>> for key, val in dico.items():
+...     print(key, val)
+...
+pinson 2
+merle 3
+>>> for obj in dico.items():
+...     print(obj)
+...
+('pinson', 2)
+('merle', 3)
+```
+
+On voit que cette méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
+
+Sur la même base, on peut finalement itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
+
+```
+>>> liste = [(i, i+1, i+2) for i in range(5, 8)]
+>>> liste
+[(5, 6, 7), (6, 7, 8), (7, 8, 9)]
+>>> for x, y, z in liste:
+...     print(x, y, z)
+...
+5 6 7
+6 7 8
+7 8 9
+```
+
+On pourrait concevoir la même chose sur 4 éléments, ou finalement autant que l'on veut. La seule restriction est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
+
+### Affectation multiple et nom de variable `_`
+
+L'affectation multiple est un mécanisme très puissant et important en Python. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : `x, y, z = 1, 2, 3`. On voit que cette syntaxe correspond à un *tuple* de chaque côté de l'opérateur `=`. Notez qu'il serait possible de le faire également avec les listes : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la première syntaxe avec les *tuples* sans parenthèse.
+
+Nous avions croisé l'importance de l'affectation multiple dans le chapitre 9 *Fonctions* lorsqu'une fonction renvoyait plusieurs valeurs.
+
+```
+>>> def fct():
+...     return 3, 14
+...
+>>> x, y = fct()
+>>> print(x, y)
+3 14
+```
+
+La syntaxe `x, y = fct()` permet de récupérer les 2 valeurs renvoyées par la fonction et de les affecter à la volée dans 2 variables différentes. Cela évite l'opération laborieuse de récupérer d'abord le tuple, puis de créer les variables en utilisant l'indiçage :
+
+```
+>>> resultat = fct()
+>>> resultat
+(3, 14)
+>>> x = resultat[0]
+>>> y = resultat[1]
+>>> print(x, y)
+3 14
+```
+
+open-box-adv
+
+Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la notation de la forme `x, y = fct()` qui sera privilégiée.
+
+close-box-adv
+
+Quand une fonction renvoie plusieurs valeurs mais seules certaines d'entre elles nous intéresse, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que l'on est pas intéressé par certaines valeurs :
+
+```
+>>> def fct():
+...     return 1, 2, 3, 4
+...
+>>> x, _, y, _ = fct()
+>>> x
+1
+>>> y
+3
+```
+
+Cela envoie le message à celui qui lit le code « je me fiche de ces variables ». Notez que l'on peut en utiliser une ou plusieurs. Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyée par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
+
+open-box-rem
+
+La variable `_` a une autre signication spéciale dans l'interpréteur interactif, elle prend automatiquement la dernière valeur affichée :
+
+```
+>>> 3
+3
+>>> _
+3
+>>> "mésange"
+'mésange'
+>>> _
+'mésange'
+```
+
+Attention, cela n'est vrai que dans l'interpréteur.
+
+close-box-rem
+
+open-box-rem
+
+Le *underscore* est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans les chapitre 15 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (e.g. `_var`, `var_`, `__var`, `__var__`). On verra au chapitre 19 *Avoir la classe avec les objets* que ces *underscores* ont une signification particulière.
+
+close-box-rem
 
 ## *Sets*
 
@@ -302,10 +463,10 @@ Nous avons vu au chapitre précédent les listes de compréhension. De même, il
 >>> dico = {'a': 10, 'g': 10, 't': 11, 'c': 15}
 >>> dico.items()
 dict_items([('a', 10), ('g', 10), ('t', 11), ('c', 15)])
->>> {k:v*2 for k, v in dico.items()}
+>>> {key:val*2 for key, val in dico.items()}
 {'a': 20, 'g': 20, 't': 22, 'c': 30}
 >>>
->>> {k:v for k, v in enumerate("toto")}
+>>> {key:val for key, val in enumerate("toto")}
 {0: 't', 1: 'o', 2: 't', 3: 'o'}
 >>>
 >>> seq = "atctcgatcgatcgcgctagctagctcgccatacgtacgactacgt"
