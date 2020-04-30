@@ -1633,7 +1633,7 @@ L'attribut `.__doc__` est automatiquement créé par Python au moment de la mise
 
 Voici quelques points en vrac auxquels nous vous conseillons de faire attention :
 
-- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuple* (cf. rubrique suivante).
+- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuples* (cf. rubrique suivante).
 - Nous vous déconseillons de mettre comme paramètre par défaut une liste vide (ou tout autre objet séquentiel modifiable) :
 
 	```
@@ -1664,7 +1664,7 @@ Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
 ### Pour finir les *namedtuples*
 
-Imaginons que l'on souhaite stocker des éléments dans un container, que l'on puisse retrouver ces éléments avec une syntaxe `container.element` et que ces éléments soit non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de container est issu du très utile module *collections* que nous avions évoqué au Chapitre 13 *Dictionnaires, tuples et sets*.
+Imaginons que l'on souhaite stocker des éléments dans un container, que l'on puisse retrouver ces éléments avec une syntaxe `container.element` et que ces éléments soit non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, ce n'est pas un juste container inerte, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de container est issu du très utile module *collections* que nous avions évoqué au Chapitre 13 *Dictionnaires, tuples et sets*.
 
 ```
 >>> import collections
@@ -1680,7 +1680,7 @@ Citron(masse=10, couleur='jaune', saveur='acide', forme='ellipsoide')
 'ellipsoide'
 ```
 
-Lignes 2 à 4. La fonction `namedtuple()` renvoie une classe qui sert à créer de nouveaux objets citrons. Attention cette classe est différentes de celle que l'on a rencontré jusqu'à maintenant car elle hérite de la classe `builtins.tuple` (on peut le voir en faisant `help(Citron)`. En ligne 2, on passe en argument le nom de la classe souhaitée (i.e. `Citron`), puis une chaîne de caractères avec des mots séparés par des espaces qui correspondront aux attributs (on pourrait aussi passer une liste `["masse", "couleur", "saveur", "forme"]`).
+Lignes 2 à 4. La fonction `namedtuple()` renvoie une classe qui sert à créer de nouveaux objets citrons. Attention cette classe est différente de celles que l'on a rencontrées jusqu'à maintenant, car elle hérite de la classe `builtins.tuple` (on peut le voir en faisant `help(Citron)`). En ligne 2, on passe en argument le nom de la classe souhaitée (i.e. `Citron`), puis une chaîne de caractères avec des mots séparés par des espaces qui correspondront aux attributs (on pourrait aussi passer une liste `["masse", "couleur", "saveur", "forme"]`).
 
 Ligne 5. On instancie un nouvel objet `citron`.
 
@@ -1712,14 +1712,14 @@ Lignes 5 à 8. Les attributs / éléments sont non modifiables !
 
 Lignes 9 à 15. Les *namedtuples* sont itérables.
 
-Enfin, il est possible de convertir un *namedtuple* en dictionnaire (ordonné) avec la méthode `.asdict()` :
+Enfin, il est possible de convertir un *namedtuple* en dictionnaire (ordonné) avec la méthode `._asdict()` :
 
 ```
 >>> citron._asdict()
 OrderedDict([('masse', 10), ('couleur', 'jaune'), ('saveur', 'acide'), ('forme', 'ellipsoide')])
 ```
 
-Quand utiliser les *namedtuples* ? Vous souvenez-vous de la différence entre les listes et les dictionnaires ? Et bien là c'est un peu la même chose entre les *tuples* et les *namedtuples*. Les *namedtuples* permettent de créer un code plus lisible en remplaçant des numéros d'indice par des noms. Le fait qu'ils soient non modifiables peut aussi avoir un avantage par rapport à l'intégrité des données. Si vous trouvez les *namedtuple* limités, sachez que vous pouvez créer des classes qui héritent d'une classe *namedtuple* afin de lui ajouter de nouvelles méthodes « maison ».
+Quand utiliser les *namedtuples* ? Vous souvenez-vous de la différence entre les listes et les dictionnaires ? Et bien là c'est un peu la même chose entre les *tuples* et les *namedtuples*. Les *namedtuples* permettent de créer un code plus lisible en remplaçant des numéros d'indice par des noms. Le fait qu'ils soient non modifiables peut aussi avoir un avantage par rapport à l'intégrité des données. Si vous trouvez les *namedtuple* limités, sachez que vous pouvez créer votre propre classe qui hérite d'un *namedtuple* afin de lui ajouter de nouvelles méthodes « maison ».
 
 open-box-more
 
