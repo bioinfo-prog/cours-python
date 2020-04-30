@@ -53,6 +53,7 @@ Néanmoins, nous vous conseillons, autant que possible, d'utiliser systématique
 
 close-box-rem
 
+Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires. Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices. Les humains retiennent mieux les noms que les chiffres. Ainsi, l'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées $(x, y, z)$ d'un point dans l'espace : `coors = [0, 1, 2]` pour la version liste, `coors = {"x": 0, "y": 1, "z": 2}` pour la version dictionnaire. Un lecteur comprendra tout de suite que `coors["z"]` contient la coordonnée $z$, ce sera moins intuitif avec `coors[2]`.
 
 ### Itération sur les clés pour obtenir les valeurs
 
@@ -78,7 +79,7 @@ dict_keys(['poids', 'nom', 'taille'])
 dict_values([70, 'singe', 1.75])
 ```
 
-Les mentions `dict_keys` et `dict_values` indiquent que nous avons à faire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice, du style `obj[0]`). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
+Les mentions `dict_keys` et `dict_values` indiquent que nous avons à faire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice comme `dico.items()[0]`). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
 ```
 >>> ani2.values()
 dict_values(['singe', 70, 1.75])
@@ -98,9 +99,13 @@ Enfin, il existe la méthode `.items()` qui renvoie un nouvel objet `dict_items`
 dict_items([(0, 't'), (1, 'o'), (2, 't'), (3, 'o')])
 ```
 
-Celui-ci n'est pas indexable (on ne peut pas retrouver un élément par indice, du style `obj[0]`) mais il est itérable :
+Celui-ci n'est pas indexable (on ne peut pas retrouver un élément par un indice) mais il est itérable :
 
 ```
+>>> dico.items()[2]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'dict_items' object is not subscriptable
 >>> for key, val in dico.items():
 ...    print(key, val)
 ...
@@ -110,7 +115,7 @@ Celui-ci n'est pas indexable (on ne peut pas retrouver un élément par indice, 
 3 o
 ```
 
-Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. On verra plus bas que cela peut-être utile pour construire les dictionnaires de compréhension.
+Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. On verra plus bas que cela peut-être utile pour construire des dictionnaires de compréhension.
 
 ### Existence d'une clé
 
@@ -298,7 +303,7 @@ L'affectation multiple est un mécanisme très puissant et important en Python. 
 
 open-box-rem
 
-Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables à la fois. Toutefois, vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par « désempaquetage de tuple ». Cela signifie que l'on décompose le *tuple* initial `1, 2, 3` en 3 variables différentes (comme si on vidait son sac à dos, d'où le terme désempaquetage !).
+Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps. Toutefois, vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par « désempaquetage de tuple ». Cela signifie que l'on décompose le *tuple* initial `1, 2, 3` en 3 variables différentes (comme si on vidait son sac à dos, d'où le terme désempaquetage !).
 
 close-box-rem
 
@@ -327,11 +332,11 @@ La syntaxe `x, y = fct()` permet de récupérer les 2 valeurs renvoyées par la 
 
 open-box-adv
 
-Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la notation de la forme `x, y = fct()` qui sera privilégiée.
+Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la forme `x, y = fct()` qui sera privilégiée.
 
 close-box-adv
 
-Quand une fonction renvoie plusieurs valeurs mais seules certaines d'entre elles nous intéresse, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que l'on n'est pas intéressé par certaines valeurs :
+Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que certaines valeurs ne nous intéresse pas :
 
 ```
 >>> def fct():
@@ -344,7 +349,7 @@ Quand une fonction renvoie plusieurs valeurs mais seules certaines d'entre elles
 3
 ```
 
-Cela envoie le message à celui qui lit le code « je me fiche de ces variables ». Notez que l'on peut en utiliser un ou plusieurs. Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyée par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
+Cela envoie le message à celui qui lit le code « je me fiche de ces variables ». Notez que l'on peut utiliser un ou plusieurs *underscores(s)*. Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyée par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
 
 open-box-rem
 
@@ -367,7 +372,7 @@ close-box-rem
 
 open-box-rem
 
-Le *underscore* est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans les chapitre 15 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (e.g. `_var`, `var_`, `__var`, `__var__`). On verra au chapitre 19 *Avoir la classe avec les objets* que ces *underscores* ont une signification particulière.
+Le *underscore* est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 15 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (e.g. `_var`, `var_`, `__var`, `__var__`). On verra au chapitre 19 *Avoir la classe avec les objets* que ces *underscores* ont une signification particulière.
 
 close-box-rem
 
@@ -385,7 +390,7 @@ Les containers de type *set* représentent un autre type d'objet séquentiel qui
 
 Notez que la répétition du 3 dans la définition du *set* en ligne 1 donne au final un seul 3 car chaque élément ne peut être présent qu'une seule fois. A quoi différencie-t-on un *set* d'un dictionnaire alors que les deux utilisent des accolades ? Le *set* sera défini seulement par des valeurs `{val1, val2, ...}` alors que le dictionnaire aura toujours des couples clé/valeur `{clé1: val1, clé2: val2, ...}`.
 
-En général, on utilisera la fonction interne à Python `set()` pour générer un nouveau *set*. Celle-ci prend en argument n'importe quel objet itérable :
+En général, on utilisera la fonction interne à Python `set()` pour générer un nouveau *set*. Celle-ci prend en argument n'importe quel objet itérable et le convertit en *set* (opération de *casting*) :
 
 ```
 >>> set([1, 2, 4, 1])
