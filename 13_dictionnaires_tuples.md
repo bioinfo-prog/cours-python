@@ -336,7 +336,7 @@ Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien 
 
 close-box-adv
 
-Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que certaines valeurs ne nous intéresse pas :
+Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que certaines valeurs ne nous intéressent pas :
 
 ```
 >>> def fct():
@@ -349,7 +349,7 @@ Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les u
 3
 ```
 
-Cela envoie le message à celui qui lit le code « je me fiche de ces variables ». Notez que l'on peut utiliser un ou plusieurs *underscores(s)*. Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyée par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
+Cela envoie le message à celui qui lit le code « je me fiche des valeurs récupérées dans ces variables `_` ». Notez que l'on peut utiliser une ou plusieurs variables *underscores(s)*. Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyées par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
 
 open-box-rem
 
@@ -461,8 +461,11 @@ Les *sets* permettent aussi l'évaluation d'union ou d'intersection mathématiqu
 >>> set(l) | set(l2)
 {0, 1, 2, 3, 4, 5}
 ```
+open-box-adv
 
 Pour aller plus loin, vous pouvez consulter deux articles sur les sites [programiz](https://www.programiz.com/python-programming/set) et [towardsdatascience](https://towardsdatascience.com/python-sets-and-set-theory-2ace093d1607).
+
+close-box-adv
 
 ## Dictionnaires et *sets* de compréhension
 
@@ -504,13 +507,14 @@ Il est également possible de générer des *sets* de compréhension sur le mêm
 Le [module *collections*](https://docs.python.org/fr/3/library/collections.html) contient d'autres types de *containers* qui peuvent se révéler utiles, c'est une véritable mine d'or ! Nous n'aborderons pas tous ces objets ici, mais nous pouvons cités tout de même certains d'entre eux si vous souhaitez aller un peu plus loin :
 
 - les [dictionnaires ordonnés](https://docs.python.org/fr/3/library/collections.html#collections.OrderedDict) qui se comportent comme les dictionnaires classiques mais qui sont ordonnés ; 
-- les [*defautdict*](https://docs.python.org/fr/3/library/collections.html#collections.defaultdict) permettant de générer des valeurs par défaut quand on demande une clé qui n'existe pas (cela évite que Python génère une erreur) ;
+- les [*defautdicts*](https://docs.python.org/fr/3/library/collections.html#collections.defaultdict) permettant de générer des valeurs par défaut quand on demande une clé qui n'existe pas (cela évite que Python génère une erreur) ;
 - les [compteurs](https://docs.python.org/fr/3/library/collections.html#collections.Counter) dont un exemple est montré ci-dessous ;
-- les [namedtuple()](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) que nous évoquerons au chapitre 19 *Avoir la classe avec les objets*.
+- les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) que nous évoquerons au chapitre 19 *Avoir la classe avec les objets*.
 
 L'objet `collection.Counter()` est particulièrement intéressant et facile à utiliser. Il crée des compteurs à partir d'objets itérables, par exemple :
 
 ```
+>>> import collections
 >>> compo_seq = collections.Counter("aatctccgatcgatcgatcgatgatc")
 >>> compo_seq
 Counter({'a': 7, 't': 7, 'c': 7, 'g': 5})
