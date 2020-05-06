@@ -117,6 +117,7 @@ TypeError: 'dict_items' object is not subscriptable
 
 Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. On verra plus bas que cela peut-être utile pour construire des dictionnaires de compréhension.
 
+
 ### Existence d'une clé
 
 Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` qui renvoie un booléen :
@@ -297,7 +298,8 @@ Sur la même base, on peut finalement itérer sur 3 valeurs en même temps à pa
 
 On pourrait concevoir la même chose sur 4 éléments, ou finalement autant que l'on veut. La seule restriction est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
 
-### Affectation multiple et nom de variable `_`
+
+### Affectation multiple et le nom de variable `_`
 
 L'affectation multiple est un mécanisme très puissant et important en Python. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : `x, y, z = 1, 2, 3`. On voit que cette syntaxe correspond à un *tuple* de chaque côté de l'opérateur `=`. Notez qu'il serait possible de le faire également avec les listes : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la première syntaxe avec les *tuples* sans parenthèse.
 
@@ -375,6 +377,7 @@ open-box-rem
 Le *underscore* est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 15 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (e.g. `_var`, `var_`, `__var`, `__var__`). On verra au chapitre 19 *Avoir la classe avec les objets* que ces *underscores* ont une signification particulière.
 
 close-box-rem
+
 
 ## *Sets*
 
@@ -467,11 +470,12 @@ Pour aller plus loin, vous pouvez consulter deux articles sur les sites [program
 
 close-box-adv
 
+
 ## Dictionnaires et *sets* de compréhension
 
 *Conseil* : pour les débutants, vous pouvez passer cette rubrique.
 
-Nous avons vu au chapitre précédent les listes de compréhension. De même, il est possible de générer des dictionnaires de compréhension :
+Nous avons vu au chapitre 11 *Plus sur les listes* les listes de compréhension. Il est également possible de générer des dictionnaires de compréhension :
 
 ```
 >>> dico = {'a': 10, 'g': 10, 't': 11, 'c': 15}
@@ -486,7 +490,6 @@ dict_items([('a', 10), ('g', 10), ('t', 11), ('c', 15)])
 >>> seq = "atctcgatcgatcgcgctagctagctcgccatacgtacgactacgt"
 >>> {base:seq.count(base) for base in set(seq)}
 {'a': 10, 'g': 10, 't': 11, 'c': 15}
->>> 
 ```
 
 De manière générale, tout objet sur lequel on peut faire une double itération du type `for var1, var2 in obj` est utilisable pour créer un dictionnaire de compréhension. Si vous souhaitez aller plus loin, vous pouvez consulter cet [article](https://www.datacamp.com/community/tutorials/python-dictionary-comprehension) sur le site *Datacamp*.
