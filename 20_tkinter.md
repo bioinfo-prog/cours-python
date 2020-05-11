@@ -327,7 +327,7 @@ Lignes 30 à 40. On définit deux méthodes qui vont dessiner des paquets de 20 
 
 ### Un *canvas* animé dans une classe
 
-Dans ce dernier exemple, nous allons illustrer la puissance du *widget canvas* en vous montrant que l'on peut animer les objets se trouvant à l'intérieur. Nous allons également découvrir une technique intéressante, à savoir, comment « intercepter » des clics de souris générés ou des touches pressées par l'utilisateur. L'application consiste en une « baballe » qui se déplace dans la fenêtre et dont on contrôle les propriétés à la souris (cf. figure @fig:canvas_anime).
+Dans ce dernier exemple, nous allons illustrer la puissance du *widget canvas* en vous montrant que l'on peut animer les objets se trouvant à l'intérieur. Nous allons également découvrir une technique intéressante, à savoir, comment « intercepter » des clics de souris générés ou des touches pressées par l'utilisateur. L'application consiste en une « baballe » qui se déplace dans la fenêtre et dont on contrôle les propriétés à la souris (cf. figure @fig:canvas_anime). Vous pouvez télécharger le script [ici](https://python.sdv.univ-paris-diderot.fr/data-files/tk_baballe.py).
 
 ```
 """Super appli baballe !!!
@@ -347,34 +347,34 @@ class AppliBaballe(tk.Tk):
     def __init__(self):
         """Constructeur de l'application."""
         tk.Tk.__init__(self)
-        # coord baballe
+        # Coord baballe.
         self.x, self.y = 200, 200
-        # rayon baballe
+        # Rayon baballe.
         self.size = 50
-        # pas de deplacement
+        # Pas de deplacement.
         self.dx, self.dy = 20, 20
-        # création et packing du canvas
+        # Création et packing du canvas.
         self.canv = tk.Canvas(self, bg='light gray', height=400, width=400)
         self.canv.pack()
-        # création de la baballe
+        # Création de la baballe.
         self.baballe = self.canv.create_oval(self.x, self.y,
                                              self.x+self.size,
                                              self.y+self.size,
                                              width=2, fill="blue")
-        # binding des actions
+        # Binding des actions.
         self.canv.bind("<Button-1>", self.incr)
         self.canv.bind("<Button-2>", self.boom)
         self.canv.bind("<Button-3>", self.decr)
         self.bind("<Escape>", self.stop)
-        # lancer la baballe
+        # Lancer la baballe.
         self.move()
 
     def move(self):
         """Déplace la baballe (appelée itérativement avec la méthode after)."""
-        # incr coord baballe
+        # Incrémente coord baballe.
         self.x += self.dx
         self.y += self.dy
-        # vérifier que la baballe ne sort pas du canvas (choc élastique)
+        # Vérifier que la baballe ne sort pas du canvas (choc élastique).
         if self.x < 10:
             self.dx = abs(self.dx)
         if self.x > 400-self.size-10:
@@ -383,10 +383,10 @@ class AppliBaballe(tk.Tk):
             self.dy = abs(self.dy)
         if self.y > 400-self.size-10:
             self.dy = -abs(self.dy)
-        # mise à jour des coord
+        # Mise à jour des coord.
         self.canv.coords(self.baballe, self.x, self.y, self.x+self.size,
                          self.y+self.size)
-        # rappel de move toutes les 50ms
+        # Rappel de move toutes les 50ms.
         self.after(50, self.move)
 
     def boom(self, mclick):
