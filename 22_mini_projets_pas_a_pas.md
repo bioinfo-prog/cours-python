@@ -634,7 +634,7 @@ Cette étape est relativement simple si on considère le pivot comme le centre d
 	- quand $\theta = - \pi / 2 = -90$ deg, on a $(-1, 0)$ (pendule à gauche) ;
 	- quand $\theta = \pm \pi = \pm 180$ deg, on a $(0, 1)$ (pendule en haut).
 
-Vous pouvez voir graphiquement les valeurs de $\theta$ dans la figure @fig:pendulum_sketch2.
+La figure @fig:pendulum_sketch2 montre graphiquement les valeurs de $\theta$.
 
 Si vous n'avez pas trouvé, voici la solution :
 
@@ -673,20 +673,20 @@ Il reste maintenant à gérer les boutons permettant de démarrer / stopper le p
 - la méthode `.stop()` : arrête le mouvement du pendule ;
 - la méthode `.move()` : gère le mouvement du pendule (génère les coordonnées du pendule au pas suivant).
 
-Le bouton Démarrer appellera la méthode `.start()`, le bouton Arrêter appellera la méthode `.stop()` et le bouton quitter quittera l'application. Pour lier une action au clic d'un bouton, on se souvient qu'il faut donner à l'argument par mot-clé *command* une *callback* (c'est-à-dire le nom une fonction / méthode sans les parenthèses) :
+Le bouton « Démarrer » appellera la méthode `.start()`, le bouton « Arrêter » appellera la méthode `.stop()` et le bouton « Quitter » quittera l'application. Pour lier une action au clic d'un bouton, on se souvient qu'il faut donner à l'argument par mot-clé *command* une *callback* (c'est-à-dire le nom d'une fonction ou méthode sans les parenthèses) :
 
-- btn1 = tk.Button(self, text="Quitter", command=self.quit)
-- btn2 = tk.Button(self, text="Demarrer", command=self.start)
-- btn3 = tk.Button(self, text="Arrêter", command=self.stop)
+- `btn1 = tk.Button(self, text="Quitter", command=self.quit)`
+- `btn2 = tk.Button(self, text="Demarrer", command=self.start)`
+- `btn3 = tk.Button(self, text="Arrêter", command=self.stop)`
 
 Ici, `self.start()` et `self.stop()` sont des méthodes que l'on doit créer, `self.quit()` pré-existe lorsque l'on crée la fenêtre.
 
-Nous vous proposons ici une stratégie inspirée du [livre de Gérard Swinnen](https://inforef.be/swi/python.htm). Créons d'abord un attribut d'instance `self.is_moving` dans le constructeur. Celui-ci va nous servir de « drapeau » pour définri le mouvement du pendule. Il contiendra un entier positif ou nul. Lorsqu'il sera égal à 0, le pendule sera immobile. Lorsqu'il sera > 0, le pendule sera en mouvement. Ainsi :
+Nous vous proposons ici une stratégie inspirée du [livre de Gérard Swinnen](https://inforef.be/swi/python.htm). Créons d'abord un attribut d'instance `self.is_moving` dans le constructeur. Celui-ci va nous servir de « drapeau » pour définir le mouvement du pendule. Il contiendra un entier positif ou nul. Lorsqu'il sera égal à 0, le pendule sera immobile. Lorsqu'il sera > 0, le pendule sera en mouvement. Ainsi :
 
 - la méthode `.start()` ajoutera 1 à `self.is_moving`. Si `self.is_moving` est égal à 1 alors la méthode `self.move()` sera appelée ; 
 - la méthode `.stop()` mettra la valeur de `self.is_moving` à 0.
 
-Puisque `.start()` ajoute 1 à `self.is_moving`, le premier clic sur le bouton « Démarrer » appelera la méthode `.move()` puisque `self.is_moving` vaudra 1. Si l'utilisateur appuie une deuxième fois sur le bouton « Démarrer », `self.is_moving` vaudra 2 mais n'appellera pas `.move()` une deuxième fois ; cela restra vrai pour tout clic ultérieur de l'utilisateur sur ce bouton. Cette astuce évite des appels concurrents de la méthode `.move()`.
+Puisque `.start()` ajoute 1 à `self.is_moving`, le premier clic sur le bouton « Démarrer » appelera la méthode `.move()` car `self.is_moving` vaudra 1. Si l'utilisateur appuie une deuxième fois sur le bouton « Démarrer », `self.is_moving` vaudra 2 mais n'appellera pas `.move()` une deuxième fois ; cela sra vrai pour tout clic ultérieur de l'utilisateur sur ce bouton. Cette astuce évite des appels concurrents de la méthode `.move()`.
 
 #### Le coeur du programme : la méthode `.move()`
 
@@ -695,7 +695,7 @@ Il nous reste maintenant à générer la méthode `.move()` qui meut le pendule.
 Cette méthode va réaliser un pas de simulation de $t$ à $t+\delta t$. Il faudra ainsi réaliser dans l'ordre :
 
 - Calculer la nouvelle valeur de $\theta$ (`self.theta`) au pas $t+\delta t$ comme nous l'avons fait précédemment avec la méthode semi-implicite d'Euler.
-- Convertir la nouvelle valeur de $\theta$ (`self.theta`) en coordonnée cartésiennes dans le repère du pendule (`self.x` et `self.y`).
+- Convertir la nouvelle valeur de $\theta$ (`self.theta`) en coordonnées cartésiennes dans le repère du pendule (`self.x` et `self.y`).
 - Convertir ces coordonnées cartésiennes dans le repère du *Canvas* (`self.x_c` et `self.y_c`).
 - Mettre à jour les coordonnées de la baballe et de la tige avec la méthode `self.canv.coords()`.
 - Incrémenter le pas de temps.
@@ -707,7 +707,7 @@ Si vous en êtes arrivé là, bravo vous pouvez maintenant admirer votre superbe
 
 Voici quelques indications si vous voulez aller un peu plus loin.
 
-Si vous souhaitez mettre une réglette pour modifier la position de départ du pendule, vous pouvez utiliser la classe `tk.Scale()`. Si vous souhaitez afficher las valeur de $\theta$ qui se met à jour au fur et à mesure, il faudra instancier un objet avec la classe `tk.StringVar()`. Cet objet devra être passé à l'argument `textvariable` lors de la création de ce *label* avec `tk.Label()`. Ensuite, vous pourrez mettre à jour le texte du *Label* avec la méthode `self.instance_StringVar.set()`.
+Si vous souhaitez mettre une réglette pour modifier la position de départ du pendule, vous pouvez utiliser la classe `tk.Scale()`. Si vous souhaitez afficher la valeur de $\theta$ qui se met à jour au fur et à mesure, il faudra instancier un objet avec la classe `tk.StringVar()`. Cet objet devra être passé à l'argument `textvariable` lors de la création de ce *Label* avec `tk.Label()`. Ensuite, vous pourrez mettre à jour le texte du *Label* avec la méthode `self.instance_StringVar.set()`.
 
 Pour le *fun*, si vous souhaitez laisser une « trace » du passage du pendule avec des points colorés, vous pouvez utiliser tout simplement la méthode `self.canv.create_line()` et créer une ligne d'une pixelle de hauteur et de largeur pour dessiner un point. Pour plus de beauté, vous pouvez faire en sorte que ces points change de couleur aléatoirement à chaque arrêt / redémarrage du pendule.
 
