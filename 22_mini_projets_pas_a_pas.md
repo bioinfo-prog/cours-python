@@ -448,9 +448,9 @@ Un pendule simple est représenté par une masse ponctuelle (la boule du pendule
 
 ![Bilan des forces dans un pendule simple.](img/pendulum_sketch.png){ #fig:pendulum_sketch width=80% }
 
-La figure @fig:pendulum_sketch2 montre un schéma des différentes grandeurs caractérisant le pendule. La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées cartésiennes pour l'affichage dans un *canvas tkinter*. Nous choisissons de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la boule est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. Nous choisissons par ailleurs de considérer $\theta$ positif lorsque le pendule se balance à droite, et négatif de l'autre côté. **g** décrit l'accélération due à la gravité, avec $\boldsymbol{\mathbf P} = m \boldsymbol{\mathbf g}$, ou si on raisonne en scalaire $P = mg$. Les deux vecteurs représentant les composantes tangentielle et orthogonale au mouvement du pendule de **P** sont représentées sur le schéma (les annotations indiquent leur norme).
+La figure @fig:pendulumsketch2 montre un schéma des différentes grandeurs caractérisant le pendule. La coordonnée naturelle pour définir la position du pendule est l'angle $\theta$. Nous verrons plus tard comment convertir cet angle en coordonnées cartésiennes pour l'affichage dans un *canvas tkinter*. Nous choisissons de fixer $\theta = 0$ lorsque le pendule est à sa position d'équilibre. Il s'agit de la position où la boule est au plus bas. C'est une position à laquelle le pendule ne bougera pas s'il n'a pas une vitesse préexistante. Nous choisissons par ailleurs de considérer $\theta$ positif lorsque le pendule se balance à droite, et négatif de l'autre côté. **g** décrit l'accélération due à la gravité, avec $\boldsymbol{\mathbf P} = m \boldsymbol{\mathbf g}$, ou si on raisonne en scalaire $P = mg$. Les deux vecteurs représentant les composantes tangentielle et orthogonale au mouvement du pendule de **P** sont représentées sur le schéma (les annotations indiquent leur norme).
 
-![Caractérisation géométrique d'un pendule simple.](img/pendulum_sketch2.png){ #fig:pendulum_sketch2 width=80% }
+![Caractérisation géométrique d'un pendule simple.](img/pendulumsketch2.png){ #fig:pendulumsketch2 width=80% }
 
 Si on déplace le pendule de sa position d'équilibre, il sera mû par la force **F** résultant de la tension **T** et de son poids **P** (cf. plus bas). Comme le système est considéré comme parfait (pas de frottement, gravité uniforme, etc.), le pendule ne s'arrêtera jamais. Si on le monte à $\theta = +20$ deg et qu'on le lâche, le pendule redescendra en passant par $\theta = 0$ deg, remontera de l'autre côté à $\theta = -20$ deg, puis continuera de la sorte indéfiniment, grâce à la conservation de l'énergie dans un système fermé (c'est-à-dire sans « fuite » d'énergie).
 
@@ -458,7 +458,7 @@ Ici, on va tenter de simuler ce mouvement en appliquant les [lois du mouvement d
 
 $$\boldsymbol{\mathbf F} = m \boldsymbol{\mathbf a}$$
 
-Cette loi est exprimée ici dans le système de coordonnées cartésiennes (le plan à 2 dimensions). La force **F** et l'accélération **a** sont des vecteurs dont les composantes sont respectivement $(F_{x}, F_{y})$ et $(a_{x}, a_{y})$. La force **F** correspond à la somme vectorielle de **T** et **P**. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). Ainsi, seule la composante tangentielle de l'accélération **a** sera prise en compte dans ce mouvement. Comment la calculer ? La force de tension **T** étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet. De même, la composante orthogonale $mgcos \theta$ due au poids **P** n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $mg sin \theta$ (cf. figure @fig:pendulum_sketch2). Au final, on peut écrire l'expression suivante en raisonnant sur les valeurs scalaires :
+Cette loi est exprimée ici dans le système de coordonnées cartésiennes (le plan à 2 dimensions). La force **F** et l'accélération **a** sont des vecteurs dont les composantes sont respectivement $(F_{x}, F_{y})$ et $(a_{x}, a_{y})$. La force **F** correspond à la somme vectorielle de **T** et **P**. La tige du pendule étant rigide, le mouvement de la boule est restreint sur le cercle de rayon égal à la longueur *L* de la tige (dessiné en pointillé). Ainsi, seule la composante tangentielle de l'accélération **a** sera prise en compte dans ce mouvement. Comment la calculer ? La force de tension **T** étant orthogonale au mouvement du pendule, celle-ci n'aura pas d'effet. De même, la composante orthogonale $mgcos \theta$ due au poids **P** n'aura pas d'effet non plus. Au final, on ne prendra en compte que la composante tangentielle due au poids, c'est-à-dire $mg sin \theta$ (cf. figure @fig:pendulumsketch2). Au final, on peut écrire l'expression suivante en raisonnant sur les valeurs scalaires :
 
 $$F = ma = -mg sin \theta$$
 
@@ -621,7 +621,7 @@ Pour le moment, vous pouvez oublier la réglette fixant la valeur initiale de $\
 
 Le pivot et la boule pourront être créés avec la méthode `.create_oval()`, la tige le sera avec la méthode `.create_line()`. Pensez à créer des variables pour la tige et la boule lors de l'instanciation car celles-ci bougeront par la suite.
 
-Comment placer ces éléments dans le *canvas* ? Vous avez remarqué que lors de la création de ce dernier, nous avons fixé une dimension de 400 $\times$ 400 pixels. Le pivot se trouve au centre, c'est-à-dire au point $(200, 200)$ . Pour la tige et la boule il sera nécessaire de connaître la position de la boule **dans le repère du canvas**. Or, pour l'instant, nous définissons la position de la boule avec l'angle $\theta$. Il va donc nous falloir convertir $\theta$ en coordonnées cartésiennes $(x, y)$ dans le repère mathématique défini dans la figure @fig:pendulum_sketch2, puis dans le repère du *canvas* $(x_{c}, y_{c})$ (cf. rubrique suivante).
+Comment placer ces éléments dans le *canvas* ? Vous avez remarqué que lors de la création de ce dernier, nous avons fixé une dimension de 400 $\times$ 400 pixels. Le pivot se trouve au centre, c'est-à-dire au point $(200, 200)$ . Pour la tige et la boule il sera nécessaire de connaître la position de la boule **dans le repère du canvas**. Or, pour l'instant, nous définissons la position de la boule avec l'angle $\theta$. Il va donc nous falloir convertir $\theta$ en coordonnées cartésiennes $(x, y)$ dans le repère mathématique défini dans la figure @fig:pendulumsketch2, puis dans le repère du *canvas* $(x_{c}, y_{c})$ (cf. rubrique suivante).
 
 ##### Conversion de $\theta$ en coordonnées $(x, y)$
 
@@ -634,7 +634,7 @@ Cette étape est relativement simple si on considère le pivot comme le centre d
 	- quand $\theta = - \pi / 2 = -90$ deg, on a $(-1, 0)$ (pendule à gauche) ;
 	- quand $\theta = \pm \pi = \pm 180$ deg, on a $(0, 1)$ (pendule en haut).
 
-La figure @fig:pendulum_sketch2 montre graphiquement les valeurs de $\theta$.
+La figure @fig:pendulumsketch2 montre graphiquement les valeurs de $\theta$.
 
 Si vous n'avez pas trouvé, voici la solution :
 
@@ -643,9 +643,9 @@ self.x = np.sin(self.theta) * self.L
 self.y = -np.cos(self.theta) * self.L
 ```
 
-##### Méthode convertissant $\theta$ en coordonnées $(x, y)$
+##### Conversion des coordonnées $(x, y)$ en $(x_c, y_c)$
 
-Il nous faut maintenant convertir $(x, y)$ en coordonnées $(x_{c}, y_{c})$ dans le *canvas*. Plusieurs choses sont importantes pour cela :
+Il nous faut maintenant convertir les coordonnées naturelles mathématiques du pendule $(x, y)$ en coordonnées dans le *canvas* $(x_{c}, y_{c})$. Plusieurs choses sont importantes pour cela :
 
 - le centre du repère mathématique $(0, 0)$ a la coordonnée $(200, 200)$ dans le *canvas* ;
 - il faut choisir un facteur de conversion : par exemple, si on choisit *L* = 1 m, on peut proposer le facteur 1 m $\rightarrow$ 100 pixels ;
@@ -653,7 +653,7 @@ Il nous faut maintenant convertir $(x, y)$ en coordonnées $(x_{c}, y_{c})$ dans
 
 open-box-adv
 
-Il est essentiel d'écrire une méthode qui convertira $\theta$ en $(x, y)$ puis $(x_{c}, y_{c})$ dans votre classe. Vous pouvez l'appeler par exemple `.theta2xc_yc()`.
+Dans votre classe, cela peut être une bonne idée d'écrire une méthode qui réalise cette conversion. Celle-ci pourrait s'appeler par exemple `map_realcoor2canvas()`.
 
 close-box-adv
 
@@ -669,7 +669,7 @@ self.y_c = -self.y*self.conv_factor + 200
 
 Il reste maintenant à gérer les boutons permettant de démarrer / stopper le pendule. Pour cela il faudra créer 3 méthodes dans notre classe :
 
-- la méthode `.start()` : met en mouvement le pendule ; si le pendule n'a jamais été en mouvement, il part de son point de départ ; si le pendule avait déjà été en mouvement, celui-ci repart d'où on l'avait arrêté (avec la même vitesse qu'il avait à ce moment là) ;
+- la méthode `.start()` : met en mouvement le pendule ; si le pendule n'a jamais été en mouvement, il part de son point de départ ; si le pendule avait déjà été en mouvement, celui-ci repart d'où on l'avait arrêté (avec la vitesse qu'il avait à ce moment là) ;
 - la méthode `.stop()` : arrête le mouvement du pendule ;
 - la méthode `.move()` : gère le mouvement du pendule (génère les coordonnées du pendule au pas suivant).
 
@@ -679,14 +679,14 @@ Le bouton « Démarrer » appellera la méthode `.start()`, le bouton « Arrête
 - `btn2 = tk.Button(self, text="Demarrer", command=self.start)`
 - `btn3 = tk.Button(self, text="Arrêter", command=self.stop)`
 
-Ici, `self.start()` et `self.stop()` sont des méthodes que l'on doit créer, `self.quit()` pré-existe lorsque l'on crée la fenêtre.
+Ici, `self.start()` et `self.stop()` sont des méthodes que l'on doit créer, `self.quit()` pré-existe lorsque la fenêtre *tkinter* est créée.
 
-Nous vous proposons ici une stratégie inspirée du [livre de Gérard Swinnen](https://inforef.be/swi/python.htm). Créons d'abord un attribut d'instance `self.is_moving` dans le constructeur. Celui-ci va nous servir de « drapeau » pour définir le mouvement du pendule. Il contiendra un entier positif ou nul. Lorsqu'il sera égal à 0, le pendule sera immobile. Lorsqu'il sera > 0, le pendule sera en mouvement. Ainsi :
+Nous vous proposons ici une stratégie inspirée du [livre de Gérard Swinnen](https://inforef.be/swi/python.htm). Créons d'abord un attribut d'instance `self.is_moving` dans le constructeur. Celui-ci va nous servir de « drapeau » pour définir le mouvement du pendule. Il contiendra un entier positif ou nul. Lorsque ce drapeau sera égal à 0, le pendule sera immobile. Lorsqu'il sera > 0, le pendule sera en mouvement. Ainsi :
 
 - la méthode `.start()` ajoutera 1 à `self.is_moving`. Si `self.is_moving` est égal à 1 alors la méthode `self.move()` sera appelée ; 
 - la méthode `.stop()` mettra la valeur de `self.is_moving` à 0.
 
-Puisque `.start()` ajoute 1 à `self.is_moving`, le premier clic sur le bouton « Démarrer » appelera la méthode `.move()` car `self.is_moving` vaudra 1. Si l'utilisateur appuie une deuxième fois sur le bouton « Démarrer », `self.is_moving` vaudra 2 mais n'appellera pas `.move()` une deuxième fois ; cela sra vrai pour tout clic ultérieur de l'utilisateur sur ce bouton. Cette astuce évite des appels concurrents de la méthode `.move()`.
+Puisque `.start()` ajoute 1 à `self.is_moving`, le premier clic sur le bouton « Démarrer » appelera la méthode `.move()` car `self.is_moving` vaudra 1. Si l'utilisateur appuie une deuxième fois sur le bouton « Démarrer », `self.is_moving` vaudra 2 mais n'appellera pas `.move()` une deuxième fois ; cela sera vrai pour tout clic ultérieur de l'utilisateur sur ce bouton. Cette astuce évite des appels concurrents de la méthode `.move()`.
 
 #### Le coeur du programme : la méthode `.move()`
 
@@ -697,7 +697,7 @@ Cette méthode va réaliser un pas de simulation de $t$ à $t+\delta t$. Il faud
 - Calculer la nouvelle valeur de $\theta$ (`self.theta`) au pas $t+\delta t$ comme nous l'avons fait précédemment avec la méthode semi-implicite d'Euler.
 - Convertir la nouvelle valeur de $\theta$ (`self.theta`) en coordonnées cartésiennes dans le repère du pendule (`self.x` et `self.y`).
 - Convertir ces coordonnées cartésiennes dans le repère du *Canvas* (`self.x_c` et `self.y_c`).
-- Mettre à jour les coordonnées de la baballe et de la tige avec la méthode `self.canv.coords()`.
+- Mettre à jour le dessin de la baballe et de la tige avec la méthode `self.canv.coords()`.
 - Incrémenter le pas de temps.
 - Si le drapeau `self.is_moving` est supérieur à 0, la méthode `self.move()` est rappelée après 20 millisecondes (*Conseil*: la méthode `.after()` est votre amie).
 
@@ -709,7 +709,7 @@ Voici quelques indications si vous voulez aller un peu plus loin.
 
 Si vous souhaitez mettre une réglette pour modifier la position de départ du pendule, vous pouvez utiliser la classe `tk.Scale()`. Si vous souhaitez afficher la valeur de $\theta$ qui se met à jour au fur et à mesure, il faudra instancier un objet avec la classe `tk.StringVar()`. Cet objet devra être passé à l'argument `textvariable` lors de la création de ce *Label* avec `tk.Label()`. Ensuite, vous pourrez mettre à jour le texte du *Label* avec la méthode `self.instance_StringVar.set()`.
 
-Pour le *fun*, si vous souhaitez laisser une « trace » du passage du pendule avec des points colorés, vous pouvez utiliser tout simplement la méthode `self.canv.create_line()` et créer une ligne d'une pixelle de hauteur et de largeur pour dessiner un point. Pour plus de beauté, vous pouvez faire en sorte que ces points change de couleur aléatoirement à chaque arrêt / redémarrage du pendule.
+Pour le *fun*, si vous souhaitez laisser une « trace » du passage du pendule avec des points colorés, vous pouvez utiliser tout simplement la méthode `self.canv.create_line()` et créer une ligne d'une pixelle de hauteur et de largeur pour dessiner un point. Pour plus de « beauté», vous pouvez faire en sorte que ces points change de couleur aléatoirement à chaque arrêt / redémarrage du pendule.
 
 Si vous souhaitez aller plus loin sur les différentes méthodes numériques de résolution d'équation différentielle associées au pendule, nous vous conseillons le site de [James Sethna](http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Pendulum/Pendulum.html) de l'université de Cornell.
 
