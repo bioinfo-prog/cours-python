@@ -79,7 +79,7 @@ dict_keys(['poids', 'nom', 'taille'])
 dict_values([70, 'singe', 1.75])
 ```
 
-Les mentions `dict_keys` et `dict_values` indiquent que nous avons à faire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice comme `dico.items()[0]`). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
+Les mentions `dict_keys` et `dict_values` indiquent que nous avons à faire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice, par exemple `dico.keys()[0]` renverra une erreur). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
 ```
 >>> ani2.values()
 dict_values(['singe', 70, 1.75])
