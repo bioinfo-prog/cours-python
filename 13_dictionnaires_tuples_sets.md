@@ -529,7 +529,7 @@ Counter({'a': 7, 't': 7, 'c': 7, 'g': 5})
 0
 ```
 
-On voit que Python a automatiquement compté chaque atgc de la chaîne de caractères passé en argument ! Cela crée un objet de type `Counter`qui se comporte ensuite comme un dictionnaire, à une exception près : si on appelle une clé qui n'existe pas dans l'itérable initiale (comme le `n` ci-dessus) cela renvoie 0.
+On voit que Python a automatiquement compté chaque atgc de la chaîne de caractères passée en argument ! Cela crée un objet de type `Counter`qui se comporte ensuite comme un dictionnaire, à une exception près : si on appelle une clé qui n'existe pas dans l'itérable initiale (comme le `n` ci-dessus) cela renvoie 0.
 
 ## Exercices
 
