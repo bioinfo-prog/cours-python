@@ -1585,7 +1585,7 @@ Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseil
 
 Téléchargez le fichier [people.tsv](https://python.sdv.univ-paris-diderot.fr/data-files/people.tsv).
 
-Ouvrez ce fichier avec *pandas* et la méthode `.read_table()`. Cette  méthode est très similaire à la méthode `.read_csv()` présentée plus haut, sauf qu'elle considère la tabulation ``t` comme séparateur par défaut. Utilisez l'argument `index_col` pour utiliser la colonne `name` comme index.
+Ouvrez ce fichier avec *pandas* et la méthode `.read_table()`. Cette  méthode est très similaire à la méthode `.read_csv()` présentée plus haut, sauf qu'elle considère la tabulation (`\t`) comme séparateur par défaut. Utilisez l'argument `index_col` pour utiliser la colonne `name` comme index.
 
 Affichez les 6 premières lignes du jeu de données.
 
