@@ -678,7 +678,7 @@ On espère que ces courts exemples vous auront convaincu de l'utilité du module
 
 ## Module *pandas*
 
-Le module [*pandas*](https://pandas.pydata.org/) a été conçu pour la manipulation et l'analyse de données. Il est particulièrement puissant pour manipuler des données structurées sous forme de tableau.
+Le module [*pandas*](https://pandas.pydata.org/) a été conçu pour l'analyse de données. Il est particulièrement puissant pour manipuler des données structurées sous forme de tableau.
 
 Pour charger *pandas* dans la mémoire de Python, on utilise la commande `import` habituelle :
 ```
