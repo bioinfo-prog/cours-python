@@ -1561,3 +1561,58 @@ plt.title("Distribution des publications qui mentionnent la barstar")
 # enregistrement sur le disque
 plt.savefig('distribution_barstar_annee.png', bbox_inches='tight', dpi=200)
 ```
+
+
+### Analyse d'un jeu de données avec *pandas*
+
+Le jeu de données `people.tsv` contient les caractéristiques de quelques individus : prénom, sexe, taille (en cm) et âge (en années). 
+Par exemple :
+
+| name | sex | size | age |
+| ---- | --- | ---- | --- |
+| simon | male | 175 | 33 |
+| clara | female | 167 | 45|
+| serge | male |181 | 44 |
+| claire | female | 174 | 31 |
+| ... | ... | ... | ... |
+
+L'objectif de cet exercice est de manipuler ces données avec *pandas*.
+
+Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseillons de consulter l'annexe A *Quelques formats de données rencontrés en biologie*.
+
+
+#### Chargement du jeu de données
+
+Téléchargez le fichier [people.tsv](https://python.sdv.univ-paris-diderot.fr/data-files/people.tsv).
+
+Ouvrez ce fichier avec *pandas* et la méthode `.read_table()`. Cette  méthode est très similaire à la méthode `.read_csv()` présentée plus haut, sauf qu'elle considère la tabulation ``t` comme séparateur par défaut. Utilisez l'argument `index_col` pour utiliser la colonne `name` comme index.
+
+Affichez les 6 premières lignes du jeu de données.
+
+Combien de lignes contient le jeu de données ?
+
+
+#### Statistiques descriptives et table de comptage
+
+Déterminez la moyenne et la valeur minimale de la taille et l'âge des individus.
+
+Comptez ensuite le nombre de personnes de chaque sexe.
+
+
+#### Statistiques par groupe
+
+Déterminez, la taille et l'âge moyen chez les hommes et les femmes. Utilisez pour cela la méthode `.groupby()`.
+
+
+#### Sélections
+
+Déterminez combien de d'individus mesurent plus de 1,80 m.
+
+Quelle femme a moins de 35 ans ?
+
+
+#### Sélection et statistiques
+
+Déterminez l'age moyen des individus qui mesurent plus de 1,80 m.
+
+Déterminez la taille maximale des femmes qui ont plus de 35 ans.
