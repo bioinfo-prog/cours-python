@@ -518,3 +518,30 @@ Modifiez maintenant la fonction `calcule_distance()` pour qu'elle affiche à la 
 La distance inter-carbone alpha dans les protéines est très stable et de l'ordre de 3,8 angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine barstar. Repérez une valeur surprenante. Essayez de l'expliquer.
 
 *Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+
+### Compteur de gènes dans un fichier GenBank
+
+*Conseil* : 
+
+Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank[NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk) (chromosome I de la levure Saccharomyces cerevisiae) et afficher la longueur de chaque gène. Pour cela, il faudra récupérer les lignes décrivant la position des gènes. Voici par exemple les cinq premières lignes concernées dans le fichier NC_001133.gbk:
+
+```
+     gene            complement(<1807..>2169)
+     gene            <2480..>2707
+     gene            complement(<7235..>9016)
+     gene            complement(<11565..>11951)
+     gene            <12046..>12426
+[...]
+```
+
+Lorsque la ligne contient le mot `complement` le gène est situé sur le brin complémentaire, sinon il est situé sur le brin direct. Votre code devra récupérer le premier et deuxième nombres indiquant respectivement la position du début et de la fin du gène. Attention à bien les convertir en entier afin de pouvoir calculer la longueur du gène. A noter, les caractères `>` et `<` doivent être ignorés, et les `..` servent à séparer la position de début et de fin. On souhaite obtenir une sortie de la sorte :
+
+```
+gène   1 complémentaire ->   362 bases
+gène   2 direct         ->   227 bases
+gène   3 complémentaire ->  1781 bases
+[...]
+gène  99 direct         ->   611 bases
+gène 100 direct         ->   485 bases
+gène 101 direct         ->  1403 bases
+```
