@@ -277,6 +277,50 @@ array([1, 2])
 ```
 La syntaxe `a[m,:]` renvoie la ligne `m-1`, et `a[:,n]` renvoie la colonne `n-1`. Les tranches sont évidemment aussi utilisables sur un tableau à deux dimensions.
 
+### Copie d'*arrays*
+
+Comme pour les listes, nous attirons votre attention sur la copie d'*arrays* :
+
+```
+>>> a = np.arange(5)
+>>> a
+array([0, 1, 2, 3, 4])
+>>> b = a
+>>> b[2] = -300
+>>> b
+array([   0,    1, -300,    3,    4])
+>>> a
+array([   0,    1, -300,    3,    4])
+```
+
+open-box-warn
+
+Par défaut la copie d'*arrays* se fait par référence comme pour tous les objets séquentiels en Python (listes, *tuples*, dictionnaires, etc.).
+
+close-box-warn
+
+Afin d'éviter le problème, vous pouvez soit utiliser la fonction `np.array()` qui crée une nouvelle copie distincte de l'*array* initial, soit la fonction `copy.deepcopy()` comme pour les listes :
+
+```
+>>> a = np.full((2, 2), 0)
+>>> a
+array([[0, 0],
+       [0, 0]])
+>>> b = np.array(a)
+>>> b[1, 1] = -300
+>>> c = copy.deepcopy(a)
+>>> c[1, 1] = -500
+>>> a
+array([[0, 0],
+       [0, 0]])
+>>> b
+array([[   0,    0],
+       [   0, -300]])
+>>> c
+array([[   0,    0],
+       [   0, -500]])
+```
+
 ### Construction automatique de matrices
 
 Il peut être parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
@@ -308,7 +352,7 @@ array([[ 7.,  7.,  7.],
 ```
 Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes. Celle-ci ne contient que le chiffre 7 sous formes d'entiers (`int`) dans le premier cas et de *floats* dans le second.
 
-Le module numpy contient des fonctions pour lire des données à partir de fichier et créer des *arrays* automatiquement. Cela se révèle bien pratique car la plupart du temps ces données proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes / colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
+Le module numpy contient aussi des fonctions pour lire des données à partir de fichiers et créer des *arrays* automatiquement. Cela se révèle bien pratique car la plupart du temps ces données proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes / colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
 
 ```
   1   7 310
@@ -464,7 +508,112 @@ A chaque itération, la variable `row` est un *array* 1D correspondant à la lig
 
 A nouveau, la variable d'itération correspond à un *array* 1D correspondant à la colonne actuellement lue.
 
-### Masques
+### Masques booléens
+
+Une des grandes puissance des *arrays* *NumPy* est qu'ils supportent les **masques booléens**. Avant de les définir, il est important d'introduire le concept d'*arrays* de booléens. Jusqu'à maintenant nous avions définis uniquement des *arrays* avec des types numériques *int* ou *float*. Il est tout à fait possible de définir des *arrays* de booléens. La fonction `np.full()` vue ci-dessus nous permet d'en construire facilement :
+
+```
+>>> np.full((2, 2), True)
+array([[ True,  True],
+       [ True,  True]])
+>>> np.full((2, 2), False)
+array([[False, False],
+       [False, False]])
+```
+
+Très bien, mais pour l'instant nous n'en voyons pas forcément l'utilité... Mais qu'en est-il lorsqu'on utilise les opérateurs de comparaison avec un *array* ? Et bien cela renvoie un *array* de Booléen !
+
+```
+>>> a > 5
+array([[False, False, False],
+       [False, False,  True],
+       [ True,  True,  True]])
+>>> a == 2
+array([[False,  True, False],
+       [False, False, False],
+       [False, False, False]])
+```
+
+Tous les éléments de l'*array* satisfaisant la condition seront à `True`, les autres à `False`. Encore plus fort, il est possible de combiner plusieurs conditions avec les opérateurs logiques `&` et `|` (respectivement **ET** et **OU**) :
+
+```
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+>>> (a > 3) & (a % 2 == 0)
+array([[False, False, False],
+       [ True, False,  True],
+       [False,  True, False]])
+>>> (a > 3) | (a % 2 == 0)
+array([[False,  True, False],
+       [ True,  True,  True],
+       [ True,  True,  True]])
+```
+
+Nous pouvons effectuer deux remarques :
+
+- Les opérateurs logiques `&` et `|` s'appliquent sur les *arrays* et sont bien différents des opérateurs logiques `and` et `or` qui eux s'appliquent sur des booléens ;
+- Il est conseillé de mettre des parenthèses pour chaque condition afin d'éviter les ambiguïtés.
+
+Maintenant que les *arrays* de booléens ont été introduits, nous pouvons définir les masques booléens :
+
+open-box-def
+
+Les masques booléens sont des *arrays* de booléens qui sont utilisés en tant qu'« indice » d'un *array* initial. Cela permet de récupérer / modifier une partie de l'*array* initial.
+
+close-box-def
+
+Concrètement, il suffira de 
+
+```
+>>> a[a > 5]
+array([6, 7, 8, 9])
+>>> a[a == 2]
+array([2])
+>>> a[a != 0]
+array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+```
+
+On voit que l'on récupère seulement les éléments de l'*array* `a` qui sastisfont la sélection ! Toutefois, il est important de constater que l'*array* renvoyé perd la dimensionnalité de l'array `a` initial, il s'agit systématiquemnt d'un *array* 1D. 
+
+La grande puissance de ce mécanisme est que l'on peut utiliser les masques booléens pour modifier les éléments que l'on sélectionne :
+
+```
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+>>> a[a > 5]
+array([6, 7, 8, 9])
+>>> a[a > 5] = -1
+>>> a
+array([[ 1,  2,  3],
+       [ 4,  5, -1],
+       [-1, -1, -1]])
+```
+
+On peut bien sûr combiner plusieurs conditions avec les opérateurs logiques :
+
+```
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+>>> a[(a > 3) | (a % 2 == 0)] = 0
+>>> a
+array([[1, 0, 3],
+       [0, 0, 0],
+       [0, 0, 0]])
+```
+
+Ce mécanisme de sélection avec des masques booléens se révèle très puissant pour manipuler des grandes quantités de données. On verra qu'il peut être également utilisé avec les *dataframes* du module *pandas*.
+
+open-box-rem
+
+Les masques booléens ne doivent pas être confondus avec les [*masked arrays*](https://numpy.org/doc/1.18/reference/maskedarray.html) qui sont des *arrays* dans lesquels on peut trouver des valeurs manquantes ou invalides.
+
+close-box-rem
 
 
 ## Module *Biopython*
