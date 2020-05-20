@@ -277,7 +277,6 @@ array([1, 2])
 ```
 La syntaxe `a[m,:]` renvoie la ligne `m-1`, et `a[:,n]` renvoie la colonne `n-1`. Les tranches sont évidemment aussi utilisables sur un tableau à deux dimensions.
 
-
 ### Construction automatique de matrices
 
 Il peut être parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
@@ -309,12 +308,64 @@ array([[ 7.,  7.,  7.],
 ```
 Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes. Celle-ci ne contient que le chiffre 7 sous formes d'entiers (`int`) dans le premier cas et de *floats* dans le second.
 
+Le module numpy contient des fonctions pour lire des données à partir de fichier et créer des *arrays* automatiquement. Cela se révèle bien pratique car la plupart du temps ces données proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes / colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
+
+```
+  1   7 310
+ 15  -4  35
+ 78  95  79
+```
+
+La fonction prend en argument le nom du fichier et renvoie un *array* 2D directement :
+
+```
+>>> np.loadtxt("donnees.dat")
+array([[  1.,   7., 310.],
+       [ 15.,  -4.,  35.],
+       [ 78.,  95.,  79.]])
+```
+
+Pratique, non ? Attention toutefois aux points suivants :
+
+- chaque ligne doit avoir le même nombre de colonnes, la fonction ne gère pas les données manquantes ;
+- chaque donnée est convertie en *float*, donc si une chaîne est rencontrée la fonction renvoie une erreur ;
+- par défaut, les données doivent être séparées par n'importe quelle combinaison d'espace(s) et/ou de tabulations.
+
+Nous vous conseillons vivement de consulter la [documentation complète](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) de cette fonction. `np.loadtxt()` contient tout un tas d'arguments par mot-clé permettant de récupérer telles ou telles lignes / colonnes, ignorer des lignes de commentaire, changer le séparateur par défaut (par exemple la virgule `,` pour les fichiers .csv), etc., qui peuvent se révéler commodes.
+
+L'opération inverse consistant à sauver un *array* dans un fichier se fait avec la fonction `np.savetxt()` :
+
+```
+>>> a = np.reshape(range(1, 10), (3, 3))
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+>>> np.savetxt("out.dat", a)
+```
+
+Ceci générera le fichier `out.dat` contenat les lignes suivantes :
+
+```
+1.000000000000000000e+00 2.000000000000000000e+00 3.000000000000000000e+00
+4.000000000000000000e+00 5.000000000000000000e+00 6.000000000000000000e+00
+7.000000000000000000e+00 8.000000000000000000e+00 9.000000000000000000e+00
+```
+
+On voit que la fonction écrit par défaut les données comme des *floats* en notation scientifique. Bien sûr il existe de nombreuses [options possibles](https://numpy.org/doc/stable/reference/generated/numpy.savetxt.html) permettant de changer le format, les séparateurs, etc.
+
+open-box-adv
+
+Il existe d'autres fonctions plus avancées telles que [np.genfromttxt()](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html) gérant les données manquantes, ou encore [np.load()](https://numpy.org/doc/stable/reference/generated/numpy.load.html) et [np.fromfile()](https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html) permettant de lire des données au format binaire. De même, il existe des fonctions ou méthodes permettant d'écrire au format binaire : [np.save()](https://numpy.org/doc/stable/reference/generated/numpy.save.html) ou [.tofile()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile). Le format binaire possède en général l'extension `.npy` ou `.npz` lorsque les données sont compressées. L'avantage d'écrire au format binaire est que cela prend moins de place pour les gros tableaux.
+
+close-box-adv
 
 ### Un peu d'algèbre linéaire
 
 Après avoir manipulé les objets *array* comme des vecteurs et des matrices, voici quelques fonctions pour faire de l'algèbre linéaire.
 
 La fonction `transpose()` renvoie la transposée d'un *array*. Par exemple, pour une matrice :
+
 ```
 >>> a = np.resize(np.arange(1, 10), (3, 3))
 >>> a
@@ -327,7 +378,17 @@ array([[1, 4, 7],
        [3, 6, 9]])
 ```
 
+Tout objet *array* 2D possède un attribut `.T` qui contient la transposée, il est ainsi possible d'utiliser cette notation plus compacte :
+
+```
+>>> a.T
+array([[1, 4, 7],
+       [2, 5, 8],
+       [3, 6, 9]])
+```
+
 La fonction `dot()` vous permet de réaliser une multiplication de matrices.
+
 ```
 >>> a = np.resize(np.arange(4), (2, 2))
 >>> a
@@ -349,6 +410,7 @@ Dans le module *NumPy*, il existe également des objets de type *matrix* pour le
 close-box-rem
 
 Pour toutes les opérations suivantes, nous utiliserons des fonctions du sous-module *linalg* de *NumPy*. La fonction `inv()` renvoie l'inverse d'une matrice carrée, `det()` son déterminant et `eig()` ses vecteurs et valeurs propres.
+
 ```
 >>> a = np.resize(np.arange(4), (2,2))
 >>> a
@@ -368,7 +430,41 @@ array([-0.56155281,  3.56155281])
 array([[-0.87192821, -0.27032301],
        [ 0.48963374, -0.96276969]])
 ```
+
 Notez que la fonction `eig()` renvoie un tuple dont le premier élément correspond aux valeurs propres et le second aux vecteurs propres.
+
+### Parcours de matrice
+
+Lorqu'on a une matrice, on est souvent amené à la parcourir par ligne ou par colonne. Une fonctionnalité bien commode vient du fait que les *arrays* *NumPy* sont directement itérables par ligne :
+
+```
+>>> a = np.reshape(np.arange(1, 10), (3, 3))
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+>>> for row in a:
+...     print(row, type(row))
+...
+[1 2 3] <class 'numpy.ndarray'>
+[4 5 6] <class 'numpy.ndarray'>
+[7 8 9] <class 'numpy.ndarray'>
+```
+
+A chaque itération, la variable `row` est un *array* 1D correspondant à la ligne de la matrice actuellement lue. Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
+
+```
+>>> for col in a.T:
+...     print(col, type(col))
+...
+[1 4 7] <class 'numpy.ndarray'>
+[2 5 8] <class 'numpy.ndarray'>
+[3 6 9] <class 'numpy.ndarray'>
+```
+
+A nouveau, la variable d'itération correspond à un *array* 1D correspondant à la colonne actuellement lue.
+
+### Masques
 
 
 ## Module *Biopython*
