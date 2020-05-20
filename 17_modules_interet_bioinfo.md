@@ -478,7 +478,7 @@ array([[-0.87192821, -0.27032301],
 
 Notez que la fonction `eig()` renvoie un tuple dont le premier élément correspond aux valeurs propres et le second aux vecteurs propres.
 
-### Parcours de matrice
+### Parcours de matrice et affectation de lignes / colonnes
 
 Lorqu'on a une matrice, on est souvent amené à la parcourir par ligne ou par colonne. Une fonctionnalité bien commode vient du fait que les *arrays* *NumPy* sont directement itérables par ligne :
 
@@ -508,6 +508,34 @@ A chaque itération, la variable `row` est un *array* 1D correspondant à chaque
 ```
 
 A chaque itération, la variable `col` est un *array* 1D correspondant à chaque colonne de `a`.
+
+On se souvient de l'affectation multiple `x, y = 1, 2` qui permettait d'affecter des valeurs à plusieurs variables à la fois. Et bien, il est possible d'utiliser cette fonctionnalité aussi avec les *arrays NumPy* :
+
+```
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+>>> l1, l2, l3 = a
+>>> l1
+array([1, 2, 3])
+>>> l2
+array([4, 5, 6])
+>>> l3
+array([7, 8, 9])
+```
+
+Par défaut, cela se fait sur les lignes de l'*array* 2D. Pour le faire sur les colonnes, il suffit d'utiliser la transposée `a.T` :
+
+```
+>>> c1, c2, c3 = a.T
+>>> c1
+array([1, 4, 7])
+>>> c2
+array([2, 5, 8])
+>>> c3
+array([3, 6, 9])
+```
 
 ### Masques booléens
 
@@ -1748,6 +1776,11 @@ Le fichier [temperature.dat](data-files/temperatures.dat) contient un relevé de
 - Récupérer les valeurs de température depuis le fichier et les mettre dans un *array* 2D ; la fonction [`np.loadtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) et son argument `usecols` seront vos amis :-).
 - Parcourir chaque ligne de la matrice et calculer la température moyenne de chaque jour et la stocker dans une liste `mean_temps`.
 - A l'aide des deux listes `days` et `mean_temps`, déterminer et afficher le jour le plus chaud.
+
+### Calcul du centre de masse d'une membrane
+
+TODO
+
 
 ### Années de publication des articles relatifs à la barstar
 
