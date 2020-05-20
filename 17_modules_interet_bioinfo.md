@@ -1740,6 +1740,14 @@ En utilisant les opérateurs mathématiques habituels (`-`, `+`, `**2`) et les f
 
 Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones alpha consécutifs avec un chiffres après la virgule. Repérez la valeur surprenante.
 
+### Jour le plus chaud
+
+Le fichier [temperature.dat](data-files/temperatures.dat) contient un relevé de 4 températures pour chaque jour de la semaine. A l'aide du module *NumPy*, on souhaite déterminer quel est le jour de la semaine le plus chaud. Pour cela nous vous proposons les étapes suivantes :
+
+- Récupérer le nom des jours de la semaine depuis le fichier et les mettres dans une liste `days`.
+- Récupérer les valeurs de température depuis le fichier et les mettre dans un *array* 2D ; la fonction [`np.loadtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) et son argument `usecols` seront vos amis :-).
+- Parcourir chaque ligne de la matrice et calculer la température moyenne de chaque jour et la stocker dans une liste `mean_temps`.
+- A l'aide des deux listes `days` et `mean_temps`, déterminer et afficher le jour le plus chaud.
 
 ### Années de publication des articles relatifs à la barstar
 
