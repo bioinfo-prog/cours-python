@@ -299,7 +299,7 @@ Par défaut la copie d'*arrays* se fait par référence comme pour tous les obje
 
 close-box-warn
 
-Afin d'éviter le problème, vous pouvez soit utiliser la fonction `np.array()` qui crée une nouvelle copie distincte de l'*array* initial, soit la fonction `copy.deepcopy()` comme pour les listes :
+Afin d'éviter le problème, vous pouvez soit utiliser la fonction `np.array()` qui crée une nouvelle copie distincte de l'*array* initial, soit la fonction `copy.deepcopy()` comme pour les listes (cf. chapitre 11 *Plus sur les listes*) :
 
 ```
 >>> a = np.full((2, 2), 0)
@@ -334,7 +334,7 @@ array([[1., 1., 1.],
       [1., 1., 1.]])
 ```
 
-Par défaut, les fonctions `zeros()` et `ones()` génèrent des *floats*, mais vous pouvez demander des entiers en passant l'option `int` en second argument :
+Par défaut, les fonctions `zeros()` et `ones()` génèrent des *floats*, mais vous pouvez demander des entiers en passant le type (par exemple `int`, `float`, etc.) en second argument :
 ```
 >>> np.zeros((2,3), int)
 array([[0, 0, 0],
@@ -350,9 +350,10 @@ array([[7, 7, 7],
 array([[ 7.,  7.,  7.],
        [ 7.,  7.,  7.]])
 ```
+
 Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes. Celle-ci ne contient que le chiffre 7 sous formes d'entiers (`int`) dans le premier cas et de *floats* dans le second.
 
-Le module numpy contient aussi des fonctions pour lire des données à partir de fichiers et créer des *arrays* automatiquement. Cela se révèle bien pratique car la plupart du temps ces données proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes / colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
+Le module numpy contient aussi des fonctions pour lire des données à partir de fichiers et créer des *arrays* automatiquement. Cela se révèle bien pratique car la plupart du temps les données que l'on analyse proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes / colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
 
 ```
   1   7 310
@@ -398,11 +399,11 @@ Ceci générera le fichier `out.dat` contenat les lignes suivantes :
 
 On voit que la fonction écrit par défaut les données comme des *floats* en notation scientifique. Bien sûr il existe de nombreuses [options possibles](https://numpy.org/doc/stable/reference/generated/numpy.savetxt.html) permettant de changer le format, les séparateurs, etc.
 
-open-box-adv
+open-box-more
 
 Il existe d'autres fonctions plus avancées telles que [np.genfromttxt()](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html) gérant les données manquantes, ou encore [np.load()](https://numpy.org/doc/stable/reference/generated/numpy.load.html) et [np.fromfile()](https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html) permettant de lire des données au format binaire. De même, il existe des fonctions ou méthodes permettant d'écrire au format binaire : [np.save()](https://numpy.org/doc/stable/reference/generated/numpy.save.html) ou [.tofile()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile). Le format binaire possède en général l'extension `.npy` ou `.npz` lorsque les données sont compressées. L'avantage d'écrire au format binaire est que cela prend moins de place pour les gros tableaux.
 
-close-box-adv
+close-box-more
 
 ### Un peu d'algèbre linéaire
 
@@ -422,7 +423,7 @@ array([[1, 4, 7],
        [3, 6, 9]])
 ```
 
-Tout objet *array* 2D possède un attribut `.T` qui contient la transposée, il est ainsi possible d'utiliser cette notation plus compacte :
+Tout objet *array* possède un attribut `.T` qui contient la transposée, il est ainsi possible d'utiliser cette notation objet plus compacte :
 
 ```
 >>> a.T
@@ -495,7 +496,7 @@ array([[1, 2, 3],
 [7 8 9] <class 'numpy.ndarray'>
 ```
 
-A chaque itération, la variable `row` est un *array* 1D correspondant à la ligne de la matrice actuellement lue. Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
+A chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
 
 ```
 >>> for col in a.T:
@@ -506,7 +507,7 @@ A chaque itération, la variable `row` est un *array* 1D correspondant à la lig
 [3 6 9] <class 'numpy.ndarray'>
 ```
 
-A nouveau, la variable d'itération correspond à un *array* 1D correspondant à la colonne actuellement lue.
+A chaque itération, la variable `col` est un *array* 1D correspondant à chaque colonne de `a`.
 
 ### Masques booléens
 
@@ -524,6 +525,11 @@ array([[False, False],
 Très bien, mais pour l'instant nous n'en voyons pas forcément l'utilité... Mais qu'en est-il lorsqu'on utilise les opérateurs de comparaison avec un *array* ? Et bien cela renvoie un *array* de Booléen !
 
 ```
+>>> a = np.reshape(np.arange(1, 10), (3, 3))
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
 >>> a > 5
 array([[False, False, False],
        [False, False,  True],
@@ -553,7 +559,7 @@ array([[False,  True, False],
 
 Nous pouvons effectuer deux remarques :
 
-- Les opérateurs logiques `&` et `|` s'appliquent sur les *arrays* et sont bien différents des opérateurs logiques `and` et `or` qui eux s'appliquent sur des booléens ;
+- Les opérateurs logiques `&` et `|` s'appliquent sur les *arrays* et sont différents des opérateurs logiques `and` et `or` qui eux s'appliquent sur les booléens (`True` ou `False`) ;
 - Il est conseillé de mettre des parenthèses pour chaque condition afin d'éviter les ambiguïtés.
 
 Maintenant que les *arrays* de booléens ont été introduits, nous pouvons définir les masques booléens :
@@ -564,7 +570,7 @@ Les masques booléens sont des *arrays* de booléens qui sont utilisés en tant 
 
 close-box-def
 
-Concrètement, il suffira de 
+Concrètement, il suffira d'utiliser un *array* et un opérateur de comparaison entre les crochets qui étaient dédiés à l'indiçage :
 
 ```
 >>> a[a > 5]
