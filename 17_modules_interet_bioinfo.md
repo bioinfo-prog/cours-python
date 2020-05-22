@@ -247,6 +247,45 @@ array([[0, 1, 2, 3, 4],
        [4, 5, 0, 1, 2]])
 ```
 
+### Méthodes de calcul sur les *arrays* et l'argument `axis`
+
+Chaque *array NumPy* qui est créé possède une multitude de méthodes. Nombre d'entre elles permettent de faire des calculs de base comme `.mean()` pour la moyenne, `.sum()` pour la somme, `.std()` pour l'écart-type, `.max()` pour le maximum, `.min()` pour le minimum, etc. La liste exhaustive est [ici](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation). Par défaut, chacune de ces méthodes effectuera l'opération sur l'*array* entier, quelle que soit sa dimensionnalité. Par exemple :
+
+```
+>>> import random as rd
+>>> l = list(range(8))
+>>> rd.shuffle(l)
+>>> l
+[2, 7, 6, 4, 0, 3, 1, 5]
+>>> a = np.resize(l, (4, 2))
+>>> a
+array([[2, 7],
+       [6, 4],
+       [0, 3],
+       [1, 5]])
+>>> a.max()
+7
+```
+
+La méthode `.max()` nous a bien renvoyé la valeur maximum 7. Un argument *très* utile existant dans toutes ces méthodes est `axis`. Pour un *array* 2D, `axis=0` signifie qu'on fera l'opération le long de l'axe 0, à savoir les lignes. C'est-à-dire que l'opération se fait en faisant varier les lignes. On récupère ainsi une valeur par colonne :
+
+```
+>>> a.max(axis=0)
+array([6, 7])
+```
+
+On récupère un *array* 1D dont le premier élément est 6 (maximum de la 1ère colonne) et le deuxième est 7 (maximum de la deuxième colonne).
+
+Avec `axis=1` on fait une opération similaire mais en faisant varier les colonnes. On récupère ainsi une valeur par ligne :
+
+```
+>>> a.max(axis=1)
+array([7, 6, 3, 5])
+```
+
+L'*array* 1D récupéré a 4 éléments correspondant au maximum de chaque ligne.
+
+On comprend la puissance de l'idée, il est possible en une ligne de faire des calculs qui pourraient être très fastidieux avec les listes traditionnelles.
 
 ### Indices
 
@@ -1890,15 +1929,44 @@ Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones 
 
 Le fichier [temperature.dat](data-files/temperatures.dat) contient un relevé de 4 températures pour chaque jour de la semaine. A l'aide du module *NumPy*, on souhaite déterminer quel est le jour de la semaine le plus chaud. Pour cela nous vous proposons les étapes suivantes :
 
-- Récupérer le nom des jours de la semaine depuis le fichier et les mettres dans une liste `days`.
+- Récupérer le nom des jours de la semaine depuis le fichier et les mettre dans une liste `days`.
 - Récupérer les valeurs de température depuis le fichier et les mettre dans un *array* 2D ; la fonction [`np.loadtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) et son argument `usecols` seront vos amis :-).
 - Parcourir chaque ligne de la matrice et calculer la température moyenne de chaque jour et la stocker dans une liste `mean_temps`.
 - A l'aide des deux listes `days` et `mean_temps`, déterminer et afficher le jour le plus chaud.
 
 ### Calcul du centre de masse d'une membrane
 
-TODO
+L'image de gauche de la figure @fig:exo_get_leaflet montre le cliché d'une membrane de POPC (cyan) entourée d'eau (bleu) (coordonnées trouvées [ici](https://zenodo.org/record/153944)). Les atomes de phosphore des phosphates sont représentés en boule de van der Waals brune. Dans cet exercice on cherche à calculer le centre de masse de la membrane, ainsi que le centre de masse (COM) de chaque monocouche de phosphores. Ces COM sont représentés sous forme de croix dans l'image de droite de la figure @fig:exo_get_leaflet.
 
+![Cliché d'une membrane de POPC](img/exo_get_leaflet.png){ #fig:exo_get_leaflet width=70% }
+
+Les coordonnées cartésiennes $(x, y, z)$  de chaque phosphore sont stockées dans le fichier [coors_P.dat](data-files/coors_P.dat) (un atome par ligne). A l'aide du module *NumPy*, on se propose d'utiliser les étapes suivantes :
+
+- Récupérer les coordonnées des phosphores depuis le fichier et les stocker dans un *array* 2D (matrice) `coors_P` (dimensionnalité: n*3 , avec n = nombre de phosphores).
+- Calculer le $z$ moyen de tous les phosphores (nombre réel) et le stocker dans `mean_z`. La méthode `.mean()` est votre amie ;-) !
+- Avec des masques de booléens, récupérer les coordonnées des phosphores de la monocouche du haut dans un *array* 2D `upper`. Faire de même avec la monocouche du bas dans un *array* 2D `lower`.
+- Calculer le centre de masse `COM` de la membrane, ainsi que de la monocouche du haut `COM_upper` et du bas `COM_lower`. Pensez aux méthodes de calcul sur les *arrays* et l'argument `axis` ;-) !
+- Une fois tout cela effectué, on peut faire le graphe 3D avec *matplotlib* et la fonction `scatter()`. Pour la faire fonctionner en 3D, voici un squelette de programme possible :
+
+```
+# Init plot.
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+fig = plt.figure()                       
+ax = fig.add_subplot(111, projection='3d')
+[...]
+# X, Y et Z sont des arrays 1D de n éléments (par exemple tous les x des P).
+ax.scatter(X, Y, Z, c="salmon", marker="o")
+# x, y, z sont des floats avec les coordonnées du COM de la upper.
+ax.scatter(x, y, z, c="red", marker="x")
+[...]
+# Axis + title.
+ax.set_xlabel("x axis (Å)")
+ax.set_ylabel("y axis (Å)")
+ax.set_zlabel("z axis (Å)")
+ax.set_title("Graphe 3D des phosphores")
+plt.show()
+```
 
 ### Années de publication des articles relatifs à la barstar
 
