@@ -115,22 +115,22 @@ Notez également que, dans le dernier exemple de multiplication (ligne 10), l'*a
 
 Il est aussi possible de construire des objets *array* à deux dimensions, il suffit de passer en argument une liste de listes à la fonction `array()` :
 ```
->>> w = np.array([[1,2],[3,4],[5,6]])
+>>> w = np.array([[1, 2], [3, 4], [5, 6]])
 >>> w
 array([[1, 2],
-     [3, 4],
-     [5, 6]])
+       [3, 4],
+       [5, 6]])
 ```
 
 On peut aussi créer des tableaux à trois dimensions en passant comme argument à la fonction `array()` une liste de listes de listes :
 ```
->>> x = np.array([[[1,2],[2,3]],[[4,5],[5,6]]])
+>>> x = np.array([[[1, 2], [2, 3]], [[4, 5], [5, 6]]])
 >>> x
 array([[[1, 2],
-      [2, 3]],
+        [2, 3]],
 
-     [[4, 5],
-      [5, 6]]])
+       [[4, 5],
+        [5, 6]]])
 ```
 
 La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois ça devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être considéré comme un **vecteur** et un *array* à deux dimensions comme une **matrice**.
@@ -153,11 +153,11 @@ array([0, 1, 2, 3])
 (4,)
 >>> v.size
 4
->>> w = np.array([[1,2],[3,4],[5,6]])
+>>> w = np.array([[1, 2], [3, 4], [5, 6]])
 >>> w
 array([[1, 2],
-     [3, 4],
-     [5, 6]])
+       [3, 4],
+       [5, 6]])
 >>> w.ndim
 2
 >>> w.shape
@@ -176,7 +176,7 @@ array([0, 1, 2, 3, 4, 5])
 >>> b = a.reshape((2, 3))
 >>> b
 array([[0, 1, 2],
-     [3, 4, 5]])
+       [3, 4, 5]])
 >>> b.shape
 (2, 3)
 ```
@@ -185,8 +185,8 @@ Notez que `a.reshape((2, 3))` n'est pas la même chose que `a.reshape((3, 2))` :
 >>> c = a.reshape((3, 2))
 >>> c
 array([[0, 1],
-     [2, 3],
-     [4, 5]])
+       [2, 3],
+       [4, 5]])
 >>> c.shape
 (3, 2)
 ```
@@ -217,8 +217,8 @@ La méthode `.resize()` par contre ne déclenche pas d'erreur dans une telle sit
 (3, 3)
 >>> a
 array([[0, 1, 2],
-     [3, 4, 5],
-     [0, 0, 0]])
+       [3, 4, 5],
+       [0, 0, 0]])
 ```
 
 ```
@@ -230,7 +230,7 @@ array([[0, 1, 2],
 (2, 3)
 >>> b
 array([[0, 1, 2],
-     [3, 4, 5]])
+       [3, 4, 5]])
 ```
 
 Notez qu'il existe aussi la fonction `np.resize()` qui, dans le cas d'un nouvel *array* plus grand que l'*array* initial, va répéter l'*array* initial :
@@ -243,8 +243,8 @@ Notez qu'il existe aussi la fonction `np.resize()` qui, dans le cas d'un nouvel 
 (3, 5)
 >>> c
 array([[0, 1, 2, 3, 4],
-     [5, 0, 1, 2, 3],
-     [4, 5, 0, 1, 2]])
+       [5, 0, 1, 2, 3],
+       [4, 5, 0, 1, 2]])
 ```
 
 
@@ -264,18 +264,49 @@ array([0, 2, 4, 6, 8])
 ```
 Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *m*), une colonne complète (d'indice *n*) ou bien un seul élément.
 ```
->>> a = np.array([[1,2],[3,4]])
+>>> a = np.array([[1, 2], [3, 4]])
 >>> a
 array([[1, 2],
-     [3, 4]])
+       [3, 4]])
 >>> a[:,0]
 array([1, 3])
 >>> a[0,:]
 array([1, 2])
->>> a[1,1]
+>>> a[1, 1]
 4
 ```
-La syntaxe `a[m,:]` renvoie la ligne `m-1`, et `a[:,n]` renvoie la colonne `n-1`. Les tranches sont évidemment aussi utilisables sur un tableau à deux dimensions.
+
+La syntaxe `a[m,:]` renvoie la ligne `m-1`, et `a[:,n]` renvoie la colonne `n-1`. Les tranches sont évidemment aussi utilisables sur un *array* à deux dimensions.
+
+open-box-rem
+
+- Pour un *array* 2D, si un seul indice `[n]` est donné, on récupère la ligne $n-1$ :
+
+```
+>>> a
+array([[1, 2],
+       [3, 4]])
+>>> a[0]
+array([1, 2])
+>>> a[1]
+array([3, 4])
+```
+
+- Pour cette raison, la syntaxe `[m][n]` est également valide pour récupér un élément :
+
+```
+>>> a
+array([[1, 2],
+       [3, 4]])
+>>> a[1, 1]
+4
+>>> a[1][1]
+4
+```
+
+Bien que cela soit possible, nous vous recommandons tout de même la syntaxe `[m, n]` qui est plus proche de la définition d'un élément de matrice en mathématiques.
+
+close-box-rem
 
 ### Copie d'*arrays*
 
@@ -320,6 +351,23 @@ array([[   0,    0],
 array([[   0,    0],
        [   0, -500]])
 ```
+
+open-box-rem
+
+On pourra noter que la stratégie `b = np.array(a)` fait bien une copie distincte de l'*array* `a` quelle que soit sa dimensionnalité. Ceci n'était pas le cas avec la fonction `list()`  pour les copies de listes à partir de la dimensionnalité 2 : 
+
+```
+>>> l1 = [[0, 0], [1, 1]]
+>>> l2 = list(l1)
+>>> l3 = copy.deepcopy(l1)
+>>> l1[1][1] = -365
+>>> l2
+[[0, 0], [1, -365]]
+>>> l3
+[[0, 0], [1, 1]]
+```
+
+close-box-rem
 
 ### Construction automatique de matrices
 
@@ -389,7 +437,7 @@ array([[1, 2, 3],
 >>> np.savetxt("out.dat", a)
 ```
 
-Ceci générera le fichier `out.dat` contenat les lignes suivantes :
+Ceci générera le fichier `out.dat` contenant les lignes suivantes :
 
 ```
 1.000000000000000000e+00 2.000000000000000000e+00 3.000000000000000000e+00
@@ -409,7 +457,7 @@ close-box-more
 
 Après avoir manipulé les objets *array* comme des vecteurs et des matrices, voici quelques fonctions pour faire de l'algèbre linéaire.
 
-La fonction `transpose()` renvoie la transposée d'un *array*. Par exemple, pour une matrice :
+La fonction `transpose()` renvoie la [transposée](https://fr.wikipedia.org/wiki/Matrice_transpos%C3%A9e) d'un *array*. Par exemple, pour une matrice :
 
 ```
 >>> a = np.resize(np.arange(1, 10), (3, 3))
@@ -432,7 +480,7 @@ array([[1, 4, 7],
        [3, 6, 9]])
 ```
 
-La fonction `dot()` vous permet de réaliser une multiplication de matrices.
+La fonction `dot()` vous permet de réaliser une [multiplication de matrices](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_matriciel_ordinaire).
 
 ```
 >>> a = np.resize(np.arange(4), (2, 2))
@@ -454,33 +502,53 @@ Dans le module *NumPy*, il existe également des objets de type *matrix* pour le
 
 close-box-rem
 
-Pour toutes les opérations suivantes, nous utiliserons des fonctions du sous-module *linalg* de *NumPy*. La fonction `inv()` renvoie l'inverse d'une matrice carrée, `det()` son déterminant et `eig()` ses vecteurs et valeurs propres.
+Pour toutes les opérations suivantes, nous utiliserons des fonctions du sous-module *linalg* de *NumPy*. La fonction `inv()` renvoie l'[inverse d'une matrice carrée](https://fr.wikipedia.org/wiki/Matrice_inversible), `det()` son [déterminant](https://fr.wikipedia.org/wiki/Calcul_du_d%C3%A9terminant_d%27une_matrice) et `eig()` ses [vecteurs et valeurs propres](https://fr.wikipedia.org/wiki/D%C3%A9composition_d%27une_matrice_en_%C3%A9l%C3%A9ments_propres).
 
 ```
->>> a = np.resize(np.arange(4), (2,2))
+>>> a = np.diag((1, 2, 3))
 >>> a
-array([[0, 1],
-       [2, 3]])
+array([[1, 0, 0],
+       [0, 2, 0],
+       [0, 0, 3]])
 >>> np.linalg.inv(a)
-array([[-1.5,  0.5],
-       [ 1. ,  0. ]])
+array([[1.        , 0.        , 0.        ],
+       [0.        , 0.5       , 0.        ],
+       [0.        , 0.        , 0.33333333]])
 >>> np.linalg.det(a)
--2.0
+6.0
 >>> np.linalg.eig(a)
-(array([-0.56155281,  3.56155281]), array([[-0.87192821, -0.27032301],
-       [ 0.48963374, -0.96276969]]))
->>> np.linalg.eig(a)[0]
-array([-0.56155281,  3.56155281])
->>> np.linalg.eig(a)[1]
-array([[-0.87192821, -0.27032301],
-       [ 0.48963374, -0.96276969]])
+(array([1., 2., 3.]), array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]]))
 ```
 
-Notez que la fonction `eig()` renvoie un tuple dont le premier élément correspond aux valeurs propres et le second aux vecteurs propres.
+Ligne 1. La fonction `.diag()` permet de générer une matrice diagonale.
+
+Lignes 12 à 15. La fonction `eig()` renvoie un tuple dont le premier élément (d'indice 0) correspond aux valeurs propres et le second (d'indice 1) aux vecteurs propres. Une façon commode de récupérer ces éléments est d'utiliser cette fonction avec l'affectation multiple :
+
+```
+>>> eigvals, eigvecs = np.linalg.eig(a)
+>>> eigvals
+array([1., 2., 3.])
+>>> eigvecs
+array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])
+>>> eigvecs[0]
+array([1., 0., 0.])
+>>> eigvecs[1]
+array([0., 1., 0.])
+>>> eigvecs[2]
+array([0., 0., 1.])
+```
+
+Lignes 2 et 3. `eigvals` est un *array* 1D  contenant les 3 valeurs propres.
+
+Lignes 4 à 13. `eigvecs` est un *array* 2D contenant les 3 vecteurs propres (un par ligne), que l'on peut récupérer avec `eigvecs[0]`,  `eigvecs[1]` et  `eigvecs[2]`.
 
 ### Parcours de matrice et affectation de lignes / colonnes
 
-Lorqu'on a une matrice, on est souvent amené à la parcourir par ligne ou par colonne. Une fonctionnalité bien commode vient du fait que les *arrays* *NumPy* sont directement itérables par ligne :
+Lorqu'on a une matrice, on est souvent amené à la parcourir par ligne ou par colonne. Une fonctionnalité bien commode vient du fait que les *arrays NumPy* sont directement itérables par ligne :
 
 ```
 >>> a = np.reshape(np.arange(1, 10), (3, 3))
@@ -496,7 +564,9 @@ array([[1, 2, 3],
 [7 8 9] <class 'numpy.ndarray'>
 ```
 
-A chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
+A chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Cela est lié au fait que l'utilisation d'un indiçage unique `a[n]` pour un *array* 2D correspond à sa ligne $n-1$ (cf. rubrique *Indices* ci-dessus). 
+
+Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
 
 ```
 >>> for col in a.T:
@@ -525,7 +595,9 @@ array([4, 5, 6])
 array([7, 8, 9])
 ```
 
-Par défaut, cela se fait sur les lignes de l'*array* 2D. Pour le faire sur les colonnes, il suffit d'utiliser la transposée `a.T` :
+Par défaut, cela se fait sur les lignes de l'*array* 2D. Cette fonctionnalité provient à nouveau du fait que pour *NumPy* `a[n]` correspond à la ligne $n-1$ d'un *array* 2D. 
+
+Pour utiliser l'affectation multiple sur les colonnes, il suffit d'utiliser la transposée `a.T` :
 
 ```
 >>> c1, c2, c3 = a.T
@@ -601,6 +673,10 @@ close-box-def
 Concrètement, il suffira d'utiliser un *array* et un opérateur de comparaison entre les crochets qui étaient dédiés à l'indiçage :
 
 ```
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
 >>> a[a > 5]
 array([6, 7, 8, 9])
 >>> a[a == 2]
@@ -609,7 +685,7 @@ array([2])
 array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 ```
 
-On voit que l'on récupère seulement les éléments de l'*array* `a` qui sastisfont la sélection ! Toutefois, il est important de constater que l'*array* renvoyé perd la dimensionnalité de l'array `a` initial, il s'agit systématiquemnt d'un *array* 1D. 
+On voit que l'on récupère seulement les éléments de l'*array* `a` qui sastisfont la sélection ! Toutefois, il est important de constater que l'*array* renvoyé perd la dimensionnalité de l'array `a` initial, il s'agit systématiquement d'un *array* 1D. 
 
 La grande puissance de ce mécanisme est que l'on peut utiliser les masques booléens pour modifier les éléments que l'on sélectionne :
 
@@ -649,6 +725,48 @@ Les masques booléens ne doivent pas être confondus avec les [*masked arrays*](
 
 close-box-rem
 
+Une application possible des masques est de « binariser » une matrice de nombre :
+
+```
+>>> import random as rd
+>>> import numpy as np
+>>> a = np.resize([random.random() for i in range(16)], (4,
+4))
+>>> a
+array([[0.58704728, 0.50212977, 0.70652863, 0.24158108],
+       [0.93102132, 0.41864373, 0.45807961, 0.98288744],
+       [0.48198211, 0.16877376, 0.14431518, 0.74784176],
+       [0.92913469, 0.08383269, 0.10670144, 0.14554345]])
+>>> seuil = 0.3
+>>> a[a < seuil] = 0
+>>> a[a > seuil] = 1
+>>> a
+array([[1., 1., 1., 0.],
+       [1., 1., 1., 1.],
+       [1., 0., 0., 1.],
+       [1., 0., 0., 0.]])
+```
+
+En deux lignes de code cela est fait alors qu'il aurait fallu faire des boucles avec les listes classiques !
+
+### Quelques conseils
+
+Nous venons de voir une petite partie du module *NumPy* mais vous avez pu en constater son extraordinaire puissance. On pourrait au premier abord être tenté d'abandonner les listes, toutefois elles gardent toute leur importance. Alors quand utiliser les listes ou quand utiliser les *arrays NumPy* ? Voici une liste non exhaustive d'éléments qui peuvent guider votre choix :
+
+Utilisez NumPy pour :
+
+- les opérations vectorielles (éléments par éléments) ;
+- lorsque vous souhaitez manipuler des objets mathématiques (vecteurs, matrices, etc.) et les outils associés (algèbre linéaire) ;
+- tout ce qui est numérique de manière générale.
+
+Utilisez les listes :
+
+- lorsque vous avez besoin d'un container pour accumuler des valeurs (fussent-elles des sous-listes), surtout lorsqu'elles ne sont pas homogènes (i.e. du même type) ;
+- lorsque vous souhaitez accumuler des valeurs : la méthode `.append()` est bien plus efficace que faire grandir un *array* au fur et à mesure (ce que nous n'avons pas abordé) ; lorsqu'on ne peut pas utiliser les fonctions de lecture de fichier de *NumPy* pour quelque raison que ce soit, il est tout à fait classique de faire grandir une liste au fur et à mesure de la lecture du fichier puis de la convertir à la fin en *array*.
+
+Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) ou vos commentaires lorsque vous utilisez des *arrays NumPy*. *Numpy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* et sa dimensionnalité (1D, 2D, etc.).
+
+Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules *SciPy* et *matplotlib* (et aussi aux *notebooks Jupyter*, cf. chapitre suivant), il permet de faire de l'analyse scientifique. On verra un peu plus loin dans ce chapitre que la puissance de *NumPy* est également utilisée par le module *pandas* et ses fameux *dataframes* pour faire de l'analyse de données.
 
 ## Module *Biopython*
 
