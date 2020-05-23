@@ -1954,7 +1954,7 @@ Le fichier [temperature.dat](data-files/temperatures.dat) contient un relevé de
 
 L'image de gauche de la figure @fig:exo_get_leaflet montre le cliché d'une membrane de POPC (cyan) entourée d'eau (bleu) (coordonnées trouvées [ici](https://zenodo.org/record/153944)). Les atomes de phosphore des phosphates sont représentés en boule de van der Waals brune. Dans cet exercice on cherche à calculer le centre de masse de la membrane, ainsi que le centre de masse (COM) de chaque monocouche de phosphores. Ces COM sont représentés sous forme de croix dans l'image de droite de la figure @fig:exo_get_leaflet.
 
-![Cliché d'une membrane de POPC](img/exo_get_leaflet.png){ #fig:exo_get_leaflet width=70% }
+![Cliché d'une membrane de POPC](img/exo_get_leaflet.png){ #fig:exo_get_leaflet width=80% }
 
 Les coordonnées cartésiennes $(x, y, z)$  de chaque phosphore sont stockées dans le fichier [coors_P.dat](data-files/coors_P.dat) (un atome par ligne). A l'aide du module *NumPy*, on se propose d'utiliser les étapes suivantes :
 
@@ -1971,7 +1971,7 @@ import matplotlib.pyplot as plt
 fig = plt.figure()                       
 ax = fig.add_subplot(111, projection='3d')
 [...]
-# X, Y et Z sont des arrays 1D de n éléments (par exemple tous les x des P).
+# X, Y et Z sont des arrays 1D de n éléments (par exemple X représente tous les x des P de la monocouche upper).
 ax.scatter(X, Y, Z, c="salmon", marker="o")
 # x, y, z sont des floats avec les coordonnées du COM de la upper.
 ax.scatter(x, y, z, c="red", marker="x")
