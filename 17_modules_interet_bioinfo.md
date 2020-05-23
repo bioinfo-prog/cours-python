@@ -41,7 +41,7 @@ array([1, 2, 3])
 
 Nous avons converti la liste `[1, 2, 3]` en *array*. Nous aurions obtenu le même résultat si nous avions converti le tuple `(1, 2, 3)` en *array*.
 
-Par ailleurs, lorsqu'on demande à Python d'afficher le contenu d'un objet *array*, les symboles `([` et `])` sont utilisés pour le distinguer d'une liste (délimitée par les caractères `[` et `]`) ou d'un tuple (délimité par les caractères `(` et `)`).
+Par ailleurs, lorsqu'on demande à Python d'afficher le contenu d'un objet *array*, le mot `array` et les symboles `([` et `])` sont utilisés pour le distinguer d'une liste (délimitée par les caractères `[` et `]`) ou d'un tuple (délimité par les caractères `(` et `)`).
 
 open-box-rem
 
@@ -111,9 +111,9 @@ Avec les listes, ces opérations n'auraient été possibles qu'en utilisant des 
 Notez également que, dans le dernier exemple de multiplication (ligne 10), l'*array* final correspond à la multiplication **élément par élément** des deux *array* initiaux.
 
 
-### *array* et dimensions
+### *Array* et dimensions
 
-Il est aussi possible de construire des objets *array* à deux dimensions, il suffit de passer en argument une liste de listes à la fonction `array()` :
+Il est aussi possible de construire des objets *arrays* à deux dimensions, il suffit de passer en argument une liste de listes à la fonction `array()` :
 ```
 >>> w = np.array([[1, 2], [3, 4], [5, 6]])
 >>> w
@@ -166,7 +166,7 @@ array([[1, 2],
 6
 ```
 
-Et la méthode `.reshape()` modifie les dimensions d'un *array* :
+Et la méthode `.reshape()` renvoie un nouvel *array* avec les dimensions spécifiées :
 ```
 >>> a = np.arange(0, 6)
 >>> a
@@ -179,8 +179,12 @@ array([[0, 1, 2],
        [3, 4, 5]])
 >>> b.shape
 (2, 3)
+>>> a
+array([0, 1, 2, 3, 4, 5])
 ```
-Notez que `a.reshape((2, 3))` n'est pas la même chose que `a.reshape((3, 2))` :
+
+Notez bien que `a` n'a pas été modifié. Notez également que `a.reshape((2, 3))` n'est pas la même chose que `a.reshape((3, 2))` :
+
 ```
 >>> c = a.reshape((3, 2))
 >>> c
@@ -195,6 +199,7 @@ La méthode `.reshape()` attend que les nouvelles dimensions soient **compatible
 Dans nos exemples précédents, $6 = 2 \times 3 = 3 \times 2$.
 
 Si les nouvelles dimensions ne sont pas compatibles avec les dimensions initiales, la méthode `.reshape()` génère une erreur.
+
 ```
 >>> a = np.arange(0, 6)
 >>> a
@@ -207,12 +212,12 @@ File "<stdin>", line 1, in <module>
 ValueError: cannot reshape array of size 6 into shape (3,4)
 ```
 
-La méthode `.resize()` par contre ne déclenche pas d'erreur dans une telle situation et ajoute des 0 ou coupe la liste initiale jusqu'à ce que le nouvel *array* soit rempli.
+La méthode `.resize()` par contre ne déclenche pas d'erreur dans une telle situation et ajoute des 0 jusqu'à ce que le nouvel *array* soit rempli, ou bien coupe la liste initiale.
 ```
 >>> a = np.arange(0, 6)
 >>> a.shape
 (6,)
->>> a.resize((3, 3))
+>>> a.resize((3, 3), refcheck=False)
 >>> a.shape
 (3, 3)
 >>> a
@@ -225,7 +230,7 @@ array([[0, 1, 2],
 >>> b = np.arange(0, 10)
 >>> b.shape
 (10,)
->>> b.resize((2, 3))
+>>> b.resize((2, 3), refcheck=False)
 >>> b.shape
 (2, 3)
 >>> b
@@ -233,7 +238,14 @@ array([[0, 1, 2],
        [3, 4, 5]])
 ```
 
-Notez qu'il existe aussi la fonction `np.resize()` qui, dans le cas d'un nouvel *array* plus grand que l'*array* initial, va répéter l'*array* initial :
+open-box-warn
+
+Attention, cette modification de la forme de l'*array* par la méthode `.resize()` est faite « sur place » (*in place*), c'est-à-dire que la méthode ne renvoie rien mais l'*array* est bel et bien modifié (à l'image des méthodes sur les listes comme `.reverse()`, cf. chapitre 11 *Plus sur les listes*). Si l'option `refcheck=False` n'est pas présente, Python peut parfois renvoyer une erreur s'il existe des références vers l'*array* qu'on souhaite modifier.
+
+close-box-warn
+
+Il existe aussi la fonction `np.resize()` qui, dans le cas d'un nouvel *array* plus grand que l'*array* initial, va répéter l'*array* initial afin de remplir les cases manquantes :
+
 ```
 >>> a = np.arange(0, 6)
 >>> a.shape
@@ -245,11 +257,15 @@ Notez qu'il existe aussi la fonction `np.resize()` qui, dans le cas d'un nouvel 
 array([[0, 1, 2, 3, 4],
        [5, 0, 1, 2, 3],
        [4, 5, 0, 1, 2]])
+>>> a
+array([0, 1, 2, 3, 4, 5])
 ```
+
+Notez que cette fonction `np.resize()` renvoie un nouvel *array* mais ne modifie pas l'*array* initial contrairement à la méthode `.resize()` décrite ci-dessus.
 
 ### Méthodes de calcul sur les *arrays* et l'argument `axis`
 
-Chaque *array NumPy* qui est créé possède une multitude de méthodes. Nombre d'entre elles permettent de faire des calculs de base comme `.mean()` pour la moyenne, `.sum()` pour la somme, `.std()` pour l'écart-type, `.max()` pour le maximum, `.min()` pour le minimum, etc. La liste exhaustive est [ici](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation). Par défaut, chacune de ces méthodes effectuera l'opération sur l'*array* entier, quelle que soit sa dimensionnalité. Par exemple :
+Chaque *array NumPy* qui est créé possède une multitude de méthodes. Nombre d'entre elles permettent de faire des calculs de base comme `.mean()` pour la moyenne, `.sum()` pour la somme, `.std()` pour l'écart-type, `.max()` pour extraire le maximum, `.min()` pour extraire le minimum, etc. La liste exhaustive est [ici](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation). Par défaut, chacune de ces méthodes effectuera l'opération sur l'*array* entier, quelle que soit sa dimensionnalité. Par exemple :
 
 ```
 >>> import random as rd
@@ -274,7 +290,7 @@ La méthode `.max()` nous a bien renvoyé la valeur maximum 7. Un argument *trè
 array([6, 7])
 ```
 
-On récupère un *array* 1D dont le premier élément est 6 (maximum de la 1ère colonne) et le deuxième est 7 (maximum de la deuxième colonne).
+L'*array* 1D récupèré a son premier élément qui vaut 6 (maximum de la 1ère colonne) et son deuxième qui vaut 7 (maximum de la deuxième colonne).
 
 Avec `axis=1` on fait une opération similaire mais en faisant varier les colonnes. On récupère ainsi une valeur par ligne :
 
@@ -285,7 +301,7 @@ array([7, 6, 3, 5])
 
 L'*array* 1D récupéré a 4 éléments correspondant au maximum de chaque ligne.
 
-On comprend la puissance de l'idée, il est possible en une ligne de faire des calculs qui pourraient être très fastidieux avec les listes traditionnelles.
+On comprend la puissance de cet argument `axis`. A nouveau, il est possible, en une ligne, de faire des calculs qui pourraient être très fastidieux avec les listes traditionnelles.
 
 ### Indices
 
