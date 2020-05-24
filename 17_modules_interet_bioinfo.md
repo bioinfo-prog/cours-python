@@ -306,6 +306,7 @@ On comprend la puissance de cet argument `axis`. A nouveau, il est possible, en 
 ### Indices
 
 Pour récupérer un ou plusieurs élément(s) d'un objet *array*, vous pouvez utiliser les indices ou les tranches, de la même manière qu'avec les listes :
+
 ```
 >>> a = np.arange(10)
 >>> a
@@ -317,7 +318,8 @@ array([0, 2, 4, 6, 8])
 >>> a[1]
 1
 ```
-Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *m*), une colonne complète (d'indice *n*) ou bien un seul élément.
+Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *i*), une colonne complète (d'indice *j*) ou bien un seul élément.
+
 ```
 >>> a = np.array([[1, 2], [3, 4]])
 >>> a
@@ -331,11 +333,13 @@ array([1, 2])
 4
 ```
 
-La syntaxe `a[m,:]` renvoie la ligne `m-1`, et `a[:,n]` renvoie la colonne `n-1`. Les tranches sont évidemment aussi utilisables sur un *array* à deux dimensions.
+Lignes 5 à 8. La syntaxe `a[i,:]` renvoie la ligne $i-1$, et `a[:,j]` renvoie la colonne $j-1$. Les tranches sont évidemment aussi utilisables sur un *array* à deux dimensions.
+
+Lignes 9 à 10. La syntaxe `a[i, j]` renvoie l'élément à la ligne $i-1$ et à la colonne $j-1$. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, **on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne.
 
 open-box-rem
 
-- Pour un *array* 2D, si un seul indice `[n]` est donné, on récupère la ligne $n-1$ :
+- Pour un *array* 2D, si un seul indice est donné, par exemple `a[i]`, on récupère la ligne $i-1$ sous forme d'*array* 1D :
 
 ```
 >>> a
@@ -347,7 +351,7 @@ array([1, 2])
 array([3, 4])
 ```
 
-- Pour cette raison, la syntaxe `[m][n]` est également valide pour récupér un élément :
+- Pour cette raison, la syntaxe `a[i][j]` est également valide pour récupér un élément :
 
 ```
 >>> a
@@ -359,7 +363,7 @@ array([[1, 2],
 4
 ```
 
-Bien que cela soit possible, nous vous recommandons tout de même la syntaxe `[m, n]` qui est plus proche de la définition d'un élément de matrice en mathématiques.
+Bien que cela soit possible, nous vous recommandons tout de même la syntaxe `a[i, j]` qui est plus proche de la [définition mathématiques d'un élément de matrice](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions).
 
 close-box-rem
 
@@ -619,7 +623,7 @@ array([[1, 2, 3],
 [7 8 9] <class 'numpy.ndarray'>
 ```
 
-A chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Cela est lié au fait que l'utilisation d'un indiçage unique `a[n]` pour un *array* 2D correspond à sa ligne $n-1$ (cf. rubrique *Indices* ci-dessus). 
+A chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Cela est lié au fait que l'utilisation d'un indiçage unique `a[i]` pour un *array* 2D correspond à sa ligne $i-1$ (cf. rubrique *Indices* ci-dessus). 
 
 Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
 
@@ -650,7 +654,7 @@ array([4, 5, 6])
 array([7, 8, 9])
 ```
 
-Par défaut, cela se fait sur les lignes de l'*array* 2D. Cette fonctionnalité provient à nouveau du fait que pour *NumPy* `a[n]` correspond à la ligne $n-1$ d'un *array* 2D. 
+Par défaut, cela se fait sur les lignes de l'*array* 2D. Cette fonctionnalité provient à nouveau du fait que pour *NumPy* `a[i]` correspond à la ligne $i-1$ d'un *array* 2D. 
 
 Pour utiliser l'affectation multiple sur les colonnes, il suffit d'utiliser la transposée `a.T` :
 
