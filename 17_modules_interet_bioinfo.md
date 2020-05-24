@@ -681,7 +681,7 @@ array([[False, False],
        [False, False]])
 ```
 
-Très bien, mais pour l'instant nous n'en voyons pas forcément l'utilité... Mais qu'en est-il lorsqu'on utilise les opérateurs de comparaison avec un *array* ? Et bien cela renvoie un *array* de Booléen !
+Très bien, mais au premier abord nous n'en voyons pas forcément l'utilité... Mais qu'en est-il lorsqu'on utilise les opérateurs de comparaison avec un *array* ? Et bien cela renvoie un *array* de booléens !
 
 ```
 >>> a = np.reshape(np.arange(1, 10), (3, 3))
@@ -1960,13 +1960,13 @@ L'image de gauche de la figure @fig:exo_get_leaflet montre le cliché d'une memb
 
 ![Cliché d'une membrane de POPC](img/exo_get_leaflet.png){ #fig:exo_get_leaflet width=80% }
 
-Les coordonnées cartésiennes $(x, y, z)$  de chaque phosphore sont stockées dans le fichier [coors_P.dat](data-files/coors_P.dat) (un atome par ligne). A l'aide du module *NumPy*, on se propose d'utiliser les étapes suivantes :
+Les coordonnées cartésiennes $(x, y, z)$ de chaque phosphore (en Å) sont stockées dans le fichier [coors_P.dat](data-files/coors_P.dat) (un atome par ligne). A l'aide du module *NumPy*, on se propose d'utiliser les étapes suivantes :
 
 - Récupérer les coordonnées des phosphores depuis le fichier et les stocker dans un *array* 2D (matrice) `coors_P` (dimensionnalité: n*3 , avec n = nombre de phosphores).
 - Calculer le $z$ moyen de tous les phosphores (nombre réel) et le stocker dans `mean_z`. La méthode `.mean()` est votre amie ;-) !
 - Avec des masques de booléens, récupérer les coordonnées des phosphores de la monocouche du haut dans un *array* 2D `upper`. Faire de même avec la monocouche du bas dans un *array* 2D `lower`.
 - Calculer le centre de masse `COM` de la membrane, ainsi que de la monocouche du haut `COM_upper` et du bas `COM_lower`. Pensez aux méthodes de calcul sur les *arrays* et l'argument `axis` ;-) !
-- Une fois tout cela effectué, on peut faire le graphe 3D avec *matplotlib* et la fonction `scatter()`. Pour la faire fonctionner en 3D, voici un squelette de programme possible :
+- Une fois tout cela effectué, on peut faire le graphe 3D avec *matplotlib* et la fonction `scatter()`. Pour la [faire fonctionner en 3D](https://matplotlib.org/3.2.1/gallery/mplot3d/scatter3d.html), voici un squelette de programme possible :
 
 ```
 # Init plot.
@@ -1981,9 +1981,9 @@ ax.scatter(X, Y, Z, c="salmon", marker="o")
 ax.scatter(x, y, z, c="red", marker="x")
 [...]
 # Axis + title.
-ax.set_xlabel("x axis (Å)")
-ax.set_ylabel("y axis (Å)")
-ax.set_zlabel("z axis (Å)")
+ax.set_xlabel("x (Å)")
+ax.set_ylabel("y (Å)")
+ax.set_zlabel("z (Å)")
 ax.set_title("Graphe 3D des phosphores")
 plt.show()
 ```
