@@ -521,8 +521,6 @@ La distance inter-carbone alpha dans les protéines est très stable et de l'ord
 
 ### Compteur de gènes dans un fichier GenBank
 
-*Conseil* : 
-
 Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank[NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk) (chromosome I de la levure Saccharomyces cerevisiae) et afficher la longueur de chaque gène. Pour cela, il faudra récupérer les lignes décrivant la position des gènes. Voici par exemple les cinq premières lignes concernées dans le fichier NC_001133.gbk:
 
 ```
@@ -545,3 +543,5 @@ gène  99 direct         ->   611 bases
 gène 100 direct         ->   485 bases
 gène 101 direct         ->  1403 bases
 ```
+
+*Conseil :* vous trouverez des explications sur le format genbank dans l'annexe A *Quelques formats de données rencontrés en biologie*.
