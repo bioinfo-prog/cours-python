@@ -789,7 +789,7 @@ Une application possible des masques est de « binariser » une matrice de nombr
 ```
 >>> import random as rd
 >>> import numpy as np
->>> a = np.resize([random.random() for i in range(16)], (4,
+>>> a = np.resize([rd.random() for i in range(16)], (4,
 4))
 >>> a
 array([[0.58704728, 0.50212977, 0.70652863, 0.24158108],

@@ -271,7 +271,7 @@ close-box-adv
 
 ### Conclusion
 
-Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué en introduction du chapitre 9, elles sont incontournables et tout programmeur se doit de les maîtriser. Voici les derniers conseils que nous pouvons vous donnez :
+Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué en introduction du chapitre 9, elles sont incontournables et tout programmeur se doit de les maîtriser. Voici les derniers conseils que nous pouvons vous donner :
 
 - Lorsque vous débutez un nouveau projet de programmation, posez-vous la question : « Comment pourrais-je décomposer en blocs chaque tâche à effectuer, chaque bloc pouvant être une fonction ? ». Et n'oubliez pas que si une fonction s'avère trop complexe, vous pouvez également la décomposer en d'autres fonctions.
 
@@ -280,12 +280,12 @@ Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué 
 
 ## Exercices
 
-*Conseil* : pour le second exercice, créez un scripts puis exécutez-le dans un *shell*.
+*Conseil* : pour le second exercice, créez un script puis exécutez-le dans un *shell*.
 
 
 ### Prédire la sortie
 
-Prédisez le comportement des codes suivant, sans les recopier dans un script ni dans l'interpréteur Python :
+Prédisez le comportement des codes suivants, sans les recopier dans un script ni dans l'interpréteur Python :
 
 #### Code 1
 ```
