@@ -234,7 +234,7 @@ Concernant les fonctions qui modifient une liste, nous vous conseillons de l'ind
 def ajoute_un(liste):
     for i in range(len(liste)):
         liste[i] += 1
-        return liste
+    return liste
 
 # Programme principal.
 liste_notes = [10, 8, 16, 7, 15]
