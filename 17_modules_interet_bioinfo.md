@@ -133,7 +133,12 @@ array([[[1, 2],
         [5, 6]]])
 ```
 
-La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois ça devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être considéré comme un **vecteur** et un *array* à deux dimensions comme une **matrice**.
+La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois ça devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être considéré comme un **vecteur** et un *array* à deux dimensions comme une **matrice**. Nous nous focaliserons dans la suite sur des *arrays* 1D ou 2D.
+
+Avant de continuer, il est important de bien définir comment sont organisés ces *arrays* 2D qui représentent des matrices. Il s'agit de tableaux de nombres qui sont organisés en lignes / colonnes comme le montre la figure @fig:array2Dlignescolonnes. Les indices indiqués dans cette figure seront définis un plus loin dans la rubrique *Indices*.
+
+![Définition des lignes et colonnes dans un *array* 2D.](img/array_2D_lignes_colonnes.png "Définition des lignes et colonnes dans un array 2D"){ #fig:array2Dlignescolonnes width=60% }
+
 
 Voici quelques attributs intéressants pour décrire un objet *array* :
 
@@ -318,7 +323,7 @@ array([0, 2, 4, 6, 8])
 >>> a[1]
 1
 ```
-Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *i*), une colonne complète (d'indice *j*) ou bien un seul élément.
+Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *i*), une colonne complète (d'indice *j*) ou bien un seul élément. La figure @fig:array2Dlignescolonnes montre comment sont organisés les lignes / colonnes et indices.
 
 ```
 >>> a = np.array([[1, 2], [3, 4]])
@@ -333,13 +338,13 @@ array([1, 2])
 4
 ```
 
-Lignes 5 à 8. La syntaxe `a[i,:]` renvoie la ligne $i-1$, et `a[:,j]` renvoie la colonne $j-1$. Les tranches sont évidemment aussi utilisables sur un *array* à deux dimensions.
+Lignes 5 à 8. La syntaxe `a[i,:]` renvoie la $(i+1)^{ème}$ ligne d'indice `i`, et `a[:,j]` renvoie la $(j+1)^{ème}$ colonne d'indice `j`. Les tranches sont évidemment aussi utilisables sur un *array* à deux dimensions.
 
-Lignes 9 à 10. La syntaxe `a[i, j]` renvoie l'élément à la ligne $i-1$ et à la colonne $j-1$. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, **on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne.
+Lignes 9 à 10. La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, **on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne.
 
 open-box-rem
 
-- Pour un *array* 2D, si un seul indice est donné, par exemple `a[i]`, on récupère la ligne $i-1$ sous forme d'*array* 1D :
+- Pour un *array* 2D, si un seul indice est donné, par exemple `a[i]`, on récupère la ligne d'indice `i` sous forme d'*array* 1D :
 
 ```
 >>> a
@@ -1958,7 +1963,7 @@ Le fichier [temperature.dat](data-files/temperatures.dat) contient un relevé de
 
 L'image de gauche de la figure @fig:exo_get_leaflet montre le cliché d'une membrane de POPC (cyan) entourée d'eau (bleu) (coordonnées trouvées [ici](https://zenodo.org/record/153944)). Les atomes de phosphore des phosphates sont représentés en boule de van der Waals brune. Dans cet exercice on cherche à calculer le centre de masse de la membrane, ainsi que le centre de masse (COM) de chaque monocouche de phosphores. Ces COM sont représentés sous forme de croix dans l'image de droite de la figure @fig:exo_get_leaflet.
 
-![Cliché d'une membrane de POPC](img/exo_get_leaflet.png){ #fig:exo_get_leaflet width=80% }
+![Cliché d'une membrane de POPC.](img/exo_get_leaflet.png){ #fig:exo_get_leaflet width=80% }
 
 Les coordonnées cartésiennes $(x, y, z)$ de chaque phosphore (en Å) sont stockées dans le fichier [coors_P.dat](data-files/coors_P.dat) (un atome par ligne). A l'aide du module *NumPy*, on se propose d'utiliser les étapes suivantes :
 
