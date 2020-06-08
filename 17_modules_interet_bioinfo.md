@@ -2123,7 +2123,7 @@ Déterminez combien de d'individus mesurent plus de 1,80 m.
 Quelle femme a moins de 35 ans ?
 
 
-#### Sélection et statistiques
+#### Sélections et statistiques
 
 Déterminez l'âge moyen des individus qui mesurent plus de 1,80 m.
 
