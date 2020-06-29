@@ -255,11 +255,11 @@ Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()
 1 -75
 2 0
 >>> for obj in enumerate([75, -75, 0]):
-...     print(obj)
+...     print(obj, type(obj))
 ...
-(0, 75)
-(1, -75)
-(2, 0)
+(0, 75) <class 'tuple'>
+(1, -75) <class 'tuple'>
+(2, 0) <class 'tuple'>
 ```
 
 En fin de compte, la fonction `enumerate()` itère sur une série de *tuples*. Pouvoir séparer `i` et `elt` dans la boucle est possible du fait que Python autorise l'affectation multiple du style `i, elt = 0, 75` (cf. rubrique suivante). 
@@ -274,10 +274,10 @@ Dans le même ordre d'idée, nous avons vu à la rubrique précédente la métho
 pinson 2
 merle 3
 >>> for obj in dico.items():
-...     print(obj)
+...     print(obj, type(obj))
 ...
-('pinson', 2)
-('merle', 3)
+('pinson', 2) <class 'tuple'>
+('merle', 3) <class 'tuple'>
 ```
 
 On voit que cette méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
