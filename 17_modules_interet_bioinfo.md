@@ -628,7 +628,7 @@ array([[1, 2, 3],
 [7 8 9] <class 'numpy.ndarray'>
 ```
 
-A chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Cela est lié au fait que l'utilisation d'un indiçage unique `a[i]` pour un *array* 2D correspond à sa ligne $i-1$ (cf. rubrique *Indices* ci-dessus). 
+A chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Cela est lié au fait que l'utilisation d'un indiçage unique `a[i]` pour un *array* 2D correspond à sa ligne d'indice `i` (cf. rubrique *Indices* ci-dessus). 
 
 Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
 
@@ -659,7 +659,7 @@ array([4, 5, 6])
 array([7, 8, 9])
 ```
 
-Par défaut, cela se fait sur les lignes de l'*array* 2D. Cette fonctionnalité provient à nouveau du fait que pour *NumPy* `a[i]` correspond à la ligne $i-1$ d'un *array* 2D. 
+Par défaut, cela se fait sur les lignes de l'*array* 2D. Cette fonctionnalité provient à nouveau du fait que pour *NumPy* `a[i]` correspond à la ligne d'indice `i` d'un *array* 2D. 
 
 Pour utiliser l'affectation multiple sur les colonnes, il suffit d'utiliser la transposée `a.T` :
 
