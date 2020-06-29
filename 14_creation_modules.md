@@ -174,6 +174,7 @@ Bonjour Joe
 Ceci n'est pas le comportement voulu pour un module car on n'attend pas d'affichage particulier (par exemple la commande `import math` n'affiche rien dans l'interpréteur).
 
 Afin de pouvoir utiliser un code Python en tant que module ou en tant que script, nous vous conseillons la structure suivante :
+
 ```
 """Script de test."""
 
@@ -191,17 +192,17 @@ if __name__ == "__main__":
 
 - Si le programme `message2.py` est exécuté en tant que script dans un *shell*, le résultat du test `if` sera alors `True` et le bloc d'instructions correspondant (ligne 10) sera exécuté :
 
-    ```
-    $ python message2.py
-    Bonjour Joe
-    ```
+```
+$ python message2.py
+Bonjour Joe
+```
 
 - Si le programme `message2.py` est importé en tant que module, le résultat du test `if` sera alors `False` (et le bloc d'instructions correspondant ne sera pas exécuté) :
 
-    ```
-    >>> import message2
-    >>>
-    ```
+```
+>>> import message2
+>>>
+```
 
 À nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 19 *Avoir la classe avec les objets*).
 
