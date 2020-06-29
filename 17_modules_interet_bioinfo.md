@@ -2088,11 +2088,20 @@ Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseil
 
 Téléchargez le fichier [people.tsv](https://python.sdv.univ-paris-diderot.fr/data-files/people.tsv).
 
-Ouvrez ce fichier avec *pandas* et la méthode `.read_table()`. Cette  méthode est très similaire à la méthode `.read_csv()` présentée plus haut, sauf qu'elle considère la tabulation (`\t`) comme séparateur par défaut. Utilisez l'argument `index_col` pour utiliser la colonne `name` comme index.
+Ouvrez ce fichier avec *pandas* et la méthode `.read_csv()`. N'oubliez pas de préciser le séparateur par défaut avec l'argument `sep="\t"`. Utilisez également l'argument `index_col` pour utiliser la colonne `name` comme index.
 
 Affichez les 6 premières lignes du jeu de données.
 
 Combien de lignes contient le jeu de données ?
+
+
+#### Sélections 
+
+Déterminez la taille de Claire.
+
+Déterminez l'âge de Baptiste.
+
+Affichez, en une seule commande, l'âge de Paul et Bob.
 
 
 #### Statistiques descriptives et table de comptage
@@ -2107,15 +2116,15 @@ Comptez ensuite le nombre de personnes de chaque sexe.
 Déterminez, la taille et l'âge moyen chez les hommes et les femmes. Utilisez pour cela la méthode `.groupby()`.
 
 
-#### Sélections
+#### Sélections par filtre
 
 Déterminez combien de d'individus mesurent plus de 1,80 m.
 
 Quelle femme a moins de 35 ans ?
 
 
-#### Sélection et statistiques
+#### Sélections et statistiques
 
-Déterminez l'age moyen des individus qui mesurent plus de 1,80 m.
+Déterminez l'âge moyen des individus qui mesurent plus de 1,80 m.
 
 Déterminez la taille maximale des femmes qui ont plus de 35 ans.
