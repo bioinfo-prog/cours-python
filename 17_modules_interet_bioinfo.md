@@ -295,7 +295,7 @@ La méthode `.max()` nous a bien renvoyé la valeur maximum 7. Un argument *trè
 array([6, 7])
 ```
 
-L'*array* 1D récupèré a son premier élément qui vaut 6 (maximum de la 1ère colonne) et son deuxième qui vaut 7 (maximum de la deuxième colonne).
+L'*array* 1D récupéré a son premier élément qui vaut 6 (maximum de la 1ère colonne) et son deuxième qui vaut 7 (maximum de la deuxième colonne).
 
 Avec `axis=1` on fait une opération similaire mais en faisant varier les colonnes. On récupère ainsi une valeur par ligne :
 
