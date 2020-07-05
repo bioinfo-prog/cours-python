@@ -31,9 +31,10 @@ qui est équivalent à :
 
 La méthode `.insert()` insère un objet dans une liste avec un indice déterminé :
 ```
+>>> a = [1, 2, 3]
 >>> a.insert(2, -15)
 >>> a
-[1, 2, -15, 3, 5]
+[1, 2, -15, 3]
 ```
 
 
@@ -41,9 +42,10 @@ La méthode `.insert()` insère un objet dans une liste avec un indice détermin
 
 L'instruction `del` supprime un élément d'une liste à un indice déterminé :
 ```
+>>> a = [1, 2, 3]
 >>> del a[1]
 >>> a
-[1, -15, 3, 5]
+[1, 3]
 ```
 
 open-box-rem
@@ -57,9 +59,10 @@ close-box-rem
 
 La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur :
 ```
->>> a.remove(5)
+>>> a = [1, 2, 3]
+>>> a.remove(3)
 >>> a
-[1, -15, 3]
+[1, 2]
 ```
 
 
@@ -67,9 +70,10 @@ La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur
 
 La méthode `.sort()` trie une liste :
 ```
+>>> a = [3, 1, 2]
 >>> a.sort()
 >>> a
-[-15, 1, 3]
+[1, 2, 3]
 ```
 
 
@@ -77,9 +81,10 @@ La méthode `.sort()` trie une liste :
 
 La méthode `.reverse()` inverse une liste :
 ```
+>>> a = [3, 1, 2]
 >>> a.reverse()
 >>> a
-[3, 1, -15]
+[2, 1, 3]
 ```
 
 
@@ -87,7 +92,7 @@ La méthode `.reverse()` inverse une liste :
 
 La méthode `.count()` compte le nombre d'éléments (passés en argument) dans une liste :
 ```
->>> a=[1, 2, 4, 3, 1, 1]
+>>> a = [1, 2, 4, 3, 1, 1]
 >>> a.count(1)
 3
 >>> a.count(4)
@@ -154,7 +159,7 @@ La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'es
 
 Il est très important de savoir que l'affectation d'une liste (à partir d'une liste préexistante) crée en réalité une **référence** et non une **copie** :
 ```
->>> x = [1,2,3]
+>>> x = [1, 2, 3]
 >>> y = x
 >>> y
 [1, 2, 3]
@@ -192,7 +197,7 @@ Si on regarde à nouveau dans *Python Tutor* (Figure @fig:copy_list2), on voit c
 
 ![Copie de liste avec une tranche `[:]` et la fonction `list()`.](img/copy_list2.png){ #fig:copy_list2 width=80% }
 
-Attention, les deux techniques précédentes ne fonctionnent que pour les listes à une dimension, autrement dit les listes qui ne contiennent pas elles-mêmes d'autres listes. Voyez par exemple :
+Attention, les deux astuces précédentes ne fonctionnent que pour les listes à une dimension, autrement dit les listes qui ne contiennent pas elles-mêmes d'autres listes. Voyez par exemple :
 
 ```
 >>> x = [[1, 2], [3, 4]]

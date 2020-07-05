@@ -2,7 +2,7 @@
 
 ## Préambule
 
-Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3 *Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3.7/library/string.html).
+Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3 *Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3/library/string.html).
 
 
 ## Chaînes de caractères et listes
@@ -26,6 +26,8 @@ Nous pouvons donc utiliser certaines propriétés des listes comme les tranches 
 'gre'
 >>> animaux[:-2]
 'girafe tig'
+>>> animaux[1:-2:2]
+'iaetg'
 ```
 
 Mais *a contrario* des listes, les chaînes de caractères présentent toutefois une différence notable, ce sont **des listes non modifiables**. Une fois une chaîne de caractères définie, vous ne pouvez plus modifier un de ses éléments. Le cas échéant, Python renvoie un message d'erreur :
@@ -38,24 +40,29 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
 ```
-Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez en construire une nouvelle. Pour cela, n'oubliez pas que les opérateurs de concaténation (`+`) et de duplication (`*`) (introduits dans le chapitre 2 *Variables*) peuvent vous aider. Vous pouvez également générer une liste, qui elle est modifiable, puis revenir à une chaîne de caractères (cf. plus bas).
+Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez en construire une nouvelle. Pour cela, n'oubliez pas que les opérateurs de concaténation (`+`) et de duplication (`*`) (introduits dans le chapitre 2 *Variables*) peuvent vous aider. Vous pouvez également générer une liste, qui elle est modifiable, puis revenir à une chaîne de caractères (voir plus bas).
 
 
 ## Caractères spéciaux
 
-Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` produit une tabulation. Si vous voulez écrire des guillemets simples ou doubles et que ceux-ci ne soient pas confondus avec les guillemets de déclaration de la chaîne de caractères, vous pouvez utiliser `\'` ou `\"` ou utiliser respectivement des guillemets doubles ou simples pour déclarer votre chaîne de caractères.
+Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` produit une tabulation. Si vous voulez écrire des guillemets simples ou doubles et que ceux-ci ne soient pas confondus avec les guillemets de déclaration de la chaîne de caractères, vous pouvez utiliser `\'` ou `\"`.
 ```
 >>> print("Un retour à la ligne\npuis une tabulation\t puis un guillemet\"")
 Un retour à la ligne
 puis une tabulation     puis un guillemet"
 >>> print('J\'affiche un guillemet simple')
 J'affiche un guillemet simple
+```
+
+Vous pouvez aussi utiliser astucieusement des guillemets doubles ou simples pour déclarer votre chaîne de caractères :
+```
 >>> print("Un brin d'ADN")
 Un brin d'ADN
 >>> print('Python est un "super" langage de programmation')
 Python est un "super" langage de programmation
 ```
-Quand on souhaite écrire un texte sur plusieurs lignes, il est très commode d'utiliser les guillemets triples qui conservent le formatage (notamment les retours à la ligne):
+
+Quand on souhaite écrire un texte sur plusieurs lignes, il est très commode d'utiliser les guillemets triples qui conservent le formatage (notamment les retours à la ligne) :
 ```
 >>> x = """souris
 ... chat
@@ -80,14 +87,14 @@ Voici quelques [méthodes](https://docs.python.org/fr/3/library/string.html) sp�
 >>> 'TIGRE'.lower()
 'tigre'
 ```
-Les méthodes `.lower()` et `.upper()` renvoient un texte en minuscule et en majuscule respectivement. On remarque que l'utilisation de ces fonctions n'altère pas la chaîne de caractères de départ mais renvoie une chaîne de caractères transformée.
+Les méthodes `.lower()` et `.upper()` renvoient un texte en minuscule et en majuscule respectivement. On remarque que l'utilisation de ces méthodes n'altère pas la chaîne de caractères de départ mais renvoie une chaîne de caractères transformée.
 
 Pour mettre en majuscule la première lettre seulement, vous pouvez faire :
 ```
 >>> x[0].upper() + x[1:]
 'Girafe'
 ```
-ou encore plus simple avec la méthode adéquate :
+ou plus simplement utiliser la méthode adéquate :
 ```
 >>> x.capitalize()
 'Girafe'
@@ -123,9 +130,9 @@ Il est possible de modifier le séparateur de champs, par exemple :
 ['girafe', 'tigre', 'singe', '', 'souris']
 ```
 
-Attention, dans cet exemple, le séparateur est un seul caractères `:` (et non pas une combinaison de un ou plusieurs `:`) menant ainsi à une chaîne vide entre `singe` et `souris`.
+Attention, dans cet exemple, le séparateur est un seul caractères « `:` » (et non pas une combinaison de un ou plusieurs `:`) conduisant ainsi à une chaîne vide entre `singe` et `souris`.
 
-Il est également intéressant d'indiquer à `.split()` le nombre de fois qu'on souhaite découper la chaîne de caractères avec l'argument `maxsplit()` :
+Il est également intéressant d'indiquer à `.split()` le nombre de fois qu'on souhaite découper la chaîne de caractères avec l'argument `maxsplit` :
 ```
 >>> animaux = "girafe tigre singe souris"
 >>> animaux.split(maxsplit=1)
@@ -230,6 +237,12 @@ On obtient alors une liste de chaînes de caractères. On transforme ensuite les
 20.599999999999998
 ```
 
+open-box-rem
+
+Retenez bien l'utilisation des instructions précédentes pour extraire des valeurs numériques d'une chaîne de caractères. Elles sont régulièrement employées pour analyser des données depuis un fichier.
+
+close-box-rem
+
 
 ## Conversion d'une liste de chaînes de caractères en une chaîne de caractères
 
@@ -246,7 +259,7 @@ On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *
 'ATGAT'
 ```
 
-Les éléments de la liste initiale sont concaténés les uns à la suite des autres et intercalés par un séparateur qui peut être n'importe quelle chaîne de caractères. Ici, on a utilisé un tiret, un espace et rien.
+Les éléments de la liste initiale sont concaténés les uns à la suite des autres et intercalés par un séparateur qui peut être n'importe quelle chaîne de caractères. Ici, on a utilisé un tiret, un espace et rien (une chaîne de caractères vide).
 
 Attention, la méthode `.join()` ne s'applique qu'à une liste de chaînes de caractères.
 ```
@@ -377,7 +390,7 @@ Rappel de la nomenclature des acides aminés :
 
 ### Distance de Hamming
 
-La [distance de Hamming](http://en.wikipedia.org/wiki/Hamming_distance) mesure la différence entre deux séquences de même taille en comptant le nombre de positions qui, pour chaque séquence, ne correspondent pas au même acide aminé.
+La [distance de Hamming](https://fr.wikipedia.org/wiki/Distance_de_Hamming) mesure la différence entre deux séquences de même taille en comptant le nombre de positions qui, pour chaque séquence, ne correspondent pas au même acide aminé.
 
 Créez la fonction `dist_hamming()`  qui prend en argument deux chaînes de caractères et qui renvoie la distance de Hamming (sous la forme d'un entier) entre ces deux chaînes de caractères.
 
@@ -403,7 +416,7 @@ Testez ensuite si les expressions suivantes sont des palindromes :
 
 ### Mot composable
 
-Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, `coucou` est composable à partir de « uocuoceokzefhu ».
+Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, « coucou » est composable à partir de « uocuoceokzefhu ».
 
 Écrivez la fonction `test_composable()` qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères) et qui affiche `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) ou `Le mot xxx n'est pas composable à partir de yyy` sinon.
 
