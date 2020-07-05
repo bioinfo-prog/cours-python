@@ -6,7 +6,7 @@ Les modules sont des programmes Python qui contiennent des fonctions que l'on es
 
 Les développeurs de Python ont mis au point de nombreux modules qui effectuent une quantité phénoménale de tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module.
 
-La plupart de ces modules sont déjà installés dans les versions standards de Python. Vous pouvez accéder à une [documentation exhaustive](https://docs.python.org/3/py-modindex.html) sur le site de Python. N'hésitez pas à explorer un peu ce site, la quantité de modules disponibles est impressionnante (plus de 300).
+La plupart de ces modules sont déjà installés dans les versions standards de Python. Vous pouvez accéder à une [documentation exhaustive](https://docs.python.org/fr/3/py-modindex.html) sur le site de Python. N'hésitez pas à explorer un peu ce site, la quantité de modules disponibles est impressionnante (plus de 300).
 
 
 ## Importation de modules
@@ -23,7 +23,7 @@ Regardons de plus près cet exemple :
 - Ligne 1, l'instruction `import` donne accès à toutes les fonctions du module [*random*](https://docs.python.org/fr/3/library/random.html#module-random).
 - Ensuite, ligne 2, nous utilisons la fonction `randint(0, 10)` du module *random*. Cette fonction renvoie un nombre entier tiré aléatoirement entre `0` inclus et `10` inclus.
 
-Nous avons également croisé le module *math* lors de l'exercice sur la spirale (voir chapitre 7 *Fichiers*). Ce module nous a donné accès aux fonctions trigonométriques et à la constante $\pi$ :
+Nous avons également croisé le module *math* lors de l'exercice sur la spirale (voir chapitre 7 *Fichiers*). Ce module nous a donné accès aux fonctions trigonométriques sinus et cosinus, et à la constante $\pi$ :
 
 ```
 >>> import math
@@ -44,7 +44,7 @@ Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` 
 
 Par exemple, la méthode `.format()` dans l'instruction `"{}".format(3.14)` utilise l'objet chaîne de caractères `"{}"` (auquel elle est liée) pour finalement renvoyer une autre chaîne de caractères `"3.14"`.
 
-Avec les modules, nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode. En fait la [documentation officielle de Python](https://docs.python.org/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Dans cet ouvrage, nous utiliserons ainsi le mot **fonction** lorsqu'on évoquera des fonctions issues de modules.
+Avec les modules, nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode. En fait la [documentation officielle de Python](https://docs.python.org/fr/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Dans cet ouvrage, nous utiliserons ainsi le mot **fonction** lorsqu'on évoquera des fonctions issues de modules.
 
 Si cela vous parait encore ardu, ne vous inquiétez pas, c'est à force de pratiquer et de lire que vous vous approprierez le vocabulaire. Ici, la syntaxe `module.fonction()` est là pour rappeler de quel module provient la fonction en un coup d’œil !
 
@@ -111,7 +111,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in ?
 NameError: name 'random' is not defined
 ```
-On constate alors qu'un rappel d'une fonction du module *random* après l'avoir vidé de la mémoire retourne un message d'erreur.
+On constate alors qu'un rappel (ligne 5) d'une fonction du module *random* après l'avoir vidé de la mémoire (ligne 4) retourne un message d'erreur (lignes 6-8).
 
 
 ## Obtenir de l'aide sur les modules importés
@@ -153,8 +153,8 @@ open-box-rem
 
 - Pour vous déplacer dans l'aide, utilisez les flèches du haut et du bas pour parcourir les lignes les unes après les autres, ou les touches *page-up* et *page-down* pour faire défiler l'aide page par page.
 - Pour quitter l'aide, appuyez sur la touche *Q*.
-- Pour chercher du texte, tapez */* puis le texte que vous cherchez puis la touche *Entrée*. Par exemple, pour chercher l'aide sur la fonction `randint()`, tapez `/randint` puis *Entrée*.
-- Vous pouvez obtenir de l'aide sur une fonction particulière d'un module de la manière suivante :
+- Pour chercher du texte, tapez le caractère */* puis le texte que vous cherchez puis la touche *Entrée*. Par exemple, pour chercher l'aide sur la fonction `randint()`, tapez `/randint` puis *Entrée*.
+- Vous pouvez également obtenir de l'aide sur une fonction particulière d'un module de la manière suivante :
 
     `help(random.randint)`
 
@@ -213,7 +213,7 @@ Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir 
 
 Vous verrez dans le chapitre 14 *Création de module* comment créer votre propre module lorsque vous souhaitez réutiliser souvent vos propres fonctions.
 
-Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Citons-en quelques-uns: *NumPy* (manipulations de vecteurs, matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (construction de graphiques), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
+Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Citons-en quelques-uns: *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
 
 
 
@@ -305,7 +305,7 @@ zoo2.txt contient 3 lignes.
 Notre script est donc capable de :
 
 - Vérifier si un argument lui est donné et si ce n'est pas le cas d'afficher un message d'erreur.
-- D'ouvrir le fichier dont le nom est donné en argument, de compter puis d'afficher le nombre de lignes.
+- D'ouvrir le fichier dont le nom est fourni en argument, de compter puis d'afficher le nombre de lignes.
 
 Par contre, le script ne vérifie pas si le fichier existe bien :
 ```
@@ -316,8 +316,7 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: 'zoo3.txt'
 ```
 
-La lecture de la partie suivante va nous permettre d'améliorer notre script  
-`compte_lignes.py`.
+La lecture de la partie suivante va nous permettre d'améliorer notre script `compte_lignes.py`.
 
 
 ## Module *os* : interaction avec le système d'exploitation
@@ -373,7 +372,7 @@ Affichez sur la même ligne les nombres de 10 à 20 (inclus) ainsi que leur raci
 
 Documentation de la fonction `math.sqrt()` :
 
-<https://docs.python.org/3/library/math.html#math.sqrt>
+<https://docs.python.org/fr/3/library/math.html#math.sqrt>
 
 
 ### Cosinus
@@ -491,7 +490,7 @@ Déterminez une approximation de $\pi$ par cette méthode. Pour cela, pour $N$ i
 - Déterminez si cette distance est inférieure au rayon du cercle, c'est-à-dire si le point est dans le cercle ou pas.
 - Si le point est effectivement dans le cercle, incrémentez le compteur \verb=n=.
 
-Finalement calculez le rapport entre *n* et *N* et proposez une estimation de $\pi$. Quelle valeur de $\pi$ obtenez-vous pour pour 100 itérations ? 1000 itérations ? 10 000 itérations ? Comparez les valeurs obtenues à la valeur de $\pi$ fournie par le module *math*.
+Finalement calculez le rapport entre *n* et *N* et proposez une estimation de $\pi$. Quelle valeur de $\pi$ obtenez-vous pour 100 itérations ? 1000 itérations ? 10 000 itérations ? Comparez les valeurs obtenues à la valeur de $\pi$ fournie par le module *math*.
 
 On rappelle que la distance *d* entre deux points A et B de coordonnées respectives $(x_A, y_A)$ et $(x_B, y_B)$ se calcule comme :
 
@@ -501,4 +500,4 @@ $$
 
 Documentation de la fonction `random.uniform()` :
 
-<https://docs.python.org/3/library/random.html#random.uniform>
+<https://docs.python.org/fr/3/library/random.html#random.uniform>

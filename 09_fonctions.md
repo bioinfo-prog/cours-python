@@ -20,7 +20,7 @@ Par exemple, si vous appelez la fonction `len()` de la manière suivante :
 
 voici ce qui se passe :
 
-1. vous appelez `len()` en lui passant une liste en argument (ici `[0, 1, 2]`) ;
+1. vous appelez `len()` en lui passant une liste en argument (ici la liste `[0, 1, 2]`) ;
 2. la fonction calcule la longueur de cette liste ;
 3. elle vous renvoie un entier égal à cette longueur.
 
@@ -45,7 +45,7 @@ Pour finir sur les généralités, nous avons utilisé dans la Figure @fig:schem
 
 ## Définition
 
-Pour définir une fonction, Python utilise le mot-clé `def` et si on veut que celle-ci renvoie quelque chose, il faut utiliser le mot-clé `return`. Par exemple :
+Pour définir une fonction, Python utilise le mot-clé `def`. Si on souhaite que la fonction renvoie quelque chose, il faut utiliser le mot-clé `return`. Par exemple :
 ```
 >>> def carre(x):
 ...     return x**2
@@ -95,9 +95,11 @@ Une particularité des fonctions en Python est que vous n'êtes pas obligé de p
 16.430045000000003
 >>> fois('to', 2)
 'toto'
+>>> fois([1,3], 2)
+[1, 3, 1, 3]
 ```
 
-L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de caractères). Notre fonction `fois()` est donc capable d'effectuer des tâches différentes ! Même si Python autorise cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait conduire à des surprises dans vos futurs programmes. En général, il est plus judicieux que chaque argument ait un type précis (entiers, *floats*, chaînes de caractères, etc) et pas l'un ou l'autre.
+L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de caractères, listes). Notre fonction `fois()` est donc capable d'effectuer des tâches différentes ! Même si Python autorise cela, méfiez-vous tout de même de cette grande flexibilité qui pourrait conduire à des surprises dans vos futurs programmes. En général, il est plus judicieux que chaque argument ait un type précis (entiers, *floats*, chaînes de caractères, etc) et pas l'un ou l'autre.
 
 
 ## Renvoi de résultats

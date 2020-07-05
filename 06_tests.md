@@ -23,7 +23,7 @@ Il y a plusieurs remarques à faire concernant ces deux exemples :
     `print("Le test est vrai !")`
     est exécutée. Dans le second exemple, le test est faux et rien n'est affiché.
 - Les blocs d'instructions dans les tests doivent forcément être indentés comme pour les boucles `for` et `while`.  L'indentation indique la portée des instructions à exécuter si le test est vrai.
-- Comme avec les boucles `for` et `while`, la ligne qui contient l'instruction `if` se termine par le caractère deux-points « `:`».
+- Comme avec les boucles `for` et `while`, la ligne qui contient l'instruction `if` se termine par le caractère deux-points « `:` ».
 
 
 ## Tests à plusieurs cas
