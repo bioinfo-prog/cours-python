@@ -331,7 +331,15 @@ Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module
 
 `import math`
 
-La fonction sinus sera `math.sin()` et la fonction cosinus `math.cos()`. Ces deux fonctions prennent comme argument une valeur d'angle en radian. La constante mathématique $\pi$ sera également accessible grâce à ce module via `math.pi`.
+La fonction sinus sera `math.sin()` et la fonction cosinus `math.cos()`. Ces deux fonctions prennent comme argument une valeur d'angle en radian. La constante mathématique $\pi$ sera également accessible grâce à ce module via `math.pi`. Par exemple :
+```
+>>> math.sin(0)
+0.0
+>>> math.sin(math.pi/2)
+1.0
+>>> math.cos(math.pi)
+-1.0
+```
 
 Sauvegardez ensuite les coordonnées cartésiennes dans le fichier `spirale.dat` en respectant le format suivant :
 
