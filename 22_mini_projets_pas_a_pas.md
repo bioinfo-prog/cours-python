@@ -578,7 +578,7 @@ Nous allons maintenant construire l'application *tkinter* en vous guidant pas à
 
 Comme expliqué largement dans le chapitre 20, nous allons construire l'application avec une classe. Le programme principal sera donc très allégé et se contentera d'instancier l'application, puis de lancer le gestionnaire d'événements :
 
-```
+```python
 if __name__ == "__main__":
     """Programme principal (instancie la classe principale, donne un
     titre et lance le gestionnaire d'événements)
@@ -590,7 +590,7 @@ if __name__ == "__main__":
 
 Ensuite, nous commençons par écrire le constructeur de la classe. Dans ce constructeur, nous aurons une section initialisant toutes les variables utilisées pour simuler le pendule (cf. rubrique précédente), puis, une autre partie générant les *widgets* et tous les éléments graphiques. Nous vous conseillons vivement de bien les séparer, et surtout de **mettre des commentaires** pour pouvoir s'y retrouver. Voici un « squelette » pour vous aider :
 
-```
+```python
 class AppliPendule(tk.Tk):
     def __init__(self):
         # instanciation de la classe Tk
