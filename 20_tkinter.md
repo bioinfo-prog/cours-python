@@ -68,7 +68,7 @@ où les arguments étaient des objets « classiques » (par exemple une chaîne 
 
 Sachez qu'il est possible de passer en argument une fonction à une autre fonction ! Par exemple :
 
-```
+```python
 def fct_callback(arg):
     print("J'aime bien les {} !".format(arg))
 
