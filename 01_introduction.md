@@ -90,7 +90,7 @@ Python est un langage interprété, c'est-à-dire que chaque ligne de code est l
 `python`
 
 La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
-```
+```text
 PS C:\Users\pierre> python
 Python 3.7.1 (default, Dec 10 2018, 22:54:23) [MSC v.1915 64 bit (AMD64)] [...]
 Type "help", "copyright", "credits" or "license" for more information.
@@ -98,7 +98,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 pour Mac OS X :
-```
+```text
 iMac-de-pierre:Downloads$ python
 Python 3.7.1 (default, Dec 14 2018, 19:28:38)
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
@@ -107,7 +107,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 ou pour Linux :
-```
+```text
 pierre@jeera:~$ python
 Python 3.7.1 (default, Dec 14 2018, 19:28:38)
 [GCC 7.3.0] :: Anaconda, Inc. on linux

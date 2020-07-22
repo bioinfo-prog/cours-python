@@ -6,7 +6,7 @@ Une **variable** est une zone de la mémoire de l'ordinateur dans laquelle une *
 
 En Python, la **déclaration** d'une variable et son **initialisation** (c'est-à-dire la première valeur que l'on va stocker dedans) se font en même temps. Pour vous en convaincre, testez les instructions suivantes après avoir lancé l'interpréteur :
 
-```
+```python
 >>> x = 2
 >>> x
 2
