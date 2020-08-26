@@ -212,6 +212,28 @@ La méthode `.format()` agit sur la chaîne de caractères à laquelle elle est 
 Python affiche le résultat de l'instruction `"{:10.3f}".format(perc_GC)` comme une chaîne de caractères et la fonction `type()` nous le confirme.
 
 
+## Écriture scientifique
+
+Pour les nombres très grands ou très petits, l'écriture formatée permet d'afficher un nombre sous forme de puissance de 10 :
+
+```
+>>> print("{:e}".format(1_000_000_000))
+1.000000e+09
+```
+
+Il est également possible de définir le nombre de chiffres après la virgule. Dans l'exemple ci-dessous, on affiche un nombre avec aucun, 3 et 6 chiffres après la virgule :
+
+```
+>>> avogadro_number = 6.022_140_76e23
+>>> print("{:.0e}".format(avogadro_number))
+6e+23
+>>> print("{:.3e}".format(avogadro_number))
+6.022e+23
+>>> print("{:.6e}".format(avogadro_number))
+6.022141e+23
+```
+
+
 ## Ancienne méthode de formatage des chaînes de caractères
 
 *Conseil* : Pour les débutants, vous pouvez passer cette rubrique.

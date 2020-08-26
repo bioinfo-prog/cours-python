@@ -70,6 +70,34 @@ De plus, il faut absolument éviter d'utiliser un mot « réservé » par Python
 Enfin, Python est sensible à la casse, ce qui signifie que les variables `TesT`, `test` ou `TEST` sont différentes.
 
 
+## Écriture scientifique
+
+On peut écrire des nombres très grands ou très petits avec des puissances de 10 :
+```
+>>> 1e6
+1000000.0
+>>> 3.12e-3
+0.00312
+```
+
+Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des nombres composés de beaucoup de chiffres, par exemple le nombre d'Avogradro $6.02214076 \times 10^{23}$ ou le nombre d'humains sur Terre (au 26 août 2020) 7807568245. Pour s'y retrouver, Python autorise l'utilisation du caractère « souligné » (ou *underscore*) `_` pour séparer des groupes de chiffres. Par exemple :
+
+```
+>>> avogadro_number = 6.022_140_76e23
+>>> print(avogadro_number)
+6.02214076e+23
+>>> humans_on_earth = 7_807_568_245
+>>> print(humans_on_earth)
+7807568245
+```
+
+Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de 3 chiffres mais on peut faire ce qu'on veut :
+```
+>>> print(7_80_7568_24_5)
+7807568245
+```
+
+
 ## Opérations
 
 ### Opérations sur les types numériques
