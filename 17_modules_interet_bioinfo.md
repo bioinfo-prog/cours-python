@@ -433,6 +433,7 @@ On pourra noter que la stratégie `b = np.array(a)` fait bien une copie distinct
 
 close-box-rem
 
+
 ### Construction automatique de matrices
 
 Il peut être parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
@@ -516,6 +517,7 @@ open-box-more
 Il existe d'autres fonctions plus avancées telles que [np.genfromttxt()](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html) gérant les données manquantes, ou encore [np.load()](https://numpy.org/doc/stable/reference/generated/numpy.load.html) et [np.fromfile()](https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html) permettant de lire des données au format binaire. De même, il existe des fonctions ou méthodes permettant d'écrire au format binaire : [np.save()](https://numpy.org/doc/stable/reference/generated/numpy.save.html) ou [.tofile()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile). Le format binaire possède en général l'extension `.npy` ou `.npz` lorsque les données sont compressées. L'avantage d'écrire au format binaire est que cela prend moins de place pour les gros tableaux.
 
 close-box-more
+
 
 ### Un peu d'algèbre linéaire
 
@@ -1386,6 +1388,7 @@ chat      10    11      12   13
 singe     20    21      22   23
 ```
 
+
 #### Sélection sur les lignes et les colonnes
 
 On peut bien sûr combiner les deux types de sélection (en ligne et en colonne):
@@ -1598,7 +1601,48 @@ MW              float64
 dtype: object
 ```
 
-Les colonnes `Length` et `MW` contiennent des valeurs numériques, respectivement des entiers (`int64`) et des *floats* (`float64`). Le type `object` est un type par défaut.
+Les colonnes `Length` et `MW` contiennent des valeurs numériques, 
+respectivement des entiers (`int64`) et des *floats* (`float64`). 
+Le type `object` est un type par défaut.
+
+
+La méthode `.info()` permet d'aller un peu plus loin dans l'exploration du jeu de données 
+en combinant les informations produites par les propriétés `.shape` et `.dtypes` :
+
+```
+>>> df.info()
+<class 'pandas.core.frame.DataFrame'>
+Index: 41 entries, 1A8E to 6CTC
+Data columns (total 4 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   Source        41 non-null     object 
+ 1   Deposit Date  41 non-null     object 
+ 2   Length        41 non-null     int64  
+ 3   MW            41 non-null     float64
+dtypes: float64(1), int64(1), object(2)
+memory usage: 1.6+ KB
+```
+
+Avec l'argument `memory_usage="deep"`, cette méthode permet surtout de connaitre avec précision 
+la taille de l'espace mémoire occupé par le *dataframe* : 
+
+```
+>>> df.info(memory_usage="deep")
+<class 'pandas.core.frame.DataFrame'>
+Index: 41 entries, 1A8E to 6CTC
+Data columns (total 4 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   Source        41 non-null     object 
+ 1   Deposit Date  41 non-null     object 
+ 2   Length        41 non-null     int64  
+ 3   MW            41 non-null     float64
+dtypes: float64(1), int64(1), object(2)
+memory usage: 8.6 KB
+```
+
+Ici, le *dataframe* occupe 8,6 ko en mémoire.
 
 
 ### Conversion en date
