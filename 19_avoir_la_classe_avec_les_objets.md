@@ -1739,7 +1739,7 @@ Téléchargez le script [`rectangle.py`](https://python.sdv.univ-paris-diderot.f
 Complétez le programme principal pour que le script :
 
 - crée une instance `rectangle` de la classe `Rectangle` ;
-- affiche les attributs d'instance `largeur`, `longueur` et `coul` ;
+- affiche les attributs d'instance `largeur`, `longueur` et `couleur` ;
 - calcule et affiche la surface de `rectangle` ;
 - affiche une ligne vide ;
 - change le rectangle en carré de 30 m de côté ;

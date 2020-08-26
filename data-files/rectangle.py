@@ -1,14 +1,14 @@
 class Rectangle:
     """Ceci est la classe Rectangle."""
 
-    def __init__(self, long=0.0, larg=0.0, coul="blanc"):
+    def __init__(self, longueur=0.0, largeur=0.0, couleur="blanc"):
         """Initialisation d'un objet.
 
         Définition des attributs avec des valeurs par défaut.
         """
-        self.longueur = long
-        self.largeur = larg
-        self.couleur = coul
+        self.longueur = longueur
+        self.largeur = largeur
+        self.couleur = couleur
 
     def calcule_surface(self):
         """Méthode qui calcule la surface."""
