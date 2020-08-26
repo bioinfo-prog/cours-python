@@ -72,13 +72,18 @@ Enfin, Python est sensible à la casse, ce qui signifie que les variables `TesT`
 
 ## Écriture scientifique
 
-On peut écrire des nombres très grands ou très petits avec des puissances de 10 :
+On peut écrire des nombres très grands ou très petits avec des puissances de 10 en utilisant le symbole `e` :
 ```
 >>> 1e6
 1000000.0
 >>> 3.12e-3
 0.00312
 ```
+
+On appelle cela écriture ou notation scientifique. On pourra noter deux choses importantes :
+
+- `1e6` ou `3.12e-3` n'implique pas l'utilisation du nombre exponentiel *e* mais signifie $1 \times 10^{6}$ ou $3.12 \times 10^{-3}$ respectivement ;
+- Même si on ne met que des entiers à gauche et à droite du symbole `e` (comme dans `1e6`), Python génère systématiquement un *float*.
 
 Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des nombres composés de beaucoup de chiffres, par exemple le nombre d'Avogradro $6.02214076 \times 10^{23}$ ou le nombre d'humains sur Terre (au 26 août 2020) 7807568245. Pour s'y retrouver, Python autorise l'utilisation du caractère « souligné » (ou *underscore*) `_` pour séparer des groupes de chiffres. Par exemple :
 

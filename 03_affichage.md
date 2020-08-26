@@ -214,11 +214,13 @@ Python affiche le résultat de l'instruction `"{:10.3f}".format(perc_GC)` comme 
 
 ## Écriture scientifique
 
-Pour les nombres très grands ou très petits, l'écriture formatée permet d'afficher un nombre sous forme de puissance de 10 :
+Pour les nombres très grands ou très petits, l'écriture formatée permet d'afficher un nombre en notation scientifique (sous forme de puissance de 10) avec la lettre `e` :
 
 ```
 >>> print("{:e}".format(1_000_000_000))
 1.000000e+09
+>>> print("{:e}".format(0.000_000_001))
+1.000000e-09
 ```
 
 Il est également possible de définir le nombre de chiffres après la virgule. Dans l'exemple ci-dessous, on affiche un nombre avec aucun, 3 et 6 chiffres après la virgule :
