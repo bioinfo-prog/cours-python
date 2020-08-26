@@ -135,7 +135,7 @@ array([[[1, 2],
 
 La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois ça devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être considéré comme un **vecteur** et un *array* à deux dimensions comme une **matrice**. Nous nous focaliserons dans la suite sur des *arrays* 1D ou 2D.
 
-Avant de continuer, il est important de bien définir comment sont organisés ces *arrays* 2D qui représentent des matrices. Il s'agit de tableaux de nombres qui sont organisés en lignes / colonnes comme le montre la figure @fig:array2Dlignescolonnes. Les indices indiqués dans cette figure seront définis un plus loin dans la rubrique *Indices*.
+Avant de continuer, il est important de définir comment sont organisés ces *arrays* 2D qui représentent des matrices. Il s'agit de tableaux de nombres qui sont organisés en lignes et en colonnes comme le montre la figure @fig:array2Dlignescolonnes. Les indices indiqués dans cette figure seront définis un peu plus loin dans la rubrique *Indices*.
 
 ![Définition des lignes et colonnes dans un *array* 2D.](img/array_2D_lignes_colonnes.png "Définition des lignes et colonnes dans un array 2D"){ #fig:array2Dlignescolonnes width=60% }
 
@@ -143,8 +143,8 @@ Avant de continuer, il est important de bien définir comment sont organisés ce
 Voici quelques attributs intéressants pour décrire un objet *array* :
 
 - `.ndim` renvoie le nombre de dimensions (par exemple,
-    1 pour un vecteur et 2 pour une matrice) ;
-- `.shape` renvoie les dimensions sous forme d'un tuple ;
+    1 pour un vecteur et 2 pour une matrice).
+- `.shape` renvoie les dimensions sous forme d'un tuple. Dans le cas d'une matrice (*array* à deux dimensions), la première valeur du tuple correspond au nombre de lignes et la seconde au nombre de colonnes.
 - `.size` renvoie le nombre total d'éléments contenus dans l'`array`.
 
 
