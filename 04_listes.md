@@ -242,6 +242,41 @@ Pour accéder à un élément de la sous-liste, on utilise un double indiçage :
 
 On verra un peu plus loin qu'il existe en Python des dictionnaires qui sont également très pratiques pour stocker de l'information structurée. On verra aussi qu'il existe un module nommé *NumPy* qui permet de créer des listes ou des tableaux de nombres (vecteurs et matrices) et de les manipuler.
 
+## Minimum, maximum et somme d'une liste
+
+Les fonctions `min()`, `max()` et `sum()` renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument.
+
+```
+>>> liste = list(range(10))
+>>> liste
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> sum(liste)
+45
+>>> min(liste)
+0
+>>> max(liste)
+9
+```
+
+Même si en théorie ces fonctions peuvent prendre en argument une liste de *strings*, on les utilisera la plupart du temps avec des types numériques (liste d'entiers et / ou de *floats*). 
+
+Nous avions déjà croisé `min()`, `max()` dans le chapitre 2 *Variables*. On avait vu que ces deux fonctions pouvaient prendre plusieurs arguments entiers et / ou *floats*, par exemple :
+
+```
+>>> min(3, 4)
+3
+```
+
+Attention toutefois à ne pas mélanger entiers et *floats* d'une part avec une liste d'autre part, car cela renvoie une erreur :
+
+```
+>>> min(liste, 3, 4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: '<' not supported between instances of 'int' and 'list'
+```
+
+Soit on passe plusieurs entiers et / ou *floats* en argument, soit on passe une liste unique.
 
 ## Exercices
 
