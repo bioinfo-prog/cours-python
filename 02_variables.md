@@ -308,8 +308,6 @@ Python propose les fonctions `min()` et `max()` qui renvoient respectivement le 
 
 Par rapport à la discussion de la rubrique précédente, `min()` et `max()` sont des exemples de fonction prenant plusieurs arguments. En Python, quand une fonction prend plusieurs arguments, on doit les séparer par une virgule. `min()` et `max()` prennent en argument autant d'entiers et de *floats* que l'on veut, mais il en faut au moins deux.
 
-```
-
 ## Exercices
 
 *Conseil* : utilisez l'interpréteur Python pour les exercices suivants.
