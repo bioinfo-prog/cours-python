@@ -268,6 +268,35 @@ array([0, 1, 2, 3, 4, 5])
 
 Notez que cette fonction `np.resize()` renvoie un nouvel *array* mais ne modifie pas l'*array* initial contrairement à la méthode `.resize()` décrite ci-dessus.
 
+open-box-rem
+
+Depuis le début de ce chapitre, nous avons toujours montré l'affichage d'un *array* dans l'interpréteur :
+
+```
+>>> a = np.array(range(10))
+>>> a
+array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+>>> a2 = np.ones((3, 3))
+>>> a2
+array([[1., 1., 1.],
+       [1., 1., 1.],
+       [1., 1., 1.]])
+```
+
+Nous avons déjà indiqué que Python affiche systématiquement le mot *array* ainsi que les parenthèses, crochets et virgules pour séparer les éléments. Attention toutefois si vous utilisez la fonction `print()` car l'affichage est différent. Le mot *array*, les parenthèses et les virgules disparaissent :
+
+```
+>>> print(a)
+[0 1 2 3 4 5 6 7 8 9]
+>>> print(a2)
+[[1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]]
+```
+Ceci peut amener des confusions spécialement pour un *array* 1D `[0 1 2 3 4 5 6 7 8 9]` et une liste contenant les même éléments `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`. Dans ce cas, seule la présence ou l'absence de virgules permet de trancher s'il s'agit d'un *array* ou d'une liste.
+
+close-box-rem
+
 ### Méthodes de calcul sur les *arrays* et l'argument `axis`
 
 Chaque *array NumPy* qui est créé possède une multitude de méthodes. Nombre d'entre elles permettent de faire des calculs de base comme `.mean()` pour la moyenne, `.sum()` pour la somme, `.std()` pour l'écart-type, `.max()` pour extraire le maximum, `.min()` pour extraire le minimum, etc. La liste exhaustive est [ici](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation). Par défaut, chacune de ces méthodes effectuera l'opération sur l'*array* entier, quelle que soit sa dimensionnalité. Par exemple :
