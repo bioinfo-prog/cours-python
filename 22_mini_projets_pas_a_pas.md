@@ -729,5 +729,5 @@ close-box-rem
 - Mots anglais dans le protéome humain : [words_in_proteome.py](https://python.sdv.univ-paris-diderot.fr/data-files/words_in_proteome.py)
 - Genbank2fasta (sans expression régulière) : [genbank2fasta_sans_regex.py](https://python.sdv.univ-paris-diderot.fr/data-files/genbank2fasta_sans_regex.py)
 - Genbank2fasta (avec expressions régulières) : [genbank2fasta_avec_regex.py](https://python.sdv.univ-paris-diderot.fr/data-files/genbank2fasta_avec_regex.py)
-- Simulation d'un pendule : [tk_pendule.py](https://python.sdv.univ-paris-diderot.fr/data-files/tk_pendule.py)
-
+- Simulation d'un pendule version simple : [tk_pendule.py](https://python.sdv.univ-paris-diderot.fr/data-files/tk_pendule_simple.py)
+- Simulation d'un pendule++ (avec réglette et affichage se mettant à jour) : [tk_pendule.py](https://python.sdv.univ-paris-diderot.fr/data-files/tk_pendule.py)
