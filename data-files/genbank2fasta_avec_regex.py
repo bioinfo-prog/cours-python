@@ -53,8 +53,8 @@ def recherche_genes(lignes_fichier):
     Recherche des gènes
     """
     genes = []
-    regex_sens = re.compile("gene *<?([0-9]+)\.\.>?([0-9]+)")
-    regex_antisens = re.compile("gene *complement\(<?([0-9]+)\.\.>?([0-9]+)\)")
+    regex_sens = re.compile("^ {5}gene {12}<?([0-9]+)\.\.>?([0-9]+)")
+    regex_antisens = re.compile("^ {5}gene {12}complement\(<?([0-9]+)\.\.>?([0-9]+)\)")
     for ligne in lignes_fichier:
         # recherche des gènes sens
         recherche_sens = regex_sens.search(ligne)
