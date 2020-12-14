@@ -689,7 +689,7 @@ Le [triangle de Sierpinski](https://fr.wikipedia.org/wiki/Triangle_de_Sierpi%C5%
 ```
 définir les 3 sommets d'un triangle isocèle ou équilatéral
 point <- coordonnées (x, y) du centre du trianle
-dessiner(point) # une pixelle de large
+dessiner(point) # un pixel de large
 pour i de 0 à 25000:
     sommet_tmp <- choisir un sommet du triangle au hasard
     point <- calculer(coordonnées(x, y) du centre entre point et sommet_tmp)
