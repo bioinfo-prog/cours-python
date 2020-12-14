@@ -83,7 +83,7 @@ def recherche_genes(lignes_fichier):
     genes = []
     for ligne in lignes_fichier:
         # trouver les lignes qui contiennent les positions des gènes
-        if ligne[:21] == "     gene            ":
+        if ligne.startswith("     gene            "):
             # recherche des gènes antisens
             if "complement" in ligne:
                 gene = {}
