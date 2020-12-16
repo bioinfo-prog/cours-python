@@ -50,7 +50,7 @@ L'instruction `del` supprime un élément d'une liste à un indice déterminé :
 
 open-box-rem
 
-Contrairement aux autres méthodes associées aux listes, `del` est une instruction générale de Python, utilisable pour d'autres objets que des listes. Celle-ci ne prend pas de parenthèse.
+Contrairement aux méthodes associées aux listes présentées dans cette rubrique, `del` est une instruction générale de Python, utilisable pour d'autres objets que des listes. Celle-ci ne prend pas de parenthèse.
 
 close-box-rem
 
@@ -104,11 +104,28 @@ La méthode `.count()` compte le nombre d'éléments (passés en argument) dans 
 
 ### Particularités des méthodes associées aux listes
 
-De nombreuses méthodes ci-dessus (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes.
+- De nombreuses méthodes ci-dessus (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes. 
 
-Certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
+open-box-rem
 
-Enfin, pour obtenir une liste exhaustive des méthodes disponibles pour les listes, utilisez la fonction `dir(ma_liste)` (`ma_liste` étant une liste).
+Pour exprimer la même idée, la documentation parle de modification de la liste « sur place » (*in place* en anglais) :
+
+```
+>>> liste = [1, 2, 3]
+>>> help(liste.reverse)
+Help on built-in function reverse:
+
+reverse() method of builtins.list instance
+    Reverse *IN PLACE*.
+```
+
+Cela signifie que la liste est modifiée « sur place », c'est-à-dire **dans la méthode** au moment où elle s'exécute. La liste est ainsi modifiée en dur dans la méthode, cette dernière ne renvoie donc rien.
+
+close-box-rem
+
+- Certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
+
+- Enfin, pour obtenir une liste exhaustive des méthodes disponibles pour les listes, utilisez la fonction `dir(ma_liste)` (`ma_liste` étant une liste).
 
 
 ## Construction d'une liste par itération
