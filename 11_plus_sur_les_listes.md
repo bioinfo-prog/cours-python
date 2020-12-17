@@ -256,9 +256,18 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 
 *Conseil* : pour les débutants, vous pouvez passer cette rubrique.
 
-Une manière originale et très puissante de générer des listes est liste de compréhension (ou la la compréhension de listes). Pour plus de détails, consultez à ce sujet le site de [Python](http://www.python.org/dev/peps/pep-0202/) et celui de [Wikipédia](http://fr.wikipedia.org/wiki/Comprehension_de_liste).
+En Python, la notion de liste de compréhension (ou compréhension de listes) représente une manière originale et très puissante de générer des listes. La syntaxe de base consiste au moins en une boucle `for` au sein de crochets précédés d'une variable (qui peut être la variable d'itération ou pas ):
 
-Voici quelques exemples.
+```
+>>> [i for i in range(10)]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> [2 for i in range(10)]
+[2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+```
+
+Pour plus de détails, consultez à ce sujet le site de [Python](http://www.python.org/dev/peps/pep-0202/) et celui de [Wikipédia](http://fr.wikipedia.org/wiki/Comprehension_de_liste).
+
+Voici quelques exemples illustrant la puissance des listes de compréhension.
 
 ### Nombres pairs compris entre 0 et 30
 ```
