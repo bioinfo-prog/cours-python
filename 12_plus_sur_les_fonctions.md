@@ -167,7 +167,16 @@ De même, si vous passez une liste en argument, elle est modifiable au sein de l
 >>> y
 [1, -15, 3]
 ```
-Si vous voulez éviter ce problème, utilisez des tuples (ils seront présentés dans le chapitre 13 *Dictionnaires et tuples*), Python renverra une erreur car ces derniers sont non modifiables.
+
+Pour bien comprendre l'origine de ce comportement, utilisons à nouveau le site [*Python Tutor*](http://www.pythontutor.com/). La figure @fig:fct_liste vous montre le mécanisme à l'oeuvre lorsqu'on passe une liste à une fonction.
+
+![Passage d'une liste à une fonction.](img/fct_liste.png){ #fig:fct_liste width=90% }
+
+L'instruction `pass` dans la fonction est une instruction Python qui ne fait rien. Elle est là car une fonction ne peut être vide et doit contenir au moins une instruction Python valide.
+ 
+On voit très clairement que la variable `liste` passée en argument lors de l'appel de la fonction d'une part, et la variable locale `l` au sein de la fonction d'autre part, **pointent vers le même objet dans la mémoire**. Ainsi, si on modifie `l`, on modifie `liste`. C'est exactement le même mécanisme que pour la copie de listes (cf. rubrique 11.4 *Copie de listes* du chapitre 11 *Plus sur les listes*).
+
+Si vous voulez éviter les problèmes de modification malencontreuse d'une liste dans une fonction, utilisez des tuples (ils seront présentés dans le chapitre 13 *Dictionnaires et tuples*), Python renverra une erreur car ces derniers sont non modifiables.
 
 Une autre solution pour éviter la modification d'une liste, lorsqu'elle est passée comme argument à une fonction, est de la passer explicitement (comme nous l'avons fait pour la copie de liste) afin qu'elle reste intacte dans le programme principal.
 ```
@@ -184,6 +193,7 @@ Une autre solution pour éviter la modification d'une liste, lorsqu'elle est pas
 ```
 Dans ces deux derniers exemples, une copie de `y` est créée à la volée lorsqu'on appelle la fonction, ainsi la liste `y` du module principal reste intacte.
 
+D'autres suggestions sur l'envoi de liste dans une fonction vous sont données dans la rubrique *Recommandations* ci-dessous.
 
 ## Règle LGI
 
