@@ -327,4 +327,4 @@ La variable `e` est une instance de l'exception `IOError`. Certains de ses attri
 
 Si tout se passe bien, la page est téléchargée est stockée dans la variable `data`, puis ensuite enregistrée sur le disque dur.
 
-Pour aller plus loin sur les exceptions, vous pouvez lire l'[excellente page](http://sametmax.com/gestion-des-erreurs-en-python/) du blog impertinent et politiquement incorrect de Sam et Max.
+Pour aller plus loin sur les exceptions, vous pouvez lire l'[excellente page](https://sametmax.com/gestion-des-erreurs-en-python/) du blog impertinent et politiquement incorrect de Sam et Max.
