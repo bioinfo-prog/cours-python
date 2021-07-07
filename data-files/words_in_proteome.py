@@ -81,7 +81,7 @@ def search_words_in_proteome(word_list, prot_dict):
                 seq_count += 1
         if seq_count != 0:
             found_word_dict[word] = seq_count
-            print("{} found {} in sequences".format(word, seq_count))
+            print(f"{word} found {seq_count} in sequences")
     return found_word_dict
 
 
@@ -97,16 +97,15 @@ def find_most_frequent_word(freq_dict):
     maxi = max(freq_dict.values())
     for word in freq_dict:
         if freq_dict[word] == maxi:
-            print("=> {} found in {} sequences".format(word, maxi))
-            # print("=> {} found {} times".format(word, maxi))
+            print(f"=> {word} found in {maxi} sequences")
 
 
 if __name__ == "__main__":
     WORDS_FILENAME = sys.argv[1]
     WORDS_LIST = read_words(WORDS_FILENAME)
-    print("{} words found".format(len(WORDS_LIST)))
+    print(f"{len(WORDS_LIST)} words found")
     PROTEOME_FILENAME = sys.argv[2]
     PROTEOME = read_sequences(PROTEOME_FILENAME)
-    print("{} sequences read".format(len(PROTEOME)))
+    print(f"{len(PROTEOME)} sequences read")
     WORDS_FOUND = search_words_in_proteome(WORDS_LIST, PROTEOME)
     find_most_frequent_word(WORDS_FOUND)
