@@ -444,8 +444,8 @@ class Citron:
         self.couleur = couleur # attribut d'instance
 
     def affiche_attributs(self):
-        print("attribut de classe: {}, attribut d'instance: {}"
-              .format(self.saveur, self.couleur))
+        print(f"attribut de classe: {self.saveur}")
+        print(f"attribut d'instance: {self.couleur}")
 
 
 if __name__ == "__main__":
@@ -456,7 +456,8 @@ if __name__ == "__main__":
 Ce code va afficher la phrase :
 
 ```
-attribut de classe: acide, attribut d'instance: jaune
+attribut de classe: acide
+attribut d'instance: jaune
 ```
 
 En résumé, qu'on ait des attributs de classe ou d'instance, on peut accéder à eux de l'extérieur par `instance.attribut` et de l'intérieur par `self.attribut`.
@@ -605,25 +606,25 @@ class Citron:
               self.affiche_attributs())
 
     def affiche_attributs(self):
-        return "{}, {}".format(self.saveur, self.couleur)
+        return f"{self.saveur}, {self.couleur}"
 
 
 if __name__ == "__main__":
     saveur = "sucrée"
     couleur = "orange"
-    print("Dans prog principal: {}, {}".format(saveur, couleur))
+    print(f"Dans le programme principal: {saveur}, {couleur}")
     citron1 = Citron("très acide", "jaune foncé")
     print("Dans citron1.affiche_attributs():", citron1.affiche_attributs())
-    print("Dans prog principal: {}, {}".format(saveur, couleur))
+    print(f"Dans le programme principal: {saveur}, {couleur}")
 ```
 
 Lorsqu'on exécutera ce code, on obtiendra :
 
 ```
-Dans prog principal: sucrée, orange
-Dans __init__(), vous venez de créer un citron: jaune foncé, très acide
-Dans citron1.affiche_attributs(): jaune foncé, très acide
-Dans prog principal: sucrée, orange
+Dans le programme principal: sucrée, orange
+Dans __init__(), vous venez de créer un citron: très acide, jaune foncé
+Dans citron1.affiche_attributs(): très acide, jaune foncé
+Dans le programme principal: sucrée, orange
 ```
 
 Les deux variables globales `saveur` et `couleur` du programme principal ne peuvent pas être confondues avec les variables d'instance portant le même nom. Au sein de la classe, on utilisera pour récupérer ces dernières `self.saveur` et `self.couleur`. À l'extérieur, on utilisera `instance.saveur` et `instance.couleur`. Il n'y a donc aucun risque de confusion possible avec les variables globales `saveur` et `couleur`, on accède à chaque variable de la classe avec un nom distinct (qu'on soit à l'intérieur ou à l'extérieur de la classe).
@@ -751,8 +752,8 @@ class CitronCool:
         self.taille = taille
 
     def __str__(self):
-        return ("Votre citron est de couleur {} et de taille {} 8-)"
-               .format(self.couleur, self.taille))
+        return (f"Votre citron est de couleur {self.couleur} "
+                f"et de taille {self.taille}")
 
 
 if __name__ == "__main__":
@@ -794,15 +795,15 @@ Certaines méthodes magiques font des choses assez impressionnantes. Par exemple
 
 ```
 class Citronnier:
-    def __init__(self, nbcitrons, age):
-        self.nbcitrons, self.age = nbcitrons, age
+    def __init__(self, nb_citrons, age):
+        self.nb_citrons, self.age = nb_citrons, age
 
-    def __call__(self, nbcitrons, age):
-        self.nbcitrons, self.age = nbcitrons, age
+    def __call__(self, nb_citrons, age):
+        self.nb_citrons, self.age = nb_citrons, age
 
     def __str__(self):
-        return "Ce citronnier a {} ans et {} citrons" \
-               .format(self.age, self.nbcitrons)
+        return (f"Ce citronnier a {self.age} ans "
+                f"et {self.nb_citrons} citrons")
 
 
 if __name__ == "__main__":
@@ -812,7 +813,7 @@ if __name__ == "__main__":
     print(citronnier1)
 ```
 
-À la ligne 15, on utilise une notation `instance(arg1, arg2)`, ce qui va automatiquement appeler la méthode magique `.__call__()` qui mettra à jour les deux attributs d'instance `nbcitrons` et `age` (lignes 5 et 6). Ce code affichera la sortie suivante :
+À la ligne 15, on utilise une notation `instance(arg1, arg2)`, ce qui va automatiquement appeler la méthode magique `.__call__()` qui mettra à jour les deux attributs d'instance `nb_citrons` et `age` (lignes 5 et 6). Ce code affichera la sortie suivante :
 
 ```
 Ce citronnier a 3 ans et 10 citrons
@@ -1049,35 +1050,35 @@ class Fruit:
     def affiche_conseil(self, type_fruit, conseil):
         print("(2) Je suis dans la méthode .affiche_conseil() de la "
               "classe Fruit\n")
-        return ("Instance {}\ntaille: {}, masse: {},\n"
-                "saveur: {}, forme: {}\nconseil: {}\n"
-                .format(type_fruit, self.taille, self.masse, self.saveur,
-                        self.forme, conseil))
+        return (f"Instance {type_fruit}\n"
+                f"taille: {self.taille}, masse: {self.masse}\n"
+                f"saveur: {self.saveur}, forme: {self.forme}\n"
+                f"conseil: {conseil}\n")
 
 
 class Citron(Fruit):
     def __init__(self, taille=None, masse=None, saveur=None, forme=None):
-        print("(1) Je rentre dans le constructeur de Citron, et je vais"
+        print("(1) Je rentre dans le constructeur de Citron, et je vais "
               "appeler\n"
               "le constructeur de la classe mère Fruit !")
         Fruit.__init__(self, taille, masse, saveur, forme)
         print("(3) J'ai fini dans le constructeur de Citron, "
-              "les attributs sont: \nself.taille: {}, self.masse: {},\n"
-              "self.saveur: {}, self.forme: {}\n"
-              .format(self.taille, self.masse, self.saveur, self.forme))
+              "les attributs sont :\n"
+              f"self.taille: {self.taille}, self.masse: {self.masse}\n"
+              f"self.saveur: {self.saveur}, self.forme: {self.forme}\n")
 
     def __str__(self):
-        print("(1) Je rentre dans la méthode .__str__() de la classe " \
+        print("(1) Je rentre dans la méthode .__str__() de la classe "
               "Citron")
-        print("Je vais lancer la méthode .affiche_conseil() héritée " \
+        print("Je vais lancer la méthode .affiche_conseil() héritée "
               "de la classe Fruit")
         return self.affiche_conseil("Citron", "Bon en tarte :-p !")
 
 
 if __name__ == "__main__":
-    # on crée un citron
-    citron1 = Citron(taille="petite", saveur="acide", forme="ellipsoïde",
-                     masse=50)
+    # On crée un citron.
+    citron1 = Citron(taille="petite", saveur="acide", 
+                     forme="ellipsoïde", masse=50)
     print(citron1)
 ```
 
@@ -1099,7 +1100,7 @@ le constructeur de la classe mère Fruit !
 (2) Je suis dans le constructeur de la classe Fruit
 Je viens de créer self.taille, self.masse, self.saveur et self.forme
 (3) J'ai fini dans le constructeur de Citron, les attributs sont:
-self.taille: petite, self.masse: 50,
+self.taille: petite, self.masse: 50
 self.saveur: acide, self.forme: ellipsoïde
 
 (1) Je rentre dans la méthode .__str__() de la classe Citron
@@ -1107,7 +1108,7 @@ Je vais lancer la méthode .affiche_conseil() héritée de la classe Fruit
 (2) Je suis dans la méthode .affiche_conseil() de la classe Fruit
 
 Instance Citron
-taille: petite, masse: 50,
+taille: petite, masse: 50
 saveur: acide, forme: ellipsoïde
 conseil: Bon en tarte :-p !
 ```
@@ -1318,8 +1319,8 @@ class Citron:
     def set_masse(self, valeur):
         print("Coucou je suis dans le set")
         if valeur < 0:
-            raise ValueError("Z'avez déjà vu une masse négative ?"
-                             "C'est nawak")
+            raise ValueError("Un citron ne peut pas avoir"
+                             " de masse négative !")
         self._masse = valeur
 
     masse = property(fget=get_masse, fset=set_masse)
@@ -1330,10 +1331,10 @@ if __name__ == "__main__":
            "je vais instancier un Citron")
      citron = Citron(masse=100)
      print("(3) Je reviens dans le programme principal")
-     print("La masse de notre citron est {} g".format(citron.masse))
+     print(f"La masse de notre citron est {citron.masse} g")
      # on mange le citron
      citron.masse = 25
-     print("La masse de notre citron est {} g".format(citron.masse))
+     print(f"La masse de notre citron est {citron.masse} g")
      print(citron.__dict__)
 ```
 
@@ -1562,8 +1563,7 @@ class Citron:
 
     def __str__(self):
         """Redéfinit le comportement avec print()."""
-        return "saveur: {}, couleur: {}, taille: {}".format(
-            saveur, couleur, taille)
+        return f"saveur: {saveur}, couleur: {couleur}, taille: {taille}"
 
     def affiche_coucou(self):
         """Méthode inutile qui affiche coucou."""

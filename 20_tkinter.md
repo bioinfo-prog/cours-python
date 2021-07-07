@@ -70,18 +70,17 @@ Sachez qu'il est possible de passer en argument une fonction à une autre foncti
 
 ```python
 def fct_callback(arg):
-    print("J'aime bien les {} !".format(arg))
+    print(f"J'aime bien les {arg} !")
 
 
 def une_fct(ma_callback):
     print("Je suis au début de une_fct(), "
           "et je vais exécuter la fonction callback :")
     ma_callback("fraises")
-    print("Aye, une_fct() se termine.")
+    print("une_fct() se termine.")
 
-
-# Programme principal.
-une_fct(fct_callback)
+if __name__ == "__main__":
+    une_fct(fct_callback)
 ```
 
 Si on exécute ce code, on obtient :
@@ -89,7 +88,7 @@ Si on exécute ce code, on obtient :
 ```
 Je suis au début de une_fct() et je vais exécuter la fonction callback :
 J'aime bien les fraises !
-Aye, une_fct() se termine.
+une_fct() se termine.
 ```
 
 Vous voyez que dans le programme principal, lors de l'appel de `une_fct()`, on lui passe comme argument une autre fonction mais sans **aucune parenthèses ni argument**, c'est-à-dire `fct_callback` tout court. En d'autres termes, cela est différent de  
@@ -713,27 +712,28 @@ class MaListBox(tk.Tk):
         tk.Tk.__init__(self)
         self.listbox = tk.Listbox(self, height=10, width=4)
         self.listbox.pack()
-        # On ajoute des items à la listbox (entiers).
+        # Ajout des items à la listbox (entiers).
         for i in range(1, 10+1):
             # Utilisation de ma méthode .insert(index, element)
-            # On ajoute l'entier i (tk.END signifie en dernier).
+            # Ajout de l'entier i (tk.END signifie en dernier).
             self.listbox.insert(tk.END, i)
-        # Selectionne premier élément de listbox.
+        # Selection du premier élément de listbox.
         self.listbox.select_set(0)
-        # Lier une méthode quand clic sur listbox.
+        # Liaison d'une méthode quand clic sur listbox.
         self.listbox.bind("<<ListboxSelect>>", self.clic_listbox)
 
     def clic_listbox(self, event):
-        # Récup du widget à partir de l'objet event.
+        # Récupération du widget à partir de l'objet event.
         widget = event.widget
-        # Récup du choix sélectionné dans la listbox (tuple).
-        # (par exemple renvoie `(5,)` si on a cliqué sur `5`)
+        # Récupération du choix sélectionné dans la listbox (tuple).
+        # Par exemple renvoie `(5,)` si on a cliqué sur `5`.
         selection = widget.curselection()
-        # Récup du nombre sélectionné (déjà un entier).
+        # Récupération du nombre sélectionné (déjà un entier).
         choix_select = widget.get(selection[0])
-        # affichage
-        print("Le choix sélectionné est {}, son type est {}"
-              .format(choix_select, type(choix_select)))
+        # Affichage.
+        print(f"Le choix sélectionné est {choix_select}, "
+              f"son type est {type(choix_select)}")
+
 
 
 if __name__ == "__main__":
