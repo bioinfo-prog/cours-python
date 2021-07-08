@@ -1885,7 +1885,7 @@ Oryctolagus cuniculus   1990-08-16   2001-07-24
 Sus scrofa              2001-07-03   2001-07-03
 ```
 
-Chez l'homme (`Homo sapiens`), la première structure de transferrine a été déposée dans la PDB
+Chez l'Homme (`Homo sapiens`), la première structure de transferrine a été déposée dans la PDB
 le 10 février 1992 et la dernière le 22 mars 2018.
 
 Une autre question est de savoir combien de structures de transferrines ont
@@ -2025,26 +2025,36 @@ Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones 
 
 ### Jour le plus chaud
 
-Le fichier [temperature.dat](data-files/temperatures.dat) contient un relevé de 4 températures pour chaque jour de la semaine. A l'aide du module *NumPy*, on souhaite déterminer quel est le jour de la semaine le plus chaud. Pour cela nous vous proposons les étapes suivantes :
+Le fichier [`temperature.dat`](https://python.sdv.univ-paris-diderot.fr/data-files/temperatures.dat) contient un relevé de 4 températures pour chaque jour de la semaine :
 
-- Récupérer le nom des jours de la semaine depuis le fichier et les mettre dans une liste `days`.
-- Récupérer les valeurs de température depuis le fichier et les mettre dans un *array* 2D ; la fonction [`np.loadtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) et son argument `usecols` seront vos amis :-).
-- Parcourir chaque ligne de la matrice et calculer la température moyenne de chaque jour et la stocker dans une liste `mean_temps`.
-- A l'aide des deux listes `days` et `mean_temps`, déterminer et afficher le jour le plus chaud.
+```
+Lun 12 11 14 12
+Mar 12 10 14 11
+Mer 11 11 14 13
+[...]
+```
+
+ À l'aide du module *NumPy*, on souhaite déterminer quel est le jour de la semaine le plus chaud. Pour cela nous vous proposons les étapes suivantes :
+
+1. Récupérez le nom des jours de la semaine depuis le fichier et mettez-les dans une liste `days`.
+2. Récupérez les valeurs de températures depuis le fichier et mettez-les dans un *array* 2D. La fonction [`np.loadtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) et son argument `usecols` vous seront utiles.
+3. Parcourez chaque ligne de la matrice, calculez la température moyenne de chaque jour puis stockez-la dans une liste `mean_temps`.
+4. À l'aide des deux listes `days` et `mean_temps`, déterminez et affichez le jour le plus chaud.
+
 
 ### Calcul du centre de masse d'une membrane
 
-L'image de gauche de la figure @fig:exo_get_leaflet montre le cliché d'une membrane de POPC (cyan) entourée d'eau (bleu) (coordonnées trouvées [ici](https://zenodo.org/record/153944)). Les atomes de phosphore des phosphates sont représentés en boule de van der Waals brune. Dans cet exercice on cherche à calculer le centre de masse de la membrane, ainsi que le centre de masse (COM) de chaque monocouche de phosphores. Ces COM sont représentés sous forme de croix dans l'image de droite de la figure @fig:exo_get_leaflet.
+L'image de gauche de la figure @fig:exo_get_leaflet montre le cliché d'une membrane de POPC (cyan) entourée d'eau (bleu) (coordonnées trouvées [ici](https://zenodo.org/record/153944)). Les atomes de phosphore des groupes phosphates sont représentés en boule de van der Waals brune. Dans cet exercice on cherche à calculer le centre de masse de la membrane, ainsi que le centre de masse (COM) de chaque monocouche de phosphores. Ces COM sont représentés sous forme de croix dans l'image de droite de la figure @fig:exo_get_leaflet.
 
 ![Cliché d'une membrane de POPC.](img/exo_get_leaflet.png){ #fig:exo_get_leaflet width=80% }
 
-Les coordonnées cartésiennes $(x, y, z)$ de chaque phosphore (en Å) sont stockées dans le fichier [coors_P.dat](data-files/coors_P.dat) (un atome par ligne). A l'aide du module *NumPy*, on se propose d'utiliser les étapes suivantes :
+Les coordonnées cartésiennes $(x, y, z)$ de chaque phosphore (en Å) sont stockées dans le fichier [coors_P.dat](https://python.sdv.univ-paris-diderot.fr/data-files/coors_P.dat), à raison d'un atome par ligne. Nous vous proposons les étapes suivantes pour résoudre cet exercice à l'aide du module *NumPy* :
 
-- Récupérer les coordonnées des phosphores depuis le fichier et les stocker dans un *array* 2D (matrice) `coors_P` (dimensionnalité: n*3 , avec n = nombre de phosphores).
-- Calculer le $z$ moyen de tous les phosphores (nombre réel) et le stocker dans `mean_z`. La méthode `.mean()` est votre amie ;-) !
-- Avec des masques de booléens, récupérer les coordonnées des phosphores de la monocouche du haut dans un *array* 2D `upper`. Faire de même avec la monocouche du bas dans un *array* 2D `lower`.
-- Calculer le centre de masse `COM` de la membrane, ainsi que de la monocouche du haut `COM_upper` et du bas `COM_lower`. Pensez aux méthodes de calcul sur les *arrays* et l'argument `axis` ;-) !
-- Une fois tout cela effectué, on peut faire le graphe 3D avec *matplotlib* et la fonction `scatter()`. Pour la [faire fonctionner en 3D](https://matplotlib.org/3.2.1/gallery/mplot3d/scatter3d.html), voici un squelette de programme possible :
+- Récupérez les coordonnées des atomes de phosphore depuis le fichier `coors_P.dat` et stockez-les dans un *array* 2D (matrice) `coors_P`. La dimensionnalité de cette matrice est $n \times 3$, avec $n$ le nombre de phosphores.
+- Calculez le $z$ moyen de tous les phosphores (nombre réel) et stockez-le dans la variable `mean_z`. La méthode `.mean()` vous sera utile.
+- Avec des masques de booléens, récupérez les coordonnées des phosphores de la monocouche du haut dans un *array* 2D `upper`. Faites de même avec la monocouche du bas dans un *array* 2D `lower`.
+- Calculez le centre de masse `COM` de la membrane, ainsi que de la monocouche du haut `COM_upper` et du bas `COM_lower`. Pensez aux méthodes de calcul sur les *arrays* et l'argument `axis`.
+- Une fois tout cela effectué, créez un graphique 3D pour représenter les différents centres de masse. Vous pourrez utiliser la fonction `scatter()` du module *matplotlib*. Pour l'[affichage en 3D](https://matplotlib.org/3.2.1/gallery/mplot3d/scatter3d.html), voici un squelette de programme :
 
 ```
 # Init plot.
@@ -2161,7 +2171,7 @@ Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseil
 
 Téléchargez le fichier [people.tsv](https://python.sdv.univ-paris-diderot.fr/data-files/people.tsv).
 
-Ouvrez ce fichier avec *pandas* et la méthode `.read_csv()`. N'oubliez pas de préciser le séparateur par défaut avec l'argument `sep="\t"`. Utilisez également l'argument `index_col` pour utiliser la colonne `name` comme index.
+Ouvrez ce fichier avec *pandas* et la fonction `.read_csv()`. N'oubliez pas de préciser le séparateur par défaut avec l'argument `sep="\t"`. Utilisez également l'argument `index_col` pour utiliser la colonne `name` comme index.
 
 Affichez les 6 premières lignes du jeu de données.
 
