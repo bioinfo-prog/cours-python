@@ -4,7 +4,6 @@
 
 Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3 *Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3/library/string.html).
 
-
 ## Chaînes de caractères et listes
 
 Les chaînes de caractères peuvent être considérées comme des listes (de caractères) un peu particulières :
@@ -74,6 +73,74 @@ souris
 chat
 abeille
 ```
+
+## Préfixe de chaîne de caractères
+
+Nous avons vu au chapitre 3 la notion de *f-string*. Il s'agissait d'un mécanisme pour formater du texte au sein d'une chaîne de caractères. Par exemple :
+
+```
+>>> var = "f-string"
+>>> f"voici une belle {var}"
+'voici une belle f-string'
+```
+
+Que signifie le `f` que l'on accole aux guillements de la chaîne de caractères ? Celui-ci est appelé « préfixe de chaîne de caractères » ou *stringprefix*. 
+
+open-box-rem
+
+Un *stringprefix* modifie la manière dont Python va interpréter la dite *string*. Celui-ci doit être systématiquement « collé » à la chaîne de caractère, c'est-à-dire pas d'espace entre les deux.
+
+close-box-rem
+
+Il existe différents *stringprefixes* en Python, nous vous montrons ici les deux qui nous apparaissent les plus importants:
+
+- Le préfixe `r` mis pour *raw string* qui force la non-interprétation des caractères spéciaux:
+
+```
+>>> s = "Voici un retour à la ligne\nEt là une autre ligne"
+>>> s
+'Voici un retour à la ligne\nEt là une autre ligne'
+>>> print(s)
+Voici un retour à la ligne
+Et là une autre ligne
+>>> s = r"Voici un retour à la ligne\nEt là une autre ligne"
+>>> s
+'Voici un retour à la ligne\\nEt là une autre ligne'
+>>> print(s)
+Voici un retour à la ligne\nEt là une autre ligne
+```
+
+L'ajout du `r` va forcer Python à ne pas interpréter le `\n` en tant que retour à la ligne, mais comme un *backslash* litéral suivi d'un *n*. Quand on demande à l'interpréteur d'afficher cette chaîne de caractères, celui-ci met deux *backslashes* pour signifier qu'il s'agit d'un *backslash* litéral (le premier échappe le deuxième). Finalement, l'utilisation de la syntaxe `r"Voici un retour à la ligne\nEt là des accolades {}"` renvoie une chaîne de caractères normale, puisqu'on voit ensuite que le `r` à disparu lorsqu'on demande à Python d'afficher le contenu de la variable `s`. Comme dans `var = 2 + 2`, d'abord Python évalue `2 + 2` et c'est ce résultat qui est affecté à la variable `var`. Enfin, on pourra noter que seule l'utilisation du `print()` mène à l'interprétation des caractères spéciaux comme `\n`.
+
+Les caractères spéciaux non interprétées dans les *raw strings* sont de manière générale tout ce dont le *backslash* modifie la signification, par exemple un `\n`, un `\t`, etc.
+
+- Le préfixe `f` mis pour *formatted string* qui met en place l'écriture formattée comme vue au chapitre 3 *Affichage*:
+
+```
+>>> animal = "renard"
+>>> animal2 = "poulain"
+>>> s = f"Le {animal} est un animal gentil\nLe {animal2} aussi"
+>>> s
+'Le renard est un animal gentil\nLe poulain aussi'
+>>> print(s)
+Le renard est un animal gentil
+Le poulain aussi
+>>> s = "Le {animal} est un animal gentil\nLe {animal2} aussi"
+>>> s
+'Le {animal} est un animal gentil\nLe {animal2} aussi'
+>>> print(s)
+Le {animal} est un animal gentil
+Le {animal2} aussi
+```
+
+La *f-string* remplace le contenu des variables situées entre les accolades mais interprète le `\n` en tant que retour à la ligne. Pour rappel, consultez le chapitre 3 si vous souhaitez plus de détails sur le fonctionnement des *f-strings*. 
+
+open-box-adv
+
+Il existe de nombreux autres détails concernant les préfixes qui vont au delà de ce cours. Pour en savoir plus, vous pouvez consulter la [documentations officielle](https://docs.python.org/3/reference/lexical_analysis.html#grammar-token-stringprefix).
+
+close-box-adv
+
 
 ## Méthodes associées aux chaînes de caractères
 
