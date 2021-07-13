@@ -289,7 +289,7 @@ Le minimum est -2
 Le type de 2 est <class 'int'>
 ```
 
-Nous aurons l'occasion de revenir sur cette fonctionnalité au chapitre 10 *Plus sur les chaînes de caractères*.
+Nous aurons l'occasion de revenir sur cette fonctionnalité au fur et à mesure de cours.
 
 
 ## Écriture scientifique
