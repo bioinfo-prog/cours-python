@@ -345,7 +345,7 @@ print(resultat)
 ```
 
 Analysez ensuite le code suivant et tentez de prédire sa sortie :
-```
+```python
 def calc_factorielle(n):
     fact = 1
     for i in range(2, n+1):
@@ -356,17 +356,23 @@ def calc_factorielle(n):
 # programme principal
 nb = 4
 factorielle_nb = calc_factorielle(nb)
-print("{}! = {}".format(nb, factorielle_nb))
+print(f"{nb}! = {factorielle_nb}")
 nb2 = 10
-print("{}! = {}".format(nb2, calc_factorielle(nb2)))
+print(f"{nb2}! = {calc_factorielle(nb2)}")
 ```
 Testez ensuite cette portion de code avec *Python Tutor* en cherchant à bien comprendre chaque étape.
 Avez-vous réussi à prédire la sortie correctement ?
 
+open-box-rem
+
+Une remarque concernant l'utilisation des *f-strings* que nous avions vues dans le chapitre 3 *Affichage*. On voit à nouveau une possibilité puissante des *f-strings* dans l'instruction `f"{nb2}! = {calc_factorielle(nb2)}"` : il est possible de mettre directement au sein des accolades un appel à une fonction (ici `{calc_factorielle(nb2)}`) ! Ainsi, pas besoin de créer une variable intermédiaire dans laquelle on stocke ce que retourne la fonction. 
+
+close-box-rem
 
 ### Puissance
 
 Créez une fonction `calc_puissance(x, y)` qui renvoie $x^y$ en utilisant l'opérateur `**`. Pour rappel :
+
 ```
 >>> 2**2
 4
