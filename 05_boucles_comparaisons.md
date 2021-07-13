@@ -150,7 +150,7 @@ Toutefois, il se peut qu'au cours d'une boucle vous ayez besoin des indices, auq
 ```
 >>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for i in range(len(animaux)):
-...     print("L'animal {} est un(e) {}".format(i, animaux[i]))
+...     print(f"L'animal {i} est un(e) {animaux[i]}")
 ...
 L'animal 0 est un(e) girafe
 L'animal 1 est un(e) tigre
@@ -161,7 +161,7 @@ Python possède toutefois la fonction `enumerate()` qui vous permet d'itérer su
 ```
 >>> animaux = ['girafe','tigre','singe','souris']
 >>> for i, animal in enumerate(animaux):
-...     print("L'animal {} est un(e) {}".format(i, animal))
+...     print(f"L'animal {i} est un(e) {animaux[i]}")
 ...
 L'animal 0 est un(e) girafe
 L'animal 1 est un(e) tigre

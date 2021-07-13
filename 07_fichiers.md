@@ -200,7 +200,7 @@ Pour ce faire, nous pouvons utiliser l'écriture formatée :
 >>> animaux2 = ["poisson", "abeille", "chat"]
 >>> with open("zoo2.txt", "w") as filout:
 ...     for animal in animaux2:
-...         filout.write("{}\n".format(animal))
+...         filout.write(f"{animal}\n")
 ...
 8
 8

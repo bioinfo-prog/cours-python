@@ -77,7 +77,7 @@ nombres = [4, 5, 6]
 for nb in nombres:
     if nb == 5:
         print("Le test est vrai")
-        print("car la variable nb vaut {}".format(nb))
+        print(f"car la variable nb vaut {nb}")
 ```
 Résultat :
 ```
@@ -91,7 +91,7 @@ nombres = [4, 5, 6]
 for nb in nombres:
     if nb == 5:
         print("Le test est vrai")
-    print("car la variable nb vaut {}".format(nb))
+    print(f"car la variable nb vaut {nb}")
 ```
 Résultat :
 ```
@@ -215,15 +215,15 @@ En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont u
 ```
 >>> 0.3
 0.3
->>> "{:.5f}".format(0.3)
+>>> f"{0.3:.5f}"
 '0.30000'
->>> "{:.60f}".format(0.3)
+>>> f"{0.3:.60f}"
 '0.299999999999999988897769753748434595763683319091796875000000'
->>> "{:.60f}".format(3.0 - 2.7)
+>>> f"{3 - 2.7:.60f}"
 '0.299999999999999822364316059974953532218933105468750000000000'
 ```
 
-On observe que lorsqu'on tape `0.3`, Python affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est donc essentiel d'avoir cela en tête lorsque l'on effectue un test .
+On observe que lorsqu'on tape `0.3`, Python affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est donc essentiel d'avoir cela en tête lorsque l'on effectue un test.
 
 open-box-adv
 

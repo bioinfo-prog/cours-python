@@ -42,7 +42,7 @@ Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` 
 - elle était liée à un objet par un point ;
 - en général, elle agissait sur ou utilisait l'objet auquel elle était liée.
 
-Par exemple, la méthode `.format()` dans l'instruction `"{}".format(3.14)` utilise l'objet chaîne de caractères `"{}"` (auquel elle est liée) pour finalement renvoyer une autre chaîne de caractères `"3.14"`.
+Par exemple, la méthode `.format()` (vue au chapitre 3) dans l'instruction `"{}".format(3.14)` utilise l'objet chaîne de caractères `"{}"` (auquel elle est liée) pour finalement renvoyer une autre chaîne de caractères `"3.14"`.
 
 Avec les modules, nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode. En fait la [documentation officielle de Python](https://docs.python.org/fr/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Dans cet ouvrage, nous utiliserons ainsi le mot **fonction** lorsqu'on évoquera des fonctions issues de modules.
 
@@ -239,22 +239,22 @@ Ligne 2. Le script affiche le contenu de la variable `sys.argv`. Cette variable 
 
 
 Toujours dans le module *sys*, la fonction `sys.exit()` est utile pour quitter un script Python. On peut donner un argument à cette fonction (en général une chaîne de caractères) qui sera renvoyé au moment où Python quittera le script. Par exemple, si vous attendez au moins un argument en ligne de commande, vous pouvez renvoyer un message pour indiquer à l'utilisateur ce que le script attend comme argument :
-```
+```python
 import sys
 
 if len(sys.argv) != 2:
     sys.exit("ERREUR : il faut exactement un argument.")
 
-print("Argument vaut : {}".format(sys.argv[1]))
+print(f"Argument vaut : {sys.argv[1]}")
 ```
 
 Puis on l'exécute sans argument :
-```
+```text
 $ python test.py
 ERREUR : il faut exactement un argument.
 ```
 et avec un argument :
-```
+```text
 $ python test.py 42
 Argument vaut : 42
 ```
@@ -275,7 +275,7 @@ taille = 0
 with open(nom_fichier, "r") as f_in:
     taille = len(f_in.readlines())
 
-print("{} contient {} lignes.".format(nom_fichier, taille))
+print(f"{nom_fichier} contient {taille} lignes.")
 ```
 
 Supposons que dans le même répertoire, nous ayons le fichier `zoo1.txt` dont voici le contenu :
