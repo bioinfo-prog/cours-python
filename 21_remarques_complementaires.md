@@ -310,13 +310,13 @@ def download_page(address):
         if hasattr(e, 'reason'):
             error =  "Cannot reach web server: " + str(e.reason)
         if hasattr(e, 'code'):
-            error = "Server failed {:d}".format(e.code)
+            error = f"Server failed {e.code:d}"
     return page, error
 
 data, error = download_page("https://files.rcsb.org/download/1BTA.pdb")
 
 if error:
-    print("Erreur rencontrée : {}".format(error))
+    print(f"Erreur rencontrée : {error}")
 else:
     with open("proteine.pdb", "w") as prot:
         prot.write(data.decode('utf-8'))

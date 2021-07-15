@@ -27,5 +27,5 @@ def Multiplie_nombres(nombre1,nombre2 ):
 
 
 if __name__ == "__main__":
-    print("2 x 3 = {}".format(Multiplie_nombres(2,3)))
-    print ("4 x 5 = {}".format(Multiplie_nombres(4, 5)))
+    print(f"2 x 3 = {Multiplie_nombres(2, 3)}")
+    print (f"4 x 5 = {Multiplie_nombres(4, 5)}")

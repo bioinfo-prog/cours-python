@@ -1141,8 +1141,8 @@ plt.bar(x, distribution)
 plt.xticks(x, bases)
 plt.xlabel("Bases")
 plt.ylabel("Nombre")
-plt.title("Distribution des bases\n dans la séquence {}".format(sequence))
-plt.savefig('distribution_bases.png', bbox_inches="tight", dpi=200)
+plt.title(f"Distribution des bases\n dans la séquence {sequence}")
+plt.savefig("distribution_bases.png", bbox_inches="tight", dpi=200)
 ```
 
 On obtient alors le graphique de la figure @fig:distribution.
@@ -1992,7 +1992,7 @@ with open("1bta.pdb", "r") as f_pdb, open("1bta_CA.txt", "w") as f_CA:
                 x = ligne[30:38]
                 y = ligne[38:46]
                 z = ligne[46:54]
-                f_CA.write("{} {} {} ".format(x, y, z))
+                f_CA.write(f"{x} {y} {z} ")
 ```
 
 Ligne 1. On ouvre deux fichiers simultanément. Ici, le fichier `1bta.pdb` est ouvert en lecture (`r`)

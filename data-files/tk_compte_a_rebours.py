@@ -28,7 +28,7 @@ class CompteARebours(tk.Tk):
         secondes_restantes = total_secondes % (60*60)
         m = secondes_restantes // 60
         s = secondes_restantes % 60
-        return "{:02d}:{:02d}:{:02d}".format(h, m, s)
+        return f"{h:02d}:{m:02d}:{s:02d}"
 
     def mise_a_jour_rebours(self):
         # Fini ?

@@ -76,7 +76,7 @@ Il est très important lorsque l'on manipule des fonctions de connaître la port
 ```
 >>> def ma_fonction():
 ...     x = 2
-...     print('x vaut {} dans la fonction'.format(x))
+...     print(f"x vaut {x} dans la fonction")
 ...
 >>> ma_fonction()
 x vaut 2 dans la fonction
@@ -90,7 +90,7 @@ Lorsque Python exécute le code de la fonction, il connaît le contenu de la var
 De même, une variable passée en argument est considérée comme **locale** lorsqu'on arrive dans la fonction:
 ```
 >>> def ma_fonction(x):
-...     print('x vaut {} dans la fonction'.format(x))
+...     print(f"x vaut {x} dans la fonction")
 ...
 >>> ma_fonction(2)
 x vaut 2 dans la fonction
@@ -201,12 +201,12 @@ Lorsque Python rencontre une variable, il va traiter la résolution de son  nom 
 ```
 >>> def ma_fonction():
 ...     x = 4
-...     print('Dans la fonction x vaut {}'.format(x))
+...     print(f"Dans la fonction x vaut {x}")
 ...
 >>> x = -15
 >>> ma_fonction()
 Dans la fonction x vaut  4
->>> print('Dans le module principal x vaut {}'.format(x))
+>>> print(f"Dans le module principal x vaut {x}")
 Dans le module principal x vaut -15
 ```
 Dans la fonction, `x` a pris la valeur qui lui était définie localement en priorité sur la valeur définie dans le module principal.
@@ -300,7 +300,7 @@ Prédisez le comportement des codes suivants, sans les recopier dans un script n
 #### Code 1
 ```
 def hello(prenom):
-  print("Bonjour {}".format(prenom))
+    print(f"Bonjour {prenom}")
 
 
 # Programme principal.
@@ -311,7 +311,7 @@ print(x)
 #### Code 2
 ```
 def hello(prenom):
-  print("Bonjour {}".format(prenom))
+    print(f"Bonjour {prenom}")
 
 
 # Programme principal.
@@ -323,8 +323,8 @@ print(x)
 #### Code 3
 ```
 def hello(prenom):
-  print("Bonjour {}".format(prenom))
-  print(x)
+    print(f"Bonjour {prenom}")
+    print(x)
 
 
 # Programme principal.
@@ -336,9 +336,9 @@ print(x)
 #### Code 4
 ```
 def hello(prenom):
-  x = 42
-  print("Bonjour {}".format(prenom))
-  print(x)
+    x = 42
+    print(f"Bonjour {prenom}")
+    print(x)
 
 
 # Programme principal.
