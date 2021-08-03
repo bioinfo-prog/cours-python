@@ -7,7 +7,7 @@ Une grande partie de l'information en biologie est stockée sous forme de texte 
 ### Méthode `.readlines()`
 
 Avant de passer à un exemple concret, créez un fichier dans un éditeur de texte que vous enregistrerez dans votre répertoire courant avec le nom `zoo.txt` et le contenu suivant :
-```
+```text
 girafe
 tigre
 singe
@@ -15,7 +15,7 @@ souris
 ```
 
 Ensuite, testez le code suivant dans l'interpréteur Python :
-```
+```python
 >>> filin = open("zoo.txt", "r")
 >>> filin
 <_io.TextIOWrapper name='zoo.txt' mode='r' encoding='UTF-8'>
@@ -38,7 +38,7 @@ Ligne 4. Nous utilisons à nouveau la syntaxe `objet.méthode()` (présentée da
 Ligne 6. Enfin, on applique la méthode `.close()` sur l'objet `filin`, ce qui, vous vous en doutez, ferme le fichier (*ceci correspondrait à fermer le livre*). Vous remarquerez que la méthode `.close()` ne renvoie rien mais modifie l'état de l'objet `filin` en fichier fermé. Ainsi, si on essaie de lire à nouveau les lignes du fichier, Python renvoie une erreur car il ne peut pas lire un fichier fermé (lignes 7 à 10).
 
 Voici maintenant un exemple complet de lecture d'un fichier avec Python.
-```
+```python
 >>> filin = open("zoo.txt", "r")
 >>> lignes = filin.readlines()
 >>> lignes
@@ -69,7 +69,7 @@ close-box-rem
 Il existe en Python le mot-clé `with` qui permet d'ouvrir et de fermer un fichier de manière efficace.
 Si pour une raison ou une autre l'ouverture ou la lecture du fichier conduit à une erreur, l'utilisation de `with` garantit la bonne fermeture du fichier, ce qui n'est pas le cas dans le code précédent. Voici donc le même exemple avec `with` :
 
-```
+```python
 >>> with open("zoo.txt", 'r') as filin:
 ...     lignes = filin.readlines()
 ...     for ligne in lignes:
@@ -97,7 +97,7 @@ close-box-rem
 ### Méthode `.read()`
 
 Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fichier. Par exemple, la méthode `.read()` lit tout le contenu d'un fichier et renvoie une chaîne de caractères unique.
-```
+```python
 >>> with open("zoo.txt", "r") as filin:
 ...     filin.read()
 ...
@@ -109,7 +109,7 @@ Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fich
 
 La méthode `.readline()` (sans `s` à la fin) lit une ligne d'un fichier et la renvoie sous forme de chaîne de caractères. À chaque nouvel appel de `.readline()`, la ligne suivante est renvoyée. Associée à la boucle `while`, cette méthode permet de lire un fichier ligne par ligne.
 
-```
+```python
 >>> with open("zoo.txt", "r") as filin:
 ...     ligne = filin.readline()
 ...     while ligne != "":
@@ -133,7 +133,7 @@ souris
 Python essaie de vous faciliter la vie au maximum.
 Voici un moyen à la fois simple et élégant de parcourir un fichier.
 
-```
+```python
 >>> with open("zoo.txt", "r") as filin:
 ...     for ligne in filin:
 ...         print(ligne)
@@ -168,7 +168,7 @@ close-box-rem
 ## Écriture dans un fichier
 
 Écrire dans un fichier est aussi simple que de le lire. Voyez l'exemple suivant :
-```
+```python
 >>> animaux2 = ["poisson", "abeille", "chat"]
 >>> with open("zoo2.txt", "w") as filout:
 ...     for animal in animaux2:
@@ -196,7 +196,7 @@ Si nous ouvrons le fichier `zoo2.txt` avec un éditeur de texte, voici ce que no
 Ce n'est pas exactement le résultat attendu car implicitement nous voulions le nom de chaque animal sur une ligne. Nous avons oublié d'ajouter le caractère fin de ligne après chaque nom d'animal.
 
 Pour ce faire, nous pouvons utiliser l'écriture formatée :
-```
+```python
 >>> animaux2 = ["poisson", "abeille", "chat"]
 >>> with open("zoo2.txt", "w") as filout:
 ...     for animal in animaux2:
@@ -212,7 +212,7 @@ Ligne 4. L'écriture formatée vue au chapitre 3 *Affichage* permet d'ajouter un
 Lignes 6 à 8. Le nombre d'octets écrits dans le fichier est augmenté de 1 par rapport à l'exemple précédent car le caractère retour à la ligne compte pour un seul octet.
 
 Le contenu du fichier `zoo2.txt` est alors :
-```
+```text
 poisson
 abeille
 chat
@@ -225,14 +225,14 @@ Vous voyez qu'il est extrêmement simple en Python de lire ou d'écrire dans un 
 
 On peut avec l'instruction `with` ouvrir deux fichiers (ou plus) en même temps.
 Voyez l'exemple suivant :
-```
+```python
 with open("zoo.txt", "r") as fichier1, open("zoo2.txt", "w") as fichier2:
     for ligne in fichier1:
         fichier2.write("* " + ligne)
 ```
 
 Si le fichier `zoo.txt` contient le texte suivant :
-```
+```text
 souris
 girafe
 lion
@@ -240,7 +240,7 @@ singe
 ```
 
 alors le contenu de `zoo2.txt` sera :
-```
+```text
 * souris
 * girafe
 * lion
@@ -303,7 +303,7 @@ Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de
 Créez un script Python qui lit chaque ligne de ce fichier, extrait les notes sous forme de *float* et les stocke dans une liste.
 
 Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une note par ligne suivie de « recalé » si la note est inférieure à 10 et « admis » si la note est supérieure ou égale à 10. Toutes les notes seront écrites avec une décimale. À titre d'exemple, voici les 3 premières lignes attendues pour le fichier `notes2.txt` :
-```
+```text
 13.5 admis
 17.0 admis
 9.5 recalé
@@ -332,7 +332,7 @@ Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module
 `import math`
 
 La fonction sinus sera `math.sin()` et la fonction cosinus `math.cos()`. Ces deux fonctions prennent comme argument une valeur d'angle en radian. La constante mathématique $\pi$ sera également accessible grâce à ce module via `math.pi`. Par exemple :
-```
+```python
 >>> math.sin(0)
 0.0
 >>> math.sin(math.pi/2)
@@ -348,7 +348,7 @@ Sauvegardez ensuite les coordonnées cartésiennes dans le fichier `spirale.dat`
 - les coordonnées affichées sur 10 caractères avec 5 chiffres après la virgule.
 
 Les premières lignes de `spirale.dat` devrait ressembler à :
-```
+```text
    0.50000    0.00000
    0.59700    0.05990
    0.68605    0.13907
@@ -360,7 +360,7 @@ Les premières lignes de `spirale.dat` devrait ressembler à :
 
 Une fois que vous avez généré le fichier `spirale.dat`, visualisez votre spirale avec le code suivant (que vous pouvez recopier dans un autre script ou à la suite de votre script `spirale.py`) :
 
-```
+```python
 import matplotlib.pyplot as plt
 
 x = []

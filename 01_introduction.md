@@ -53,7 +53,7 @@ L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire 
 
 Dans cet ouvrage, les commandes, les instructions Python, les résultats et les contenus de fichiers
 sont indiqués avec `cette police` pour les éléments ponctuels ou
-```
+```text
 sous cette forme,
 sur plusieurs lignes,
 pour les éléments les plus longs.
@@ -131,13 +131,13 @@ Tapez par exemple l'instruction :
 puis validez cette commande en appuyant sur la touche *Entrée*.
 
 Python a exécuté la commande directement et a affiché le texte `Hello world!`. Il attend ensuite votre prochaine instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a dû apparaître sur votre écran :
-```
+```python
 >>> print("Hello world!")
 Hello world!
 >>>
 ```
 Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteur comme d'une calculatrice :
-```
+```python
 >>> 1+1
 2
 >>> 6*3
@@ -170,7 +170,7 @@ Pour exécuter votre script, ouvrez un *shell*  et entrez la commande :
 `python test.py`
 
 Vous devriez obtenir un résultat similaire à ceci :
-```
+```bash
 $ python test.py
 Hello world!
 ```
@@ -188,7 +188,7 @@ L'utilisation des commentaires est rediscutée dans le chapitre 15 *Bonnes prati
 
 Voici un exemple :
 
-```
+```python
 # Votre premier commentaire en  Python.
 print('Hello world!')
 

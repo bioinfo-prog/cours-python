@@ -31,7 +31,7 @@ Enfin, dans l'instruction `x = y - 3`, l'opération `y - 3` est d'abord évalué
 Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers (*integer* ou *int*), les nombres décimaux que nous appellerons *floats* et les chaînes de caractères (*string* ou *str*). Bien sûr, il existe de nombreux autres types (par exemple, les booléens, les nombres complexes, etc.). Si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/fr/3.7/library/stdtypes.html).
 
 Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la variable `x`, mais il est tout à fait possible de stocker des *floats*, des chaînes de caractères (*string* ou *str*) ou de nombreux autres types de variable que nous verrons par la suite :
-```
+```python
 >>> y = 3.14
 >>> y
 3.14
@@ -73,7 +73,7 @@ Enfin, Python est sensible à la casse, ce qui signifie que les variables `TesT`
 ## Écriture scientifique
 
 On peut écrire des nombres très grands ou très petits avec des puissances de 10 en utilisant le symbole `e` :
-```
+```python
 >>> 1e6
 1000000.0
 >>> 3.12e-3
@@ -87,7 +87,7 @@ On appelle cela écriture ou notation scientifique. On pourra noter deux choses 
 
 Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des nombres composés de beaucoup de chiffres, par exemple le nombre d'Avogradro $6.02214076 \times 10^{23}$ ou le nombre d'humains sur Terre (au 26 août 2020) 7807568245. Pour s'y retrouver, Python autorise l'utilisation du caractère « souligné » (ou *underscore*) `_` pour séparer des groupes de chiffres. Par exemple :
 
-```
+```python
 >>> avogadro_number = 6.022_140_76e23
 >>> print(avogadro_number)
 6.02214076e+23
@@ -97,7 +97,7 @@ Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des n
 ```
 
 Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de 3 chiffres mais on peut faire ce qu'on veut :
-```
+```python
 >>> print(7_80_7568_24_5)
 7807568245
 ```
@@ -108,7 +108,7 @@ Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de 3
 ### Opérations sur les types numériques
 
 Les quatre opérations arithmétiques de base se font de manière simple sur les types numériques (nombres entiers et *floats*) :
-```
+```python
 >>> x = 45
 >>> x + 2
 47
@@ -125,7 +125,7 @@ Les quatre opérations arithmétiques de base se font de manière simple sur les
 Remarquez toutefois que si vous mélangez les types entiers et *floats*, le résultat est renvoyé comme un *float* (car ce type est plus général). Par ailleurs, l'utilisation de parenthèses permet de gérer les priorités.
 
 L'opérateur `/` effectue une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
-```
+```python
 >>> 3 / 4
 0.75
 >>> 2.5 / 2
@@ -133,7 +133,7 @@ L'opérateur `/` effectue une division. Contrairement aux opérateurs `+`, `-` e
 ```
 
 L'opérateur puissance utilise les symboles `**` :
-```
+```python
 >>> 2**3
 8
 >>> 2**4
@@ -142,7 +142,7 @@ L'opérateur puissance utilise les symboles `**` :
 
 Pour obtenir le quotient et le reste d'une division entière (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo `%` :
 
-```
+```python
 >>> 5 // 4
 1
 >>> 5 % 4
@@ -157,7 +157,7 @@ Les symboles `+`, `-`, `*`, `/`, `**`, `//` et `%` sont appelés **opérateurs**
 
 Enfin, il existe des opérateurs « combinés » qui effectue une opération et une affectation en une seule étape :
 
-```
+```python
 >>> i = 0
 >>> i = i + 1
 >>> i
@@ -177,7 +177,7 @@ Les opérateurs `-=`, `*=` et `/=` se comportent de manière similaire pour la s
 ### Opérations sur les chaînes de caractères
 
 Pour les chaînes de caractères, deux opérations sont possibles, l'addition et la multiplication :
-```
+```python
 >>> chaine = "Salut"
 >>> chaine
 'Salut'
@@ -201,7 +201,7 @@ close-box-warn
 ### Opérations illicites
 
 Attention à ne pas faire d'opération illicite car vous obtiendriez un message d'erreur :
-```
+```python
 >>> "toto" * 1.3
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -218,7 +218,7 @@ Notez que Python vous donne des informations dans son message d'erreur. Dans le 
 ## La fonction `type()`
 
 Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type()` qui vous le rappellera.
-```
+```python
 >>> x = 2
 >>> type(x)
 <class 'int'>
@@ -245,7 +245,7 @@ close-box-warn
 ## Conversion de types
 
 En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`, `float()` et `str()`. Pour vous en convaincre, regardez ces exemples :
-```
+```python
 >>> i = 3
 >>> str(i)
 '3'
@@ -267,7 +267,7 @@ Toute conversion d'une variable d'un type en un autre est appelé *casting* en a
 ## Note sur la division de deux nombres entiers
 
 Notez bien qu'en Python 3, la division de deux nombres entiers renvoie par défaut un *float* :
-```
+```python
 >>> x = 3 / 4
 >>> x
 0.75
@@ -295,7 +295,7 @@ Si ces notions vous semblent obscures, ne vous inquiétez pas, au fur et à mesu
 
 Python propose les fonctions `min()` et `max()` qui renvoient respectivement le minimum et le maximum de plusieurs entiers et / ou *floats* :
 
-```
+```python
 >>> min(1, -2, 4)
 -2
 >>> pi = 3.14

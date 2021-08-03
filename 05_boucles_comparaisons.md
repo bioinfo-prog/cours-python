@@ -7,7 +7,7 @@
 En programmation, on est souvent amené à répéter plusieurs fois une instruction. Incontournables à tout langage de programmation, les boucles vont nous aider à réaliser cette tâche de manière compacte et efficace.
 
 Imaginez par exemple que vous souhaitiez afficher les éléments d'une liste les uns après les autres. Dans l'état actuel de vos connaissances, il faudrait taper quelque chose du style :
-```
+```python
 animaux = ['girafe', 'tigre', 'singe', 'souris']
 print(animaux[0])
 print(animaux[1])
@@ -16,7 +16,7 @@ print(animaux[3])
 ```
 
 Si votre liste ne contient que 4 éléments, ceci est encore faisable mais imaginez qu'elle en contienne 100 voire 1000 ! Pour remédier à cela, il faut utiliser les boucles. Regardez l'exemple suivant :
-```
+```python
 >>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for animal in animaux:
 ...     print(animal)
@@ -41,7 +41,7 @@ Les notions de bloc d'instruction et d'indentations avait été abordées rapide
 close-box-rem
 
 Dans l'exemple suivant, le corps de la boucle contient deux instructions : `print(animal)` et `print(animal*2)` car elles sont indentées par rapport à la ligne débutant par `for` :
-```
+```python
 for animal in animaux:
     print(animal)
     print(animal*2)
@@ -59,7 +59,7 @@ Faites en sorte de configurer votre éditeur de texte favori de façon à écrir
 close-box-rem
 
 Si on oublie l'indentation, Python renvoie un message d'erreur :
-```
+```python
 >>> for animal in animaux:
 ... print(animal)
   File "<stdin>", line 2
@@ -69,7 +69,7 @@ IndentationError: expected an indented block
 ```
 
 Dans les exemples ci-dessus, nous avons exécuté une boucle en itérant directement sur une liste. Une tranche d'une liste étant elle même une liste, on peut également itérer dessus :
-```
+```python
 >>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for animal in animaux[1:3]:
 ...     print(animal)
@@ -79,7 +79,7 @@ singe
 ```
 
 On a vu que les boucles `for` pouvaient utiliser une liste contenant des chaînes de caractères, mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou n'importe quel type de variable).
-```
+```python
 >>> for i in [1, 2, 3]:
 ...     print(i)
 ...
@@ -92,7 +92,7 @@ On a vu que les boucles `for` pouvaient utiliser une liste contenant des chaîne
 ### Fonction `range()`
 
 Python possède la fonction `range()` que nous avons rencontrée précédemment dans le chapitre 4 sur les *Listes* et qui est aussi bien commode pour faire une boucle sur une liste d'entiers de manière automatique :
-```
+```python
 >>> for i in range(4):
 ...     print(i)
 ...
@@ -122,7 +122,7 @@ Si, par contre, vous itérez sur une liste comportant des chaînes de caractère
 ### Itération sur les indices
 
 Revenons à notre liste `animaux`. Nous allons maintenant parcourir cette liste, mais cette fois par une itération sur ses indices :
-```
+```python
 >>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for i in range(4):
 ...     print(animaux[i])
@@ -136,7 +136,7 @@ souris
 La variable `i` prendra les valeurs successives 0, 1, 2 et 3 et on accèdera à chaque élément de la liste `animaux` par son indice (*i.e.* `animaux[i]`). Notez à nouveau le nom `i` de la variable d'itération car on itère sur les **indices**.
 
 Quand utiliser l'une ou l'autre des 2 méthodes ? La plus efficace est celle qui réalise **les itérations directement sur les éléments** :
-```
+```python
 >>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for animal in animaux:
 ...     print(animal)
@@ -147,7 +147,7 @@ singe
 souris
 ```
 Toutefois, il se peut qu'au cours d'une boucle vous ayez besoin des indices, auquel cas vous devrez itérer sur les indices :
-```
+```python
 >>> animaux = ['girafe', 'tigre', 'singe', 'souris']
 >>> for i in range(len(animaux)):
 ...     print(f"L'animal {i} est un(e) {animaux[i]}")
@@ -158,7 +158,7 @@ L'animal 2 est un(e) singe
 L'animal 3 est un(e) souris
 ```
 Python possède toutefois la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
-```
+```python
 >>> animaux = ['girafe','tigre','singe','souris']
 >>> for i, animal in enumerate(animaux):
 ...     print(f"L'animal {i} est un(e) {animaux[i]}")
@@ -185,7 +185,7 @@ Python est capable d'effectuer toute une série de comparaisons entre le contenu
 |      `<=`      | inférieur ou égal à |
 
 Observez les exemples suivants avec des nombres entiers.
-```
+```python
 >>> x = 5
 >>> x == 5
 True
@@ -199,7 +199,7 @@ Python renvoie la valeur `True` si la comparaison est vraie et `False` si elle e
 Faites bien attention à ne pas confondre l'**opérateur d'affectation** `=` qui affecte une valeur à une variable et l'**opérateur de comparaison** `==` qui compare les valeurs de deux variables.
 
 Vous pouvez également effectuer des comparaisons sur des chaînes de caractères.
-```
+```python
 >>> animal = "tigre"
 >>> animal == "tig"
 False
@@ -209,12 +209,12 @@ True
 True
 ```
 Dans le cas des chaînes de caractères, *a priori* seuls les tests `==` et `!=` ont un sens. En fait, on peut aussi utiliser les opérateurs `<`, `>`, `<=` et `>=`. Dans ce cas, l'ordre alphabétique est pris en compte, par exemple :
-```
+```python
 >>> "a" < "b"
 True
 ```
 `"a"` est *inférieur à* `"b"` car le caractère *a* est situé avant le caractère *b* dans l'ordre alphabétique. En fait, c'est l'ordre [ASCII](http://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange) des caractères qui est pris en compte (à  chaque caractère correspond un code numérique), on peut donc aussi comparer des caractères spéciaux (comme `#` ou `~`) entre eux. Enfin, on peut comparer des chaînes de caractères de plusieurs caractères :
-```
+```python
 >>> "ali" < "alo"
 True
 >>> "abb" < "ada"
@@ -226,7 +226,7 @@ Dans ce cas, Python compare les deux chaînes de caractères, caractère par car
 ## Boucles `while`
 
 Une autre alternative à l'instruction `for` couramment utilisée en informatique est la boucle `while`. Le principe est simple. Une série d'instructions est exécutée tant qu'une condition est vraie. Par exemple :
-```
+```python
 >>> i = 1
 >>> while i <= 4:
 ...     print(i)
@@ -246,7 +246,7 @@ Une boucle `while` nécessite généralement **trois éléments** pour fonctionn
 3. Mise à jour de la variable d'itération dans le corps de la boucle (ligne 4).
 
 Faites bien attention aux tests et à l'incrémentation que vous utilisez car une erreur mène souvent à des « boucles infinies » qui ne s'arrêtent jamais. Vous pouvez néanmoins toujours stopper l'exécution d'un script Python à l'aide de la combinaison de touches *Ctrl-C* (c'est-à-dire en pressant simultanément les touches *Ctrl* et *C*). Par exemple :
-```
+```python
 i = 0
 while i < 10:
     print("Le python c'est cool !")
@@ -255,7 +255,7 @@ Ici, nous avons omis de mettre à jour la variable `i` dans le corps de la boucl
 
 La boucle `while` combinée à la fonction `input()` peut s'avérer commode lorsqu'on souhaite demander à l'utilisateur une valeur numérique. Par exemple :
 
-```
+```python
 >>> i = 0
 >>> while i < 10:
 ...     reponse = input("Entrez un entier supérieur à 10 : ")
@@ -311,7 +311,7 @@ Avez les fonctions `list()` et `range()`, créez la liste `entiers` contenant le
 
 Calculez ensuite le produit des nombres consécutifs deux à deux de `entiers` en utilisant une boucle. Exemple pour les premières itérations :
 
-```
+```text
 8
 24
 48
@@ -322,7 +322,7 @@ Calculez ensuite le produit des nombres consécutifs deux à deux de `entiers` e
 ### Triangle
 
 Créez un script qui dessine un triangle comme celui-ci :
-```
+```text
 *
 **
 ***
@@ -339,7 +339,7 @@ Créez un script qui dessine un triangle comme celui-ci :
 ### Triangle inversé
 
 Créez un script qui dessine un triangle comme celui-ci :
-```
+```text
 **********
 *********
 ********
@@ -356,7 +356,7 @@ Créez un script qui dessine un triangle comme celui-ci :
 ### Triangle gauche
 
 Créez un script qui dessine un triangle comme celui-ci :
-```
+```text
          *
         **
        ***
@@ -373,7 +373,7 @@ Créez un script qui dessine un triangle comme celui-ci :
 ### Pyramide
 
 Créez un script `pyra.py` qui dessine une pyramide comme celle-ci :
-```
+```text
          *
         ***
        *****
@@ -388,7 +388,7 @@ Créez un script `pyra.py` qui dessine une pyramide comme celle-ci :
 
 Essayez de faire évoluer votre script pour dessiner la pyramide à partir d'un nombre arbitraire de lignes `N`. Vous pourrez demander à l'utilisateur le nombre de lignes de la pyramide avec les instructions suivantes qui utilisent la fonction `input()` :
 
-```
+```python
 reponse = input("Entrez un nombre de lignes (entier positif): ")
 N = int(reponse)
 ```
@@ -402,7 +402,7 @@ Créez un script qui parcourt chaque élément de la matrice et qui affiche le n
 
 Pour une matrice 2 $\times$ 2, le schéma de la figure @fig:parcoursmatrice vous indique comment parcourir une telle matrice. L'affichage attendu est :
 
-```
+```text
 ligne colonne
    1    1
    1    2
@@ -424,7 +424,7 @@ En se basant sur le script précédent, on souhaite réaliser le parcours d'une 
 ![Demi-matrice sans la diagonale (en gris).](img/demi-matrice-sans-diag.png "Demi-matrice sans la diagonale (en gris)"){ #fig:demimatrice width=30% }
 
 Créez un script qui affiche le numéro de ligne et de colonne, puis la taille de la matrice $N \times N$ et le nombre total de cases parcourues. Par exemple pour une matrice 4 $\times$ 4 (N=4) :
-```
+```text
 ligne colonne
    1    2
    1    3

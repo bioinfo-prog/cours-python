@@ -13,7 +13,7 @@ Vous connaissez déjà certaines fonctions Python. Par exemple `math.cos(angle)`
 ![Fonctionnement schématique d'une fonction.](img/schema_fonction.png){ #fig:schema_fonction width=90% }
 
 Par exemple, si vous appelez la fonction `len()` de la manière suivante :
-```
+```python
 >>> len([0, 1, 2])
 3
 ```
@@ -26,7 +26,7 @@ voici ce qui se passe :
 
 Autre exemple, si vous appelez la méthode `ma_liste.append()` (n'oubliez pas, une **méthode** est une **fonction** qui agit sur l'objet auquel elle est attachée par un point) :
 
-```
+```python
 >>> ma_liste.append(5)
 ```
 
@@ -46,7 +46,7 @@ Pour finir sur les généralités, nous avons utilisé dans la Figure @fig:schem
 ## Définition
 
 Pour définir une fonction, Python utilise le mot-clé `def`. Si on souhaite que la fonction renvoie quelque chose, il faut utiliser le mot-clé `return`. Par exemple :
-```
+```python
 >>> def carre(x):
 ...     return x**2
 ...
@@ -56,14 +56,14 @@ Pour définir une fonction, Python utilise le mot-clé `def`. Si on souhaite que
 Notez que la syntaxe de `def` utilise les deux-points comme les boucles `for` et `while` ainsi que les tests `if`, un bloc d’instructions est donc attendu. De même que pour les boucles et les tests, l'**indentation** de ce bloc d'instructions (qu'on appelle le corps de la fonction) est **obligatoire**.
 
 Dans l'exemple précédent, nous avons passé un argument à la fonction `carre()` qui nous a renvoyé (ou retourné) une valeur que nous avons immédiatement affichée à l'écran avec l'instruction `print()`. Que veut dire valeur renvoyée ? Et bien cela signifie que cette dernière est récupérable dans une variable :
-```
+```python
 >>> res = carre(2)
 >>> print(res)
 4
 ```
 Ici, le résultat renvoyé par la fonction est stocké dans la variable `res`.
 Notez qu'une fonction ne prend pas forcément un argument et ne renvoie pas forcément une valeur, par exemple :
-```
+```python
 >>> def hello():
 ...     print("bonjour")
 ...
@@ -71,7 +71,7 @@ Notez qu'une fonction ne prend pas forcément un argument et ne renvoie pas forc
 bonjour
 ```
 Dans ce cas la fonction, `hello()` se contente d'afficher la chaîne de caractères `"bonjour"` à l'écran. Elle ne prend aucun argument et ne renvoie rien. Par conséquent, cela n'a pas de sens de vouloir récupérer dans une variable le résultat renvoyé par une telle fonction. Si on essaie tout de même, Python affecte la valeur `None` qui signifie *rien* en anglais:
-```
+```python
 >>> var = hello()
 bonjour
 >>> print(var)
@@ -85,7 +85,7 @@ Ceci n'est pas une faute car Python n'émet pas d'erreur, toutefois cela ne pré
 Le nombre d'arguments que l'on peut passer à une fonction est variable. Nous avons vu ci-dessus des fonctions auxquelles on passait 0 ou 1 argument. Dans les chapitres précédents, vous avez rencontré des fonctions internes à Python qui prenaient au moins 2 arguments. Souvenez-vous par exemple de `range(1, 10)` ou encore `range(1, 10, 2)`. Le nombre d'argument est donc laissé libre à l'initiative du programmeur qui développe une nouvelle fonction.
 
 Une particularité des fonctions en Python est que vous n'êtes pas obligé de préciser le type des arguments que vous lui passez, dès lors que les opérations que vous effectuez avec ces arguments sont valides. Python est en effet connu comme étant un langage au « typage dynamique », c'est-à-dire qu'il reconnaît pour vous le type des variables au moment de l'exécution. Par exemple :
-```
+```python
 >>> def fois(x, y):
 ...     return x*y
 ...
@@ -105,7 +105,7 @@ L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de cara
 ## Renvoi de résultats
 
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs objets à la fois, comme dans cette fraction de code :
-```
+```python
 >>> def carre_cube(x):
 ...     return x**2, x**3
 ...
@@ -113,7 +113,7 @@ Un énorme avantage en Python est que les fonctions sont capables de renvoyer pl
 (4, 8)
 ```
 En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séquentiel, c'est-à-dire contenir lui même d'autres objets. Dans notre exemple Python renvoie un objet de type `tuple`, type que nous verrons dans le chapitre 13 *Dictionnaires et tuples* (*grosso modo*, il s'agit d'une sorte de liste avec des propriétés différentes). Notre fonction pourrait tout autant renvoyer une liste :
-```
+```python
 >>> def carre_cube2(x):
 ...     return [x**2, x**3]
 ...
@@ -121,7 +121,7 @@ En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séque
 [9, 27]
 ```
 Renvoyer un *tuple* ou une liste de deux éléments (ou plus) est très pratique en conjonction avec l'**affectation multiple**, par exemple :
-```
+```python
 >>> z1, z2 = carre_cube2(3)
 >>> z1
 9
@@ -135,7 +135,7 @@ Cela permet de récupérer plusieurs valeurs renvoyées par une fonction et de l
 
 Jusqu'à maintenant, nous avons systématiquement passé le nombre d'arguments que la fonction attendait. Que se passe-t-il si une fonction attend deux arguments et que nous ne lui en passons qu'un seul ?
 
-```
+```python
 >>> def fois(x, y):
 ...     return x*y
 ...
@@ -157,7 +157,7 @@ close-box-def
 
 Mais il est aussi possible de passer un ou plusieurs argument(s) de manière facultative et de leur attribuer une valeur par défaut :
 
-```
+```python
 >>> def fct(x=1):
 ...     return x
 ...
@@ -175,7 +175,7 @@ close-box-def
 
 Il est bien sûr possible de passer plusieurs arguments par mot-clé :
 
-```
+```python
 >>> def fct(x=0, y=0, z=0):
 ...     return x, y, z
 ...
@@ -191,14 +191,14 @@ Il est bien sûr possible de passer plusieurs arguments par mot-clé :
 
 On observe que pour l'instant, les arguments par mot-clé sont pris dans l'ordre dans lesquels on les passe lors de l'appel. Comment pourrions-nous faire si on souhaitait préciser l'argument par mot-clé `z` et garder les valeurs de `x` et `y` par défaut ? Simplement en  précisant le nom de l'argument lors de l'appel :
 
-```
+```python
 >>> fct(z=10)
 (0, 0, 10)
 ```
 
 Python permet même de rentrer les arguments par mot-clé dans un ordre arbitraire :
 
-```
+```python
 >>> fct(z=10, x=3, y=80)
 (3, 80, 10)
 >>> fct(z=10, y=80)
@@ -207,7 +207,7 @@ Python permet même de rentrer les arguments par mot-clé dans un ordre arbitrai
 
 Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et par mot-clé ? Et bien les arguments positionnels doivent toujours être placés avant les arguments par mot-clé :
 
-```
+```python
 >>> def fct(a, b, x=0, y=0, z=0):
 ...     return a, b, x, y, z
 ...
@@ -221,7 +221,7 @@ Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et par
 
 On peut toujours passer les arguments par mot-clé dans un ordre arbitraire à partir du moment où on précise leur nom. Par contre, si les deux arguments positionnels `a` et `b` ne sont pas passés à la fonction, Python renvoie une erreur.
 
-```
+```python
 >>> fct(z=0)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -235,7 +235,7 @@ Préciser le nom des arguments par mot-clé lors de l'appel d'une fonction est u
 close-box-adv
 
 L'utilisation d'arguments par mot-clé est habituelle en Python. Elle permet de modifier le comportement par défaut de nombreuses fonctions. Par exemple, si on souhaite que la fonction `print()` n'affiche pas un retour à la ligne, on peut utiliser l'argument `end` :
-```
+```python
 >>> print("Message ", end="")
 Message >>>
 ```
@@ -249,7 +249,7 @@ Lorsqu'on manipule des fonctions, il est essentiel de bien comprendre comment se
 Une variable est dite **globale** lorsqu'elle est créée dans le programme principal. Elle sera visible partout dans le programme.
 
 Ceci ne vous paraît pas clair ? Nous allons prendre un exemple simple qui vous aidera à mieux saisir ces concepts. Observez le code suivant :
-```
+```python
 # définition d'une fonction carre()
 def carre(x):
     y = x**2
@@ -332,7 +332,7 @@ Enfin, comme vous avez pu le constater, *Python Tutor* nous a grandement aidé �
 ### Carré et factorielle
 
 Reprenez l'exemple précédent à l'aide du site [*Python Tutor*](http://www.pythontutor.com) :
-```
+```python
 # définition d'une fonction carre()
 def carre(x):
     y = x**2
@@ -373,7 +373,7 @@ close-box-rem
 
 Créez une fonction `calc_puissance(x, y)` qui renvoie $x^y$ en utilisant l'opérateur `**`. Pour rappel :
 
-```
+```python
 >>> 2**2
 4
 >>> 2**3
@@ -382,7 +382,7 @@ Créez une fonction `calc_puissance(x, y)` qui renvoie $x^y$ en utilisant l'opé
 16
 ```
 Dans le programme principal, calculez et affichez à l'écran $2^i$ avec $i$ variant de 0 à 20 inclus. On souhaite que le résultat soit présenté avec le formatage suivant :
-```
+```text
 2^ 0 =       1
 2^ 1 =       2
 2^ 2 =       4
@@ -403,7 +403,7 @@ Dans un script `pyra.py`, créez une fonction `gen_pyramide()` à laquelle vous 
 Reprenez l'exercice du chapitre 6 *Tests* sur les nombres premiers.
 
 Créez une fonction `est_premier()` qui prend comme argument un nombre entier positif *n* (supérieur à 2) et qui renvoie le booléen `True` si *n* est premier et `False` si *n* n'est pas premier. Déterminez tous les nombres premiers de 2 à 100. On souhaite avoir une sortie similaire à celle-ci :
-```
+```text
   2 est premier
   3 est premier
   4 n'est pas premier
@@ -437,7 +437,7 @@ $$
 ### Distribution et statistiques
 
 Créez une fonction `gen_distrib()` qui prend comme argument trois entiers : *debut*, *fin* et *n*. La fonction renverra une liste de $n$ *floats* aléatoires entre *debut* et *fin*. Pour générer un nombre aléatoire dans un intervalle donné, utilisez la fonction `uniform()` du module *random* dont voici quelques exemple d'utilisation :
-```
+```python
 >>> import random
 >>> random.uniform(1, 10)
 8.199672607202174
@@ -453,7 +453,7 @@ Créez une autre fonction `calc_stat()` qui prend en argument une liste de *floa
 Dans le programme principal, générez 20 listes aléatoires de 100 *floats* compris entre 0 et 100 et affichez le minimum (`min()`), le maximum (`max()`) et la moyenne pour chacune d'entre elles. La moyenne pourra être calculée avec les fonctions `sum()` et `len()`.
 
 Pour chacune des 20 listes, affichez les statistiques (min, max, et moyenne) avec deux chiffres après la virgule :
-```
+```text
 Liste  1 : min = 0.17 ; max = 99.72 ; moyenne = 57.38
 Liste  2 : min = 1.25 ; max = 99.99 ; moyenne = 47.41
 [...]
@@ -479,7 +479,7 @@ Votre programme générera un fichier `sin2ori.dat` qui contiendra deux colonnes
 
 Enfin, pour visualiser votre résultat, ajoutez le code suivant tout à la fin de votre script :
 
-```
+```python
 # création d'une image pour la visualisation du résultat
 import matplotlib.pyplot as plt
 

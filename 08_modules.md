@@ -12,7 +12,7 @@ La plupart de ces modules sont déjà installés dans les versions standards de 
 ## Importation de modules
 
 Dans les chapitres précédents, nous avons rencontré la notion de module plusieurs fois. Notamment lorsque nous avons voulu tirer un nombre aléatoire :
-```
+```python
 >>> import random
 >>> random.randint(0, 10)
 4
@@ -25,7 +25,7 @@ Regardons de plus près cet exemple :
 
 Nous avons également croisé le module *math* lors de l'exercice sur la spirale (voir chapitre 7 *Fichiers*). Ce module nous a donné accès aux fonctions trigonométriques sinus et cosinus, et à la constante $\pi$ :
 
-```
+```python
 >>> import math
 >>> math.cos(math.pi / 2)
 6.123233995736766e-17
@@ -51,7 +51,7 @@ Si cela vous parait encore ardu, ne vous inquiétez pas, c'est à force de prati
 close-box-rem
 
 Il existe un autre moyen d'importer une ou plusieurs fonctions d'un module :
-```
+```python
 >>> from random import randint
 >>> randint(0,10)
 7
@@ -60,7 +60,7 @@ Il existe un autre moyen d'importer une ou plusieurs fonctions d'un module :
 À l'aide du mot-clé `from`, on peut importer une fonction spécifique d'un module donné. Remarquez bien qu'il est inutile de répéter le nom du module dans ce cas, seul le nom de la fonction en question est requis.
 
 On peut également importer toutes les fonctions d'un module :
-```
+```python
 >>> from random import *
 >>> x = [1, 2, 3, 4]
 >>> shuffle(x)
@@ -77,20 +77,20 @@ On peut également importer toutes les fonctions d'un module :
 L'instruction `from random import *` importe toutes les fonctions du module *random*. On peut ainsi utiliser toutes ses fonctions directement, comme par exemple `shuffle()` qui permute une liste aléatoirement.
 
 Dans la pratique, plutôt que de charger toutes les fonctions d'un module en une seule fois :
-```
+```python
 from random import *
 ```
 nous vous conseillons de charger le module seul de la manière suivante :
-```
+```python
 import random
 ```
 puis d'appeler explicitement les fonctions voulues, par exemple :
-```
+```python
 random.randint(0,2)
 ```
 
 Il est également possible de définir un alias (un nom plus court) pour un module :
-```
+```python
 >>> import random as rand
 >>> rand.randint(1, 10)
 6
@@ -101,7 +101,7 @@ Dans cet exemple, les fonctions du module *random* sont accessibles via l'alias 
 
 
 Enfin, pour vider de la mémoire un module déjà chargé, on peut utiliser l'instruction `del` :
-```
+```python
 >>> import random
 >>> random.randint(0,10)
 2
@@ -117,14 +117,14 @@ On constate alors qu'un rappel (ligne 5) d'une fonction du module *random* aprè
 ## Obtenir de l'aide sur les modules importés
 
 Pour obtenir de l'aide sur un module rien de plus simple, il suffit d'utiliser la commande `help()` :
-```
+```python
 >>> import random
 >>> help(random)
 [...]
 ```
 
 Ce qui renvoie quelque chose du type :
-```
+```text
 Help on module random:
 
 NAME
@@ -162,7 +162,7 @@ close-box-rem
 
 
 La commande `help()` est en fait une commande plus générale permettant d'avoir de l'aide sur n'importe quel objet chargé en mémoire.
-```
+```python
 >>> t = [1, 2, 3]
 >>> help(t)
 Help on list object:
@@ -180,7 +180,7 @@ class list(object)
 ```
 
 Enfin, pour connaître d'un seul coup d’œil toutes les méthodes ou variables associées à un objet, utilisez la fonction `dir()` :
-```
+```python
 >>> import random
 >>> dir(random)
 ['BPF', 'LOG4', 'NV_MAGICCONST', 'RECIP_BPF', 'Random', 'SG_MAGICCONST',
@@ -222,13 +222,13 @@ Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas in
 Le module [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) contient des fonctions et des variables spécifiques à l'interpréteur Python lui-même. Ce module est particulièrement intéressant pour récupérer les arguments passés à un script Python lorsque celui-ci est appelé en ligne de commande.
 
 Dans cet exemple, créons le court script suivant que l'on enregistrera sous le nom `test.py ` :
-```
+```python
 import sys
 print(sys.argv)
 ```
 
 Ensuite, dans un *shell*, exécutons le script `test.py` suivi de plusieurs arguments. Par exemple :
-```
+```bash
 $ python test.py salut girafe 42
 ['test.py', 'salut', 'girafe', '42']
 ```
