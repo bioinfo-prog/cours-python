@@ -548,8 +548,8 @@ mini = min(theta) * 1.2
 maxi = max(theta) * 1.2
 plt.xlim(0, max(t))
 plt.ylim(mini, maxi)
-plt.xlabel('t (s)')
-plt.ylabel('theta (deg)')
+plt.xlabel("t (s)")
+plt.ylabel("theta (deg)")
 plt.plot(t, theta)
 plt.savefig("pendule_basic.png")
 ```

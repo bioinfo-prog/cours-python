@@ -4,9 +4,9 @@
 
 Une **liste** est une structure de données qui contient une série de valeurs. Python autorise la construction de liste contenant des valeurs de types différents (par exemple entier et chaîne de caractères), ce qui leur confère une grande flexibilité. Une liste est déclarée par une série de valeurs (n'oubliez pas les guillemets, simples ou doubles, s'il s'agit de chaînes de caractères) séparées par des **virgules**, et le tout encadré par des **crochets**. En voici quelques exemples :
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> tailles = [5, 2.5, 1.75, 0.15]
->>> mixte = ['girafe', 5, 'souris', 0.15]
+>>> mixte = ["girafe", 5, "souris", 0.15]
 >>> animaux
 ['girafe', 'tigre', 'singe', 'souris']
 >>> tailles
@@ -22,12 +22,12 @@ Lorsque l'on affiche une liste, Python la restitue telle qu'elle a été saisie.
 
 Un des gros avantages d'une liste est que vous pouvez appeler ses éléments par leur position. Ce numéro est appelé **indice** (ou *index*) de la liste.
 ```text
-liste  : ['girafe', 'tigre', 'singe', 'souris']
+liste  : ["girafe", "tigre", "singe", "souris"]
 indice :        0        1        2         3
 ```
 Soyez très **attentifs** au fait que les indices d'une liste de *n* éléments commence à *0* et se termine à *n-1*. Voyez l'exemple suivant :
 ```python
->>> animaux = ['girafe','tigre','singe','souris']
+>>> animaux = ["girafe","tigre","singe","souris"]
 >>> animaux[0]
 'girafe'
 >>> animaux[1]
@@ -51,8 +51,8 @@ N'oubliez pas ceci ou vous risquez d'obtenir des bugs inattendus !
 
 Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de concaténation, ainsi que l'opérateur `*` pour la duplication :
 ```python
->>> ani1 = ['girafe', 'tigre']
->>> ani2 = ['singe', 'souris']
+>>> ani1 = ["girafe", "tigre"]
+>>> ani2 = ["singe", "souris"]
 >>> ani1 + ani2
 ['girafe', 'tigre', 'singe', 'souris']
 >>> ani1 * 3
@@ -97,20 +97,20 @@ Nous reverrons en détail la méthode `.append()` dans le chapitre 11 *Plus sur 
 
 La liste peut également être indexée avec des nombres négatifs selon le modèle suivant :
 ```text
-liste          : ['girafe', 'tigre', 'singe', 'souris']
+liste          : ["girafe", "tigre", "singe", "souris"]
 indice positif :        0        1        2         3
 indice négatif :       -4       -3       -2        -1
 ```
 ou encore :
 ```text
-liste          : ['A','B','C','D','E','F']
-indice positif :   0   1   2   3   4   5
-indice négatif :  -6  -5  -4  -3 - 2  -1
+liste          : ["A", "B", "C", "D", "E", "F"]
+indice positif :   0    1    2    3    4    5
+indice négatif :  -6   -5   -4   -3   -2   -1
 ```
 
 Les indices négatifs reviennent à compter à partir de la fin. Leur principal avantage est que vous pouvez accéder au dernier élément d'une liste à l'aide de l'indice `-1` sans pour autant connaître la longueur de cette liste. L'avant-dernier élément a lui l'indice `-2`, l'avant-avant dernier l'indice `-3`, etc.
 ```python
->>> animaux = ['girafe','tigre','singe','souris']
+>>> animaux = ["girafe","tigre","singe","souris"]
 >>> animaux[-1]
 'souris'
 >>> animaux[-2]
@@ -128,7 +128,7 @@ Dans ce cas, on utilise plutôt `animaux[0]`.
 
 Un autre avantage des listes est la possibilité de sélectionner une partie d'une liste en utilisant un indiçage construit sur le modèle `[m:n+1]` pour récupérer tous les éléments, du émième au énième (de l'élément `m` inclus à l'élément `n+1` exclu). On dit alors qu'on récupère une **tranche** de la liste, par exemple :
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> animaux[0:2]
 ['girafe', 'tigre']
 >>> animaux[0:3]
@@ -147,7 +147,7 @@ Notez que lorsqu'aucun indice n'est indiqué à gauche ou à droite du symbole d
 
 On peut aussi préciser le pas en ajoutant un symbole deux-points supplémentaire et en indiquant le pas par un entier.
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> animaux[0:3:2]
 ['girafe', 'singe']
 >>> x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -170,7 +170,7 @@ Finalement, on se rend compte que l'accès au contenu d'une liste fonctionne sur
 
 L'instruction `len()` vous permet de connaître la longueur d'une liste, c'est-à-dire le nombre d'éléments que contient la liste. Voici un exemple d'utilisation :
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> len(animaux)
 4
 >>> len([1, 2, 3, 4, 5, 6, 7, 8])
@@ -217,9 +217,9 @@ Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 
 
 Pour finir, sachez qu'il est tout à fait possible de construire des listes de listes. Cette fonctionnalité peut parfois être très pratique. Par exemple :
 ```python
->>> enclos1 = ['girafe', 4]
->>> enclos2 = ['tigre', 2]
->>> enclos3 = ['singe', 5]
+>>> enclos1 = ["girafe", 4]
+>>> enclos2 = ["tigre", 2]
+>>> enclos3 = ["singe", 5]
 >>> zoo = [enclos1, enclos2, enclos3]
 >>> zoo
 [['girafe', 4], ['tigre', 2], ['singe', 5]]

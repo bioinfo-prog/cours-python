@@ -93,7 +93,7 @@ Une particularité des fonctions en Python est que vous n'êtes pas obligé de p
 6
 >>> fois(3.1415, 5.23)
 16.430045000000003
->>> fois('to', 2)
+>>> fois("to", 2)
 'toto'
 >>> fois([1,3], 2)
 [1, 3, 1, 3]

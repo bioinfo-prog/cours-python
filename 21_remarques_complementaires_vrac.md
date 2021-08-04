@@ -1,4 +1,5 @@
 
+
 ## Shebang et /usr/bin/env python3
 
 Lorsque l'on programme sur un système Unix (Mac OS X ou Linux par exemple), on peut exécuter directement un script Python, sans appeler explicitement la commande `python`.
@@ -11,13 +12,13 @@ Pour cela, deux opérations sont nécessaires :
     ```
     Par exemple, si le script *test.py* contenait :
     ```
-    print('Hello World !')
+    print("Hello World !")
     ```
     il va alors contenir :
     ```
     #!/usr/bin/env python
 
-    print('Hello World !')
+    print("Hello World !")
     ```
 
 2. Rendre le script Python exécutable en lançant l'instruction :

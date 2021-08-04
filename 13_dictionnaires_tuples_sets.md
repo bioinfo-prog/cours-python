@@ -94,7 +94,7 @@ Toutefois, ce sont des objets « itérables », donc utilisables dans une boucle
 Enfin, il existe la méthode `.items()` qui renvoie un nouvel objet `dict_items` :
 
 ```
->>> dico = {0: 't', 1: 'o', 2: 't', 3: 'o'}
+>>> dico = {0: "t", 1: "o", 2: "t", 3: "o"}
 >>> dico.items()
 dict_items([(0, 't'), (1, 'o'), (2, 't'), (3, 'o')])
 ```
@@ -146,7 +146,7 @@ on obtient une structure qui ressemble à une base de données :
 'poids': 70, 'taille': 1.75}]
 >>>
 >>> for ani in animaux:
-...     print(ani['nom'])
+...     print(ani["nom"])
 ...
 girafe
 singe
@@ -478,7 +478,7 @@ close-box-adv
 Nous avons vu au chapitre 11 *Plus sur les listes* les listes de compréhension. Il est également possible de générer des dictionnaires de compréhension :
 
 ```
->>> dico = {'a': 10, 'g': 10, 't': 11, 'c': 15}
+>>> dico = {"a": 10, "g": 10, "t": 11, "c": 15}
 >>> dico.items()
 dict_items([('a', 10), ('g', 10), ('t', 11), ('c', 15)])
 >>> {key:val*2 for key, val in dico.items()}
@@ -543,7 +543,7 @@ En utilisant un dictionnaire, déterminez le nombre d’occurrences de chaque ac
 
 ### Mots de 2 et 3 lettres dans une séquence d'ADN
 
-Créez une fonction `compte_mots_2_lettres()` qui prend comme argument une séquence sous la forme d'une chaîne de caractères et qui renvoie tous les mots de 2 lettres qui existent dans la séquence sous la forme d'un dictionnaire. Par exemple pour la séquence `ACCTAGCCCTA`, le dictionnaire renvoyée serait :  
+Créez une fonction `compte_mots_2_lettres()` qui prend comme argument une séquence sous la forme d'une chaîne de caractères et qui renvoie tous les mots de 2 lettres qui existent dans la séquence sous la forme d'un dictionnaire. Par exemple pour la séquence `ACCTAGCCCTA`, le dictionnaire renvoyée serait :
 `{'AC': 1, 'CC': 3, 'CT': 2, 'TA': 2, 'AG': 1, 'GC': 1}`
 
 Créez une nouvelle fonction `compte_mots_3_lettres()` qui a un comportement similaire à `compte_mots_2_lettres()` mais avec des mots de 3 lettres.

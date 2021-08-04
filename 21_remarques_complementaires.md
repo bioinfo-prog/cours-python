@@ -319,7 +319,7 @@ if error:
     print(f"Erreur rencontrée : {error}")
 else:
     with open("proteine.pdb", "w") as prot:
-        prot.write(data.decode('utf-8'))
+        prot.write(data.decode("utf-8"))
     print("Protéine enregistrée")
 ```
 

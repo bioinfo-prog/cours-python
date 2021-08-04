@@ -205,7 +205,7 @@ Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le 
 >>> animaux = "girafe tigre singe"
 >>> re.search("tigre", animaux)
 <_sre.SRE_Match object at 0x7fefdaefe718>
->>> re.match('tigre', animaux)
+>>> re.match("tigre", animaux)
 >>>
 >>> animaux = "tigre singe"
 >>> re.match("tigre", animaux)
@@ -217,9 +217,9 @@ Il existe également la fonction `fullmatch()` qui renvoie un objet du type `SRE
 
 ```
 >>> animaux = "tigre "
->>> re.fullmatch('tigre', animaux)
+>>> re.fullmatch("tigre", animaux)
 >>> animaux = "tigre"
->>> re.fullmatch('tigre', animaux)
+>>> re.fullmatch("tigre", animaux)
 <_sre.SRE_Match object; span=(0, 5), match='tigre'>
 ```
 

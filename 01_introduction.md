@@ -190,7 +190,7 @@ Voici un exemple :
 
 ```python
 # Votre premier commentaire en  Python.
-print('Hello world!')
+print("Hello world!")
 
 # D'autres commandes plus utiles pourraient suivre.
 ```
