@@ -32,7 +32,7 @@ close-box-rem
 
 On peut aussi initialiser toutes les clés et les valeurs d'un dictionnaire en une seule opération :
 ```
->>> ani2 = {"nom":"singe", "poids":70, "taille":1.75}
+>>> ani2 = {"nom": "singe", "poids": 70, "taille": 1.75}
 ```
 Mais rien ne nous empêche d'ajouter une clé et une valeur supplémentaire :
 ```
@@ -59,7 +59,7 @@ Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionna
 
 Il est possible d'obtenir toutes les valeurs d'un dictionnaire à partir de ses clés :
 ```
->>> ani2 = {'nom':'singe', 'poids':70, 'taille':1.75}
+>>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
 >>> for key in ani2:
 ...     print(key, ani2[key])
 ...

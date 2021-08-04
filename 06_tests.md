@@ -267,7 +267,7 @@ Ces messages ne sont que des suggestions, vous pouvez laisser libre cours à vot
 
 La liste ci-dessous représente la séquence d'un brin d'ADN :
 
-`["A","C","G","T","T","A","G","C","T","A","A","C","G"]`
+`["A", "C", "G", "T", "T", "A", "G", "C", "T", "A", "A", "C", "G"]`
 
 Créez un script qui transforme cette séquence en sa séquence complémentaire.
 
@@ -283,7 +283,7 @@ La fonction `min()` de Python renvoie l'élément le plus petit d'une liste cons
 
 La liste ci-dessous représente une séquence d'acides aminés :
 
-`["A","R","A","W","W","A","W","A","R","W","W","R","A","G"]`
+`["A", "R", "A", "W", "W", "A", "W", "A", "R", "W", "W", "R", "A", "G"]`
 
 Calculez la fréquence des acides aminés alanine (A), arginine (R), tryptophane (W) et glycine (G) dans cette séquence.
 

@@ -27,7 +27,7 @@ indice :        0        1        2         3
 ```
 Soyez très **attentifs** au fait que les indices d'une liste de *n* éléments commence à *0* et se termine à *n-1*. Voyez l'exemple suivant :
 ```python
->>> animaux = ["girafe","tigre","singe","souris"]
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> animaux[0]
 'girafe'
 >>> animaux[1]
@@ -110,7 +110,7 @@ indice négatif :  -6   -5   -4   -3   -2   -1
 
 Les indices négatifs reviennent à compter à partir de la fin. Leur principal avantage est que vous pouvez accéder au dernier élément d'une liste à l'aide de l'indice `-1` sans pour autant connaître la longueur de cette liste. L'avant-dernier élément a lui l'indice `-2`, l'avant-avant dernier l'indice `-3`, etc.
 ```python
->>> animaux = ["girafe","tigre","singe","souris"]
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> animaux[-1]
 'souris'
 >>> animaux[-2]

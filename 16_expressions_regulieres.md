@@ -317,9 +317,9 @@ Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants
 
 ```
 >>> regex = re.compile("[0-9]+\.[0-9]+")
->>> regex.sub("quelque chose","pi vaut 3.14 et e vaut 2.72")
+>>> regex.sub("quelque chose", "pi vaut 3.14 et e vaut 2.72")
 'pi vaut quelque chose et e vaut quelque chose'
->>> regex.sub("quelque chose","pi vaut 3.14 et e vaut 2.72", count=1)
+>>> regex.sub("quelque chose", "pi vaut 3.14 et e vaut 2.72", count=1)
 'pi vaut quelque chose et e vaut 2.72'
 ```
 

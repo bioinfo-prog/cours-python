@@ -869,9 +869,9 @@ with open("test.csv", "w") as f_out:
     fields = ["Name", "Quantity"]
     f_writer = csv.DictWriter(f_out, fieldnames=fields)
     f_writer.writeheader()
-    f_writer.writerow({"Name":"girafe", "Quantity":5})
-    f_writer.writerow({"Name":"tigre", "Quantity":3})
-    f_writer.writerow({"Name":"singe", "Quantity":8})
+    f_writer.writerow({"Name": "girafe", "Quantity":5})
+    f_writer.writerow({"Name": "tigre", "Quantity":3})
+    f_writer.writerow({"Name": "singe", "Quantity":8})
 ```
 
 Ligne 3. Ouverture du fichier `test.csv` en lecture.
@@ -900,9 +900,9 @@ with open("test.tsv", "w") as f_out:
     fields = ["Name", "Quantity"]
     f_writer = csv.DictWriter(f_out, fieldnames=fields, delimiter="\t")
     f_writer.writeheader()
-    f_writer.writerow({"Name":"girafe", "Quantity":5})
-    f_writer.writerow({"Name":"tigre", "Quantity":3})
-    f_writer.writerow({"Name":"singe", "Quantity":8})
+    f_writer.writerow({"Name": "girafe", "Quantity":5})
+    f_writer.writerow({"Name": "tigre", "Quantity":3})
+    f_writer.writerow({"Name": "singe", "Quantity":8})
 ```
 
 Ligne 3. Modification du nom du fichier en écriture.

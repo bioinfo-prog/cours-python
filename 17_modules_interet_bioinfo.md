@@ -1209,11 +1209,11 @@ comme pour une liste (0 pour le premier élément) ou son étiquette (ici, `"a"`
 
 Bien sûr, on peut extraire plusieurs éléments, par leurs indices ou leurs étiquettes :
 ```
->>> s[[1,3]]
+>>> s[[1, 3]]
 b    20
 d    40
 dtype: int64
->>> s[["b","d"]]
+>>> s[["b", "d"]]
 b    20
 d    40
 dtype: int64

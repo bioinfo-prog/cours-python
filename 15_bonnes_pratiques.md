@@ -163,7 +163,7 @@ mon_dico = {"clé1": "valeur1", "clé2": "valeur2"}
 ma_fonction(argument1, argument2)
 # code non recommandé :
 ma_liste = [1 , 2 ,3]
-mon_dico = {"clé1":"valeur1", "clé2":"valeur2"}
+mon_dico = {"clé1": "valeur1", "clé2": "valeur2"}
 ma_fonction(argument1 ,argument2)
 ```
 
