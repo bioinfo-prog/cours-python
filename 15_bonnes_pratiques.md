@@ -203,7 +203,7 @@ On a déjà vu au chapitre 3 *Affichage* que le caractère `\` permet de couper 
 >>> ma_variable = 3
 >>> if ma_variable > 1 and ma_variable < 10 \
 ... and ma_variable % 2 == 1 and ma_variable % 3 == 0:
-...     print("ma variable vaut {}".format(ma_variable))
+...     print(f"ma variable vaut {ma_variable}")
 ...
 ma variable vaut 3
 ```
@@ -236,7 +236,7 @@ On peut aussi utiliser les parenthèses pour évaluer un expression trop longue 
 >>> ma_variable = 3
 >>> if (ma_variable > 1 and ma_variable < 10
 ... and ma_variable % 2 == 1 and ma_variable % 3 == 0):
-...     print("ma variable vaut {}".format(ma_variable))
+...     print(f"ma variable vaut {ma_variable}")
 ...
 ma variable vaut 3
 ```
@@ -438,8 +438,8 @@ def Multiplie_nombres(nombre1,nombre2 ):
 
 
 if __name__ == "__main__":
-    print("2 x 3 = {}".format(Multiplie_nombres(2,3)))
-    print ("4 x 5 = {}".format(Multiplie_nombres(4, 5)))
+    print(f"2 x 3 = {Multiplie_nombres(2, 3)}")
+    print (f"4 x 5 = {Multiplie_nombres(4, 5)}")
 
 ```
 
@@ -457,7 +457,6 @@ script_quality_not_ok.py:6:1: E302 expected 2 blank lines, found 1
 script_quality_not_ok.py:6:30: E231 missing whitespace after ','
 script_quality_not_ok.py:6:38: E202 whitespace before ')'
 script_quality_not_ok.py:26:21: E225 missing whitespace around operator
-script_quality_not_ok.py:30:50: E231 missing whitespace after ','
 script_quality_not_ok.py:31:10: E211 whitespace before '('
 ```
 
@@ -469,9 +468,7 @@ Ligne 4. Il y un espace de trop après le second argument `nombre2` dans la déf
 
 Ligne 5. Il manque un espace après l'opérateur `*` à la ligne 26 (colonne 21) du script.
 
-Ligne 6. Il manque un espace après la virgule séparant les deux arguments lors de l'appel de la fonction `Multiplie_nombres()` à la ligne 30 (colonne 50) du script.
-
-Ligne 7. Il y a un espace de trop entre `print` et `(` à la ligne 31 (colonne 10) du script.
+Ligne 6. Il y a un espace de trop entre `print` et `(` à la ligne 31 (colonne 10) du script.
 
 Remarquez que curieusement, `pycodestyle` n'a pas détecté que le nom de la fonction `Multiplie_nombres()` ne respecte pas la convention de nommage.
 
@@ -505,11 +502,8 @@ def Multiplie_nombres(nombre1,nombre2 ):
 script_quality_not_ok.py:6:38: C0326: No space allowed before bracket
 def Multiplie_nombres(nombre1,nombre2 ):
                                       ^ (bad-whitespace)
-script_quality_not_ok.py:30:49: C0326: Exactly one space required after comma
-    print("2 x 3 = {}".format(Multiplie_nombres(2,3)))
-                                                 ^ (bad-whitespace)
 script_quality_not_ok.py:31:10: C0326: No space allowed before bracket
-    print ("4 x 5 = {}".format(Multiplie_nombres(4, 5)))
+    print ((f"4 x 5 = {Multiplie_nombres(4, 5)}")
           ^ (bad-whitespace)
 script_quality_not_ok.py:6:0: C0103: Function name "Multiplie_nombres"
 doesn't conform to snake_case naming style (invalid-name)
@@ -524,15 +518,13 @@ Lignes 3 à 5. `pylint` indique qu'il manque un espace entre les paramètres de 
 
 Lignes 6 à 8. `pylint` identifie un espace de trop après le second paramètre de la fonction `Multiplie_nombres()`.
 
-Lignes 9 à 11. Il manque un espace entre le premier et le second argument de la fonction `Multiplie_nombres()`.
+Ligne 9 à 11. Il y a un espace de trop entre `print` et `(`.
 
-Ligne 12 à 14. Il y a un espace de trop entre `print` et `(`.
+Lignes 12 et 13. Le nom de la fonction `Multiplie_nombres()` ne respecte pas la convention PEP 8. La fonction devrait s'appeler `multiplie_nombres()`.
 
-Lignes 15 et 16. Le nom de la fonction `Multiplie_nombres()` ne respecte pas la convention PEP 8. La fonction devrait s'appeler `multiplie_nombres()`.
+Ligne 14. Le module `os` est chargé mais pas utilisé (ligne 4 du script).
 
-Ligne 17. Le module `os` est chargé mais pas utilisé (ligne 4 du script).
-
-Ligne 20. `pylint` produit également une note sur 10. Ne soyez pas surpris si cette note est très basse (voire négative) la première fois que vous analysez votre script avec `pylint`. Cet outil fournit de nombreuses suggestions d'amélioration et la note attribuée à votre script devrait rapidement augmenter. Pour autant, la note de 10 est parfois difficile à obtenir. Ne soyez pas trop exigeant.
+Ligne 17. `pylint` produit également une note sur 10. Ne soyez pas surpris si cette note est très basse (voire négative) la première fois que vous analysez votre script avec `pylint`. Cet outil fournit de nombreuses suggestions d'amélioration et la note attribuée à votre script devrait rapidement augmenter. Pour autant, la note de 10 est parfois difficile à obtenir. Ne soyez pas trop exigeant.
 
 Une version améliorée du script précédent est disponible [en ligne](https://python.sdv.univ-paris-diderot.fr/data-files/script_quality_ok.py).
 

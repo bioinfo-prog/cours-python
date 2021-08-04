@@ -684,11 +684,11 @@ xml_content = re.sub("<uniprot [^>]+>", "<uniprot>", xml_content)
 root = etree.fromstring(xml_content.encode("utf-8"))
 
 for gene in root.xpath("/uniprot/entry/gene/name"):
-    print("gene : {} ({})".format(gene.text, gene.get("type")))
+    print(f"gene : {gene.text} ({gene.get('type')})")
 
 sequence = root.xpath("/uniprot/entry/sequence")[0]
-print("sequence: {}".format(sequence.text.strip()))
-print("length: {}".format(sequence.get("length")))
+print(f"sequence: {sequence.text.strip()}")
+print(f"length: {sequence.get('length')}")
 ```
 
 Ligne 1. On utilise le sous-module `etree` du module *lxml* pour lire le fichier XML.

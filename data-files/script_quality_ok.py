@@ -26,5 +26,5 @@ def multiplie_nombres(nombre1, nombre2):
 
 
 if __name__ == "__main__":
-    print("2 x 3 = {}".format(multiplie_nombres(2, 3)))
-    print("4 x 5 = {}".format(multiplie_nombres(4, 5)))
+    print(f"2 x 3 = {multiplie_nombres(2, 3)}")
+    print(f"4 x 5 = {multiplie_nombres(4, 5)}")

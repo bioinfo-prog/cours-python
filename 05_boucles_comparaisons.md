@@ -8,7 +8,7 @@ En programmation, on est souvent amené à répéter plusieurs fois une instruct
 
 Imaginez par exemple que vous souhaitiez afficher les éléments d'une liste les uns après les autres. Dans l'état actuel de vos connaissances, il faudrait taper quelque chose du style :
 ```python
-animaux = ['girafe', 'tigre', 'singe', 'souris']
+animaux = ["girafe", "tigre", "singe", "souris"]
 print(animaux[0])
 print(animaux[1])
 print(animaux[2])
@@ -17,7 +17,7 @@ print(animaux[3])
 
 Si votre liste ne contient que 4 éléments, ceci est encore faisable mais imaginez qu'elle en contienne 100 voire 1000 ! Pour remédier à cela, il faut utiliser les boucles. Regardez l'exemple suivant :
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> for animal in animaux:
 ...     print(animal)
 ...
@@ -70,7 +70,7 @@ IndentationError: expected an indented block
 
 Dans les exemples ci-dessus, nous avons exécuté une boucle en itérant directement sur une liste. Une tranche d'une liste étant elle même une liste, on peut également itérer dessus :
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> for animal in animaux[1:3]:
 ...     print(animal)
 ...
@@ -116,14 +116,14 @@ Dans l'exemple précédent, nous avons choisi le nom `i` pour la variable d'ité
 
 Si, par contre, vous itérez sur une liste comportant des chaînes de caractères, mettez un nom explicite pour la variable d'itération. Par exemple :
 
-`for prenom in ['Joe', 'Bill', 'John']:`
+`for prenom in ["Joe", "Bill", "John"]:`
 
 
 ### Itération sur les indices
 
 Revenons à notre liste `animaux`. Nous allons maintenant parcourir cette liste, mais cette fois par une itération sur ses indices :
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> for i in range(4):
 ...     print(animaux[i])
 ...
@@ -137,7 +137,7 @@ La variable `i` prendra les valeurs successives 0, 1, 2 et 3 et on accèdera à 
 
 Quand utiliser l'une ou l'autre des 2 méthodes ? La plus efficace est celle qui réalise **les itérations directement sur les éléments** :
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> for animal in animaux:
 ...     print(animal)
 ...
@@ -148,7 +148,7 @@ souris
 ```
 Toutefois, il se peut qu'au cours d'une boucle vous ayez besoin des indices, auquel cas vous devrez itérer sur les indices :
 ```python
->>> animaux = ['girafe', 'tigre', 'singe', 'souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> for i in range(len(animaux)):
 ...     print(f"L'animal {i} est un(e) {animaux[i]}")
 ...
@@ -159,7 +159,7 @@ L'animal 3 est un(e) souris
 ```
 Python possède toutefois la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
 ```python
->>> animaux = ['girafe','tigre','singe','souris']
+>>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> for i, animal in enumerate(animaux):
 ...     print(f"L'animal {i} est un(e) {animaux[i]}")
 ...
@@ -205,7 +205,7 @@ Vous pouvez également effectuer des comparaisons sur des chaînes de caractère
 False
 >>> animal != "tig"
 True
->>> animal == 'tigre'
+>>> animal == "tigre"
 True
 ```
 Dans le cas des chaînes de caractères, *a priori* seuls les tests `==` et `!=` ont un sens. En fait, on peut aussi utiliser les opérateurs `<`, `>`, `<=` et `>=`. Dans ce cas, l'ordre alphabétique est pris en compte, par exemple :
@@ -278,7 +278,7 @@ La fonction `input()` prend en argument un message (sous la forme d'une chaîne 
 
 ### Boucles de base
 
-Soit la liste `['vache', 'souris', 'levure', 'bacterie']`. Affichez l'ensemble des éléments de cette liste (un élément par ligne) de trois manières différentes (deux avec `for` et une avec `while`).
+Soit la liste `["vache", "souris", "levure", "bacterie"]`. Affichez l'ensemble des éléments de cette liste (un élément par ligne) de trois manières différentes (deux avec `for` et une avec `while`).
 
 
 ### Boucle et jours de la semaine

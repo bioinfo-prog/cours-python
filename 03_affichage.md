@@ -138,7 +138,7 @@ to et to font toto
 
 close-box-rem
 
-Enfin, il est possible de mettre entre les accolades la valeur d'une variable directement :
+Enfin, il est possible de mettre entre les accolades des valeurs numériques ou des chaînes de caractères :
 
 ```python
 >>> print(f"J'affiche l'entier {10} et le float {3.14}")
@@ -147,11 +147,13 @@ J'affiche l'entier 10 et le float 3.14
 J'affiche la chaine Python
 ```
 
-Même si cela ne présente que peu d'intérêt pour l'instant, il s'agit d'une commande Python parfaitement valide et nous verrons des exemples plus pertinents ci-dessous. Cela fonctionne avec n'importe quel type de variable (entiers, chaînes de caractères, *floats*, etc.). Attention toutefois pour les chaînes de caractères, utilisez des guillemets simples au sein des accolades si vous définissez votre chaîne avec des guillemets doubles à l'extérieur.
+Même si cela ne présente que peu d'intérêt pour l'instant, il s'agit d'une commande Python parfaitement valide. Nous verrons des exemples plus pertinents par la suite. Cela fonctionne avec n'importe quel type de variable (entiers, chaînes de caractères, *floats*, etc.). Attention toutefois pour les chaînes de caractères, utilisez des guillemets simples au sein des accolades si vous définissez votre *f-string* avec des guillemets doubles.
 
 ### Spécification de format
 
-Très bien, les *f-strings* permettent de remplacer des variables au sein d'une chaîne de caractères, mais comment spécifie-t-on le format de leur affichage ? Prenons un exemple. Imaginez maintenant que vous vouliez calculer, puis afficher, la proportion de GC d'un génome. La proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G) du génome considéré. Si on a, par exemple, 4500 bases G et 2575 bases C, pour un total de 14800 bases, vous pourriez procéder comme suit (notez bien l'utilisation des parenthèses pour gérer les priorités des opérateurs) :
+Les *f-strings* permettent de remplacer des variables au sein d'une chaîne de caractères. On peut également spécifier le format de leur affichage.
+
+Prenons un exemple. Imaginez maintenant que vous vouliez calculer, puis afficher, la proportion de GC d'un génome. La proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G) du génome considéré. Si on a, par exemple, 4500 bases G et 2575 bases C, pour un total de 14800 bases, vous pourriez procéder comme suit (notez bien l'utilisation des parenthèses pour gérer les priorités des opérateurs) :
 
 ```python
 >>> prop_GC = (4500 + 2575) / 14800
@@ -170,11 +172,11 @@ La proportion de GC est 0.478
 
 Détaillons le contenu des accolades de la première ligne (`{prop_GC:.2f}`) :
 
-- D'abord on a le nom de la variable à formatter, `prop_GC`, chose obligatoire avec les *f-strings*.
+- D'abord on a le nom de la variable à formatter, `prop_GC`, c'est indispensable avec les *f-strings*.
 
 - Ensuite on rencontre les deux-points `:`, ceux-ci indiquent que ce qui suit va spécifier le format dans lequel on veut imprimer la variable `prop_GC`.
 
-- A droite des deux-points on trouve `.2f` qui indique ce format : la lettre `f` indique qu'on souhaite afficher la variable sous forme d'un *float*, les caractères `.2` indiquent la précision voulue, soit ici deux chiffres après la virgule. 
+- À droite des deux-points on trouve `.2f` qui indique ce format : la lettre `f` indique qu'on souhaite afficher la variable sous forme d'un *float*, les caractères `.2` indiquent la précision voulue, soit ici deux chiffres après la virgule. 
 
 Notez enfin que le formatage avec `.xf` (`x` étant un entier positif) renvoie un résultat arrondi.
 
@@ -264,7 +266,7 @@ Une remarque importante, si on ne met pas de variable à formater entre les acco
 SyntaxError: f-string: empty expression not allowed
 ```
 
-Enfin, il est important de bien voir qu'une *f-string* n'a rien à voir avec la fonction `print()`. Si on donne une *f-string* à la fonction `print()`, Python évalue d'abord la *f-string* et c'est la chaîne de caractères qui en résulte qui est affichée à l'écran. Tout comme dans l'instruction `print(5*5)`, c'est d'abord la multiplication (`5*5`) qui est évaluée, puis son résultat qui est affiché à l'écran. On peut s'en rendre compte de la manière suivante dans l'interpréteur :
+Enfin, il est important de bien comprendre qu'une *f-string* est indépendante de la fonction `print()`. Si on donne une *f-string* à la fonction `print()`, Python évalue d'abord la *f-string* et c'est la chaîne de caractères qui en résulte qui est affichée à l'écran. Tout comme dans l'instruction `print(5*5)`, c'est d'abord la multiplication (`5*5`) qui est évaluée, puis son résultat qui est affiché à l'écran. On peut s'en rendre compte de la manière suivante dans l'interpréteur :
 
 ```python
 >>> f"{perc_GC:10.3f}"
@@ -273,11 +275,11 @@ Enfin, il est important de bien voir qu'une *f-string* n'a rien à voir avec la 
 <class 'str'>
 ```
 
-Python affiche le résultat de l'instruction `f"{perc_GC:10.3f}"` comme une chaîne de caractères et la fonction `type()` nous le confirme.
+Python considère le résultat de l'instruction `f"{perc_GC:10.3f}"` comme une chaîne de caractères et la fonction `type()` nous le confirme.
 
 ### Expressions dans les *f-strings*
 
-Une fonctionnalité extrêmement puissante des *f-strings* est de supporter des expressions générales au sein des accolades. Ainsi, il est possible d'y mettre directement une opération ou encore un appel à une fonction !
+Une fonctionnalité extrêmement puissante des *f-strings* est de supporter des expressions générales au sein des accolades. Ainsi, il est possible d'y mettre directement une opération ou encore un appel à une fonction :
 
 ```python
 >>> print(f"Le résultat de 5 * 5 vaut {5 * 5}")
@@ -291,7 +293,7 @@ Le minimum est -2
 Le type de 2 est <class 'int'>
 ```
 
-Nous aurons l'occasion de revenir sur cette fonctionnalité au fur et à mesure de cours.
+Nous aurons l'occasion de revenir sur cette fonctionnalité au fur et à mesure de ce cours.
 
 
 ## Écriture scientifique
@@ -322,13 +324,13 @@ Il est également possible de définir le nombre de chiffres après la virgule. 
 
 *Conseil* : Pour les débutants, tout ce qui est écrit dans cette rubrique n'est pas à retenir.
 
-Dans les premières versions de Python jusqu'à la 2.6, il fallait utiliser l'opérateur `%`, puis de la version 2.7 jusqu'à la 3.5 il était plutôt conseillé d'utiliser la méthode `.format()` (cf. rubrique suivante pour la définition du mot « méthode »). Même si les *f-strings* sont devenues la manière conseillée pour mettre en place l'écriture formatée, ces deux anciennes manières, sont encore pleinement compatibles avec les versions modernes de Python et ne sont pas encore devenues obsolètes (*deprecated* en anglais).
+Dans les premières versions de Python jusqu'à la 2.6, il fallait utiliser l'opérateur `%`, puis de la version 2.7 jusqu'à la 3.5 il était plutôt conseillé d'utiliser la méthode `.format()` (voir la rubrique suivante pour la définition du mot « méthode »). Même si les *f-strings* sont devenues la manière conseillée pour mettre en place l'écriture formatée, ces deux anciennes manières, sont encore pleinement compatibles avec les versions modernes de Python.
 
 Même si elle fonctionne encore, la première manière avec l'opérateur `%` est maintenant clairement déconseillée pour un certain nombre de [raisons](https://docs.python.org/3/library/stdtypes.html?highlight=sprintf#printf-style-string-formatting). Néanmoins, nous vous en mettons tout de même un bref rappel ci-dessous, il se peut que vous tombiez dessus dans d'anciens livres ou si vous lisez de vieux programmes Python.
 
 La deuxième manière avec la méthode `.format()` est encore largement utilisée et reste tout à fait valide. Elle est clairement plus puissante et évite un certain nombre de désagréments par rapport à l'opérateur `%`. Vous la croiserez sans doute très fréquemment dans des programmes et ouvrages récents. Heureusement elle a un fonctionnement relativement proche des *f-strings*, donc vous ne serez pas totalement perdus !
 
-Enfin, nous mettons à la fin de cette rubrique nos conseils sur quelle méthode utiliser.
+Enfin, nous indiquons à la fin de cette rubrique nos conseils sur quelle méthode utiliser.
 
 ### L'opérateur `%`
 
@@ -355,7 +357,7 @@ Le signe `%` est rappelé une seconde fois (`% (nb_G, nb_C, prop_GC)`) pour indi
 
 ### La méthode `.format()`
 
-Depuis la version 2.7 de Python, la méthode `.format()` (voir la rubrique suivante pour la définition d'une méthode) a apporté une amélioration nette pour mettre en place l'écriture formatée. Celle-ci fonctionne de la manière suivante :
+Depuis la version 2.7 de Python, la méthode `.format()` (voir la rubrique suivante pour la définition d'une méthode) a apporté une nette amélioration pour mettre en place l'écriture formatée. Celle-ci fonctionne de la manière suivante :
 
 ```python
 >>> x = 32
@@ -385,7 +387,7 @@ On a 4500 G et 2575 C -> prop GC = 0.48
 
 open-box-adv
 
-Pour conclure, ces deux anciennes façons de formater une chaîne de caractères avec l'opérateur `%` ou la méthode `.format()` vous sont présentées à titre d'information. La première avec l'opérateur `%` est clairement déconseillée. La deuxième avec la méthode `.format()` est encore tout à fait valable. Si vous débutez Python, nous vous conseillons fortement d'apprendre et d'utiliser les *f-strings*. C'est ce que vous rencontrerez dans la suite de ce cours (depuis la mise à jour d'août 2021). Si vous connaissez Python et que vous utilisez la méthode `.format()`, nous vous conseillons de vous mettre aux *f-strings*. Depuis que nous les avons découvertes, aucun retour n'est envisageable pour nous tellement elles sont puissantes et plus claires à utiliser ! 
+Pour conclure, ces deux anciennes façons de formater une chaîne de caractères avec l'opérateur `%` ou la méthode `.format()` vous sont présentées à titre d'information. La première avec l'opérateur `%` est clairement déconseillée. La deuxième avec la méthode `.format()` est encore tout à fait valable. Si vous débutez Python, nous vous conseillons fortement d'apprendre et d'utiliser les *f-strings*. C'est ce que vous rencontrerez dans la suite de ce cours. Si vous connaissez déjà Python et que vous utilisez la méthode `.format()`, nous vous conseillons de passer aux *f-strings*. Depuis que nous les avons découvertes, aucun retour n'est envisageable pour nous tant elles sont puissantes et plus claires à utiliser ! 
 
 Enfin, si vous souhaitez aller plus loin, voici deux articles en anglais très bien fait sur le site *RealPython*: sur l'[écriture formatée](https://realpython.com/python-string-formatting) et sur les [*f-strings*](https://realpython.com/python-f-strings/)
 

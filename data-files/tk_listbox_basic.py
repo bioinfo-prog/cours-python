@@ -1,7 +1,13 @@
+"""Exemple d'application Tkinter pour choisir dans une listbox."""
+
 import tkinter as tk
 
+
 class MaListBox(tk.Tk):
+    """Classe pour construire et manipuler la listbox."""
+
     def __init__(self):
+        """Crée l'objet."""
         # Instanciation fenêtre Tk.
         tk.Tk.__init__(self)
         self.listbox = tk.Listbox(self, height=10, width=4)
@@ -17,6 +23,7 @@ class MaListBox(tk.Tk):
         self.listbox.bind('<<ListboxSelect>>', self.clic_listbox)
 
     def clic_listbox(self, event):
+        """Gestion du clic."""
         # Récup du widget à partir de l'objet event.
         widget = event.widget
         # Récup du choix sélectionné dans la listbox (tuple).
@@ -24,9 +31,9 @@ class MaListBox(tk.Tk):
         selection = widget.curselection()
         # Récup du nombre sélectionné (déjà un entier).
         choix_select = widget.get(selection[0])
-        # affichage
-        print("Le choix sélectionné est {}, son type est {}"
-              .format(choix_select, type(choix_select)))
+        # Affichage.
+        print(f"Le choix sélectionné est {choix_select}, "
+              f"son type est {type(choix_select)}")
 
 
 if __name__ == '__main__':
