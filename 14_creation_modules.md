@@ -9,7 +9,7 @@ Dans le chapitre 8 *Modules*, nous avons découvert quelques modules existants d
 
 En Python, la création d'un module est très simple. Il suffit d'écrire un ensemble de fonctions (et/ou de constantes) dans un fichier, puis d'enregistrer ce dernier avec une extension `.py` (comme n'importe quel script Python). À titre d'exemple, nous allons créer un module simple que nous enregistrerons sous le nom `message.py` :
 
-```
+```python
 """Module inutile qui affiche des messages :-)."""
 
 DATE = 16092008
@@ -59,7 +59,8 @@ Une fois cette manipulation effectuée, vous pouvez contrôler que le chemin ver
 close-box-rem
 
 Le chargement du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py` et pourtant on ne la précise pas lorsqu'on importe le module. Ensuite, on peut utiliser les fonctions comme avec un module classique.
-```
+
+```python
 >>> import message
 >>> message.hello("Joe")
 'Hello Joe'
@@ -81,7 +82,8 @@ close-box-rem
 ## Les *docstrings*
 
 Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères entre triple guillemets situées en début du module et de chaque fonction sont là pour cela, on les appelle *docstrings* (« chaînes de documentation » en français). Ces *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
-```
+
+```python
 >>> help(message)
 
 Help on module message:
@@ -113,7 +115,8 @@ Pour quitter l'aide, pressez la touche `Q`.
 close-box-rem
 
 Vous remarquez que Python a généré automatiquement cette page d'aide, tout comme il est capable de le faire pour les modules internes à Python (*random*, *math*, etc.) et ce grâce aux *docstrings*. Notez que l'on peut aussi appeler l'aide pour une seule fonction :
-```
+
+```python
 >>> help(message.ciao)
 
 Help on function ciao in module message:
@@ -145,14 +148,17 @@ Toutes ces règles viennent de la manière dont Python gère les **espaces de no
 ## Module ou script ?
 
 Vous avez remarqué que notre module `message` ne contient que des fonctions et une constante. Si on l'exécutait comme un script classique, cela n'afficherait rien :
-```
+
+```bash
 $ python message.py
 $
 ```
+
 Cela s'explique par l'absence de programme principal, c'est-à-dire, de lignes de code que l'interpréteur exécute lorsqu'on lance le script.
 
 À l'inverse, que se passe-t-il alors si on importe un script en tant que module alors qu'il contient un programme principal avec des lignes de code ? Prenons par exemple le script `message2.py` suivant :
-```
+
+```python
 """Script de test."""
 
 
@@ -166,7 +172,8 @@ print(bonjour("Joe"))
 ```
 
 Si on l'importe dans l'interpréteur, on obtient :
-```
+
+```python
 >>> import message2
 Bonjour Joe
 ```
@@ -175,7 +182,7 @@ Ceci n'est pas le comportement voulu pour un module car on n'attend pas d'affich
 
 Afin de pouvoir utiliser un code Python en tant que module ou en tant que script, nous vous conseillons la structure suivante :
 
-```
+```python
 """Script de test."""
 
 
@@ -192,14 +199,14 @@ if __name__ == "__main__":
 
 - Si le programme `message2.py` est exécuté en tant que script dans un *shell*, le résultat du test `if` sera alors `True` et le bloc d'instructions correspondant (ligne 10) sera exécuté :
 
-```
+```bash
 $ python message2.py
 Bonjour Joe
 ```
 
 - Si le programme `message2.py` est importé en tant que module, le résultat du test `if` sera alors `False` (et le bloc d'instructions correspondant ne sera pas exécuté) :
 
-```
+```python
 >>> import message2
 >>>
 ```

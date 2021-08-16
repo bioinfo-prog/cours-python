@@ -21,7 +21,7 @@ Avant de présenter les *regex* en Python, nous allons faire un petit détour pa
 
 Par exemple, pour le programme `egrep` :
 
-```
+```bash
 $ egrep "^DEF" herp_virus.gbk
 DEFINITION  Human herpesvirus 2, complete genome.
 ```
@@ -179,7 +179,7 @@ Dans le module *re*, la fonction `search()` est incontournable. Elle permet de r
 
 Sans entrer dans les détails propres au langage orienté objet, si on utilise un objet du type `SRE_Match` dans un test, il sera considéré comme vrai. Regardez cet exemple dans lequel on va rechercher le motif `tigre` dans la chaîne de caractères `"girafe tigre singe"` :
 
-```
+```python
 >>> import re
 >>> animaux = "girafe tigre singe"
 >>> re.search("tigre", animaux)
@@ -201,7 +201,7 @@ close-box-warn
 
 Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le modèle de `search()`. La différence est qu'elle renvoie un objet du type `SRE_Match` seulement lorsque la *regex* correspond au début de la chaîne de caractères (à partir du premier caractère).
 
-```
+```python
 >>> animaux = "girafe tigre singe"
 >>> re.search("tigre", animaux)
 <_sre.SRE_Match object at 0x7fefdaefe718>
@@ -215,7 +215,7 @@ Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le 
 
 Il existe également la fonction `fullmatch()` qui renvoie un objet du type `SRE_Match` si et seulement si l'expression régulière correspond **exactement** à la chaîne de caractères.
 
-```
+```python
 >>> animaux = "tigre "
 >>> re.fullmatch("tigre", animaux)
 >>> animaux = "tigre"
@@ -230,7 +230,7 @@ De manière générale, nous vous recommandons l'usage de la fonction `search()`
 
 Lorsqu'on a besoin de tester la même expression régulière sur plusieurs milliers de chaînes de caractères, il est pratique de compiler préalablement la *regex* à l'aide de la fonction `compile()` qui renvoie un objet de type `SRE_Pattern` :
 
-```
+```python
 >>> regex = re.compile("^tigre")
 >>> regex
 <_sre.SRE_Pattern object at 0x7fefdafd0df0>
@@ -238,7 +238,7 @@ Lorsqu'on a besoin de tester la même expression régulière sur plusieurs milli
 
 On peut alors utiliser directement cet objet avec la méthode `.search()` :
 
-```
+```python
 >>> animaux = "girafe tigre singe"
 >>> regex.search(animaux)
 >>> animaux = "tigre singe"
@@ -253,7 +253,7 @@ On peut alors utiliser directement cet objet avec la méthode `.search()` :
 
 L'intérêt de l'objet de type `SRE_Match` renvoyé par Python lorsqu'une *regex* trouve une correspondance dans une chaîne de caractères est de pouvoir ensuite récupérer certaines zones précises :
 
-```
+```python
 >>> regex = re.compile("([0-9]+)\.([0-9]+)")
 ```
 
@@ -265,7 +265,7 @@ Dans cet exemple, on recherche un nombre décimal, c'est-à-dire une chaîne de 
 
 Les parenthèses dans la *regex* créent des groupes (`[0-9]+` deux fois) qui seront récupérés ultérieurement par la méthode `.group()`.
 
-```
+```python
 >>> resultat = regex.search("pi vaut 3.14")
 >>> resultat.group(0)
 '3.14'
@@ -283,7 +283,7 @@ La totalité de la correspondance est donnée par `.group(0)`, le premier élém
 
 Les méthodes `.start()` et `.end()` donnent respectivement la position de début et de fin de la zone qui correspond à la *regex*. Notez que la méthode `.search()` ne renvoie que la première zone qui correspond à l'expression régulière, même s'il en existe plusieurs :
 
-```
+```python
 >>> resultat = regex.search("pi vaut 3.14 et e vaut 2.72")
 >>> resultat.group(0)
 '3.14'
@@ -294,7 +294,7 @@ Les méthodes `.start()` et `.end()` donnent respectivement la position de débu
 
 Pour récupérer chaque zone, s'il y en a plusieurs, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance.
 
-```
+```python
 >>> regex = re.compile("[0-9]+\.[0-9]+")
 >>> resultat = regex.findall("pi vaut 3.14 et e vaut 2.72")
 >>> resultat
@@ -303,7 +303,7 @@ Pour récupérer chaque zone, s'il y en a plusieurs, vous pouvez utiliser la mé
 
 L'utilisation des groupes entre parenthèses est également possible et ceux-ci sont alors renvoyés sous la forme de tuples.
 
-```
+```python
 >>> regex = re.compile("([0-9]+)\.([0-9]+)")
 >>> resultat = regex.findall("pi vaut 3.14 et e vaut 2.72")
 >>> resultat
@@ -315,7 +315,7 @@ L'utilisation des groupes entre parenthèses est également possible et ceux-ci 
 
 Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants. Par défaut la méthode `.sub(chaine1, chaine2)` remplace toutes les occurrences trouvées par l'expression régulière dans `chaine2` par `chaine1`. Si vous souhaitez ne remplacer que les *n* premières occurrences, utilisez l'argument `count=n` :
 
-```
+```python
 >>> regex = re.compile("[0-9]+\.[0-9]+")
 >>> regex.sub("quelque chose", "pi vaut 3.14 et e vaut 2.72")
 'pi vaut quelque chose et e vaut quelque chose'
@@ -325,7 +325,7 @@ Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants
 
 Encore plus puissant, il est possible d'utiliser dans le remplacement des groupes qui ont été « capturés » avec des parenthèses.
 
-```
+```python
 >>> regex = re.compile("([0-9]+)\.([0-9]+)")
 >>> phrase = "pi vaut 3.14 et e vaut 2.72"
 >>> regex.sub("approximativement \\1", phrase)
@@ -338,7 +338,7 @@ Si vous avez capturé des groupes, il suffit d'utiliser `\\1`, `\\2` (etc.) pour
 
 Enfin, sachez que la réutilisation d'un groupe précédemment capturé est aussi utilisable lors d'une utilisation classique de *regex*. Par exemple :
 
-```
+```python
 >>> re.search("(pan)\\1", "bambi et panpan")
 <_sre.SRE_Match object; span=(9, 15), match='panpan'>
 >>> re.search("(pan)\\1", "le pistolet a fait pan !")
@@ -409,7 +409,8 @@ Créez un script `liste_proteome.py` qui :
 - affiche le mot `protein`, suivi d'un numéro qui s'incrémente, suivi du numéro d'accession.
 
 Voici un exemple de sortie attendue :
-```
+
+```text
 protein 00001 O95139
 protein 00002 O75438
 protein 00003 Q8N4C6
@@ -441,7 +442,8 @@ Nous vous conseillons tout d'abord d'ouvrir le fichier HTML dans un éditeur de 
 ### Nettoyeur de doublons (exercice +++)
 
 Téléchargez le fichier [`breves_doublons.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/breves_doublons.txt) qui contient des mots répétés deux fois. Par exemple :
-```
+
+```text
 Le cinéma est devenu parlant, la radio radio finira en images.
 La sardine, c'est un petit petit poisson sans tête qui vit dans l'huile.
 [...]

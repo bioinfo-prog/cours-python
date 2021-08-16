@@ -55,7 +55,7 @@ Si le nom du module est trop long, on peut utiliser un alias. L'instruction `fro
 
 En résumé :
 
-```
+```python
 import module_interne_1
 import module_interne_2
 from module_interne_3 import fonction_spécifique
@@ -69,7 +69,8 @@ import module_externe_3_qui_a_un_nom_long as mod3
 ### Règles de nommage
 
 Les noms de variables, de fonctions et de modules doivent être de la forme :
-```
+
+```python
 ma_variable
 fonction_test_27()
 mon_module
@@ -78,13 +79,15 @@ mon_module
 c'est-à-dire en minuscules avec un caractère « souligné » (« tiret du bas » ou *underscore* en anglais) pour séparer les différents « mots » dans le nom.
 
 Les constantes sont écrites en majuscules :
-```
+
+```python
 MA_CONSTANTE
 VITESSE_LUMIERE
 ```
 
 Les noms de classes (chapitre 19) et les exceptions (chapitre 21) sont de la forme :
-```
+
+```python
 MaClasse
 MyException
 ```
@@ -98,14 +101,16 @@ classes et des exceptions.
 close-box-rem
 
 Pensez à donner à vos variables des noms qui ont du sens. Évitez autant que possible les `a1`, `a2`, `i`, `truc`, `toto`... Les noms de variables à un caractère sont néanmoins autorisés pour les boucles et les indices :
-```
+
+```python
 >>> ma_liste = [1, 3, 5, 7, 9, 11]
 >>> for i in range(len(ma_liste)):
 ...     print(ma_liste[i])
 ```
 
 Bien sûr, une écriture plus « pythonique » de l'exemple précédent permet de se débarrasser de l'indice `i` :
-```
+
+```python
 >>> ma_liste = [1, 3, 5, 7, 9, 11]
 >>> for entier in ma_liste:
 ...     print(entier)
@@ -119,7 +124,7 @@ Enfin, des noms de variable à une lettre peuvent être utilisés lorsque cela a
 
 La PEP 8 recommande d'entourer les opérateurs (`+`, `-`, `/`, `*`, `==`, `!=`, `>=`, `not`, `in`, `and`, `or`...) d'un espace avant et d'un espace après. Par exemple :
 
-```
+```python
 # code recommandé :
 ma_variable = 3 + 7
 mon_texte = "souris"
@@ -131,7 +136,8 @@ mon_texte== ma_variable
 ```
 
 Il n'y a, par contre, pas d'espace à l'intérieur de crochets, d'accolades et de parenthèses :
-```
+
+```python
 # code recommandé :
 ma_liste[1]
 mon_dico{"clé"}
@@ -143,7 +149,8 @@ ma_fonction( argument )
 ```
 
 Ni juste avant la parenthèse ouvrante d'une fonction ou le crochet ouvrant d'une liste ou d'un dictionnaire :
-```
+
+```python
 # code recommandé :
 ma_liste[1]
 mon_dico{"clé"}
@@ -156,7 +163,8 @@ ma_fonction (argument)
 
 
 On met un espace après les caractères `:` et `,` (mais pas avant) :
-```
+
+```python
 # code recommandé :
 ma_liste = [1, 2, 3]
 mon_dico = {"clé1": "valeur1", "clé2": "valeur2"}
@@ -168,7 +176,8 @@ ma_fonction(argument1 ,argument2)
 ```
 
 Par contre, pour les tranches de listes, on ne met pas d'espace autour du `:`
-```
+
+```python
 ma_liste = [1, 3, 5, 7, 9, 1]
 # code recommandé :
 ma_liste[1:3]
@@ -181,7 +190,8 @@ ma_liste[ : :2]
 ```
 
 Enfin, on n'ajoute pas plusieurs espaces autour du `=` ou des autres opérateurs pour faire joli :
-```
+
+```python
 # code recommandé :
 x1 = 1
 x2 = 3
@@ -199,7 +209,7 @@ Une ligne de code ne doit pas dépasser 79 caractères, pour des raisons tant hi
 
 On a déjà vu au chapitre 3 *Affichage* que le caractère `\` permet de couper des lignes trop longues. Par exemple :
 
-```
+```python
 >>> ma_variable = 3
 >>> if ma_variable > 1 and ma_variable < 10 \
 ... and ma_variable % 2 == 1 and ma_variable % 3 == 0:
@@ -210,7 +220,7 @@ ma variable vaut 3
 
 À l'intérieur d'une parenthèse, on peut revenir à la ligne sans utiliser le caractère `\`. C'est particulièrement utile pour préciser les arguments d'une fonction ou d'une méthode, lors de sa création ou lors de son utilisation :
 
-```
+```python
 >>> def ma_fonction(argument_1, argument_2,
 ...                 argument_3, argument_4):
 ...     return argument_1 + argument_2
@@ -222,7 +232,7 @@ ma variable vaut 3
 
 Les parenthèses sont également très pratiques pour répartir sur plusieurs lignes une chaîne de caractères qui sera affichée sur une seule ligne :
 
-```
+```python
 >>> print("ATGCGTACAGTATCGATAAC"
 ...       "ATGACTGCTACGATCGGATA"
 ...       "CGGGTAACGCCATGTACATT")
@@ -232,7 +242,8 @@ ATGCGTACAGTATCGATAACATGACTGCTACGATCGGATACGGGTAACGCCATGTACATT
 Notez qu'il n'y a pas d'opérateur `+` pour concaténer les trois chaînes de caractères et que celles-ci ne sont pas séparées par des virgules. À partir du moment où elles sont entre parenthèses, Python les concatène automatiquement.
 
 On peut aussi utiliser les parenthèses pour évaluer un expression trop longue :
-```
+
+```python
 >>> ma_variable = 3
 >>> if (ma_variable > 1 and ma_variable < 10
 ... and ma_variable % 2 == 1 and ma_variable % 3 == 0):
@@ -244,7 +255,8 @@ ma variable vaut 3
 Les parenthèses sont aussi très utiles lorsqu'on a besoin d’enchaîner des méthodes les unes à la suite des autres. Un exemple se trouve dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*, dans la partie consacrée au module *pandas*.
 
 Enfin, il est possible de créer des listes ou des dictionnaires sur plusieurs lignes, en sautant une ligne après une virgule :
-```
+
+```python
 >>> ma_liste = [1, 2, 3,
 ...             4, 5, 6,
 ...             7, 8, 9]
@@ -274,14 +286,16 @@ La PEP 8 recommande très fortement d'écrire les commentaires en anglais, sauf 
 Soyez également cohérent entre la langue utilisée pour les commentaires et la langue utilisée pour nommer les variables. Pour un programme scientifique, les commentaires et les noms de variables sont en anglais. Ainsi `ma_liste` deviendra `my_list` et `ma_fonction` deviendra `my_function` (par exemple).
 
 Les commentaires qui suivent le code sur la même ligne sont à éviter le plus possible et doivent être séparés du code par au moins deux espaces :
-```
+
+```python
 x = x + 1   # My wonderful comment.
 ```
 
 open-box-rem
 
 Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas incluse dans la PEP 8. On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Simples ou doubles ?
-```
+
+```python
 >>> var_1 = "Ma chaîne de caractères"
 >>> var_1
 'Ma chaîne de caractères'
@@ -304,13 +318,13 @@ Les *docstrings*, que l'on pourrait traduire par « chaînes de documentation »
 
 De manière générale, écrivez des *docstrings* pour les modules, les fonctions, les classes et les méthodes. Lorsque l'explication est courte et compacte comme dans certaines fonctions ou méthodes simples, utilisez des *docstrings* d'une ligne :
 
-```
+```python
 """Docstring simple d'une ligne se finissant par un point."""
 ```
 
 Lorsque vous avez besoin de décrire plus en détail un module, une fonction, une classe ou une méthode, utilisez une *docstring* sur plusieurs lignes.
 
-```
+```python
 """Docstring de plusieurs lignes, la première ligne est un résumé.
 
 Après avoir sauté une ligne, on décrit les détails de cette docstring.
@@ -349,7 +363,7 @@ Pour autant, la PEP 257 ne dit pas explicitement comment organiser les *docstrin
 
 On illustre ici la solution *NumPy* pour des raisons de goût personnel. Sentez-vous libre d'aller explorer la proposition de Google. Voici un exemple très simple :
 
-```
+```python
 def multiplie_nombres(nombre1, nombre2):
     """Multiplication de deux nombres entiers.
 
@@ -408,7 +422,8 @@ Les outils `pycodestyle`, `pydocstyle` et `pylint` sont des **linters**, c'est-�
 close-box-def
 
 Voici le contenu du script [`script_quality_not_ok.py`](https://python.sdv.univ-paris-diderot.fr/data-files/script_quality_not_ok.py) que nous allons analyser par la suite :
-```
+
+```python
 """Un script de multiplication.
 """
 
@@ -444,14 +459,16 @@ if __name__ == "__main__":
 ```
 
 Ce script est d'ailleurs parfaitement fonctionnel :
-```
+
+```bash
 $ python script_quality_ok.py
 2 x 3 = 6
 4 x 5 = 20
 ```
 
 On va tout d'abord vérifier la conformité avec la PEP 8 avec l'outil `pycodestyle` :
-```
+
+```bash
 $ pycodestyle script_quality_not_ok.py
 script_quality_not_ok.py:6:1: E302 expected 2 blank lines, found 1
 script_quality_not_ok.py:6:30: E231 missing whitespace after ','
@@ -474,7 +491,8 @@ Remarquez que curieusement, `pycodestyle` n'a pas détecté que le nom de la fon
 
 
 Ensuite, l'outil `pycodestyle` va vérifier la conformité avec la PEP 257 et s'intéresser particulièrement aux *docstrings* :
-```
+
+```bash
 $ pydocstyle script_quality_not_ok.py
 script_quality_not_ok.py:1 at module level:
         D200: One-line docstring should fit on one line with quotes (found 2)
@@ -493,7 +511,7 @@ Lignes 6 et 7. Dans la *docstring* de la fonction `Multiplie_nombres()` (ligne 7
 
 Les outils `pycodestyle` et `pydocstyle` vont simplement vérifier la conformité aux PEP 8 et 257. L'outil `pylint` va lui aussi vérifier une partie de ces règles mais il va également essayer de comprendre le contexte du code et proposer des éléments d'amélioration. Par exemple :
 
-```
+```bash
 $ pylint script_quality_not_ok.py
 ************* Module script_quality_not_ok
 script_quality_not_ok.py:6:29: C0326: Exactly one space required after comma
@@ -533,7 +551,7 @@ Une version améliorée du script précédent est disponible [en ligne](https://
 
 Il est fondamental de toujours structurer et organiser son code de la même manière. Ainsi, on sait tout de suite où trouver l'information et un autre programmeur pourra s'y retrouver. Voici un exemple de code avec les différents éléments dans le bon ordre :
 
-```
+```python
 """Docstring d'une ligne décrivant brièvement ce que fait le programme.
 
 Usage:
@@ -546,9 +564,8 @@ Usage:
 
 __authors__ = ("Johny B Good", "Hubert de la Pâte Feuilletée")
 __contact__ = ("johny@bgood.us", "hub@pate.feuilletee.fr")
-__version__ = "1.0.0"
-__copyright__ = "copyleft"
-__date__ = "2130/01"
+__copyright__ = "MIT"
+__date__ = "2030-01-01"
 __version__= "1.2.3"
 
 import module_interne
@@ -616,21 +633,21 @@ if __name__ == "__main__":
 
 Lignes 1 à 9. Cette *docstring* décrit globalement le script. Cette *docstring* (ainsi que les autres) seront visibles si on importe le script en tant que module, puis en invoquant la commande `help()` (voir chapitre 14 *Création de modules*).
 
-Lignes 11 à 16. On définit ici un certain nombres de variables avec des doubles *underscores* donnant quelques informations sur la version du script, les auteurs, etc. Il s'agit de métadonnées que la commande `help()` pourra afficher. Bien sûr, ces métadonnées ne sont pas obligatoires, mais elles sont utiles lorsque le code est distribué à la communauté.
+Lignes 11 à 15. On définit ici un certain nombres de variables avec des doubles *underscores* donnant quelques informations sur la version du script, les auteurs, etc. Il s'agit de métadonnées que la commande `help()` pourra afficher. Bien sûr, ces métadonnées ne sont pas obligatoires, mais elles sont utiles lorsque le code est distribué à la communauté.
 
-Lignes 18 à 21. Importation des modules. D'abord les modules internes à Python (fournis en standard), puis les modules externes (ceux qu'il faut installer en plus), un module par ligne.
+Lignes 17 à 20. Importation des modules. D'abord les modules internes à Python (fournis en standard), puis les modules externes (ceux qu'il faut installer en plus), un module par ligne.
 
-Lignes 23 et 24. Définition des constantes. Le nom des constantes est en majuscule.
+Lignes 22 et 23. Définition des constantes. Le nom des constantes est en majuscule.
 
-Ligne 27. Définition d'une classe. On a laissé deux lignes vides avant.
+Ligne 26. Définition d'une classe. On a laissé deux lignes vides avant.
 
-Lignes 28 à 33. *Docstring* décrivant la classe.
+Lignes 27 à 32. *Docstring* décrivant la classe.
 
-Lignes 34, 43 et 47. Avant chaque méthode de la classe, on laisse une ligne vide.
+Lignes 33, 42 et 46. Avant chaque méthode de la classe, on laisse une ligne vide.
 
-Lignes 59 à 73. Après les classes, on met les fonctions « classiques ». Avant chaque fonction, on laisse deux lignes vides.
+Lignes 58 à 72. Après les classes, on met les fonctions « classiques ». Avant chaque fonction, on laisse deux lignes vides.
 
-Lignes 76 à 78. On écrit le programme principal. Le test ligne 76 n'est vrai que si le script est utilisé en tant que programme. Les lignes suivantes ne sont donc pas exécutées si le script est chargé comme un module.
+Lignes 75 à 77. On écrit le programme principal. Le test ligne 76 n'est vrai que si le script est utilisé en tant que programme. Les lignes suivantes ne sont donc pas exécutées si le script est chargé comme un module.
 
 
 ## Conseils sur la conception d'un script
@@ -657,7 +674,7 @@ Voici quelques conseils pour vous aider à concevoir un script Python.
 
 La PEP 20 est une sorte de réflexion philosophique avec des phrases simples qui devraient guider tout programmeur. Comme les développeurs de Python ne manque pas d'humour, celle-ci est accessible sous la forme d'un « œuf de Pâques » (*easter egg* en anglais) ou encore « fonctionnalité cachée d'un programme » en important un module nommé `this` :
 
-```
+```text
 >>> import this
 The Zen of Python, by Tim Peters
 
@@ -684,9 +701,11 @@ Namespaces are one honking great idea -- let's do more of those!
 ```
 
 Et si l'aventure et les *easter eggs* vous plaisent, testez également la commande
-```
+
+```python
 >>> import antigravity
 ```
+
 Il vous faudra un navigateur et une connexion internet.
 
 open-box-more

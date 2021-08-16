@@ -10,14 +10,17 @@ Comme pour les chaînes de caractères, les listes possèdent de nombreuses **m�
 ### `.append()`
 
 La méthode `.append()`, que l'on a déjà vu au chapitre 4 *Listes*, ajoute un élément à la fin d'une liste :
-```
+
+```python
 >>> a = [1, 2, 3]
 >>> a.append(5)
 >>> a
 [1, 2, 3, 5]
 ```
+
 qui est équivalent à :
-```
+
+```python
 >>> a = [1, 2, 3]
 >>> a = a + [5]
 >>> a
@@ -30,7 +33,8 @@ qui est équivalent à :
 ### `.insert()`
 
 La méthode `.insert()` insère un objet dans une liste avec un indice déterminé :
-```
+
+```python
 >>> a = [1, 2, 3]
 >>> a.insert(2, -15)
 >>> a
@@ -41,7 +45,8 @@ La méthode `.insert()` insère un objet dans une liste avec un indice détermin
 ### `del`
 
 L'instruction `del` supprime un élément d'une liste à un indice déterminé :
-```
+
+```python
 >>> a = [1, 2, 3]
 >>> del a[1]
 >>> a
@@ -58,7 +63,8 @@ close-box-rem
 ### `.remove()`
 
 La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur :
-```
+
+```python
 >>> a = [1, 2, 3]
 >>> a.remove(3)
 >>> a
@@ -69,7 +75,8 @@ La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur
 ### `.sort()`
 
 La méthode `.sort()` trie une liste :
-```
+
+```python
 >>> a = [3, 1, 2]
 >>> a.sort()
 >>> a
@@ -80,7 +87,8 @@ La méthode `.sort()` trie une liste :
 ### `.reverse()`
 
 La méthode `.reverse()` inverse une liste :
-```
+
+```python
 >>> a = [3, 1, 2]
 >>> a.reverse()
 >>> a
@@ -91,7 +99,8 @@ La méthode `.reverse()` inverse une liste :
 ### `.count()`
 
 La méthode `.count()` compte le nombre d'éléments (passés en argument) dans une liste :
-```
+
+```python
 >>> a = [1, 2, 4, 3, 1, 1]
 >>> a.count(1)
 3
@@ -110,7 +119,7 @@ open-box-rem
 
 Pour exprimer la même idée, la documentation parle de modification de la liste « sur place » (*in place* en anglais) :
 
-```
+```python
 >>> liste = [1, 2, 3]
 >>> help(liste.reverse)
 Help on built-in function reverse:
@@ -133,7 +142,8 @@ close-box-rem
 La méthode `.append()` est très pratique car on peut l'utiliser pour construire une liste au fur et à mesure des itérations d'une boucle.
 
 Pour cela, il est commode de définir préalablement une liste vide de la forme `maliste = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
-```
+
+```python
 >>> seq = "CAAAGGTAACGC"
 >>> seq_list = []
 >>> seq_list
@@ -146,7 +156,8 @@ Pour cela, il est commode de définir préalablement une liste vide de la forme 
 ```
 
 Remarquez que dans cet exemple, vous pouvez directement utiliser la fonction `list()` qui prend n'importe quel objet séquentiel (liste, chaîne de caractères, etc.) et qui renvoie une liste :
-```
+
+```python
 >>> seq = "CAAAGGTAACGC"
 >>> list(seq)
 ['C', 'A', 'A', 'A', 'G', 'G', 'T', 'A', 'A', 'C', 'G', 'C']
@@ -158,7 +169,8 @@ Cette méthode est certes plus simple, mais il arrive parfois qu'on doive utilis
 ## Test d'appartenance
 
 L'opérateur `in` teste si un élément fait partie d'une liste.
-```
+
+```python
 liste = [1, 3, 5, 7, 9]
 >>> 3 in liste
 True
@@ -175,7 +187,8 @@ La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'es
 ## Copie de listes
 
 Il est très important de savoir que l'affectation d'une liste (à partir d'une liste préexistante) crée en réalité une **référence** et non une **copie** :
-```
+
+```python
 >>> x = [1, 2, 3]
 >>> y = x
 >>> y
@@ -194,7 +207,8 @@ Vous voyez que la modification de `x` modifie `y` aussi ! Pour comprendre ce qui
 Techniquement, Python utilise des pointeurs (comme dans le langage de programmation C) vers les mêmes objets. *Python Tutor* l'illustre avec des flèches qui partent des variables `x` et `y` et qui pointent vers la même liste. Donc, si on modifie la liste `x`, la liste `y` est modifiée de la même manière. Rappelez-vous de ceci dans vos futurs programmes car cela pourrait avoir des effets désastreux !
 
 Pour éviter ce problème, il va falloir créer une copie explicite de la liste initiale. Observez cet exemple :
-```
+
+```python
 >>> x = [1, 2, 3]
 >>> y = x[:]
 >>> x[1] = -15
@@ -203,7 +217,8 @@ Pour éviter ce problème, il va falloir créer une copie explicite de la liste 
 ```
 
 L'instruction `x[:]` a créé une copie « à la volée » de la liste `x`. Vous pouvez utiliser aussi la fonction `list()` qui renvoie explicitement une liste:
-```
+
+```python
 >>> x = [1, 2, 3]
 >>> y = list(x)
 >>> x[1] = -15
@@ -216,7 +231,7 @@ Si on regarde à nouveau dans *Python Tutor* (Figure @fig:copy_list2), on voit c
 
 Attention, les deux astuces précédentes ne fonctionnent que pour les listes à une dimension, autrement dit les listes qui ne contiennent pas elles-mêmes d'autres listes. Voyez par exemple :
 
-```
+```python
 >>> x = [[1, 2], [3, 4]]
 >>> x
 [[1, 2], [3, 4]]
@@ -227,8 +242,10 @@ Attention, les deux astuces précédentes ne fonctionnent que pour les listes à
 >>> y
 [[1, 2], [3, 55]]
 ```
+
 et
-```
+
+```python
 >>> y = list(x)
 >>> x[1][1] = 77
 >>> x
@@ -239,7 +256,7 @@ et
 
 La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la fonction `deepcopy()` du module *copy*.
 
-```
+```python
 >>> import copy
 >>> x = [[1, 2], [3, 4]]
 >>> x
@@ -258,7 +275,7 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 
 En Python, la notion de liste de compréhension (ou compréhension de listes) représente une manière originale et très puissante de générer des listes. La syntaxe de base consiste au moins en une boucle `for` au sein de crochets précédés d'une variable (qui peut être la variable d'itération ou pas ):
 
-```
+```python
 >>> [i for i in range(10)]
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 >>> [2 for i in range(10)]
@@ -270,13 +287,15 @@ Pour plus de détails, consultez à ce sujet le site de [Python](http://www.pyth
 Voici quelques exemples illustrant la puissance des listes de compréhension.
 
 ### Nombres pairs compris entre 0 et 30
-```
+
+```python
 >>> print([i for i in range(31) if i % 2 == 0])
 [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
 ```
 
 ### Jeu sur la casse des mots d'une phrase
-```
+
+```python
 >>> message = "C'est sympa la BioInfo"
 >>> msg_lst = message.split()
 >>> print([[m.upper(), len(m)] for m in msg_lst])
@@ -286,7 +305,8 @@ Voici quelques exemples illustrant la puissance des listes de compréhension.
 ### Formatage d'une séquence avec 60 caractères par ligne
 
 Exemple d'une séquence constituée de 150 alanines :
-```
+
+```python
 # Exemple d'une séquence de 150 alanines.
 >>> seq = "A" * 150
 >>> width = 60
@@ -300,7 +320,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ### Formatage FASTA d'une séquence (avec la ligne de commentaire)
 
 Exemple d'une séquence constituée de 150 alanines :
-```
+
+```python
 >>> com = "Séquence de 150 alanines"
 >>> seq = "A" * 150
 >>> width = 60
@@ -315,7 +336,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ### Sélection des carbones alpha dans un fichier pdb
 
 Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) :
-```
+
+```python
 >>> with open("1bta.pdb", "r") as f_pdb:
 ...     CA_lines = [line for line in f_pdb if line.startswith("ATOM")
                                            and line[12:16].strip() == "CA"]
@@ -354,7 +376,7 @@ Rappel : la séquence complémentaire inverse doit être « inversée ». Par ex
 
 Soit la liste de nombres `liste = [5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]`.
 
-A partir de `liste`, créez une nouvelle liste sans les doublons, triez-la et affichez-la.
+À partir de `liste`, créez une nouvelle liste sans les doublons, triez-la et affichez-la.
 
 
 ### Séquence d'ADN aléatoire 2
@@ -382,7 +404,8 @@ On vous propose d'employer une méthode dite « *brute force* », c'est-à-dire 
 ### Triangle de Pascal (exercice +++)
 
 Voici le début du triangle de Pascal :
-```
+
+```text
 1
 1 1
 1 2 1
@@ -391,6 +414,7 @@ Voici le début du triangle de Pascal :
 1 5 10 10 5 1
 [...]
 ```
+
 Déduisez comment une ligne est construite à partir de la précédente. Par exemple, à partir de la ligne 2 (`1 1`), construisez la ligne suivante (ligne 3 : `1 2 1`) et ainsi de suite.
 
 Implémentez cette construction en Python. Généralisez à l'aide d'une boucle.

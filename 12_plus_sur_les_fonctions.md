@@ -8,7 +8,8 @@ Dans ce chapitre, nous allons aller un peu plus loin sur la visibilité de ces v
 ## Appel d'une fonction dans une fonction
 
 Dans le chapitre 9 nous avons vu des fonctions qui étaient appelées depuis le programme principal. Il est en fait possible d'appeler une fonction depuis une autre fonction. Et plus généralement, on peut appeler une fonction de n'importe où à partir du moment où elle est visible par Python (c'est-à-dire chargée dans la mémoire). Observez cet exemple :
-```
+
+```python
 # définition des fonctions
 def polynome(x):
     return (x**2 - 2*x + 1)
@@ -50,7 +51,7 @@ $$
 
 Voici le code Python avec une fonction récursive :
 
-```
+```python
 def calc_factorielle(nb):
     if nb == 1:
         return 1
@@ -73,7 +74,8 @@ Même si les fonctions récursives peuvent être ardues à comprendre, notre pro
 ## Portée des variables
 
 Il est très important lorsque l'on manipule des fonctions de connaître la portée des variables (*scope* en anglais), c'est-à-dire savoir là où elles sont visibles. On a vu que les variables créées au sein d'une fonction ne sont pas visibles à l'extérieur de celle-ci car elles étaient **locales** à la fonction. Observez le code suivant :
-```
+
+```python
 >>> def ma_fonction():
 ...     x = 2
 ...     print(f"x vaut {x} dans la fonction")
@@ -85,10 +87,12 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'x' is not defined
 ```
+
 Lorsque Python exécute le code de la fonction, il connaît le contenu de la variable `x`. Par contre, de retour dans le module principal (dans ce cas, il s'agit de l'interpréteur Python), il ne la connaît plus, d'où le message d'erreur.
 
 De même, une variable passée en argument est considérée comme **locale** lorsqu'on arrive dans la fonction:
-```
+
+```python
 >>> def ma_fonction(x):
 ...     print(f"x vaut {x} dans la fonction")
 ...
@@ -101,7 +105,8 @@ NameError: name 'x' is not defined
 ```
 
 Lorsqu'une variable est déclarée dans le programme principal, elle est visible dans celui-ci ainsi que dans toutes les fonctions. On a vu qu'on parlait de variable **globale** :
-```
+
+```python
 >>> def ma_fonction():
 ...     print(x)
 ...
@@ -113,7 +118,8 @@ Lorsqu'une variable est déclarée dans le programme principal, elle est visible
 ```
 
 Dans ce cas, la variable `x` est visible dans le module principal et dans toutes les fonctions du module. Toutefois, Python ne permet pas la modification d'une variable globale dans une fonction:
-```
+
+```python
 >>> def ma_fonction():
 ...     x = x + 1
 ...
@@ -126,7 +132,8 @@ UnboundLocalError: local variable 'x' referenced before assignment
 ```
 
 L'erreur renvoyée montre que Python pense que `x` est une variable locale qui n'a pas été encore assignée. Si on veut vraiment modifier une variable globale dans une fonction, il faut utiliser le mot-clé `global` :
-```
+
+```python
 >>> def ma_fonction():
 ...     global x
 ...     x = x + 1
@@ -136,6 +143,7 @@ L'erreur renvoyée montre que Python pense que `x` est une variable locale qui n
 >>> x
 2
 ```
+
 Dans ce dernier cas, le mot-clé `global` a forcé la variable `x` à être globale plutôt que locale au sein de la fonction.
 
 
@@ -148,7 +156,8 @@ Les exemples de cette partie représentent des absurdités en termes de programm
 close-box-warn
 
 Soyez extrêmement attentifs avec les types modifiables (tels que les listes) car vous pouvez les changer au sein d'une fonction :
-```
+
+```python
 >>> def ma_fonction():
 ...     liste[1] = -127
 ...
@@ -157,8 +166,10 @@ Soyez extrêmement attentifs avec les types modifiables (tels que les listes) ca
 >>> liste
 [1, -127, 3]
 ```
+
 De même, si vous passez une liste en argument, elle est modifiable au sein de la fonction :
-```
+
+```python
 >>> def ma_fonction(x):
 ...     x[1] = -15
 ...
@@ -179,7 +190,8 @@ On voit très clairement que la variable `liste` passée en argument lors de l'a
 Si vous voulez éviter les problèmes de modification malencontreuse d'une liste dans une fonction, utilisez des tuples (ils seront présentés dans le chapitre 13 *Dictionnaires et tuples*), Python renverra une erreur car ces derniers sont non modifiables.
 
 Une autre solution pour éviter la modification d'une liste, lorsqu'elle est passée comme argument à une fonction, est de la passer explicitement (comme nous l'avons fait pour la copie de liste) afin qu'elle reste intacte dans le programme principal.
-```
+
+```python
 >>> def ma_fonction(x):
 ...     x[1] = -15
 ...
@@ -191,6 +203,7 @@ Une autre solution pour éviter la modification d'une liste, lorsqu'elle est pas
 >>> y
 [1, 2, 3]
 ```
+
 Dans ces deux derniers exemples, une copie de `y` est créée à la volée lorsqu'on appelle la fonction, ainsi la liste `y` du module principal reste intacte.
 
 D'autres suggestions sur l'envoi de liste dans une fonction vous sont données dans la rubrique *Recommandations* ci-dessous.
@@ -198,7 +211,8 @@ D'autres suggestions sur l'envoi de liste dans une fonction vous sont données d
 ## Règle LGI
 
 Lorsque Python rencontre une variable, il va traiter la résolution de son  nom avec des priorités particulières. D'abord il va regarder si la variable est **locale**, puis si elle n'existe pas localement, il vérifiera si elle est **globale** et enfin si elle n'est pas globale, il testera si elle est **interne** (par exemple la fonction `len()` est considérée comme une fonction interne à Python, elle existe à chaque fois que vous lancez Python). On appelle cette règle la règle **LGI** pour locale, globale, interne. En voici un exemple :
-```
+
+```python
 >>> def ma_fonction():
 ...     x = 4
 ...     print(f"Dans la fonction x vaut {x}")
@@ -209,6 +223,7 @@ Dans la fonction x vaut  4
 >>> print(f"Dans le module principal x vaut {x}")
 Dans le module principal x vaut -15
 ```
+
 Dans la fonction, `x` a pris la valeur qui lui était définie localement en priorité sur la valeur définie dans le module principal.
 
 open-box-adv
@@ -240,7 +255,7 @@ close-box-adv
 
 Concernant les fonctions qui modifient une liste, nous vous conseillons de l'indiquer clairement dans votre code. Pour cela, faites en sorte que la fonction renvoie la liste modifiée et de récupérer cette liste renvoyée dans une variable portant le même nom. Par exemple :
 
-```
+```python
 def ajoute_un(liste):
     for i in range(len(liste)):
         liste[i] += 1
@@ -256,7 +271,7 @@ La ligne 8 indique que la liste `liste_notes` passée à la fonction est écras�
 
 Le code suivant produirait la même sortie :
 
-```
+```python
 def ajoute_un(liste):
     for i in range(len(liste)):
         liste[i] += 1
@@ -273,7 +288,7 @@ open-box-adv
 
 Pour les raisons évoquées ci-dessus, nous vous conseillons de privilégier la première version :
 
-```
+```python
 liste_notes = ajoute_un(liste_notes)
 ```
 
@@ -298,7 +313,8 @@ Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué 
 Prédisez le comportement des codes suivants, sans les recopier dans un script ni dans l'interpréteur Python :
 
 #### Code 1
-```
+
+```python
 def hello(prenom):
     print(f"Bonjour {prenom}")
 
@@ -309,7 +325,8 @@ print(x)
 ```
 
 #### Code 2
-```
+
+```python
 def hello(prenom):
     print(f"Bonjour {prenom}")
 
@@ -321,7 +338,8 @@ print(x)
 ```
 
 #### Code 3
-```
+
+```python
 def hello(prenom):
     print(f"Bonjour {prenom}")
     print(x)
@@ -334,7 +352,8 @@ print(x)
 ```
 
 #### Code 4
-```
+
+```python
 def hello(prenom):
     x = 42
     print(f"Bonjour {prenom}")

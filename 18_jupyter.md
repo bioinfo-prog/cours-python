@@ -15,7 +15,8 @@ Ce notebook est constitué de cinq cellules : deux avec du texte en Markdown (la
 ## Installation
 
 Avec la distribution Miniconda, les notebooks Jupyter s'installent avec la commande :
-```
+
+```bash
 $ conda install -y jupyterlab
 ```
 
@@ -25,7 +26,8 @@ Pour être exact, la commande précédente installe un peu plus que les notebook
 ## Lancement de Jupyter et création d'un notebook
 
 Pour lancer les notebooks Jupyter, utilisez la commande suivante depuis un *shell* :
-```
+
+```bash
 $ jupyter-notebook
 ```
 
@@ -52,7 +54,8 @@ L'extension *.ipynb* est l'extension de fichier des notebooks Jupyter.
 close-box-rem
 
 Vous pouvez entrer des instructions Python dans la première cellule. Par exemple :
-```
+
+```python
 a = 2
 b = 3
 print(a+b)
@@ -162,7 +165,8 @@ close-box-rem
 
 En 2018, le consortium Jupyter a lancé *JupyterLab* qui est un environnement complet d'analyse.
 Pour obtenir cette interface, lancez la commande suivante depuis un *shell* :
-```
+
+```bash
 $ jupyter lab
 ```
 

@@ -13,7 +13,8 @@ close-box-rem
 ### Définition
 
 Les **dictionnaires** se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. Les dictionnaires sont des collections non ordonnées d'objets, c'est-à-dire qu'il n'y a pas de notion d'ordre  (*i.e.* pas d'indice). On accède aux **valeurs** d'un dictionnaire par des **clés**. Ceci semble un peu confus ? Regardez l'exemple suivant :
-```
+
+```python
 >>> ani1 = {}
 >>> ani1["nom"] = "girafe"
 >>> ani1["taille"] = 5.0
@@ -31,16 +32,20 @@ Un dictionnaire est affiché sans ordre particulier.
 close-box-rem
 
 On peut aussi initialiser toutes les clés et les valeurs d'un dictionnaire en une seule opération :
-```
+
+```python
 >>> ani2 = {"nom": "singe", "poids": 70, "taille": 1.75}
+
 ```
 Mais rien ne nous empêche d'ajouter une clé et une valeur supplémentaire :
-```
+
+```python
 >>> ani2["age"] = 15
 ```
 
 Pour récupérer la valeur associée à une clé donnée, il suffit d'utiliser la syntaxe suivante `dictionnaire["cle"]`. Par exemple :
-```
+
+```python
 >>> ani1["taille"]
 5.0
 ```
@@ -58,7 +63,8 @@ Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionna
 ### Itération sur les clés pour obtenir les valeurs
 
 Il est possible d'obtenir toutes les valeurs d'un dictionnaire à partir de ses clés :
-```
+
+```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
 >>> for key in ani2:
 ...     print(key, ani2[key])
@@ -72,7 +78,8 @@ taille 1.75
 ### Méthodes `.keys()`, `.values()` et `.items()`
 
 Les méthodes `.keys()` et `.values()` renvoient, comme vous pouvez vous en doutez, les clés et les valeurs d'un dictionnaire :
-```
+
+```python
 >>> ani2.keys()
 dict_keys(['poids', 'nom', 'taille'])
 >>> ani2.values()
@@ -80,7 +87,8 @@ dict_values([70, 'singe', 1.75])
 ```
 
 Les mentions `dict_keys` et `dict_values` indiquent que nous avons à faire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice, par exemple `dico.keys()[0]` renverra une erreur). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
-```
+
+```python
 >>> ani2.values()
 dict_values(['singe', 70, 1.75])
 >>> list(ani2.values())
@@ -93,7 +101,7 @@ Toutefois, ce sont des objets « itérables », donc utilisables dans une boucle
 
 Enfin, il existe la méthode `.items()` qui renvoie un nouvel objet `dict_items` :
 
-```
+```python
 >>> dico = {0: "t", 1: "o", 2: "t", 3: "o"}
 >>> dico.items()
 dict_items([(0, 't'), (1, 'o'), (2, 't'), (3, 'o')])
@@ -101,7 +109,7 @@ dict_items([(0, 't'), (1, 'o'), (2, 't'), (3, 'o')])
 
 Celui-ci n'est pas indexable (on ne peut pas retrouver un élément par un indice) mais il est itérable :
 
-```
+```python
 >>> dico.items()[2]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -121,7 +129,8 @@ Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au
 ### Existence d'une clé
 
 Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` qui renvoie un booléen :
-```
+
+```python
 >>> if "poids" in ani2:
 ...     print("La clé 'poids' existe pour ani2")
 ...
@@ -129,7 +138,6 @@ La clé 'poids' existe pour ani2
 >>> if "age" in ani2:
 ...     print("La clé 'age' existe pour ani2")
 ...
->>>
 ```
 
 Dans le second test (lignes 5 à 7), le message n'est pas affiché car la clé `age` n'est pas présente dans le dictionnaire `ani2`.
@@ -139,7 +147,8 @@ Dans le second test (lignes 5 à 7), le message n'est pas affiché car la clé `
 
 En créant une liste de dictionnaires qui possèdent les mêmes clés,
 on obtient une structure qui ressemble à une base de données :
-```
+
+```python
 >>> animaux = [ani1, ani2]
 >>> animaux
 [{'nom': 'girafe', 'poids': 1100, 'taille': 5.0}, {'nom': 'singe',
@@ -160,7 +169,7 @@ Vous constatez ainsi que les dictionnaires permettent de gérer des structures c
 
 La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de *casting* comme `int()`, `str()`, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière : un objet séquentiel contenant d'autres objets séquentiels de 2 éléments. Par exemple, une liste de listes de 2 éléments :
 
-```
+```python
 >>> liste_animaux = [["girafe", 2], ["singe", 3]]
 >>> dict(liste_animaux)
 {'girafe': 2, 'singe': 3}
@@ -168,7 +177,7 @@ La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire.
 
 Ou un *tuple* de *tuples* de 2 éléments (cf. rubrique suivante pour la définition d'un *tuple*), ou encore une combinaison liste / *tuple* :
 
-```
+```python
 >>> tuple_animaux = (("girafe", 2), ("singe", 3))
 >>> dict(tuple_animaux)
 {'girafe': 2, 'singe': 3}
@@ -179,7 +188,7 @@ Ou un *tuple* de *tuples* de 2 éléments (cf. rubrique suivante pour la défini
 
 Si un des sous-éléments a plus de 2 éléments (ou moins), Python renvoie une erreur :
 
-```
+```python
 >>> dict([("girafe", 2), ("singe", 3, 4)])
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -191,7 +200,8 @@ ValueError: dictionary update sequence element #1 has length 3; 2 is required
 ### Définition
 
 Les **tuples** (« n-uplets » en français) correspondent aux listes à la différence qu'ils sont **non modifiables**. On a vu dans le chapitre 11 *Plus sur les listes* que les listes pouvaient être modifiées par références, notamment lors de la copie de listes. Les tuples s'affranchissent de ce problème puisqu'ils sont non modifiables. Pratiquement, ils utilisent les parenthèses au lieu des crochets :
-```
+
+```python
 >>> x = (1, 2, 3)
 >>> x
 (1, 2, 3)
@@ -206,7 +216,8 @@ TypeError: object doesn't support item assignment
 ```
 
 L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple, Python renvoie un message d'erreur. Si vous voulez ajouter un élément (ou le modifier), vous devez créer un autre tuple :
-```
+
+```python
 >>> x = (1, 2, 3)
 >>> x + (2,)
 (1, 2, 3, 2)
@@ -217,7 +228,8 @@ open-box-rem
 Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec une virgule `(element,)`, ceci pour éviter une ambiguïté avec une simple expression.
 
 Autre particularité des tuples, il est possible d'en créer de nouveaux sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :
-```
+
+```python
 >>> x = (1, 2, 3)
 >>> x
 (1, 2, 3)
@@ -230,7 +242,8 @@ Toutefois, nous vous conseillons d'utiliser systématiquement les parenthèses a
 close-box-rem
 
 Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement comme la fonction `list()`, c'est-à-dire qu'elle prend en argument un objet séquentiel et renvoie le tuple correspondant (opération de *casting*) :
-```
+
+```python
 >>> tuple([1,2,3])
 (1, 2, 3)
 >>> tuple("ATGCCGCGAT")
@@ -247,7 +260,7 @@ close-box-rem
 
 Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons*. Cette dernière permettait d'itérer **en même temps** sur les indices et les éléments d'une liste :
 
-```
+```python
 >>> for i, elt in enumerate([75, -75, 0]):
 ...     print(i, elt)
 ...
@@ -266,7 +279,7 @@ En fin de compte, la fonction `enumerate()` itère sur une série de *tuples*. P
 
 Dans le même ordre d'idée, nous avons vu à la rubrique précédente la méthode `.dict_items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
 
-```
+```python
 >>> dico = {"pinson": 2, "merle": 3}
 >>> for key, val in dico.items():
 ...     print(key, val)
@@ -284,7 +297,7 @@ On voit que cette méthode `.dict_items()` itère comme `enumerate()` sur une s�
 
 Sur la même base, on peut finalement itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
 
-```
+```python
 >>> liste = [(i, i+1, i+2) for i in range(5, 8)]
 >>> liste
 [(5, 6, 7), (6, 7, 8), (7, 8, 9)]
@@ -311,7 +324,7 @@ close-box-rem
 
 Nous avions croisé l'importance de l'affectation multiple dans le chapitre 9 *Fonctions* lorsqu'une fonction renvoyait plusieurs valeurs.
 
-```
+```python
 >>> def fct():
 ...     return 3, 14
 ...
@@ -322,7 +335,7 @@ Nous avions croisé l'importance de l'affectation multiple dans le chapitre 9 *F
 
 La syntaxe `x, y = fct()` permet de récupérer les 2 valeurs renvoyées par la fonction et de les affecter à la volée dans 2 variables différentes. Cela évite l'opération laborieuse de récupérer d'abord le tuple, puis de créer les variables en utilisant l'indiçage :
 
-```
+```python
 >>> resultat = fct()
 >>> resultat
 (3, 14)
@@ -340,7 +353,7 @@ close-box-adv
 
 Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que certaines valeurs ne nous intéressent pas :
 
-```
+```python
 >>> def fct():
 ...     return 1, 2, 3, 4
 ...
@@ -357,7 +370,7 @@ open-box-rem
 
 La variable `_` a une autre signication spéciale dans l'interpréteur interactif, elle prend automatiquement la dernière valeur affichée :
 
-```
+```python
 >>> 3
 3
 >>> _
@@ -383,7 +396,7 @@ close-box-rem
 
 Les containers de type *set* représentent un autre type d'objet séquentiel qui peut se révéler très pratique. Ils ont la particularité d'être non modifiables, non ordonnés et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau *set* on peut utiliser les accolades :
 
-```
+```python
 >>> s = {1, 2, 3, 3}
 >>> s
 {1, 2, 3}
@@ -395,7 +408,7 @@ Notez que la répétition du 3 dans la définition du *set* en ligne 1 donne au 
 
 En général, on utilisera la fonction interne à Python `set()` pour générer un nouveau *set*. Celle-ci prend en argument n'importe quel objet itérable et le convertit en *set* (opération de *casting*) :
 
-```
+```python
 >>> set([1, 2, 4, 1])
 {1, 2, 4}
 >>> set((2, 2, 2, 1))
@@ -412,7 +425,7 @@ En général, on utilisera la fonction interne à Python `set()` pour générer 
 
 Nous avons dit plus haut que les *sets* ne sont pas ordonnés, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments. Par contre, les *sets* sont itérables :
 
-```
+```python
 >>> s = set([1, 2, 4, 1])
 >>> s[1]
 Traceback (most recent call last):
@@ -428,7 +441,7 @@ TypeError: 'set' object is not subscriptable
 
 Les containers de type *set* sont très utiles pour rechercher les éléments uniques d'une suite d'éléments. Cela revient à éliminer tous les doublons. Par exemple :
 
-```
+```python
 >>> import random as rd
 >>> l = [rd.randint(0, 9) for i in range(10)]
 >>> l
@@ -439,14 +452,14 @@ Les containers de type *set* sont très utiles pour rechercher les éléments un
 
 On peut bien sûr transformer dans l'autre sens un *set* en liste. Cela permet par exemple d'éliminer les doublons de la liste initiale tout en récupérant une liste à la fin :
 
-```
+```python
 >>> list(set([7, 9, 6, 6, 7, 3, 8, 5, 6, 7]))
 [3, 5, 6, 7, 8, 9]
 ```
 
 On peut faire des choses très puissantes. Par exemple, un compteur de lettres en combinaison avec une liste de compréhension, le tout en une ligne !
  
-```
+```python
 >>> seq = "atctcgatcgatcgcgctagctagctcgccatacgtacgactacgt"
 >>> set(seq)
 {'c', 'g', 't', 'a'}
@@ -456,7 +469,7 @@ On peut faire des choses très puissantes. Par exemple, un compteur de lettres e
 
 Les *sets* permettent aussi l'évaluation d'union ou d'intersection mathématiques en conjonction avec les opérateurs respectivement `|` et `&` :
 
-```
+```python
 >>> l = [3, 3, 5, 1, 3, 4, 1, 1, 4, 4]
 >>> l2 = [3, 0, 5, 3, 3, 1, 1, 1, 2, 2]
 >>> set(l) & set(l2)
@@ -477,7 +490,7 @@ close-box-adv
 
 Nous avons vu au chapitre 11 *Plus sur les listes* les listes de compréhension. Il est également possible de générer des dictionnaires de compréhension :
 
-```
+```python
 >>> dico = {"a": 10, "g": 10, "t": 11, "c": 15}
 >>> dico.items()
 dict_items([('a', 10), ('g', 10), ('t', 11), ('c', 15)])
@@ -496,7 +509,7 @@ De manière générale, tout objet sur lequel on peut faire une double itératio
 
 Il est également possible de générer des *sets* de compréhension sur le même modèle que les listes de compréhension :
 
-```
+```python
 >>> {i for i in range(10)}
 {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 >>> {i**2 for i in range(10)}
@@ -516,7 +529,7 @@ Le [module *collections*](https://docs.python.org/fr/3/library/collections.html)
 
 L'objet `collection.Counter()` est particulièrement intéressant et facile à utiliser. Il crée des compteurs à partir d'objets itérables, par exemple :
 
-```
+```python
 >>> import collections
 >>> compo_seq = collections.Counter("aatctccgatcgatcgatcgatgatc")
 >>> compo_seq
@@ -552,7 +565,8 @@ Utilisez ces fonctions pour affichez les mots de 2 et 3 lettres et leurs occurre
 `ACCTAGCCATGTAGAATCGCCTAGGCTTTAGCTAGCTCTAGCTAGCTG`
 
 Voici un exemple de sortie attendue :
-```
+
+```text
 Mots de 2 lettres
 AC : 1
 CC : 3

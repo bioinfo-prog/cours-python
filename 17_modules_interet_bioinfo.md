@@ -3,7 +3,8 @@
 Nous allons aborder dans ce chapitre quelques modules très importants en bioinformatique. Le premier *NumPy* permet notamment de manipuler des vecteurs et des matrices. Le module *Biopython* permet de travailler sur des données biologiques, comme des séquences (nucléiques et protéiques) ou des structures (fichiers PDB). Le module *matplotlib* permet de créer des graphiques depuis Python. Enfin, le module *pandas* est très performant pour l'analyse de données, et *scipy* étend les possibilités offertes par *NumPy*, notamment en proposant des algorithmes couramment utilisés en calcul scientifique.
 
 Ces modules ne sont pas fournis avec la distribution Python de base (contrairement à tous les autres modules vus précédemment). Avec la distribution Miniconda que nous vous avons conseillé d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod)), vous pouvez rapidement les installer avec la commande :
-```
+
+```bash
 $ conda install -y numpy pandas matplotlib scipy biopython
 ```
 
@@ -15,11 +16,14 @@ Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation de ces 
 Le module [*NumPy*](http://numpy.scipy.org/) est incontournable en bioinformatique. Il permet d'effectuer des calculs sur des vecteurs ou des matrices, élément par élément, via un nouveau type d'objet appelé *array*.
 
 On charge le module *NumPy* avec la commande :
-```
+
+```python
 >>> import numpy
 ```
+
 On peut également définir un nom raccourci pour *NumPy* :
-```
+
+```python
 >>> import numpy as np
 ```
 
@@ -27,7 +31,8 @@ On peut également définir un nom raccourci pour *NumPy* :
 ### Objets de type *array*
 
 Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un objet séquentiel (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple simple de conversion d'une liste à une dimension en objet *array* :
-```
+
+```python
 >>> import numpy as np
 >>> a = [1, 2, 3]
 >>> np.array(a)
@@ -48,7 +53,8 @@ open-box-rem
 Un objet *array* ne contient que des données homogènes, c'est-à-dire d'un type identique.
 
 Il est possible de créer un objet *array* à partir d'une liste contenant des entiers et des chaînes de caractères, mais dans ce cas, toutes les valeurs seront comprises par *NumPy* comme des chaînes de caractères :
-```
+
+```python
 >>> a = np.array([1, 2, "tigre"])
 >>> a
 array(['1', '2', 'tigre'], dtype='<U21')
@@ -57,7 +63,8 @@ array(['1', '2', 'tigre'], dtype='<U21')
 ```
 
 De même, il est possible de créer un objet *array* à partir d'une liste constituée d'entiers et de *floats*, mais toutes les valeurs seront alors comprises par *NumPy* comme des *floats* :  
-```
+
+```python
 >>> b = np.array([1, 2, 3.5])
 >>> b
 array([1. , 2. , 3.5])
@@ -71,19 +78,22 @@ close-box-rem
 
 
 Sur un modèle similaire à la fonction `range()`, la fonction `arange()` permet de construire un *array* à une dimension de manière simple.
-```
+
+```python
 >>> np.arange(10)
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 ```
 
 Comme avec `range()`, on peut spécifier en argument une borne de début, une borne de fin et un pas :
-```
+
+```python
 >>> np.arange(10, 0, -1)
 array([10,  9,  8,  7,  6,  5,  4,  3,  2,  1])
 ```
 
 Un autre avantage de la fonction `arange()` est qu'elle génère des objets *array* qui contiennent des entiers ou des *floats* selon l'argument qu'on lui passe :
-```
+
+```python
 >>> np.arange(10)
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 >>> np.arange(10.0)
@@ -92,7 +102,8 @@ array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9.])
 
 
 La différence fondamentale entre un objet *array* à une dimension et une liste (ou un tuple) est que celui-ci est considéré comme un **vecteur**. Par conséquent, on peut effectuer des opérations **élément par élément** sur ce type d'objet, ce qui est bien commode lorsqu'on analyse de grandes quantités de données. Regardez ces exemples :
-```
+
+```python
 >>> v = np.arange(4)
 >>> v
 array([0, 1, 2, 3])
@@ -114,7 +125,8 @@ Notez également que, dans le dernier exemple de multiplication (ligne 10), l'*a
 ### *Array* et dimensions
 
 Il est aussi possible de construire des objets *arrays* à deux dimensions, il suffit de passer en argument une liste de listes à la fonction `array()` :
-```
+
+```python
 >>> w = np.array([[1, 2], [3, 4], [5, 6]])
 >>> w
 array([[1, 2],
@@ -123,7 +135,8 @@ array([[1, 2],
 ```
 
 On peut aussi créer des tableaux à trois dimensions en passant comme argument à la fonction `array()` une liste de listes de listes :
-```
+
+```python
 >>> x = np.array([[[1, 2], [2, 3]], [[4, 5], [5, 6]]])
 >>> x
 array([[[1, 2],
@@ -148,7 +161,7 @@ Voici quelques attributs intéressants pour décrire un objet *array* :
 - `.size` renvoie le nombre total d'éléments contenus dans l'`array`.
 
 
-```
+```python
 >>> v = np.arange(4)
 >>> v
 array([0, 1, 2, 3])
@@ -172,7 +185,8 @@ array([[1, 2],
 ```
 
 Et la méthode `.reshape()` renvoie un nouvel *array* avec les dimensions spécifiées :
-```
+
+```python
 >>> a = np.arange(0, 6)
 >>> a
 array([0, 1, 2, 3, 4, 5])
@@ -190,7 +204,7 @@ array([0, 1, 2, 3, 4, 5])
 
 Notez bien que `a` n'a pas été modifié. Notez également que `a.reshape((2, 3))` n'est pas la même chose que `a.reshape((3, 2))` :
 
-```
+```python
 >>> c = a.reshape((3, 2))
 >>> c
 array([[0, 1],
@@ -205,7 +219,7 @@ Dans nos exemples précédents, $6 = 2 \times 3 = 3 \times 2$.
 
 Si les nouvelles dimensions ne sont pas compatibles avec les dimensions initiales, la méthode `.reshape()` génère une erreur.
 
-```
+```python
 >>> a = np.arange(0, 6)
 >>> a
 array([0, 1, 2, 3, 4, 5])
@@ -218,7 +232,8 @@ ValueError: cannot reshape array of size 6 into shape (3,4)
 ```
 
 La méthode `.resize()` par contre ne déclenche pas d'erreur dans une telle situation et ajoute des 0 jusqu'à ce que le nouvel *array* soit rempli, ou bien coupe la liste initiale.
-```
+
+```python
 >>> a = np.arange(0, 6)
 >>> a.shape
 (6,)
@@ -231,7 +246,7 @@ array([[0, 1, 2],
        [0, 0, 0]])
 ```
 
-```
+```python
 >>> b = np.arange(0, 10)
 >>> b.shape
 (10,)
@@ -251,7 +266,7 @@ close-box-warn
 
 Il existe aussi la fonction `np.resize()` qui, dans le cas d'un nouvel *array* plus grand que l'*array* initial, va répéter l'*array* initial afin de remplir les cases manquantes :
 
-```
+```python
 >>> a = np.arange(0, 6)
 >>> a.shape
 (6,)
@@ -272,7 +287,7 @@ open-box-rem
 
 Depuis le début de ce chapitre, nous avons toujours montré l'affichage d'un *array* dans l'interpréteur :
 
-```
+```python
 >>> a = np.array(range(10))
 >>> a
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -285,7 +300,7 @@ array([[1., 1., 1.],
 
 Nous avons déjà indiqué que Python affiche systématiquement le mot *array* ainsi que les parenthèses, crochets et virgules pour séparer les éléments. Attention toutefois si vous utilisez la fonction `print()` car l'affichage est différent. Le mot *array*, les parenthèses et les virgules disparaissent :
 
-```
+```python
 >>> print(a)
 [0 1 2 3 4 5 6 7 8 9]
 >>> print(a2)
@@ -301,7 +316,7 @@ close-box-rem
 
 Chaque *array NumPy* qui est créé possède une multitude de méthodes. Nombre d'entre elles permettent de faire des calculs de base comme `.mean()` pour la moyenne, `.sum()` pour la somme, `.std()` pour l'écart-type, `.max()` pour extraire le maximum, `.min()` pour extraire le minimum, etc. La liste exhaustive est [ici](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation). Par défaut, chacune de ces méthodes effectuera l'opération sur l'*array* entier, quelle que soit sa dimensionnalité. Par exemple :
 
-```
+```python
 >>> import random as rd
 >>> l = list(range(8))
 >>> rd.shuffle(l)
@@ -319,7 +334,7 @@ array([[2, 7],
 
 La méthode `.max()` nous a bien renvoyé la valeur maximum 7. Un argument *très* utile existant dans toutes ces méthodes est `axis`. Pour un *array* 2D, `axis=0` signifie qu'on fera l'opération le long de l'axe 0, à savoir les lignes. C'est-à-dire que l'opération se fait en faisant varier les lignes. On récupère ainsi une valeur par colonne :
 
-```
+```python
 >>> a.max(axis=0)
 array([6, 7])
 ```
@@ -328,7 +343,7 @@ L'*array* 1D récupéré a son premier élément qui vaut 6 (maximum de la 1ère
 
 Avec `axis=1` on fait une opération similaire mais en faisant varier les colonnes. On récupère ainsi une valeur par ligne :
 
-```
+```python
 >>> a.max(axis=1)
 array([7, 6, 3, 5])
 ```
@@ -341,7 +356,7 @@ On comprend la puissance de cet argument `axis`. A nouveau, il est possible, en 
 
 Pour récupérer un ou plusieurs élément(s) d'un objet *array*, vous pouvez utiliser les indices ou les tranches, de la même manière qu'avec les listes :
 
-```
+```python
 >>> a = np.arange(10)
 >>> a
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -354,7 +369,7 @@ array([0, 2, 4, 6, 8])
 ```
 Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *i*), une colonne complète (d'indice *j*) ou bien un seul élément. La figure @fig:array2Dlignescolonnes montre comment sont organisés les lignes / colonnes et indices.
 
-```
+```python
 >>> a = np.array([[1, 2], [3, 4]])
 >>> a
 array([[1, 2],
@@ -375,7 +390,7 @@ open-box-rem
 
 - Pour un *array* 2D, si un seul indice est donné, par exemple `a[i]`, on récupère la ligne d'indice `i` sous forme d'*array* 1D :
 
-```
+```python
 >>> a
 array([[1, 2],
        [3, 4]])
@@ -387,7 +402,7 @@ array([3, 4])
 
 - Pour cette raison, la syntaxe `a[i][j]` est également valide pour récupér un élément :
 
-```
+```python
 >>> a
 array([[1, 2],
        [3, 4]])
@@ -405,7 +420,7 @@ close-box-rem
 
 Comme pour les listes, nous attirons votre attention sur la copie d'*arrays* :
 
-```
+```python
 >>> a = np.arange(5)
 >>> a
 array([0, 1, 2, 3, 4])
@@ -425,7 +440,7 @@ close-box-warn
 
 Afin d'éviter le problème, vous pouvez soit utiliser la fonction `np.array()` qui crée une nouvelle copie distincte de l'*array* initial, soit la fonction `copy.deepcopy()` comme pour les listes (cf. chapitre 11 *Plus sur les listes*) :
 
-```
+```python
 >>> a = np.full((2, 2), 0)
 >>> a
 array([[0, 0],
@@ -449,7 +464,7 @@ open-box-rem
 
 On pourra noter que la stratégie `b = np.array(a)` fait bien une copie distincte de l'*array* `a` quelle que soit sa dimensionnalité. Ceci n'était pas le cas avec la fonction `list()`  pour les copies de listes à partir de la dimensionnalité 2 : 
 
-```
+```python
 >>> l1 = [[0, 0], [1, 1]]
 >>> l2 = list(l1)
 >>> l3 = copy.deepcopy(l1)
@@ -466,7 +481,8 @@ close-box-rem
 ### Construction automatique de matrices
 
 Il peut être parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
-```
+
+```python
 >>> np.zeros((2, 3))
 array([[0., 0., 0.],
        [0., 0., 0.]])
@@ -477,14 +493,16 @@ array([[1., 1., 1.],
 ```
 
 Par défaut, les fonctions `zeros()` et `ones()` génèrent des *floats*, mais vous pouvez demander des entiers en passant le type (par exemple `int`, `float`, etc.) en second argument :
-```
+
+```python
 >>> np.zeros((2,3), int)
 array([[0, 0, 0],
        [0, 0, 0]])
 ```
 
 Enfin, si vous voulez construire une matrice avec autre chose que des 0 ou des 1, vous avez à votre disposition la fonction `full()` :
-```
+
+```python
 >>> np.full((2, 3), 7, int)
 array([[7, 7, 7],
        [7, 7, 7]])
@@ -497,7 +515,7 @@ Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes. Celle
 
 Le module numpy contient aussi des fonctions pour lire des données à partir de fichiers et créer des *arrays* automatiquement. Cela se révèle bien pratique car la plupart du temps les données que l'on analyse proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes / colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
 
-```
+```text
   1   7 310
  15  -4  35
  78  95  79
@@ -505,7 +523,7 @@ Le module numpy contient aussi des fonctions pour lire des données à partir de
 
 La fonction prend en argument le nom du fichier et renvoie un *array* 2D directement :
 
-```
+```python
 >>> np.loadtxt("donnees.dat")
 array([[  1.,   7., 310.],
        [ 15.,  -4.,  35.],
@@ -522,7 +540,7 @@ Nous vous conseillons vivement de consulter la [documentation complète](https:/
 
 L'opération inverse consistant à sauver un *array* dans un fichier se fait avec la fonction `np.savetxt()` :
 
-```
+```python
 >>> a = np.reshape(range(1, 10), (3, 3))
 >>> a
 array([[1, 2, 3],
@@ -533,7 +551,7 @@ array([[1, 2, 3],
 
 Ceci générera le fichier `out.dat` contenant les lignes suivantes :
 
-```
+```text
 1.000000000000000000e+00 2.000000000000000000e+00 3.000000000000000000e+00
 4.000000000000000000e+00 5.000000000000000000e+00 6.000000000000000000e+00
 7.000000000000000000e+00 8.000000000000000000e+00 9.000000000000000000e+00
@@ -554,7 +572,7 @@ Après avoir manipulé les objets *array* comme des vecteurs et des matrices, vo
 
 La fonction `transpose()` renvoie la [transposée](https://fr.wikipedia.org/wiki/Matrice_transpos%C3%A9e) d'un *array*. Par exemple, pour une matrice :
 
-```
+```python
 >>> a = np.resize(np.arange(1, 10), (3, 3))
 >>> a
 array([[1, 2, 3],
@@ -568,7 +586,7 @@ array([[1, 4, 7],
 
 Tout objet *array* possède un attribut `.T` qui contient la transposée, il est ainsi possible d'utiliser cette notation objet plus compacte :
 
-```
+```python
 >>> a.T
 array([[1, 4, 7],
        [2, 5, 8],
@@ -577,7 +595,7 @@ array([[1, 4, 7],
 
 La fonction `dot()` vous permet de réaliser une [multiplication de matrices](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_matriciel_ordinaire).
 
-```
+```python
 >>> a = np.resize(np.arange(4), (2, 2))
 >>> a
 array([[0, 1],
@@ -589,6 +607,7 @@ array([[ 2,  3],
 array([[0, 1],
        [4, 9]])
 ```
+
 Notez bien que `dot(a, a)` renvoie le **produit matriciel** entre deux matrices, alors que `a * a` renvoie le produit **élément par élément**.
 
 open-box-rem
@@ -599,7 +618,7 @@ close-box-rem
 
 Pour toutes les opérations suivantes, nous utiliserons des fonctions du sous-module *linalg* de *NumPy*. La fonction `inv()` renvoie l'[inverse d'une matrice carrée](https://fr.wikipedia.org/wiki/Matrice_inversible), `det()` son [déterminant](https://fr.wikipedia.org/wiki/Calcul_du_d%C3%A9terminant_d%27une_matrice) et `eig()` ses [vecteurs et valeurs propres](https://fr.wikipedia.org/wiki/D%C3%A9composition_d%27une_matrice_en_%C3%A9l%C3%A9ments_propres).
 
-```
+```python
 >>> a = np.diag((1, 2, 3))
 >>> a
 array([[1, 0, 0],
@@ -621,7 +640,7 @@ Ligne 1. La fonction `.diag()` permet de générer une matrice diagonale.
 
 Lignes 12 à 15. La fonction `eig()` renvoie un tuple dont le premier élément (d'indice 0) correspond aux valeurs propres et le second (d'indice 1) aux vecteurs propres. Une façon commode de récupérer ces éléments est d'utiliser cette fonction avec l'affectation multiple :
 
-```
+```python
 >>> eigvals, eigvecs = np.linalg.eig(a)
 >>> eigvals
 array([1., 2., 3.])
@@ -645,7 +664,7 @@ Lignes 4 à 13. `eigvecs` est un *array* 2D contenant les 3 vecteurs propres (un
 
 Lorqu'on a une matrice, on est souvent amené à la parcourir par ligne ou par colonne. Une fonctionnalité bien commode vient du fait que les *arrays NumPy* sont directement itérables par ligne :
 
-```
+```python
 >>> a = np.reshape(np.arange(1, 10), (3, 3))
 >>> a
 array([[1, 2, 3],
@@ -663,7 +682,7 @@ A chaque itération, la variable `row` est un *array* 1D correspondant à chaque
 
 Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
 
-```
+```python
 >>> for col in a.T:
 ...     print(col, type(col))
 ...
@@ -676,7 +695,7 @@ A chaque itération, la variable `col` est un *array* 1D correspondant à chaque
 
 On se souvient de l'affectation multiple `x, y = 1, 2` qui permettait d'affecter des valeurs à plusieurs variables à la fois. Et bien, il est possible d'utiliser cette fonctionnalité aussi avec les *arrays NumPy* :
 
-```
+```python
 >>> a
 array([[1, 2, 3],
        [4, 5, 6],
@@ -694,7 +713,7 @@ Par défaut, cela se fait sur les lignes de l'*array* 2D. Cette fonctionnalité 
 
 Pour utiliser l'affectation multiple sur les colonnes, il suffit d'utiliser la transposée `a.T` :
 
-```
+```python
 >>> c1, c2, c3 = a.T
 >>> c1
 array([1, 4, 7])
@@ -708,7 +727,7 @@ array([3, 6, 9])
 
 Une des grandes puissance des *arrays* *NumPy* est qu'ils supportent les **masques booléens**. Avant de les définir, il est important d'introduire le concept d'*arrays* de booléens. Jusqu'à maintenant nous avions définis uniquement des *arrays* avec des types numériques *int* ou *float*. Il est tout à fait possible de définir des *arrays* de booléens. La fonction `np.full()` vue ci-dessus nous permet d'en construire facilement :
 
-```
+```python
 >>> np.full((2, 2), True)
 array([[ True,  True],
        [ True,  True]])
@@ -719,7 +738,7 @@ array([[False, False],
 
 Très bien, mais au premier abord nous n'en voyons pas forcément l'utilité... Mais qu'en est-il lorsqu'on utilise les opérateurs de comparaison avec un *array* ? Et bien cela renvoie un *array* de booléens !
 
-```
+```python
 >>> a = np.reshape(np.arange(1, 10), (3, 3))
 >>> a
 array([[1, 2, 3],
@@ -737,7 +756,7 @@ array([[False,  True, False],
 
 Tous les éléments de l'*array* satisfaisant la condition seront à `True`, les autres à `False`. Encore plus fort, il est possible de combiner plusieurs conditions avec les opérateurs logiques `&` et `|` (respectivement **ET** et **OU**) :
 
-```
+```python
 >>> a
 array([[1, 2, 3],
        [4, 5, 6],
@@ -767,7 +786,7 @@ close-box-def
 
 Concrètement, il suffira d'utiliser un *array* et un opérateur de comparaison entre les crochets qui étaient dédiés à l'indiçage :
 
-```
+```python
 >>> a
 array([[1, 2, 3],
        [4, 5, 6],
@@ -784,7 +803,7 @@ On voit que l'on récupère seulement les éléments de l'*array* `a` qui sastis
 
 La grande puissance de ce mécanisme est que l'on peut utiliser les masques booléens pour modifier les éléments que l'on sélectionne :
 
-```
+```python
 >>> a
 array([[1, 2, 3],
        [4, 5, 6],
@@ -800,7 +819,7 @@ array([[ 1,  2,  3],
 
 On peut bien sûr combiner plusieurs conditions avec les opérateurs logiques :
 
-```
+```python
 >>> a
 array([[1, 2, 3],
        [4, 5, 6],
@@ -822,7 +841,7 @@ close-box-rem
 
 Une application possible des masques est de « binariser » une matrice de nombre :
 
-```
+```python
 >>> import random as rd
 >>> import numpy as np
 >>> a = np.resize([rd.random() for i in range(16)], (4,
@@ -874,7 +893,8 @@ Le [tutoriel](http://biopython.org/DIST/docs/tutorial/Tutorial.html) est particu
 Voici quelques exemples de manipulation de données avec *Biopython*.
 
 Définition d'une séquence :
-```
+
+```python
 >>> import Bio
 >>> from Bio.Seq import Seq
 >>> from Bio.Alphabet import IUPAC
@@ -888,7 +908,8 @@ Ligne 1. Le module *Biopython* s'appelle `Bio`.
 Ligne 4. L'expression `IUPAC.unambiguous_dna` signifie que la séquence entrée est bien une séquence d'ADN non ambigu (c'est-à-dire que chaque base est bien déterminée).
 
 Obtention de la séquence complémentaire et complémentaire inverse :
-```
+
+```python
 >>> ADN.complement()
 Seq('TATAGCCGATATCGTACGT', IUPACUnambiguousDNA())
 >>> ADN.reverse_complement()
@@ -896,7 +917,8 @@ Seq('TGCATGCTATAGCCGATAT', IUPACUnambiguousDNA())
 ```
 
 Traduction en séquence protéique :
-```
+
+```python
 >>> ADN.translate()
 Seq('ISAIAC', IUPACProtein())
 ```
@@ -914,7 +936,7 @@ et notamment d'interroger le site [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/)
 Nous allons par exemple utiliser PubMed pour chercher des articles scientifiques
 relatifs à la transferrine (*transferrin* en anglais):
 
-```
+```python
 >>> from Bio import Entrez
 >>> Entrez.email = "votremail@provider.fr"
 >>> req_esearch = Entrez.esearch(db="pubmed", term="transferrin")
@@ -933,7 +955,8 @@ Ligne 4. Le résultat est lu et stocké dans la variable `res_esearch`.
 
 Sans être un vrai dictionnaire, la variable `res_esearch` en a cependant plusieurs propriétés.
 Voici ses clés :
-```
+
+```python
 >>> res_esearch.keys()
 dict_keys(['Count', 'RetMax', 'RetStart', 'IdList', 'TranslationSet',
 'TranslationStack', 'QueryTranslation'])
@@ -942,7 +965,7 @@ dict_keys(['Count', 'RetMax', 'RetStart', 'IdList', 'TranslationSet',
 La valeur associée à la clé `IdList` est une liste qui contient les identifiants
 (PMID) des articles scientifiques associés à la requête (ici `transferrin`) :
 
-```
+```python
 >>> res_esearch["IdList"]
 ['30411489', '30409795', '30405884', '30405827', '30402883', '30401570',
 '30399508', '30397276', '30395963', '30394734', '30394728', '30394123',
@@ -957,7 +980,8 @@ faisons cette même requête directement sur le site de PubMed depuis un navigat
 web, nous obtenons plus de 33900 résultats.
 
 En réalité, le nombre exact de publications est connu :
-```
+
+```python
 >>> res_esearch["Count"]
 '33988'
 ```
@@ -972,7 +996,7 @@ en connaissant son PMID. Par exemple, l'article avec le PMID [22294463](https://
 
 Nous allons pour cela utiliser la fonction `Entrez.esummary()`
 
-```
+```python
 >>> req_esummary = Entrez.esummary(db="pubmed", id="22294463")
 >>> res_esummary = Entrez.read(req_esummary)
 ```
@@ -991,7 +1015,8 @@ dict_keys(['Item', 'Id', 'PubDate', 'EPubDate', 'Source', 'AuthorList',
 Nous pouvons alors facilement obtenir le titre, le DOI et la date de publication
 (`PubDate`) de cet article, ainsi que le journal (`Source`) dans lequel il a été
 publié :
-```
+
+```python
 >>> res_esummary[0]["Title"]
 'Known and potential roles of transferrin in iron biology.'
 >>> res_esummary[0]["DOI"]
@@ -1004,7 +1029,8 @@ publié :
 
 Enfin, pour récupérer le résumé de la publication précédente, nous allons
 utiliser la fonction `Entrez.efetch()` :
-```
+
+```python
 >>> req_efetch = Entrez.efetch(db="pubmed", id="22294463", rettype="txt")
 >>> res_efetch = Entrez.read(req_efetch)
 ```
@@ -1013,7 +1039,7 @@ La variable `res_efetch` est un pseudo-dictionnaire qui contient une pseudo-list
 qui contient un pseudo-dictionnaire, qui contient... Oui, c'est compliqué !
 Pour faire court, le résumé peut s'obtenir avec l'instruction :
 
-```
+```python
 >>> res_efetch['PubmedArticle'][0]['MedlineCitation']['Article'] \
 ... ['Abstract']['AbstractText'][0]
 'Transferrin is an abundant serum metal-binding protein best known
@@ -1055,7 +1081,8 @@ Nous avons les résultats suivants :
 |     9     |         26.8         |
 
 Nous allons maintenant représenter l'évolution de la concentration en fonction du temps :
-```
+
+```python
 import matplotlib.pyplot as plt
 
 temps = [1, 2, 3, 4, 6, 7, 9]
@@ -1088,7 +1115,8 @@ Ligne 9. Enfin, la fonction `show()` affiche le graphique généré à l'écran.
 ### Représentation sous forme de courbe
 
 On sait par ailleurs que l'évolution de la concentration du produit en fonction du temps peut-être modélisée par la fonction $f(x) = 2 + 3 \times x$. Représentons ce modèle avec les points expérimentaux et sauvegardons le graphique obtenu sous forme d'une image :
-```
+
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1126,7 +1154,8 @@ Ligne 14. Enfin, la fonction `savefig()` enregistre le graphique produit sous la
 ### Représentation sous forme de diagramme en bâtons
 
 On souhaite maintenant représenter graphiquement la distribution des différentes bases dans une séquence d'ADN.
-```
+
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1173,12 +1202,14 @@ On espère que ces courts exemples vous auront convaincu de l'utilité du module
 Le module [*pandas*](https://pandas.pydata.org/) a été conçu pour l'analyse de données. Il est particulièrement puissant pour manipuler des données structurées sous forme de tableau.
 
 Pour charger *pandas* dans la mémoire de Python, on utilise la commande `import` habituelle :
-```
+
+```python
 >>> import pandas
 ```
 
 Pandas est souvent chargé avec un nom raccourci, comme pour *NumPy* et *matplotlib* :
-```
+
+```python
 >>> import pandas as pd
 ```
 
@@ -1187,7 +1218,7 @@ Pandas est souvent chargé avec un nom raccourci, comme pour *NumPy* et *matplot
 
 Le premier type de données apporté par *pandas* est la *series*, qui correspond à un vecteur à une dimension.
 
-```
+```python
 >>> s = pd.Series([10, 20, 30, 40], index = ['a', 'b', 'c', 'd'])
 >>> s
 a    10
@@ -1200,7 +1231,8 @@ dtype: int64
 Avec *pandas*, chaque élément de la série de données possède une étiquette qui permet d'appeler les éléments.
 Ainsi, pour appeler le premier élément de la série, on peut utiliser son index,
 comme pour une liste (0 pour le premier élément) ou son étiquette (ici, `"a"`) :
-```
+
+```python
 >>> s[0]
 10
 >>> s["a"]
@@ -1208,7 +1240,8 @@ comme pour une liste (0 pour le premier élément) ou son étiquette (ici, `"a"`
 ```
 
 Bien sûr, on peut extraire plusieurs éléments, par leurs indices ou leurs étiquettes :
-```
+
+```python
 >>> s[[1, 3]]
 b    20
 d    40
@@ -1220,7 +1253,8 @@ dtype: int64
 ```
 
 Les étiquettes permettent de modifier et d'ajouter des éléments :
-```
+
+```python
 >>> s["c"] = 300
 >>> s["z"] = 50
 >>> s
@@ -1233,15 +1267,18 @@ dtype: int64
 ```
 
 Enfin, on peut filtrer une partie de la *series* :
-```
+
+```python
 >>> s[s>30]
 c    300
 d     40
 z     50
 dtype: int64
 ```
+
 et même combiner plusieurs critères de sélection :
-```
+
+```python
 >>> s[(s>20) & (s<100)]
 d    40
 z    50
@@ -1264,7 +1301,8 @@ close-box-rem
 
 Voici comment créer un *dataframe* avec *pandas* à partir
 de données fournies comme liste de lignes :
-```
+
+```python
 >>> df = pd.DataFrame(columns=["a", "b", "c", "d"],
 ...                   index=["chat", "singe", "souris"],
 ...                   data=[np.arange(10, 14),
@@ -1276,6 +1314,7 @@ chat    10  11  12  13
 singe   20  21  22  23
 souris  30  31  32  33
 ```
+
 Ligne 1. Le *dataframe* est créé avec la fonction `DataFrame()` à laquelle
 on fournit plusieurs arguments.
 L'argument `columns` indique le nom des colonnes, sous forme d'une liste.
@@ -1288,7 +1327,8 @@ d'une liste de valeurs correspondantes à des lignes. Ainsi `np.arange(10, 14)`
 
 Le même *dataframe* peut aussi être créé à partir des valeurs fournies
 en colonnes sous la forme d'un dictionnaire :
-```
+
+```python
 >>> data = {"a": np.arange(10, 40, 10),
 ...         "b": np.arange(11, 40, 10),
 ...         "c": np.arange(12, 40, 10),
@@ -1315,15 +1355,18 @@ avec l'attribut `df.index`.
 ### Quelques propriétés
 
 Les dimensions d'un *dataframe* sont données par l'attribut `.shape` :
-```
+
+```python
 >>> df.shape
 (3, 4)
 ```
+
 Ici, le *dataframe* `df` a 3 lignes et 4 colonnes.
 
 L'attribut `.columns` renvoie le nom des colonnes et permet aussi de renommer
 les colonnes d'un *dataframe* :
-```
+
+```python
 >>> df.columns
 Index(['a', 'b', 'c', 'd'], dtype='object')
 >>> df.columns = ["Paris", "Lyon", "Nantes", "Pau"]
@@ -1336,7 +1379,8 @@ souris     30    31      32   33
 
 La méthode `.head(n)` renvoie les *n* premières lignes du *dataframe*
 (par défaut, *n* vaut 5) :
-```
+
+```python
 >>> df.head(2)
        Paris  Lyon  Nantes  Pau
 chat      10    11      12   13
@@ -1352,7 +1396,8 @@ En voici un rapide aperçu :
 #### Sélection de colonnes
 
 On peut sélectionner une colonne par son étiquette :
-```
+
+```python
 >>> df["Lyon"]
 chat      11
 singe     21
@@ -1360,7 +1405,8 @@ souris    31
 ```
 
 ou plusieurs colonnes en même temps :
-```
+
+```python
 >>> df[["Lyon", "Pau"]]
         Lyon  Pau
 chat      11   13
@@ -1374,7 +1420,8 @@ Pour la sélection de plusieurs colonnes, les étiquettes d'intérêt sont rasse
 
 Pour sélectionner une ligne, il faut utiliser l'instruction `.loc()`
 et l'étiquette de la ligne :
-```
+
+```python
 >>> df.loc["singe"]
 Paris     20
 Lyon      21
@@ -1384,7 +1431,8 @@ Name: singe, dtype: int64
 ```
 
 Ici aussi, on peut sélectionner plusieurs lignes :
-```
+
+```python
 >>> df.loc[["singe", "chat"]]
        Paris  Lyon  Nantes  Pau
 singe     20    21      22   23
@@ -1393,7 +1441,8 @@ chat      10    11      12   13
 
 Enfin, on peut aussi sélectionner des lignes avec l'instruction `.iloc`
 et l'indice de la ligne (la première ligne ayant l'indice 0) :
-```
+
+```python
 >>> df.iloc[1]
 Paris     20
 Lyon      21
@@ -1402,7 +1451,7 @@ Pau       23
 Name: singe, dtype: int64
 ```
 
-```
+```python
 >>> df.iloc[[1,0]]
        Paris  Lyon  Nantes  Pau
 singe     20    21      22   23
@@ -1410,7 +1459,8 @@ chat      10    11      12   13
 ```
 
 On peut également utiliser les tranches (comme pour les listes) :
-```
+
+```python
 >>> df.iloc[0:2]
        Paris  Lyon  Nantes  Pau
 chat      10    11      12   13
@@ -1421,7 +1471,8 @@ singe     20    21      22   23
 #### Sélection sur les lignes et les colonnes
 
 On peut bien sûr combiner les deux types de sélection (en ligne et en colonne):
-```
+
+```python
 >>> df.loc["souris", "Pau"]
 33
 >>> df.loc[["singe", "souris"], ['Nantes', 'Lyon']]
@@ -1429,6 +1480,7 @@ On peut bien sûr combiner les deux types de sélection (en ligne et en colonne)
 singe       22    21
 souris      32    31
 ```
+
 Notez qu'à partir du moment où on souhaite effectuer une sélection sur des lignes,
 il faut utiliser `loc` (ou `iloc` si on utilise les indices).
 
@@ -1436,7 +1488,8 @@ il faut utiliser `loc` (ou `iloc` si on utilise les indices).
 #### Sélection par condition
 
 Remémorons-nous d'abord le contenu du *dataframe* `df` :
-```
+
+```python
 >>> df
         Paris  Lyon  Nantes  Pau
 chat       10    11      12   13
@@ -1446,7 +1499,8 @@ souris     30    31      32   33
 
 Sélectionnons maintenant toutes les lignes pour lesquelles les effectifs à Pau
 sont supérieurs à 15 :
-```
+
+```python
 >>> df[ df["Pau"]>15 ]
         Paris  Lyon  Nantes  Pau
 singe      20    21      22   23
@@ -1454,7 +1508,8 @@ souris     30    31      32   33
 ```
 
 De cette sélection, on ne souhaite garder que les valeurs pour Lyon :
-```
+
+```python
 >>> df[ df["Pau"]>15 ]["Lyon"]
 singe     21
 souris    31
@@ -1462,7 +1517,8 @@ Name: Lyon, dtype: int64
 ```
 
 On peut aussi combiner plusieurs conditions avec `&` pour l'opérateur **et** :
-```
+
+```python
 >>> df[ (df["Pau"]>15) & (df["Lyon"]>25) ]
         Paris  Lyon  Nantes  Pau
 souris     30    31      32   33
@@ -1470,7 +1526,7 @@ souris     30    31      32   33
 
 et `|` pour l'opérateur **ou** :
 
-```
+```python
 >>> df[ (df["Pau"]>15) | (df["Lyon"]>25) ]
         Paris  Lyon  Nantes  Pau
 singe      20    21      22   23
@@ -1484,7 +1540,7 @@ En biologie, on a souvent besoin de combiner deux tableaux de chiffres à partir
 
 Par exemple, si on considère les deux *dataframes* suivants :
 
-```
+```python
 >>> data1 = {"Lyon": [10, 23, 17], "Paris": [3, 15, 20]}
 >>> df1 = pd.DataFrame.from_dict(data1)
 >>> df1.index = ["chat", "singe", "souris"]
@@ -1494,8 +1550,10 @@ chat      10      3
 singe     23     15
 souris    17     20
 ```
+
 et
-```
+
+```python
 >>> data2 = {"Nantes": [3, 9, 14], "Strasbourg": [5, 10, 8]}
 >>> df2 = pd.DataFrame.from_dict(data2)
 >>> df2.index = ["chat", "souris", "lapin"]
@@ -1510,7 +1568,7 @@ On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les 4 
 
 *pandas* propose pour cela la fonction [`concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html) qui prend comme argument une liste de *dataframes* :
 
-```
+```python
 >>> pd.concat([df1, df2])
         Lyon  Nantes  Paris  Strasbourg
 chat    10.0     NaN    3.0         NaN
@@ -1524,7 +1582,8 @@ lapin    NaN    14.0    NaN         8.0
 Ici, `NaN` indique des valeurs manquantes. Mais le résultat obtenu n'est pas celui que nous attendions puisque les lignes de deux *dataframes* ont été recopiées.
 
 L'argument supplémentaire `axis=1` produit le résultat attendu :
-```
+
+```python
  >>> pd.concat([df1, df2], axis=1)
         Lyon  Paris  Nantes  Strasbourg
 chat    10.0    3.0     3.0         5.0
@@ -1534,7 +1593,8 @@ souris  17.0   20.0     9.0        10.0
 ```
 
 Par défaut, *pandas* va conserver le plus de lignes possible. Si on ne souhaite conserver que les lignes communes aux deux *dataframes*, il faut ajouter l'argument `join="inner"` :
-```
+
+```python
 >>> pd.concat([df1, df2], axis=1, join="inner")
         Lyon  Paris  Nantes  Strasbourg
 chat      10      3       3           5
@@ -1565,15 +1625,17 @@ dans ce fichier avec *pandas*.
 Une fonctionnalité très intéressante de *pandas* est d'ouvrir très facilement
 un fichier au format `.csv` :
 
-```
+```python
 >>> df = pd.read_csv("transferrin_report.csv")
 ```
+
 Le contenu est chargé sous la forme d'un *dataframe* dans la variable `df`.
 
 Le fichier contient 41 lignes de données plus une ligne d'en-tête. Cette dernière
  est automatiquement utilisée par *pandas* pour nommer les différentes colonnes.
  Voici un aperçu des premières lignes :
-```
+
+```python
 >>> df.head()
   PDB ID              Source Deposit Date  Length       MW
 0   1A8E        Homo sapiens   1998-03-24     329  36408.4
@@ -1596,7 +1658,8 @@ La colonne d'entiers tout à gauche est un index automatiquement créé par *pan
 Nous pouvons demander à *pandas* d'utiliser une colonne particulière comme index.
 La colonne `PDB ID` s'y prête très bien car cette colonne ne contient que
 des identifiants uniques :
-```
+
+```python
 >>> df = pd.read_csv("transferrin_report.csv", index_col="PDB ID")
 >>> df.head()
                     Source Deposit Date  Length       MW
@@ -1610,7 +1673,8 @@ PDB ID
 
 Avant d'analyser un jeu de données, il est intéressant de l'explorer un peu.
 Par exemple, connaître ses dimensions :
-```
+
+```python
 >>> df.shape
 (41, 4)
 ```
@@ -1621,7 +1685,8 @@ prise en compte.
 
 Il est aussi intéressant de savoir de quel type de données est constituée
 chaque colonne :
-```
+
+```python
 >>> df.dtypes
 Source           object
 Deposit Date     object
@@ -1638,7 +1703,7 @@ Le type `object` est un type par défaut.
 La méthode `.info()` permet d'aller un peu plus loin dans l'exploration du jeu de données 
 en combinant les informations produites par les propriétés `.shape` et `.dtypes` :
 
-```
+```python
 >>> df.info()
 <class 'pandas.core.frame.DataFrame'>
 Index: 41 entries, 1A8E to 6CTC
@@ -1656,7 +1721,7 @@ memory usage: 1.6+ KB
 Avec l'argument `memory_usage="deep"`, cette méthode permet surtout de connaitre avec précision 
 la taille de l'espace mémoire occupé par le *dataframe* : 
 
-```
+```python
 >>> df.info(memory_usage="deep")
 <class 'pandas.core.frame.DataFrame'>
 Index: 41 entries, 1A8E to 6CTC
@@ -1685,12 +1750,14 @@ Si le format de date utilisé est homogène sur tout le jeu de données et non a
 *pandas* va se débrouiller pour trouver automatiquement le format de date utilisé.
 On peut alors explicitement demander à *pandas* de considérer la colonne
 `Deposit Date` comme une date :
-```
+
+```python
 >>> df["Deposit Date"] = pd.to_datetime(df["Deposit Date"])
 ```
 
 L'affichage des données n'est pas modifié :
-```
+
+```python
 >>> df.head()
                     Source Deposit Date  Length       MW
 PDB ID                                                  
@@ -1702,7 +1769,8 @@ PDB ID
 ```
 
 Mais le type de données de la colonne `Deposit Date` est maintenant une date (`datetime64[ns]`) :
-```
+
+```python
 >>> df.dtypes
 Source                  object
 Deposit Date    datetime64[ns]
@@ -1715,7 +1783,8 @@ dtype: object
 
 Pour les colonnes qui contiennent des données numériques, on peut obtenir
 rapidement quelques statistiques descriptives avec la méthode `.describe()` :
-```
+
+```python
 >>> df.describe()
            Length            MW
 count   41.000000     41.000000
@@ -1727,13 +1796,15 @@ min    304.000000  33548.100000
 75%    679.000000  75298.500000
 max    696.000000  77067.900000
 ```
+
 On apprend ainsi que la masse moléculaire (colonne `MW`)
 a une valeur moyenne de 52816.090244 avec un écart-type de 19486.594012 et que
 la plus petite valeur est 33548.100000 et la plus grande 77067.900000. Pratique !
 
 La colonne `Source` contient des chaînes de caractères, on peut rapidement
 déterminer le nombre de protéines pour chaque organisme :
-```
+
+```python
 >>> df["Source"].value_counts()
 Homo sapiens             26
 Gallus gallus            10
@@ -1742,6 +1813,7 @@ Oryctolagus cuniculus     2
 Sus scrofa                1
 Name: Source, dtype: int64
 ```
+
 Ainsi, 26 protéines sont d'origine humaine (`Homo sapiens`) et 10 proviennent
 de la poule (`Gallus gallus`).
 
@@ -1750,7 +1822,8 @@ de la poule (`Gallus gallus`).
 
 On peut aussi déterminer, pour chaque organisme, la taille et la masse moléculaire
 moyennes des transferrines :
-```
+
+```python
 >>> df.groupby(["Source"]).mean()
                            Length            MW
 Source                                         
@@ -1767,7 +1840,8 @@ La méthode `.groupby()` rassemble d'abord les données suivant la colonne
 Si on souhaite obtenir deux statistiques (par exemple la valeur minimale et maximale)
 en une seule fois, il convient alors d'utiliser la méthode `.pivot_table()`
 plus complexe mais aussi beaucoup plus puissante :
-```
+
+```python
 >>> df.pivot_table(index="Source", values=["Length", "MW"], aggfunc=[min, max])
                          min             max         
                       Length       MW Length       MW
@@ -1796,7 +1870,8 @@ aminés dans la protéine, plus sa masse moléculaire va être élevée.
 
 Pour vérifier cela graphiquement, on représente la masse moléculaire de
 la protéine en fonction de sa taille (c'est-à-dire du nombre d'acides aminés).
-```
+
+```python
 >>> import matplotlib.pyplot as plt
 >>> plt.scatter(df["Length"], df["MW"])
 <matplotlib.collections.PathCollection object at 0x7f62c2501780>
@@ -1818,7 +1893,8 @@ que les protéines constituées de moins de 400 résidus :
 >>> dfz = df[df["Length"]<400]
 ```
 Puis en créant un deuxième graphique :  
-```
+
+```python
 >>> plt.clf()
 >>> plt.scatter(dfz["Length"], dfz["MW"])
 <matplotlib.collections.PathCollection object at 0x7f85bb4852e8>
@@ -1837,7 +1913,8 @@ entre le nombre de résidus d'une protéine et sa masse moléculaire.
 
 En réalisant une régression linéaire, on détermine les paramètres de
 la droite qui passent le plus proche possible des points du graphique.
-```
+
+```python
 >>> from scipy.stats import linregress
 >>> lr = linregress(dfz["Length"], dfz["MW"])
 >>> lr
@@ -1848,7 +1925,8 @@ stderr=2.765423239336685)
 
 Ce modèle linaire nous indique qu'un résidu a une masse d'environ 116 Dalton,
 ce qui est cohérent. On peut également comparer ce modèle aux différentes protéines :
-```
+
+```python
 >>> plt.clf()
 >>> plt.scatter(dfz["Length"], dfz["MW"])
 <matplotlib.collections.PathCollection object at 0x7f85b97bfef0>
@@ -1873,7 +1951,7 @@ et les dernières structures de transferrines ont été déposées dans la PDB.
 
 La méthode `.pivot_table()` apporte un élément de réponse :
 
-```
+```python
 >>> df.pivot_table(index="Source", values=["Deposit Date"], aggfunc=[min, max])
                                min          max
                       Deposit Date Deposit Date
@@ -1894,7 +1972,8 @@ Une autre question est de savoir combien de structures de transferrines ont
 La méthode `.value_counts()` peut être utilisée mais elle ne renvoie que
 le nombre de structures déposées dans la PDB pour un jour donné. Par exemple,
 deux structures ont été déposées le 4 septembre 2000.
-```
+
+```python
 >>> df["Deposit Date"].value_counts().head()
 1999-01-07    2
 2000-09-04    2
@@ -1907,7 +1986,8 @@ Name: Deposit Date, dtype: int64
 Si on souhaite une réponse plus globale, par exemple, à l'échelle de
 l'année, la méthode `.resample()` calcule le nombre de structures déposées par
 année (en fournissant l'argument `A`) :
-```
+
+```python
 >>> df["Deposit Date"].value_counts().resample("A").count()
 1990-12-31    1
 1991-12-31    0
@@ -1924,7 +2004,7 @@ il faut trier les valeurs obtenus du plus grand au plus petit avec la méthode
 (celles où il y a eu le plus de dépôts), on utilisera également la méthode
 `.head()` :
 
-```
+```python
 >>> (df["Deposit Date"].value_counts()
 ...                    .resample("A")
 ...                    .count()
@@ -1949,7 +2029,8 @@ cette longue instruction sur plusieurs lignes.
 
 Bien sûr, on aurait pu créer des variables intermédiaires
 pour chaque étape mais cela aurait été plus lourd :
-```
+
+```python
 >>> date1 = df["Deposit Date"].value_counts()
 >>> date2 = date1.resample("A")
 >>> date3 = date2.count()
@@ -1985,7 +2066,8 @@ L'objectif de cet exercice est de calculer la distance entre carbones alpha cons
 Téléchargez le fichier `1bta.pdb` qui correspond à la [structure de la barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la PDB ([lien direct vers le fichier](https://files.rcsb.org/download/1BTA.pdb)).
 
 Voici le code pour extraire les coordonnées atomiques des carbones alpha de la barstar :
-```
+
+```python
 with open("1bta.pdb", "r") as f_pdb, open("1bta_CA.txt", "w") as f_CA:
     for ligne in f_pdb:
           if ligne.startswith("ATOM") and ligne[12:16].strip() == "CA":
@@ -2027,7 +2109,7 @@ Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones 
 
 Le fichier [`temperature.dat`](https://python.sdv.univ-paris-diderot.fr/data-files/temperatures.dat) contient un relevé de 4 températures pour chaque jour de la semaine :
 
-```
+```text
 Lun 12 11 14 12
 Mar 12 10 14 11
 Mer 11 11 14 13
@@ -2056,7 +2138,7 @@ Les coordonnées cartésiennes $(x, y, z)$ de chaque phosphore (en Å) sont stoc
 - Calculez le centre de masse `COM` de la membrane, ainsi que de la monocouche du haut `COM_upper` et du bas `COM_lower`. Pensez aux méthodes de calcul sur les *arrays* et l'argument `axis`.
 - Une fois tout cela effectué, créez un graphique 3D pour représenter les différents centres de masse. Vous pourrez utiliser la fonction `scatter()` du module *matplotlib*. Pour l'[affichage en 3D](https://matplotlib.org/3.2.1/gallery/mplot3d/scatter3d.html), voici un squelette de programme :
 
-```
+```python
 # Init plot.
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
@@ -2124,14 +2206,16 @@ Calculez maintenant le nombre de publications par année. Vous créerez pour cel
 Créez une liste `x` qui contient les clés du dictionnaire `freq`. Ordonnez les valeurs dans `x` avec la méthode `.sort()`. Créez maintenant une seconde liste `y` qui contient, dans l'ordre, le nombre de publications associées à chaque années. Bien évidemment, les listes `x` et `y` doivent avoir la même taille. Au fait, en quelle année la barstar apparaît pour la première fois dans une publication scientifique ?
 
 Ensuite, avec le module *matplotlib*, vous allez pouvoir afficher la distribution des publications en fonction des années :
-```
+
+```python
 import matplotlib.pyplot as plt
 plt.bar(x, y)
 plt.show()
 ```
 
 Vous pouvez également ajouter un peu de cosmétique et enregistrer le graphique sur votre disque dur :
-```
+
+```python
 import matplotlib.pyplot as plt
 
 plt.bar(x, y)
