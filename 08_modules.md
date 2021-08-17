@@ -226,7 +226,7 @@ Vous verrez dans le chapitre 14 *Création de module* comment créer votre propr
 
 Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Citons-en quelques-uns: *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
 
-## Module *random* : génération de nombres alaéatoires
+## Module *random* : génération de nombres aléatoires
 
 Comme indiqué précédemment le module [*random*](https://docs.python.org/fr/3/library/random.html#module-random) contient des fonctions pour la génération de nombres aléatoires :
 
