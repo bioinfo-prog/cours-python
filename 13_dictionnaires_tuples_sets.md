@@ -146,7 +146,7 @@ Dans le second test (lignes 5 à 7), le message n'est pas affiché car la clé `
 
 ### Méthode `.get()`
 
-La méthode `.get()` permet d'extraire la valeur associé à une clé mais ne renvoie pas d'erreur si la clé n'existe pas :
+La méthode `.get()` extrait la valeur associée à une clé mais ne renvoie pas d'erreur si la clé n'existe pas :
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
@@ -175,11 +175,11 @@ On peut utiliser la fonction `sorted()` vue précédemment avec les listes pour 
 ['nom', 'poids', 'taille']
 ```
 
-Les clés sont triées par ordre alphabétique.
+Les clés sont triées ici par ordre alphabétique.
 
 ### Tri par valeurs
 
-Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted` avec le paramètre supplémentaire `key` :
+Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted` avec le paramètre `key` :
 
 ```python
 >>> dico = {"a": 15, "b": 5, "c":20}
@@ -209,7 +209,7 @@ Enfin, le paramètre `reverse=True` fonctionne également :
 ['c', 'a', 'b']
 ```
 
-Remarque : lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est par exemple pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractère :
+**Remarque** : lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractère :
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
