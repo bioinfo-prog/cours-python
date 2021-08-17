@@ -74,7 +74,7 @@ La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur
 
 ### `.sort()`
 
-La méthode `.sort()` trie une liste :
+La méthode `.sort()` trie les éléments d'une liste du plus petit au plus grand:
 
 ```python
 >>> a = [3, 1, 2]
@@ -83,6 +83,38 @@ La méthode `.sort()` trie une liste :
 [1, 2, 3]
 ```
 
+Le paramètre `reverse=True` spécifie le tri inverse, c'est-à-dire du plus grand au plus petit élément :
+
+```python
+>>> a = [3, 1, 2]
+>>> a.sort(reverse=True)
+>>> a
+[3, 2, 1]
+```
+
+
+### `sorted()`
+
+La fonction `sorted()` trie également une liste. 
+Contrairement à la méthode précédente `.sort()`, cette fonction renvoie la liste triée et ne modifie pas la liste initiale :
+
+```python
+>>> a = [3, 1, 2]
+>>> sorted(a)
+[1, 2, 3]
+>>> a
+[3, 1, 2]
+```
+
+La fonction `sorted()` supporte aussi le paramètre `reverse=True` :
+
+```python
+>>> a = [3, 1, 2]
+>>> sorted(a, reverse=True)
+[3, 2, 1]
+>>> a
+[3, 1, 2]
+```
 
 ### `.reverse()`
 

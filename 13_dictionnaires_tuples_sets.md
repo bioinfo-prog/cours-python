@@ -131,6 +131,7 @@ Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au
 Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` qui renvoie un booléen :
 
 ```python
+>>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
 >>> if "poids" in ani2:
 ...     print("La clé 'poids' existe pour ani2")
 ...
@@ -141,6 +142,84 @@ La clé 'poids' existe pour ani2
 ```
 
 Dans le second test (lignes 5 à 7), le message n'est pas affiché car la clé `age` n'est pas présente dans le dictionnaire `ani2`.
+
+
+### Méthode `.get()`
+
+La méthode `.get()` permet d'extraire la valeur associé à une clé mais ne renvoie pas d'erreur si la clé n'existe pas :
+
+```python
+>>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> ani2.get("nom")
+'singe'
+>>> ani2.get("age")
+>>> 
+```
+
+Ici la valeur associée à la clé `nom` est `singe` mais la clé `age` n'existe pas. 
+On peut également indiquer à `.get()` une valeur par défaut si la clé n'existe pas :
+
+```python
+>>> ani2.get("age", 42)
+42
+```
+
+
+### Tri par clés
+
+On peut utiliser la fonction `sorted()` vue précédemment avec les listes pour trier un dictionnaire par ses clés :
+
+```python
+>>> ani2 = {'nom': 'singe', 'taille': 1.75, 'poids': 70}
+>>> sorted(ani2)
+['nom', 'poids', 'taille']
+```
+
+Les clés sont triées par ordre alphabétique.
+
+### Tri par valeurs
+
+Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted` avec le paramètre supplémentaire `key` :
+
+```python
+>>> dico = {"a": 15, "b": 5, "c":20}
+>>> sorted(dico, key=dico.get)
+['b', 'a', 'c']
+```
+
+Le paramètre `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue plus haut, mais sans les parenthèses (`key=dico.get`  mais pas `key=dico.get()`).
+
+Attention, ce sont les clés du dictionnaires qui sont renvoyées, pas les valeurs. Ces clés sont cependant renvoyées dans un ordre qui permet d'obtenir les clés triées par ordre croissant :
+
+```python
+>>> dico = {"a": 15, "b": 5, "c":20}
+>>> for key in sorted(dico, key=dico.get):
+...     print(key, dico[key])
+... 
+b 5
+a 15
+c 20
+```
+
+Enfin, le paramètre `reverse=True` fonctionne également :
+
+```python
+>>> dico = {"a": 15, "b": 5, "c":20}
+>>> sorted(dico, key=dico.get, reverse=True)
+['c', 'a', 'b']
+```
+
+Remarque : lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est par exemple pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractère :
+
+```python
+>>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> sorted(ani2, key=ani2.get)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: '<' not supported between instances of 'int' and 'str'
+```
+
+On obtient ici une erreur car Python ne sait pas comparer une chaîne de caractères (`singe`) avec des valeurs numériques (`70` et `1.75`).
 
 
 ### Liste de dictionnaires
