@@ -21,7 +21,7 @@ Avant de présenter les *regex* en Python, nous allons faire un petit détour pa
 
 Par exemple, pour le programme `egrep` :
 
-```bash
+```text
 $ egrep "^DEF" herp_virus.gbk
 DEFINITION  Human herpesvirus 2, complete genome.
 ```
@@ -163,12 +163,12 @@ Il est important de savoir par ailleurs que les *regex* sont « avides » (*gree
 
 Nous vous conseillons de tester systématiquement vos expressions régulières sur des exemples simples. Pour vous aider, nous vous recommandons plusieurs sites internet :
 
-- [https://regexone.com/](https://regexone.com/) : tutoriel en ligne très bien fait.
-- [https://regexr.com/](https://regexr.com/) : visualise tous les endroits où une *regex* est retrouvée dans un texte.
-- [https://www.regular-expressions.info](https://www.regular-expressions.info) : documentation exhaustive sur les *regex* (il y a même une section sur Python).
-- [https://pythex.org/](https://pythex.org/) : interface simple et efficace, dédiée à Python.
+- [RegexOne](https://regexone.com/) : tutoriel en ligne très bien fait.
+- [RegExr](https://regexr.com/) et [ExtendsClass](https://extendsclass.com/regex-tester.html#python) : visualisent tous les endroits où une *regex* est retrouvée dans un texte.
+- [pythex.org](https://pythex.org/) : interface simple et efficace, dédiée à Python.
+- [Regular-Expressions.info](https://www.regular-expressions.info) : documentation exhaustive sur les *regex* (il y a même une section sur Python).
 
-N'hésitez pas à tester ces sites avant de vous lancer dans les exercices ou dans l'écriture de vos propres *regex* !
+N'hésitez pas à explorer ces sites avant de vous lancer dans les exercices ou dans l'écriture de vos propres *regex* !
 
 
 ## Le module *re*
