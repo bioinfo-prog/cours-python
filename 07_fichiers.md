@@ -7,6 +7,7 @@ Une grande partie de l'information en biologie est stockée sous forme de texte 
 ### Méthode `.readlines()`
 
 Avant de passer à un exemple concret, créez un fichier dans un éditeur de texte que vous enregistrerez dans votre répertoire courant avec le nom `zoo.txt` et le contenu suivant :
+
 ```text
 girafe
 tigre
@@ -15,6 +16,7 @@ souris
 ```
 
 Ensuite, testez le code suivant dans l'interpréteur Python :
+
 ```python
 >>> filin = open("zoo.txt", "r")
 >>> filin
@@ -27,6 +29,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ValueError: I/O operation on closed file.
 ```
+
 Il y a plusieurs commentaires à faire sur cet exemple :
 
 Ligne 1. L'instruction `open()` ouvre le fichier `zoo.txt`. Ce fichier est ouvert en lecture seule, comme l'indique le second argument `r` (pour *read*) de la fonction `open()`. Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (*un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu*). Le curseur de lecture est prêt à lire le premier caractère du fichier. L'instruction `open("zoo.txt", "r")` suppose que le fichier `zoo.txt` est dans le répertoire depuis lequel l'interpréteur Python a été lancé. Si ce n'est pas le cas, il faut préciser le **chemin d'accès** au fichier. Par exemple, `/home/pierre/zoo.txt` pour Linux ou Mac OS X ou `C:\Users\pierre\zoo.txt` pour Windows.
@@ -38,6 +41,7 @@ Ligne 4. Nous utilisons à nouveau la syntaxe `objet.méthode()` (présentée da
 Ligne 6. Enfin, on applique la méthode `.close()` sur l'objet `filin`, ce qui, vous vous en doutez, ferme le fichier (*ceci correspondrait à fermer le livre*). Vous remarquerez que la méthode `.close()` ne renvoie rien mais modifie l'état de l'objet `filin` en fichier fermé. Ainsi, si on essaie de lire à nouveau les lignes du fichier, Python renvoie une erreur car il ne peut pas lire un fichier fermé (lignes 7 à 10).
 
 Voici maintenant un exemple complet de lecture d'un fichier avec Python.
+
 ```python
 >>> filin = open("zoo.txt", "r")
 >>> lignes = filin.readlines()
@@ -56,6 +60,7 @@ souris
 
 >>> filin.close()
 ```
+
 Vous voyez qu'en cinq lignes de code, vous avez lu, parcouru le fichier et affiché son contenu.
 
 open-box-rem
@@ -97,6 +102,7 @@ close-box-rem
 ### Méthode `.read()`
 
 Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fichier. Par exemple, la méthode `.read()` lit tout le contenu d'un fichier et renvoie une chaîne de caractères unique.
+
 ```python
 >>> with open("zoo.txt", "r") as filin:
 ...     filin.read()
@@ -168,6 +174,7 @@ close-box-rem
 ## Écriture dans un fichier
 
 Écrire dans un fichier est aussi simple que de le lire. Voyez l'exemple suivant :
+
 ```python
 >>> animaux2 = ["poisson", "abeille", "chat"]
 >>> with open("zoo2.txt", "w") as filout:
@@ -196,6 +203,7 @@ Si nous ouvrons le fichier `zoo2.txt` avec un éditeur de texte, voici ce que no
 Ce n'est pas exactement le résultat attendu car implicitement nous voulions le nom de chaque animal sur une ligne. Nous avons oublié d'ajouter le caractère fin de ligne après chaque nom d'animal.
 
 Pour ce faire, nous pouvons utiliser l'écriture formatée :
+
 ```python
 >>> animaux2 = ["poisson", "abeille", "chat"]
 >>> with open("zoo2.txt", "w") as filout:
@@ -212,6 +220,7 @@ Ligne 4. L'écriture formatée vue au chapitre 3 *Affichage* permet d'ajouter un
 Lignes 6 à 8. Le nombre d'octets écrits dans le fichier est augmenté de 1 par rapport à l'exemple précédent car le caractère retour à la ligne compte pour un seul octet.
 
 Le contenu du fichier `zoo2.txt` est alors :
+
 ```text
 poisson
 abeille
@@ -225,6 +234,7 @@ Vous voyez qu'il est extrêmement simple en Python de lire ou d'écrire dans un 
 
 On peut avec l'instruction `with` ouvrir deux fichiers (ou plus) en même temps.
 Voyez l'exemple suivant :
+
 ```python
 with open("zoo.txt", "r") as fichier1, open("zoo2.txt", "w") as fichier2:
     for ligne in fichier1:
@@ -232,6 +242,7 @@ with open("zoo.txt", "r") as fichier1, open("zoo2.txt", "w") as fichier2:
 ```
 
 Si le fichier `zoo.txt` contient le texte suivant :
+
 ```text
 souris
 girafe
@@ -240,6 +251,7 @@ singe
 ```
 
 alors le contenu de `zoo2.txt` sera :
+
 ```text
 * souris
 * girafe
@@ -303,6 +315,7 @@ Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de
 Créez un script Python qui lit chaque ligne de ce fichier, extrait les notes sous forme de *float* et les stocke dans une liste.
 
 Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une note par ligne suivie de « recalé » si la note est inférieure à 10 et « admis » si la note est supérieure ou égale à 10. Toutes les notes seront écrites avec une décimale. À titre d'exemple, voici les 3 premières lignes attendues pour le fichier `notes2.txt` :
+
 ```text
 13.5 admis
 17.0 admis
@@ -332,6 +345,7 @@ Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module
 `import math`
 
 La fonction sinus sera `math.sin()` et la fonction cosinus `math.cos()`. Ces deux fonctions prennent comme argument une valeur d'angle en radian. La constante mathématique $\pi$ sera également accessible grâce à ce module via `math.pi`. Par exemple :
+
 ```python
 >>> math.sin(0)
 0.0
@@ -348,6 +362,7 @@ Sauvegardez ensuite les coordonnées cartésiennes dans le fichier `spirale.dat`
 - les coordonnées affichées sur 10 caractères avec 5 chiffres après la virgule.
 
 Les premières lignes de `spirale.dat` devrait ressembler à :
+
 ```text
    0.50000    0.00000
    0.59700    0.05990

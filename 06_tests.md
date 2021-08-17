@@ -3,6 +3,7 @@
 ## Définition
 
 Les **tests** sont un élément essentiel à tout langage informatique si on veut lui donner un peu de complexité car ils permettent à l'ordinateur de prendre des décisions. Pour cela, Python utilise l'instruction `if` ainsi qu'une comparaison que nous avons abordée au chapitre précédent. Voici un premier exemple :
+
 ```python
 >>> x = 2
 >>> if x == 2:
@@ -17,6 +18,7 @@ et un second :
 ...     print("Le test est vrai !")
 ...
 ```
+
 Il y a plusieurs remarques à faire concernant ces deux exemples :
 
 - Dans le premier exemple, le test étant vrai, l'instruction
@@ -29,6 +31,7 @@ Il y a plusieurs remarques à faire concernant ces deux exemples :
 ## Tests à plusieurs cas
 
 Parfois, il est pratique de tester si la condition est vraie ou si elle est fausse dans une même instruction `if`. Plutôt que d'utiliser deux instructions `if`, on peut se servir des instructions `if` et `else` :
+
 ```python
 >>> x = 2
 >>> if x == 2:
@@ -49,6 +52,7 @@ Le test est faux !
 On peut utiliser une série de tests dans la même instruction `if`, notamment pour tester plusieurs valeurs d'une même variable.
 
 Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 8 *Modules*, admettez pour le moment qu'elle est nécessaire.
+
 ```python
 >>> import random
 >>> base = random.choice(["a", "t", "c", "g"])
@@ -72,6 +76,7 @@ Dans cet exemple, Python teste la première condition, puis, si et seulement si 
 De nouveau, faites bien attention à l'indentation ! Vous devez être très rigoureux sur ce point. Pour vous en convaincre, exécutez ces deux exemples de code :
 
 **Code 1**
+
 ```python
 nombres = [4, 5, 6]
 for nb in nombres:
@@ -79,13 +84,16 @@ for nb in nombres:
         print("Le test est vrai")
         print(f"car la variable nb vaut {nb}")
 ```
+
 Résultat :
+
 ```text
 Le test est vrai
 car la variable nb vaut 5
 ```
 
 **Code 2**
+
 ```python
 nombres = [4, 5, 6]
 for nb in nombres:
@@ -93,7 +101,9 @@ for nb in nombres:
         print("Le test est vrai")
     print(f"car la variable nb vaut {nb}")
 ```
+
 Résultat :
+
 ```text
 car la variable nb vaut 4
 Le test est vrai
@@ -127,6 +137,7 @@ et de l'opérateur **ET** :
 
 
 En Python, on utilise le mot réservé `and` pour l'opérateur **ET** et le mot réservé `or` pour l'opérateur **OU**. Respectez bien la casse des opérateurs `and` et `or` qui, en Python, s'écrivent en minuscule. En voici un exemple d'utilisation :
+
 ```python
 >>> x = 2
 >>> y = 2
@@ -137,6 +148,7 @@ le test est vrai
 ```
 
 Notez que le même résultat serait obtenu en utilisant deux instructions `if` imbriquées :
+
 ```python
 >>> x = 2
 >>> y = 2
@@ -146,12 +158,16 @@ Notez que le même résultat serait obtenu en utilisant deux instructions `if` i
 ...
 le test est vrai
 ```
+
 Vous pouvez aussi tester directement l'effet de ces opérateurs à l'aide de `True` et `False` (attention à respecter la casse).
+
 ```python
 >>> True or False
 True
 ```
+
 Enfin, on peut utiliser l'opérateur logique de négation `not` qui inverse le résultat d'une condition :
+
 ```python
 >>> not True
 False
@@ -167,6 +183,7 @@ False
 Ces deux instructions permettent de modifier le comportement d'une boucle (`for` ou `while`) avec un test.
 
 L'instruction `break` stoppe la boucle.
+
 ```python
 >>> for i in range(5):
 ...     if i > 2:
@@ -179,6 +196,7 @@ L'instruction `break` stoppe la boucle.
 ```
 
 L'instruction `continue` saute à l'itération suivante, sans exécuter la suite du bloc d'instructions de la boucle.
+
 ```python
 >>> for i in range(5):
 ...     if i == 2:
@@ -195,12 +213,14 @@ L'instruction `continue` saute à l'itération suivante, sans exécuter la suite
 ## Tests de valeur sur des *floats*
 
 Lorsque l'on souhaite tester la valeur d'une variable de type *float*, le premier réflexe serait d'utiliser l'opérateur d'égalité comme :
+
 ```python
 >>> 1/10 == 0.1
 True
 ```
 
 Toutefois, nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques des *floats* sous forme de nombres flottants (d'où leur nom !), et cela mène à certaines [limitations](https://docs.python.org/fr/3/tutorial/floatingpoint.html). Observez l'exemple suivant :
+
 ```python
 >>> (3 - 2.7) == 0.3
 False
@@ -228,6 +248,7 @@ On observe que lorsqu'on tape `0.3`, Python affiche une valeur arrondie. En réa
 open-box-adv
 
 Pour les raisons évoquées ci-dessus, il ne faut surtout pas tester si un *float* est égal à une certaine valeur. La bonne pratique est de vérifier si un *float* est compris dans un intervalle avec une certaine précision. Si on appelle cette précision *delta*, on peut procéder ainsi :
+
 ```python
 >>> delta = 0.0001
 >>> var = 3.0 - 2.7
@@ -300,6 +321,7 @@ Affichez la valeur de la moyenne avec deux décimales. Affichez aussi la mention
 Construisez une boucle qui parcourt les nombres de 0 à 20 et qui affiche les nombres pairs inférieurs ou égaux à 10 d'une part, et les nombres impairs strictement supérieurs à 10 d'autre part.
 
 Pour cet exercice, vous pourrez utiliser l'opérateur modulo `%`  qui renvoie le reste de la division entière entre deux nombres et dont voici quelques exemples d'utilisation :
+
 ```python
 >>> 4 % 3
 1
@@ -314,6 +336,7 @@ Pour cet exercice, vous pourrez utiliser l'opérateur modulo `%`  qui renvoie le
 >>> 7 % 2
 1
 ```
+
 Vous remarquerez qu'un nombre est pair lorsque le reste de sa division entière par 2 est nul.
 
 
@@ -345,6 +368,7 @@ Dans une protéine, les différents acides aminés sont liés entre eux par une 
 Par exemples, les angles phi et psi d'une conformation en « hélice alpha » parfaite ont une valeur de -57 degrés et -47 degrés respectivement. Bien sûr, il est très rare que l'on trouve ces valeurs parfaites dans une protéine, et il est habituel de tolérer une déviation de $\pm$ 30 degrés autour des valeurs idéales de ces angles.
 
 Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles phi et psi de 15 acides aminés de la protéine [1TFE](https://www.rcsb.org/structure/1TFE) :
+
 ```python
 [[48.6, 53.4],[-124.9, 156.7],[-66.2, -30.8], \
 [-58.8, -43.1],[-73.9, -40.6],[-53.7, -37.5], \
@@ -358,6 +382,7 @@ Pour le premier acide aminé, l'angle phi vaut *48.6* et l'angle psi *53.4*. Pou
 En utilisant cette liste, créez un script qui teste, pour chaque acide aminé, s'il est ou non en hélice et affiche les valeurs des angles phi et psi et le message adapté *est en hélice* ou *n'est pas en hélice*.
 
 Par exemple, pour les 3 premiers acides aminés :
+
 ```text
 [48.6, 53.4] n'est pas en hélice
 [-124.9, 156.7] n'est pas en hélice
@@ -425,6 +450,7 @@ Pour arriver rapidement à deviner le nombre, l'astuce consiste à prendre à ch
 Créez un script qui reproduit ce jeu de devinettes. Vous pensez à un nombre entre 1 et 100 et l'ordinateur essaie de le deviner par dichotomie en vous posant des questions.
 
 Votre programme utilisera la fonction `input()` pour interagir avec l'utilisateur. Voici un exemple de son fonctionnement :
+
 ```python
 >>> lettre = input("Entrez une lettre : ")
 Entrez une lettre : P
@@ -433,6 +459,7 @@ P
 ```
 
 Pour vous guider, voici ce que donnerait le programme avec la conversation précédente :
+
 ```text
 Pensez à un nombre entre 1 et 100.
 Est-ce votre nombre est plus grand, plus petit ou égal à 50 ? [+/-/=] +
@@ -443,4 +470,5 @@ Est-ce votre nombre est plus grand, plus petit ou égal à 78 ? [+/-/=] +
 Est-ce votre nombre est plus grand, plus petit ou égal à 79 ? [+/-/=] =
 J'ai trouvé en 6 questions !
 ```
+
 Les caractères `[+/-/=]` indiquent à l'utilisateur comment il doit interagir avec l'ordinateur, c'est-à-dire entrer soit le caractère `+` si le nombre choisi est plus grand que le nombre proposé par l'ordinateur, soit le caractère `-` si le nombre choisi est plus petit que le nombre proposé par l'ordinateur, soit le caractère `=` si le nombre choisi est celui proposé par l'ordinateur (en appuyant ensuite sur la touche *Entrée*).

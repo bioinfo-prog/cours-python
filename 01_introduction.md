@@ -53,6 +53,7 @@ L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire 
 
 Dans cet ouvrage, les commandes, les instructions Python, les résultats et les contenus de fichiers
 sont indiqués avec `cette police` pour les éléments ponctuels ou
+
 ```text
 sous cette forme,
 sur plusieurs lignes,
@@ -90,6 +91,7 @@ Python est un langage interprété, c'est-à-dire que chaque ligne de code est l
 `python`
 
 La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
+
 ```text
 PS C:\Users\pierre> python
 Python 3.7.1 (default, Dec 10 2018, 22:54:23) [MSC v.1915 64 bit (AMD64)] [...]
@@ -98,6 +100,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 pour Mac OS X :
+
 ```text
 iMac-de-pierre:Downloads$ python
 Python 3.7.1 (default, Dec 14 2018, 19:28:38)
@@ -107,6 +110,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 ou pour Linux :
+
 ```text
 pierre@jeera:~$ python
 Python 3.7.1 (default, Dec 14 2018, 19:28:38)
@@ -131,18 +135,22 @@ Tapez par exemple l'instruction :
 puis validez cette commande en appuyant sur la touche *Entrée*.
 
 Python a exécuté la commande directement et a affiché le texte `Hello world!`. Il attend ensuite votre prochaine instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a dû apparaître sur votre écran :
+
 ```python
 >>> print("Hello world!")
 Hello world!
 >>>
 ```
+
 Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteur comme d'une calculatrice :
+
 ```python
 >>> 1+1
 2
 >>> 6*3
 18
 ```
+
 À ce stade, vous pouvez entrer une autre commande ou bien quitter l'interpréteur Python, soit en tapant la commande `exit()` puis en validant en appuyant sur la touche *Entrée*, soit en pressant simultanément les touches *Ctrl* et *D* sous Linux et Mac OS X ou *Ctrl* et *Z* puis *Entrée* sous Windows.
 
 L'interpréteur Python est donc un système interactif dans lequel vous pouvez entrer des commandes, que Python exécutera sous vos yeux (au moment où vous validerez la commande en appuyant sur la touche *Entrée*).
@@ -170,6 +178,7 @@ Pour exécuter votre script, ouvrez un *shell*  et entrez la commande :
 `python test.py`
 
 Vous devriez obtenir un résultat similaire à ceci :
+
 ```bash
 $ python test.py
 Hello world!

@@ -13,6 +13,7 @@ Vous connaissez déjà certaines fonctions Python. Par exemple `math.cos(angle)`
 ![Fonctionnement schématique d'une fonction.](img/schema_fonction.png){ #fig:schema_fonction width=90% }
 
 Par exemple, si vous appelez la fonction `len()` de la manière suivante :
+
 ```python
 >>> len([0, 1, 2])
 3
@@ -46,6 +47,7 @@ Pour finir sur les généralités, nous avons utilisé dans la Figure @fig:schem
 ## Définition
 
 Pour définir une fonction, Python utilise le mot-clé `def`. Si on souhaite que la fonction renvoie quelque chose, il faut utiliser le mot-clé `return`. Par exemple :
+
 ```python
 >>> def carre(x):
 ...     return x**2
@@ -56,6 +58,7 @@ Pour définir une fonction, Python utilise le mot-clé `def`. Si on souhaite que
 Notez que la syntaxe de `def` utilise les deux-points comme les boucles `for` et `while` ainsi que les tests `if`, un bloc d’instructions est donc attendu. De même que pour les boucles et les tests, l'**indentation** de ce bloc d'instructions (qu'on appelle le corps de la fonction) est **obligatoire**.
 
 Dans l'exemple précédent, nous avons passé un argument à la fonction `carre()` qui nous a renvoyé (ou retourné) une valeur que nous avons immédiatement affichée à l'écran avec l'instruction `print()`. Que veut dire valeur renvoyée ? Et bien cela signifie que cette dernière est récupérable dans une variable :
+
 ```python
 >>> res = carre(2)
 >>> print(res)
@@ -63,6 +66,7 @@ Dans l'exemple précédent, nous avons passé un argument à la fonction `carre(
 ```
 Ici, le résultat renvoyé par la fonction est stocké dans la variable `res`.
 Notez qu'une fonction ne prend pas forcément un argument et ne renvoie pas forcément une valeur, par exemple :
+
 ```python
 >>> def hello():
 ...     print("bonjour")
@@ -70,13 +74,16 @@ Notez qu'une fonction ne prend pas forcément un argument et ne renvoie pas forc
 >>> hello()
 bonjour
 ```
+
 Dans ce cas la fonction, `hello()` se contente d'afficher la chaîne de caractères `"bonjour"` à l'écran. Elle ne prend aucun argument et ne renvoie rien. Par conséquent, cela n'a pas de sens de vouloir récupérer dans une variable le résultat renvoyé par une telle fonction. Si on essaie tout de même, Python affecte la valeur `None` qui signifie *rien* en anglais:
+
 ```python
 >>> var = hello()
 bonjour
 >>> print(var)
 None
 ```
+
 Ceci n'est pas une faute car Python n'émet pas d'erreur, toutefois cela ne présente, la plupart du temps, guère d'intérêt.
 
 
@@ -85,6 +92,7 @@ Ceci n'est pas une faute car Python n'émet pas d'erreur, toutefois cela ne pré
 Le nombre d'arguments que l'on peut passer à une fonction est variable. Nous avons vu ci-dessus des fonctions auxquelles on passait 0 ou 1 argument. Dans les chapitres précédents, vous avez rencontré des fonctions internes à Python qui prenaient au moins 2 arguments. Souvenez-vous par exemple de `range(1, 10)` ou encore `range(1, 10, 2)`. Le nombre d'argument est donc laissé libre à l'initiative du programmeur qui développe une nouvelle fonction.
 
 Une particularité des fonctions en Python est que vous n'êtes pas obligé de préciser le type des arguments que vous lui passez, dès lors que les opérations que vous effectuez avec ces arguments sont valides. Python est en effet connu comme étant un langage au « typage dynamique », c'est-à-dire qu'il reconnaît pour vous le type des variables au moment de l'exécution. Par exemple :
+
 ```python
 >>> def fois(x, y):
 ...     return x*y
@@ -105,6 +113,7 @@ L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de cara
 ## Renvoi de résultats
 
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs objets à la fois, comme dans cette fraction de code :
+
 ```python
 >>> def carre_cube(x):
 ...     return x**2, x**3
@@ -112,7 +121,9 @@ Un énorme avantage en Python est que les fonctions sont capables de renvoyer pl
 >>> carre_cube(2)
 (4, 8)
 ```
+
 En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séquentiel, c'est-à-dire contenir lui même d'autres objets. Dans notre exemple Python renvoie un objet de type `tuple`, type que nous verrons dans le chapitre 13 *Dictionnaires et tuples* (*grosso modo*, il s'agit d'une sorte de liste avec des propriétés différentes). Notre fonction pourrait tout autant renvoyer une liste :
+
 ```python
 >>> def carre_cube2(x):
 ...     return [x**2, x**3]
@@ -120,7 +131,9 @@ En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séque
 >>> carre_cube2(3)
 [9, 27]
 ```
+
 Renvoyer un *tuple* ou une liste de deux éléments (ou plus) est très pratique en conjonction avec l'**affectation multiple**, par exemple :
+
 ```python
 >>> z1, z2 = carre_cube2(3)
 >>> z1
@@ -128,6 +141,7 @@ Renvoyer un *tuple* ou une liste de deux éléments (ou plus) est très pratique
 >>> z2
 27
 ```
+
 Cela permet de récupérer plusieurs valeurs renvoyées par une fonction et de les affecter à la volée à des variables différentes.
 
 
@@ -235,10 +249,12 @@ Préciser le nom des arguments par mot-clé lors de l'appel d'une fonction est u
 close-box-adv
 
 L'utilisation d'arguments par mot-clé est habituelle en Python. Elle permet de modifier le comportement par défaut de nombreuses fonctions. Par exemple, si on souhaite que la fonction `print()` n'affiche pas un retour à la ligne, on peut utiliser l'argument `end` :
+
 ```python
 >>> print("Message ", end="")
 Message >>>
 ```
+
 Nous verrons, dans le chapitre 20 *Fenêtres graphiques et Tkinter*, que l'utilisation d'arguments par mot-clé est systématique lorsqu'on crée un objet graphique (une fenêtre, un bouton, etc.).
 
 
@@ -249,6 +265,7 @@ Lorsqu'on manipule des fonctions, il est essentiel de bien comprendre comment se
 Une variable est dite **globale** lorsqu'elle est créée dans le programme principal. Elle sera visible partout dans le programme.
 
 Ceci ne vous paraît pas clair ? Nous allons prendre un exemple simple qui vous aidera à mieux saisir ces concepts. Observez le code suivant :
+
 ```python
 # définition d'une fonction carre()
 def carre(x):
@@ -332,6 +349,7 @@ Enfin, comme vous avez pu le constater, *Python Tutor* nous a grandement aidé �
 ### Carré et factorielle
 
 Reprenez l'exemple précédent à l'aide du site [*Python Tutor*](http://www.pythontutor.com) :
+
 ```python
 # définition d'une fonction carre()
 def carre(x):
@@ -345,13 +363,13 @@ print(resultat)
 ```
 
 Analysez ensuite le code suivant et tentez de prédire sa sortie :
+
 ```python
 def calc_factorielle(n):
     fact = 1
     for i in range(2, n+1):
         fact = fact * i
     return fact
-
 
 # programme principal
 nb = 4
@@ -360,6 +378,7 @@ print(f"{nb}! = {factorielle_nb}")
 nb2 = 10
 print(f"{nb2}! = {calc_factorielle(nb2)}")
 ```
+
 Testez ensuite cette portion de code avec *Python Tutor* en cherchant à bien comprendre chaque étape.
 Avez-vous réussi à prédire la sortie correctement ?
 
@@ -381,7 +400,9 @@ Créez une fonction `calc_puissance(x, y)` qui renvoie $x^y$ en utilisant l'opé
 >>> 2**4
 16
 ```
+
 Dans le programme principal, calculez et affichez à l'écran $2^i$ avec $i$ variant de 0 à 20 inclus. On souhaite que le résultat soit présenté avec le formatage suivant :
+
 ```text
 2^ 0 =       1
 2^ 1 =       2
@@ -389,7 +410,6 @@ Dans le programme principal, calculez et affichez à l'écran $2^i$ avec $i$ var
 [...]
 2^20 = 1048576
 ```
-
 
 ### Pyramide
 
@@ -403,6 +423,7 @@ Dans un script `pyra.py`, créez une fonction `gen_pyramide()` à laquelle vous 
 Reprenez l'exercice du chapitre 6 *Tests* sur les nombres premiers.
 
 Créez une fonction `est_premier()` qui prend comme argument un nombre entier positif *n* (supérieur à 2) et qui renvoie le booléen `True` si *n* est premier et `False` si *n* n'est pas premier. Déterminez tous les nombres premiers de 2 à 100. On souhaite avoir une sortie similaire à celle-ci :
+
 ```text
   2 est premier
   3 est premier
@@ -437,6 +458,7 @@ $$
 ### Distribution et statistiques
 
 Créez une fonction `gen_distrib()` qui prend comme argument trois entiers : *debut*, *fin* et *n*. La fonction renverra une liste de $n$ *floats* aléatoires entre *debut* et *fin*. Pour générer un nombre aléatoire dans un intervalle donné, utilisez la fonction `uniform()` du module *random* dont voici quelques exemple d'utilisation :
+
 ```python
 >>> import random
 >>> random.uniform(1, 10)
@@ -446,6 +468,7 @@ Créez une fonction `gen_distrib()` qui prend comme argument trois entiers : *de
 >>> random.uniform(1, 10)
 9.000404025130946
 ```
+
 Avec la fonction `random.uniform()`, les bornes passées en argument sont incluses, c'est-à-dire qu'ici, le nombre aléatoire renvoyé est dans l'intervalle [1, 10].
 
 Créez une autre fonction `calc_stat()` qui prend en argument une liste de *floats* et qui renvoie une liste de trois éléments contenant respectivement le minimum, le maximum et la moyenne de la liste.

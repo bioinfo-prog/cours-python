@@ -12,6 +12,7 @@ La plupart de ces modules sont déjà installés dans les versions standards de 
 ## Importation de modules
 
 Dans les chapitres précédents, nous avons rencontré la notion de module plusieurs fois. Notamment lorsque nous avons voulu tirer un nombre aléatoire :
+
 ```python
 >>> import random
 >>> random.randint(0, 10)
@@ -51,6 +52,7 @@ Si cela vous parait encore ardu, ne vous inquiétez pas, c'est à force de prati
 close-box-rem
 
 Il existe un autre moyen d'importer une ou plusieurs fonctions d'un module :
+
 ```python
 >>> from random import randint
 >>> randint(0,10)
@@ -60,6 +62,7 @@ Il existe un autre moyen d'importer une ou plusieurs fonctions d'un module :
 À l'aide du mot-clé `from`, on peut importer une fonction spécifique d'un module donné. Remarquez bien qu'il est inutile de répéter le nom du module dans ce cas, seul le nom de la fonction en question est requis.
 
 On peut également importer toutes les fonctions d'un module :
+
 ```python
 >>> from random import *
 >>> x = [1, 2, 3, 4]
@@ -74,22 +77,29 @@ On peut également importer toutes les fonctions d'un module :
 >>> uniform(0,2.5)
 0.64943174760727951
 ```
+
 L'instruction `from random import *` importe toutes les fonctions du module *random*. On peut ainsi utiliser toutes ses fonctions directement, comme par exemple `shuffle()` qui permute une liste aléatoirement.
 
 Dans la pratique, plutôt que de charger toutes les fonctions d'un module en une seule fois :
+
 ```python
 from random import *
 ```
+
 nous vous conseillons de charger le module seul de la manière suivante :
+
 ```python
 import random
 ```
+
 puis d'appeler explicitement les fonctions voulues, par exemple :
+
 ```python
 random.randint(0,2)
 ```
 
 Il est également possible de définir un alias (un nom plus court) pour un module :
+
 ```python
 >>> import random as rand
 >>> rand.randint(1, 10)
@@ -97,10 +107,12 @@ Il est également possible de définir un alias (un nom plus court) pour un modu
 >>> rand.uniform(1, 3)
 2.643472616544236
 ```
+
 Dans cet exemple, les fonctions du module *random* sont accessibles via l'alias `rand`.
 
 
 Enfin, pour vider de la mémoire un module déjà chargé, on peut utiliser l'instruction `del` :
+
 ```python
 >>> import random
 >>> random.randint(0,10)
@@ -111,12 +123,14 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in ?
 NameError: name 'random' is not defined
 ```
+
 On constate alors qu'un rappel (ligne 5) d'une fonction du module *random* après l'avoir vidé de la mémoire (ligne 4) retourne un message d'erreur (lignes 6-8).
 
 
 ## Obtenir de l'aide sur les modules importés
 
 Pour obtenir de l'aide sur un module rien de plus simple, il suffit d'utiliser la commande `help()` :
+
 ```python
 >>> import random
 >>> help(random)
@@ -124,6 +138,7 @@ Pour obtenir de l'aide sur un module rien de plus simple, il suffit d'utiliser l
 ```
 
 Ce qui renvoie quelque chose du type :
+
 ```text
 Help on module random:
 
@@ -149,6 +164,7 @@ DESCRIPTION
            pick random element
            pick random sample
 ```
+
 open-box-rem
 
 - Pour vous déplacer dans l'aide, utilisez les flèches du haut et du bas pour parcourir les lignes les unes après les autres, ou les touches *page-up* et *page-down* pour faire défiler l'aide page par page.
@@ -162,6 +178,7 @@ close-box-rem
 
 
 La commande `help()` est en fait une commande plus générale permettant d'avoir de l'aide sur n'importe quel objet chargé en mémoire.
+
 ```python
 >>> t = [1, 2, 3]
 >>> help(t)
@@ -180,6 +197,7 @@ class list(object)
 ```
 
 Enfin, pour connaître d'un seul coup d’œil toutes les méthodes ou variables associées à un objet, utilisez la fonction `dir()` :
+
 ```python
 >>> import random
 >>> dir(random)
@@ -222,12 +240,14 @@ Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas in
 Le module [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) contient des fonctions et des variables spécifiques à l'interpréteur Python lui-même. Ce module est particulièrement intéressant pour récupérer les arguments passés à un script Python lorsque celui-ci est appelé en ligne de commande.
 
 Dans cet exemple, créons le court script suivant que l'on enregistrera sous le nom `test.py ` :
+
 ```python
 import sys
 print(sys.argv)
 ```
 
 Ensuite, dans un *shell*, exécutons le script `test.py` suivi de plusieurs arguments. Par exemple :
+
 ```bash
 $ python test.py salut girafe 42
 ['test.py', 'salut', 'girafe', '42']
@@ -239,6 +259,7 @@ Ligne 2. Le script affiche le contenu de la variable `sys.argv`. Cette variable 
 
 
 Toujours dans le module *sys*, la fonction `sys.exit()` est utile pour quitter un script Python. On peut donner un argument à cette fonction (en général une chaîne de caractères) qui sera renvoyé au moment où Python quittera le script. Par exemple, si vous attendez au moins un argument en ligne de commande, vous pouvez renvoyer un message pour indiquer à l'utilisateur ce que le script attend comme argument :
+
 ```python
 import sys
 
@@ -264,6 +285,7 @@ Notez qu'ici on vérifie que le script possède deux arguments car le nom du scr
 L'intérêt de récupérer des arguments passés dans la ligne de commande à l'appel du script est de pouvoir ensuite les utiliser dans le script.
 
 Voici à titre d'exemple le script `compte_lignes.py` qui va prendre comme argument le nom d'un fichier puis afficher le nombre de lignes qu'il contient.
+
 ```
 import sys
 
@@ -279,21 +301,25 @@ print(f"{nom_fichier} contient {taille} lignes.")
 ```
 
 Supposons que dans le même répertoire, nous ayons le fichier `zoo1.txt` dont voici le contenu :
-```
+
+```text
 girafe
 tigre
 singe
 souris
 ```
+
 et le fichier `zoo2.txt` qui contient :
-```
+
+```text
 poisson
 abeille
 chat
 ```
 
 Utilisons maintenant notre script `compte_lignes.py` :
-```
+
+```bash
 $ python compte_lignes.py
 ERREUR : il faut exactement un argument.
 $ python compte_lignes.py zoo1.txt
@@ -308,7 +334,8 @@ Notre script est donc capable de :
 - D'ouvrir le fichier dont le nom est fourni en argument, de compter puis d'afficher le nombre de lignes.
 
 Par contre, le script ne vérifie pas si le fichier existe bien :
-```
+
+```bash
 $ python compte_lignes.py zoo3.txt
 Traceback (most recent call last):
  File "compte_lignes.py", line 8, in <module>
@@ -324,7 +351,8 @@ La lecture de la partie suivante va nous permettre d'améliorer notre script `co
 Le module [*os*](https://docs.python.org/fr/3/library/os.html#module-os) gère l'interface avec le système d'exploitation.
 
 La fonction `os.path.exists()` est une fonction pratique de ce module qui vérifie la présence d'un fichier sur le disque dur.
-```
+
+```python
 >>> import sys
 >>> import os
 >>> if os.path.exists("toto.pdb"):
@@ -338,18 +366,21 @@ le fichier est absent
 Dans cet exemple, si le fichier n'existe pas sur le disque, on quitte le programme avec la fonction `exit()` du module *sys* que nous venons de voir.
 
 La fonction `os.getcwd()` renvoie le répertoire (sous forme de chemin complet) depuis lequel est lancé Python :
-```
+
+```python
 >>> import os
 >>> os.getcwd()
 '/home/pierre'
 ```
 
 Enfin, la fonction `os.listdir()` renvoie le contenu du répertoire depuis lequel est lancé Python :
-```
+
+```python
 >>> import os
 >>> os.listdir()
 ['1BTA.pdb', 'demo.py', 'tests']
 ```
+
 Le résultat est renvoyé sous forme d'une liste contenant à la fois le nom des fichiers et des répertoires.
 
 Il existe de nombreuse autres fonctions dans le module *os*, n'hésitez pas à consulter la documentation.
@@ -362,7 +393,8 @@ Il existe de nombreuse autres fonctions dans le module *os*, n'hésitez pas à c
 ### Racine carrée
 
 Affichez sur la même ligne les nombres de 10 à 20 (inclus) ainsi que leur racine carrée avec 3 décimales. Utilisez pour cela le module *math* avec la fonction `sqrt()`. Exemple :
-```
+
+```text
 10 3.162
 11 3.317
 12 3.464
@@ -447,7 +479,8 @@ Le script devra vérifier qu'un argument est bien fourni et renvoyer un message 
 ### Compteur de lignes
 
 Améliorez le script `compte_lignes.py` dont le code a été donné précédemment de façon à ce qu'il renvoie un message d'erreur si le fichier n'existe pas. Par exemple, si les fichiers `zoo1.txt` et `zoo2.txt` sont bien dans le répertoire courant, mais pas `zoo3.txt` :
-```
+
+```bash
 $ python compte_lignes.py zoo1.txt
 zoo1.txt contient 4 lignes.
 $ python compte_lignes.py zoo2.txt

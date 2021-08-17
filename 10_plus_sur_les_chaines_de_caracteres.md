@@ -128,9 +128,9 @@ Et là une autre ligne
 Voici un retour à la ligne\nEt là une autre ligne
 ```
 
-L'ajout du `r` va forcer Python à ne pas interpréter le `\n` en tant que retour à la ligne, mais comme un *backslash* litéral suivi d'un *n*. Quand on demande à l'interpréteur d'afficher cette chaîne de caractères, celui-ci met deux *backslashes* pour signifier qu'il s'agit d'un *backslash* litéral (le premier échappe le deuxième). Finalement, l'utilisation de la syntaxe `r"Voici un retour à la ligne\nEt là une autre ligne"` renvoie une chaîne de caractères normale, puisqu'on voit ensuite que le `r` à disparu lorsqu'on demande à Python d'afficher le contenu de la variable `s`. Comme dans `var = 2 + 2`, d'abord Python évalue `2 + 2` et c'est ce résultat qui est affecté à la variable `var`. Enfin, on pourra noter que seule l'utilisation du `print()` mène à l'interprétation des caractères spéciaux comme `\n` comme expliqué dans la rubrique précédente.
+L'ajout du `r` va forcer Python à ne pas interpréter le `\n` en tant que retour à la ligne, mais comme un *backslash* littéral suivi d'un *n*. Quand on demande à l'interpréteur d'afficher cette chaîne de caractères, celui-ci met deux *backslashes* pour signifier qu'il s'agit d'un *backslash* littéral (le premier échappe le second). Finalement, l'utilisation de la syntaxe `r"Voici un retour à la ligne\nEt là une autre ligne"` renvoie une chaîne de caractères normale, puisqu'on voit ensuite que le `r` à disparu lorsqu'on demande à Python d'afficher le contenu de la variable `s`. Comme dans `var = 2 + 2`, d'abord Python évalue `2 + 2` et c'est ce résultat qui est affecté à la variable `var`. Enfin, on notera que seule l'utilisation du `print()` mène à l'interprétation des caractères spéciaux comme `\n` comme expliqué dans la rubrique précédente.
 
-Les caractères spéciaux non interprétées dans les *raw strings* sont de manière générale tout ce dont le *backslash* modifie la signification, par exemple un `\n`, un `\t`, etc.
+Les caractères spéciaux non interprétés dans les *raw strings* sont de manière générale tout ce dont le *backslash* modifie la signification, par exemple un `\n`, un `\t`, etc.
 
 - Le préfixe `f` mis pour *formatted string* qui met en place l'écriture formattée comme vue au chapitre 3 *Affichage* :
 
@@ -624,7 +624,8 @@ Créez ensuite la fonction `calcule_distance()` qui prend en argument la liste r
 `numero_calpha_1 numero_calpha_2 distance`
 
 Les numéros des carbones alpha seront affichés sur 2 caractères. La distance sera affichée avec deux chiffres après la virgule. Voici un exemple avec les premiers carbones alpha :
-```
+
+```text
  1  2 3.80
  2  3 3.80
  3  4 3.83

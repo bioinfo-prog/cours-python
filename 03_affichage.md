@@ -347,6 +347,7 @@ John a 32 ans
 >>> print("On a %d G et %d C -> prop GC = %.2f" % (nb_G, nb_C, prop_GC))
 On a 4500 G et 2575 C -> prop GC = 0.48
 ```
+
 La syntaxe est légèrement différente. Le symbole `%` est d'abord appelé dans la chaîne de caractères (dans l'exemple ci-dessus `%d`, `%d` et `%.2f`) pour :
 
 - Désigner l'endroit où sera placée la variable dans la chaîne de caractères.
@@ -403,6 +404,7 @@ Dans l'exemple suivant :
 >>> "Joe a {} ans".format(20)
 'Joe a 20 ans'
 ```
+
 la méthode `.format()` est liée à `"Joe a {} ans"` qui est un objet de type chaîne de caractères. La méthode renvoie une nouvelle chaîne de caractères avec le bon formatage (ici, `'Joe a 20 ans'`).
 
 Nous aurons de nombreuses occasions de revoir cette notation `objet.méthode()`.
@@ -442,6 +444,7 @@ Dans un script `percGC.py`, calculez un pourcentage de GC avec l'instruction sui
 `perc_GC = ((4500 + 2575)/14800)*100`
 
 Ensuite, affichez le contenu de la variable `perc_GC` à l'écran avec 0, 1, 2 puis 3 décimales sous forme arrondie en utilisant `.format()`. On souhaite que le programme affiche la sortie suivante :
+
 ```text
 Le pourcentage de GC est 48     %
 Le pourcentage de GC est 47.8   %
