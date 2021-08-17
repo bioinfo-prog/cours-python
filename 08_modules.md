@@ -65,20 +65,13 @@ On peut également importer toutes les fonctions d'un module :
 
 ```python
 >>> from random import *
->>> x = [1, 2, 3, 4]
->>> shuffle(x)
->>> x
-[2, 3, 1, 4]
->>> shuffle(x)
->>> x
-[4, 2, 1, 3]
 >>> randint(0,50)
 46
 >>> uniform(0,2.5)
 0.64943174760727951
 ```
 
-L'instruction `from random import *` importe toutes les fonctions du module *random*. On peut ainsi utiliser toutes ses fonctions directement, comme par exemple `shuffle()` qui permute une liste aléatoirement.
+L'instruction `from random import *` importe toutes les fonctions du module *random*. On peut ainsi utiliser toutes ses fonctions directement, comme par exemple `randint()`  et `uniform()` qui renvoie des nombres aléatoires entiers et *floats*.
 
 Dans la pratique, plutôt que de charger toutes les fonctions d'un module en une seule fois :
 
@@ -233,6 +226,72 @@ Vous verrez dans le chapitre 14 *Création de module* comment créer votre propr
 
 Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Citons-en quelques-uns: *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
 
+## Module *random* : génération de nombres alaéatoires
+
+Comme indiqué précédemment le module [*random*](https://docs.python.org/fr/3/library/random.html#module-random) contient des fonctions pour la génération de nombres aléatoires :
+
+```python
+>>> import random
+>>> random.randint(0, 10)
+4
+>>> random.randint(0, 10)
+10
+>>> random.uniform(0, 10)
+6.574743184892878
+>>> random.uniform(0, 10)
+1.1655547702189106
+```
+
+Le module *random* permet aussi de permuter aléatoirement des listes :
+
+```python
+>>> x = [1, 2, 3, 4]
+>>> random.shuffle(x)
+>>> x
+[2, 3, 1, 4]
+>>> random.shuffle(x)
+>>> x
+[4, 2, 1, 3]
+```
+
+Mais aussi de tirer alétoirement un ou plusieurs éléments dans une liste donnée :
+
+```python
+>>> bases = ["A", "T", "C", "G"]
+>>> random.choice(bases)
+'A'
+>>> random.choice(bases)
+'G'
+>>> random.choices(bases, k=5)
+['G', 'A', 'A', 'T', 'G']
+>>> random.choices(bases, k=10)
+['A', 'T', 'A', 'A', 'C']
+>>> random.choices(bases, k=10)
+['C', 'T', 'T', 'T', 'G', 'A', 'C', 'A', 'G', 'G']
+```
+
+La fonction `choice()` tire aléatoirement un élément d'une liste alors que `choices()` (avec un *s* à la fin) réalise plusieurs tirages éléatoires, dont le nombre est précisé par le paramètre `k`.
+
+Si vous exécutez vous-même les exemples précédents, vous devriez obtenir des résultats légèrement différents de ceux indiqués.
+C'est l'intérêt de l'aléatoire !
+
+Pour des soucis de reproductibilité des analyses, on a souvent besoin de retrouver les mêmes résultats même si on utilise des nombres aléatoires. Pour cela, on peut définir ce qu'on appelle la « graine aléatoire » avec la fonction `seed()` :
+
+```python
+>>> random.seed(42)
+>>> random.randint(0, 10)
+1
+>>> random.randint(0, 10)
+0
+>>> random.randint(0, 10)
+4
+```
+
+Ici la graine aléatoire est fixée à 42, par défaut c'est la date qui est utilisée.
+
+Si vous exécutez ces mêmes lignes de code (depuis l'instruction `random.seed(42)`), vous devriez cette fois obtenir exactement les mêmes résultats, c'est-à-dire `1` puis `0` puis `4`.
+
+**Remarque** : cette reproductibilité obtenue en fixant la graine aléatoire n'est possible que parce qu'on utilise des générateurs de nombres *pseudo* aléatoires, suffisamment aléatoires cependant pour être utilisés en science. De vrais générateurs de nombres aléatoires sont assez difficiles à obtenir.
 
 
 ## Module *sys* : passage d'arguments
