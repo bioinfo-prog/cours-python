@@ -336,7 +336,7 @@ Lignes 8 et 9. On souhaite que notre méthode `.affiche_attributs()` affiche ens
 
 L'exécution de ce code donnera :
 
-```python
+```text
 $ python classe_exemple1.py
 <__main__.Citron object at 0x7f4e5fb71438>
 jaune
