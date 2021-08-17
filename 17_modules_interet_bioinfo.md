@@ -1201,7 +1201,15 @@ Lignes 13 à 15. On définit les légendes des axes et le titre du graphique. On
 
 Ligne 16. Enfin, on enregistre le graphique généré au format png.
 
-On espère que ces courts exemples vous auront convaincu de l'utilité du module *matplotlib*. Sachez qu'il peut faire bien plus, par exemple générer des histogrammes ou toutes sortes de graphiques utiles en analyse de données. Le site de *matplotlib* fournit de nombreux [exemples détaillés](https://matplotlib.org/gallery/index.html), n'hésitez pas à le consulter.
+On espère que ces courts exemples vous auront convaincu de l'utilité du module *matplotlib*. Sachez qu'il peut faire bien plus, par exemple générer des histogrammes ou toutes sortes de graphiques utiles en analyse de données.
+
+open-box-more
+
+- Le site de *matplotlib* fournit de nombreux [exemples détaillés](https://matplotlib.org/gallery/index.html), n'hésitez pas à le consulter.
+- Le site [Python Graph Gallery](https://www.python-graph-gallery.com/matplotlib/) propose aussi des exemples de code pour différents types de graphiques.
+- Enfin, des [*cheat sheets*](https://github.com/matplotlib/cheatsheets) de *matplotlib* sont aussi disponibles.
+
+close-box-more
 
 
 ## Module *pandas*
