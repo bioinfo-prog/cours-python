@@ -275,7 +275,7 @@ La fonction `choice()` tire aléatoirement un élément d'une liste alors que `c
 Si vous exécutez vous-même les exemples précédents, vous devriez obtenir des résultats légèrement différents de ceux indiqués.
 C'est l'intérêt de l'aléatoire !
 
-Pour des soucis de reproductibilité des analyses, on a souvent besoin de retrouver les mêmes résultats même si on utilise des nombres aléatoires. Pour cela, on peut définir ce qu'on appelle la « graine aléatoire » avec la fonction `seed()` :
+Pour des besoins de reproductibilité des analyses en science, on a souvent besoin de retrouver les mêmes résultats même si on utilise des nombres aléatoires. Pour cela, on peut définir ce qu'on appelle la « graine aléatoire » avec la fonction `seed()` :
 
 ```python
 >>> random.seed(42)
