@@ -678,7 +678,7 @@ array([[1, 2, 3],
 [7 8 9] <class 'numpy.ndarray'>
 ```
 
-A chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Cela est lié au fait que l'utilisation d'un indiçage unique `a[i]` pour un *array* 2D correspond à sa ligne d'indice `i` (cf. rubrique *Indices* ci-dessus). 
+À chaque itération, la variable `row` est un *array* 1D correspondant à chaque ligne de `a`. Cela est lié au fait que l'utilisation d'un indiçage unique `a[i]` pour un *array* 2D correspond à sa ligne d'indice `i` (cf. rubrique *Indices* ci-dessus). 
 
 Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la transposée de l'*array* `a`, c'est-à-dire `a.T` :
 
@@ -691,7 +691,7 @@ Pour itérer sur les colonnes, on pourra utiliser l'astuce d'itérer sur la tran
 [3 6 9] <class 'numpy.ndarray'>
 ```
 
-A chaque itération, la variable `col` est un *array* 1D correspondant à chaque colonne de `a`.
+À chaque itération, la variable `col` est un *array* 1D correspondant à chaque colonne de `a`.
 
 On se souvient de l'affectation multiple `x, y = 1, 2` qui permettait d'affecter des valeurs à plusieurs variables à la fois. Et bien, il est possible d'utiliser cette fonctionnalité aussi avec les *arrays NumPy* :
 
@@ -880,7 +880,14 @@ Utilisez les listes :
 
 Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) ou vos commentaires lorsque vous utilisez des *arrays NumPy*. *Numpy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* et sa dimensionnalité (1D, 2D, etc.).
 
-Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules *SciPy* et *matplotlib* (et aussi aux *notebooks Jupyter*, cf. chapitre suivant), il permet de faire de l'analyse scientifique. On verra un peu plus loin dans ce chapitre que la puissance de *NumPy* est également utilisée par le module *pandas* et ses fameux *dataframes* pour faire de l'analyse de données.
+Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules *SciPy* et *matplotlib* (et aussi aux *notebooks Jupyter*, voir le chapitre suivant), il permet de faire de l'analyse scientifique. On verra un peu plus loin dans ce chapitre que la puissance de *NumPy* est également utilisée par le module *pandas* et ses fameux *dataframes* pour faire de l'analyse de données.
+
+open-box-more
+
+- Le livre de Nicolas Rougier [*From Python to Numpy*](https://www.labri.fr/perso/nrougier/from-python-to-numpy/) est une très bonne ressource pour explorer plus en détails les possibilités de *NumPy*. L'auteur y aborde notamment la puissante notion de « masque ».
+- Les [tutoriels](https://numpy.org/numpy-tutorials/index.html) proposés par l'équipe de développement de *NumPy* sont également un excellent moyen de poursuivre votre découverte de  cette bibliothèque incontournable en sciences.
+
+close-box-more
 
 ## Module *Biopython*
 
@@ -2046,7 +2053,6 @@ Name: Deposit Date, dtype: int64
 
 open-box-more
 
-- Le livre de Nicolas Rougier [*From Python to Numpy*](https://www.labri.fr/perso/nrougier/from-python-to-numpy/) est une très bonne ressource pour explorer plus en détails les possibilités de *NumPy*. L'auteur y aborde notamment la notion puissante de « masque ».
 - Les ouvrages *Python for Data Analysis* de Wes McKinney et *Pandas Cookbook* de Theodore Petrou sont d'excellentes références pour *pandas*.
 
 close-box-more
