@@ -29,7 +29,7 @@ Nous allons voir dans cette rubrique comment définir une classe en reprenant no
 
 En Python, le mot-clé `class` permet de créer sa propre classe, suivi du nom de cette classe. On se souvient, un nom de classe commence toujours par une majuscule (voir le chapitre 15 *Bonnes pratiques en programmation Python*). Comme d'habitude, cette ligne attend un bloc d'instructions indenté définissant le corps de la classe. Voyons un exemple simple dans l'interpréteur :
 
-```
+```python
 >>> class Citron:
 ...     pass
 ...
@@ -57,7 +57,7 @@ Lignes 9 et 10. Lorsqu'on tape le nom de l'instance `citron1`, l'interpréteur n
 
 Il est également possible de vérifier qu'une instance est bien issue d'une classe donnée avec la fonction `isinstance()` :
 
-```
+```python
 >>> isinstance(citron1, Citron)
 True
 ```
@@ -66,7 +66,7 @@ True
 
 Reprenons notre classe `Citron` et l'instance `citron1` créée précédemment. Regardons les attributs et méthodes que cet objet possède, puis tentons de lui ajouter un attribut  :
 
-```
+```python
 >>> dir(citron1)
 ['__class__', '__delattr__', '__dict__', [...], '__weakref__']
 >>> citron1.couleur = "jaune"
@@ -86,7 +86,7 @@ Lignes 6. La notation `instance.attribut` donne accès à l'attribut de l'objet.
 
 L'attribut nommé `.__dict__` est particulièrement intéressant. Il s'agit d'un dictionnaire qui listera les attributs créés dynamiquement dans l'instance en cours :
 
-```
+```python
 >>> citron1 = Citron()
 >>> citron1.__dict__
 {}
@@ -97,7 +97,7 @@ L'attribut nommé `.__dict__` est particulièrement intéressant. Il s'agit d'un
 
 L'ajout d'un attribut depuis l'extérieur de la classe (on parle aussi du côté « client ») avec une syntaxe `instance.nouvel_attribut = valeur`, créera ce nouvel attribut uniquement pour cette instance :
 
-```
+```python
 citron1 = Citron()
 citron1.couleur = "jaune"
 >>> citron1.__dict__
@@ -119,7 +119,7 @@ close-box-def
 L'instruction `del` fonctionne bien sûr pour détruire un objet (par exemple  
 `del citron1`), mais permet également de détruire un attribut d'instance. Si on reprend notre exemple `citron1` ci-dessus :
 
-```
+```python
 >>> citron1.__dict__
 {'couleur': 'jaune'}
 >>> del citron1.couleur
@@ -134,7 +134,7 @@ Dans la suite on montrera du code à tester dans un script, n'hésitez pas comme
 
 Si on ajoute une variable dans une classe comme on créait une variable locale dans une fonction, on crée ce qu'on appelle un attribut de classe :
 
-```
+```python
 class Citron:
     couleur = "jaune"
 ```
@@ -147,13 +147,13 @@ close-box-def
 
 À l'extérieur ou à l’intérieur d'une classe, un attribut de classe peut se retrouver avec une syntaxe `NomClasse.attribut` :
 
-```
+```python
 print(Citron.couleur)
 ```
 
 Ce code affiche `jaune`. L'attribut de classe est aussi visible depuis n'importe quelle instance :
 
-```
+```python
 class Citron:
     couleur = "jaune"
 
@@ -167,7 +167,7 @@ if __name__ == "__main__":
 
 L'exécution de ce code affichera :
 
-```
+```text
 jaune
 jaune
 ```
@@ -192,7 +192,7 @@ close-box-def
 
 Voici un exemple d'ajout d'une fonction, ou plus exactement d'une méthode, au sein d'une classe (attention à l'indentation !) :
 
-```
+```python
 class Citron:
     def coucou(self):
 	    print("Coucou, je suis la mth .coucou() dans la classe Citron !")
@@ -209,7 +209,7 @@ Ligne 7 et 8. On crée l'instance `citron1` de la classe `Citron`, puis on exéc
 
 Une méthode étant une fonction, elle peut bien sûr retourner une valeur :
 
-```
+```python
 class Citron:
     def recup_saveur(self):
 	    return "acide"
@@ -236,7 +236,7 @@ close-box-rem
 
 Pour bien comprendre comment cela fonctionne, nous allons suivre un exemple simple avec le site [*Python Tutor*](http://www.pythontutor.com) (déjà utilisé dans les chapitres 9 et 12 sur les fonctions). N'hésitez pas à copier/coller ce code dans *Python Tutor* pour le tester vous-même :
 
-```
+```python
 class Citron:
     def __init__(self):
 	    self.couleur = "jaune"
@@ -274,7 +274,7 @@ close-box-adv
 
 Lors de l'instanciation, il est possible de passer des arguments au constructeur. Comme pour les fonctions, on peut passer des arguments positionnels ou par mot-clé et en créer autant que l'on veut (voir chapitre 9 *Fonctions*). Voici un exemple :
 
-```
+```python
 class Citron:
     def __init__(self, masse, couleur="jaune"):
         self.masse = masse
@@ -290,7 +290,7 @@ if __name__ == "__main__":
 
 On a ici un argument positionnel (`masse`) et un autre par mot-clé (`couleur`). Le code donnera la sortie suivante :
 
-```
+```python
 citron1: {'masse': 100, 'couleur': 'jaune'}
 citron2: {'masse': 150, 'couleur': 'blanc'}
 ```
@@ -300,7 +300,7 @@ citron2: {'masse': 150, 'couleur': 'blanc'}
 
 Cette rubrique va nous aider à mieux comprendre le rôle du `self` à travers quelques exemples simples. Regardons le code suivant dans lequel nous créons une nouvelle méthode `.affiche_attributs()`:
 
-```
+```python
 class Citron:
     def __init__(self, couleur="jaune"):
         self.couleur = couleur
@@ -336,7 +336,7 @@ Lignes 8 et 9. On souhaite que notre méthode `.affiche_attributs()` affiche ens
 
 L'exécution de ce code donnera :
 
-```
+```python
 $ python classe_exemple1.py
 <__main__.Citron object at 0x7f4e5fb71438>
 jaune
@@ -356,7 +356,7 @@ Lignes 4 à 9. La création de la variable `var` dans la méthode `.__init__()` 
 
 En résumé, le `self` est nécessaire lorsqu'on a besoin d'accéder à différents attributs dans les différentes méthodes d'une classe. Le `self` est également nécessaire pour appeler une méthode de la classe depuis une autre méthode :
 
-```
+```python
 class Citron:
     def __init__(self, couleur="jaune"):
         self.couleur = couleur
@@ -396,7 +396,7 @@ Au contraire, les attributs d'instance sont spécifiques à chaque instance. Pou
 
 Bien que les deux types d'attributs soient fondamentalement différents au niveau de leur finalité, il existe des similitudes lorsqu'on veut accéder à leur valeur. Le code suivant illustre cela :
 
-```
+```python
 class Citron:
     forme = "ellipsoïde" # attribut de classe
 	saveur = "acide" # attribut de classe
@@ -436,7 +436,7 @@ La figure @fig:classe_var_instance montre l'état des variables après avoir ex�
 
 Au sein des méthodes, on accède également de la même manière aux attributs de classe ou d'instance, avec une syntaxe `self.attribut` :
 
-```
+```python
 class Citron:
     saveur = "acide" # attribut de classe
 
@@ -455,7 +455,7 @@ if __name__ == "__main__":
 
 Ce code va afficher la phrase :
 
-```
+```text
 attribut de classe: acide
 attribut d'instance: jaune
 ```
@@ -472,7 +472,7 @@ close-box-warn
 
 Regardons l'exemple suivant illustrant cela :
 
-```
+```python
 class Citron:
     saveur = "acide"
 
@@ -496,7 +496,7 @@ if __name__ == "__main__":
 
 La ligne 11 va tenter de détruire l'attribut de classe `.saveur`. Toutefois, Python interdit cela, ainsi l'erreur suivante sera générée :
 
-```
+```python
 Traceback (most recent call last):
   File "./test.py", line 10, in <module>
     del(citron1.saveur)
@@ -540,7 +540,7 @@ Comme vu dans le chapitre 9 *Fonctions*, la règle LGI peut être résumée ains
 
 Les modules représentent aussi un espace de noms en soi. Afin d'illustrer cela, jetons un coup d’œil à ce programme `test_var_module.py` :
 
-```
+```python
 import mod
 
 i = 1000000
@@ -558,7 +558,7 @@ print("Dans prog principal j:", j)
 
 Le module `mod.py` contient les instructions suivantes :
 
-```
+```python
 def fct():
     i = -27478524
     print("Dans module, i local:", i)
@@ -574,7 +574,7 @@ j = -76
 
 L'exécution de `test_var_module.py` donnera :
 
-```
+```bash
 $ python ./test_var_module.py
 Dans prog principal i: 1000000
 Dans prog principal j: 2
@@ -597,7 +597,7 @@ En résumé, lorsqu'on lance une méthode d'un module, c'est l'espace de noms de
 
 On vient de voir qu'un module avait son propre espace de noms, mais qu'en est-il des classes ? En utilisant les exemples vus depuis le début de ce chapitre, vous avez certainement la réponse. Une classe possède par définition son propre espace de noms qui ne peut être en aucun cas confondu avec celui d'une fonction ou d'un programme principal. Reprenons un exemple simple :
 
-```
+```python
 class Citron:
     def __init__(self, saveur="acide", couleur="jaune"):
         self.saveur = saveur
@@ -631,7 +631,7 @@ Les deux variables globales `saveur` et `couleur` du programme principal ne peuv
 
 Ceci est également vrai pour les méthodes. Si par exemple, on a une méthode avec un certain nom, et une fonction du module principal avec le même nom, regardons ce qui se passe :
 
-```
+```python
 class Citron:
     def __init__(self):
         self.couleur = "jaune"
@@ -675,7 +675,7 @@ open-box-more
 
 Il existe d'autres règles concernant les espace de noms. L'une d'elle, que vous pourriez rencontrer, concerne la gestion des noms avec des fonctions imbriquées. Et oui, Python autorise cela ! Par exemple :
 
-```
+```python
 def fonction1():
     [...]
 
@@ -703,7 +703,7 @@ close-box-def
 
 Prenons un exemple concret de polymorphisme : la fonction Python `sorted()` va trier par ordre ASCII si l'argument est une chaîne de caractères, et elle va trier par ordre croissant lorsque l'argument est une liste d'entiers :
 
-```
+```python
 >>> sorted("citron")
 ['c', 'i', 'n', 'o', 'r', 't']
 >>> sorted([1, -67, 42, 0, 81])
@@ -720,7 +720,7 @@ close-box-def
 
 Un exemple classique de redéfinition des opérateurs concerne l'opérateur `+`. Si les opérandes sont de type numérique, il fait une addition, si elles sont des chaînes de caractère il fait une concaténation :
 
-```
+```python
 >>> 2 + 2
 4
 >>> "ti" + "ti"
@@ -739,7 +739,7 @@ close-box-def
 
 Nous allons prendre un exemple concret. Imaginons que suite à la création d'une classe, nous souhaitions que Python affiche un message personnalisé lors de l'utilisation de la fonction `print()` avec une instance de cette classe. La méthode magique qui permettra cela est nommée `.__str__()` : elle redéfinit le comportement d'une instance avec la fonction `print()`.
 
-```
+```python
 class CitronBasique:
     def __init__(self, couleur="jaune", taille="standard"):
         self.couleur = "jaune"
@@ -771,7 +771,7 @@ Lignes 18 à 21. On crée une instance de chaque classe, et on utilise la foncti
 
 L'exécution de ce code affichera la sortie suivante :
 
-```
+```python
 <__main__.CitronBasique object at 0x7ffe23e717b8>
 Votre citron est de couleur jaune foncée et de taille minuscule 8-)
 ```
@@ -793,7 +793,7 @@ Si on conçoit une classe produisant des objets séquentiels (comme des listes o
 
 Certaines méthodes magiques font des choses assez impressionnantes. Par exemple, la méthode `.__call__()` crée des instances que l'on peut appeler comme des fonctions ! Dans cet exemple, nous allons vous montrer que l'on peut ainsi créer un moyen inattendu pour mettre à jour des attributs d'instance :
 
-```
+```python
 class Citronnier:
     def __init__(self, nb_citrons, age):
         self.nb_citrons, self.age = nb_citrons, age
@@ -815,7 +815,7 @@ if __name__ == "__main__":
 
 À la ligne 16, on utilise une notation `instance(arg1, arg2)`, ce qui va automatiquement appeler la méthode magique `.__call__()` qui mettra à jour les deux attributs d'instance `nbcitrons` et `age` (lignes 5 et 6). Ce code affichera la sortie suivante :
 
-```
+```text
 Ce citronnier a 3 ans et 10 citrons
 Ce citronnier a 4 ans et 30 citrons
 ```
@@ -840,7 +840,7 @@ close-box-def
 
 En Python, lorsque l'on veut créer une classe héritant d'une autre classe, on ajoutera après le nom de la classe fille le nom de la ou des classe(s) mère(s) entre parenthèses :
 
-```
+```python
 class Mere1:
     # contenu de la classe mère 1
 
@@ -859,7 +859,7 @@ class Fille2(Mere1, Mere2):
 
 Dans cet exemple, la classe `Fille1` hérite de la classe `Mere1` et la classe `Fille2` hérite des deux classes `Mere1` et `Mere2`. Dans le cas de la classe `Fille2`, on parle d'héritage multiple. Voyons maintenant un exemple concret :
 
-```
+```python
 class Mere:
     def bonjour(self):
         return "Vous avez le bonjour de la classe mère !"
@@ -893,7 +893,7 @@ Nous commençons à entrevoir la puissance de l'héritage. Si on possède une cl
 
 En revenant à notre exemple, une instance de la classe `Fille` sera automatiquement une instance de la classe `Mere`. Regardons dans l'interpréteur :
 
-```
+```python
 >>> fille = Fille()
 >>> isinstance(fille, Fille)
 True
@@ -905,7 +905,7 @@ Si une méthode de la classe fille possède le même nom que celle de la classe 
 
 Voyons un exemple :
 
-```
+```python
 class Mere:
     def bonjour(self):
         return "Vous avez le bonjour de la classe mère !"
@@ -936,14 +936,14 @@ Vous l'avez compris, il y aura un ordre pour la résolution des noms d'attributs
 
 Il est en général possible d'avoir des informations sur l'ordre de résolution des méthodes d'une classe en évoquant la commande `help()` sur celle-ci ou une de ses instances. Par exemple, nous verrons dans le chapitre suivant le module *Tkinter*, imaginons que nous créions une instance de la classe principale du module *Tkinter* nommée `Tk` :
 
-```
+```python
 >>> import tkinter as tk
 >>> racine = tk.Tk()
 ```
 
 En invoquant la commande `help(racine)`, l'interpréteur nous montre :
 
-```
+```python
 Help on class Tk in module tkinter:
 
 class Tk(Misc, Wm)
@@ -968,14 +968,14 @@ close-box-rem
 
 Pour vous en convaincre, nous pouvons recréer une classe vide :
 
-```
+```python
 >>> class Citron:
 ...     pass
 ```
 
 Puis ensuite regarder l'aide sur l'une de ses instances :
 
-```
+```python
 Help on class Citron in module __main__:
 
 class Citron(builtins.object)
@@ -992,7 +992,7 @@ open-box-rem
 
 Le module *builtins* possède toutes les fonctions internes à Python. Il est donc pratique pour avoir une liste de toutes ces fonctions internes en un coup d'œil. Regardons cela avec les deux instructions `import builtins` puis `dir(builtins)` :
 
-```
+```python
 >>> import builtins
 >>> dir(builtins)
 ['ArithmeticError', 'AssertionError', 'AttributeError', [...]
@@ -1011,7 +1011,7 @@ ou à `class Citron(object):`.
 
 Ainsi, même si on crée une classe `Citron` vide (contenant seulement une commande `pass`), elle possède déjà tout une panoplie de méthodes héritées de la classe `object`. Regardez l'exemple suivant :
 
-```
+```python
 >>> class Citron:
 ...     pass
 ...
@@ -1036,7 +1036,7 @@ La quasi-totalité des attributs / méthodes de base de la classe `Citron` sont 
 
 Nous allons maintenant prendre un exemple un peu plus conséquent pour illustrer la puissance de l'héritage en programmation. D'abord quelques mots à propos de la conception. Imaginons que nous souhaitions créer plusieurs classes correspondant à nos fruits favoris, par exemple le citron (comme par hasard !), l'orange, le kaki, etc. Chaque fruit a ses propres particularités, mais il y a aussi de nombreux points communs. Nous pourrions donc concevoir une classe `Fruit` permettant, par exemple, d'instancier un fruit et ajouter des méthodes d'affichage commune à n'importe quel fruit, et ajouter (ou toute autre méthode) pouvant être utilisée pour n'importe quel fruit. Nous pourrions alors créer des classes comme `Citron`, `Orange`, etc., héritant de la classe `Fruit` et ainsi nous économiser des lignes de code identiques à ajouter pour chaque fruit. Regardons l'exemple suivant que nous avons garni de `print()` pour bien comprendre ce qui se passe :
 
-```
+```python
 class Fruit:
     def __init__(self, taille=None, masse=None, saveur=None, forme=None):
         print("(2) Je suis dans le constructeur de la classe Fruit")
@@ -1138,7 +1138,7 @@ close-box-adv
 
 Vous avez à présent bien compris le fonctionnement du mécanisme de l'héritage. Dans notre exemple, nous pourrions créer de nouveaux fruits avec un minimum d'effort. Ceux-ci pourraient hériter de la classe mère `Fruit` à nouveau, et nous n'aurions pas à réécrire les mêmes méthodes pour chaque fruit, simplement à les appeler. Par exemple :
 
-```
+```python
 class Kaki(Fruit):
     def __init__(self, taille=None, masse=None, saveur=None, forme=None):
         Fruit.__init__(self, taille, masse, saveur, forme)
@@ -1183,7 +1183,7 @@ close-box-rem
 
 Regardons à quoi pourrait ressembler une telle stratégie en Python :
 
-```
+```python
 class Citron:
     def __init__(self, couleur="jaune", masse=0):
         self.couleur = couleur
@@ -1222,14 +1222,14 @@ Lignes 22 à 28. Après instanciation, on affiche la valeur des attributs avec l
 
 L'exécution de ce code donnera la sortie suivante :
 
-```
+```text
 jaune 0
 jaune foncé 100
 ```
 
 Si on avait mis `citron1.set_masse(-100)` en ligne 26, la sortie aurait été la suivante :
 
-```
+```python
 jaune 0
 Traceback (most recent call last):
   File "./getter_setter.py", line 26, in <module>
@@ -1243,7 +1243,7 @@ La fonction interne `raise` nous a permis de générer une erreur car l'utilisat
 
 On comprend bien l'utilité d'une stratégie avec des *getters* et *setters* dans cet exemple. Toutefois, en Python, on peut très bien accéder et modifier les attributs même si on a des *getters* et des *setters* dans la classe. Imaginons la même classe `Citron` que ci-dessus, mais on utilise le programme principal suivant (notez que nous avons simplement ajouter les lignes 9 à 12 ci-dessous) :
 
-```
+```python
 if __name__ == "__main__":
     # définition de citron1
     citron1 = Citron()
@@ -1260,7 +1260,7 @@ if __name__ == "__main__":
 
 Cela donnera la sortie suivante :
 
-```
+```text
 jaune 0
 jaune foncé 100
 pourpre profond -15
@@ -1272,7 +1272,7 @@ Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt 
 
 De manière générale, une syntaxe avec des *getters* et *setters* du côté client surcharge la lecture. Imaginons que l'on ait une instance nommée `obj` et que l'on souhaite faire la somme de ses trois attributs `x`, `y` et `z` :
 
-```
+```python
 # pythonique
 obj.x + obj.y + obj.z
 
@@ -1290,7 +1290,7 @@ Dans la rubrique précédente, on vient de voir que les *getters* et *setters* t
 
 Toutefois, si on souhaite contrôler l'accès, la modification (voire la destruction) de certains attributs stratégiques, Python met en place une classe nommée `property`. Celle-ci permet de combiner le maintien de la syntaxe lisible `instance.attribut`, tout en utilisant en filigrane des fonctions pour accéder, modifier, voire détruire l'attribut (à l'image des *getters* et *setters* évoqués ci-dessus, ainsi que des *deleters* ou encore destructeurs en français). Pour faire cela, on utilise la fonction Python interne `property()` qui crée un objet (ou instance) `property` :
 
-```
+```python
 attribut = property(fget=accesseur, fset=mutateur, fdel=destructeur)
 ```
 
@@ -1306,7 +1306,7 @@ L'objet `attribut` est de type *property*, et la vraie valeur de l'attribut est 
 
 Comment cela fonctionne-t-il concrètement dans un code ? Regardons cet exemple (nous avons mis des `print()` un peu partout pour bien comprendre ce qui se passe) :
 
-```
+```python
 class Citron:
     def __init__(self, masse=0):
         print("(2) J'arrive dans le .__init__()")
@@ -1361,7 +1361,7 @@ close-box-warn
 
 L'exécution de ce code donnera :
 
-```
+```text
 (1) Dans le programme principal, je vais instancier un Citron
 (2) J'arrive dans le .__init__()
 Coucou je suis dans le set
@@ -1428,7 +1428,7 @@ La présence des *underscores* dans les noms d'attributs est un signe clair que 
 
 Par exemple, reprenons la classe `Citron` de la rubrique précédente dont l'attribut `.masse` est contrôlé avec un objet *property* :
 
-```
+```python
 >>> citron = Citron()
 Coucou je suis dans le set
 >>> citron.masse
@@ -1466,7 +1466,7 @@ close-box-def
 
 Regardons un exemple :
 
-```
+```python
 class Citron:
     def __init__(self):
         self.__mass = 100
@@ -1483,7 +1483,7 @@ if __name__ == "__main__":
 
 Ce code va donner la sortie suivante :
 
-```
+```python
 100
 Traceback (most recent call last):
   File "./pyscripts/mangling.py", line 11, in <module>
@@ -1493,7 +1493,7 @@ AttributeError: 'Citron' object has no attribute '__mass'
 
 La ligne 12 du code a donc conduit à une erreur : Python prétend ne pas connaître l'attribut `.__mass`. On pourrait croire que cela constitue un mécanisme de protection des attributs. En fait il n'en est rien, car on va voir que l'attribut est toujours accessible et modifiable. Si on modifiait le programme principal comme suit :
 
-```
+```python
 if __name__ == "__main__":
     citron1 = Citron()
     print(citron1.__dict__)
@@ -1503,7 +1503,7 @@ On obtiendrait en sortie le dictionnaire `{'_Citron__mass': 100}`.
 
 Le *name mangling* est donc un mécanisme qui transforme le nom `self.__attribut` à l'intérieur de la classe en `instance._NomClasse__attribut` à l'extérieur de la classe. Ce mécanisme a été conçu initialement pour pouvoir retrouver des noms d'attributs identiques lors de l'héritage. Si par exemple une classe mère et une classe fille ont chacune un attribut nommé `__attribut`, le *name mangling* permet d'éviter les conflits de nom. Par exemple :
 
-```
+```python
 class Fruit:
     def __init__(self):
         self.__mass = 100
@@ -1542,7 +1542,7 @@ close-box-adv
 
 Les classes peuvent bien sûr contenir des *docstrings* comme les fonctions et les modules. C'est d'ailleurs une pratique vivement recommandée. Voici un exemple sur notre désormais familière classe `Citron` :
 
-```
+```python
 class Citron:
     """Voici la classe Citron.
 
@@ -1572,7 +1572,7 @@ class Citron:
 
 Si on fait `help(Citron)` dans l'interpréteur, on obtient :
 
-```
+```python
 Help on class Citron in module __main__:
 
 class Citron(builtins.object)
@@ -1613,7 +1613,7 @@ Notez que si on instancie la classe `citron1 = Citron()` et qu'on invoque l'aide
 
 Toutes les *docstrings* d'une classe sont en fait stockées dans un attribut spécial nommé `instance.__doc__`. Cet attribut est une chaîne de caractères contenant la *docstring* générale de la classe. Ceci est également vrai pour les modules, méthodes et fonctions. Si on reprend notre exemple ci-dessus :
 
-```
+```python
 >>> citron1 = Citron()
 >>> print(citron1.__doc__)
 Voici la classe Citron.
@@ -1636,7 +1636,7 @@ Voici quelques points en vrac auxquels nous vous conseillons de faire attention 
 - Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuples* (cf. rubrique suivante).
 - Nous vous déconseillons de mettre comme paramètre par défaut une liste vide (ou tout autre objet séquentiel modifiable) :
 
-	```
+	```python
 	def __init__(self, liste=[]):
 		self.liste = liste
 	```
@@ -1644,7 +1644,7 @@ Si vous créez des instances sans passer d'argument lors de l'instanciation, tou
 
 - Ne mettez pas non plus une liste vide (ou tout autre objet séquentiel modifiable) comme attribut de classe.
 
-	```
+	```python
 	class Citron:
         liste = []
 	```
@@ -1654,7 +1654,7 @@ Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souv
 - Comme abordé dans la rubrique *Différence entre les attributs de classe et d'instance*, nous vous conseillons de ne jamais modifier les attributs de classe. Vous pouvez néanmois les utiliser comme constantes.
 - Si vous avez besoin d'attributs modifiables, utilisez des attributs d'instance et initialisez les dans la méthode `.__init__()` (et nulle part ailleurs). Par exemple, si vous avez besoin d'une liste comme attribut, créez la plutôt dans le constructeur :
 
-	```
+	```python
 	class Citron:
     def __init__(self):
         self.liste = []
@@ -1666,7 +1666,7 @@ Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
 Imaginons que l'on souhaite stocker des éléments dans un container, que l'on puisse retrouver ces éléments avec une syntaxe `container.element` et que ces éléments soit non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, il n'est pas conseillé de les utiliser comme des containers inertes, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de container est issu du très utile module *collections* que nous avions évoqué au Chapitre 13 *Dictionnaires, tuples et sets*.
 
-```
+```python
 >>> import collections
 >>> Citron = collections.namedtuple("Citron", "masse couleur saveur forme")
 >>> Citron
@@ -1688,7 +1688,7 @@ Lignes 6 à 11. On peut retrouver les différents attributs avec une syntaxe `in
 
 Mais dans *namedtuple*, il y a *tuple* ! Ainsi, l'instance `citron` hérite de tous les attributs des tuples :
 
-```
+```python
 >>> citron[0]
 10
 >>> citron[3]

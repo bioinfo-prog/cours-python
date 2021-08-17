@@ -24,7 +24,8 @@ Dans le programme principal, affichez le nombre de mots sélectionnés.
 Téléchargez maintenant le fichier [human-proteome.fasta](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta). Attention, ce fichier est assez gros. Ce fichier provient de la banque de données UniProt à partir de cette [page](https://www.uniprot.org/help/human_proteome).
 
 Voici les premières lignes de ce fichier (`[...]` indique une coupure que nous avons faite) :
-```
+
+```text
 >sp|O95139|NDUB6_HUMAN NADH dehydrogenase [ubiquinone] 1 beta [...]
 MTGYTPDEKLRLQQLRELRRRWLKDQELSPREPVLPPQKMGPMEKFWNKFLENKSPWRKM
 VHGVYKKSIFVFTHVLVPVWIIHYYMKYHVSEKPYGIVEKKSRIFPGDTILETGEVIPPM
@@ -45,7 +46,8 @@ Dans le programme principal, affichez le nombre de séquences lues.
 #### À la pêche aux mots
 
 Écrivez maintenant la fonction `search_words_in_proteome()` qui prend en argument la liste de mots et le dictionnaire contenant les séquences des protéines et qui va compter le nombre de séquences dans lesquelles un mot est présent. Cette fonction renverra un dictionnaire dont les clefs sont les mots et les valeurs le nombre de séquences qui contiennent ces mots. La fonction affichera également le message suivant pour les mots trouvés dans le protéome :
-```
+
+```text
 ACCESS found in 1 sequences
 ACID found in 38 sequences
 ACT found in 805 sequences
@@ -57,7 +59,8 @@ Cette étape prend quelques minutes. Soyez patient.
 #### Et le mot le plus fréquent est...
 
 Pour terminer, écrivez maintenant la fonction `find_most_frequent_word()` qui prend en argument le dictionnaire renvoyé par la précédente fonction `search_words_in_proteome()` et qui affiche le mot trouvé dans le plus de protéines, ainsi que le nombre de séquences dans lesquelles il a été trouvé, sous la forme :
-```
+
+```text
 => xxx found in yyy sequences
 ```
 
@@ -102,25 +105,25 @@ Testez cette fonction avec le fichier GenBank `NC_001133.gbk` et affichez le nom
 
 Dans le fichier GenBank, les gènes sens sont notés de cette manière :
 
-```
+```text
      gene            58..272
 ```
 
 ou
 
-```
+```text
      gene            <2480..>2707
 ```
 
 et les gènes antisens (ou encore complémentaires) de cette façon :
 
-```
+```text
      gene            complement(55979..56935)
 ```
 
 ou
 
-```
+```text
      gene            complement(<13363..>13743)
 ```
 
@@ -134,7 +137,7 @@ close-box-rem
 
 Repérez ces différents gènes dans le fichier `NC_001133.gbk`. Pour récupérer ces lignes de gènes il faut tester si la ligne commence par
 
-```
+```text
      gene            
 ```
 
@@ -142,13 +145,13 @@ Repérez ces différents gènes dans le fichier `NC_001133.gbk`. Pour récupére
 
 Ensuite si vous souhaitez récupérer la position de début et de fin de gène, nous vous conseillons d'utiliser la fonction `replace()` et de ne garder que les chiffres et les `.` Par exemple
 
-```
+```text
      gene            <2480..>2707
 ```
 
 sera transformé en
 
-```
+```text
 2480..2707
 ```
 
@@ -167,20 +170,21 @@ La taille du génome est indiqué sur la première ligne d'un fichier GenBank. T
 
 Dans un fichier GenBank, la séquence du génome se trouve entre les lignes
 
-```
+```text
 ORIGIN  
 ```
 
 et
 
-```
+```text
 //
 ```
 
 Trouvez dans le fichier `NC_001133.gbk` la première et dernière ligne de la séquence du génome.
 
 Pour récupérer les lignes contenant la séquence, nous vous proposons d'utiliser un algorithme avec un drapeau `is_dnaseq` (qui vaudra `True` ou `False`). Voici l'algorithme proposé en pseudo-code :
-```
+
+```text
 is_dnaseq <- False
 Lire chaque ligne du fichier gbk
     si la ligne contient "//"
@@ -190,6 +194,7 @@ Lire chaque ligne du fichier gbk
     si la ligne contient "ORIGIN"
         is_dnaseq <- True
 ```
+
 Au début ce drapeau aura la valeur `False`. Ensuite, quand il se mettra à True, on pourra lire les lignes contenant la séquence, puis quand il se remettra à False on arrêtera.
 
 Une fois la séquence récupérée, il suffira d'éliminer les chiffres, retours chariots et autres espaces (*Conseil* : calculer la longueur de la séquence et comparer la à celle indiquée dans le fichier gbk).
@@ -219,7 +224,7 @@ Toujours dans le même script, ajoutez la fonction `ecrit_fasta()` qui prend en 
 
 Pour rappel, un fichier FASTA suit le format suivant :
 
-```
+```text
 >commentaire
 sequence sur une ligne de 80 caractères maxi
 suite de la séquence .......................
@@ -245,7 +250,7 @@ Toujours dans le même script, ajoutez la fonction `extrait_genes()` qui prend e
 
 La première ligne des fichiers FASTA sera de la forme :
 
-```
+```text
 >nom-organisme|numéro-du-gène|début|fin|sens ou antisens
 ```
 
@@ -298,25 +303,25 @@ Testez cette fonction avec le fichier GenBank `NC_001133.gbk` et affichez le nom
 
 Dans le fichier GenBank, les gènes sens sont notés de cette manière :
 
-```
+```text
      gene            58..272
 ```
 
 ou
 
-```
+```text
      gene            <2480..>2707
 ```
 
 et les gènes antisens de cette façon :
 
-```
+```text
      gene            complement(55979..56935)
 ```
 
 ou
 
-```
+```text
      gene            complement(<13363..>13743)
 ```
 
@@ -345,13 +350,13 @@ La taille du génome est indiqué sur la première ligne d'un fichier GenBank. T
 
 Dans un fichier GenBank, la séquence du génome se trouve entre les lignes
 
-```
+```text
 ORIGIN  
 ```
 
 et
 
-```
+```text
 //
 ```
 
@@ -386,7 +391,7 @@ Toujours dans le même script, ajoutez la fonction `ecrit_fasta()` qui prend en 
 
 Pour rappel, un fichier FASTA suit le format suivant :
 
-```
+```text
 >commentaire
 sequence sur une ligne de 80 caractères maxi
 suite de la séquence .......................
@@ -412,7 +417,7 @@ Toujours dans le même script, ajoutez la fonction `extrait_genes()` qui prend e
 
 La première ligne des fichiers FASTA sera de la forme :
 
-```
+```text
 >nom-organisme|numéro-du-gène|début|fin|sens ou antisens
 ```
 
@@ -516,7 +521,7 @@ Dans une réalisation algorithmique, il suffira d'initialiser les variables de n
 
 L'initialisation des variables pourra ressembler à cela :
 
-```
+```text
 L <- 1          # longueur tige en m
 g <- 9.8        # accélération gravitationnelle en m/s^2
 t <- 0          # temps initial en s
@@ -530,9 +535,9 @@ afficher_position_pendule(t, theta) # afficher position de départ
 
 L'initialisation des valeurs de `theta` et `dtheta` est très importante car elle détermine le comportement du pendule. Nous avons choisi ici d'avoir une vitesse angulaire nulle et un angle de départ du pendule $\theta = \pi / 4$ rad $= 45$ deg. Le pas `dt` est également très important, c'est lui qui déterminera l'erreur faite sur l'intégration de l'équation différentielle. Plus ce pas est petit, plus on est précis, mais plus le calcul sera long. Ici, on choisit un pas `dt` de 0.05 s qui constitue un bon compromis.
 
-A ce stade, vous avez tous les éléments pour tester votre pendule. Essayez de réaliser un petit programme python `pendule_basic.py` qui utilise les conditions initiales ci-dessus et simule le mouvement du pendule. A la fin de cette rubrique, nous proposons une solution en langage algorithmique. Essayez dans un premier temps de le faire vous-même. A chaque pas, le programme écrira le temps $t$ et l'angle $\theta$ dans un fichier `pendule_basic.dat`. Dans les équations, $\theta$ doit être exprimé en radian, mais nous vous conseillons de convertir cet angle en degré dans le fichier (plus facile à comprendre pour un humain !). Une fois ce fichier généré, vous pourrez observer le graphe correspondant avec *matplotlib* en utilisant le code suivant :
+À ce stade, vous avez tous les éléments pour tester votre pendule. Essayez de réaliser un petit programme python `pendule_basic.py` qui utilise les conditions initiales ci-dessus et simule le mouvement du pendule. A la fin de cette rubrique, nous proposons une solution en langage algorithmique. Essayez dans un premier temps de le faire vous-même. A chaque pas, le programme écrira le temps $t$ et l'angle $\theta$ dans un fichier `pendule_basic.dat`. Dans les équations, $\theta$ doit être exprimé en radian, mais nous vous conseillons de convertir cet angle en degré dans le fichier (plus facile à comprendre pour un humain !). Une fois ce fichier généré, vous pourrez observer le graphe correspondant avec *matplotlib* en utilisant le code suivant :
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -558,7 +563,7 @@ Si vous observez une sinusoïde, bravo, vous venez de réaliser votre première 
 
 Si vous avez bloqué dans l'écriture de la boucle, voici à quoi elle pourrait ressembler en langage algorithmique :
 
-```
+```text
 tant qu'on n'arrête pas le pendule:
     # acc angulaire au tps t (en rad/s^2)
     d2theta <- -(g/L) * sin(theta)
@@ -638,7 +643,7 @@ La figure @fig:pendulumsketch2 montre graphiquement les valeurs de $\theta$.
 
 Si vous n'avez pas trouvé, voici la solution :
 
-```
+```python
 self.x = np.sin(self.theta) * self.L
 self.y = -np.cos(self.theta) * self.L
 ```
@@ -659,7 +664,7 @@ close-box-adv
 
 Si vous n'avez pas trouvé, voici la solution :
 
-```
+```python
 self.conv_factor = 100
 self.x_c = self.x*self.conv_factor + 200
 self.y_c = -self.y*self.conv_factor + 200

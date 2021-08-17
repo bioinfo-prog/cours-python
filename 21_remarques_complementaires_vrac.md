@@ -7,35 +7,42 @@ Lorsque l'on programme sur un système Unix (Mac OS X ou Linux par exemple), on 
 Pour cela, deux opérations sont nécessaires :
 
 1. Préciser la localisation de l'interpréteur Python en indiquant dans la première ligne du script :
-    ```
+   
+    ```python
     #! /usr/bin/env python
     ```
+
     Par exemple, si le script *test.py* contenait :
-    ```
+    
+    ```python
     print("Hello World !")
     ```
+
     il va alors contenir :
-    ```
+    
+    ```python
     #!/usr/bin/env python
 
     print("Hello World !")
     ```
 
 2. Rendre le script Python exécutable en lançant l'instruction :
-    ```
+
+    ```bash
     $ chmod +x test.py
     ```
 
 open-box-rem
 
 La ligne `#! /usr/bin/env python` n'est pas considérée comme un commentaire
-par Python, ni par une instruction Python d'ailleurs . Cette ligne a une signification
+par Python, ni comme une instruction Python d'ailleurs . Cette ligne a une signification
 particulière pour le système d'exploitation Unix.
 
 close-box-rem
 
 Pour exécuter le script, il suffit alors de taper son nom précédé des deux caractères **./** (afin de préciser au *shell* où se trouve le script) :
-```
+
+```bash
 $ ./test.py
 Hello World !
 ```
@@ -54,7 +61,7 @@ Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser
 
 Dans le chapitre 9, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
 
-```
+```python
 >>> def fct(*args):
 ...     print(args)
 ...
@@ -74,7 +81,7 @@ L'utilisation de la syntaxe `*args` permet d'empaqueter tous les arguments posit
 
 Il existe un équivalent avec les arguments par mot-clé :
 
-```
+```python
 >>> def fct(**kwargs):
 ...     print(kwargs)
 ...
@@ -94,7 +101,7 @@ La syntaxe `**kwargs` permet d'empaqueter l'ensemble des arguments par mot-clé,
 
 Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utiliser `*args` et  `**kwargs` en même temps :
 
-```
+```python
 >>> def fct(*args, **kwargs):
 ...     print(args)
 ...     print(kwargs)
@@ -134,7 +141,7 @@ L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le mo
 
 Enfin, il est possible d'utiliser ce mécanisme d'empaquetage / désempaquetage (*packing* / *unpacking*) dans l'autre sens :
 
-```
+```python
 >>> def fct(a, b, c):
 ...    print(a,b,c)
 ...
@@ -146,7 +153,7 @@ Enfin, il est possible d'utiliser ce mécanisme d'empaquetage / désempaquetage 
 
 Avec la syntaxe `*t` on désempaquette le tuple à la volée lors de l'appel à la fonction. Cela est aussi possible avec un dictionnaire : 
 
-```
+```python
 >>> def fct(x, y, z):
 ...    print(x, y, z)
 ...
@@ -166,7 +173,8 @@ Attention toutefois à bien respecter deux choses :
 La transformée de Fourier est très utilisée pour l'analyse de signaux, notamment lorsqu'on souhaite extraire des périodicités au sein d'un signal bruité. Le module *NumPy* possède la fonction `fft()` (dans le sous-module *fft*) permettant de calculer des transformées de Fourier.
 
 Voici un petit exemple sur la fonction cosinus de laquelle on souhaite extraire la période à l'aide de la fonction `fft()` :
-```
+
+```python
 import numpy as np
 
 debut = -2 * np.pi
@@ -201,7 +209,8 @@ Ligne 12. La variable `ABSTF` contient le spectre lui même. L'analyse de ce der
 ## Sauvegardez votre historique de commandes
 
 Vous pouvez sauvegarder l'historique des commandes utilisées dans l'interpréteur Python avec le module `readline`.
-```
+
+```python
 >>> print("hello")
 hello
 >>> a = 22
@@ -215,8 +224,10 @@ hello
 Quittez Python. L'historique de toutes vos commandes est dans votre répertoire personnel, dans le fichier `.history`.
 
 Relancez l'interpréteur Python.
-```
+
+```python
 >>> import readline
 >>> readline.read_history_file()
 ```
+
 Vous pouvez accéder aux commandes de la session précédente avec la flèche du haut de votre clavier. D'abord les commandes `readline.read_history_file()` et `import readline` de la session actuelle, puis `print(a)`, `a = a + 11`, `a = 22`...

@@ -10,8 +10,8 @@ close-box-adv
 
 Dans votre carrière « pythonesque » il se peut que vous soyez amené à vouloir développer une application graphique, on parle encore de *graphical user interface* ou GUI. Jusqu'à maintenant, vous avez fait en sorte qu'un utilisateur interagisse avec votre code via la ligne de commande, par exemple :
 
-```
-python mon_script.py file.gbk blabla blublu
+```bash
+$ python mon_script.py file.gbk blabla blublu
 ```
 
 Les arguments passés à la ligne de commande sont tout à fait classiques dans le monde de la bioinformatique. Toutefois, il se peut que vous développiez un programme pour une communauté plus large, qui n'a pas forcément l'habitude d'utiliser un *shell* et la ligne de commande. Une GUI permettra un usage plus large de votre programme, il est donc intéressant de regarder comment s'y prendre. Dans notre exemple ci-dessus on pourrait par exemple développer une interface où l'utilisateur choisirait le nom du fichier d'entrée par l'intermédiaire d'une boîte de dialogue, et de contrôler les options en cliquant sur des boutons, ou des « listes de choix ». Une telle GUI pourrait ressembler à la figure @fig:exemple_GUI.
@@ -58,7 +58,7 @@ Un exemple de fonction *callback* est présenté dans la rubrique suivante.
 
 Jusqu'à maintenant nous avons toujours appelé les fonctions ou les méthodes de cette manière :
 
-```
+```python
 var = fct(arg1, arg2)
 
 obj.methode(arg)
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
 Si on exécute ce code, on obtient :
 
-```
+```text
 Je suis au début de une_fct() et je vais exécuter la fonction callback :
 J'aime bien les fraises !
 une_fct() se termine.
@@ -111,7 +111,7 @@ Le module *Tkinter* est très vaste. Notre but n'est pas de vous faire un cours 
 
 Commençons par construire un script qui affichera une simple fenêtre avec un message et un bouton. Regardons d'abord comment faire dans l'interpréteur (nous vous conseillons de tester ligne par ligne ce code tout en lisant les commentaires ci-dessous) :
 
-```
+```python
 >>> import tkinter as tk
 >>> racine = tk.Tk()
 >>> label = tk.Label(racine, text="J'adore Python !")
@@ -136,7 +136,7 @@ Au final, vous devez obtenir une fenêtre comme sur la figure @fig:exemple1_tkin
 
 Tentons maintenant de faire la même chose dans un script `tk_exemple.py` :
 
-```
+```python
 import tkinter as tk
 
 racine = tk.Tk()
@@ -151,7 +151,7 @@ print("C'est fini !")
 
 puis lançons ce script depuis un *shell* :
 
-```
+```bash
 $ python tk_exemple.py
 ```
 
@@ -171,7 +171,7 @@ Ligne 5. Pour quitter l'application, on utilise ici la méthode `.quit()`. Celle
 
 De manière générale, il est vivement conseillé de développer ses applications *Tkinter* en utilisant une classe. Cela présente l'avantage d'encapsuler l'application de manière efficace et d'éviter ainsi l'utilisation de variables globales. Souvenez-vous, elles sont à bannir définitivement ! Une classe crée un espace de noms propre à votre application, et toutes les variables nécessaires seront ainsi des attributs de cette classe. Reprenons notre petit exemple avec un label et un bouton :
 
-```
+```python
 import tkinter as tk
 
 class Application(tk.Tk):
@@ -226,7 +226,7 @@ Le *widget* [*canvas*](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/canvas.
 
 La classe `tk.Canvas` crée un *widget canvas* (ou encore canevas en français). Cela va créer une zone (*i.e.* le canevas en tant que tel) dans laquelle nous allons dessiner divers objets tels que des ellipses, lignes, polygones, etc., ou encore insérer du texte ou des images. Regardons tout d'abord un code minimal qui construit un *widget* *canvas*, dans lequel on y dessine un cercle et deux lignes :
 
-```
+```python
 import tkinter as tk
 
 racine = tk.Tk()
@@ -261,7 +261,7 @@ Voici un exemple un peu plus conséquent d'utilisation du *widget canvas* qui es
 
 Le code suivant crée une telle application :
 
-```
+```python
 import tkinter as tk
 import random as rd
 
@@ -328,7 +328,7 @@ Lignes 30 à 40. On définit deux méthodes qui vont dessiner des paquets de 20 
 
 Dans ce dernier exemple, nous allons illustrer la puissance du *widget canvas* en vous montrant que l'on peut animer les objets se trouvant à l'intérieur. Nous allons également découvrir une technique intéressante, à savoir, comment « intercepter » des clics de souris générés ou des touches pressées par l'utilisateur. L'application consiste en une « baballe » qui se déplace dans la fenêtre et dont on contrôle les propriétés à la souris (cf. figure @fig:canvas_anime). Vous pouvez télécharger le script [ici](https://python.sdv.univ-paris-diderot.fr/data-files/tk_baballe.py).
 
-```
+```python
 """Super appli baballe !!!
 
 Usage: python tk_baballe.py
@@ -435,7 +435,7 @@ Lignes 55 et 56. On utilise la méthode `.coords()` de la classe `Canvas`, qui �
 
 Ligne 58. Ici, on utilise une autre méthode spécifique des objets *Tkinter*. La méthode `.after()` rappelle une autre méthode ou fonction (second argument) après un certain laps de temps (ici 50 ms, passé en premier argument). Ainsi la méthode `.move()` se rappelle elle-même, un peu comme une fonction récursive. Toutefois, ce n'est pas une vraie fonction récursive comme celle vue dans le chapitre 12 (exemple du calcul de factorielle), car Python ne conserve pas l'état de la fonction lors de l'appel de `.after()`. C'est comme si on avait un `return`, tout l'espace mémoire alloué à la méthode `.move()` est détruit lorsque Python rencontre la méthode `.after()`. On obtiendrait un résultat similaire avec la boucle suivante :
 
-```
+```python
 import time
 
 ...
@@ -488,7 +488,7 @@ Il existe également une extension de *Tkinter* nommée *ttk*, réimplémentant 
 
 Vous pourrez alors utiliser les classes de widget de *ttk* (par exemple `ttk.Button`, etc.). Si vous souhaitez importer *ttk* et *Tkinter*, il suffit d'utiliser ces deux lignes :
 
-```
+```python
 import tkinter as tk
 import tkinter.ttk as ttk
 ```
@@ -522,7 +522,7 @@ La méthode `.grid()` permet, grâce à l'utilisation d'une grille, un placement
 
 Comme illustré dans nos exemples, nous vous recommandons pour vos classes applications *Tkinter* d'hériter de la classe mère `tk.Tk` et d'utiliser le constructeur de la classe mère `tk.Tk.__init__()`. Toutefois, il se peut qu'en consultant d'autres ressources certains auteurs utilisent la technique d'héritage de la classe mère `tk.Frame` :
 
-```
+```python
 import tkinter as tk
 
 class Application(tk.Frame):
@@ -554,7 +554,7 @@ Ligne 6. L'argument `racine` passé à la méthode `.__init__()` est finalement 
 
 Vous pourrez vous posez la question : « Pourquoi en ligne 4 l'argument par mot-clé `racine=None` prend la valeur `None` par défaut ? ». Et bien, c'est parce que notre classe Application peut s'appeler sans passer d'instance de fenêtre Tk. Voici un exemple avec les lignes qui changent seulement (tout le reste est identique au code précédent) :
 
-```
+```python
 [...]
 class Application(tk.Frame):
     def __init__(self, racine=None):
@@ -575,7 +575,7 @@ Hériter de la classe Frame ou de la classe Tk sont deux manières tout à fait 
 
 Si vous allez chercher de la documentation supplémentaire sur *Tkinter*, il se peut que vous tombiez sur ce style de syntaxe lorsque vous créez votre classe contenant l'application graphique :
 
-```
+```python
 class MonApplication(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
@@ -605,7 +605,7 @@ Toutefois, même si cela « ne coûte rien », nous vous recommandons de ne pas 
 
 *Tkinter* est parfois surprenant. Dans le code suivant, on pourrait penser que celui-ci n'est pas fonctionnel :
 
-```
+```python
 >>> import tkinter as tk
 >>> bouton = tk.Button(text="Quitter")
 >>> bouton.pack()
@@ -613,7 +613,7 @@ Toutefois, même si cela « ne coûte rien », nous vous recommandons de ne pas 
 
 Pour autant, cela fonctionne et on voit un bouton apparaître ! En fait, *Tkinter* va automatiquement instancier la fenêtre principale, si bien qu'il n'est pas obligatoire de passer cette instance en argument d'un *widget*. À ce moment, on peut se demander où est passé cette instance. Heureusement, *Tkinter* garde toujours une filiation des *widgets* avec les attributs `.master` et `.children` :
 
-```
+```python
 >>> racine = bouton.master
 >>> racine
 <tkinter.Tk object .>
@@ -685,7 +685,7 @@ Créer une application affichant un compte à rebours dans un *label*. L'utilisa
 
 Le [triangle de Sierpinski](https://fr.wikipedia.org/wiki/Triangle_de_Sierpi%C5%84ski) est une fractale classique. On se propose ici de la dessiner avec un algorithme tiré du [jeu du chaos](https://fr.wikipedia.org/wiki/Jeu_du_chaos). Celui-ci se décompose en pseudo-code de la façon suivante :
 
-```
+```text
 définir les 3 sommets d'un triangle isocèle ou équilatéral
 point <- coordonnées (x, y) du centre du trianle
 dessiner(point) # un pixel de large
@@ -703,7 +703,7 @@ Le rendu final attendu est montré dans la figure @fig:tk_Sierpinski. On utilise
 
 Améliorer l'application précédente en proposant une liste de choix supplémentaire demandant à l'utilisateur de choisir le nombre de sommets (de 3 à 10). Le programme calculera automatiquement la position des sommets. Pour prendre en main le *widget* *Listbox*, voici un code minimal qui pourra vous aider. Celui-ci contient une `Listbox` et permet d'afficher dans le terminal l'élément sélectionné. Nous vous conseillons de bien étudier le code ci-dessous et d'avoir résolu l'exercice précédent avant de vous lancer !
 
-```
+```python
 import tkinter as tk
 
 class MaListBox(tk.Tk):

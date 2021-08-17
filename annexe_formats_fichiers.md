@@ -6,7 +6,7 @@ Le format FASTA est utilisé pour stocker une ou plusieurs séquences, d'ADN, d'
 
 Ces séquences sont classiquement représentées sous la forme :
 
-```
+```text
 >en-tête
 séquence avec un nombre maximum de caractères par ligne
 séquence avec un nombre maximum de caractères par ligne
@@ -27,7 +27,8 @@ Les fichiers contenant une ou plusieurs séquences au format FASTA portent la pl
 ### Exemples
 
 La séquence protéique au format FASTA de la sous-unité $\beta$ de l'[hémoglobine humaine](https://www.uniprot.org/uniprot/P68871), extraite de la base de données UniProt, est :
-```
+
+```text
 >sp|P68871|HBB_HUMAN Hemoglobin subunit beta OS=Homo sapiens OX=9606 GN=HBB PE=1 SV=2
 MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK
 VKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFG
@@ -47,7 +48,8 @@ manuellement) et TrEMBL (où les séquences sont annotées automatiquement).
 close-box-def
 
 Voici maintenant la séquence nucléique (ARN), au format FASTA, de l'[insuline humaine](https://www.ncbi.nlm.nih.gov/nuccore/BT006808.1?report=fasta), extraite de la base de données [GenBank](https://www.ncbi.nlm.nih.gov/nuccore/AY899304.1?report=genbank) :
-```
+
+```text
 >BT006808.1 Homo sapiens insulin mRNA, complete cds
 ATGGCCCTGTGGATGCGCCTCCTGCCCCTGCTGGCGCTGCTGGCCCTCTGGGGACCTGACCCAGCCGCAG
 CCTTTGTGAACCAACACCTGTGCGGCTCACACCTGGTGGAAGCTCTCTACCTAGTGTGCGGGGAACGAGG
@@ -55,12 +57,14 @@ CTTCTTCTACACACCCAAGACCCGCCGGGAGGCAGAGGACCTGCAGGTGGGGCAGGTGGAGCTGGGCGGG
 GGCCCTGGTGCAGGCAGCCTGCAGCCCTTGGCCCTGGAGGGGTCCCTGCAGAAGCGTGGCATTGTGGAAC
 AATGCTGTACCAGCATCTGCTCCCTCTACCAGCTGGAGAACTACTGCAACTAG
 ```
+
 On retrouve sur la première ligne la description de la séquence (*Homo sapiens insulin mRNA*), ainsi que son identifiant (*BT006808.1*) dans la base de données GenBank.
 
 Les lignes suivantes contiennent les 333 bases de la séquence, réparties sur cinq lignes de 70 caractères maximum. Il est curieux de trouver la base T (thymine) dans une séquence d'ARN qui ne devrait contenir normalement que les bases A, U, G et C. Ici, la représentation d'une séquence d'ARN avec les bases de l'ADN est une convention.
 
 Pour terminer, voici trois séquences protéiques, au format FASTA, qui correspondent à l'insuline chez humaine (*Homo sapiens*), féline (*Felis catus*) et bovine (*Bos taurus*) :
-```
+
+```text
 >sp|P01308|INS_HUMAN Insulin OS=Homo sapiens OX=9606 GN=INS PE=1 SV=1
 MALWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAED
 LQVGQVELGGGPGAGSLQPLALEGSLQKRGIVEQCCTSICSLYQLENYCN
@@ -80,7 +84,8 @@ Chaque séquence est délimitée par la ligne d'en-tête qui débute par `>`.
 ### Manipulation avec Python
 
 À partir de l'exemple précédent des 3 séquences d'insuline, voici un exemple de code qui lit un fichier FASTA avec Python :
-```
+
+```python
 prot_dict = {}
 with open("insulin.fasta", "r") as fasta_file:
     prot_id = ""
@@ -94,8 +99,10 @@ with open("insulin.fasta", "r") as fasta_file:
         print(id)
         print(prot_dict[id][:30])
 ```
+
 Pour chaque séquence lue dans le fichier FASTA, on affiche son identifiant et son nom puis les 30 premiers résidus de sa séquence :
-```
+
+```text
 sp|P06306|INS_FELCA
 MAPWTRLLPLLALLSLWIPAPTRAFVNQHL
 sp|P01317|INS_BOVIN
@@ -103,16 +110,19 @@ MALWTRLRPLLALLALWPPPPARAFVNQHL
 sp|P01308|INS_HUMAN
 MALWMRLLPLLALLALWGPDPAAAFVNQHL
 ```
+
 Notez que les protéines sont stockées dans un dictionnaire (`prot_dict`) où les clefs sont les identifiants et les valeurs les séquences.
 
 On peut faire la même chose avec le module *Biopython* :
-```
+
+```python
 from Bio import SeqIO
 with open("insulin.fasta", "r") as fasta_file:
     for record in SeqIO.parse(fasta_file, "fasta"):
         print(record.id)
         print(str(record.seq)[:30])
 ```
+
 Cela produit le même résultat. L'utilisation de *Biopython* rend le code plus compacte car on utilise ici la fonction `SeqIO.parse()` qui s'occupe de lire le fichier FASTA.
 
 
@@ -125,7 +135,7 @@ Le format GenBank est décrit de manière très complète sur le site du [NCBI](
 
 ### L'en-tête
 
-```
+```text
 LOCUS       HUMTRPSGNA               800 bp    mRNA    linear   PRI 14-JAN-1995
 DEFINITION  Human pancreatic trypsin 1 (TRY1) mRNA, complete cds.
 ACCESSION   M22612
@@ -138,6 +148,7 @@ SOURCE      Homo sapiens (human)
             Catarrhini; Hominidae; Homo.
 [...]
 ```
+
 Ligne 1 (`LOCUS`) : le nom du locus (*HUMTRPSGNA*), la taille du gène (800 paires de base), le type de molécule (ARN messager).
 
 Ligne 3 (`ACCESSION`) : l'identifiant de la séquence (*M22612*).
@@ -151,7 +162,7 @@ Ligne 7 (`  ORGANISME`) : le nom scientifique de l'organisme, suivi de sa taxono
 
 ### Les *features*
 
-```
+```text
 [...]
 FEATURES             Location/Qualifiers
      source          1..800
@@ -194,7 +205,7 @@ Ligne 22 (`sig_peptide     7..51`) : la délimitation du peptide signal.
 
 ### La séquence
 
-```
+```text
 [...]
 ORIGIN      
         1 accaccatga atccactcct gatccttacc tttgtggcag ctgctcttgc tgcccccttt
@@ -224,7 +235,8 @@ Par exemple, ligne 10, le premier nucléotide de la ligne (`t`) est le numéro 4
 ### Manipulation avec Python
 
 À partir de l'exemple précédent, voici comment lire un fichier GenBank avec Python et le module *Biopython* :
-```
+
+```python
 from Bio import SeqIO
 with open("M22612.gbk", "r") as gbk_file:
     record = SeqIO.read(gbk_file, "genbank")
@@ -234,7 +246,8 @@ with open("M22612.gbk", "r") as gbk_file:
 
 ```
 Pour la séquence lue dans le fichier GenBank, on affiche son identifiant, sa description et les 60 premiers résidus :
-```
+
+```text
 M22612.1
 Human pancreatic trypsin 1 (TRY1) mRNA, complete cds.
 ACCACCATGAATCCACTCCTGATCCTTACCTTTGTGGCAGCTGCTCTTGCTGCCCCCTTT
@@ -257,7 +270,7 @@ Examinons ces deux parties avec la [trypsine bovine](https://www.rcsb.org/struct
 
 Pour la trypsine bovine, l'en-tête compte 510 lignes. En voici quelques unes :
 
-```
+```text
 HEADER    HYDROLASE (SERINE PROTEINASE)           26-OCT-81   2PTN              
 TITLE     ON THE DISORDERED ACTIVATION DOMAIN IN TRYPSINOGEN.                   
 TITLE    2 CHEMICAL LABELLING AND LOW-TEMPERATURE CRYSTALLOGRAPHY               
@@ -313,7 +326,8 @@ Lignes 26-27. `SSBOND` indique les bonds disulfures. Ici, entre les résidus Cys
 
 Avec la même protéine, la partie coordonnées représente plus de 1700 lignes.
 En voici quelques unes correspondantes au résidu leucine 99 :
-```
+
+```text
 [...]  
 ATOM    601  N   LEU A  99      10.007  19.687  17.536  1.00 12.25           N  
 ATOM    602  CA  LEU A  99       9.599  18.429  18.188  1.00 12.25           C  
@@ -354,7 +368,7 @@ Une documentation plus complète des différents champs qui constituent une lign
 Les résidus sont ensuite décrits les uns après les autres, atome par atome.
 Voici par exemple les premiers résidus de la trypsine bovine :
 
-```
+```text
 [...]
 ATOM      1  N   ILE A  16      -8.155   9.648  20.365  1.00 10.68           N  
 ATOM      2  CA  ILE A  16      -8.150   8.766  19.179  1.00 10.68           C  
@@ -378,7 +392,8 @@ Vous remarquez que le numéro du premier résidu est 16 et non pas 1. Cela s'exp
 
 La structure de la trypsine bovine n'est constituée que d'une seule chaîne peptidique (notée `A`).
 Lorsqu'une structure est composée de plusieurs chaînes, comme dans le cas de la structure du récepteur GABAB 1 et 2 chez la drosophile (code PDB [5X9X](http://www.rcsb.org/structure/5X9X)) :
-```
+
+```text
 [...]
 ATOM    762  HB1 ALA A  44      37.162  -2.955   2.220  1.00  0.00           H  
 ATOM    763  HB2 ALA A  44      38.306  -2.353   3.417  1.00  0.00           H  
@@ -398,7 +413,8 @@ Dans un fichier PDB, chaque structure porte un nom de chaîne différent.
 Enfin, lorsque la structure est déterminée par RMN, il est possible que plusieurs structures soient présentes
 dans le même fichier PDB. Toutes ces structures, ou « modèles », sont des solutions possibles du jeu de contraintes mesurées
 expérimentalement en RMN. Voici un exemple, toujours pour la structure du récepteur GABAB 1 et 2 chez la drosophile :
-```
+
+```text
 [...]
 MODEL        1                                                                  
 ATOM      1  N   MET A   1     -27.283  -9.772   5.388  1.00  0.00           N  
@@ -421,14 +437,19 @@ ATOM      1  N   MET A   1     -29.736 -10.759   4.394  1.00  0.00           N
 ATOM      2  CA  MET A   1     -28.372 -10.225   4.603  1.00  0.00           C  
 [...]
 ```
+
 Chaque structure est encadrée par les lignes
-```
+
+```text
 MODEL        n
 ```
+
 et
-```
+
+```text
 ENDMDL
 ```
+
 où *n* est le numéro du modèle. Pour la structure du récepteur GABAB 1 et 2,
 il y a 20 modèles de décrits dans le fichier PDB.
 
@@ -438,7 +459,8 @@ il y a 20 modèles de décrits dans le fichier PDB.
 Le module *Biopython* peut également lire un fichier PDB.
 
 Chargement de la structure de la trypsine bovine :
-```
+
+```python
 from Bio.PDB import PDBParser
 parser = PDBParser()
 prot_id = "2PTN"
@@ -454,18 +476,22 @@ remplacez alors la 2e ligne par `parser = PDBParser(PERMISSIVE=1)`. Soyez néanm
 close-box-rem
 
 Affichage du nom de la structure et de la technique expérimentale utilisée pour déterminer la structure :
-```
+
+```python
 print(structure.header["head"])
 print(structure.header["structure_method"])
 ```
+
 ce qui produit :
-```
+
+```python
 hydrolase (serine proteinase)
 x-ray diffraction
 ```
 
 Extraction des coordonnées de l'atome `N` du résidu Ile16 et de l'atome `CA` du résidu Val17 :
-```
+
+```python
 model = structure[0]
 chain = model["A"]
 res1 = chain[16]
@@ -473,8 +499,10 @@ res2 = chain[17]
 print(res1.resname, res1["N"].coord)
 print(res2.resname, res2["CA"].coord)
 ```
+
 ce qui produit :
-```
+
+```python
 ILE [ -8.15499973   9.64799976  20.36499977]
 VAL [-10.35099983   9.44799995  16.15699959]
 ```
@@ -482,12 +510,14 @@ VAL [-10.35099983   9.44799995  16.15699959]
 L'objet `res1["N"].coord` est un *array* de *NumPy* (voir le chapitre 17
 *Quelques modules d'intérêt en bioinformatique*). On peut alors obtenir
 simplement les coordonnées x, y et z d'un atome :
-```
+
+```python
 print(res1["N"].coord[0], res1["N"].coord[1], res1["N"].coord[2])
 ```
 
 ce qui produit :
-```
+
+```python
 -8.155 9.648 20.365
 ```
 
@@ -503,7 +533,7 @@ close-box-rem
 
 Enfin, pour afficher les coordonnées des carbones $\alpha$ (notés `CA`) des 10 premiers résidus (à partir du résidu 16 car c'est le premier résidu dont on connaît la structure) :
 
-```
+```python
 res_start = 16
 model = structure[0]
 chain = model["A"]
@@ -513,7 +543,8 @@ for i in range(10):
 ```
 
 avec pour résultat :
-```
+
+```text
 ILE 16 [ -8.14999962   8.76599979  19.17900085]
 VAL 17 [-10.35099983   9.44799995  16.15699959]
 GLY 18 [-12.02099991   6.63000011  14.25899982]
@@ -536,7 +567,8 @@ les différentes informations d'une ligne de coordonnées `ATOM` ou `HETATM`.
 Exemple : pour extraire le nom du résidu, il faut isoler le contenu des colonnes 18 à 20 du fichier PDB, ce qui correspond aux index de 17 à 19 pour une chaîne de caractères en Python, soit la tranche de chaîne de caractères `[17:20]` car la première borne est incluse et la seconde exclue.
 
 Pour lire le fichier PDB de la trypsine bovine (`2PTN.pdb`) et extraire (encore) les coordonnées des carbones $\alpha$ des 10 premiers résidus, nous pouvons utiliser le code suivant :
-```
+
+```python
 with open("2PTN.pdb", "r") as pdb_file:
     res_count = 0
     for line in pdb_file:
@@ -553,8 +585,10 @@ with open("2PTN.pdb", "r") as pdb_file:
             if res_count >= 10:
                 break
 ```
+
 ce qui donne :
-```
+
+```text
 ILE 16 -8.15 8.766 19.179
 VAL 17 -10.351 9.448 16.157
 GLY 18 -12.021 6.63 14.259
@@ -609,7 +643,7 @@ et `valeur1` est la valeur associée).
 
 Enfin, les balises peuvent être imbriquées les unes dans les autres :
 
-```
+```text
 <protein>
 <element>élément 1</element>
 <element>élément 2</element>
@@ -624,7 +658,7 @@ Voici un autre exemple avec l'enzyme [trypsine](https://www.uniprot.org/uniprot/
 humaine (code [P07477](https://www.uniprot.org/uniprot/P07477.xml)) telle
 qu'on peut la trouver décrite dans la base de données UniProt :
 
-```
+```text
 <?xml version='1.0' encoding='UTF-8'?>
 <uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi=[...]>
 <entry dataset="Swiss-Prot" created="1988-04-01" modified="2018-09-12" [...]>
@@ -672,7 +706,7 @@ la balise `<sequence>`, on retrouve, par exemple, la taille de la protéine
 Voici un exemple de code Python pour manipuler le fichier XML de la trypsine
 humaine :
 
-```
+```python
 from lxml import etree
 import re
 
@@ -720,7 +754,7 @@ de l'attribut `length` (toujours de la balise `<sequence></sequence>`).
 
 Le résultat obtenu est le suivant :
 
-```
+```text
 gene : PRSS1 (primary)
 gene : TRP1 (synonym)
 gene : TRY1 (synonym)
@@ -763,7 +797,8 @@ de la protéine et sa masse moléculaire (*MW*).
 | [...]  | [...]                 | [...]        | [...]  | [...]    |
 
 Voici maintenant l'équivalent en [CSV](https://python.sdv.univ-paris-diderot.fr/data-files/transferrin_report.csv) :
-```
+
+```text
 PDB ID,Source,Deposit Date,Length,MW
 1A8E,Homo sapiens,1998-03-24,329,36408.40
 1A8F,Homo sapiens,1998-03-25,329,36408.40
@@ -775,12 +810,14 @@ PDB ID,Source,Deposit Date,Length,MW
 1DOT,Anas platyrhynchos,1995-08-03,686,75731.80
 [...]
 ```
+
 Sur chaque ligne, les différentes valeurs sont séparées par une virgule.
 La première ligne contient le nom des colonnes et est appelée ligne d'en-tête.
 
 
 L'équivalent en [TSV](https://python.sdv.univ-paris-diderot.fr/data-files/transferrin_report.tsv) est :
-```
+
+```text
 PDB ID	Source	Deposit Date	Length	MW
 1A8E	Homo sapiens	1998-03-24	329	36408.40
 1A8F	Homo sapiens	1998-03-25	329	36408.40
@@ -792,6 +829,7 @@ PDB ID	Source	Deposit Date	Length	MW
 1DOT	Anas platyrhynchos	1995-08-03	686	75731.80
 [...]
 ```
+
 Sur chaque ligne, les différentes valeurs sont séparées par une tabulation.
 
 open-box-warn
@@ -811,7 +849,8 @@ pour lire et écrire des fichiers au format CSV et TSV. Nous vous conseillons
 de lire la documentation très complète sur ce [module](https://docs.python.org/fr/3.7/library/csv.html).
 
 Voici un exemple :
-```
+
+```python
 import csv
 
 with open("transferrin_report.csv") as f_in:
@@ -831,7 +870,8 @@ Ligne 5. Parcours de toutes les lignes du fichiers CSV.
 Ligne 6. Affichage des champs correspondants à *PDB ID*, *Deposit Date*, *Length*.
 
 Le résultat obtenu est :
-```
+
+```text
 1A8E 1998-03-24 329
 1A8F 1998-03-25 329
 1AIV 1997-04-28 686
@@ -842,7 +882,8 @@ Le résultat obtenu est :
 ```
 
 Il suffit de modifier légèrement le script précédent pour lire un fichier TSV :
-```
+
+```python
 import csv
 
 with open("transferrin_PDB_report.tsv") as f_in:
@@ -862,7 +903,8 @@ Le résultat obtenu est strictement identique au précédent.
 #### Écriture
 
 Voici un exemple d'écriture de fichier CSV :
-```
+
+```python
 import csv
 
 with open("test.csv", "w") as f_out:
@@ -885,7 +927,8 @@ Ligne 6. Écriture des noms des colonnes.
 Ligne 7-9. Écriture de trois lignes. Pour chaque ligne, un dictionnaire dont les clefs sont les noms des colonnes est fourni comme argument à la méthode `.writerow()`.
 
 Le contenu du fichier `test.csv` est alors :
-```
+
+```text
 Name,Quantity
 girafe,5
 tigre,3
@@ -893,7 +936,8 @@ singe,8
 ```
 
 De façon très similaire, l'écriture d'un fichier TSV est réalisée avec le code suivant :
-```
+
+```python
 import csv
 
 with open("test.tsv", "w") as f_out:
@@ -910,7 +954,8 @@ Ligne 3. Modification du nom du fichier en écriture.
 Ligne 5. Utilisation de l'argument `delimiter="\t"` qui indique que les champs sont séparés par des tabulations.
 
 Le contenu du fichier `test.tsv` est :
-```
+
+```text
 Name	Quantity
 girafe	5
 tigre	3

@@ -88,13 +88,13 @@ Que signifie *f-string* ?
 
 open-box-def
 
-*f-string* est le diminutif de *formatted string literals*. Mais encore ? Dans le chapitre précédent, nous avons vu les chaînes de caractères ou encore *strings* qui étaient représentées par un texte entouré de guillemets simples ou doubles. Par exemple:
+*f-string* est le diminutif de *formatted string literals*. Mais encore ? Dans le chapitre précédent, nous avons vu les chaînes de caractères ou encore *strings* qui étaient représentées par un texte entouré de guillemets simples ou doubles. Par exemple :
 
 ```python
 "Ceci est une chaîne de caractères"
 ```
 
-L'équivalent en *f-string* est tout simplement la même chaîne précédée  du caractère `f` **sans espace** entre les deux:
+L'équivalent en *f-string* est tout simplement la même chaîne de caractères précédée du caractère `f` **sans espace** entre les deux :
 
 ```python
 f"Ceci est une chaîne de caractères"
@@ -109,7 +109,7 @@ Nous expliquons plus en détail dans le chapitre 10 *Plus sur les chaînes de ca
 
 ### Prise en main des *f-strings*
 
-Les *f-strings* permettent une meilleure organisation de l'affichage des variables. Reprenons l'exemple ci-dessus à propos de notre ami John:
+Les *f-strings* permettent une meilleure organisation de l'affichage des variables. Reprenons l'exemple ci-dessus à propos de notre ami John :
 
 ```python
 >>> x = 32
@@ -174,7 +174,7 @@ Détaillons le contenu des accolades de la première ligne (`{prop_GC:.2f}`) :
 
 - D'abord on a le nom de la variable à formatter, `prop_GC`, c'est indispensable avec les *f-strings*.
 
-- Ensuite on rencontre les deux-points `:`, ceux-ci indiquent que ce qui suit va spécifier le format dans lequel on veut imprimer la variable `prop_GC`.
+- Ensuite on rencontre les deux-points `:`, ceux-ci indiquent que ce qui suit va spécifier le format dans lequel on veut afficher la variable `prop_GC`.
 
 - À droite des deux-points on trouve `.2f` qui indique ce format : la lettre `f` indique qu'on souhaite afficher la variable sous forme d'un *float*, les caractères `.2` indiquent la précision voulue, soit ici deux chiffres après la virgule. 
 
@@ -251,7 +251,7 @@ L'instruction `7.3f` signifie que l'on souhaite écrire un *float* avec 3 décim
 
 ### Autres détails sur les *f-strings*
 
-Si on veut afficher des accolades littérales avec les *fstrings*, il faut les doubler pour échapper au formatage :
+Si on veut afficher des accolades littérales avec les *f-strings*, il faut les doubler pour échapper au formatage :
 
 ```python
 >>> print(f"Accolades littérales {{}} ou {{ ou }} et pour le formatage {10}")
@@ -279,7 +279,7 @@ Python considère le résultat de l'instruction `f"{perc_GC:10.3f}"` comme une c
 
 ### Expressions dans les *f-strings*
 
-Une fonctionnalité extrêmement puissante des *f-strings* est de supporter des expressions générales au sein des accolades. Ainsi, il est possible d'y mettre directement une opération ou encore un appel à une fonction :
+Une fonctionnalité extrêmement puissante des *f-strings* est de supporter des expressions Python au sein des accolades. Ainsi, il est possible d'y mettre directement une opération ou encore un appel à une fonction :
 
 ```python
 >>> print(f"Le résultat de 5 * 5 vaut {5 * 5}")
@@ -326,7 +326,7 @@ Il est également possible de définir le nombre de chiffres après la virgule. 
 
 Dans les premières versions de Python jusqu'à la 2.6, il fallait utiliser l'opérateur `%`, puis de la version 2.7 jusqu'à la 3.5 il était plutôt conseillé d'utiliser la méthode `.format()` (voir la rubrique suivante pour la définition du mot « méthode »). Même si les *f-strings* sont devenues la manière conseillée pour mettre en place l'écriture formatée, ces deux anciennes manières, sont encore pleinement compatibles avec les versions modernes de Python.
 
-Même si elle fonctionne encore, la première manière avec l'opérateur `%` est maintenant clairement déconseillée pour un certain nombre de [raisons](https://docs.python.org/3/library/stdtypes.html?highlight=sprintf#printf-style-string-formatting). Néanmoins, nous vous en mettons tout de même un bref rappel ci-dessous, il se peut que vous tombiez dessus dans d'anciens livres ou si vous lisez de vieux programmes Python.
+Même si elle fonctionne encore, la première manière avec l'opérateur `%` est maintenant clairement déconseillée pour un certain nombre de [raisons](https://docs.python.org/fr/3/library/stdtypes.html?highlight=sprintf#printf-style-string-formatting). Néanmoins, nous rappelons ci-dessous son fonctionnement, car il se peut que vous tombiez dessus dans d'anciens livres ou si vous lisez de vieux programmes Python.
 
 La deuxième manière avec la méthode `.format()` est encore largement utilisée et reste tout à fait valide. Elle est clairement plus puissante et évite un certain nombre de désagréments par rapport à l'opérateur `%`. Vous la croiserez sans doute très fréquemment dans des programmes et ouvrages récents. Heureusement elle a un fonctionnement relativement proche des *f-strings*, donc vous ne serez pas totalement perdus !
 
@@ -334,7 +334,7 @@ Enfin, nous indiquons à la fin de cette rubrique nos conseils sur quelle métho
 
 ### L'opérateur `%`
 
-On a vu avec les entiers que l'opérateur `%` ou modulo renvoyait le reste d'une division entière. Cet opérateur existe aussi pour les chaînes de caractères mais il met en place l'écriture formatée. En voici un exemple :
+On a vu avec les entiers que l'opérateur `%` ou *modulo* renvoyait le reste d'une division entière. Cet opérateur existe aussi pour les chaînes de caractères mais il met en place l'écriture formatée. En voici un exemple :
 
 ```python
 >>> x = 32
@@ -378,7 +378,7 @@ On a 4500 G et 2575 C -> prop GC = 0.48
 
 Tout ce que nous avons vu avec les *f-strings* sur la manière de formatter l'affichage d'une variable (après les `:` au sein des accolades) est identique avec la méthode `.format()`. Par exemple `{:.2f}`, `{:0>6d}`, `{:.6e}`, etc., fonctionneront de la même manière. La différence notable est qu'on ne met pas directement le nom de la variable au sein des accolades. Comme pour l'opérateur `%`, c'est l'emplacement dans les arguments passés à la méthode `.format()` qui dicte quelle variable doit être remplacée. Par exemple, dans `"{} {} {}".format(bidule, machin, truc)`, les premières accolades remplaceront la variable `bidule`, les deuxièmes la variable `machin`, les troisièmes la variable `truc`.
 
-Le formattage avec la méthode `.format()` se rapproche de la syntaxe des *f-strings* (accolades, deux-points), mais présente l'inconvénient - comme avec l'opérateur `%` - de devoir mettre la liste des variables tout à la fin, alourdissant ainsi la syntaxe. En effet, dans l'exemple avec la proportion de GC, la ligne équivalente avec une *f-string* apparait tout de même plus simple à lire :
+Le formattage avec la méthode `.format()` se rapproche de la syntaxe des *f-strings* (accolades, deux-points), mais présente l'inconvénient -- comme avec l'opérateur `%` -- de devoir mettre la liste des variables tout à la fin, alourdissant ainsi la syntaxe. En effet, dans l'exemple avec la proportion de GC, la ligne équivalente avec une *f-string* apparait tout de même plus simple à lire :
 
 ```python
 >>> print(f"On a {nb_G} G et {nb_C} C -> prop GC = {prop_GC:.2f}")

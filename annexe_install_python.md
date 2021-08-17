@@ -28,7 +28,7 @@ Enfin, dans tout ce qui suit, nous partons du principe que vous installerez Mini
 
 Nous vous conseillons l'installation de la distribution [Miniconda](https://conda.io/miniconda.html) qui présente l'avantage d'installer Python et un puissant gestionnaire de paquets appelé *conda*. Dans toute la suite de cette annexe, l'indication avec le $ et un espace comme suit :
 
-```
+```bash
 $
 ```
 
@@ -43,12 +43,14 @@ Vous allez télécharger un fichier dont le nom ressemble à quelque chose du ty
 `Miniconda3-latest-Linux-x86_64.sh`.
 
 Dans un *shell*, lancez l’installation de Miniconda avec la commande :
-```
+
+```bash
 $ bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
 Dans un premier temps, validez la lecture de la licence d'utilisation :
-```
+
+```text
 Welcome to Miniconda3 4.7.10
 
 In order to continue the installation process, please review the license
@@ -56,14 +58,17 @@ agreement.
 Please, press ENTER to continue
 >>>
 ```
+
 Comme demandé, appuyez sur la touche *Entrée*. Faites ensuite défiler la licence d'utilisation avec la touche *Espace*. Tapez `yes` puis appuyez sur la touche *Entrée* pour valider :
-```
+
+```text
 Do you accept the license terms? [yes|no]
 [no] >>> yes
 ```
 
 Le programme d'installation vous propose ensuite d'installer Miniconda dans le répertoire `miniconda3` dans votre répertoire personnel. Par exemple, dans le répertoire `/home/pierre/miniconda3` si votre nom d'utilisateur est `pierre`. Validez cette proposition en appuyant sur la touche *Entrée* :
-```
+
+```text
 Miniconda3 will now be installed into this location:
 /home/pierre/miniconda3
 
@@ -73,10 +78,12 @@ Miniconda3 will now be installed into this location:
 
 [/home/pierre/miniconda3] >>>
 ```
+
 Le programme d'installation va alors installer Python et le gestionnaire de paquets *conda*.
 
 Cette étape terminée, le programme d'installation vous propose d'initialiser *conda* pour que celui-ci soit accessible à chaque fois que vous ouvrez un *shell*. Nous vous conseillons d'accepter en tapant `yes` puis en appuyant sur la touche *Entrée*.
-```
+
+```text
 Do you wish the installer to initialize Miniconda3
 by running conda init? [yes|no]
 [no] >>> yes
@@ -88,7 +95,8 @@ L'installation de Miniconda est terminée. L'espace utilisé par Miniconda sur v
 #### Test de l'interpréteur Python
 
 Ouvrez un nouveau *shell*. À partir de maintenant, lorsque vous taperez la commande `python`, c'est le Python 3 de Miniconda qui sera lancé :
-```
+
+```bash
 $ python
 Python 3.7.3 (default, Mar 27 2019, 22:11:17) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
@@ -103,7 +111,7 @@ Quittez Python en tapant la commande `exit()` puis appuyant sur la touche *Entr�
 
 De retour dans le *shell*, testez si le gestionnaire de paquets *conda* est fonctionnel. Tapez la commande `conda` dans le *shell*, vous devriez avoir la sortie suivante :
 
-```
+```text
 $ conda
 usage: conda [-h] [-V] command ...
 
@@ -125,15 +133,20 @@ Si c'est bien le cas, bravo, *conda* et bien installé et vous pouvez passez à 
 Si vous souhaitez supprimer Miniconda, rien de plus simple, il suffit de suivre ces deux étapes :
 
 1. Supprimer le répertoire de Miniconda. Par exemple pour l'utilisateur `pierre` :
-    ```
+    
+    ```bash
     $ rm -rf /home/pierre/miniconda3
     ```
+  
 2. Dans le fichier de configuration du *shell Bash*, supprimer les lignes comprises entre 
-    ```
+    
+    ```bash
     # >>> conda initialize >>>
     ```
+    
     et
-    ```
+    
+    ```bash
     # <<< conda initialize <<<
     ```
 
@@ -150,7 +163,7 @@ Le système d'exploitation Mac OS X étant basé sur Unix, la suite de la procé
 
 Donc, lancez la commande :
 
-```
+```bash
 $ bash Miniconda3-latest-MacOSX-x86_64.sh
 ```
 
@@ -232,7 +245,7 @@ Nous allons maintenant initialiser *conda* « à la main ». Cliquez sur `Anacon
 
 Lorsque vous presserez la touche Entrée vous obtiendrez une sortie de ce style :
 
-```
+```text
 $ conda init
 no change     C:\Users\Pat\Miniconda3\Scripts\conda.exe
 no change     C:\Users\Pat\Miniconda3\Scripts\conda-env.exe
@@ -261,7 +274,7 @@ modified      HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun
 ==> For changes to take effect, close and re-open your current shell. <==
 ```
 
-A noter, cette manipulation créera automatiquement un fichier 
+Notez que cette manipulation créera automatiquement un fichier 
 
 `C:\Users\nom_utilisateur\Documents\WindowsPowerShell\profile.ps1`. 
 
@@ -281,7 +294,7 @@ Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell 
 
 Si tout s'est bien passé, vous devriez avoir un affichage de ce style :
 
-```
+```text
 (base) PS C:\Users\Pat> python
 Python 3.7.3 (default, Apr 24 2019, 15:29:51) [MSC v.1915 64 bit (AMD64)] :: Anaconda, Inc. on win32
 Type "help", "copyright", "credits" or "license" for more information.
@@ -294,7 +307,7 @@ Cela signifie que vous êtes bien dans l'interpréteur Python. À partir de là 
 
 Une fois revenu dans le *shell*, tapez la commande `conda`, vous devriez obtenir :
 
-```
+```text
 (base) PS C:\Users\Pat> conda
 usage: conda-script.py [-h] [-V] command ...
 
@@ -385,7 +398,7 @@ Cette étape sera commune pour les trois systèmes d'exploitation. À nouveau, l
 
 Dans le *shell*, tapez la ligne suivante puis appuyez sur la touche *Entrée* :
 
-```
+```bash
 $ conda install numpy pandas matplotlib scipy biopython jupyterlab
 ```
 
@@ -413,13 +426,13 @@ Une fois que tout cela est terminé, vous récupérez la main dans le *shell* :
 
 Pour tester la bonne installation des modules, lancez l'interpréteur Python :
 
-```
+```bash
 $ python
 ```
 
 Puis tapez les lignes suivantes :
 
-```
+```python
 import numpy
 import scipy
 import Bio
@@ -436,7 +449,7 @@ Si aucune erreur ne s'affiche et que vous récupérez la main dans l'interpréte
 
 Vous êtes de nouveau dans le *shell*. Nous allons maintenant pouvoir tester Jupyter. Tapez dans le *shell* :
 
-```
+```bash
 $ jupyter lab
 ```
 
@@ -447,7 +460,7 @@ Cette commande devrait ouvrir votre navigateur internet par défaut et lancer Ju
 
 Pour quitter Jupyter, allez dans le menu *File* puis sélectionnez *Quit*. Vous pourrez alors fermer l'onglet de Jupyter. Pendant ces manipulations dans le navigateur, de nombreuses lignes ont été affichées dans l'interpréteur :
 
-```
+```text
 (base) PS C:\Users\Pat> jupyter lab
 [I 18:26:05.544 LabApp] JupyterLab extension loaded from C:\Users\Pat\Miniconda3\lib\site-packages\jupyterlab
 [I 18:26:05.544 LabApp] JupyterLab application directory is C:\Users\Pat\Miniconda3\share\jupyter\lab
@@ -472,7 +485,7 @@ Comme indiqué au début de ce chapitre, [pip](https://pip.pypa.io/en/stable/) e
 
 Si vous souhaitez installer un paquet qui n'est pas présent sur un dépôt *conda* avec *pip*, assurez vous d'abord que votre environnement *conda* est bien activé (avec `conda activate` ou `conda activate nom_environnement`). La syntaxe est ensuite très simple :
 
-```
+```bash
 $ pip install nom_du_paquet
 ```
 
@@ -488,9 +501,10 @@ Pour Linux, on vous recommande l'utilisation de l'éditeur de texte *gedit* qui 
 
 Si *gedit* n'est pas installé, vous pouvez l'installer avec la commande :
 
-```
+```bash
 $ sudo apt install -y gedit
 ```
+
 Il faudra entrer votre mot de passe utilisateur puis valider en appuyant sur la touche *Entrée*.
 
 Pour lancer cet éditeur, tapez la commande `gedit` dans un *shell* ou cherchez *gedit* dans le lanceur d'applications. Vous devriez obtenir une fenêtre similaire à celle-ci :
@@ -571,11 +585,11 @@ La figure suivante montre le PowerShell, ouvert de la première ou la deuxième 
 ![Lancement d'un *powershell* depuis un répertoire donné (étape 3).](img/lancement_shell_Windows3.png){ #fig:lancement_shell_Windows3 width=70% }
 \
 
-**A votre tour !**
+**À votre tour !**
 
 Pour tester si vous avez bien compris, ouvrez votre éditeur favori, tapez les lignes suivantes puis enregistrez ce fichier avec le nom `test.py` dans le répertoire de votre choix.
 
-```
+```python
 import tkinter as tk
 
 racine = tk.Tk()
@@ -590,7 +604,7 @@ print("C'est fini !")
 
 Comme nous vous l'avons montré ci-dessus, ouvrez un *shell* et déplacez-vous dans le répertoire où se trouve `test.py`. Lancez le script avec l'interpréteur Python :
 
-```
+```bash
 $ python test.py
 ```
 
