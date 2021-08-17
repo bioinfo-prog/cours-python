@@ -1340,7 +1340,7 @@ en colonnes sous la forme d'un dictionnaire :
 ...         "b": np.arange(11, 40, 10),
 ...         "c": np.arange(12, 40, 10),
 ...         "d": np.arange(13, 40, 10)}
->>> df = pd.DataFrame.from_dict(data)
+>>> df = pd.DataFrame(data)
 >>> df.index = ["chat", "singe", "souris"]
 >>> df
          a   b   c   d
@@ -1352,7 +1352,7 @@ souris  30  31  32  33
 Lignes 1-4. Le dictionnaire `data` contient les données en colonnes.
 La clé associée à chaque colonne est le nom de la colonne.
 
-Ligne 5. Le *dataframe* est créé avec la fonction `pd.DataFrame.from_dict()`
+Ligne 5. Le *dataframe* est créé avec la fonction `pd.DataFrame()`
 à laquelle on passe `data` en argument.
 
 Ligne 6. On peut définir les étiquettes des lignes de n'importe quel *dataframe*
