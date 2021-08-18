@@ -341,6 +341,52 @@ Nous espérons que cet exemple guidé facilitera la compréhension des concepts 
 Enfin, comme vous avez pu le constater, *Python Tutor* nous a grandement aidé à comprendre ce qui se passait. N'hésitez pas à l'utiliser sur des exemples ponctuels, ce site vous aidera à visualiser ce qui se passe lorsqu'un code ne fait pas ce que vous attendez.
 
 
+## Principe DRY
+
+L'acronyme [DRY](https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/dry-modular-code/) signifie *Don't Repeat Yourself*. Les fonctions permettent de satisfaire ce principe en évitant la duplication de code.
+En effet, plus un code est dupliqué plusieurs fois dans un programme, plus il sera source d'erreurs, notamment lorsqu'il faudra le faire évoluer.
+
+Considérons par exemple le code suivant qui convertit plusieurs températures des degrés Fahrenheit en degrés Celsius :
+
+```python
+>>> temp_in_fahrenheit = 60
+>>> (temp_in_fahrenheit - 32) * (5/8)
+17.5
+>>> temp_in_fahrenheit = 80
+>>> (temp_in_fahrenheit - 32) * (5/8)
+30.0
+>>> temp_in_fahrenheit = 100
+>>> (temp_in_fahrenheit - 32) * (5/8)
+42.5
+```
+
+Malheureusement il y a une erreur dans la formule de conversion. En effet la formule exacte est :
+
+$$
+{\rm temp\_celsius} = ({\rm temp\_fahrenheit} - 32) \times \frac{5}{9}
+$$
+
+Il faut alors reprendre les lignes 2, 5 et 8 précédentes et les corriger. Cela n'est pas efficace, surtout si le même code est utilisé à différents endroits dans le programme.
+
+En écrivant qu'une seule fois la formule de conversion dans une fonction, on applique le principe DRY :
+
+```python
+>>> def convert_fahrenheit_to_celsius(temperature):
+...     return (temperature - 32) * (5/9)
+... 
+>>> temp_in_fahrenheit = 60
+>>> convert_fahrenheit_to_celsius(temp_in_fahrenheit)
+15.555555555555557
+>>> temp_in_fahrenheit = 80
+>>> convert_fahrenheit_to_celsius(temp_in_fahrenheit)
+26.666666666666668
+>>> temp_in_fahrenheit = 100
+>>> convert_fahrenheit_to_celsius(temp_in_fahrenheit)
+37.77777777777778
+```
+
+Et s'il y a une erreur dans la formule, il suffira de le corriger qu'une seule fois, dans la fonction `convert_fahrenheit_to_celsius()`.
+
 ## Exercices
 
 *Conseil* : pour le premier exercice, utilisez *Python Tutor*. Pour les exercices suivants, créez des scripts puis exécutez-les dans un *shell*.
