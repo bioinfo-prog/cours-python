@@ -179,7 +179,7 @@ Les clés sont triées ici par ordre alphabétique.
 
 ### Tri par valeurs
 
-Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted` avec le paramètre `key` :
+Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted` avec l'argument `key` :
 
 ```python
 >>> dico = {"a": 15, "b": 5, "c":20}
@@ -187,7 +187,7 @@ Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted
 ['b', 'a', 'c']
 ```
 
-Le paramètre `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue plus haut, mais sans les parenthèses (`key=dico.get`  mais pas `key=dico.get()`).
+L'argument `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue plus haut, mais sans les parenthèses (`key=dico.get` mais pas `key=dico.get()`).
 
 Attention, ce sont les clés du dictionnaires qui sont renvoyées, pas les valeurs. Ces clés sont cependant renvoyées dans un ordre qui permet d'obtenir les clés triées par ordre croissant :
 
@@ -201,7 +201,7 @@ a 15
 c 20
 ```
 
-Enfin, le paramètre `reverse=True` fonctionne également :
+Enfin, l'argument `reverse=True` fonctionne également :
 
 ```python
 >>> dico = {"a": 15, "b": 5, "c":20}
@@ -209,7 +209,7 @@ Enfin, le paramètre `reverse=True` fonctionne également :
 ['c', 'a', 'b']
 ```
 
-**Remarque** : lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractère :
+**Remarque** : lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractères :
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}

@@ -106,7 +106,7 @@ Contrairement à la méthode précédente `.sort()`, cette fonction renvoie la l
 [3, 1, 2]
 ```
 
-La fonction `sorted()` supporte aussi le paramètre `reverse=True` :
+La fonction `sorted()` supporte aussi l'argument `reverse=True` :
 
 ```python
 >>> a = [3, 1, 2]
