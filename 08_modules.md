@@ -279,7 +279,7 @@ Pour des besoins de reproductibilité des analyses en science, on a souvent beso
 
 open-box-def
 
-En informatique, la généreration de nombres aléatoires est un problème complexe. On utilise plutôt des « [générateurs de nombres pseudo-aléatoires](https://fr.wikipedia.org/wiki/G%C3%A9n%C3%A9rateur_de_nombres_pseudo-al%C3%A9atoires) ». Pour cela, une [graine aléatoire](https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire) doit être définie. Cette graine est la plupart du temps un nombre entier qu'on passe au générateur, celui-ci va alors générer une **série donnée** de nombres pseudo-aléatoires qui dépendent de cette graine. Si on change la graine, la série de nombres change.
+En informatique, la généreration de nombres aléatoires est un problème complexe. On utilise plutôt des « [générateurs de nombres pseudo-aléatoires](https://fr.wikipedia.org/wiki/G%C3%A9n%C3%A9rateur_de_nombres_pseudo-al%C3%A9atoires) ». Pour cela, une [graine aléatoire](https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire) doit être définie. Cette graine est la plupart du temps un nombre entier qu'on passe au générateur, celui-ci va alors produire une **série donnée** de nombres pseudo-aléatoires qui dépendent de cette graine. Si on change la graine, la série de nombres change.
 
 close-box-def
 
