@@ -275,7 +275,15 @@ La fonction `choice()` tire aléatoirement un élément d'une liste alors que `c
 Si vous exécutez vous-même les exemples précédents, vous devriez obtenir des résultats légèrement différents de ceux indiqués.
 C'est l'intérêt de l'aléatoire !
 
-Pour des besoins de reproductibilité des analyses en science, on a souvent besoin de retrouver les mêmes résultats même si on utilise des nombres aléatoires. Pour cela, on peut définir ce qu'on appelle la « graine aléatoire » avec la fonction `seed()` :
+Pour des besoins de reproductibilité des analyses en science, on a souvent besoin de retrouver les mêmes résultats même si on utilise des nombres aléatoires. Pour cela, on peut définir ce qu'on appelle la « graine aléatoire ». 
+
+open-box-def
+
+En informatique, la généreration de nombres aléatoires est un problème complexe. On utilise plutôt des « [générateurs de nombres pseudo-aléatoires](https://fr.wikipedia.org/wiki/G%C3%A9n%C3%A9rateur_de_nombres_pseudo-al%C3%A9atoires) ». Pour cela, une [graine aléatoire](https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire) doit être définie. Cette graine est la plupart du temps un nombre entier qu'on passe au générateur, celui-ci va alors générer une **série donnée** de nombres pseudo-aléatoires qui dépendent de cette graine. Si on change la graine, la série de nombres change.
+
+close-box-def
+
+En Python, la graine aléatoire se définit avec la fonction `seed()` :
 
 ```python
 >>> random.seed(42)
@@ -287,12 +295,15 @@ Pour des besoins de reproductibilité des analyses en science, on a souvent beso
 4
 ```
 
-Ici la graine aléatoire est fixée à 42, par défaut c'est la date qui est utilisée.
+Ici la graine aléatoire est fixée à 42. Si on ne précise pas la graine, par défaut Python utilise la date. Plus précisément, il s'agit du nombre de secondes écoulées depuis une date donnée du passé. Ainsi, à chaque fois qu'on relance Python, la graine sera différente car ce nombre de secondes sera différent.
 
-Si vous exécutez ces mêmes lignes de code (depuis l'instruction `random.seed(42)`), vous devriez cette fois obtenir exactement les mêmes résultats, c'est-à-dire `1` puis `0` puis `4`.
+Si vous exécutez ces mêmes lignes de code (depuis l'instruction `random.seed(42)`), il se peut que vous ayez des résultats différents selon la version de Python. Néanmoins, vous devriez systématiquement obtenir les mêmes résultats si vous relancez plusieurs fois de suite ces instructions sur une même machine.
 
-**Remarque** : cette reproductibilité obtenue en fixant la graine aléatoire n'est possible que parce qu'on utilise des générateurs de nombres *pseudo* aléatoires, suffisamment aléatoires cependant pour être utilisés en science. De vrais générateurs de nombres aléatoires sont assez difficiles à obtenir.
+open-box-rem
 
+Quand on utlise des nombres aléatoires, il est fondamental de connaitre la distribution de probablités utilisée par la fonction. Par exemple, La fonction de base du module random est `random.random()`, elle renvoie un *float* aléatoire entre 0 et 1 tiré dans une **distribution uniforme**. Si on tire beaucoup de nombres, on aura la même probabilité d'obtenir tous les nombres possibles entre 0 et 1. La fonction `random.randint()` tire aussi un entier dans une distribution uniforme. La fonction `random.gauss()` tire quant à elle un *float* aléatoire dans une distribution Gaussienne.
+
+close-box-rem
 
 ## Module *sys* : passage d'arguments
 
