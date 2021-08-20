@@ -207,7 +207,7 @@ x_old = 5
 
 Une ligne de code ne doit pas dépasser 79 caractères, pour des raisons tant historiques que de lisibilité.
 
-On a déjà vu au chapitre 3 *Affichage* que le caractère `\` permet de couper des lignes trop longues. Par exemple :
+On a déjà vu au chapitre 1 *Introduction* que le caractère `\` permet de couper des lignes trop longues. Par exemple :
 
 ```python
 >>> ma_variable = 3

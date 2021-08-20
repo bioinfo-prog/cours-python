@@ -153,6 +153,30 @@ Vous pouvez refaire un nouvel essai en vous servant cette fois de l'interpréteu
 
 À ce stade, vous pouvez entrer une autre commande ou bien quitter l'interpréteur Python, soit en tapant la commande `exit()` puis en validant en appuyant sur la touche *Entrée*, soit en pressant simultanément les touches *Ctrl* et *D* sous Linux et Mac OS X ou *Ctrl* et *Z* puis *Entrée* sous Windows.
 
+En résumant, l'interpréteur fonctionne sur le modèle :
+
+```python
+>>> instruction python
+résultat
+```
+
+où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape au clavier, et l'absence de chevron en début de ligne correspond à la sortie (*output*) générée par Python. Une exception se présente toutefois : lorsqu'on a une longue ligne de code, on peut la couper en deux avec le caractère `\` (*backslash*) pour des raisons de lisibilité :
+
+```python
+>>> Voici une longue ligne de code \
+... décrite sur deux lignes
+résultat
+```
+
+En ligne 1 on a rentré la première partie de la ligne de code. On termine par un `\`, ainsi Python sait que la ligne de code n'est pas finie. L'interpréteur nous l'indique avec les `...`. En ligne 2, on rentre la fin de la ligne de code puis on appuie sur Entrée. A ce moment, Python nous génère le résultat. Si la ligne de code est vraiment très longue, il est même possible de la découper en trois voire plus :
+
+```python
+>>> Voici une ligne de code qui \
+... est vraiment très longue car \
+... elle est découpée sur trois lignes
+résultat
+```
+
 L'interpréteur Python est donc un système interactif dans lequel vous pouvez entrer des commandes, que Python exécutera sous vos yeux (au moment où vous validerez la commande en appuyant sur la touche *Entrée*).
 
 Il existe de nombreux autres langages interprétés comme [Perl](http://www.perl.org) ou [R](http://www.r-project.org). Le gros avantage de ce type de langage est qu'on peut immédiatement tester une commande à l'aide de l'interpréteur, ce qui est très utile pour débugger (c'est-à-dire trouver et corriger les éventuelles erreurs d'un programme). Gardez bien en mémoire cette propriété de Python qui pourra parfois vous faire gagner un temps précieux !
