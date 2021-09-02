@@ -224,7 +224,7 @@ On obtient ici une erreur car Python ne sait pas comparer une chaîne de caract�
 
 ### Clé associée au minimum ou au maximum des valeurs
 
-Les fonctions `min()` et `max()` que vous avez déjà manipulées dans les chapitres précédents,
+Les fonctions `min()` et `max()`, que vous avez déjà manipulées dans les chapitres précédents,
 acceptent également l'argument `key=`. On peut ainsi obtenir la clé associée au minimum ou au maximum des valeurs d'un dictionnaire :
 
 ```python
