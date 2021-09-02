@@ -209,7 +209,7 @@ Enfin, l'argument `reverse=True` fonctionne également :
 ['c', 'a', 'b']
 ```
 
-**Remarque** : lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractères :
+**Remarque 1** : lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractères :
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
@@ -220,6 +220,20 @@ TypeError: '<' not supported between instances of 'int' and 'str'
 ```
 
 On obtient ici une erreur car Python ne sait pas comparer une chaîne de caractères (`singe`) avec des valeurs numériques (`70` et `1.75`).
+
+
+### Clé associée au minimum ou au maximum des valeurs
+
+Les fonctions `min()` et `max()` que vous avez déjà manipulées dans les chapitres précédents,
+acceptent également l'argument `key=`. On peut ainsi obtenir la clé associée au minimum ou au maximum des valeurs d'un dictionnaire :
+
+```python
+>>> dico = {"a": 15, "b": 5, "c":20}
+>>> max(dico, key=dico.get)
+'c'
+>>> min(dico, key=dico.get)
+'b'
+```
 
 
 ### Liste de dictionnaires
