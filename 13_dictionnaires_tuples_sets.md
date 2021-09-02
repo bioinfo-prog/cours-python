@@ -209,7 +209,9 @@ Enfin, l'argument `reverse=True` fonctionne également :
 ['c', 'a', 'b']
 ```
 
-**Remarque ** : lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractères :
+open-box-rem
+
+Lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractères :
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
@@ -220,6 +222,8 @@ TypeError: '<' not supported between instances of 'int' and 'str'
 ```
 
 On obtient ici une erreur car Python ne sait pas comparer une chaîne de caractères (`singe`) avec des valeurs numériques (`70` et `1.75`).
+
+close-box-rem
 
 
 ### Clé associée au minimum ou au maximum des valeurs
