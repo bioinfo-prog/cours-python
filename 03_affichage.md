@@ -443,7 +443,7 @@ Dans un script `percGC.py`, calculez un pourcentage de GC avec l'instruction sui
 
 `perc_GC = ((4500 + 2575)/14800)*100`
 
-Ensuite, affichez le contenu de la variable `perc_GC` à l'écran avec 0, 1, 2 puis 3 décimales sous forme arrondie en utilisant `.format()`. On souhaite que le programme affiche la sortie suivante :
+Ensuite, affichez le contenu de la variable `perc_GC` à l'écran avec 0, 1, 2 puis 3 décimales sous forme arrondie en utilisant l'écriture formatée et les *f-strings*. On souhaite que le programme affiche la sortie suivante :
 
 ```text
 Le pourcentage de GC est 48     %
