@@ -257,8 +257,8 @@ Concernant les fonctions qui modifient une liste, nous vous conseillons de l'ind
 
 ```python
 def ajoute_un(liste):
-    for i in range(len(liste)):
-        liste[i] += 1
+    for indice in range(len(liste)):
+        liste[indice] += 1
     return liste
 
 # Programme principal.
@@ -273,8 +273,8 @@ Le code suivant produirait la même sortie :
 
 ```python
 def ajoute_un(liste):
-    for i in range(len(liste)):
-        liste[i] += 1
+    for indice in range(len(liste)):
+        liste[indice] += 1
 
 # Programme principal.
 liste_notes = [10, 8, 16, 7, 15]
@@ -282,7 +282,7 @@ ajoute_un(liste_notes)
 print(liste_notes)
 ```
 
-Cela reste toutefois moins intuitif car il n'est pas forcément évident de comprendre que la liste est modifiée dans la fonction en lisant la ligne 8. Dans un tel cas, il serait essentiel d'indiquer dans la documentation de la fonction que la liste est modifiée « sur place »  (*in place* en anglais) dans la fonction. Vous verrez dans le chapitre 14 *Création de modules* comment documenter vos fonctions.
+Cela reste toutefois moins intuitif car il n'est pas évident de comprendre que la liste est modifiée dans la fonction en lisant la ligne 7. Dans un tel cas, il serait essentiel d'indiquer dans la documentation de la fonction que la liste est modifiée « sur place »  (*in place* en anglais) dans la fonction. Vous verrez dans le chapitre 14 *Création de modules* comment documenter vos fonctions.
 
 open-box-adv
 
@@ -298,7 +298,7 @@ close-box-adv
 
 Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué en introduction du chapitre 9, elles sont incontournables et tout programmeur se doit de les maîtriser. Voici les derniers conseils que nous pouvons vous donner :
 
-- Lorsque vous débutez un nouveau projet de programmation, posez-vous la question : « Comment pourrais-je décomposer en blocs chaque tâche à effectuer, chaque bloc pouvant être une fonction ? ». Et n'oubliez pas que si une fonction s'avère trop complexe, vous pouvez également la décomposer en d'autres fonctions.
+- Lorsque vous débutez un nouveau projet de programmation, posez-vous la question : « Comment pourrais-je décomposer en blocs chaque tâche à effectuer, chaque bloc pouvant être une fonction ? ». Et n'oubliez pas que si une fonction s'avère trop complexe, vous pouvez la décomposer en d'autres fonctions.
 
 - Au risque de nous répéter, forcez-vous à utiliser des fonctions en permanence. Pratiquez, pratiquez... et pratiquez encore !
 

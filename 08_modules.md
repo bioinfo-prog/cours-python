@@ -264,13 +264,13 @@ Mais aussi de tirer alétoirement un ou plusieurs éléments dans une liste donn
 'G'
 >>> random.choices(bases, k=5)
 ['G', 'A', 'A', 'T', 'G']
->>> random.choices(bases, k=10)
+>>> random.choices(bases, k=5)
 ['A', 'T', 'A', 'A', 'C']
 >>> random.choices(bases, k=10)
 ['C', 'T', 'T', 'T', 'G', 'A', 'C', 'A', 'G', 'G']
 ```
 
-La fonction `choice()` tire aléatoirement un élément d'une liste alors que `choices()` (avec un *s* à la fin) réalise plusieurs tirages éléatoires, dont le nombre est précisé par le paramètre `k`.
+La fonction `choice()` tire aléatoirement un élément d'une liste alors que `choices()` (avec un *s* à la fin) réalise plusieurs tirages aléatoires, dont le nombre est précisé par le paramètre `k`.
 
 Si vous exécutez vous-même les exemples précédents, vous devriez obtenir des résultats légèrement différents de ceux indiqués.
 C'est l'intérêt de l'aléatoire !

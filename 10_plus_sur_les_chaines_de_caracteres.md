@@ -82,7 +82,7 @@ chat
 abeille
 ```
 
-Attention, les caractères spéciaux n'apparaissent intérprétés que lorsqu'ils sont utilisés avec la fonction `print()`. Par exemple, le `\n` n'apparait comme saut de ligne que lorsqu'il est dans une chaîne passée à la fonction `print()` :
+Attention, les caractères spéciaux n'apparaissent intérprétés que lorsqu'ils sont utilisés avec la fonction `print()`. Par exemple, le `\n` n'apparait comme un saut de ligne que lorsqu'il est dans une chaîne de caractères passée à la fonction `print()` :
 
 ```python
 >>> "bla\nbla"
@@ -94,7 +94,7 @@ bla
 
 ## Préfixe de chaîne de caractères
 
-Nous avons vu au chapitre 3 la notion de *f-string*. Il s'agissait d'un mécanisme pour formater du texte au sein d'une chaîne de caractères. Par exemple :
+Nous avons vu au chapitre 3 la notion de *f-string*. Il s'agit d'un mécanisme pour formater du texte au sein d'une chaîne de caractères. Par exemple :
 
 ```python
 >>> var = "f-string"
@@ -128,7 +128,7 @@ Et là une autre ligne
 Voici un retour à la ligne\nEt là une autre ligne
 ```
 
-L'ajout du `r` va forcer Python à ne pas interpréter le `\n` en tant que retour à la ligne, mais comme un *backslash* littéral suivi d'un *n*. Quand on demande à l'interpréteur d'afficher cette chaîne de caractères, celui-ci met deux *backslashes* pour signifier qu'il s'agit d'un *backslash* littéral (le premier échappe le second). Finalement, l'utilisation de la syntaxe `r"Voici un retour à la ligne\nEt là une autre ligne"` renvoie une chaîne de caractères normale, puisqu'on voit ensuite que le `r` à disparu lorsqu'on demande à Python d'afficher le contenu de la variable `s`. Comme dans `var = 2 + 2`, d'abord Python évalue `2 + 2` et c'est ce résultat qui est affecté à la variable `var`. Enfin, on notera que seule l'utilisation du `print()` mène à l'interprétation des caractères spéciaux comme `\n` comme expliqué dans la rubrique précédente.
+L'ajout du `r` va forcer Python à ne pas interpréter le `\n` comme un retour à la ligne, mais comme un *backslash* littéral suivi d'un *n*. Quand on demande à l'interpréteur d'afficher cette chaîne de caractères, celui-ci met deux *backslashes* pour signifier qu'il s'agit d'un *backslash* littéral (le premier échappe le second). Finalement, l'utilisation de la syntaxe `r"Voici un retour à la ligne\nEt là une autre ligne"` renvoie une chaîne de caractères normale, puisqu'on voit ensuite que le `r` à disparu lorsqu'on demande à Python d'afficher le contenu de la variable `s`. Comme dans `var = 2 + 2`, d'abord Python évalue `2 + 2` et c'est ce résultat qui est affecté à la variable `var`. Enfin, on notera que seule l'utilisation du `print()` mène à l'interprétation des caractères spéciaux comme `\n`, comme expliqué dans la rubrique précédente.
 
 Les caractères spéciaux non interprétés dans les *raw strings* sont de manière générale tout ce dont le *backslash* modifie la signification, par exemple un `\n`, un `\t`, etc.
 
@@ -151,11 +151,11 @@ Le {animal} est un animal gentil
 Le {animal2} aussi
 ```
 
-La *f-string* remplace le contenu des variables situées entre les accolades mais interprète le `\n` en tant que retour à la ligne. Pour rappel, consultez le chapitre 3 si vous souhaitez plus de détails sur le fonctionnement des *f-strings*. 
+La *f-string* remplace le contenu des variables situées entre les accolades et interprète le `\n` comme un retour à la ligne. Pour rappel, consultez le chapitre 3 si vous souhaitez plus de détails sur le fonctionnement des *f-strings*. 
 
 open-box-adv
 
-Il existe de nombreux autres détails concernant les préfixes qui vont au delà de ce cours. Pour en savoir plus, vous pouvez consulter la [documentations officielle](https://docs.python.org/3/reference/lexical_analysis.html#grammar-token-stringprefix).
+Il existe de nombreux autres détails concernant les préfixes qui vont au delà de ce cours. Pour en savoir plus, vous pouvez consulter la [documentations officielle](https://docs.python.org/fr/3/reference/lexical_analysis.html#grammar-token-stringprefix).
 
 close-box-adv
 
@@ -311,7 +311,7 @@ La méthode `.strip()` est très pratique quand on lit un fichier et qu'on veut 
 
 ## Extraction de valeurs numériques d'une chaîne de caractères
 
-Une tâche courante en Python est de lire une chaîne de caractères (provenant par exemple d'un fichier), d'extraire des valeurs de cette chaîne de caractères puis ensuite de les manipuler.
+Une tâche courante en Python est de lire une chaîne de caractères (provenant par exemple d'un fichier), d'extraire des valeurs de cette chaîne de caractères pour ensuite les manipuler.
 
 On considère par exemple la chaîne de caractères `val` :
 
@@ -338,14 +338,14 @@ On obtient alors une liste de chaînes de caractères. On transforme ensuite les
 
 open-box-rem
 
-Retenez bien l'utilisation des instructions précédentes pour extraire des valeurs numériques d'une chaîne de caractères. Elles sont régulièrement employées pour analyser des données depuis un fichier.
+Retenez bien l'utilisation des instructions précédentes pour extraire des valeurs numériques d'une chaîne de caractères. Elles sont régulièrement employées pour analyser des données extraites d'un fichier.
 
 close-box-rem
 
 
 ## Conversion d'une liste de chaînes de caractères en une chaîne de caractères
 
-On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *float* et chaîne de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est un peu particulière puisqu'elle fait appelle à la méthode `.join()`.
+On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *float* et chaîne de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est particulière puisqu'elle fait appelle à la méthode `.join()`.
 
 ```python
 >>> seq = ["A", "T", "G", "A", "T"]
@@ -640,7 +640,7 @@ La distance inter-carbone alpha dans les protéines est très stable et de l'ord
 
 ### Compteur de gènes dans un fichier GenBank
 
-Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank[NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk) (chromosome I de la levure Saccharomyces cerevisiae) et afficher la longueur de chaque gène. Pour cela, il faudra récupérer les lignes décrivant la position des gènes. Voici par exemple les cinq premières lignes concernées dans le fichier NC_001133.gbk:
+Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank [NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk) (chromosome I de la levure Saccharomyces cerevisiae) et afficher la longueur de chaque gène. Pour cela, il faudra récupérer les lignes décrivant la position des gènes. Voici par exemple les cinq premières lignes concernées dans le fichier NC_001133.gbk:
 
 ```text
      gene            complement(<1807..>2169)
@@ -651,7 +651,9 @@ Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank[NC
 [...]
 ```
 
-Lorsque la ligne contient le mot `complement` le gène est situé sur le brin complémentaire, sinon il est situé sur le brin direct. Votre code devra récupérer le premier et deuxième nombres indiquant respectivement la position du début et de la fin du gène. Attention à bien les convertir en entier afin de pouvoir calculer la longueur du gène. A noter, les caractères `>` et `<` doivent être ignorés, et les `..` servent à séparer la position de début et de fin. On souhaite obtenir une sortie de la sorte :
+Lorsque la ligne contient le mot `complement` le gène est situé sur le brin complémentaire, sinon il est situé sur le brin direct. Votre code devra récupérer le premier et le second nombre indiquant respectivement la position du début et de fin du gène. Attention à bien les convertir en entier afin de pouvoir calculer la longueur du gène. Notez que les caractères `>` et `<` doivent être ignorés, et les `..` servent à séparer la position de début et de fin.
+
+On souhaite obtenir une sortie de la forme :
 
 ```text
 gène   1 complémentaire ->   362 bases
@@ -663,4 +665,4 @@ gène 100 direct         ->   485 bases
 gène 101 direct         ->  1403 bases
 ```
 
-*Conseil :* vous trouverez des explications sur le format genbank dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+*Conseil :* vous trouverez des explications sur le format GenBank dans l'annexe A *Quelques formats de données rencontrés en biologie*.

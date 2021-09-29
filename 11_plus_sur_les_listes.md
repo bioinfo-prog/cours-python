@@ -32,7 +32,7 @@ qui est équivalent à :
 
 ### `.insert()`
 
-La méthode `.insert()` insère un objet dans une liste avec un indice déterminé :
+La méthode `.insert()` insère un objet dans une liste à un indice déterminé :
 
 ```python
 >>> a = [1, 2, 3]
@@ -71,6 +71,17 @@ La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur
 [1, 2]
 ```
 
+S'il y a plusieurs fois la même valeur dans la liste, seule la première est retirée. Il faut appeler la méthode `.remove()` autant de fois que nécessaire pour retirer toutes les occurences d'un même élément :
+
+```python
+>>> a = [1, 2, 3, 4, 3]
+>>> a.remove(3)
+>>> a
+[1, 2, 4, 3]
+>>> a.remove(3)
+>>> a
+[1, 2, 4]
+```
 
 ### `.sort()`
 
@@ -83,7 +94,7 @@ La méthode `.sort()` trie les éléments d'une liste du plus petit au plus gran
 [1, 2, 3]
 ```
 
-Le paramètre `reverse=True` spécifie le tri inverse, c'est-à-dire du plus grand au plus petit élément :
+L'argument `reverse=True` spécifie le tri inverse, c'est-à-dire du plus grand au plus petit élément :
 
 ```python
 >>> a = [3, 1, 2]
@@ -145,7 +156,7 @@ La méthode `.count()` compte le nombre d'éléments (passés en argument) dans 
 
 ### Particularités des méthodes associées aux listes
 
-- De nombreuses méthodes ci-dessus (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes : même si `var = liste.reverse()` est une instruction Python valide, elle n'a aucun intérêt, préférez-lui `liste.reverse()`. 
+- De nombreuses méthodes mentionnées précédemment (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes : même si `var = liste.reverse()` est une instruction Python valide, elle n'a aucun intérêt, préférez-lui `liste.reverse()`. 
 
 open-box-rem
 
@@ -173,7 +184,7 @@ close-box-rem
 
 La méthode `.append()` est très pratique car on peut l'utiliser pour construire une liste au fur et à mesure des itérations d'une boucle.
 
-Pour cela, il est commode de définir préalablement une liste vide de la forme `maliste = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
+Pour cela, il est commode de définir préalablement une liste vide de la forme `ma_liste = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
 
 ```python
 >>> seq = "CAAAGGTAACGC"
