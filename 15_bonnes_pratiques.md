@@ -490,7 +490,7 @@ Ligne 6. Il y a un espace de trop entre `print` et `(` à la ligne 31 (colonne 1
 Remarquez que curieusement, `pycodestyle` n'a pas détecté que le nom de la fonction `Multiplie_nombres()` ne respecte pas la convention de nommage.
 
 
-Ensuite, l'outil `pycodestyle` va vérifier la conformité avec la PEP 257 et s'intéresser particulièrement aux *docstrings* :
+Ensuite, l'outil `pydocstyle` va vérifier la conformité avec la PEP 257 et s'intéresser particulièrement aux *docstrings* :
 
 ```bash
 $ pydocstyle script_quality_not_ok.py
