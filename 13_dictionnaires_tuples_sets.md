@@ -322,7 +322,7 @@ L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essa
 
 open-box-rem
 
-Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec une virgule `(element,)`, ceci pour éviter une ambiguïté avec une simple expression.
+Pour utiliser un tuple d'un seul élément, utilisez une syntaxe avec une virgule `(element,)`, pour éviter une ambiguïté avec une simple expression.
 
 Autre particularité des tuples, il est possible d'en créer de nouveaux sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :
 
@@ -358,41 +358,41 @@ close-box-rem
 Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons*. Cette dernière permettait d'itérer **en même temps** sur les indices et les éléments d'une liste :
 
 ```python
->>> for i, elt in enumerate([75, -75, 0]):
-...     print(i, elt)
+>>> for indice, element in enumerate([75, -75, 0]):
+...     print(indice, element)
 ...
 0 75
 1 -75
 2 0
->>> for obj in enumerate([75, -75, 0]):
-...     print(obj, type(obj))
+>>> for bidule in enumerate([75, -75, 0]):
+...     print(bidule, type(bidule))
 ...
 (0, 75) <class 'tuple'>
 (1, -75) <class 'tuple'>
 (2, 0) <class 'tuple'>
 ```
 
-En fin de compte, la fonction `enumerate()` itère sur une série de *tuples*. Pouvoir séparer `i` et `elt` dans la boucle est possible du fait que Python autorise l'affectation multiple du style `i, elt = 0, 75` (cf. rubrique suivante). 
+En fin de compte, la fonction `enumerate()` itère sur une série de *tuples*. Pouvoir séparer `indice` et `element` dans la boucle est possible du fait que Python autorise l'affectation multiple du style `indice, element = 0, 75` (voir rubrique suivante). 
 
-Dans le même ordre d'idée, nous avons vu à la rubrique précédente la méthode `.dict_items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
+Dans le même ordre d'idée, nous avons vu précédemment la méthode `.dict_items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
 
 ```python
 >>> dico = {"pinson": 2, "merle": 3}
->>> for key, val in dico.items():
-...     print(key, val)
+>>> for cle, valeur in dico.items():
+...     print(cle, valeur)
 ...
 pinson 2
 merle 3
->>> for obj in dico.items():
-...     print(obj, type(obj))
+>>> for bidule in dico.items():
+...     print(bidule, type(bidule))
 ...
 ('pinson', 2) <class 'tuple'>
 ('merle', 3) <class 'tuple'>
 ```
 
-On voit que cette méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
+La méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
 
-Sur la même base, on peut finalement itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
+De la même façon, on peut itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
 
 ```python
 >>> liste = [(i, i+1, i+2) for i in range(5, 8)]
@@ -406,34 +406,34 @@ Sur la même base, on peut finalement itérer sur 3 valeurs en même temps à pa
 7 8 9
 ```
 
-On pourrait concevoir la même chose sur 4 éléments, ou finalement autant que l'on veut. La seule restriction est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
+On pourrait concevoir la même chose sur 4, 5... éléments. La seule contrainte est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 variables dans l'exemple ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
 
 
 ### Affectation multiple et le nom de variable `_`
 
-L'affectation multiple est un mécanisme très puissant et important en Python. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : `x, y, z = 1, 2, 3`. On voit que cette syntaxe correspond à un *tuple* de chaque côté de l'opérateur `=`. Notez qu'il serait possible de le faire également avec les listes : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la première syntaxe avec les *tuples* sans parenthèse.
+L'affectation multiple est un mécanisme très puissant et important en Python. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : `x, y, z = 1, 2, 3`. Cette syntaxe correspond à un *tuple* de chaque côté de l'opérateur `=`. Notez qu'il serait possible de le faire également avec les listes : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la première syntaxe avec les *tuples* sans parenthèse.
 
 open-box-rem
 
-Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps. Toutefois, vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par « désempaquetage de tuple ». Cela signifie que l'on décompose le *tuple* initial `1, 2, 3` en 3 variables différentes (comme si on vidait son sac à dos, d'où le terme désempaquetage !).
+Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps. Toutefois, vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par « désempaquetage de tuple ». Cela signifie que l'on décompose le *tuple* initial `1, 2, 3` en 3 variables différentes.
 
 close-box-rem
 
 Nous avions croisé l'importance de l'affectation multiple dans le chapitre 9 *Fonctions* lorsqu'une fonction renvoyait plusieurs valeurs.
 
 ```python
->>> def fct():
+>>> def ma_fonction():
 ...     return 3, 14
 ...
->>> x, y = fct()
+>>> x, y = ma_fonction()
 >>> print(x, y)
 3 14
 ```
 
-La syntaxe `x, y = fct()` permet de récupérer les 2 valeurs renvoyées par la fonction et de les affecter à la volée dans 2 variables différentes. Cela évite l'opération laborieuse de récupérer d'abord le tuple, puis de créer les variables en utilisant l'indiçage :
+La syntaxe `x, y = ma_fonction()` permet de récupérer les 2 valeurs renvoyées par la fonction et de les affecter à la volée dans 2 variables différentes. Cela évite l'opération laborieuse de récupérer d'abord le tuple, puis de créer les variables en utilisant l'indiçage :
 
 ```python
->>> resultat = fct()
+>>> resultat = ma_fonction()
 >>> resultat
 (3, 14)
 >>> x = resultat[0]
@@ -444,28 +444,28 @@ La syntaxe `x, y = fct()` permet de récupérer les 2 valeurs renvoyées par la 
 
 open-box-adv
 
-Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la forme `x, y = fct()` qui sera privilégiée.
+Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la forme `x, y = ma_fonction()` qui sera privilégiée.
 
 close-box-adv
 
-Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (*underscore*) pour indiquer que certaines valeurs ne nous intéressent pas :
+Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (caractère *underscore*) pour indiquer que certaines valeurs ne nous intéressent pas :
 
 ```python
->>> def fct():
+>>> def ma_fonction():
 ...     return 1, 2, 3, 4
 ...
->>> x, _, y, _ = fct()
+>>> x, _, y, _ = ma_fonction()
 >>> x
 1
 >>> y
 3
 ```
 
-Cela envoie le message à celui qui lit le code « je me fiche des valeurs récupérées dans ces variables `_` ». Notez que l'on peut utiliser une ou plusieurs variables *underscores(s)*. Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyées par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
+Cela envoie le message à celui qui lit le code « je me fiche des valeurs récupérées dans ces variables `_` ». Notez que l'on peut utiliser une ou plusieurs variables *underscores(s)*. Dans l'exemple ci-dessus, la 2e et la 4e variable renvoyées par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
 
 open-box-rem
 
-La variable `_` a une autre signication spéciale dans l'interpréteur interactif, elle prend automatiquement la dernière valeur affichée :
+Dans l'interpréteur interactif, la variable `_` a une signication différente. Elle prend automatiquement la dernière valeur affichée :
 
 ```python
 >>> 3
@@ -478,13 +478,13 @@ La variable `_` a une autre signication spéciale dans l'interpréteur interacti
 'mésange'
 ```
 
-Attention, cela n'est vrai que dans l'interpréteur.
+Attention, cela n'est vrai que dans l'interpréteur !
 
 close-box-rem
 
 open-box-rem
 
-Le *underscore* est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 15 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (e.g. `_var`, `var_`, `__var`, `__var__`). On verra au chapitre 19 *Avoir la classe avec les objets* que ces *underscores* ont une signification particulière.
+Le caractère *underscore* (`_`) est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 15 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (par exemple : `_var`, `var_`, `__var`, `__var__`). On verra au chapitre 19 *Avoir la classe avec les objets* que ces *underscores* ont aussi une signification particulière.
 
 close-box-rem
 
@@ -501,7 +501,7 @@ Les containers de type *set* représentent un autre type d'objet séquentiel qui
 <class 'set'>
 ```
 
-Notez que la répétition du 3 dans la définition du *set* en ligne 1 donne au final un seul 3 car chaque élément ne peut être présent qu'une seule fois. A quoi différencie-t-on un *set* d'un dictionnaire alors que les deux utilisent des accolades ? Le *set* sera défini seulement par des valeurs `{val1, val2, ...}` alors que le dictionnaire aura toujours des couples clé/valeur `{clé1: val1, clé2: val2, ...}`.
+Remarquez que la répétition du 3 dans la définition du *set* en ligne 1 donne au final un seul 3 car chaque élément ne peut être présent qu'une seule fois. À quoi différencie-t-on un *set* d'un dictionnaire alors que les deux utilisent des accolades ? Le *set* sera défini seulement par des valeurs `{valeur_1, valeur_2, ...}` alors que le dictionnaire aura toujours des couples clé/valeur `{clé_1: valeur_1, clé_2: valeur_2, ...}`.
 
 En général, on utilisera la fonction interne à Python `set()` pour générer un nouveau *set*. Celle-ci prend en argument n'importe quel objet itérable et le convertit en *set* (opération de *casting*) :
 
@@ -512,15 +512,15 @@ En général, on utilisera la fonction interne à Python `set()` pour générer 
 {1, 2}
 >>> set(range(5))
 {0, 1, 2, 3, 4}
->>> set({"clé1": 1, "clé2": 2})
-{'clé1', 'clé2'}
+>>> set({"clé_1": 1, "clé_2": 2})
+{'clé_1', 'clé_2'}
 >>> set(["ti", "to", "to"])
 {'ti', 'to'}
 >>> set("Maître corbeau sur un arbre perché")
 {'h', 'u', 'o', 'b', ' ', 'M', 'a', 'p', 'n', 'e', 'é', 'c', 'î', 's', 't', 'r'}
 ```
 
-Nous avons dit plus haut que les *sets* ne sont pas ordonnés, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments. Par contre, les *sets* sont itérables :
+Nous avons dit plus haut que les *sets* ne sont pas ordonnés, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments.
 
 ```python
 >>> s = set([1, 2, 4, 1])
@@ -528,8 +528,13 @@ Nous avons dit plus haut que les *sets* ne sont pas ordonnés, il est donc impos
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'set' object is not subscriptable
->>> for elt in s:
-...     print(elt)
+```
+
+Par contre, les *sets* sont itérables :
+
+```python
+>>> for element in s:
+...     print(element)
 ...
 1
 2
@@ -539,11 +544,11 @@ TypeError: 'set' object is not subscriptable
 Les containers de type *set* sont très utiles pour rechercher les éléments uniques d'une suite d'éléments. Cela revient à éliminer tous les doublons. Par exemple :
 
 ```python
->>> import random as rd
->>> l = [rd.randint(0, 9) for i in range(10)]
->>> l
+>>> import random
+>>> liste = [random.randint(0, 9) for i in range(10)]
+>>> liste
 [7, 9, 6, 6, 7, 3, 8, 5, 6, 7]
->>> set(l)
+>>> set(liste)
 {3, 5, 6, 7, 8, 9}
 ```
 
@@ -567,13 +572,14 @@ On peut faire des choses très puissantes. Par exemple, un compteur de lettres e
 Les *sets* permettent aussi l'évaluation d'union ou d'intersection mathématiques en conjonction avec les opérateurs respectivement `|` et `&` :
 
 ```python
->>> l = [3, 3, 5, 1, 3, 4, 1, 1, 4, 4]
->>> l2 = [3, 0, 5, 3, 3, 1, 1, 1, 2, 2]
->>> set(l) & set(l2)
-{1, 3, 5}
->>> set(l) | set(l2)
+>>> liste_1 = [3, 3, 5, 1, 3, 4, 1, 1, 4, 4]
+>>> liste_2 = [3, 0, 5, 3, 3, 1, 1, 1, 2, 2]
+>>> set(liste_1) | set(liste_2)
 {0, 1, 2, 3, 4, 5}
+>>> set(liste_1) & set(liste_2)
+{1, 3, 5}
 ```
+
 open-box-adv
 
 Pour aller plus loin, vous pouvez consulter deux articles sur les sites [programiz](https://www.programiz.com/python-programming/set) et [towardsdatascience](https://towardsdatascience.com/python-sets-and-set-theory-2ace093d1607).
@@ -593,10 +599,11 @@ Nous avons vu au chapitre 11 *Plus sur les listes* les listes de compréhension.
 dict_items([('a', 10), ('g', 10), ('t', 11), ('c', 15)])
 >>> {key:val*2 for key, val in dico.items()}
 {'a': 20, 'g': 20, 't': 22, 'c': 30}
->>>
->>> {key:val for key, val in enumerate("toto")}
-{0: 't', 1: 'o', 2: 't', 3: 'o'}
->>>
+```
+
+Avec un dictionnaire de compréhension, on peut rapidement compter le nombre de chaque base dans une séquence d'ADN : 
+
+```python
 >>> seq = "atctcgatcgatcgcgctagctagctcgccatacgtacgactacgt"
 >>> {base:seq.count(base) for base in set(seq)}
 {'a': 10, 'g': 10, 't': 11, 'c': 15}
@@ -639,7 +646,7 @@ Counter({'a': 7, 't': 7, 'c': 7, 'g': 5})
 0
 ```
 
-On voit que Python a automatiquement compté chaque atgc de la chaîne de caractères passée en argument ! Cela crée un objet de type `Counter`qui se comporte ensuite comme un dictionnaire, à une exception près : si on appelle une clé qui n'existe pas dans l'itérable initiale (comme le `n` ci-dessus) cela renvoie 0.
+Dans cet exemple, Python a automatiquement compté chaque caractère `a`, `t`, `g` et `c` de la chaîne de caractères passée en argument. Cela crée un objet de type `Counter` qui se comporte ensuite comme un dictionnaire, à une exception près : si on appelle une clé qui n'existe pas dans l'itérable initiale (comme le `n` ci-dessus) la valeur renvoyée est 0.
 
 ## Exercices
 
