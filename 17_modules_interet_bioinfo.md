@@ -1338,7 +1338,8 @@ Ligne 2. L'argument `index` définit le nom des lignes, sous forme de liste.
 
 Lignes 3-5. L'argument `data` fournit le contenu du *dataframe*, sous la forme
 d'une liste de valeurs correspondantes à des lignes. Ainsi `np.arange(10, 14)`
- qui est équivalent à `[10, 11, 12, 13]` correspond à la première ligne du *dataframe*.
+ qui est équivalent à `[10, 11, 12, 13]` correspond à la première ligne du *dataframe*. 
+Notez ici qu'il faut avoir préalablement importer numpy avec l'instruction `import numpy as np`.
 
 Le même *dataframe* peut aussi être créé à partir des valeurs fournies
 en colonnes sous la forme d'un dictionnaire :
