@@ -218,7 +218,7 @@ Enfin, il est possible de préciser sur combien de caractères vous voulez qu'un
 >>> print(f"{10:*^6d}") ; print(f"{1000:*^6d}")
 **10**
 *1000*
->>> print(f"{10:0^6d}") ; print(f"{1000:0^6d}")
+>>> print(f"{10:0>6d}") ; print(f"{1000:0>6d}")
 000010
 001000
 ```
