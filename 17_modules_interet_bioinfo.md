@@ -119,7 +119,7 @@ array([0, 1, 4, 9])
 
 Avec les listes, ces opérations n'auraient été possibles qu'en utilisant des boucles. Nous vous encourageons donc à utiliser dorénavant les objets *array* lorsque vous aurez besoin de faire des opérations élément par élément.
 
-Notez également que, dans le dernier exemple de multiplication (ligne 10), l'*array* final correspond à la multiplication **élément par élément** des deux *array* initiaux.
+Notez également que, dans le dernier exemple de multiplication (ligne 10), l'*array* final correspond à la multiplication **élément par élément** des deux *arrays* initiaux.
 
 
 ### *Array* et dimensions
@@ -202,7 +202,7 @@ array([[0, 1, 2],
 array([0, 1, 2, 3, 4, 5])
 ```
 
-Notez bien que `a` n'a pas été modifié. Notez également que `a.reshape((2, 3))` n'est pas la même chose que `a.reshape((3, 2))` :
+Notez bien que le *array* `a` n'a pas été modifié et que `a.reshape((2, 3))` n'est pas la même chose que `a.reshape((3, 2))` :
 
 ```python
 >>> c = a.reshape((3, 2))
@@ -332,14 +332,14 @@ array([[2, 7],
 7
 ```
 
-La méthode `.max()` nous a bien renvoyé la valeur maximum 7. Un argument *très* utile existant dans toutes ces méthodes est `axis`. Pour un *array* 2D, `axis=0` signifie qu'on fera l'opération le long de l'axe 0, à savoir les lignes. C'est-à-dire que l'opération se fait en faisant varier les lignes. On récupère ainsi une valeur par colonne :
+La méthode `.max()` nous a bien renvoyé la valeur maximale 7. Un argument *très* utile existant dans toutes ces méthodes est `axis`. Pour un *array* 2D, `axis=0` signifie qu'on fera l'opération le long de l'axe 0, à savoir les lignes. C'est-à-dire que l'opération se fait en faisant varier les lignes. On récupère ainsi une valeur par colonne :
 
 ```python
 >>> a.max(axis=0)
 array([6, 7])
 ```
 
-L'*array* 1D récupéré a son premier élément qui vaut 6 (maximum de la 1ère colonne) et son deuxième qui vaut 7 (maximum de la deuxième colonne).
+Dans l'*array* 1D récupéré, le premier élément vaut 6 (maximum de la 1ère colonne) et le second vaut 7 (maximum de la seconde colonne).
 
 Avec `axis=1` on fait une opération similaire mais en faisant varier les colonnes. On récupère ainsi une valeur par ligne :
 
@@ -350,7 +350,7 @@ array([7, 6, 3, 5])
 
 L'*array* 1D récupéré a 4 éléments correspondant au maximum de chaque ligne.
 
-On comprend la puissance de cet argument `axis`. A nouveau, il est possible, en une ligne, de faire des calculs qui pourraient être très fastidieux avec les listes traditionnelles.
+On comprend la puissance de cet argument `axis`. À nouveau, il est possible, en une ligne, de faire des calculs qui pourraient être très fastidieux avec les listes traditionnelles.
 
 ### Indices
 
@@ -382,9 +382,9 @@ array([1, 2])
 4
 ```
 
-Lignes 5 à 8. La syntaxe `a[i,:]` renvoie la $(i+1)^{ème}$ ligne d'indice `i`, et `a[:,j]` renvoie la $(j+1)^{ème}$ colonne d'indice `j`. Les tranches sont évidemment aussi utilisables sur un *array* à deux dimensions.
+Lignes 5 à 8. La syntaxe `a[i,:]` renvoie la ligne d'indice `i`, et `a[:,j]` renvoie la colonne d'indice `j`. Les tranches sont évidemment aussi utilisables sur un *array* à deux dimensions.
 
-Lignes 9 à 10. La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, **on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne.
+Lignes 9 à 10. La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, **on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{e}$ ligne et à la $j^{e}$ colonne.
 
 open-box-rem
 
@@ -400,7 +400,7 @@ array([1, 2])
 array([3, 4])
 ```
 
-- Pour cette raison, la syntaxe `a[i][j]` est également valide pour récupér un élément :
+- Pour cette raison, la syntaxe `a[i][j]` est également valide pour récupérer un élément :
 
 ```python
 >>> a
@@ -462,16 +462,16 @@ array([[   0,    0],
 
 open-box-rem
 
-On pourra noter que la stratégie `b = np.array(a)` fait bien une copie distincte de l'*array* `a` quelle que soit sa dimensionnalité. Ceci n'était pas le cas avec la fonction `list()`  pour les copies de listes à partir de la dimensionnalité 2 : 
+On pourra noter que la stratégie `b = np.array(a)` fait bien une copie distincte de l'*array* `a` quelle que soit sa dimensionnalité. Ceci n'était pas le cas avec la fonction `list()` pour les copies de listes à partir de la dimensionnalité 2 : 
 
 ```python
->>> l1 = [[0, 0], [1, 1]]
->>> l2 = list(l1)
->>> l3 = copy.deepcopy(l1)
->>> l1[1][1] = -365
->>> l2
+>>> liste_1 = [[0, 0], [1, 1]]
+>>> liste_2 = list(liste_1)
+>>> liste_3 = copy.deepcopy(liste_1)
+>>> liste_1[1][1] = -365
+>>> liste_2
 [[0, 0], [1, -365]]
->>> l3
+>>> liste_3
 [[0, 0], [1, 1]]
 ```
 
@@ -593,7 +593,7 @@ array([[1, 4, 7],
        [3, 6, 9]])
 ```
 
-La fonction `dot()` vous permet de réaliser une [multiplication de matrices](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_matriciel_ordinaire).
+La fonction `dot()` permet de [multiplier deux matrices](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_matriciel_ordinaire).
 
 ```python
 >>> a = np.resize(np.arange(4), (2, 2))
@@ -904,32 +904,28 @@ Définition d'une séquence :
 ```python
 >>> import Bio
 >>> from Bio.Seq import Seq
->>> from Bio.Alphabet import IUPAC
->>> ADN = Seq("ATATCGGCTATAGCATGCA", IUPAC.unambiguous_dna)
+>>> ADN = Seq("ATATCGGCTATAGCATGC")
 >>> ADN
-Seq('ATATCGGCTATAGCATGCA', IUPACUnambiguousDNA())
+Seq('ATATCGGCTATAGCATGC')
 ```
 
 Ligne 1. Le module *Biopython* s'appelle `Bio`.
-
-Ligne 4. L'expression `IUPAC.unambiguous_dna` signifie que la séquence entrée est bien une séquence d'ADN non ambigu (c'est-à-dire que chaque base est bien déterminée).
 
 Obtention de la séquence complémentaire et complémentaire inverse :
 
 ```python
 >>> ADN.complement()
-Seq('TATAGCCGATATCGTACGT', IUPACUnambiguousDNA())
+Seq('TATAGCCGATATCGTACG')
 >>> ADN.reverse_complement()
-Seq('TGCATGCTATAGCCGATAT', IUPACUnambiguousDNA())
+Seq('GCATGCTATAGCCGATAT')
 ```
 
 Traduction en séquence protéique :
 
 ```python
 >>> ADN.translate()
-Seq('ISAIAC', IUPACProtein())
+Seq('ISAIAC')
 ```
-
 Dans l'annexe A *Quelques formats de données rencontrés en biologie*, vous
 trouverez de nombreux exemples d'utilisation de *Biopython* pour manipuler
 des données aux formats FASTA, GenBank et PDB.
