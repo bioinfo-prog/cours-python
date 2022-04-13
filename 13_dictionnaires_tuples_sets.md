@@ -1,18 +1,65 @@
 # Dictionnaires, tuples et *sets*
 
-Jusqu'à maintenant nous avons vu et manipulé le type d'objet séquentiel le plus classique : les listes. On se rappelle qu'elles sont modifiables, ordonnées et itérables. Dans ce chapitre nous allons voir trois nouveaux types d'objet séquentiel avec des propriétés différentes : les dictionnaires, les tuples et les *sets*.
+Dans ce chapitre nous allons voir trois nouveaux types d'objet qui s'avèrent extrêmement utiles : les dictionnaires, les tuples et les *sets*. Comme les listes ou les chaînes de caractères, ces trois nouveaux types sont des **containers**, c'est-à-dire qu'ils contiennent une collection d'autres objets, mais avec des propriétés différentes. Pour tout container Python, l'opérateur `in` teste l'appartenance d'une valeur comme on l'a vu par exemple pour les listes ou les chaînes de caractères.
 
-open-box-rem
+```python
+>>> l = [1, 2, 3]
+>>> 1 in l
+True
+>>> "to" in "toto"
+True
+```
 
-Les objets séquentiels peuvent être aussi appelés parfois **containers**. 
+## Quelques propriétés des containers
 
-close-box-rem
+Nous commençons par quelques définitions qui s'appliquent aux containers.
+
+open-box-def
+
+Un **objet séquentiel** ou « séquence » est un container qui contient une collection d'autres objets. Les objets séquentiels sont ordonnés (il y a un ordre précis de la séquence), « itérables » (utilisables dans une boucle) et « indexables ». Cette dernière propriété est importante, cela signifie que l'on peut retrouver un élément par son indice (sa position) dans la séquence. Les objets séquentiels que nous connaissons pour l'instant sont les listes, les chaînes de caractères et même si nous ne l'avons pas vu explicitement, les objets de type range. On verra dans ce chapitre que les tuples sont aussi des objets séquentiels.
+
+close-box-def
+
+Une autre propriété importante que l'on a déjà croisée et qui nous servira dans ce chapitre concerne la possiblité ou non de modifier un objet.
+
+open-box-def
+
+Un objet est dit **non modifiable** lorsqu'on ne peut pas le modifier, ou lorsqu'on ne peut pas en modifier un de ses éléments si c'est un container. On parle aussi d'[objet immuable](https://fr.wikipedia.org/wiki/Objet_immuable) ou *immutable object* en anglais.
+
+close-box-def
+
+Qu'en est-il des objets que nous connaissons ? Les listes sont modifiables, on peut modifier un ou plusieurs de ses éléments. Tous les autres types que nous avons vus précédemment sont quant à eux non modifiables : les chaînes de caractères ou *strings*, les objets de type range, mais également les entiers et les floats. On comprend bien la non modifiabilité (ou immutabilité) des *strings* comme on a déjà vu au chapitre 10, mais c'est moins évident pour les entiers ou *floats*. Regardons l'exemple suivant qui utilise la fonction `id()`. Cette fonction prend en argument un objet et renvoie un identifiant unique, celui-ci peut être assimilé à son adresse en mémoire qui elle aussi est unique.
+
+```python
+>>> a = 4
+>>> id(a)
+140318876873440
+>>> a = 5
+>>> id(a)
+140318876873472
+```
+
+En ligne 1 on définit l'entier `a` puis on regarde son identifiant. En ligne 4, on pourrait penser que l'on modifie `a`. Toutefois, on voit que son identifiant en ligne 6 est différent de la ligne 3. En fait, l'affectation en ligne 4 `a = 5` écrase l'ancienne variable `a` et en crée une nouvelle, ce n'est pas la valeur de `a` qui a été changée puisque l'identifiant n'est plus le même. Si on regarde la même chose pour une liste :
+
+```python
+>>> l = [1, 2, 3]
+>>> id(l)
+140318850324832
+>>> l[1] = -15
+>>> id(l)
+140318850324832
+>>> l.append(5)
+>>> id(l)
+140318850324832
+```
+
+Cette fois-ci, on a bien modifié la liste `l` puisque l'identifiant n'a pas changé avant le changement de l'élément d'indice 1 en ligne 4, ou lors de l'ajout d'un élément en ligne 9.
 
 ## Dictionnaires
 
 ### Définition
 
-Les **dictionnaires** se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. Les dictionnaires sont des collections non ordonnées d'objets, c'est-à-dire qu'il n'y a pas de notion d'ordre  (*i.e.* pas d'indice). On accède aux **valeurs** d'un dictionnaire par des **clés**. Ceci semble un peu confus ? Regardez l'exemple suivant :
+Les **dictionnaires** se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. Les dictionnaires sont des collections non ordonnées d'objets, c'est-à-dire qu'il n'y a pas de notion d'ordre  (*i.e.* pas d'indice). Il ne s'agit pas d'objets séquentiels comme les listes ou chaînes de caractères, mais plutôt d'objets dits de correspondance ou *mapping objects* en anglais. En effet, on accède aux **valeurs** d'un dictionnaire par des **clés**. Ceci semble un peu confus ? Regardez l'exemple suivant :
 
 ```python
 >>> ani1 = {}
@@ -52,9 +99,9 @@ Pour récupérer la valeur associée à une clé donnée, il suffit d'utiliser l
 
 open-box-rem
 
-Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. Rien n'empêche d'utiliser d'autres types d'objets comme des entiers (voire même des *tuples*, cf. rubrique suivante), cela peut parfois s'avérer très utile.
+Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. On peut utiliser d'autres types d'objets comme des entiers, des *floats*, voire même des *tuples* (cf. rubrique suivante), cela peut s'avérer parfois très utile. Une règle est toutefois requise, les objets utilisés comme clé doivent être **hashables**. Que cela signifie-t-il ? Il s'agit de calculer une empreinte numérique d'un objet (en général un entier) pour pouvoir retrouver cet objet rapidement. Le hachage est très utilisé pour identifier des fichiers de manière unique, par exemple le programme Unix [md5sum](https://fr.wikipedia.org/wiki/Md5sum) utilise le [hachage MD5](https://fr.wikipedia.org/wiki/MD5). Pour aller plus loin, vous pouvez consulter la [page Wikipedia sur le hachage](https://fr.wikipedia.org/wiki/Fonction_de_hachage). Retenons ici que les objets hashables utilisables comme clé de dictionnaire sont les chaînes de caractères, les tuples, les entiers, les *floats* et les *frozensets* (cf. plus bas); par contre, les listes, les *sets* et les dictionnaires sont non hashables, donc non utilisables comme clé de dictionnaire.
 
-Néanmoins, nous vous conseillons, autant que possible, d'utiliser systématiquement des chaînes de caractères pour vos clés de dictionnaire.
+Malgré ces possibilités, nous vous conseillons, lorsque vous débutez, de n'utiliser que des chaînes de caractères pour vos clés de dictionnaire.
 
 close-box-rem
 
@@ -95,7 +142,7 @@ dict_values(['singe', 70, 1.75])
 ['singe', 70, 1.75]
 ```
 
-Toutefois, ce sont des objets « itérables », donc utilisables dans une boucle.
+Toutefois, ce sont des objets itérables, donc utilisables dans une boucle.
 
 *Conseil* : pour les débutants, vous pouvez sauter cette fin de rubrique.
 
@@ -187,7 +234,7 @@ Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted
 ['b', 'a', 'c']
 ```
 
-L'argument `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue plus haut, mais sans les parenthèses (`key=dico.get` mais pas `key=dico.get()`).
+L'argument `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue plus haut, mais sans les parenthèses : `key=dico.get` mais pas `key=dico.get()`. Une fonction ou méthode passée en argument sans les parenthèses est appelée  *callback*, nous reverrons cela en détail dans le chapitre 20 *Fenêtres graphiques et Tkinter*.
 
 Attention, ce sont les clés du dictionnaires qui sont renvoyées, pas les valeurs. Ces clés sont cependant renvoyées dans un ordre qui permet d'obtenir les clés triées par ordre croissant :
 
@@ -228,8 +275,7 @@ close-box-rem
 
 ### Clé associée au minimum ou au maximum des valeurs
 
-Les fonctions `min()` et `max()`, que vous avez déjà manipulées dans les chapitres précédents,
-acceptent également l'argument `key=`. On peut ainsi obtenir la clé associée au minimum ou au maximum des valeurs d'un dictionnaire :
+Les fonctions `min()` et `max()`, que vous avez déjà manipulées dans les chapitres précédents, acceptent également l'argument `key=`. On peut ainsi obtenir la clé associée au minimum ou au maximum des valeurs d'un dictionnaire :
 
 ```python
 >>> dico = {"a": 15, "b": 5, "c":20}
@@ -242,8 +288,7 @@ acceptent également l'argument `key=`. On peut ainsi obtenir la clé associée 
 
 ### Liste de dictionnaires
 
-En créant une liste de dictionnaires qui possèdent les mêmes clés,
-on obtient une structure qui ressemble à une base de données :
+En créant une liste de dictionnaires qui possèdent les mêmes clés, on obtient une structure qui ressemble à une base de données :
 
 ```python
 >>> animaux = [ani1, ani2]
@@ -296,49 +341,59 @@ ValueError: dictionary update sequence element #1 has length 3; 2 is required
 
 ### Définition
 
-Les **tuples** (« n-uplets » en français) correspondent aux listes à la différence qu'ils sont **non modifiables**. On a vu dans le chapitre 11 *Plus sur les listes* que les listes pouvaient être modifiées par références, notamment lors de la copie de listes. Les tuples s'affranchissent de ce problème puisqu'ils sont non modifiables. Pratiquement, ils utilisent les parenthèses au lieu des crochets :
+Les **tuples** (« n-uplets » en français) sont des objets séquentiels correspondant aux listes mais ils sont toutefois **non modifiables**. On a vu dans le chapitre 11 *Plus sur les listes* que les listes pouvaient être modifiées par références, notamment lors de la copie de listes. Les tuples s'affranchissent de ce problème puisqu'ils sont non modifiables. Pratiquement, ils utilisent les parenthèses au lieu des crochets :
 
 ```python
->>> x = (1, 2, 3)
->>> x
+>>> t = (1, 2, 3)
+>>> t
 (1, 2, 3)
->>> x[2]
+>>> t[2]
 3
->>> x[0:2]
+>>> t[0:2]
 (1, 2)
->>> x[2] = 15
-Traceback (innermost last):
-File "<stdin>", line 1, in ?
-TypeError: object doesn't support item assignment
+>>> t[2] = 15
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
 ```
 
-L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple, Python renvoie un message d'erreur. Si vous voulez ajouter un élément (ou le modifier), vous devez créer un autre tuple :
+L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple, Python renvoie un message d'erreur. Ce message est similaire à celui que nous avions rencontré quand on essayait de modifier une chaîne de caractères (cf. chapitre 10). De manière générale, Python renverra toujours un message `TypeError: '[...]' does not support item assignment` lorsqu'on essaie de modifier un élément d'un objet non modifiable.   Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
 
 ```python
->>> x = (1, 2, 3)
->>> x + (2,)
+>>> t = (1, 2, 3)
+>>> t
+(1, 2, 3)
+>>> id(t)
+139971081704464
+>>> t = t + (2,)
+>>> t
 (1, 2, 3, 2)
+>>> id(t)
+139971081700368
 ```
+
+On voit avec la fonction `id()` que le tuple créé en ligne 6 est bien différent de celui créé en ligne 4 bien qu'ils aient le même nom. Comme on a vu plus haut, ceci est dû à l'opérateur d'affectation utilisé en ligne 6 (`t = t + (2,)`) qui crée un nouvel objet distinct de celui de la ligne 1.
 
 open-box-rem
 
-Pour utiliser un tuple d'un seul élément, utilisez une syntaxe avec une virgule `(element,)`, pour éviter une ambiguïté avec une simple expression.
+Pour utiliser un tuple d'un seul élément comme ci-dessus, utilisez une syntaxe avec une virgule `(element,)`, pour éviter une ambiguïté avec une simple expression.
 
-Autre particularité des tuples, il est possible d'en créer de nouveaux sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :
+Autre particularité des tuples, il est possible de les créer sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :
 
 ```python
->>> x = (1, 2, 3)
->>> x
+>>> t = (1, 2, 3)
+>>> t
 (1, 2, 3)
->>> x = 1, 2, 3
->>> x
+>>> t = 1, 2, 3
+>>> t
 (1, 2, 3)
 ```
-Toutefois, nous vous conseillons d'utiliser systématiquement les parenthèses afin d'éviter les confusions.
+
+Toutefois, afin d'éviter les confusions, nous vous conseillons d'utiliser systématiquement les parenthèses lorsque vous débutez.
 
 close-box-rem
 
-Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement comme la fonction `list()`, c'est-à-dire qu'elle prend en argument un objet séquentiel et renvoie le tuple correspondant (opération de *casting*) :
+Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement comme la fonction `list()`, c'est-à-dire qu'elle prend en argument un objet de type container et renvoie le tuple correspondant (opération de *casting*) :
 
 ```python
 >>> tuple([1,2,3])
@@ -349,7 +404,7 @@ Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement 
 
 open-box-rem
 
-Les listes, les dictionnaires et les tuples sont des objets qui peuvent contenir des collections d'autres objets. On peut donc construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc.
+Les listes, les dictionnaires et les tuples sont des containers, c'est-à-dire qu'il s'agit d'objets qui contiennent une collection d'autres objets. On peut donc construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
 
 close-box-rem
 
@@ -461,7 +516,7 @@ Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les u
 3
 ```
 
-Cela envoie le message à celui qui lit le code « je me fiche des valeurs récupérées dans ces variables `_` ». Notez que l'on peut utiliser une ou plusieurs variables *underscores(s)*. Dans l'exemple ci-dessus, la 2e et la 4e variable renvoyées par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.
+Cela envoie le message à celui qui lit le code « je me fiche des valeurs récupérées dans ces variables `_` ». Notez que l'on peut utiliser une ou plusieurs variables *underscores(s)*. Dans l'exemple ci-dessus, la 2e et la 4e variable renvoyées par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter de polluer l'attention du lecteur du code.
 
 open-box-rem
 
@@ -488,22 +543,109 @@ Le caractère *underscore* (`_`) est couramment utilisé dans les noms de variab
 
 close-box-rem
 
+### Tuples contenant des listes
 
-## *Sets*
+*Conseil* : pour les débutants, vous pouvez passer cette rubrique.
 
-Les containers de type *set* représentent un autre type d'objet séquentiel qui peut se révéler très pratique. Ils ont la particularité d'être non modifiables, non ordonnés et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau *set* on peut utiliser les accolades :
+*Conseil2* : relisez la partie du début de ce chapitre sur la définition de l'immutablité.
+
+On a vu que les tuples étaient **non modifiables**. Que se passe-t-il alors si on crée un tuple contenant des objets modifiables comme des listes ? Examinons le code suivant :
 
 ```python
->>> s = {1, 2, 3, 3}
+>>> l1 = [1, 2, 3]
+>>> t = (l1, "Plouf")
+>>> t
+([1, 2, 3], 'Plouf')
+>>> l1[0] = -15
+>>> t[0].append(-632)
+>>> t
+([-15, 2, 3, -632], 'Plouf')
+```
+
+On voit que si on modifie un élément de la liste `l1` en ligne 5 ou bien qu'on ajoute un élément à `t[0]` en ligne 6, Python s'exécute et ne renvoie pas de message d'erreur. Or nous avions dit qu'un tuple était non modifiable... Comment cela-est il possible ? Commençons d'abord par regarder comment les objets sont agencés avec *Python Tutor*.
+
+![Tuple contenant une liste.](img/tuple_de_listes.png){ #fig:tuple_de_listes width=90% }
+
+On voit que la liste `l1` pointe vers le même objet que l'élément du tuple d'indice 0. Donc, qu'on raisonne en tant que premier élément du tuple ou bien en tant que liste `l1`, on pointe vers **la même liste**. Or, rappelez-vous, au début de ce chapitre nous avons expliqué que lorsqu'on modifiait un élément d'une liste, celle-ci gardait le même identifiant. C'est toujours le cas ici, même si celle-ci se trouve dans un tuple. Regardons cela :
+
+```python
+>>> l1 = [1, 2, 3]
+>>> t = (l1, "Plouf")
+>>> t
+([1, 2, 3], 'Plouf')
+>>> id(l1)
+139971081980816
+>>> id(t[0])
+139971081980816
+```
+
+Nous confirmons ici le schéma de *Python Tutor*, c'est bien la même liste que l'on considère `l1` ou `t[0]` puisqu'on a le même identifiant. Maintenant, on modifie cette liste via la variable `l1` ou `t[0]` :
+
+```python
+>>> l1[2] = -15
+>>> t[0].append(-632)
+>>> t
+([1, 2, -15, -632], 'Plouf')
+>>> id(l1)
+139971081980816
+>>> id(t[0])
+139971081980816
+```
+
+Malgré la modification de cette liste, l'identifiant n'a toujours pas changé puisque la fonction `id()` nous renvoie toujours le même. Ainsi, nous avons l'explication. Même si la sous-liste a été modifiée « de l'intérieur », Python considère que c'est toujours la même sous-liste puisqu'elle n'a pas changé d'identifiant. Si au contraire on essaie de remplacer cette sous-liste par autre chose, Python renvoie une erreur :
+
+```python
+>>> t[0] = "Plif"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+```
+
+Ceci est dû au fait que le nouvel objet `"Plif"` n'a pas le même identifiant que la sous-liste initiale. En fait, l'immutabilité selon Python signifie qu'un objet créé doit toujours garder le même identifiant. Cela est valable pour tout objet non modifiable, comme un élément d'un tuple, un caractère dans une chaîne de caractères, etc.
+
+open-box-adv
+
+Nous avons fait une petite digression ici afin que vous compreniez bien ce qu'il se passe. Toutefois, pouvoir modifier une liste en tant qu'élément d'un tuple va à l'encontre de l'intérêt d'un objet non modifiable. Ainsi, dans la mesure du possible, nous vous déconseillons de créer des listes dans des tuples afin d'éviter les déconvenues.
+
+close-box-adv
+
+open-box-rem
+
+Mettre une ou des liste(s) dans un tuple a une autre conséquence néfaste. Le tuple devient ainsi non hashable ce qui le rend inutilisable comme clé de dictionnaire ou, on le verra ci-après, comme élément d'un *set* ou d'un *frozenset*. Donc, à nouveau, ne mettez pas de listes dans vos tuples !
+
+close-box-rem
+
+## *Sets* et *frozensets*
+
+### Définition et propriétés des *sets*
+
+Les objets de type *set* représentent un autre type de containers qui peut se révéler très pratique. Ils ont la particularité d'être modifiables, non ordonnés, non indexables et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau *set* on peut utiliser les accolades :
+
+```python
+>>> s = {4, 5, 5, 12}
 >>> s
-{1, 2, 3}
+{12, 4, 5}
 >>> type(s)
 <class 'set'>
 ```
 
-Remarquez que la répétition du 3 dans la définition du *set* en ligne 1 donne au final un seul 3 car chaque élément ne peut être présent qu'une seule fois. À quoi différencie-t-on un *set* d'un dictionnaire alors que les deux utilisent des accolades ? Le *set* sera défini seulement par des valeurs `{valeur_1, valeur_2, ...}` alors que le dictionnaire aura toujours des couples clé/valeur `{clé_1: valeur_1, clé_2: valeur_2, ...}`.
+Remarquez que la répétition du 5 dans la définition du *set* en ligne 1 donne au final un seul 5 car chaque élément ne peut être présent qu'une seule fois. Comme pour les dictionnaires, les *sets* sont non ordonnés. La manière dont Python les affiche n'a pas de sens en tant que tel et peut être différente de celle utilisée lors de leur création.
 
-En général, on utilisera la fonction interne à Python `set()` pour générer un nouveau *set*. Celle-ci prend en argument n'importe quel objet itérable et le convertit en *set* (opération de *casting*) :
+Les *sets* ne peuvent contenir que des objets dits **hashables**. On a déjà vu plus haut cette notion avec les clés de dictionnaire. Pour rappel, les objets hashables que nous connaissons sont les chaînes de caractères, les tuples, les entiers, les *floats* et les *frozensets* (cf. plus bas) ; les objets non hashables les listes, les *sets* et les dictionnaires. Si on essaie tout de même de mettre une liste dans un *set*, Python renvoie une erreur :
+
+```python
+>>> s = {3, 4, "Plouf", (1, 3)}
+>>> s
+{(1, 3), 3, 4, 'Plouf'}
+>>> s2 = {3.14, [1, 2]}
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unhashable type: 'list'
+```
+
+À quoi différencie-t-on un *set* d'un dictionnaire alors que les deux utilisent des accolades ? Le *set* sera défini seulement par des valeurs `{valeur_1, valeur_2, ...}` alors que le dictionnaire aura toujours des couples clé:valeur `{clé_1: valeur_1, clé_2: valeur_2, ...}`.
+
+La fonction interne à Python `set()` convertit un objet itérable passé en argument en un nouveau *set* (opération de *casting*) :
 
 ```python
 >>> set([1, 2, 4, 1])
@@ -520,7 +662,7 @@ En général, on utilisera la fonction interne à Python `set()` pour générer 
 {'h', 'u', 'o', 'b', ' ', 'M', 'a', 'p', 'n', 'e', 'é', 'c', 'î', 's', 't', 'r'}
 ```
 
-Nous avons dit plus haut que les *sets* ne sont pas ordonnés, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments.
+Nous avons dit plus haut que les *sets* ne sont pas ordonnés ni indexables, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments par l'indexation.
 
 ```python
 >>> s = set([1, 2, 4, 1])
@@ -540,6 +682,29 @@ Par contre, les *sets* sont itérables :
 2
 4
 ```
+
+Les *sets* ne peuvent être modifiés que par des méthodes spécifiques. 
+
+```python
+>>> s = set(range(5))
+>>> s
+{0, 1, 2, 3, 4}
+>>> s.add(4)
+>>> s
+{0, 1, 2, 3, 4}
+>>> s.add(472)
+>>> s
+{0, 1, 2, 3, 4, 472}
+>>> s.discard(0)
+>>> s
+{1, 2, 3, 4, 472}
+```
+
+La méthode `.add()` ajoute au *set* l'élément passé en argument. Toutefois, si l'élément est déjà présent dans le *set*, il n'est pas ajouté puisqu'on a au plus une copie de chaque élément. La méthode `.discard()` retire du *set* l'élément passé en argument. Si l'élément n'est pas présent dans le *set*, il ne se passe rien, le *set* reste intact. Comme les *sets* ne sont pas ordonnés ni indexables, il n'y a pas de méthode pour insérer un élément à une position précise contrairement aux listes. Dernier point sur ces méthodes, elles modifient le *set* sur place (*in place* en anglais) et ne renvoient rien à l'instar des méthodes des listes (`.append()`, `.remove()`, etc.).
+
+Enfin, les *sets* ne supportent pas les opérateurs `+` et `*`.
+
+### Utilité des *sets*
 
 Les containers de type *set* sont très utiles pour rechercher les éléments uniques d'une suite d'éléments. Cela revient à éliminer tous les doublons. Par exemple :
 
@@ -580,9 +745,72 @@ Les *sets* permettent aussi l'évaluation d'union ou d'intersection mathématiqu
 {1, 3, 5}
 ```
 
+Notez qu'il existe des méthodes permettant de réaliser ces opérations d'union et d'intersection :
+
+```python
+>>> s1 = {1, 3, 4, 5}
+>>> s2 = {0, 1, 2, 3, 5}
+>>> s1.union(s2)
+{0, 1, 2, 3, 4, 5}
+>>> s1.intersection(s2)
+{1, 3, 5}
+```
+
+L'instruction `s1.difference(s2)` renvoie sous la forme d'un nouveau *set* les éléments de `s1` qui ne sont pas dans `s2`. Et vice-versa pour `s2.difference(s1)`.
+
+```python
+>>> s1.difference(s2)
+{4}
+>>> s2.difference(s1)
+{0, 2}
+```
+
+Enfin, deux autres méthodes sont très utiles :
+
+```python
+>>> s1 = set(range(10))
+>>> s2 = set(range(3, 7))
+>>> s3 = set(range(15, 17))
+>>> s1
+{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+>>> s2
+{3, 4, 5, 6}
+>>> s3
+{16, 15}
+>>> s2.issubset(s1)
+True
+>>> s3.isdisjoint(s1)
+True
+```
+
+La méthode `.issubset()` indique si un *set* est inclus dans un autre *set*. La méthode `isdisjoint()` indique si un *set* est disjoint d'un autre *set*, cest-à-dire, s'ils n'ont aucun élément en commun indiquant que leur intersection est nulle.
+
+### Les *frozensets*
+
+Les *frozensets* sont des *sets* non modifiables et hashables. Ainsi, un *set* peut contenir des *frozensets* mais pas l'inverse. A quoi servent-ils ? Comme la différence entre tuple et liste, l'immutabilité des *frozensets* donne l'assurance de ne pas pouvoir les modifier par erreur. Pour créer un *frozenset* on utilise la fonction interne `frozenset()` qui prend en argument un objet itérable et le convertit (opération de *casting*) :
+
+```python
+>>> f1 = frozenset([3, 3, 5, 1, 3, 4, 1, 1, 4, 4])
+>>> f2 = frozenset([3, 0, 5, 3, 3, 1, 1, 1, 2, 2])
+>>> f1
+frozenset({1, 3, 4, 5})
+>>> f2
+frozenset({0, 1, 2, 3, 5})
+>>> f1.add(5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'frozenset' object has no attribute 'add'
+>>> f1.union(f2)
+frozenset({0, 1, 2, 3, 4, 5})
+>>> f1.intersection(f2)
+frozenset({1, 3, 5})
+```
+
+Les *frozensets* ne possèdent bien sûr pas les méthodes de modification des *sets* (`.add()`, `.discard()`, etc.) puisqu'ils sont non modifiables. Par contre, ils possèdent toutes les méthodes de comparaisons de *sets* (`.union()`, `.intersection()`, etc.).
+
 open-box-adv
 
-Pour aller plus loin, vous pouvez consulter deux articles sur les sites [programiz](https://www.programiz.com/python-programming/set) et [towardsdatascience](https://towardsdatascience.com/python-sets-and-set-theory-2ace093d1607).
+Pour aller plus loin sur les *sets* et les *frozensets*, voici deux articles sur les sites [programiz](https://www.programiz.com/python-programming/set) et [towardsdatascience](https://towardsdatascience.com/python-sets-and-set-theory-2ace093d1607).
 
 close-box-adv
 
