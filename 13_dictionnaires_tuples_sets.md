@@ -52,7 +52,15 @@ Une autre propriété importante que l'on a déjà croisée et qui nous servira 
 
 Qu'en est-il des objets que nous connaissons ? Les listes sont modifiables, on peut modifier un ou plusieurs de ses éléments. Tous les autres types que nous avons vus précédemment sont quant à eux non modifiables : les chaînes de caractères ou *strings*, les objets de type *range*, mais également des objets qui ne sont pas des containers comme les entiers, les *floats* et les booléens. 
 
-On comprend bien l'immutabilité des *strings* comme on a déjà vu au chapitre 10, mais c'est moins évident pour les entiers, *floats* ou booléens. Regardons l'exemple suivant qui utilise la fonction interne `id()`. Cette fonction prend en argument un objet et renvoie un identifiant unique, celui-ci peut être assimilé à son adresse en mémoire qui elle aussi est unique.
+On comprend bien l'immutabilité des *strings* comme vu au chapitre 10, mais c'est moins évident pour les entiers, *floats* ou booléens. Nous allons démontrer cela, mais avant nous avons besoin de définir la notion d'identifiant d'un objet.
+
+open-box-def
+
+L'**identifiant** d'un objet est un nombre entier qui est garanti unique pendant toute la durée de vie de l'objet. Celui-ci peut être assimilé à l'adresse mémoire de l'objet qui elle aussi est unique. En Python, on utilise la fonction interne `id()` qui prend en argument un objet et renvoie son identifiant.
+
+close-box-def
+
+Maintenant que l'identifiant est défini, regardons l'exemple suivant qui montre l'immutabilité des entiers.
 
 ```python
 >>> a = 4
@@ -63,7 +71,7 @@ On comprend bien l'immutabilité des *strings* comme on a déjà vu au chapitre 
 140318876873472
 ```
 
-En ligne 1 on définit l'entier `a` puis on regarde son identifiant. En ligne 4, on pourrait penser que l'on modifie `a`. Toutefois, on voit que son identifiant en ligne 6 est différent de la ligne 3. En fait, l'affectation en ligne 4 `a = 5` écrase l'ancienne variable `a` et en crée une nouvelle, ce n'est pas la valeur de `a` qui a été changée puisque l'identifiant n'est plus le même. Si on regarde ce qu'il se passe pour une liste :
+En ligne 1 on définit l'entier `a` puis on regarde son identifiant. En ligne 4, on pourrait penser que l'on modifie `a`. Toutefois, on voit que son identifiant en ligne 6 est différent de la ligne 3. En fait, l'affectation en ligne 4 `a = 5` écrase l'ancienne variable `a` et en crée une nouvelle, ce n'est pas la valeur de `a` qui a été changée puisque l'identifiant n'est plus le même. Le même raisonnement peut être tenu pour les autres types numériques comme les *floats* et booléens. Si on regarde maintenant ce qu'il se passe pour une liste :
 
 ```python
 >>> l = [1, 2, 3]
@@ -83,19 +91,23 @@ La liste `l` a été modifiée en ligne 4 (changement de l'élément d'indice 1)
 
 open-box-def
 
-Un objet Python est dit **hachable** (*hashable* en anglais) s'il est possible de calculer une valeur de hachage sur celui-ci avec la fonction interne `hash()`. La valeur de hachage peut être vue comme une empreinte numérique de l'objet, en général un entier. Cette emprunte ne change pas pendant la durée de vie de l'objet. Cela permet de retrouver un objet rapidement. 
+Un objet Python est dit **hachable** (*hashable* en anglais) s'il est possible de calculer une valeur de hachage sur celui-ci avec la fonction interne `hash()`. En programmation, la valeur de hachage peut être vue comme une empreinte numérique de l'objet. Elle est obtenue en passant l'objet dans une fonction de hachage et dépend du contenu de l'objet. En Python, cette empreinte est comme dans la plupart des langages de programmation un entier. Elle n'est pas forcément unique pour deux objets différents. Par exemple, deux entiers `a = 5` et `b = 5` ont la même valeur de hachage.
 
 close-box-def
 
-Le hachage est très utilisé pour identifier des fichiers de manière unique, par exemple le programme Unix [md5sum](https://fr.wikipedia.org/wiki/Md5sum) utilise le [hachage MD5](https://fr.wikipedia.org/wiki/MD5). md5sum permet de décrire un fichier, quelle que soit sa taille, par un entier unique. Si un seul octet du fichier est modifié, sa valeur de hachage md5sum sera complètement différente. Cela permet de s'assurer lorsqu'on télécharge un gros fichier que celui-ci est intact. Comme dans tout langage de programmation, le hachage est fondamental en Python car il permet de retrouver rapidement un objet ou un élément d'un container. 
+open-box-warn
+
+Attention, la valeur de hachage d'un objet renvoyée par la fonction `hash()` n'a pas le même sens que son identifiant renvoyé par la fonction `id()`. La valeur de hachage est obtenue en « moulinant » l'objet dans une fonction de hachage et dépend du contenu de l'objet. L'identifiant est attribué par Python à la création de l'objet. Il est unique et court tout le long de la durée de vie de l'objet, un peu comme une carte d'identité. Tout objet à un un identifiant, mais il doit être hachable pour avoir une valeur de hachage.
+
+close-box-warn
 
 open-box-more
 
-Pour aller plus loin, vous pouvez consulter la [page Wikipedia sur le hachage](https://fr.wikipedia.org/wiki/Fonction_de_hachage). 
+Pour aller plus loin, vous pouvez consulter la [page Wikipedia sur les fonctions de hachage](https://fr.wikipedia.org/wiki/Fonction_de_hachage). 
 
 close-box-more
 
-Pourquoi évoquer cette propriété ? D'abord, parce-qu'elle est étroitement liée à l'immutabilité. En effet, un objet non modifiable est la plupart du temps hachable. Par ailleurs, l'hachabilité est nécessaire pour certaines utilisations des containers en Python, comme on le verra plus bas avec les dictionnaires ou les *sets*. Enfin, cette propriété est fondamentale lorsqu'on veut optimiser un code qui manipule de très grosses structure de données. Utiliser des  containers hachables donne un gain de temps spectaculaire grâce à un accès plus efficace aux éléments. 
+Pourquoi évoquer cette propriété ? D'abord, parce-qu'elle est étroitement liée à l'immutabilité. En effet, un objet non modifiable est la plupart du temps hachable. Par ailleurs, l'hachabilité permet un accès rapide aux éléments des containers de type dictionnaire ou *set* (cf. rubriques suivantes).
 
 Les objets hachables sont les chaînes de caractères, les entiers, les *floats*, les objets de type *range*, les tuples (sous certaines conditions) et les *frozensets* ; par contre, les listes, les *sets* et les dictionnaires sont non hachables. Les dictionnaires, tuples, *sets* et *frozensets* seront vus plus bas dans ce chapitre.
 
@@ -183,16 +195,20 @@ Pour récupérer la valeur associée à une clé donnée, il suffit d'utiliser l
 >>> ani1["taille"]
 5.0
 ```
-
-open-box-rem
-
-Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. On peut utiliser d'autres types d'objets comme des entiers, des *floats*, voire même des *tuples* (cf. rubrique suivante), cela peut s'avérer parfois très utile. Une règle est toutefois requise, les objets utilisés comme clé doivent être **hachables** (cf. plus haut pour la définition).
-
-Malgré ces possibilités, nous vous conseillons de n'utiliser que des chaînes de caractères pour vos clés de dictionnaire lorsque vous débutez.
-
-close-box-rem
-
 Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires. Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices. Les humains retiennent mieux les noms que les chiffres. Ainsi, l'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées $(x, y, z)$ d'un point dans l'espace : `coors = [0, 1, 2]` pour la version liste, `coors = {"x": 0, "y": 1, "z": 2}` pour la version dictionnaire. Un lecteur comprendra tout de suite que `coors["z"]` contient la coordonnée $z$, ce sera moins intuitif avec `coors[2]`.
+
+### Objets utilisables comme clé
+
+Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. On peut utiliser d'autres types d'objets comme des entiers, des *floats*, voire même des *tuples* (cf. rubrique suivante), cela peut s'avérer parfois très utile. Une règle est toutefois requise, les objets utilisés comme clé doivent être **hachables** (cf. rubrique précédente pour la définition).
+
+Pourquoi les clés doivent être des objets hachables ? C'est la raison d'être des dictionnaires, d'ailleurs ils sont aussi appelés [table de hachage](https://fr.wikipedia.org/wiki/Table_de_hachage) dans d'autres langages comme Perl. Convertir une clé en sa valeur de hachage permet un accès très rapide à chacun de ses éléments ainsi que des comparaisons de clés entre dictionnaires extrêmement efficaces. Même si on a vu que deux objets pouvaient avoir la même valeur de hachage, par exemple `a = 5` et `b = 5`, on ne peut mettre qu'une seule fois la clé `5`. Ceci nous assure que deux clés d'un même dictionnaire ont forcément une valeur de hachage différente.
+
+open-box-adv
+
+Malgré les possibilités offertes, nous vous conseillons de n'utiliser que des chaînes de caractères pour vos clés de dictionnaire lorsque vous débutez.
+
+close-box-adv
+
 
 ### Itération sur les clés pour obtenir les valeurs
 
@@ -428,7 +444,7 @@ ValueError: dictionary update sequence element #1 has length 3; 2 is required
 
 ### Définition
 
-Les **tuples** (« n-uplets » en français) sont des objets séquentiels correspondant aux listes (itérables, ordonnés et indexables) mais ils sont toutefois **non modifiables**. On verra plus bas qu'ils sont hachables sous certaines conditions. L'intérêt des tuples par rapport aux listes réside dans leur immutabilité. Cela, accèlère considérablement la manière dont Python accède à chaque élément et ils prennent moins de place en mémoire. Par ailleurs, on ne risque pas de modifier un de ses éléments par mégarde. Vous verrez ci-dessous que nous les avons déjà croisé à plusieurs reprises !
+Les **tuples** (« n-uplets » en français) sont des objets séquentiels correspondant aux listes (itérables, ordonnés et indexables) mais ils sont toutefois **non modifiables**. On verra plus bas qu'ils sont hachables sous certaines conditions. L'intérêt des tuples par rapport aux listes réside dans leur immutabilité. Cela, accèlère considérablement la manière dont Python accède à chaque élément et ils prennent moins de place en mémoire. Par ailleurs, on ne risque pas de modifier un de ses éléments par mégarde. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
 
 Pratiquement, on utilise les parenthèses au lieu des crochets pour les créer :
 
@@ -448,7 +464,7 @@ Traceback (most recent call last):
 TypeError: 'tuple' object does not support item assignment
 ```
 
-L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple, Python renvoie un message d'erreur. Ce message est similaire à celui que nous avions rencontré quand on essayait de modifier une chaîne de caractères (cf. chapitre 10). De manière générale, Python renverra toujours un message `TypeError: '[...]' does not support item assignment` lorsqu'on essaie de modifier un élément d'un objet non modifiable.   Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
+L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple, Python renvoie un message d'erreur. Ce message est similaire à celui que nous avions rencontré quand on essayait de modifier une chaîne de caractères (cf. chapitre 10). De manière générale, Python renverra un message `TypeError: '[...]' does not support item assignment` lorsqu'on essaie de modifier un élément d'un objet non modifiable.   Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
 
 ```python
 >>> t = (1, 2, 3)
@@ -495,7 +511,7 @@ Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement 
 
 open-box-rem
 
-Les listes, les dictionnaires et les tuples sont des containers, c'est-à-dire qu'il s'agit d'objets qui contiennent une collection d'autres objets. On peut donc construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
+Les listes, les dictionnaires et les tuples sont des containers, c'est-à-dire qu'il s'agit d'objets qui contiennent une collection d'autres objets. En Python, on peut construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
 
 close-box-rem
 
@@ -655,7 +671,7 @@ On voit que si on modifie un élément de la liste `l1` en ligne 5 ou bien qu'on
 
 ![Tuple contenant une liste.](img/tuple_de_listes.png){ #fig:tuple_de_listes width=90% }
 
-On voit que la liste `l1` pointe vers le même objet que l'élément du tuple d'indice 0. Donc, qu'on raisonne en tant que premier élément du tuple ou bien en tant que liste `l1`, on pointe vers **la même liste**. Or, rappelez-vous, au début de ce chapitre nous avons expliqué que lorsqu'on modifiait un élément d'une liste, celle-ci gardait le même identifiant. C'est toujours le cas ici, même si celle-ci se trouve dans un tuple. Regardons cela :
+La liste `l1` pointe vers le même objet que l'élément du tuple d'indice 0. Comme pour la copie de liste (par exemple `liste1 = liste2`), ceci est attendu car par défaut Python crée une copie par référence (cf. Chapitre 11 *Plus sur les listes*). Donc, qu'on raisonne en tant que premier élément du tuple ou bien en tant que liste `l1`, on pointe vers **la même liste**. Or, rappelez-vous, au début de ce chapitre nous avons expliqué que lorsqu'on modifiait un élément d'une liste, celle-ci gardait le même identifiant. C'est toujours le cas ici, même si celle-ci se trouve dans un tuple. Regardons cela :
 
 ```python
 >>> l1 = [1, 2, 3]
@@ -681,7 +697,7 @@ Nous confirmons ici le schéma de *Python Tutor*, c'est bien la même liste que 
 139971081980816
 ```
 
-Malgré la modification de cette liste, l'identifiant n'a toujours pas changé puisque la fonction `id()` nous renvoie toujours le même depuis le début. Ainsi, nous avons l'explication. Même si la sous-liste a été modifiée « de l'intérieur », Python considère que c'est toujours la même sous-liste puisqu'elle n'a pas changé d'identifiant. Si au contraire on essaie de remplacer cette sous-liste par autre chose, Python renvoie une erreur :
+Malgré la modification de cette liste, l'identifiant n'a toujours pas changé puisque la fonction `id()` nous renvoie toujours le même depuis le début. Ainsi, nous avons l'explication. Même si la liste a été modifiée « de l'intérieur », Python considère que c'est toujours la même liste puisqu'elle n'a pas changé d'identifiant. Si au contraire on essaie de remplacer cette sous-liste par autre chose, Python renvoie une erreur :
 
 ```python
 >>> t[0] = "Plif"
@@ -746,9 +762,9 @@ Les objets de type *set* représentent un autre type de containers qui peut se r
 <class 'set'>
 ```
 
-Remarquez que la répétition du 5 dans la définition du *set* en ligne 1 donne au final un seul 5 car chaque élément ne peut être présent qu'une seule fois. Comme pour les dictionnaires, les *sets* sont non ordonnés. La manière dont Python les affiche n'a pas de sens en tant que tel et peut être différente de celle utilisée lors de leur création.
+Remarquez que la répétition du 5 dans la définition du *set* en ligne 1 donne au final un seul 5 car chaque élément ne peut être présent qu'une seule fois. Comme pour les dictionnaires (jusqu'à la version 3.6), les *sets* sont non ordonnés. La manière dont Python les affiche n'a pas de sens en tant que tel et peut être différente de celle utilisée lors de leur création.
 
-Les *sets* ne peuvent contenir que des objets dits **hachables**. On a déjà vu plus haut cette notion avec les clés de dictionnaire. Pour rappel, les objets hashables que nous connaissons sont les chaînes de caractères, les tuples, les entiers, les *floats*, les booléens et les *frozensets* (cf. plus bas) ; les objets non hachables les listes, les *sets* et les dictionnaires. Si on essaie tout de même de mettre une liste dans un *set*, Python renvoie une erreur :
+Les *sets* ne peuvent contenir que des objets dits **hachables**. On a déjà vu plus haut cette notion avec les clés de dictionnaire. Ceci optimise l'accès à chaque élément du *set*. Pour rappel, les objets hachables que nous connaissons sont les chaînes de caractères, les tuples, les entiers, les *floats*, les booléens et les *frozensets* (cf. plus bas) ; les objets non hachables que l'on connait sont les listes, les *sets* et les dictionnaires. Si on essaie tout de même de mettre une liste dans un *set*, Python renvoie une erreur :
 
 ```python
 >>> s = {3, 4, "Plouf", (1, 3)}
