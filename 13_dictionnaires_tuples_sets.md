@@ -16,7 +16,7 @@ Les containers que nous connaissons depuis le début de ce cours sont les listes
 
 Dans la section suivante, nous allons examiner les différentes propriétés des containers. A la fin de ce chapitre, nous ferons un tableau récapitulatif de ces propriétés.
 
-### Propriétés des containers
+### Propriétés
 
 Examinons d'abord les propriétés qui caractérisent tous les types de container.
 
@@ -56,7 +56,7 @@ On comprend bien l'immutabilité des *strings* comme vu au chapitre 10, mais c'e
 
 open-box-def
 
-L'**identifiant** d'un objet est un nombre entier qui est garanti unique pendant toute la durée de vie de l'objet. Celui-ci peut être assimilé à l'adresse mémoire de l'objet qui elle aussi est unique. En Python, on utilise la fonction interne `id()` qui prend en argument un objet et renvoie son identifiant.
+L'**identifiant** d'un objet est un nombre entier qui est garanti constant pendant toute la durée de vie de l'objet. Cet identifiant est en général unique pour chaque objet. Toutefois, pour des raisons d'optimisation, Python crée parfois le même identifiant pour deux objets non modifiables différents qui ont la même valeur. L'identifiant peut être assimilé à l'adresse mémoire de l'objet qui elle aussi est unique. En Python, on utilise la fonction interne `id()` qui prend en argument un objet et renvoie son identifiant.
 
 close-box-def
 
@@ -91,13 +91,13 @@ La liste `l` a été modifiée en ligne 4 (changement de l'élément d'indice 1)
 
 open-box-def
 
-Un objet Python est dit **hachable** (*hashable* en anglais) s'il est possible de calculer une valeur de hachage sur celui-ci avec la fonction interne `hash()`. En programmation, la valeur de hachage peut être vue comme une empreinte numérique de l'objet. Elle est obtenue en passant l'objet dans une fonction de hachage et dépend du contenu de l'objet. En Python, cette empreinte est comme dans la plupart des langages de programmation un entier. Elle n'est pas forcément unique pour deux objets différents. Par exemple, deux entiers `a = 5` et `b = 5` ont la même valeur de hachage.
+Un objet Python est dit **hachable** (*hashable* en anglais) s'il est possible de calculer une valeur de hachage sur celui-ci avec la fonction interne `hash()`. En programmation, la valeur de hachage peut être vue comme une empreinte numérique de l'objet. Elle est obtenue en passant l'objet dans une fonction de hachage et dépend du contenu de l'objet. En Python, cette empreinte est comme dans la plupart des langages de programmation un entier. Deux objets qui ont un contenu identique auront la même valeur de hachage.
 
 close-box-def
 
 open-box-warn
 
-Attention, la valeur de hachage d'un objet renvoyée par la fonction `hash()` n'a pas le même sens que son identifiant renvoyé par la fonction `id()`. La valeur de hachage est obtenue en « moulinant » l'objet dans une fonction de hachage et dépend du contenu de l'objet. L'identifiant est attribué par Python à la création de l'objet. Il est unique et court tout le long de la durée de vie de l'objet, un peu comme une carte d'identité. Tout objet à un un identifiant, mais il doit être hachable pour avoir une valeur de hachage.
+Attention, la valeur de hachage d'un objet renvoyée par la fonction `hash()` n'a pas le même sens que son identifiant renvoyé par la fonction `id()`. La valeur de hachage est obtenue en « moulinant » l'objet dans une fonction de hachage et dépend du contenu de l'objet. L'identifiant est quant à lui attribué par Python à la création de l'objet. Il est constant tout le le long de la durée de vie de l'objet, un peu comme une carte d'identité. Tout objet a un un identifiant, mais il doit être hachable pour avoir une valeur de hachage.
 
 close-box-warn
 
@@ -109,7 +109,7 @@ close-box-more
 
 Pourquoi évoquer cette propriété ? D'abord, parce-qu'elle est étroitement liée à l'immutabilité. En effet, un objet non modifiable est la plupart du temps hachable. Par ailleurs, l'hachabilité permet un accès rapide aux éléments des containers de type dictionnaire ou *set* (cf. rubriques suivantes).
 
-Les objets hachables sont les chaînes de caractères, les entiers, les *floats*, les objets de type *range*, les tuples (sous certaines conditions) et les *frozensets* ; par contre, les listes, les *sets* et les dictionnaires sont non hachables. Les dictionnaires, tuples, *sets* et *frozensets* seront vus plus bas dans ce chapitre.
+Les objets hachables sont les chaînes de caractères, les entiers, les *floats*, les booléens, les objets de type *range*, les tuples (sous certaines conditions) et les *frozensets* ; par contre, les listes, les *sets* et les dictionnaires sont non hachables. Les dictionnaires, tuples, *sets* et *frozensets* seront vus plus bas dans ce chapitre.
 
 Voici un exemple :
 
@@ -750,7 +750,7 @@ close-box-adv
 
 ## *Sets* et *frozensets*
 
-### Définition et propriétés des *sets*
+### Définition et propriétés
 
 Les objets de type *set* représentent un autre type de containers qui peut se révéler très pratique. Ils ont la particularité d'être modifiables, non hachables, non ordonnés, non indexables et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau *set* on peut utiliser les accolades :
 
@@ -841,7 +841,7 @@ La méthode `.add()` ajoute au *set* l'élément passé en argument. Toutefois, 
 
 Enfin, les *sets* ne supportent pas les opérateurs `+` et `*`.
 
-### Utilité des *sets*
+### Utilité
 
 Les containers de type *set* sont très utiles pour rechercher les éléments uniques d'une suite d'éléments. Cela revient à éliminer tous les doublons. Par exemple :
 
