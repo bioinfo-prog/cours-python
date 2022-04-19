@@ -91,13 +91,13 @@ La liste `l` a été modifiée en ligne 4 (changement de l'élément d'indice 1)
 
 open-box-def
 
-Un objet Python est dit **hachable** (*hashable* en anglais) s'il est possible de calculer une valeur de hachage sur celui-ci avec la fonction interne `hash()`. En programmation, la valeur de hachage peut être vue comme une empreinte numérique de l'objet. Elle est obtenue en passant l'objet dans une fonction de hachage et dépend du contenu de l'objet. En Python, cette empreinte est comme dans la plupart des langages de programmation un entier. Deux objets qui ont un contenu identique auront la même valeur de hachage.
+Un objet Python est dit **hachable** (*hashable* en anglais) s'il est possible de calculer une valeur de hachage sur celui-ci avec la fonction interne `hash()`. En programmation, la valeur de hachage peut être vue comme une empreinte numérique de l'objet. Elle est obtenue en passant l'objet dans une fonction de hachage et dépend du contenu de l'objet. En Python, cette empreinte est comme dans la plupart des langages de programmation un entier. Au sein d'une même session Python, deux objets hachables qui ont un contenu identique auront strictement la même valeur de hachage.
 
 close-box-def
 
 open-box-warn
 
-Attention, la valeur de hachage d'un objet renvoyée par la fonction `hash()` n'a pas le même sens que son identifiant renvoyé par la fonction `id()`. La valeur de hachage est obtenue en « moulinant » l'objet dans une fonction de hachage et dépend du contenu de l'objet. L'identifiant est quant à lui attribué par Python à la création de l'objet. Il est constant tout le le long de la durée de vie de l'objet, un peu comme une carte d'identité. Tout objet a un un identifiant, mais il doit être hachable pour avoir une valeur de hachage.
+La valeur de hachage d'un objet renvoyée par la fonction `hash()` n'a pas le même sens que son identifiant renvoyé par la fonction `id()`. La valeur de hachage est obtenue en « moulinant » le contenu de l'objet dans une fonction de hachage. L'identifiant est quant à lui attribué par Python à la création de l'objet. Il est constant tout le le long de la durée de vie de l'objet, un peu comme une carte d'identité. Tout objet a un un identifiant, mais il doit être hachable pour avoir une valeur de hachage.
 
 close-box-warn
 
@@ -107,7 +107,7 @@ Pour aller plus loin, vous pouvez consulter la [page Wikipedia sur les fonctions
 
 close-box-more
 
-Pourquoi évoquer cette propriété ? D'abord, parce-qu'elle est étroitement liée à l'immutabilité. En effet, un objet non modifiable est la plupart du temps hachable. Par ailleurs, l'hachabilité permet un accès rapide aux éléments des containers de type dictionnaire ou *set* (cf. rubriques suivantes).
+Pourquoi évoquer cette propriété de hachabilité ? D'abord, parce-qu'elle est étroitement liée à l'immutabilité. En effet, un objet non modifiable est la plupart du temps hachable. Cela permet de l'identifier **en fonction de son contenu**. Par ailleurs, l'hachabilité est une implémentation qui permet un accès rapide aux éléments des containers de type dictionnaire ou *set* (cf. rubriques suivantes).
 
 Les objets hachables sont les chaînes de caractères, les entiers, les *floats*, les booléens, les objets de type *range*, les tuples (sous certaines conditions) et les *frozensets* ; par contre, les listes, les *sets* et les dictionnaires sont non hachables. Les dictionnaires, tuples, *sets* et *frozensets* seront vus plus bas dans ce chapitre.
 
@@ -158,7 +158,7 @@ La tentative de modification d'un élément en ligne 12 conduit à la même erre
 
 ### Définition
 
-Les **dictionnaires** se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. Les dictionnaires sont des collections non ordonnées d'objets (ceci est vrai jusqu'à la version 3.6 de Python, voir remarque ci-dessous). Il ne s'agit pas d'objets séquentiels comme les listes ou chaînes de caractères, mais plutôt d'objets dits de correspondance ou *mapping objects* en anglais. En effet, on accède aux **valeurs** d'un dictionnaire par des **clés**. Ceci semble un peu confus ? Regardez l'exemple suivant :
+Les **dictionnaires** se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. Les dictionnaires sont des collections non ordonnées d'objets (ceci est vrai jusqu'à la version 3.6 de Python, voir remarque ci-dessous). Il ne s'agit pas d'objets séquentiels comme les listes ou chaînes de caractères, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs. En effet, on accède aux **valeurs** d'un dictionnaire par des **clés**. Ceci semble un peu confus ? Regardez l'exemple suivant :
 
 ```python
 >>> ani1 = {}
@@ -173,7 +173,7 @@ En premier, on définit un dictionnaire vide avec les accolades `{}` (tout comme
 
 open-box-rem
 
-Jusqu'à la version 3.6 de Python, un dictionnaire était affiché sans ordre particulier. L'ordre d'affichage des éléments n'était pas forcément le même que celui dans lequel il avait été rempli. De même lorsqu'on itérait dessus, l'ordre n'était pas garanti. Depuis Python 3.7 (inclus), ce comportement a changé, un dictionnaire est toujours affiché dans le même ordre que celui utilisé pour le remplir. De même, si on itère sur un dictionnaire, cet ordre est respecté. Toute cela provient de l'implémentation interne des dictionnaires dans Python et cela nous concerne peu. Car ce qui importe, c'est de se rappeler qu'on accède aux éléments par des clés, donc cet ordre n'a pas d'importance spéciale sauf dans de rares cas.
+Jusqu'à la version 3.6 de Python, un dictionnaire était affiché sans ordre particulier. L'ordre d'affichage des éléments n'était pas forcément le même que celui dans lequel il avait été rempli. De même lorsqu'on itérait dessus, l'ordre n'était pas garanti. Depuis Python 3.7 (inclus), ce comportement a changé, un dictionnaire est toujours affiché dans le même ordre que celui utilisé pour le remplir. De même, si on itère sur un dictionnaire, cet ordre est respecté. Ce détail provient de l'implémentation interne des dictionnaires dans Python, mais cela nous concerne peu. Ce qui importe, c'est de se rappeler qu'on accède aux éléments par des clés, donc cet ordre n'a pas d'importance spéciale sauf dans de rares cas.
 
 close-box-rem
 
@@ -201,7 +201,7 @@ Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionna
 
 Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. On peut utiliser d'autres types d'objets comme des entiers, des *floats*, voire même des *tuples* (cf. rubrique suivante), cela peut s'avérer parfois très utile. Une règle est toutefois requise, les objets utilisés comme clé doivent être **hachables** (cf. rubrique précédente pour la définition).
 
-Pourquoi les clés doivent être des objets hachables ? C'est la raison d'être des dictionnaires, d'ailleurs ils sont aussi appelés [table de hachage](https://fr.wikipedia.org/wiki/Table_de_hachage) dans d'autres langages comme Perl. Convertir une clé en sa valeur de hachage permet un accès très rapide à chacun de ses éléments ainsi que des comparaisons de clés entre dictionnaires extrêmement efficaces. Même si on a vu que deux objets pouvaient avoir la même valeur de hachage, par exemple `a = 5` et `b = 5`, on ne peut mettre qu'une seule fois la clé `5`. Ceci nous assure que deux clés d'un même dictionnaire ont forcément une valeur de hachage différente.
+Pourquoi les clés doivent être des objets hachables ? C'est la raison d'être des dictionnaires, d'ailleurs ils sont aussi appelés [table de hachage](https://fr.wikipedia.org/wiki/Table_de_hachage) dans d'autres langages comme Perl. Convertir chaque clé en sa valeur de hachage permet un accès très rapide à chacun des éléments du dictionnaire ainsi que des comparaisons de clés entre dictionnaires extrêmement efficaces. Même si on a vu que deux objets pouvaient avoir la même valeur de hachage, par exemple `a = 5` et `b = 5`, on ne peut mettre qu'une seule fois la clé `5`. Ceci assure que deux clés d'un même dictionnaire ont forcément une valeur de hachage différente.
 
 open-box-adv
 
@@ -212,7 +212,7 @@ close-box-adv
 
 ### Itération sur les clés pour obtenir les valeurs
 
-Il est possible d'obtenir toutes les valeurs d'un dictionnaire à partir de ses clés :
+Si on souhaite voir toutes les associations clés / valeurs, on peut itérer sur un dictionnaire de la manière suivante :
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
@@ -224,10 +224,11 @@ nom singe
 taille 1.75
 ```
 
+Par défaut, l'itération sur un dictionnaire se fait sur les clés. Dans cet exemple, la variable d'itération `key` prend successivement la valeur de chaque clé, `ani2[key]` donne la valeur correspondant à chaque clé.
 
 ### Méthodes `.keys()`, `.values()` et `.items()`
 
-Les méthodes `.keys()` et `.values()` renvoient, comme vous pouvez vous en doutez, les clés et les valeurs d'un dictionnaire :
+Les méthodes `.keys()` et `.values()` renvoient, comme vous vous en doutez, les clés et les valeurs d'un dictionnaire :
 
 ```python
 >>> ani2.keys()
@@ -276,9 +277,9 @@ TypeError: 'dict_items' object is not subscriptable
 Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. On verra plus bas que cela peut-être utile pour construire des dictionnaires de compréhension.
 
 
-### Existence d'une clé
+### Existence d'une clé ou d'une valeur
 
-Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` qui renvoie un booléen :
+Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'opérateur `in` qui renvoie un booléen :
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
@@ -293,13 +294,31 @@ La clé 'poids' existe pour ani2
 
 Dans le second test (lignes 5 à 7), le message n'est pas affiché car la clé `age` n'est pas présente dans le dictionnaire `ani2`.
 
-
-### Méthode `.get()`
-
-La méthode `.get()` extrait la valeur associée à une clé mais ne renvoie pas d'erreur si la clé n'existe pas :
+Si on souhaite tester si une valeur existe dans un dictionnaire, on peut utiliser l'opérateur `in` avec l'objet renvoyé par la méthode `.values()` :
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> ani2.values()
+dict_values(['singe', 70, 1.75])
+>>> "singe" in ani2.values()
+True
+```
+
+### Méthode `.get()`
+
+Par défaut, si on demande la valeur associée à une clé qui n'existe pas, Python renvoie une erreur :
+
+```python
+>>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> ani2["age"]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'age'
+```
+
+La méthode `.get()` s'affranchit de ce problème. Elle extrait la valeur associée à une clé mais ne renvoie pas d'erreur si la clé n'existe pas :
+
+```python
 >>> ani2.get("nom")
 'singe'
 >>> ani2.get("age")
@@ -313,7 +332,6 @@ On peut également indiquer à `.get()` une valeur par défaut si la clé n'exis
 >>> ani2.get("age", 42)
 42
 ```
-
 
 ### Tri par clés
 
@@ -464,7 +482,7 @@ Traceback (most recent call last):
 TypeError: 'tuple' object does not support item assignment
 ```
 
-L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple, Python renvoie un message d'erreur. Ce message est similaire à celui que nous avions rencontré quand on essayait de modifier une chaîne de caractères (cf. chapitre 10). De manière générale, Python renverra un message `TypeError: '[...]' does not support item assignment` lorsqu'on essaie de modifier un élément d'un objet non modifiable.   Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
+L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple (en ligne 10), Python renvoie un message d'erreur. Ce message est similaire à celui que nous avions rencontré quand on essayait de modifier une chaîne de caractères (cf. chapitre 10). De manière générale, Python renverra un message `TypeError: '[...]' does not support item assignment` lorsqu'on essaie de modifier un élément d'un objet non modifiable.   Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
 
 ```python
 >>> t = (1, 2, 3)
@@ -499,6 +517,15 @@ Autre particularité des tuples, il est possible de les créer sans les parenth�
 Toutefois, afin d'éviter les confusions, nous vous conseillons d'utiliser systématiquement les parenthèses lorsque vous débutez.
 
 close-box-rem
+
+Les opérateurs `+` et `*` fonctionnent comme pour les listes (concaténation et duplication) :
+
+```python
+>>> (1, 2) + (3, 4)
+(1, 2, 3, 4)
+>>> (1, 2) * 4
+(1, 2, 1, 2, 1, 2, 1, 2)
+```
 
 Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement comme la fonction `list()`, c'est-à-dire qu'elle prend en argument un objet de type container et renvoie le tuple correspondant (opération de *casting*) :
 
@@ -764,7 +791,7 @@ Les objets de type *set* représentent un autre type de containers qui peut se r
 
 Remarquez que la répétition du 5 dans la définition du *set* en ligne 1 donne au final un seul 5 car chaque élément ne peut être présent qu'une seule fois. Comme pour les dictionnaires (jusqu'à la version 3.6), les *sets* sont non ordonnés. La manière dont Python les affiche n'a pas de sens en tant que tel et peut être différente de celle utilisée lors de leur création.
 
-Les *sets* ne peuvent contenir que des objets dits **hachables**. On a déjà vu plus haut cette notion avec les clés de dictionnaire. Ceci optimise l'accès à chaque élément du *set*. Pour rappel, les objets hachables que nous connaissons sont les chaînes de caractères, les tuples, les entiers, les *floats*, les booléens et les *frozensets* (cf. plus bas) ; les objets non hachables que l'on connait sont les listes, les *sets* et les dictionnaires. Si on essaie tout de même de mettre une liste dans un *set*, Python renvoie une erreur :
+Les *sets* ne peuvent contenir que des objets **hachables**. On a déjà eu le cas avec les clés de dictionnaire. Ceci optimise l'accès à chaque élément du *set*. Pour rappel, les objets hachables que nous connaissons sont les chaînes de caractères, les tuples, les entiers, les *floats*, les booléens et les *frozensets* (cf. plus bas) ; les objets non hachables que l'on connait sont les listes, les *sets* et les dictionnaires. Si on essaie tout de même de mettre une liste dans un *set*, Python renvoie une erreur :
 
 ```python
 >>> s = {3, 4, "Plouf", (1, 3)}
@@ -920,9 +947,9 @@ True
 True
 ```
 
-La méthode `.issubset()` indique si un *set* est inclus dans un autre *set*. La méthode `isdisjoint()` indique si un *set* est disjoint d'un autre *set*, cest-à-dire, s'ils n'ont aucun élément en commun indiquant que leur intersection est nulle.
+La méthode `.issubset()` indique si un *set* est inclus dans un autre *set*. La méthode `isdisjoint()` indique si un *set* est disjoint d'un autre *set*, c'est-à-dire, s'ils n'ont aucun élément en commun indiquant que leur intersection est nulle.
 
-Il existe de nombreuses autres méthodes que nous n'abordons pas ici qui peuvent être consultées sur la [documentation officielle de Python](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset).
+Il existe de nombreuses autres méthodes que nous n'abordons pas ici mais qui peuvent être consultées sur la [documentation officielle de Python](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset).
 
 ### *Frozensets*
 
@@ -955,12 +982,12 @@ close-box-adv
 
 ## Récapitulation des propriétés des containers
 
-Après ce tour d'horizon des différents containers, voici un tableau permettant de récapituler leurs propriétés.
+Après ce tour d'horizon des différents containers, voici un tableau récapitulant leurs propriétés.
 
 |                  | Container   | test d'appartenance et fonction `len()` | itérable | ordonné | indexable | modifiable | hachable |
 |:----------------:|:-----------:|:--------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
 |Objets séquentiels| liste       | oui                                    | oui      | oui     | oui       | oui        | non      |
-|                  | chaîne      | oui                                    | oui      | oui     | oui       | non        | oui      |
+|                  | chaîne de caractères     | oui                                    | oui      | oui     | oui       | non        | oui      |
 |                  | *range*     | oui                                    | oui      | oui     | oui       | non        | oui      |
 |                  | tuple       | oui                                    | oui      | oui     | oui       | non        | oui s'il ne contient que des objets hachables |
 |Objets de *mapping*| dictionnaire| oui                                   | oui sur les clés | non jusqu'à Python 3.6 inclus | non       | oui        | non      |
@@ -968,7 +995,7 @@ Après ce tour d'horizon des différents containers, voici un tableau permettant
 |                  | *frozensets*| oui                                    | oui      | non     | non       | non        | oui      |
 
 
-Ils peut être aussi intéressant de voir les propriétés des types numériques.
+Il est aussi intéressant de voir les propriétés des types numériques de base qui ne sont pas des containers.
 
 | Objet numérique | test d'appartenance et fonction `len()`| itérable | ordonné | indexable | modifiable | hachable |
 |:---------------:|:--------------------------------------:|:--------:|:-------:|:---------:|:----   ---:|:--------:|
@@ -988,6 +1015,10 @@ Nous avons vu au chapitre 11 *Plus sur les listes* les listes de compréhension.
 dict_items([('a', 10), ('g', 10), ('t', 11), ('c', 15)])
 >>> {key:val*2 for key, val in dico.items()}
 {'a': 20, 'g': 20, 't': 22, 'c': 30}
+>>>
+>>> animaux = (("singe", 3), ("girafe", 1), ("rhinocéros", 1), ("gazelle", 4))
+>>> {ani:nb for ani, nb in animaux}
+{'singe': 3, 'girafe': 1, 'rhinocéros': 1, 'gazelle': 4}
 ```
 
 Avec un dictionnaire de compréhension, on peut rapidement compter le nombre de chaque base dans une séquence d'ADN : 
@@ -1007,6 +1038,10 @@ Il est également possible de générer des *sets* de compréhension sur le mêm
 {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 >>> {i**2 for i in range(10)}
 {0, 1, 64, 4, 36, 9, 16, 49, 81, 25}
+>>>
+>>> animaux = (("singe", 3), ("girafe", 1), ("rhinocéros", 1), ("gazelle", 4))
+>>> {ani for ani, _ in animaux}
+{'rhinocéros', 'gazelle', 'singe', 'girafe'}
 ```
 
 ## Module *collections*
