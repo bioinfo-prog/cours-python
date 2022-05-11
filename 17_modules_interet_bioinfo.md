@@ -460,6 +460,8 @@ array([[   0,    0],
        [   0, -500]])
 ```
 
+La fonction `np.full()` est expliquée dans la rubrique suivante.
+
 open-box-rem
 
 On pourra noter que la stratégie `b = np.array(a)` fait bien une copie distincte de l'*array* `a` quelle que soit sa dimensionnalité. Ceci n'était pas le cas avec la fonction `list()` pour les copies de listes à partir de la dimensionnalité 2 : 
