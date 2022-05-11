@@ -767,7 +767,7 @@ Traceback (most recent call last):
 TypeError: unhashable type: 'list'
 ```
 
-Les tuples `t` et `t2` sont hachables car ils ne contiennet que des éléments hachables. Par contre, `t3` ne l'est pas car un de ses éléments est une liste.
+Les tuples `t` et `t2` sont hachables car ils ne contiennent que des éléments hachables. Par contre, `t3` ne l'est pas car un de ses éléments est une liste.
 
 open-box-adv
 
@@ -998,10 +998,11 @@ Après ce tour d'horizon des différents containers, voici un tableau récapitul
 Il est aussi intéressant de voir les propriétés des types numériques de base qui ne sont pas des containers.
 
 | Objet numérique | test d'appartenance et fonction `len()`| itérable | ordonné | indexable | modifiable | hachable |
-|:---------------:|:--------------------------------------:|:--------:|:-------:|:---------:|:----   ---:|:--------:|
+|:---------------:|:--------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
 | entier          |  non                                   | non      | non     | non       | non        | oui      |
 | *float*         |  non                                   | non      | non     | non       | non        | oui      |
 | booléen         |  non                                   | non      | non     | non       | non        | oui      |
+
 
 ## Dictionnaires et *sets* de compréhension
 

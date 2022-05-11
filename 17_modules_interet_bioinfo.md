@@ -30,7 +30,7 @@ On peut également définir un nom raccourci pour *NumPy* :
 
 ### Objets de type *array*
 
-Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un objet séquentiel (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple simple de conversion d'une liste à une dimension en objet *array* :
+Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un container (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple simple de conversion d'une liste à une dimension en objet *array* :
 
 ```python
 >>> import numpy as np
@@ -434,7 +434,7 @@ array([   0,    1, -300,    3,    4])
 
 open-box-warn
 
-Par défaut la copie d'*arrays* se fait par référence comme pour tous les objets séquentiels en Python (listes, *tuples*, dictionnaires, etc.).
+Par défaut la copie d'*arrays* se fait par référence comme pour tous les containers en Python (listes, *tuples*, dictionnaires, etc.).
 
 close-box-warn
 
