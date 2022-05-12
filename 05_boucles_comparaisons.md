@@ -130,7 +130,7 @@ Si, par contre, vous itérez sur une liste comportant des chaînes de caractère
 `for prenom in ["Joe", "Bill", "John"]:`
 
 
-### Itération sur les indices
+### Itération sur les indices ou les éléments
 
 Revenons à notre liste `animaux`. Nous allons maintenant parcourir cette liste, mais cette fois par une itération sur ses indices :
 
@@ -178,7 +178,7 @@ Python possède toutefois la fonction `enumerate()` qui vous permet d'itérer su
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
 >>> for i, animal in enumerate(animaux):
-...     print(f"L'animal {i} est un(e) {animaux[i]}")
+...     print(f"L'animal {i} est un(e) {animal}")
 ...
 L'animal 0 est un(e) girafe
 L'animal 1 est un(e) tigre
