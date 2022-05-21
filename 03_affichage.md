@@ -295,6 +295,8 @@ Le type de 2 est <class 'int'>
 
 Nous aurons l'occasion de revenir sur cette fonctionnalité au fur et à mesure de ce cours.
 
+Les possibilités offertes par les *f-strings* sont nombreuses. Pour vous y retrouver dans les différentes options de formatage, nous vous conseillons de consulter ce [mémo](https://fstring.help/cheat/) (en anglais).
+
 
 ## Écriture scientifique
 
