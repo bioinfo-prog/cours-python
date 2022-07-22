@@ -325,13 +325,13 @@ Par rapport à la discussion de la rubrique précédente, `min()` et `max()` son
 *Conseil* : utilisez l'interpréteur Python pour les exercices suivants.
 
 
-## Nombres de Friedman
+### Nombres de Friedman
 
 Les [nombres de Friedman](https://fr.wikipedia.org/wiki/Nombre_de_Friedman) sont des nombres qui peuvent s'exprimer avec tous leurs chiffres dans une expression mathématique.
 
 Par exemple, 347 est un nombre de Friedman car il peut s'écrire sous la forme $4+7^3$. De même pour 127 qui peut s'écire sous la forme $2^7 - 1$.
 
-Déterminez si les expressions suivantes correspondent à des nombres de Friedman :
+Déterminez si les expressions suivantes correspondent à des nombres de Friedman. Pour cela, vous les écrirez en Python puis exécuterez le code correspondant.
 
 - $7 + 3^6$
 - $(3 + 4)^3$
