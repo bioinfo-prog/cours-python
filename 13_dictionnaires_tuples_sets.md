@@ -984,21 +984,42 @@ close-box-adv
 
 Après ce tour d'horizon des différents containers, voici un tableau récapitulant leurs propriétés.
 
-|                  | Container   | test d'appartenance et fonction `len()` | itérable | ordonné | indexable | modifiable | hachable |
-|:----------------:|:-----------:|:--------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
-|Objets séquentiels| liste       | oui                                    | oui      | oui     | oui       | oui        | non      |
-|                  | chaîne de caractères     | oui                                    | oui      | oui     | oui       | non        | oui      |
-|                  | *range*     | oui                                    | oui      | oui     | oui       | non        | oui      |
-|                  | tuple       | oui                                    | oui      | oui     | oui       | non        | oui s'il ne contient que des objets hachables |
-|Objets de *mapping*| dictionnaire| oui                                   | oui sur les clés | non jusqu'à Python 3.6 inclus | non       | oui        | non      |
-|Objets *sets*     | *sets*      | oui                                    | oui      | non     | non       | oui        | non      |
-|                  | *frozensets*| oui                                    | oui      | non     | non       | non        | oui      |
+### Objets séquentiels
+
+| Container             | test d'appartenance et fonction `len()` | itérable | ordonné | indexable | modifiable | hachable |
+|:----------------------|:---------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
+| liste                 | oui                                     | oui      | oui     | oui       | oui        | non      |
+| chaîne de caractères  | oui                                     | oui      | oui     | oui       | non        | oui      |
+| *range*               | oui                                     | oui      | oui     | oui       | non        | oui      |
+| tuple                 | oui                                     | oui      | oui     | oui       | non        | oui$^*$  |
 
 
-Il est aussi intéressant de voir les propriétés des types numériques de base qui ne sont pas des containers.
+$^*$ s'il ne contient que des objets hachables
+
+
+### Objects de *mapping*
+
+| Container             | test d'appartenance et fonction `len()` | itérable | ordonné | indexable | modifiable | hachable |
+|:----------------------|:---------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
+| dictionnaire          | oui                                     | oui sur les clés | oui$^*$  | non       | oui        | non      |
+
+$^*$ à partir de Python 3.7 uniquement
+
+
+### Objets *sets*
+
+| Container             | test d'appartenance et fonction `len()` | itérable | ordonné | indexable | modifiable | hachable |
+|:----------------------|:---------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
+| *sets*                | oui                                     | oui      | non     | non       | oui        | non      |
+| *frozensets*          | oui                                     | oui      | non     | non       | non        | oui      |
+
+
+### Types de base
+
+Il est aussi intéressant de comparer ces propriétés avec celles des types numériques de base qui ne sont pas des containers.
 
 | Objet numérique | test d'appartenance et fonction `len()`| itérable | ordonné | indexable | modifiable | hachable |
-|:---------------:|:--------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
+|:----------------|:--------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
 | entier          |  non                                   | non      | non     | non       | non        | oui      |
 | *float*         |  non                                   | non      | non     | non       | non        | oui      |
 | booléen         |  non                                   | non      | non     | non       | non        | oui      |
