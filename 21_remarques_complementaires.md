@@ -57,14 +57,14 @@ Faites très attention à cet aspect si vous programmez encore en Python 2, c'es
 
 ### La fonction `range()`
 
-En Python 3, la fonction `range()` est un générateur, c'est-à-dire que cette fonction va itérer sur le nombre entier donner en argument. On ne peut pas l'utiliser seule :
+En Python 3, la fonction `range()` renvoie un objet de type *range* (cf. chapitres 5 *Boucles et comparaisons* et 13 *Containers, dictionnaires, tuples et sets*) :
 
 ```python
 >>> range(3)
 range(0, 3)
 ```
 
-Lorsqu'on utilise `range(3)` dans une boucle, cela va produire successivement les nombres `0`, puis `1` puis `2`. Par exemple :
+Comme on a vu au chapitre 5 *Boucles et comparaisons*, ces objets sont itérables produisant successivement les nombres `0`, puis `1` puis `2` sur notre exemple :
 
 ```python
 >>> for i in range(3):
@@ -106,6 +106,9 @@ Pour générer une liste d'entiers avec la fonction `range()` en Python 3, vous 
 
 close-box-rem
 
+open-box-rem
+En Python 3, la fonction `range()` est ce qu'on appelle un **générateur** dans le sens où elle génère un objet contenant une série de valeurs, utilisables une à la fois, par itération dans une boucle *for*. L'objet de type *range* renvoyé par la fonction est quant à lui appelé **itérateur**. Si vous souhaitez en savoir un peu plus sur la différence entre un générateur et un itérateur, vous pouvez consulter cette [ressource](https://data-flair.training/blogs/python-generator-vs-iterator/).
+close-box-rem
 
 ### Encodage et utf-8
 
@@ -350,4 +353,4 @@ La variable `e` est une instance de l'exception `IOError`. Certains de ses attri
 
 Si tout se passe bien, la page est téléchargée est stockée dans la variable `data`, puis ensuite enregistrée sur le disque dur.
 
-Pour aller plus loin sur les exceptions, vous pouvez lire l'[excellente page](https://sametmax.com/gestion-des-erreurs-en-python/) du blog impertinent et politiquement incorrect de Sam et Max.
+Pour aller plus loin sur les exceptions, vous pouvez lire l'[excellente page](https://sametmax2.com/gestion-des-erreurs-en-python/) du blog impertinent et politiquement incorrect de Sam et Max.
