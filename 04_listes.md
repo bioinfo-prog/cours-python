@@ -28,7 +28,7 @@ liste  : ["girafe", "tigre", "singe", "souris"]
 indice :        0        1        2         3
 ```
 
-Soyez très **attentifs** au fait que les indices d'une liste de *n* éléments commence à *0* et se termine à *n-1*. Voyez l'exemple suivant :
+Soyez très **attentif** au fait que les indices d'une liste de *n* éléments commencent à *0* et se terminent à *n-1*. Voyez l'exemple suivant :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
