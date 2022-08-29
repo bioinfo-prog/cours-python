@@ -6,31 +6,31 @@ Lorsque l'on programme sur un système Unix (Mac OS X ou Linux par exemple), on 
 
 Pour cela, deux opérations sont nécessaires :
 
-1. Préciser la localisation de l'interpréteur Python en indiquant dans la première ligne du script :
+**Étape 1.** Préciser la localisation de l'interpréteur Python en indiquant dans la première ligne du script :
    
-    ```python
-    #! /usr/bin/env python
-    ```
+```python
+#! /usr/bin/env python
+```
 
-    Par exemple, si le script *test.py* contenait :
-    
-    ```python
-    print("Hello World !")
-    ```
+Par exemple, si le script *test.py* contenait :
 
-    il va alors contenir :
-    
-    ```python
-    #!/usr/bin/env python
+```python
+print("Hello World !")
+```
 
-    print("Hello World !")
-    ```
+il va alors contenir :
 
-2. Rendre le script Python exécutable en lançant l'instruction :
+```python
+#!/usr/bin/env python
 
-    ```bash
-    $ chmod +x test.py
-    ```
+print("Hello World !")
+```
+
+**Étape 2.**. Rendre le script Python exécutable en lançant l'instruction :
+
+```bash
+$ chmod +x test.py
+```
 
 open-box-rem
 
