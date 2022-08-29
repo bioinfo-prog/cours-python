@@ -41,6 +41,7 @@ Ainsi, le programmeur est libre de faire tous les appels qu'il souhaite. Une fon
 Une fonction récursive est une fonction qui s'appelle elle-même. Les fonctions récursives permettent d'obtenir une efficacité redoutable dans la résolution de certains algorithmes comme le [tri rapide](https://fr.wikipedia.org/wiki/Tri_rapide) (en anglais *quicksort*).
 
 Oublions la recherche d'efficacité pour l'instant et concentrons-nous sur l'exemple de la fonction mathématique factorielle. Nous vous rappelons que la factorielle s'écrit avec un `!` et se définit de la manière suivante :
+
 $$
 \begin{split}
 3! = & 3 \times 2 \times 1 = 6 \\
