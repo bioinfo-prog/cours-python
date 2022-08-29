@@ -146,7 +146,7 @@ array([[[1, 2],
         [5, 6]]])
 ```
 
-La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois ça devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être considéré comme un **vecteur** et un *array* à deux dimensions comme une **matrice**. Nous nous focaliserons dans la suite sur des *arrays* 1D ou 2D.
+La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois ça devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être assimilé à un **vecteur** et un *array* à deux dimensions à une **matrice**. Nous nous focaliserons dans la suite sur des *arrays* 1D ou 2D.
 
 Avant de continuer, il est important de définir comment sont organisés ces *arrays* 2D qui représentent des matrices. Il s'agit de tableaux de nombres qui sont organisés en lignes et en colonnes comme le montre la figure @fig:array2Dlignescolonnes. Les indices indiqués dans cette figure seront définis un peu plus loin dans la rubrique *Indices*.
 
@@ -384,7 +384,7 @@ array([1, 2])
 
 Lignes 5 à 8. La syntaxe `a[i,:]` renvoie la ligne d'indice `i`, et `a[:,j]` renvoie la colonne d'indice `j`. Les tranches sont évidemment aussi utilisables sur un *array* à deux dimensions.
 
-Lignes 9 à 10. La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, **on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{e}$ ligne et à la $j^{e}$ colonne.
+Lignes 9 à 10. La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, **on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne.
 
 open-box-rem
 
