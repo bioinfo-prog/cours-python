@@ -132,23 +132,23 @@ Si c'est bien le cas, bravo, *conda* et bien installé et vous pouvez passez à 
 
 Si vous souhaitez supprimer Miniconda, rien de plus simple, il suffit de suivre ces deux étapes :
 
-1. Supprimer le répertoire de Miniconda. Par exemple pour l'utilisateur `pierre` :
-    
-    ```bash
-    $ rm -rf /home/pierre/miniconda3
-    ```
+**Étape 1.** Supprimer le répertoire de Miniconda. Par exemple pour l'utilisateur `pierre` :
+
+```bash
+$ rm -rf /home/pierre/miniconda3
+```
   
-2. Dans le fichier de configuration du *shell Bash*, supprimer les lignes comprises entre 
+**Étape 2.** Dans le fichier de configuration du *shell Bash*, supprimer les lignes comprises entre 
     
-    ```bash
-    # >>> conda initialize >>>
-    ```
-    
-    et
-    
-    ```bash
-    # <<< conda initialize <<<
-    ```
+```bash
+# >>> conda initialize >>>
+```
+
+et
+
+```bash
+# <<< conda initialize <<<
+```
 
 
 ### Installation de Python avec Miniconda pour Mac OS X
