@@ -567,6 +567,55 @@ Il existe d'autres fonctions plus avancées telles que [np.genfromttxt()](https:
 
 close-box-more
 
+### Concaténation d'*arrays*
+
+Il peut être très utile de vouloir concaténer un ou plusieurs *arrays*. Il existe pour cela plusieurs fonctions dans Numpy, nous développerons celle qui nous parait la plus intuitive et directe `np.concatenate()`.
+
+Pour les *arrays* 1D, `np.concatenate()` prend en argument un tuple contenant les arrays à concaténer :
+
+```python
+>>> a = np.array((0, 1))
+>>> a2 = np.array((3, 4))
+>>> a
+array([0, 1])
+>>> a2
+array([3, 4])
+>>> np.concatenate((a, a2))
+array([0, 1, 3, 4])
+>>> np.concatenate((a, a2, a, a2))
+array([0, 1, 3, 4, 0, 1, 3, 4])
+```
+
+Pour les *arrays* 2D ça se complique un peu car on peut concaténer des lignes ou des colonnes ! Ainsi, `np.concatenate()` prend un argument optionnel, à savoir `axis`. Comme nous l'avions expliqué plus haut, celui-ci va indiquer à Numpy si on veut concaténer le long de l'axe 0 (les lignes) ou de l'axe 1 (les colonnes). Voyons un exemple :
+
+```python
+>>> a = np.reshape(np.array(range(6)), (3, 2))
+>>> a2 = a * 5
+>>> a
+array([[0, 1],
+       [2, 3],
+       [4, 5]])
+>>> a2
+array([[ 0,  5],
+       [10, 15],
+       [20, 25]])
+>>>
+>>> np.concatenate((a, a2), axis=0)
+array([[ 0,  1],
+       [ 2,  3],
+       [ 4,  5],
+       [ 0,  5],
+       [10, 15],
+       [20, 25]])
+>>> np.concatenate((a, a2), axis=1)
+array([[ 0,  1,  0,  5],
+       [ 2,  3, 10, 15],
+       [ 4,  5, 20, 25]])
+```
+
+En ligne 12, on concatène par ligne (`axis=0`), c'est-à-dire qu'on les lignes du deuxième *array* `a2` à celles de l'*array* `a`. En ligne 19, on concatène par colonne (`axis=1`). Attention, il vaut bien veiller à ce que la concaténation soit possible en terme de dimensionalité. Par exemple, en ligne 12, il faut que les 2 *arrays* `a` et `a2` aient le même nombre de colonnes.
+
+Ces opérations de concaténation sont très importantes. On les utilise par exemple si on a des données dans plusieurs fichiers différents et qu'on veut obtenir un *array* unique au final. Lisez bien également les recommandations dans la dernière rubrique *17.1.10 Quelques conseils* sur quand utiliser la concaténation.
 
 ### Un peu d'algèbre linéaire
 
@@ -878,7 +927,7 @@ Utilisez NumPy pour :
 Utilisez les listes :
 
 - lorsque vous avez besoin d'un container pour accumuler des valeurs (fussent-elles des sous-listes), surtout lorsqu'elles ne sont pas homogènes (i.e. du même type) ;
-- lorsque vous souhaitez accumuler des valeurs : la méthode `.append()` est bien plus efficace que faire grandir un *array* au fur et à mesure (ce que nous n'avons pas abordé) ; lorsqu'on ne peut pas utiliser les fonctions de lecture de fichier de *NumPy* pour quelque raison que ce soit, il est tout à fait classique de faire grandir une liste au fur et à mesure de la lecture du fichier puis de la convertir à la fin en *array*.
+- lorsque vous souhaitez accumuler des valeurs : la méthode `.append()` des listes est bien plus efficace que faire grandir un *array* au fur et à mesure (comme par exemple en ajoutant une ligne avec `np.concatenate()` à chaque tour de boucle lors d'une lecture de fichier) ; lorsqu'on ne peut pas utiliser les fonctions de lecture de fichier de *NumPy* pour quelque raison que ce soit, il est tout à fait classique de faire grandir une liste au fur et à mesure de la lecture du fichier puis de la convertir à la fin en *array*. De manière générale, utilisez `np.concatenate()` seulement pour concaténer des gros *arrays*, pas pour ajouter juste une ligne.
 
 Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) ou vos commentaires lorsque vous utilisez des *arrays NumPy*. *Numpy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* et sa dimensionnalité (1D, 2D, etc.).
 
