@@ -569,29 +569,31 @@ close-box-more
 
 ### Concaténation d'*arrays*
 
-Il peut être très utile de vouloir concaténer un ou plusieurs *arrays*. Il existe pour cela plusieurs fonctions dans Numpy, nous développerons celle qui nous parait la plus intuitive et directe `np.concatenate()`.
+Il peut être très utile de concaténer un ou plusieurs *arrays*. Il existe pour cela plusieurs fonctions dans *NumPy*, nous développerons celle qui nous parait la plus intuitive et directe : `np.concatenate()`.
 
 Pour les *arrays* 1D, `np.concatenate()` prend en argument un tuple contenant les arrays à concaténer :
 
 ```python
->>> a = np.array((0, 1))
+>>> a1 = np.array((0, 1))
 >>> a2 = np.array((3, 4))
->>> a
+>>> a1
 array([0, 1])
 >>> a2
 array([3, 4])
->>> np.concatenate((a, a2))
+>>> np.concatenate((a1, a2))
 array([0, 1, 3, 4])
->>> np.concatenate((a, a2, a, a2))
+>>> np.concatenate((a2, a1))
+array([3, 4, 0, 1])
+>>> np.concatenate((a1, a2, a1, a2))
 array([0, 1, 3, 4, 0, 1, 3, 4])
 ```
 
-Pour les *arrays* 2D ça se complique un peu car on peut concaténer des lignes ou des colonnes ! Ainsi, `np.concatenate()` prend un argument optionnel, à savoir `axis`. Comme nous l'avions expliqué plus haut, celui-ci va indiquer à Numpy si on veut concaténer le long de l'axe 0 (les lignes) ou de l'axe 1 (les colonnes). Voyons un exemple :
+Pour les *arrays* 2D ça se complique un peu car on peut concaténer des lignes ou des colonnes ! Ainsi, `np.concatenate()` prend un argument optionnel, à savoir `axis`. Comme nous l'avions expliqué plus haut, celui-ci va indiquer à *NumPy* si on veut concaténer le long de l'axe 0 (les lignes) ou le long de l'axe 1 (les colonnes). Voyons un exemple :
 
 ```python
->>> a = np.reshape(np.array(range(6)), (3, 2))
+>>> a1 = np.reshape(np.array(range(6)), (3, 2))
 >>> a2 = a * 5
->>> a
+>>> a1
 array([[0, 1],
        [2, 3],
        [4, 5]])
@@ -600,22 +602,22 @@ array([[ 0,  5],
        [10, 15],
        [20, 25]])
 >>>
->>> np.concatenate((a, a2), axis=0)
+>>> np.concatenate((a1, a2), axis=0)
 array([[ 0,  1],
        [ 2,  3],
        [ 4,  5],
        [ 0,  5],
        [10, 15],
        [20, 25]])
->>> np.concatenate((a, a2), axis=1)
+>>> np.concatenate((a1, a2), axis=1)
 array([[ 0,  1,  0,  5],
        [ 2,  3, 10, 15],
        [ 4,  5, 20, 25]])
 ```
 
-En ligne 12, on concatène par ligne (`axis=0`), c'est-à-dire qu'on les lignes du deuxième *array* `a2` à celles de l'*array* `a`. En ligne 19, on concatène par colonne (`axis=1`). Attention, il vaut bien veiller à ce que la concaténation soit possible en terme de dimensionalité. Par exemple, en ligne 12, il faut que les 2 *arrays* `a` et `a2` aient le même nombre de colonnes.
+En ligne 12, on concatène par ligne (`axis=0`), c'est-à-dire qu'on ajoute les lignes du deuxième *array* `a2` à celles de l'*array* `a1`. En ligne 19, on concatène par colonne (`axis=1`). Attention, il vaut bien veiller à ce que la concaténation soit possible en terme de dimensionalité. Par exemple, en ligne 12, il faut que les 2 *arrays* `a1` et `a2` aient le même nombre de colonnes.
 
-Ces opérations de concaténation sont très importantes. On les utilise par exemple si on a des données dans plusieurs fichiers différents et qu'on veut obtenir un *array* unique au final. Lisez bien également les recommandations dans la dernière rubrique *17.1.10 Quelques conseils* sur quand utiliser la concaténation.
+Ces opérations de concaténation sont très importantes. On les utilise par exemple si on a des données dans plusieurs fichiers différents et qu'on veut obtenir un *array* unique au final. On verra qu'on peut faire le même genre de chose avec les fameux *dataframes* du module *pandas*. Lisez bien également les recommandations dans la dernière rubrique *17.1.10 Quelques conseils* sur quand utiliser la concaténation d'*arrays* *NumPy*.
 
 ### Un peu d'algèbre linéaire
 
@@ -918,7 +920,7 @@ En deux lignes de code cela est fait alors qu'il aurait fallu faire des boucles 
 
 Nous venons de voir une petite partie du module *NumPy* mais vous avez pu en constater son extraordinaire puissance. On pourrait au premier abord être tenté d'abandonner les listes, toutefois elles gardent toute leur importance. Alors quand utiliser les listes ou quand utiliser les *arrays NumPy* ? Voici une liste non exhaustive d'éléments qui peuvent guider votre choix :
 
-Utilisez NumPy pour :
+Utilisez *NumPy* pour :
 
 - les opérations vectorielles (éléments par éléments) ;
 - lorsque vous souhaitez manipuler des objets mathématiques (vecteurs, matrices, etc.) et les outils associés (algèbre linéaire) ;
@@ -927,9 +929,9 @@ Utilisez NumPy pour :
 Utilisez les listes :
 
 - lorsque vous avez besoin d'un container pour accumuler des valeurs (fussent-elles des sous-listes), surtout lorsqu'elles ne sont pas homogènes (i.e. du même type) ;
-- lorsque vous souhaitez accumuler des valeurs : la méthode `.append()` des listes est bien plus efficace que faire grandir un *array* au fur et à mesure (comme par exemple en ajoutant une ligne avec `np.concatenate()` à chaque tour de boucle lors d'une lecture de fichier) ; lorsqu'on ne peut pas utiliser les fonctions de lecture de fichier de *NumPy* pour quelque raison que ce soit, il est tout à fait classique de faire grandir une liste au fur et à mesure de la lecture du fichier puis de la convertir à la fin en *array*. De manière générale, utilisez `np.concatenate()` seulement pour concaténer des gros *arrays*, pas pour ajouter juste une ligne.
+- lorsque vous souhaitez accumuler des valeurs au fur et à mesure des itérations d'une boucle : la méthode `.append()` des listes est bien plus efficace que faire grandir un *array* ligne par ligne (i.e. en ajoutant une ligne avec `np.concatenate()` à chaque tour de boucle) ; lorsqu'on ne peut pas utiliser les fonctions de lecture de fichier de *NumPy* pour quelque raison que ce soit, il est tout à fait classique de faire grandir une liste au fur et à mesure de la lecture du fichier puis de la convertir à la fin en *array*. De manière générale, utilisez `np.concatenate()` seulement pour concaténer des gros *arrays*, pas pour ajouter juste une ligne.
 
-Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) ou vos commentaires lorsque vous utilisez des *arrays NumPy*. *Numpy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* et sa dimensionnalité (1D, 2D, etc.).
+Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) ou vos commentaires lorsque vous utilisez des *arrays NumPy*. *NumPy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* et sa dimensionnalité (1D, 2D, etc.).
 
 Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules *SciPy* et *matplotlib* (et aussi aux *notebooks Jupyter*, voir le chapitre suivant), il permet de faire de l'analyse scientifique. On verra un peu plus loin dans ce chapitre que la puissance de *NumPy* est également utilisée par le module *pandas* et ses fameux *dataframes* pour faire de l'analyse de données.
 
