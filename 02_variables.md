@@ -68,7 +68,7 @@ Par ailleurs, un nom de variable ne doit pas débuter par un chiffre et il n'est
 
 De plus, il faut absolument éviter d'utiliser un mot « réservé » par Python comme nom de variable (par exemple : `print`, `range`, `for`, `from`, etc.).
 
-Enfin, Python est sensible à la casse, ce qui signifie que les variables `TesT`, `test` ou `TEST` sont différentes.
+Enfin, Python est sensible à la casse, ce qui signifie que les variables `TesT`, `test` et `TEST` sont différentes.
 
 
 ## Écriture scientifique

@@ -4,7 +4,7 @@
 
 ### Principe
 
-En programmation, on est souvent amené à répéter plusieurs fois une instruction. Incontournables à tout langage de programmation, les boucles vont nous aider à réaliser cette tâche de manière compacte et efficace.
+En programmation, on est souvent amené à répéter plusieurs fois une instruction. Incontournables à tout langage de programmation, les boucles vont nous aider à réaliser cette tâche répétitive de manière compacte et efficace.
 
 Imaginez par exemple que vous souhaitiez afficher les éléments d'une liste les uns après les autres. Dans l'état actuel de vos connaissances, il faudrait taper quelque chose du style :
 
@@ -32,19 +32,24 @@ souris
 
 Commentons en détails ce qu'il s'est passé dans cet exemple :
 
-La variable `animal` est appelée **variable d'itération**, elle prend successivement les différentes valeurs de la liste `animaux` à chaque itération de la boucle. On verra un peu plus loin dans ce chapitre que l'on peut choisir le nom que l'on veut pour cette variable. Celle-ci est créée par Python la première fois que la ligne contenant le `for` est exécutée (si elle existait déjà son contenu serait écrasé). Une fois la boucle terminée, cette variable d'itération `animal` ne sera pas détruite et contiendra ainsi la dernière valeur de la liste `animaux` (ici la chaîne de caractères `souris`).
+La variable `animal` est appelée **variable d'itération**, elle prend successivement les différentes valeurs de la liste `animaux` à chaque itération de la boucle. On verra un peu plus loin dans ce chapitre que l'on peut choisir le nom que l'on veut pour cette variable. Celle-ci est créée par Python la première fois que la ligne contenant le `for` est exécutée (si elle existait déjà son contenu serait écrasé). Une fois la boucle terminée, cette variable d'itération `animal` n'est pas détruite et conserve la dernière valeur de la liste `animaux` (ici la chaîne de caractères `"souris"`).
 
-Notez bien les types des variables utilisées ici : `animaux` est une **liste** sur laquelle on itère, et `animal` est une **chaîne de caractères** car chaque élément de la liste est une chaîne de caractères. Nous verrons plus loin que la variable d'itération peut être de n'importe quel type selon la liste parcourue. En Python, une boucle itère toujours sur un objet dit **séquentiel** (c'est-à-dire un objet constitué d'autres objets) tel qu'une liste. Nous verrons aussi plus tard d'autres objets séquentiels sur lesquels on peut itérer dans une boucle.
+Notez bien les types des variables utilisées ici :
+
+- `animaux` est une **liste** sur laquelle on itère,
+- `animal` est une **chaîne de caractères** car chaque élément de la liste `animaux` est une chaîne de caractères.
+
+Nous verrons plus loin que la variable d'itération peut être de n'importe quel type selon la liste parcourue. En Python, une boucle itère toujours sur un objet dit **séquentiel** (c'est-à-dire un objet constitué d'autres objets) tel qu'une liste. Nous verrons aussi plus tard d'autres objets séquentiels sur lesquels on peut itérer dans une boucle.
 
 D'ores et déjà, prêtez attention au caractère **deux-points** « `:` » à la fin de la ligne débutant par `for`. Cela signifie que la boucle `for` attend un **bloc d'instructions**, en l’occurrence toutes les instructions que Python répétera à chaque itération de la boucle. On appelle ce bloc d'instructions le **corps de la boucle**. Comment indique-t-on à Python où ce bloc commence et se termine ? Cela est signalé uniquement par l'**indentation**, c'est-à-dire le décalage vers la droite de la (ou des) ligne(s) du bloc d'instructions.
 
 open-box-rem
 
-Les notions de bloc d'instruction et d'indentations avait été abordées rapidement dans le chapitre 1 *Introduction*.
+Les notions de bloc d'instruction et d'indentations ont été introduites dans le chapitre 1 *Introduction*.
 
 close-box-rem
 
-Dans l'exemple suivant, le corps de la boucle contient deux instructions : `print(animal)` et `print(animal*2)` car elles sont indentées par rapport à la ligne débutant par `for` :
+Dans l'exemple suivant, le corps de la boucle contient deux instructions (ligne 2 et ligne 3) car elles sont indentées par rapport à la ligne débutant par `for` :
 
 ```python
 for animal in animaux:
@@ -53,7 +58,7 @@ for animal in animaux:
 print("C'est fini")
 ```
 
-La ligne 4 `print("C'est fini")` ne fait pas partie du corps de la boucle car elle est au même niveau que le `for` (c'est-à-dire non indentée par rapport au `for`). Notez également que chaque instruction du corps de la boucle doit être indentée de la même manière (ici 4 espaces).
+La ligne 4 ne fait pas partie du corps de la boucle car elle est au même niveau que le `for` (c'est-à-dire non indentée par rapport au `for`). Notez également que chaque instruction du corps de la boucle doit être indentée de la même manière (ici 4 espaces).
 
 open-box-rem
 
@@ -125,10 +130,13 @@ L'instruction `list(range(4))` se contente de transformer un objet de type *rang
 
 Dans l'exemple précédent, nous avons choisi le nom `i` pour la variable d'itération. Ceci est une habitude en informatique et indique en général qu'il s'agit d'un entier (le nom `i` vient sans doute du mot indice ou *index* en anglais). Nous vous conseillons de suivre cette convention afin d'éviter les confusions, si vous itérez sur les indices vous pouvez appeler la variable d'itération `i` (par exemple dans `for i in range(4):`).
 
-Si, par contre, vous itérez sur une liste comportant des chaînes de caractères, mettez un nom explicite pour la variable d'itération. Par exemple :
+Si, par contre, vous itérez sur une liste comportant des chaînes de caractères, utilisez un nom explicite pour la variable d'itération. Par exemple :
 
 `for prenom in ["Joe", "Bill", "John"]:`
 
+ou
+
+`for proportion in [0.12, 0.53, 0.07, 0.28]:`
 
 ### Itération sur les indices ou les éléments
 
@@ -192,14 +200,14 @@ Avant de passer à une autre sorte de boucles (les boucles `while`), nous abordo
 
 Python est capable d'effectuer toute une série de comparaisons entre le contenu de deux variables, telles que :
 
-| Syntaxe Python | Signification       |
-|:--------------:|---------------------|
-|      `==`      | égal à              |
-|      `!=`      | différent de        |
-|       `>`      | supérieur à         |
-|      `>=`      | supérieur ou égal à |
-|       `<`      | inférieur à         |
-|      `<=`      | inférieur ou égal à |
+| Syntaxe Python | Signification           |
+|:--------------:|-------------------------|
+|      `==`      | égal à                  |
+|      `!=`      | différent de            |
+|       `>`      | strictement supérieur à |
+|      `>=`      | supérieur ou égal à     |
+|       `<`      | strictement inférieur à |
+|      `<=`      | inférieur ou égal à     |
 
 Observez les exemples suivants avec des nombres entiers.
 
@@ -250,7 +258,7 @@ Dans ce cas, Python compare les deux chaînes de caractères, caractère par car
 
 ## Boucles `while`
 
-Une autre alternative à l'instruction `for` couramment utilisée en informatique est la boucle `while`. Le principe est simple. Une série d'instructions est exécutée tant qu'une condition est vraie. Par exemple :
+Une alternative à l'instruction `for` couramment utilisée en informatique est la boucle `while`. Avec ce type de boucle, une série d'instructions est exécutée tant qu'une condition est vraie. Par exemple :
 
 ```python
 >>> i = 1
@@ -297,7 +305,7 @@ Entrez un entier supérieur à 10 : 15
 15
 ```
 
-La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères. Il faut ensuite convertir cette dernière en entier (avec la fonction `int()`).
+La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères. Il faut ensuite convertir cette dernière en entier (avec la fonction `int()` ligne 4).
 
 
 ## Exercices
@@ -307,7 +315,7 @@ La fonction `input()` prend en argument un message (sous la forme d'une chaîne 
 
 ### Boucles de base
 
-Soit la liste `["vache", "souris", "levure", "bacterie"]`. Affichez l'ensemble des éléments de cette liste (un élément par ligne) de trois manières différentes (deux avec `for` et une avec `while`).
+Soit la liste `["vache", "souris", "levure", "bacterie"]`. Affichez l'ensemble des éléments de cette liste (un élément par ligne) de trois façons différentes (deux méthodes avec `for` et une avec `while`).
 
 
 ### Boucle et jours de la semaine
@@ -433,7 +441,7 @@ Imaginons que l'on souhaite parcourir tous les éléments d'une matrice carrée,
 
 Créez un script qui parcourt chaque élément de la matrice et qui affiche le numéro de ligne et de colonne uniquement avec des boucles `for`.
 
-Pour une matrice 2 $\times$ 2, le schéma de la figure @fig:parcoursmatrice vous indique comment parcourir une telle matrice. L'affichage attendu est :
+Pour une matrice de dimensions 2 $\times$ 2, le schéma de la figure @fig:parcoursmatrice vous indique comment parcourir une telle matrice. L'affichage attendu est :
 
 ```text
 ligne colonne
@@ -445,7 +453,7 @@ ligne colonne
 
 ![Parcours d'une matrice.](img/parcours_matrice.png "Parcours d'une matrice"){ #fig:parcoursmatrice width=30% }
 
-Attention à bien respecter l'alignement des chiffres qui doit être justifié à droite sur 4 caractères. Testez pour une matrice 3 $\times$ 3, puis 5 $\times$ 5, et enfin 10 $\times$ 10.
+Attention à bien respecter l'alignement des chiffres qui doit être justifié à droite sur 4 caractères. Testez avec une matrice de dimensions 3 $\times$ 3, puis 5 $\times$ 5, et enfin 10 $\times$ 10.
 
 Créez une seconde version de votre script, cette fois-ci avec deux boucles `while`.
 
