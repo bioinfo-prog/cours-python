@@ -21,7 +21,7 @@ On charge le module *NumPy* avec la commande :
 >>> import numpy
 ```
 
-On peut également définir un nom raccourci pour *NumPy* :
+On utilise très souvent un nom raccourci pour *NumPy* :
 
 ```python
 >>> import numpy as np
@@ -2118,10 +2118,16 @@ close-box-more
 
 ## Exercices
 
-La barstar est un inhibiteur de ribonucléase. C'est une protéine relativement simple qui contient 89 acides aminés. Sa structure tridimensionnelle, obtenue par cristallographie aux rayons X, se trouve dans la *Protein Data Bank* (PDB) sous le code 1BTA.
+### Nombres pairs et impairs
+
+Soit `impairs` un *array* *NumPy* qui contient les nombres `1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21`. En une seule instruction, construisez l'*array* `pairs` dans lequel tous les éléments de `impairs` sont incrémentés de 1.
+
+Comparez ce que venez de faire avec l'exercice 5.4.4 du chapitre 4 *Boucles et comparaisons*.
 
 
 ### Distance entre deux atomes carbones alpha consécutifs de la barstar
+
+La barstar est un inhibiteur de ribonucléase. C'est une protéine relativement simple qui contient 89 acides aminés. Sa structure tridimensionnelle, obtenue par cristallographie aux rayons X, se trouve dans la *Protein Data Bank* (PDB) sous le code 1BTA.
 
 L'objectif de cet exercice est de calculer la distance entre carbones alpha consécutifs le long de la chaîne peptidique avec module *NumPy*.
 
