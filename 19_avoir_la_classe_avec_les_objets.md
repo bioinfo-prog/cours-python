@@ -1712,7 +1712,7 @@ Lignes 5 à 8. Les attributs / éléments sont non modifiables !
 
 Lignes 9 à 15. Les *namedtuples* sont itérables.
 
-Les *namedtuples* sont non modifiables, mais on peut en générer un nouveau avec la méthode `._replace()`, à l'image de la méthode `.replace()` pour les chaînes de caractères :
+Un *namedtuple* est non modifiable, mais on peut en générer un nouveau avec la méthode `._replace()`, à l'image de la méthode `.replace()` pour les chaînes de caractères :
 
 ```
 >>> citron._replace(masse=30)
