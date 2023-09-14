@@ -1712,6 +1712,23 @@ Lignes 5 à 8. Les attributs / éléments sont non modifiables !
 
 Lignes 9 à 15. Les *namedtuples* sont itérables.
 
+Les *namedtuples* sont non modifiables, mais on peut en générer un nouveau avec la méthode `._replace()`, à l'image de la méthode `.replace()` pour les chaînes de caractères :
+
+```
+>>> citron._replace(masse=30)
+Citron(masse=30, couleur='jaune', saveur='acide', forme='ellipsoide')
+>>> citron
+Citron(masse=10, couleur='jaune', saveur='acide', forme='ellipsoide')
+>>> citron = citron._replace(masse=30)
+>>> citron
+Citron(masse=30, couleur='jaune', saveur='acide', forme='ellipsoide')```
+
+Lignes 1 et 2. On crée un nouveau *namedtuples* avec la méthode `._replace()`. Notez qu'il faut passer un (ou plusieurs) argument(s) par mot-clé à cette méthode désignant les attributs à modifier.
+
+Lignes 3 et 4. L'objet initial `citron` est intact puisqu'un *namedtuples* est non modifiable.
+
+Lignes 5 à 7. En ré-affectant ce que renvoie la méthode `._replace()` dans dans un objet de même nom `citron`, on peut faire évoluer son contenu comme on a pu le faire avec les chaînes de caractères.
+
 Enfin, il est possible de convertir un *namedtuple* en dictionnaire (ordonné) avec la méthode `._asdict()` :
 
 ```
