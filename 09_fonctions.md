@@ -385,7 +385,7 @@ En écrivant qu'une seule fois la formule de conversion dans une fonction, on ap
 37.77777777777778
 ```
 
-Et s'il y a une erreur dans la formule, il suffira de le corriger qu'une seule fois, dans la fonction `convert_fahrenheit_to_celsius()`.
+Et s'il y a une erreur dans la formule, il suffira de ne la corriger qu'une seule fois, dans la fonction `convert_fahrenheit_to_celsius()`.
 
 ## Exercices
 
