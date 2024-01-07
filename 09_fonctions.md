@@ -536,11 +536,11 @@ Les écarts sur les statistiques entre les différentes listes sont-ils importan
 
 ### Distance à l'origine (exercice +++)
 
-En reprenant votre fonction de calcul de distance euclidienne en 3D `calc_distance_3D()`, faites-en une version pour deux dimensions que vous appellerez `calc_distance_2D()`.
+En reprenant votre fonction de calcul de distance euclidienne en trois dimensions `calc_distance_3D()`, faites-en une version pour deux dimensions que vous appellerez `calc_distance_2D()`.
 
 Créez une autre fonction `calc_dist2ori()` à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$).
 
-La figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en trait épais). Chaque trait pointillé représente la distance que l'on cherche à calculer entre les points de la courbe et l'origine du repère de coordonnées (0, 0).
+La figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en trait épais). Chaque trait pointillé représente la distance que l'on cherche à calculer entre les points de la courbe et l'origine du repère de coordonnées $(0, 0$).
 
 ![Illustration de la distance à l'origine.](img/sin2ori.png){ #fig:sin2ori width=60% }
 
@@ -549,7 +549,7 @@ Votre programme générera un fichier `sin2ori.dat` qui contiendra deux colonnes
 Enfin, pour visualiser votre résultat, ajoutez le code suivant tout à la fin de votre script :
 
 ```python
-# création d'une image pour la visualisation du résultat
+# Création d'une image pour la visualisation du résultat.
 import matplotlib.pyplot as plt
 
 x = []

@@ -450,8 +450,11 @@ La séquence possède XXX codons
 ```
 où `WWW` et `XXX` sont des entiers et `YYYYYYYYYY` et `ZZZZZZZZZZ` sont des bases.
 
-*Conseil* : vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+open-box-adv
 
+Vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+
+close-box-adv
 
 ### Fréquence des bases dans une séquence d'ADN
 

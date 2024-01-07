@@ -26,18 +26,17 @@ Les fichiers contenant une ou plusieurs séquences au format FASTA portent la pl
 
 ### Exemples
 
-La séquence protéique au format FASTA de la sous-unité $\beta$ de l'[hémoglobine humaine](https://www.uniprot.org/uniprot/P68871), extraite de la base de données UniProt, est :
+La séquence protéique au format FASTA de l'[insuline humaine](https://www.uniprot.org/uniprot/P01308), extraite de la base de données UniProt, est :
 
 ```text
->sp|P68871|HBB_HUMAN Hemoglobin subunit beta OS=Homo sapiens OX=9606 GN=HBB PE=1 SV=2
-MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK
-VKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFG
-KEFTPPVQAAYQKVVAGVANALAHKYH
+>sp|P01308|INS_HUMAN Insulin OS=Homo sapiens OX=9606 GN=INS PE=1 SV=1
+MALWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAED
+LQVGQVELGGGPGAGSLQPLALEGSLQKRGIVEQCCTSICSLYQLENYCN
 ```
 
-La première ligne contient la description de la séquence (*Hemoglobin subunit beta*), le type de base de données (ici *sp* qui signifie Swiss-Prot), son identifiant (*P68871*) et son nom (*HBB_HUMAN*) dans cette base de données, ainsi que d'autres informations (*S=Homo sapiens OX=9606 GN=HBB PE=1 SV=2*).
+La première ligne contient la description de la séquence (*Insulina*), le type de base de données (ici *sp* qui signifie Swiss-Prot), son identifiant (*P01308*) et son nom (*INS_HUMAN*) dans cette base de données, ainsi que d'autres informations (*OS=Homo sapiens OX=9606 GN=INS PE=1 SV=1B*).
 
-Les lignes suivantes contiennent la séquence sur des lignes ne dépassant pas, ici, 60 caractères. La séquence de la sous-unité $\beta$ de l'hémoglobine humaine est composée de 147 acides aminés, soit deux lignes de 60 caractères et une troisième de 27 caractères.
+Les lignes suivantes contiennent la séquence sur des lignes ne dépassant pas, ici, 60 caractères. La séquence de l'insuline humaine est composée de 110 acides aminés, soit une ligne de 60 caractères et une seconde de 50 caractères.
 
 open-box-def
 
@@ -149,15 +148,11 @@ SOURCE      Homo sapiens (human)
 [...]
 ```
 
-Ligne 1 (`LOCUS`) : le nom du locus (*HUMTRPSGNA*), la taille du gène (800 paires de base), le type de molécule (ARN messager).
-
-Ligne 3 (`ACCESSION`) : l'identifiant de la séquence (*M22612*).
-
-Ligne 4 (`VERSION`) :  la version de la séquence (*M22612.1*). Le nombre qui est séparé de l'identifiant de la séquence par un point est incrémenté pour chaque nouvelle version de la fiche GenBank. Ici *.1* indique que nous en sommes à la première version.
-
-Ligne 6 (`SOURCE`) : la provenance de la séquence. Souvent l'organisme d'origine.
-
-Ligne 7 (`  ORGANISME`) : le nom scientifique de l'organisme, suivi de sa taxonomie (lignes 8 à 10).
+- Ligne 1 (`LOCUS`) : le nom du locus (*HUMTRPSGNA*), la taille du gène (800 paires de base), le type de molécule (ARN messager).
+- Ligne 3 (`ACCESSION`) : l'identifiant de la séquence (*M22612*).
+- Ligne 4 (`VERSION`) :  la version de la séquence (*M22612.1*). Le nombre qui est séparé de l'identifiant de la séquence par un point est incrémenté pour chaque nouvelle version de la fiche GenBank. Ici *.1* indique que nous en sommes à la première version.
+- Ligne 6 (`SOURCE`) : la provenance de la séquence. Souvent l'organisme d'origine.
+- Ligne 7 (`  ORGANISME`) : le nom scientifique de l'organisme, suivi de sa taxonomie (lignes 8 à 10).
 
 
 ### Les *features*
@@ -190,17 +185,12 @@ FEATURES             Location/Qualifiers
 [...]
 ```
 
-Ligne 9 (`gene            1..800`) : la délimitation du gène. Ici de la base 1 à la base 800. Par ailleurs, la notation `<x..y` indique que la séquence est partielle sur l'extrémité 5'. Réciproquement, `x..y>` indique que la séquence est partielle sur l'extrémité 3'. Enfin, pour les séquences d'ADN, la notation `complement(x..y)` indique que le gène se trouve de la base *x* à la base *y*, mais sur le brin complémentaire.
-
-Ligne 10 (`/gene="TRY1"`) : le nom du gène.
-
-Ligne 11 (`CDS             7..750`) : la délimitation de la séquence codante.
-
-Ligne 14 (`/product="trypsinogen"`) : le nom de la protéine produite.
-
-Ligne 17 à 20 (`/translation="MNPLLIL...`) : la séquence protéique issue de la traduction de la séquence codante.
-
-Ligne 22 (`sig_peptide     7..51`) : la délimitation du peptide signal.
+- Ligne 9 (`gene            1..800`) : la délimitation du gène. Ici de la base 1 à la base 800. Par ailleurs, la notation `<x..y` indique que la séquence est partielle sur l'extrémité 5'. Réciproquement, `x..y>` indique que la séquence est partielle sur l'extrémité 3'. Enfin, pour les séquences d'ADN, la notation `complement(x..y)` indique que le gène se trouve de la base *x* à la base *y*, mais sur le brin complémentaire.
+- Ligne 10 (`/gene="TRY1"`) : le nom du gène.
+- Ligne 11 (`CDS             7..750`) : la délimitation de la séquence codante.
+- Ligne 14 (`/product="trypsinogen"`) : le nom de la protéine produite.
+- Ligne 17 à 20 (`/translation="MNPLLIL...`) : la séquence protéique issue de la traduction de la séquence codante.
+- Ligne 22 (`sig_peptide     7..51`) : la délimitation du peptide signal.
 
 
 ### La séquence

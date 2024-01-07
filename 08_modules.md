@@ -356,7 +356,7 @@ L'intérêt de récupérer des arguments passés dans la ligne de commande à l'
 
 Voici à titre d'exemple le script `compte_lignes.py` qui va prendre comme argument le nom d'un fichier puis afficher le nombre de lignes qu'il contient.
 
-```
+```python
 import sys
 
 if len(sys.argv) != 2:
@@ -462,7 +462,7 @@ Il existe de nombreuse autres fonctions dans le module *os*, n'hésitez pas à c
 
 ### Racine carrée
 
-Affichez sur la même ligne les nombres de 10 à 20 (inclus) ainsi que leur racine carrée avec 3 décimales. Utilisez pour cela le module *math* avec la fonction `sqrt()`. Exemple :
+Affichez sur la même ligne les nombres de 10 à 20 (inclus) ainsi que leur racine carrée avec trois décimales. Utilisez pour cela le module *math* avec la fonction `sqrt()`. Exemple :
 
 ```text
 10 3.162

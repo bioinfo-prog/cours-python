@@ -982,16 +982,16 @@ close-box-adv
 
 ## Récapitulation des propriétés des containers
 
-Après ce tour d'horizon des différents containers, voici un tableau récapitulant leurs propriétés.
+Après ce tour d'horizon des différents containers, voici un tableau récapitulant leurs propriétés. La mention « `in` et `len()` » indique que l'on peut tester l'appartenance d'un élément à un container avec l'opérateur `in` et que l'on peut connaître le nombre d'éléments du container avec la fonction `len()`. Les mentions « index. » et « modif. » indiquent « indexable » et « modifiable ».
 
 ### Objets séquentiels
 
-| Container             | test d'appartenance et fonction `len()` | itérable | ordonné | indexable | modifiable | hachable |
-|:----------------------|:---------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
-| liste                 | oui                                     | oui      | oui     | oui       | oui        | non      |
-| chaîne de caractères  | oui                                     | oui      | oui     | oui       | non        | oui      |
-| *range*               | oui                                     | oui      | oui     | oui       | non        | oui      |
-| tuple                 | oui                                     | oui      | oui     | oui       | non        | oui$^*$  |
+| Container             | `in` et `len()` | itérable | ordonné | index. | modif. | hachable |
+|:----------------------|:---------------:|:--------:|:-------:|:------:|:------:|:--------:|
+| liste                 | oui             | oui      | oui     | oui    | oui    | non      |
+| chaîne de caractères  | oui             | oui      | oui     | oui    | non    | oui      |
+| *range*               | oui             | oui      | oui     | oui    | non    | oui      |
+| tuple                 | oui             | oui      | oui     | oui    | non    | oui$^*$  |
 
 
 $^*$ s'il ne contient que des objets hachables
@@ -999,30 +999,30 @@ $^*$ s'il ne contient que des objets hachables
 
 ### Objects de *mapping*
 
-| Container             | test d'appartenance et fonction `len()` | itérable | ordonné | indexable | modifiable | hachable |
-|:----------------------|:---------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
-| dictionnaire          | oui                                     | oui sur les clés | oui$^*$  | non       | oui        | non      |
+| Container             | `in` et `len()` | itérable         | ordonné  | index. | modif. | hachable |
+|:----------------------|:---------------:|:----------------:|:--------:|:------:|:------:|:--------:|
+| dictionnaire          | oui             | oui sur les clés | oui$^*$  | non    | oui    | non      |
 
 $^*$ à partir de Python 3.7 uniquement
 
 
 ### Objets *sets*
 
-| Container             | test d'appartenance et fonction `len()` | itérable | ordonné | indexable | modifiable | hachable |
-|:----------------------|:---------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
-| *sets*                | oui                                     | oui      | non     | non       | oui        | non      |
-| *frozensets*          | oui                                     | oui      | non     | non       | non        | oui      |
+| Container             | `in` et `len()` | itérable | ordonné | index. | modif. | hachable |
+|:----------------------|:---------------:|:--------:|:-------:|:------:|:------:|:--------:|
+| *sets*                | oui             | oui      | non     | non    | oui    | non      |
+| *frozensets*          | oui             | oui      | non     | non    | non    | oui      |
 
 
 ### Types de base
 
 Il est aussi intéressant de comparer ces propriétés avec celles des types numériques de base qui ne sont pas des containers.
 
-| Objet numérique | test d'appartenance et fonction `len()`| itérable | ordonné | indexable | modifiable | hachable |
-|:----------------|:--------------------------------------:|:--------:|:-------:|:---------:|:----------:|:--------:|
-| entier          |  non                                   | non      | non     | non       | non        | oui      |
-| *float*         |  non                                   | non      | non     | non       | non        | oui      |
-| booléen         |  non                                   | non      | non     | non       | non        | oui      |
+| Objet numérique | `in` et `len()` | itérable | ordonné | index. | modif. | hachable |
+|:----------------|:---------------:|:--------:|:-------:|:------:|:------:|:--------:|
+| entier          |  non            | non      | non     | non    | non    | oui      |
+| *float*         |  non            | non      | non     | non    | non    | oui      |
+| booléen         |  non            | non      | non     | non    | non    | oui      |
 
 
 ## Dictionnaires et *sets* de compréhension
