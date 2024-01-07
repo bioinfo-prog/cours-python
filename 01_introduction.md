@@ -168,7 +168,7 @@ où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape a
 résultat
 ```
 
-En ligne 1 on a rentré la première partie de la ligne de code. On termine par un `\`, ainsi Python sait que la ligne de code n'est pas finie. L'interpréteur nous l'indique avec les `...`. En ligne 2, on rentre la fin de la ligne de code puis on appuie sur Entrée. A ce moment, Python nous génère le résultat. Si la ligne de code est vraiment très longue, il est même possible de la découper en trois voire plus :
+En ligne 1 on a rentré la première partie de la ligne de code. On termine par un `\`, ainsi Python sait que la ligne de code n'est pas finie. L'interpréteur nous l'indique avec les `...`. En ligne 2, on rentre la fin de la ligne de code puis on appuie sur *Entrée*. À ce moment, Python nous génère le résultat. Si la ligne de code est vraiment très longue, il est même possible de la découper en trois voire plus :
 
 ```python
 >>> Voici une ligne de code qui \
