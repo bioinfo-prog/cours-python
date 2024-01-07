@@ -144,7 +144,7 @@ Dans ce cas, on utilise plutôt `animaux[0]`.
 
 ## Tranches
 
-Un autre avantage des listes est la possibilité de sélectionner une partie d'une liste en utilisant un indiçage construit sur le modèle `[m:n+1]` pour récupérer tous les éléments, du émième au énième (de l'élément `m` inclus à l'élément `n+1` exclu). On dit alors qu'on récupère une **tranche** de la liste, par exemple :
+Un autre avantage des listes est la possibilité de sélectionner une partie d'une liste en utilisant un indiçage construit sur le modèle `[m:n+1]` pour récupérer tous les éléments, du émième au énième (de l'élément `m` inclu à l'élément `n+1` exclu). On dit alors qu'on récupère une **tranche** de la liste, par exemple :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
