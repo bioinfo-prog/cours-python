@@ -118,7 +118,14 @@ Les *f-strings* permettent une meilleure organisation de l'affichage des variabl
 John a 32 ans
 ```
 
-Il suffit de passer un nom de variable au sein de chaque couple d'accolades et Python les remplace par leur contenu ! Première remarque, la syntaxe apparait plus lisible que l'équivalent vu ci-avant `print(nom, "a", x, "ans")`. Bien sûr, il ne faut pas omettre le `f` avant le premier guillemet, sinon Python prendra cela pour une chaîne de caractères normale et ne mettra pas en place ce mécanisme de remplacement :
+Il suffit de passer un nom de variable au sein de chaque couple d'accolades et Python les remplace par leur contenu. La syntaxe apparait plus lisible que l'équivalent vu précédemment :
+
+```python
+>>> print(nom, "a", x, "ans")
+John a 32 ans
+```
+
+Bien sûr, il ne faut pas omettre le `f` avant le premier guillemet, sinon Python prendra cela pour une chaîne de caractères normale et ne mettra pas en place le mécanisme de remplacement entre les accolades :
 
 ```python
 >>> print("{nom} a {x} ans")
