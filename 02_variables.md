@@ -2,9 +2,9 @@
 
 ## Définition
 
-Une **variable** est une zone de la mémoire de l'ordinateur dans laquelle une **valeur** est stockée. Aux yeux du programmeur, cette variable est définie par un **nom**, alors que pour l'ordinateur, il s'agit en fait d'une adresse, c'est-à-dire d'une zone particulière de la mémoire.
+Une **variable**\index{variable} est une zone de la mémoire de l'ordinateur dans laquelle une **valeur** est stockée. Aux yeux du programmeur, cette variable est définie par un **nom**, alors que pour l'ordinateur, il s'agit en fait d'une adresse, c'est-à-dire d'une zone particulière de la mémoire.
 
-En Python, la **déclaration** d'une variable et son **initialisation** (c'est-à-dire la première valeur que l'on va stocker dedans) se font en même temps. Pour vous en convaincre, testez les instructions suivantes après avoir lancé l'interpréteur :
+En Python, la **déclaration**\index{variable!déclaration} d'une variable et son **initialisation**\index{variable!initialisation} (c'est-à-dire la première valeur que l'on va stocker dedans) se font en même temps. Pour vous en convaincre, testez les instructions suivantes après avoir lancé l'interpréteur :
 
 ```python
 >>> x = 2
@@ -28,7 +28,9 @@ Enfin, dans l'instruction `x = y - 3`, l'opération `y - 3` est d'abord évalué
 
 ## Les types de variables
 
-Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers (*integer* ou *int*), les nombres décimaux que nous appellerons *floats* et les chaînes de caractères (*string* ou *str*). Bien sûr, il existe de nombreux autres types (par exemple, les booléens, les nombres complexes, etc.). Si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/fr/3.7/library/stdtypes.html).
+\index{variable!type}
+
+Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers\index{entier} (*integer*\index{integer@\textit{integer}} ou *int*\index{int@\textit{int}}), les nombres décimaux que nous appellerons *floats*\index{float@\textit{float}} et les chaînes de caractères\index{chaine de caracteres@chaîne de caractères} (*string*\index{string@\textit{string}} ou *str*\index{str@\textit{str}}). Bien sûr, il existe de nombreux autres types (par exemple, les booléens, les nombres complexes, etc.). Si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/fr/3.7/library/stdtypes.html).
 
 Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la variable `x`, mais il est tout à fait possible de stocker des *floats*, des chaînes de caractères (*string* ou *str*) ou de nombreux autres types de variable que nous verrons par la suite :
 
@@ -52,7 +54,7 @@ Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la 
 
 open-box-rem
 
-Python reconnaît certains types de variable automatiquement (entier, *float*). Par contre, pour une chaîne de caractères, il faut l'entourer de guillemets (doubles, simples, voire trois guillemets successifs doubles ou simples) afin d'indiquer à Python le début et la fin de la chaîne de caractères.
+Python reconnaît certains types de variable automatiquement (entier, *float*). Par contre, pour une chaîne de caractères, il faut l'entourer de guillemets\index{chaine de caracteres@chaîne de caractères!guillemets} (doubles, simples, voire trois guillemets successifs doubles ou simples) afin d'indiquer à Python le début et la fin de la chaîne de caractères.
 
 Dans l'interpréteur, l'affichage direct du contenu d'une chaîne de caractères se fait avec des guillemets simples, quel que soit le type de guillemets utilisé pour définir la chaîne de caractères.
 
@@ -62,16 +64,20 @@ close-box-rem
 
 ## Nommage
 
+\index{variable!nommage}
+
 Le nom des variables en Python peut être constitué de lettres minuscules (`a` à `z`), de lettres majuscules (`A` à `Z`), de nombres (`0` à `9`) ou du caractère souligné (`_`). Vous ne pouvez pas utiliser d'espace dans un nom de variable.
 
 Par ailleurs, un nom de variable ne doit pas débuter par un chiffre et il n'est pas recommandé de le faire débuter par le caractère `_` (sauf cas très particuliers).
 
-De plus, il faut absolument éviter d'utiliser un mot « réservé » par Python comme nom de variable (par exemple : `print`, `range`, `for`, `from`, etc.).
+De plus, il faut absolument éviter d'utiliser un mot « réservé » par Python\index{mot reserve@mot réservé} comme nom de variable (par exemple : `print`, `range`, `for`, `from`, etc.).
 
-Enfin, Python est sensible à la casse, ce qui signifie que les variables `TesT`, `test` et `TEST` sont différentes.
+Enfin, Python est sensible à la casse\index{variable!casse}, ce qui signifie que les variables `TesT`, `test` et `TEST` sont différentes.
 
 
 ## Écriture scientifique
+
+\index{ecriture scientifique@écriture scientifique}
 
 On peut écrire des nombres très grands ou très petits avec des puissances de 10 en utilisant le symbole `e` :
 
@@ -98,7 +104,7 @@ Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des n
 7807568245
 ```
 
-Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de 3 chiffres mais on peut faire ce qu'on veut :
+Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de trois chiffres mais on peut faire ce qu'on veut :
 
 ```python
 >>> print(7_80_7568_24_5)
@@ -129,7 +135,7 @@ Les quatre opérations arithmétiques de base se font de manière simple sur les
 
 Remarquez toutefois que si vous mélangez les types entiers et *floats*, le résultat est renvoyé comme un *float* (car ce type est plus général). Par ailleurs, l'utilisation de parenthèses permet de gérer les priorités.
 
-L'opérateur `/` effectue une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
+L'opérateur\index{operateur@opérateur} `/` effectue une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
 
 ```python
 >>> 3 / 4
@@ -147,7 +153,7 @@ L'opérateur puissance utilise les symboles `**` :
 16
 ```
 
-Pour obtenir le quotient et le reste d'une division entière (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo `%` :
+Pour obtenir le quotient et le reste d'une division entière\index{division entiere@division entière} (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo\index{modulo} `%` :
 
 ```python
 >>> 5 // 4
@@ -195,9 +201,9 @@ Pour les chaînes de caractères, deux opérations sont possibles, l'addition et
 'SalutSalutSalut'
 ```
 
-L'opérateur d'addition `+` concatène (assemble) deux chaînes de caractères.
+L'opérateur d'addition `+` concatène (assemble) deux chaînes de caractères. On parle de concaténation\index{chaine de caracteres@chaîne de caractères!concaténation}.
 
-L'opérateur de multiplication `*` entre un nombre entier et une chaîne de caractères duplique (répète) plusieurs fois une chaîne de caractères.
+L'opérateur de multiplication `*` entre un nombre entier et une chaîne de caractères duplique (répète) plusieurs fois une chaîne de caractères. On parle de duplication\index{chaine de caracteres@chaîne de caractères!duplication}.
 
 open-box-warn
 
@@ -226,7 +232,7 @@ Notez que Python vous donne des informations dans son message d'erreur. Dans le 
 
 ## La fonction `type()`
 
-Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type()` qui vous le rappellera.
+Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type()`\index{type@\texttt{type()}} qui vous le rappellera.
 
 ```python
 >>> x = 2
@@ -249,12 +255,9 @@ Pour Python, la valeur `2` (nombre entier) est différente de `2.0` (*float*) et
 close-box-warn
 
 
-
-
-
 ## Conversion de types
 
-En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`, `float()` et `str()`. Pour vous en convaincre, regardez ces exemples :
+En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`\index{int@\texttt{int()}}, `float()` \index{float@\texttt{float()}} et `str()`\index{str@\texttt{str()}}. Pour vous en convaincre, regardez ces exemples :
 
 ```python
 >>> i = 3
@@ -272,7 +275,7 @@ En programmation, on est souvent amené à convertir les types, c'est-à-dire pa
 
 On verra au chapitre 7 *Fichiers* que ces conversions sont essentielles. En effet, lorsqu'on lit ou écrit des nombres dans un fichier, ils sont considérés comme du texte, donc des chaînes de caractères.
 
-Toute conversion d'une variable d'un type en un autre est appelé *casting* en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
+Toute conversion d'une variable d'un type en un autre est appelé *casting*\index{casting@\textit{casting}} en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
 
 
 ## Note sur la division de deux nombres entiers
@@ -295,17 +298,18 @@ close-box-rem
 
 ## Note sur le vocabulaire et la syntaxe
 
-Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet** pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 19 *Avoir la classe avec les objets* ce que le mot « objet » signifie réellement (tout comme le mot « classe »).
+Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet**\index{objet} pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 19 *Avoir la classe avec les objets* ce que le mot « objet » signifie réellement (tout comme le mot « classe »).
 
-Par ailleurs, nous avons rencontré plusieurs fois des **fonctions** dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
+Par ailleurs, nous avons rencontré plusieurs fois des **fonctions**\index{fonction} dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
 
-Ce qui se trouve entre les parenthèses d'une fonction est appelé **argument** et c'est ce que l'on « passe » à la fonction. Dans l'instruction `type(2)`, c'est l'entier `2` qui est l'argument passé à la fonction `type()`. Pour l'instant, on retiendra qu'une fonction est une sorte de boîte à qui on passe un (ou plusieurs) argument(s), qui effectue une action et qui peut renvoyer un résultat ou plus généralement un objet. Par exemple, la fonction `type()` renvoie le type de la variable qu'on lui a passé en argument.
+Ce qui se trouve entre les parenthèses d'une fonction est appelé **argument**\index{argument} et c'est ce que l'on « passe » à la fonction. Dans l'instruction `type(2)`, c'est l'entier `2` qui est l'argument passé à la fonction `type()`. Pour l'instant, on retiendra qu'une fonction est une sorte de boîte à qui on passe un (ou plusieurs) argument(s), qui effectue une action et qui peut renvoyer un résultat ou plus généralement un objet. Par exemple, la fonction `type()` renvoie le type de la variable qu'on lui a passé en argument.
 
 Si ces notions vous semblent obscures, ne vous inquiétez pas, au fur et à mesure que vous avancerez dans le cours, tout deviendra limpide.
 
+
 ## Minimum et maximum
 
-Python propose les fonctions `min()` et `max()` qui renvoient respectivement le minimum et le maximum de plusieurs entiers et / ou *floats* :
+Python propose les fonctions `min()`\index{min@\texttt{min()}} et `max()`\index{max@\texttt{max()}} qui renvoient respectivement le minimum et le maximum de plusieurs entiers ou *floats* :
 
 ```python
 >>> min(1, -2, 4)
@@ -320,6 +324,7 @@ Python propose les fonctions `min()` et `max()` qui renvoient respectivement le 
 
 Par rapport à la discussion de la rubrique précédente, `min()` et `max()` sont des exemples de fonction prenant plusieurs arguments. En Python, quand une fonction prend plusieurs arguments, on doit les séparer par une virgule. `min()` et `max()` prennent en argument autant d'entiers et de *floats* que l'on veut, mais il en faut au moins deux.
 
+
 ## Exercices
 
 *Conseil* : utilisez l'interpréteur Python pour les exercices suivants.
@@ -327,7 +332,7 @@ Par rapport à la discussion de la rubrique précédente, `min()` et `max()` son
 
 ### Nombres de Friedman
 
-Les [nombres de Friedman](https://fr.wikipedia.org/wiki/Nombre_de_Friedman) sont des nombres qui peuvent s'exprimer avec tous leurs chiffres dans une expression mathématique.
+Les [nombres de Friedman](https://fr.wikipedia.org/wiki/Nombre_de_Friedman)\index{nombres de Friedman} sont des nombres qui peuvent s'exprimer avec tous leurs chiffres dans une expression mathématique.
 
 Par exemple, 347 est un nombre de Friedman car il peut s'écrire sous la forme $4+7^3$. De même pour 127 qui peut s'écire sous la forme $2^7 - 1$.
 
@@ -352,6 +357,7 @@ Essayez de prédire le résultat de chacune des instructions suivantes, puis vé
 - `5 / 2`
 - `5 // 2`
 - `5 % 2`
+
 
 ### Prédire le résultat : opérations et conversions de types
 

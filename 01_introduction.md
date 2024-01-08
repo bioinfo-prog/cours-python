@@ -8,7 +8,7 @@ La dernière version de Python est la version 3. Plus précisément, la version 
 
 La [*Python Software Foundation*](https://www.python.org/psf/) est l'association qui organise le développement de Python et anime la communauté de développeurs et d'utilisateurs.
 
-Ce langage de programmation présente de nombreuses caractéristiques intéressantes :
+Ce langage de programmation \index{langage de programmation} présente de nombreuses caractéristiques intéressantes :
 
 - Il est multiplateforme. C'est-à-dire qu'il fonctionne sur de nombreux systèmes d'exploitation : Windows, Mac OS X, Linux, Android, iOS, depuis les mini-ordinateurs Raspberry Pi jusqu'aux supercalculateurs.
 - Il est gratuit. Vous pouvez l'installer sur autant d'ordinateurs que vous voulez (même sur votre téléphone !).
@@ -37,7 +37,8 @@ Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en
 
 ### Miniconda
 
-Nous vous conseillons d'installer [Miniconda](https://conda.io/miniconda.html), logiciel gratuit, disponible pour Windows, Mac OS X et Linux, et qui installera pour vous Python 3.
+Nous vous conseillons d'installer [Miniconda](https://conda.io/miniconda.html) \index{Miniconda}, 
+logiciel gratuit, disponible pour Windows, Mac OS X et Linux, et qui installera pour vous Python 3.
 
 Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également Jupyter Lab qui vous permettra d'éditer des *notebooks* Jupyter. Vous trouverez en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod) une documentation pas-à-pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours.
 
