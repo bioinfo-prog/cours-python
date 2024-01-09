@@ -55,6 +55,8 @@ Python a écrit une phrase complète en remplaçant les variables `x` et `nom` p
 Johna32ans
 >>> print(nom, "a", x, "ans", sep="-")
 John-a-32-ans
+>>> print(nom, "a", x, "ans", sep="_")
+John_a_32_ans
 ```
 
 Pour afficher deux chaînes de caractères l'une à côté de l'autre, sans espace, on peut soit les concaténer, soit utiliser l'argument par mot-clé `sep` avec une chaîne de caractères vide :
@@ -74,17 +76,18 @@ chatsouris
 
 ### Définitions
 
-Que signifie « écriture formatée » ?
+#### « écriture formatée »
 
 open-box-def
 
-L'écriture formatée est un mécanisme permettant d'afficher des variables avec un certain format, par exemple justifiées à gauche ou à droite, ou encore avec un certain nombre de décimales pour les *floats*. L'écriture formatée est incontournable lorsqu'on veut créer des fichiers organisés en « belles colonnes » comme par exemple les fichiers PDB (pour en savoir plus sur ce format, reportez-vous à l'annexe A *Quelques formats de données rencontrés en biologie*).
+L'écriture formatée est un mécanisme permettant d'afficher des variables avec un format précis, par exemple justifiées à gauche ou à droite, ou encore avec un certain nombre de décimales pour les *floats*. L'écriture formatée est incontournable lorsqu'on veut créer des fichiers organisés en « belles colonnes » comme par exemple les fichiers PDB (pour en savoir plus sur ce format, reportez-vous à l'annexe A *Quelques formats de données rencontrés en biologie*).
 
 close-box-def
 
 Depuis la version 3.6, Python a introduit les *f-strings* pour mettre en place l'écriture formatée que nous allons décrire en détail dans cette rubrique. Il existe d'autres  manières pour formatter des chaînes de caractères qui étaient utilisées avant la version 3.6, nous en avons mis un rappel bref dans la rubrique suivante. Toutefois, nous conseillons vivement l'utilisation des *f-strings* si vous débutez l'apprentissage de Python.
 
-Que signifie *f-string* ?
+
+#### *f-string*
 
 open-box-def
 
