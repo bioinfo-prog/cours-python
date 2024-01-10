@@ -34,7 +34,7 @@ NameError: name 'voyelle' is not defined. Did you mean: 'voyelles'?
 
 Si le mot qu'on tape n'est pas très éloigné, cela fonctionne également lorsqu'on se trompe à différents endroits du mot !
 
-```
+```python
 pharmacie = "vente de médicaments"
 >>> farmacia
 Traceback (most recent call last):
