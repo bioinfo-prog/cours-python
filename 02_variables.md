@@ -46,7 +46,7 @@ Revenons sur le signe `=` ci-dessus.
 
 open-box-def
 
-Le symbole `=` est appelé opérateur d'affectation. Il permet d'assigner une valeur à une variable en Python. Cet opérateur s'utilise toujours de la droite vers la gauche. Par exemple, dans l'instruction  `x = 2` ci-dessus, Python attribue la valeur située à droite (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`. Comme on verra plus bas, si on a à droite de l'opérateur `=` une expression, par exemple la soustraction `x = 4 - 2`, l'opération `4 - 2` sera d'abord évaluée et c'est le résultat de cette opération qui sera affecté à la variable `x`.
+Le symbole `=` est appelé opérateur d'affectation. Il permet d'assigner une valeur à une variable en Python. Cet opérateur s'utilise toujours de la droite vers la gauche. Par exemple, dans l'instruction  `x = 2` ci-dessus, Python attribue la valeur située à droite (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`. 
 
 close-box-def
 
