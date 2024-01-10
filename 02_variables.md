@@ -22,9 +22,32 @@ Dans d'autres langages (en C par exemple), il faut coder ces différentes étape
 
 Lignes 2 et 3. L'interpréteur nous a permis de connaître le contenu de la variable juste en tapant son nom. Retenez ceci car c'est une **spécificité de l'interpréteur Python**, très pratique pour chasser (*debugger*) les erreurs dans un programme. Par contre, la ligne d'un script Python qui contient seulement le nom d'une variable (sans aucune autre indication) n'affichera pas la valeur de la variable à l'écran lors de l'exécution (pour autant, cette instruction reste valide et ne générera pas d'erreur).
 
-Sachez par ailleurs que l'opérateur d'affectation `=` s'utilise dans un certain sens. Par exemple, l'instruction  `x = 2` signifie qu'on attribue la valeur située à droite de l'opérateur `=` (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`.
+Depuis la version 3.10, l'interpréteur Python a amélioré ses messages d'erreur. Il est ainsi capable de suggérer des noms de variables existants lorsqu'on fait une faute de frappe :
 
-Enfin, dans l'instruction `x = y - 3`, l'opération `y - 3` est d'abord évaluée et ensuite le résultat de cette opération est affecté à la variable `x`.
+```python
+>>> voyelles = "aeiouy"
+>>> voyelle
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'voyelle' is not defined. Did you mean: 'voyelles'?
+```
+
+Si le mot qu'on tape n'est pas très éloigné, cela fonctionne également lorsqu'on se trompe à différents endroits du mot !
+
+```
+pharmacie = "vente de médicaments"
+>>> farmacia
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'farmacia' is not defined. Did you mean: 'pharmacie'?
+```
+
+Revenons enfin sur le signe `=` ci-dessus.
+
+open-box-def
+Le symbole `=` est appelé opérateur d'affectation. Il permet d'assigner une valeur à une variable en Python. Cet opérateur s'utilise toujours de la droite vers la gauche. Par exemple, dans l'instruction  `x = 2` ci-dessus, Python attribue la valeur située à droite de l'opérateur `=` (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`. Comme on verra plus bas, si on a à droite de l'opérateur `=` une expression, par exemple la soustraction `x = 4 - 2`, l'opération `4 - 2` sera d'abord évaluée et c'est le résultat de cette opération qui sera affecté à la variable `x`.
+close-box-def
+
 
 ## Les types de variables
 
