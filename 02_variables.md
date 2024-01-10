@@ -42,14 +42,35 @@ Traceback (most recent call last):
 NameError: name 'farmacia' is not defined. Did you mean: 'pharmacie'?
 ```
 
-Revenons enfin sur le signe `=` ci-dessus.
+Revenons sur le signe `=` ci-dessus.
 
 open-box-def
 
-Le symbole `=` est appelé opérateur d'affectation. Il permet d'assigner une valeur à une variable en Python. Cet opérateur s'utilise toujours de la droite vers la gauche. Par exemple, dans l'instruction  `x = 2` ci-dessus, Python attribue la valeur située à droite de l'opérateur `=` (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`. Comme on verra plus bas, si on a à droite de l'opérateur `=` une expression, par exemple la soustraction `x = 4 - 2`, l'opération `4 - 2` sera d'abord évaluée et c'est le résultat de cette opération qui sera affecté à la variable `x`.
+Le symbole `=` est appelé opérateur d'affectation. Il permet d'assigner une valeur à une variable en Python. Cet opérateur s'utilise toujours de la droite vers la gauche. Par exemple, dans l'instruction  `x = 2` ci-dessus, Python attribue la valeur située à droite (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`. Comme on verra plus bas, si on a à droite de l'opérateur `=` une expression, par exemple la soustraction `x = 4 - 2`, l'opération `4 - 2` sera d'abord évaluée et c'est le résultat de cette opération qui sera affecté à la variable `x`.
 
 close-box-def
 
+Voici d'autres cas de figures que vous rencontrerez avec l'opérateur `=` :
+
+```python
+>>> x = 2
+>>> y = x
+>>> y
+2
+>>> x = 5 - 2
+>>> x
+3
+```
+
+Ligne 2. Ici on a un nom de variable à gauche et à droite de l'opérateur `=`. Dans ce cas, on garde la règle d'aller toujous de la droite vers la gauche. C'est donc le contenu de la variable `y` qui est affecté à la variable `x`.
+
+Ligne 5. Comme on verra plus bas, si on a à droite de l'opérateur `=` une expression, ici la soustraction `x = 4 - 2`, celle-ci est d'abord évaluée et c'est le résultat de cette opération qui sera affecté à la variable `x`. On pourra noter également que la valeur de `x` précédente (2) a été écrasée.
+
+open-box-warn
+
+L'opérateur d'affectation `=` écrase systématiquement la valeur de la variable située à sa gauche si celle-ci existe déjà.
+
+close-box-warn
 
 ## Les types de variables
 
