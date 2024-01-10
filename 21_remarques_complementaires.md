@@ -256,7 +256,7 @@ Attention, si vous précisez le type d'exception comme `ValueError`, le `except 
 ...
 Traceback (most recent call last):
   File "<stdin>", line 2, in <module>
-NameError: name 'variable' is not defined
+NameError: name 'variable' is not defined. Did you mean: 'callable'?
 ```
 
 Ici l'exception levée est de type `NameError` car `variable` n'existe pas. Alors que si vous mettez `except` tout court, cela intercepte n'importe quelle exception.

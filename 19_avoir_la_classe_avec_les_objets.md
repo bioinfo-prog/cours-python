@@ -345,7 +345,8 @@ Traceback (most recent call last):
     citron1.affiche_attributs()
   File "classe_exemple1.py", line 9, in affiche_attributs
     print(var)
-NameError: name 'var' is not defined
+          ^^^
+NameError: name 'var' is not defined. Did you mean: 'vars'?
 ```
 
 Ligne 2. La méthode `.affiche_attributs()` montre que le `self` est bien une référence vers l'instance (ou objet) `citron1` (ou vers n'importe quelle autre instance, par exemple si on crée `citron2 = Citron()` le `self` sera une référence vers `citron2`).
@@ -498,9 +499,10 @@ La ligne 11 va tenter de détruire l'attribut de classe `.saveur`. Toutefois, Py
 
 ```python
 Traceback (most recent call last):
-  File "./test.py", line 10, in <module>
-    del(citron1.saveur)
-AttributeError: saveur
+  File "test.py", line 11, in <module>
+    del citron1.saveur
+        ^^^^^^^^^^^^^^
+AttributeError: 'Citron' object has no attribute 'saveur'
 ```
 
 En fait, la seule manière de modifier un attribut de classe est d'utiliser une syntaxe  
@@ -1232,9 +1234,9 @@ Si on avait mis `citron1.set_masse(-100)` en ligne 26, la sortie aurait été la
 ```python
 jaune 0
 Traceback (most recent call last):
-  File "./getter_setter.py", line 26, in <module>
+  File "getter_setter.py", line 27, in <module>
     citron1.set_masse(-100)
-  File "./getter_setter.py", line 17, in set_masse
+  File "getter_setter.py", line 17, in set_masse
     raise ValueError("Z'avez déjà vu une masse négative ???")
 ValueError: Z'avez déjà vu une masse négative ???
 ```
@@ -1438,8 +1440,8 @@ Coucou je suis dans le get
 Coucou je suis dans le set
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "<stdin>", line 10, in set_masse
-ValueError: Z'avez déjà vu une masse négative ? C'est nawak
+  File "<stdin>", line 11, in set_masse
+ValueError: Un citron ne peut pas avoir de masse négative !
 >>> citron.masse = 16
 Coucou je suis dans le set
 >>> citron.masse
@@ -1486,8 +1488,9 @@ Ce code va donner la sortie suivante :
 ```python
 100
 Traceback (most recent call last):
-  File "./pyscripts/mangling.py", line 11, in <module>
+  File "mangling.py", line 12, in <module>
     print(citron1.__mass)
+          ^^^^^^^^^^^^^^
 AttributeError: 'Citron' object has no attribute '__mass'
 ```
 

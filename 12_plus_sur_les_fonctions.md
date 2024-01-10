@@ -101,7 +101,7 @@ De même, une variable passée en argument est considérée comme **locale** lor
 x vaut 2 dans la fonction
 >>> print(x)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in ?
+  File "<stdin>", line 1, in <module>
 NameError: name 'x' is not defined
 ```
 
@@ -127,9 +127,9 @@ Dans ce cas, la variable `x` est visible dans le module principal et dans toutes
 >>> x = 1
 >>> ma_fonction()
 Traceback (most recent call last):
-File "<stdin>", line 1, in <module>
-  File "<stdin>", line 2, in fct
-UnboundLocalError: local variable 'x' referenced before assignment
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in ma_fonction
+UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
 ```
 
 L'erreur renvoyée montre que Python pense que `x` est une variable locale qui n'a pas été encore assignée. Si on veut vraiment modifier une variable globale dans une fonction, il faut utiliser le mot-clé `global` :

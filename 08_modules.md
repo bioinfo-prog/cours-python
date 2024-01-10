@@ -114,7 +114,7 @@ Enfin, pour vider de la mémoire un module déjà chargé, on peut utiliser l'in
 >>> random.randint(0,10)
 Traceback (most recent call last):
   File "<stdin>", line 1, in ?
-NameError: name 'random' is not defined
+NameError: name 'random' is not defined. Did you forget to import 'random'?
 ```
 
 On constate alors qu'un rappel (ligne 5) d'une fonction du module *random* après l'avoir vidé de la mémoire (ligne 4) retourne un message d'erreur (lignes 6-8).
@@ -408,8 +408,9 @@ Par contre, le script ne vérifie pas si le fichier existe bien :
 ```bash
 $ python compte_lignes.py zoo3.txt
 Traceback (most recent call last):
- File "compte_lignes.py", line 8, in <module>
-   with open(nom_fichier, "r") as f_in:
+  File "compte_lignes.py", line 8, in <module>
+    with open(nom_fichier, "r") as f_in:
+         ^^^^^^^^^^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: 'zoo3.txt'
 ```
 

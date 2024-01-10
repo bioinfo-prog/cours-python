@@ -227,7 +227,7 @@ array([0, 1, 2, 3, 4, 5])
 (6,)
 >>> d = a.reshape((3, 4))
 Traceback (most recent call last):
-File "<stdin>", line 1, in <module>
+  File "<stdin>", line 1, in <module>
 ValueError: cannot reshape array of size 6 into shape (3,4)
 ```
 

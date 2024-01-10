@@ -368,7 +368,7 @@ Attention, la méthode `.join()` ne s'applique qu'à une liste de chaînes de ca
 >>> " ".join(maliste)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-TypeError: sequence item 1: expected string, int found
+TypeError: sequence item 1: expected str instance, int found
 ```
 
 On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse des méthodes associées aux chaînes de caractères. Pour avoir une liste exhaustive de l'ensemble des méthodes associées à une variable particulière, vous pouvez utiliser la fonction `dir()`.
