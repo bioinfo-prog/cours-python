@@ -8,7 +8,7 @@ Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent ex
 
 open-box-def
 
-Les **dictionnaires** sont des collections non ordonnées d'objets (ceci est vrai jusqu'à la version 3.6 de Python, voir remarque ci-dessous). Il ne s'agit pas d'objets séquentiels comme les listes, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs. En effet, on accède à chaque*valeur* d'un dictionnaire par une  *clé* de correspondance plutôt qu'un indice. 
+Les **dictionnaires** sont des collections non ordonnées d'objets (ceci est vrai jusqu'à la version 3.6 de Python, voir remarque ci-dessous). Il ne s'agit pas d'objets séquentiels comme les listes, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs. En effet, on accède à chaque valeur d'un dictionnaire par une  *clé* de correspondance plutôt qu'un indice. 
 
 close-box-def
 
@@ -36,11 +36,11 @@ Une fois le dictionnaire créé, on récupére la valeur associée à une clé d
 
 On se souvient que pour accéder à l'élément d'une liste, il fallait utiliser un indice (par exemple, `liste[2]`). Ici, l'utilisation d'une clé - qui est souvent une chaîne de caractères - rend les choses plus explicites.
 
-Vous pouvez mettre autant de clés que vous voulez dans un dictionnaire (tout comme vous pouvez ajouter autant d'éléments que vous voulez dans une liste).
+Vous pouvez mettre autant de couples clé / valeur que vous voulez dans un dictionnaire (tout comme vous pouvez ajouter autant d'éléments que vous voulez dans une liste).
 
 open-box-rem
 
-Jusqu'à la version 3.6 de Python, un dictionnaire était affiché sans ordre particulier. L'ordre d'affichage des éléments n'était pas forcément le même que celui dans lequel il avait été rempli. De même lorsqu'on itérait dessus, l'ordre n'était pas garanti. Depuis Python 3.7 (inclus), ce comportement a changé, un dictionnaire est toujours affiché dans le même ordre que celui utilisé pour le remplir. De même, si on itère sur un dictionnaire, cet ordre est respecté. Ce détail provient de l'implémentation interne des dictionnaires dans Python, mais cela nous concerne peu. Ce qui importe, c'est de se rappeler qu'on accède aux éléments par des clés, donc cet ordre n'a pas d'importance spéciale sauf dans de rares cas.
+Jusqu'à la version 3.6 de Python, un dictionnaire était affiché sans ordre particulier. L'ordre d'affichage des éléments n'était pas forcément le même que celui dans lequel il avait été rempli. De même lorsqu'on itérait dessus, l'ordre n'était pas garanti. Depuis Python 3.7 (inclus), ce comportement a changé, un dictionnaire est toujours affiché dans le même ordre que celui utilisé pour le remplir. De même, si on itère sur un dictionnaire, cet ordre est respecté. Ce détail provient de l'implémentation interne des dictionnaires dans Python, mais cela nous concerne peu. Ce qui importe, c'est de se rappeler qu'on accède aux éléments par leur clé, et non par leur position lorsque le dictionnaire est affiché. Donc cet ordre n'a pas d'importance spéciale sauf dans de rares cas.
 
 close-box-rem
 
@@ -104,11 +104,20 @@ dict_values(['singe', 70, 1.75])
 ['singe', 70, 1.75]
 ```
 
-Toutefois, ce sont des objets itérables, donc utilisables dans une boucle.
+Toutefois, on peut itérer dessus dans une boucle (on dit qu'ils sont itérables) :
+
+```python
+>>> for cle in ani2.keys():
+...     print(cle)
+...
+nom
+poids
+taille
+```
 
 ### Méthode `.items()`
 
-Il existe la méthode `.items()` qui renvoie un nouvel objet `dict_items` :
+La méthode `.items()` qui renvoie un nouvel objet `dict_items` :
 
 ```python
 >>> dico = {0: "t", 1: "o", 2: "t", 3: "o"}
@@ -333,7 +342,7 @@ Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour si
 
 close-box-rem
 
-Ce terme *tuple unpacking* provient du fait que l'on peut décomposer un tuple initial de $n$ éléments en autant de variables différentes en une seule instruction. Si on crée un tuple de deux éléments :
+Ce terme *tuple unpacking* provient du fait que l'on peut décomposer un tuple initial de $n$ éléments en autant de variables différentes en une seule instruction. Si on crée un tuple de trois éléments :
 
 ```python
 >>> t = (1, 2, 3)
