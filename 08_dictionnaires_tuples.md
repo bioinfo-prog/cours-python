@@ -230,7 +230,7 @@ Vous constatez ainsi que les dictionnaires permettent de gérer des structures c
 
 open-box-def
 
-Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** correspondant aux listes mais ils sont toutefois **non modifiables**. L'intérêt des tuples par rapport aux listes réside dans leur immutabilité. Cela, accèlère considérablement la manière dont Python accède à chaque élément et ils prennent moins de place en mémoire. Par ailleurs, on ne risque pas de modifier un de leurs éléments par mégarde. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
+Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** correspondant aux listes mais ils sont toutefois **non modifiables**. On dit aussi qu'ils sont **immuables**. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
 
 close-box-def
 
@@ -311,7 +311,7 @@ Comme la fonction `list()`, la fonction `tuple()` prend en argument un objet sé
 close-box-rem
 
 
-## Affectation multiple
+### Affectation multiple
 
 Les tuples sont souvent utilisés pour l'**affectation multiple**, c'est-à-dire, affecter des valeurs à plusieurs variables en même temps :
 
@@ -426,3 +426,7 @@ Ainsi, on peut itérer sur 3 valeurs en même temps à partir d'une liste de tup
 ```
 
 On pourrait concevoir la même chose sur 4 ou 5 éléments, voire plus. La seule contrainte est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 variables dans l'exemple ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
+
+### Remarque finale
+
+Les listes, dictionnaires, tuples et chaînes de caractères sont tous des objets contenant une collection d'autres objets. En Python, on peut construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
