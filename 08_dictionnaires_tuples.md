@@ -1,10 +1,18 @@
 # Dictionnaires et tuples
 
+Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent extrêmement utiles : les dictionnaires et les tuples. Comme les listes vues dans le chapitre 4, les dictionnaires et tuples contiennent une collection d'autres objets. Toutefois, nous verrons que chacun de ces trois types sont régis par des règles différentes pour accéder à leur contenu, ainsi que pour leur fonctionnement.
+
 ## Dictionnaires
 
 ### Définition
 
-Les **dictionnaires** se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. Les dictionnaires sont des collections non ordonnées d'objets (ceci est vrai jusqu'à la version 3.6 de Python, voir remarque ci-dessous). Il ne s'agit pas d'objets séquentiels comme les listes ou chaînes de caractères, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs. En effet, on accède aux **valeurs** d'un dictionnaire par des **clés**. Ceci semble un peu confus ? Regardez l'exemple suivant :
+open-box-def
+
+Les **dictionnaires** sont des collections non ordonnées d'objets (ceci est vrai jusqu'à la version 3.6 de Python, voir remarque ci-dessous). Il ne s'agit pas d'objets séquentiels comme les listes, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs. En effet, on accède à chaque*valeur* d'un dictionnaire par une  *clé* de correspondance plutôt qu'un indice. 
+
+close-box-def
+
+Ceci étant défini, comment fonctionnent-ils exactement ? Regardons un exemple :
 
 ```python
 >>> ani1 = {}
@@ -15,7 +23,20 @@ Les **dictionnaires** se révèlent très pratiques lorsque vous devez manipuler
 {'nom': 'girafe', 'taille': 5.0, 'poids': 1100}
 ```
 
-En premier, on définit un dictionnaire vide avec les accolades `{}` (tout comme on peut le faire pour les listes avec `[]`). Ensuite, on remplit le dictionnaire avec différentes clés (`"nom"`, `"taille"`, `"poids"`) auxquelles on affecte des valeurs (`"girafe"`, `5.0`, `1100`). Vous pouvez mettre autant de clés que vous voulez dans un dictionnaire (tout comme vous pouvez ajouter autant d'éléments que vous voulez dans une liste).
+Ligne 1, on définit un dictionnaire vide avec les accolades `{}` (tout comme on peut le faire pour les listes avec `[]`). Lignes 2 à 4, on remplit le dictionnaire avec différentes clés (`"nom"`, `"taille"`, `"poids"`) auxquelles on affecte des valeurs (`"girafe"`, `5.0`, `1100`). Ligne 5, on affiche le contenu du dictionnaire. Les accolades nous montre qu'il s'agit bien d'un dictionnaire, et pour chaque élément séparé par une virgule on a une association du type `clé: valeur`. On voit que les clés sont des chaînes de caractères (ce qui sera souvent le cas), et les valeurs peuvent être n'importe quel objet Python.
+
+Une fois le dictionnaire créé, on récupére la valeur associée à une clé donnée avec une syntaxe du type `dictionnaire["clé"]`. Par exemple :
+
+```python
+>>> ani1["nom"]
+'girafe'
+>>> ani1["taille"]
+5.0
+```
+
+On se souvient que pour accéder à l'élément d'une liste, il fallait utiliser un indice (par exemple, `liste[2]`). Ici, l'utilisation d'une clé - qui est souvent une chaîne de caractères - rend les choses plus explicites.
+
+Vous pouvez mettre autant de clés que vous voulez dans un dictionnaire (tout comme vous pouvez ajouter autant d'éléments que vous voulez dans une liste).
 
 open-box-rem
 
@@ -33,28 +54,19 @@ Mais rien ne nous empêche d'ajouter une clé et une valeur supplémentaire :
 
 ```python
 >>> ani2["age"] = 15
+>>> ani2
+{'nom': 'singe', 'poids': 70, 'taille': 1.75, 'age': 15}
 ```
 
-Pour récupérer la valeur associée à une clé donnée, il suffit d'utiliser la syntaxe suivante `dictionnaire["cle"]`. Par exemple :
+Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires. Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices. Les humains retiennent mieux les noms que les chiffres. 
 
-```python
->>> ani1["taille"]
-5.0
-```
-Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires. Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices. Les humains retiennent mieux les noms que les chiffres. Ainsi, l'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées $(x, y, z)$ d'un point dans l'espace : `coors = [0, 1, 2]` pour la version liste, `coors = {"x": 0, "y": 1, "z": 2}` pour la version dictionnaire. Un lecteur comprendra tout de suite que `coors["z"]` contient la coordonnée $z$, ce sera moins intuitif avec `coors[2]`.
-
-### Objets utilisables comme clé
-
-Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. On peut utiliser d'autres types d'objets comme des entiers, des *floats*, voire même des *tuples* (cf. rubrique suivante), cela peut s'avérer parfois très utile. Une règle est toutefois requise, les objets utilisés comme clé doivent être **hachables** (cf. rubrique précédente pour la définition).
-
-Pourquoi les clés doivent être des objets hachables ? C'est la raison d'être des dictionnaires, d'ailleurs ils sont aussi appelés [table de hachage](https://fr.wikipedia.org/wiki/Table_de_hachage) dans d'autres langages comme Perl. Convertir chaque clé en sa valeur de hachage permet un accès très rapide à chacun des éléments du dictionnaire ainsi que des comparaisons de clés entre dictionnaires extrêmement efficaces. Même si on a vu que deux objets pouvaient avoir la même valeur de hachage, par exemple `a = 5` et `b = 5`, on ne peut mettre qu'une seule fois la clé `5`. Ceci assure que deux clés d'un même dictionnaire ont forcément une valeur de hachage différente.
+Ainsi, les dictionnaires se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. L'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées $(x, y, z)$ d'un point dans l'espace, nous pourrions utiliser `coors = [0, 1, 2]` pour la version liste et `coors = {"x": 0, "y": 1, "z": 2}` pour la version dictionnaire. Quelqu'un qui lit le code comprendra tout de suite que `coors["z"]` contient la coordonnée $z$, ce sera moins intuitif avec `coors[2]`.
 
 open-box-adv
 
-Malgré les possibilités offertes, nous vous conseillons de n'utiliser que des chaînes de caractères pour vos clés de dictionnaire lorsque vous débutez.
+Nous verrons dans le chapitre 14 *Conteneurs* que plusieurs types d'objets sont utilisables en tant que clé de dictionnaire. Malgré cela, nous conseillons de n'utiliser que des chaînes de caractères lorsque vous débutez.
 
 close-box-adv
-
 
 ### Itération sur les clés pour obtenir les valeurs
 
@@ -72,7 +84,7 @@ taille 1.75
 
 Par défaut, l'itération sur un dictionnaire se fait sur les clés. Dans cet exemple, la variable d'itération `key` prend successivement la valeur de chaque clé, `ani2[key]` donne la valeur correspondant à chaque clé.
 
-### Méthodes `.keys()`, `.values()` et `.items()`
+### Méthodes `.keys()` et `.values()`
 
 Les méthodes `.keys()` et `.values()` renvoient, comme vous vous en doutez, les clés et les valeurs d'un dictionnaire :
 
@@ -94,9 +106,9 @@ dict_values(['singe', 70, 1.75])
 
 Toutefois, ce sont des objets itérables, donc utilisables dans une boucle.
 
-*Conseil* : pour les débutants, vous pouvez sauter cette fin de rubrique.
+### Méthode `.items()`
 
-Enfin, il existe la méthode `.items()` qui renvoie un nouvel objet `dict_items` :
+Il existe la méthode `.items()` qui renvoie un nouvel objet `dict_items` :
 
 ```python
 >>> dico = {0: "t", 1: "o", 2: "t", 3: "o"}
@@ -104,7 +116,7 @@ Enfin, il existe la méthode `.items()` qui renvoie un nouvel objet `dict_items`
 dict_items([(0, 't'), (1, 'o'), (2, 't'), (3, 'o')])
 ```
 
-Celui-ci n'est pas indexable (on ne peut pas retrouver un élément par un indice) mais il est itérable :
+On ne peut pas retrouver un élément par son indice dans un objet `dict_items`, toutefois on peut itérer dessus :
 
 ```python
 >>> dico.items()[2]
@@ -120,7 +132,7 @@ TypeError: 'dict_items' object is not subscriptable
 3 o
 ```
 
-Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. On verra plus bas que cela peut-être utile pour construire des dictionnaires de compréhension.
+Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. Nous aurons l'explication de ce mécanisme dans la rubrique sur les tuples ci-dessous.
 
 
 ### Existence d'une clé ou d'une valeur
@@ -129,16 +141,20 @@ Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test
 
 ```python
 >>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> "poids" in ani2
+True
 >>> if "poids" in ani2:
 ...     print("La clé 'poids' existe pour ani2")
 ...
 La clé 'poids' existe pour ani2
+>>> "age" in ani2
+False
 >>> if "age" in ani2:
 ...     print("La clé 'age' existe pour ani2")
 ...
 ```
 
-Dans le second test (lignes 5 à 7), le message n'est pas affiché car la clé `age` n'est pas présente dans le dictionnaire `ani2`.
+Dans le second test (lignes 10 à 12), le message n'est pas affiché car la clé `age` n'est pas présente dans le dictionnaire `ani2`.
 
 Si on souhaite tester si une valeur existe dans un dictionnaire, on peut utiliser l'opérateur `in` avec l'objet renvoyé par la méthode `.values()` :
 
@@ -179,80 +195,6 @@ On peut également indiquer à `.get()` une valeur par défaut si la clé n'exis
 42
 ```
 
-### Tri par clés
-
-On peut utiliser la fonction `sorted()` vue précédemment avec les listes pour trier un dictionnaire par ses clés :
-
-```python
->>> ani2 = {'nom': 'singe', 'taille': 1.75, 'poids': 70}
->>> sorted(ani2)
-['nom', 'poids', 'taille']
-```
-
-Les clés sont triées ici par ordre alphabétique.
-
-### Tri par valeurs
-
-Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted` avec l'argument `key` :
-
-```python
->>> dico = {"a": 15, "b": 5, "c":20}
->>> sorted(dico, key=dico.get)
-['b', 'a', 'c']
-```
-
-L'argument `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue plus haut, mais sans les parenthèses : `key=dico.get` mais pas `key=dico.get()`. Une fonction ou méthode passée en argument sans les parenthèses est appelée  *callback*, nous reverrons cela en détail dans le chapitre 20 *Fenêtres graphiques et Tkinter*.
-
-Attention, ce sont les clés du dictionnaires qui sont renvoyées, pas les valeurs. Ces clés sont cependant renvoyées dans un ordre qui permet d'obtenir les clés triées par ordre croissant :
-
-```python
->>> dico = {"a": 15, "b": 5, "c":20}
->>> for key in sorted(dico, key=dico.get):
-...     print(key, dico[key])
-... 
-b 5
-a 15
-c 20
-```
-
-Enfin, l'argument `reverse=True` fonctionne également :
-
-```python
->>> dico = {"a": 15, "b": 5, "c":20}
->>> sorted(dico, key=dico.get, reverse=True)
-['c', 'a', 'b']
-```
-
-open-box-rem
-
-Lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire `ani2` car les valeurs sont des valeurs numériques et une chaîne de caractères :
-
-```python
->>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
->>> sorted(ani2, key=ani2.get)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: '<' not supported between instances of 'int' and 'str'
-```
-
-On obtient ici une erreur car Python ne sait pas comparer une chaîne de caractères (`singe`) avec des valeurs numériques (`70` et `1.75`).
-
-close-box-rem
-
-
-### Clé associée au minimum ou au maximum des valeurs
-
-Les fonctions `min()` et `max()`, que vous avez déjà manipulées dans les chapitres précédents, acceptent également l'argument `key=`. On peut ainsi obtenir la clé associée au minimum ou au maximum des valeurs d'un dictionnaire :
-
-```python
->>> dico = {"a": 15, "b": 5, "c":20}
->>> max(dico, key=dico.get)
-'c'
->>> min(dico, key=dico.get)
-'b'
-```
-
-
 ### Liste de dictionnaires
 
 En créant une liste de dictionnaires qui possèdent les mêmes clés, on obtient une structure qui ressemble à une base de données :
@@ -272,43 +214,16 @@ singe
 
 Vous constatez ainsi que les dictionnaires permettent de gérer des structures complexes de manière plus explicite que les listes.
 
-### Fonction `dict()`
-
-*Conseil* : Pour les débutants vous pouvez sauter cette rubrique.
-
-La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de *casting* comme `int()`, `str()`, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière : un objet séquentiel contenant d'autres objets séquentiels de 2 éléments. Par exemple, une liste de listes de 2 éléments :
-
-```python
->>> liste_animaux = [["girafe", 2], ["singe", 3]]
->>> dict(liste_animaux)
-{'girafe': 2, 'singe': 3}
-```
-
-Ou un *tuple* de *tuples* de 2 éléments (cf. rubrique suivante pour la définition d'un *tuple*), ou encore une combinaison liste / *tuple* :
-
-```python
->>> tuple_animaux = (("girafe", 2), ("singe", 3))
->>> dict(tuple_animaux)
-{'girafe': 2, 'singe': 3}
->>>
->>> dict([("girafe", 2), ("singe", 3)])
-{'girafe': 2, 'singe': 3}
-```
-
-Si un des sous-éléments a plus de 2 éléments (ou moins), Python renvoie une erreur :
-
-```python
->>> dict([("girafe", 2), ("singe", 3, 4)])
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ValueError: dictionary update sequence element #1 has length 3; 2 is required
-```
 
 ## Tuples
 
 ### Définition
 
-Les **tuples** (« n-uplets » en français) sont des objets séquentiels correspondant aux listes (itérables, ordonnés et indexables) mais ils sont toutefois **non modifiables**. On verra plus bas qu'ils sont hachables sous certaines conditions. L'intérêt des tuples par rapport aux listes réside dans leur immutabilité. Cela, accèlère considérablement la manière dont Python accède à chaque élément et ils prennent moins de place en mémoire. Par ailleurs, on ne risque pas de modifier un de ses éléments par mégarde. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
+open-box-def
+
+Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** correspondant aux listes mais ils sont toutefois **non modifiables**. L'intérêt des tuples par rapport aux listes réside dans leur immutabilité. Cela, accèlère considérablement la manière dont Python accède à chaque élément et ils prennent moins de place en mémoire. Par ailleurs, on ne risque pas de modifier un de leurs éléments par mégarde. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
+
+close-box-def
 
 Pratiquement, on utilise les parenthèses au lieu des crochets pour les créer :
 
@@ -328,26 +243,24 @@ Traceback (most recent call last):
 TypeError: 'tuple' object does not support item assignment
 ```
 
-L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple (en ligne 10), Python renvoie un message d'erreur. Ce message est similaire à celui que nous avions rencontré quand on essayait de modifier une chaîne de caractères (cf. chapitre 10). De manière générale, Python renverra un message `TypeError: '[...]' does not support item assignment` lorsqu'on essaie de modifier un élément d'un objet non modifiable.   Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
+L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple (en ligne 10), Python renvoie un message d'erreur car les tuples sont non modifiables. Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
 
 ```python
 >>> t = (1, 2, 3)
 >>> t
 (1, 2, 3)
->>> id(t)
-139971081704464
 >>> t = t + (2,)
 >>> t
 (1, 2, 3, 2)
->>> id(t)
-139971081700368
 ```
 
-La fonction `id()` montre que le tuple créé en ligne 6 est bien différent de celui créé en ligne 4 bien qu'ils aient le même nom. Comme on a vu plus haut, ceci est dû à l'opérateur d'affectation utilisé en ligne 6 (`t = t + (2,)`) qui crée un nouvel objet distinct de celui de la ligne 1. Cet exemple montre que les tuples sont peu adaptés lorsqu'on a besoin d'ajouter, retirer, modifier des éléments. La création d'un nouveau tuple à chaque étape s'avère lourde et il n'y a aucune méthode pour faire cela puisque les tuples sont non modifiables. Pour ce genre de tâche, les listes sont clairement mieux adaptées.
+Cet exemple montre que les tuples sont peu adaptés lorsqu'on a besoin d'ajouter, retirer, modifier des éléments. La création d'un nouveau tuple à chaque étape s'avère lourde et il n'y a aucune méthode pour faire cela puisque les tuples sont non modifiables. Pour ce genre de tâche, les listes sont clairement mieux adaptées.
 
 open-box-rem
 
 Pour créer un tuple d'un seul élément comme ci-dessus, utilisez une syntaxe avec une virgule `(element,)`, pour éviter une ambiguïté avec une simple expression. Par exemple `(2)` équivaut à l'entier `2`, `(2,)` est un tuple avec l'élément `2`.
+
+close-box-rem
 
 Autre particularité des tuples, il est possible de les créer sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :
 
@@ -362,8 +275,6 @@ Autre particularité des tuples, il est possible de les créer sans les parenth�
 
 Toutefois, afin d'éviter les confusions, nous vous conseillons d'utiliser systématiquement les parenthèses lorsque vous débutez.
 
-close-box-rem
-
 Les opérateurs `+` et `*` fonctionnent comme pour les listes (concaténation et duplication) :
 
 ```python
@@ -373,24 +284,90 @@ Les opérateurs `+` et `*` fonctionnent comme pour les listes (concaténation et
 (1, 2, 1, 2, 1, 2, 1, 2)
 ```
 
-Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement comme la fonction `list()`, c'est-à-dire qu'elle prend en argument un objet de type container et renvoie le tuple correspondant (opération de *casting*) :
+Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement comme la fonction `list()`, c'est-à-dire qu'elle prend en argument un objet et renvoie le tuple correspondant (opération de *casting*) :
 
 ```python
 >>> tuple([1,2,3])
 (1, 2, 3)
 >>> tuple("ATGCCGCGAT")
 ('A', 'T', 'G', 'C', 'C', 'G', 'C', 'G', 'A', 'T')
+>>> tuple(range(5))
+(0, 1, 2, 3, 4)
 ```
 
 open-box-rem
 
-Les listes, les dictionnaires et les tuples sont des containers, c'est-à-dire qu'il s'agit d'objets qui contiennent une collection d'autres objets. En Python, on peut construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
+Comme la fonction `list()`, la fonction `tuple()` prend en argument un objet séquentiel (un objet contenant une séquence d'autres objets). Elle ne fonctionne pas avec les entiers, *floats* ou booléens. Par exemple, `tuple(2)` renvoie une erreur.
 
 close-box-rem
 
+
+## Affectation multiple
+
+Les tuples sont souvent utilisés pour l'**affectation multiple**, c'est-à-dire, affecter des valeurs à plusieurs variables en même temps :
+
+```python
+>>> x, y, z = 1, 2, 3
+>>> x
+1
+>>> y
+2
+>>> z
+3
+```
+
+Attention, le nombre de variables et de valeurs doivent être cohérents à gauche et à droite de l'opérateur `=` :
+
+```python
+>>> x, y = 1, 2, 3
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: too many values to unpack (expected 2)
+```
+
+On pourra noter qu'il est possible de faire de l'affectation multiple avec les listes également : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la syntaxe avec les tuples sans parenthèses.
+
+open-box-rem
+
+Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps. Toutefois, vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par « désempaquetage de tuple ». De même, il existe le *list unpacking*.
+
+close-box-rem
+
+Ce terme *tuple unpacking* provient du fait que l'on peut décomposer un tuple initial de $n$ éléments en autant de variables différentes en une seule instruction. Si on crée un tuple de deux éléments :
+
+```python
+>>> t = (1, 2, 3)
+>>> t
+(1, 2, 3)
+```
+
+On peut « désempaqueter » le tuple en une instruction :
+
+```python
+>>> x, y, z = t
+```
+
+Cela serait possible également avec l'indiçage, mais il faudrait utiliser autant d'instruction que d'éléments :
+
+```python
+>>> x = t[0]
+>>> y = t[1]
+>>> z = t[2]
+```
+
+Dans les 2 cas, `x` vaudra `1`, `y` vaudra `2` et  `z` vaudra `3`. 
+
+open-box-adv
+
+La syntaxe `x, y, z = t` pour désempaqueter un tuple est plus élégante, plus lisible et plus compacte. Elle sera donc à privilégier.
+
+close-box-adv
+
+L'affectation multiple est un mécanisme très puissant et important en Python. Nous verrons qu'il est particulièrement utile avec les fonctions dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions*.
+
 ### Itérations sur plusieurs valeurs à la fois
 
-Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons*. Cette dernière permettait d'itérer **en même temps** sur les indices et les éléments d'une liste :
+Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons*. Cette dernière permettait d'itérer en même temps sur les indices et les éléments d'une liste :
 
 ```python
 >>> for indice, element in enumerate([75, -75, 0]):
@@ -407,7 +384,7 @@ Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()
 (2, 0) <class 'tuple'>
 ```
 
-En fin de compte, la fonction `enumerate()` itère sur une série de *tuples*. Pouvoir séparer `indice` et `element` dans la boucle est possible du fait que Python autorise l'affectation multiple du style `indice, element = 0, 75` (voir rubrique suivante). 
+Lignes 7 à 12. En fin de compte, la fonction `enumerate()` itère sur une série de tuples. Pouvoir séparer `indice` et `element` dans la boucle est possible du fait que Python autorise l'affectation multiple du style `indice, element = 0, 75` (voir rubrique précédente). 
 
 Dans le même ordre d'idée, nous avons vu précédemment la méthode `.dict_items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
 
@@ -427,7 +404,7 @@ merle 3
 
 La méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
 
-De la même façon, on peut itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
+Ainsi, on peut itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
 
 ```python
 >>> liste = [(5, 6, 7), (6, 7, 8), (7, 8, 9)]
@@ -439,4 +416,4 @@ De la même façon, on peut itérer sur 3 valeurs en même temps à partir d'une
 7 8 9
 ```
 
-On pourrait concevoir la même chose sur 4, 5... éléments. La seule contrainte est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 variables dans l'exemple ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
+On pourrait concevoir la même chose sur 4 ou 5 éléments, voire plus. La seule contrainte est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 variables dans l'exemple ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
