@@ -1,6 +1,6 @@
 # Dictionnaires et tuples
 
-Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent extrêmement utiles : les dictionnaires et les tuples. Comme les listes vues dans le chapitre 4, les dictionnaires et tuples contiennent une collection d'autres objets. Toutefois, nous verrons que chacun de ces trois types sont régis par des règles différentes pour accéder à leur contenu, ainsi que pour leur fonctionnement.
+Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent extrêmement utiles : les dictionnaires et les tuples. Comme les listes vues dans le chapitre 4, les dictionnaires et tuples contiennent une collection d'autres objets. Toutefois, nous verrons que ces trois types sont régis par des règles différentes pour accéder à leur contenu, ainsi que dans leur fonctionnement.
 
 ## Dictionnaires
 
@@ -8,7 +8,7 @@ Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent ex
 
 open-box-def
 
-Les **dictionnaires** sont des collections non ordonnées d'objets (ceci est vrai jusqu'à la version 3.6 de Python, voir remarque ci-dessous). Il ne s'agit pas d'objets séquentiels comme les listes, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs. En effet, on accède à chaque valeur d'un dictionnaire par une  *clé* de correspondance plutôt qu'un indice. 
+Un **dictionnaire** contient une collections d'objets Python auxquels on accède à l'aide d'une **clé** de correspondance plutôt qu'un indice. Ainsi, il ne s'agit pas d'objets séquentiels comme les listes, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs.
 
 close-box-def
 
@@ -23,7 +23,9 @@ Ceci étant défini, comment fonctionnent-ils exactement ? Regardons un exemple 
 {'nom': 'girafe', 'taille': 5.0, 'poids': 1100}
 ```
 
-Ligne 1, on définit un dictionnaire vide avec les accolades `{}` (tout comme on peut le faire pour les listes avec `[]`). Lignes 2 à 4, on remplit le dictionnaire avec différentes clés (`"nom"`, `"taille"`, `"poids"`) auxquelles on affecte des valeurs (`"girafe"`, `5.0`, `1100`). Ligne 5, on affiche le contenu du dictionnaire. Les accolades nous montre qu'il s'agit bien d'un dictionnaire, et pour chaque élément séparé par une virgule on a une association du type `clé: valeur`. On voit que les clés sont des chaînes de caractères (ce qui sera souvent le cas), et les valeurs peuvent être n'importe quel objet Python.
+Ligne 1. On définit un dictionnaire vide avec les accolades `{}` (tout comme on peut le faire pour les listes avec `[]`). Lignes 2 à 4, on remplit le dictionnaire avec différentes clés (`"nom"`, `"taille"`, `"poids"`) auxquelles on affecte des valeurs (`"girafe"`, `5.0`, `1100`). 
+
+Ligne 5. On affiche le contenu du dictionnaire. Les accolades nous montre qu'il s'agit bien d'un dictionnaire, et pour chaque élément séparé par une virgule on a une association du type `clé: valeur`. On voit que les clés sont des chaînes de caractères (ce qui sera souvent le cas), et les valeurs peuvent être n'importe quel objet Python.
 
 Une fois le dictionnaire créé, on récupére la valeur associée à une clé donnée avec une syntaxe du type `dictionnaire["clé"]`. Par exemple :
 
@@ -58,9 +60,9 @@ Mais rien ne nous empêche d'ajouter une clé et une valeur supplémentaire :
 {'nom': 'singe', 'poids': 70, 'taille': 1.75, 'age': 15}
 ```
 
-Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires. Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices. Les humains retiennent mieux les noms que les chiffres. 
+Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires. Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices.
 
-Ainsi, les dictionnaires se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. L'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées $(x, y, z)$ d'un point dans l'espace, nous pourrions utiliser `coors = [0, 1, 2]` pour la version liste et `coors = {"x": 0, "y": 1, "z": 2}` pour la version dictionnaire. Quelqu'un qui lit le code comprendra tout de suite que `coors["z"]` contient la coordonnée $z$, ce sera moins intuitif avec `coors[2]`.
+Les humains retiennent mieux les noms que les chiffres. Ainsi, les dictionnaires se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. L'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées $(x, y, z)$ d'un point dans l'espace, nous pourrions utiliser `coors = [0, 1, 2]` pour la version liste et `coors = {"x": 0, "y": 1, "z": 2}` pour la version dictionnaire. Quelqu'un qui lit le code comprendra tout de suite que `coors["z"]` contient la coordonnée $z$, ce sera moins intuitif avec `coors[2]`.
 
 open-box-adv
 
@@ -117,7 +119,7 @@ taille
 
 ### Méthode `.items()`
 
-La méthode `.items()` qui renvoie un nouvel objet `dict_items` :
+La méthode `.items()` renvoie un nouvel objet `dict_items` :
 
 ```python
 >>> dico = {0: "t", 1: "o", 2: "t", 3: "o"}
@@ -325,7 +327,7 @@ Les tuples sont souvent utilisés pour l'**affectation multiple**, c'est-à-dire
 3
 ```
 
-Attention, le nombre de variables et de valeurs doivent être cohérents à gauche et à droite de l'opérateur `=` :
+Attention, le nombre de variables et de valeurs doit être cohérents à gauche et à droite de l'opérateur `=` :
 
 ```python
 >>> x, y = 1, 2, 3
@@ -430,3 +432,36 @@ On pourrait concevoir la même chose sur 4 ou 5 éléments, voire plus. La seule
 ### Remarque finale
 
 Les listes, dictionnaires, tuples et chaînes de caractères sont tous des objets contenant une collection d'autres objets. En Python, on peut construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
+
+## Exercices
+
+*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+### Prédire la sortie
+
+Soit les 2 lignes de code suivantes: 
+
+```python
+dico = {"nom": "Joe", "age": 24, "taille": 181}
+var="nom"
+```
+
+Prédisez le comportement de chaque instruction ci-dessous, sans les recopier dans un script ni dans l'interpréteur Python :
+
+Que renvoie les instructions suivants ?
+
+- `print(dico["age"])`
+- `print(dico[var])`
+- `print(dico[24])`
+- `print(dico["var"])`
+- `print(dico["taille"])`
+
+Quelles sont celles qui donnent une erreur et pourquoi ?
+
+### Mettre ici des exos simples
+
+
+### Composition en acides aminés
+
+En utilisant un dictionnaire, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence `AGWPSGGASAGLAILWGASAIMPGALW`. Le dictionnaire ne doit contenir que les acides aminés présents dans la séquence. Interdit d'utiliser autant d'instructions `if` que d'acides aminés différents. Pensez au test d'appartenance !
+

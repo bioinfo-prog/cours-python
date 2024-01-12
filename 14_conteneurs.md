@@ -1,4 +1,4 @@
-# Conteneurs et sets
+# Conteneurs
 
 Dans ce chapitre nous allons aborder la notion de conteneur, revenir sur certaines propriétés avancées des dictionnaires et tuples, et enfin aborder les types *set* et *frozenset*. Pour les débutants, ce chapitre aborde des notions relativement avancées. Avant de vous lancer, nous vous conseillons vivement de bien maitriser les chapitres 4 et 12 sur les listes, ainsi que le chapitre 8 sur les dictionnaires et tuples, d'avoir effectué un maximum d'exercices, et de se sentir à l'aise avec toutes les notions abordées jusqu'à là.
 
@@ -50,7 +50,7 @@ Une autre propriété importante que l'on a déjà croisée et qui nous servira 
 
 - Un objet est dit **non modifiable** lorsqu'on ne peut pas le modifier, ou lorsqu'on ne peut pas en modifier un de ses éléments si c'est un conteneur. On parle aussi d'[objet immuable](https://fr.wikipedia.org/wiki/Objet_immuable) (*immutable object* en anglais). Cela signifie qu'une fois créé, Python ne permet plus de le modifier par la suite.
 
-Qu'en est-il des objets que nous connaissons ? Les listes sont modifiables, on peut modifier un ou plusieurs de ses éléments. Tous les autres types que nous avons vus précédemment sont quant à eux non modifiables : les chaînes de caractères ou *strings*, les objets de type *range*, mais également des objets qui ne sont pas des conteneurs comme les entiers, les *floats* et les booléens. 
+Qu'en est-il des objets que nous connaissons ? Les listes sont modifiables, on peut modifier un ou plusieurs de ses éléments et ajouter ou retirer un élément. Les dictionnaires sont modifiables, pour une clé donnée, on peut changer la valeur correspondante et ajouter ou retirer un couple clé/valeur. Tous les autres types que nous avons vus précédemment sont quant à eux non modifiables : les chaînes de caractères ou *strings*, les objets de type *range*, mais également des objets qui ne sont pas des conteneurs comme les entiers, les *floats* et les booléens. 
 
 On comprend bien l'immutabilité des *strings* comme vu au chapitre 10, mais c'est moins évident pour les entiers, *floats* ou booléens. Nous allons démontrer cela, mais avant nous avons besoin de définir la notion d'identifiant d'un objet.
 
@@ -164,6 +164,19 @@ Toutes les clés de dictionnaire vues dans le chapitre 8 *Dictionnaires et tuple
 
 Pourquoi les clés doivent être des objets hachables ? C'est la raison d'être des dictionnaires, d'ailleurs ils sont aussi appelés [table de hachage](https://fr.wikipedia.org/wiki/Table_de_hachage) dans d'autres langages comme Perl. Convertir chaque clé en sa valeur de hachage permet un accès très rapide à chacun des éléments du dictionnaire ainsi que des comparaisons de clés entre dictionnaires extrêmement efficaces. Même si on a vu que deux objets pouvaient avoir la même valeur de hachage, par exemple `a = 5` et `b = 5`, on ne peut mettre qu'une seule fois la clé `5`. Ceci assure que deux clés d'un même dictionnaire ont forcément une valeur de hachage différente.
 
+### Destruction d'une paire clé/valeur
+
+Comme pour tous les objets Python, l'instruction `del` permet de détruire un couple clé/valeur:
+
+```python
+>>> dico = {'nom': 'girafe', 'taille': 5.0, 'poids': 1100}
+>>> del dico["nom"]
+>>> dico
+{'taille': 5.0, 'poids': 1100}
+```
+
+Pour les listes on utilisait l'indice entre crochet pour détruire l'élément, par exemple `del liste[2]`, ici on utilise la clé.
+
 ### Tri par clés
 
 On peut utiliser la fonction `sorted()` vue précédemment avec les listes pour trier un dictionnaire par ses clés :
@@ -246,7 +259,7 @@ La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire.
 {'girafe': 2, 'singe': 3}
 ```
 
-Ou un *tuple* de *tuples* de 2 éléments (cf. rubrique suivante pour la définition d'un *tuple*), ou encore une combinaison liste / *tuple* :
+Ou un *tuple* de *tuples* de 2 éléments, ou encore une combinaison liste / *tuple* :
 
 ```python
 >>> tuple_animaux = (("girafe", 2), ("singe", 3))
@@ -264,6 +277,13 @@ Si un des sous-éléments a plus de 2 éléments (ou moins), Python renvoie une 
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ValueError: dictionary update sequence element #1 has length 3; 2 is required
+```
+
+De manière plus intuitive, il est possible d'utiliser simplement des arguments par mot-clés qui deviendront des clés sous forme de chaîne de caractères :
+
+```python
+>>> dict(un=1, deux=2, trois=3)
+{'un': 1, 'deux': 2, 'trois': 3}
 ```
 
 ## Plus sur les tuples
@@ -297,7 +317,13 @@ Ce message est similaire à celui que nous avions rencontré quand on essayait d
 139971081700368
 ```
 
-La fonction `id()` montre que le tuple créé en ligne 6 est bien différent de celui créé en ligne 4 bien qu'ils aient le même nom. Comme on a vu plus haut, ceci est dû à l'opérateur d'affectation utilisé en ligne 6 (`t = t + (2,)`) qui crée un nouvel objet distinct de celui de la ligne 1. Cet exemple montre que les tuples sont peu adaptés lorsqu'on a besoin d'ajouter, retirer, modifier des éléments. La création d'un nouveau tuple à chaque étape s'avère lourde et il n'y a aucune méthode pour faire cela puisque les tuples sont non modifiables. Pour ce genre de tâche, les listes sont clairement mieux adaptées.
+La fonction `id()` montre que le tuple créé en ligne 6 est bien différent de celui créé en ligne 4 bien qu'ils aient le même nom. Comme on a vu plus haut, ceci est dû à l'opérateur d'affectation utilisé en ligne 6 (`t = t + (2,)`) qui crée un nouvel objet distinct de celui de la ligne 1. Cet exemple montre que les tuples sont peu adaptés lorsqu'on a besoin d'ajouter, retirer, modifier des éléments. La création d'un nouveau tuple à chaque étape s'avère lourde et il n'y a aucune méthode pour faire cela puisque les tuples sont non modifiables. 
+
+open-box-adv
+
+Pour ce genre de tâche, les listes sont clairement mieux adaptées que les tuples.
+
+close-box-adv
 
 ### Affectation multiple et fonctions
 
@@ -370,7 +396,7 @@ close-box-rem
 
 open-box-rem
 
-Le caractère *underscore* (`_`) est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 15 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (par exemple : `_var`, `var_`, `__var`, `__var__`). On verra au chapitre 19 *Avoir la classe avec les objets* que ces *underscores* ont aussi une signification particulière.
+Le caractère *underscore* (`_`) est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 16 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (*leading* et *trailing underscores* en anglais), par exemple : `_var`, `var_`, `__var`, `__var__`. On verra au chapitre 20 *Avoir la classe avec les objets* que ces *underscores* ont aussi une signification particulière.
 
 close-box-rem
 
@@ -438,7 +464,7 @@ close-box-adv
 
 ### Fonction `tuple()`
 
-Nous avions vu également la fonction `tuple()` qui permet de convertir un objet séquentiel en tuple (opération de *casting*). Cela est possible seulement si l'objet passé en argument est itérable. 
+Nous avions vu également la fonction `tuple()` qui permet de convertir un objet séquentiel en tuple (opération de *casting*). Cela est possible seulement si l'objet passé en argument est itérable :
 
 ```python
 >>> tuple([1, 3])
@@ -454,6 +480,8 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'bool' object is not iterable
 ```
+
+Bien sûr, un entier ou un booléen ne sont pas itérables.
 
 ### Hachabilité des tuples
 
@@ -534,7 +562,7 @@ La fonction interne à Python `set()` convertit un objet itérable passé en arg
 {'h', 'u', 'o', 'b', ' ', 'M', 'a', 'p', 'n', 'e', 'é', 'c', 'î', 's', 't', 'r'}
 ```
 
-Nous avons dit plus haut que les *sets* ne sont pas ordonnés ni indexables, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments par l'indexation.
+Nous avons dit plus haut que les *sets* ne sont ni ordonnés ni indexables, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments par l'indexation.
 
 ```python
 >>> s = set([1, 2, 4, 1])
@@ -694,7 +722,7 @@ close-box-adv
 
 ## Récapitulation des propriétés des conteneurs
 
-Après ce tour d'horizon des différents conteneurs, voici un tableau récapitulant leurs propriétés. La mention « `in` et `len()` » indique que l'on peut tester l'appartenance d'un élément à un conteneur avec l'opérateur `in` et que l'on peut connaître le nombre d'éléments du conteneur avec la fonction `len()`. Les mentions « index. » et « modif. » indiquent « indexable » et « modifiable ».
+Après ce tour d'horizon des différents conteneurs, voici un tableau récapitulant leurs propriétés. La mention « `in` et `len()` » indique que l'on peut tester l'appartenance d'un élément à un conteneur avec l'opérateur `in` et que l'on peut connaître le nombre d'éléments du conteneur avec la fonction `len()`. Les mentions « index. » et « modif. » indiquent respectivement « indexable » et « modifiable ».
 
 ### Objets séquentiels
 
@@ -739,7 +767,7 @@ Il est aussi intéressant de comparer ces propriétés avec celles des types num
 
 ## Dictionnaires et *sets* de compréhension
 
-Nous avons vu au chapitre 12 *Plus sur les listes* les listes de compréhension. Il est également possible de générer des dictionnaires de compréhension :
+Nous avons vu au chapitre 13 *Plus sur les listes* les listes de compréhension. Il est également possible de générer des dictionnaires de compréhension :
 
 ```python
 >>> dico = {"a": 10, "g": 10, "t": 11, "c": 15}
@@ -782,10 +810,10 @@ Il est également possible de générer des *sets* de compréhension sur le mêm
 
 Le [module *collections*](https://docs.python.org/fr/3/library/collections.html) contient d'autres types de conteneurs qui peuvent se révéler utiles, c'est une véritable mine d'or ! Nous n'aborderons pas tous ces objets ici, mais nous pouvons citer tout de même certains d'entre eux si vous souhaitez aller un peu plus loin :
 
-- les [dictionnaires ordonnés](https://docs.python.org/fr/3/library/collections.html#collections.OrderedDict) qui se comportent comme les dictionnaires classiques mais qui sont ordonnés ; 
+- les [dictionnaires ordonnés](https://docs.python.org/fr/3/library/collections.html#collections.OrderedDict) qui se comportent comme les dictionnaires classiques mais qui sont ordonnés, c'est-à-dire que si on affiche ou itère dessus, l'ordre sera le même que celui utilisé pour sa création ; avant la version 3.6, ces dictionnaires ordonnés avait un intérêt car l'ordre des dictionnaires normaux était arbitraire ; maintenant les dictionnaires normaux se comportent presque en tout point comme les dictionnaires ordonnés ;
 - les [*defaultdicts*](https://docs.python.org/fr/3/library/collections.html#collections.defaultdict) permettant de générer des valeurs par défaut quand on demande une clé qui n'existe pas (cela évite que Python génère une erreur) ;
 - les [compteurs](https://docs.python.org/fr/3/library/collections.html#collections.Counter) dont un exemple est montré ci-dessous ;
-- les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) que nous évoquerons au chapitre 19 *Avoir la classe avec les objets*.
+- les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) que nous évoquerons au chapitre 20 *Avoir la classe avec les objets*.
 
 L'objet `collection.Counter()` est particulièrement intéressant et simple à utiliser. Il crée des compteurs à partir d'objets itérables, par exemple :
 
@@ -807,11 +835,6 @@ Dans cet exemple, Python a automatiquement compté chaque caractère `a`, `t`, `
 ## Exercices
 
 *Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
-
-
-### Composition en acides aminés
-
-En utilisant un dictionnaire, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence `AGWPSGGASAGLAILWGASAIMPGALW`. Le dictionnaire ne doit contenir que les acides aminés présents dans la séquence.
 
 
 ### Mots de 2 et 3 lettres dans une séquence d'ADN
@@ -838,7 +861,6 @@ CCT : 2
 CTA : 5
 [...]
 ```
-
 
 ### Mots de 2 lettres dans la séquence du chromosome I de *Saccharomyces cerevisiae*
 
@@ -899,3 +921,7 @@ Créez une fonction `calcule_barycentre()` qui prend comme argument une liste de
 
 Utilisez la fonction `trouve_calpha()` de l'exercice précédent et la fonction  
 `calcule_barycentre()`pour afficher, avec deux chiffres significatifs, les coordonnées du barycentre des carbones alpha de la barstar.
+
+### Mettre ici un exo sur les tuples
+
+### Mettre ici un exo sur les sets
