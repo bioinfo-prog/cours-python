@@ -458,8 +458,15 @@ Que renvoie les instructions suivants ?
 
 Quelles sont celles qui donnent une erreur et pourquoi ?
 
-### Mettre ici des exos simples
+### Moyennes des notes
 
+Soit le dictionnaire suivant donnant les notes d'un étudiant :
+
+```python
+dico_notes = {"math": 14, "programmation": 12, "anglais": 16, "biologie": 10, "sport": 19}
+```
+
+Calculer la moyenne de ses notes de 2 manières différentes. Faire un autre calcul ou le programme calculera la moyenne sans la note de biologie.
 
 ### Composition en acides aminés
 
