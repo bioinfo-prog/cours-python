@@ -466,7 +466,7 @@ Soit le dictionnaire suivant donnant les notes d'un étudiant :
 dico_notes = {"math": 14, "programmation": 12, "anglais": 16, "biologie": 10, "sport": 19}
 ```
 
-Calculer la moyenne de ses notes de 2 manières différentes. Faire un autre calcul ou le programme calculera la moyenne sans la note de biologie.
+Calculez la moyenne de ses notes de deux manières différentes. Calculez à nouveau la moyenne sans la note de biologie.
 
 ### Composition en acides aminés
 
