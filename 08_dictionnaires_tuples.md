@@ -265,7 +265,11 @@ L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essa
 (1, 2, 3, 2)
 ```
 
+open-box-adv
+
 Cet exemple montre que les tuples sont peu adaptés lorsqu'on a besoin d'ajouter, retirer, modifier des éléments. La création d'un nouveau tuple à chaque étape s'avère lourde et il n'y a aucune méthode pour faire cela puisque les tuples sont non modifiables. Pour ce genre de tâche, les listes sont clairement mieux adaptées.
+
+close-box-adv
 
 open-box-rem
 
