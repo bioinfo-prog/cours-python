@@ -312,7 +312,7 @@ Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement 
 
 open-box-rem
 
-Comme la fonction `list()`, la fonction `tuple()` prend en argument un objet séquentiel (un objet contenant une séquence d'autres objets). Elle ne fonctionne pas avec les entiers, *floats* ou booléens. Par exemple, `tuple(2)` renvoie une erreur.
+Comme la fonction `list()`, la fonction `tuple()` prend en argument un objet un objet contenant d'autres objets. Elle ne fonctionne pas avec les entiers, *floats* ou booléens. Par exemple, `tuple(2)` renvoie une erreur. On en verra plus sur ces questions dans le chapitre 14 *Conteneurs*.
 
 close-box-rem
 
@@ -401,7 +401,7 @@ Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()
 
 Lignes 7 à 12. En fin de compte, la fonction `enumerate()` itère sur une série de tuples. Pouvoir séparer `indice` et `element` dans la boucle est possible du fait que Python autorise l'affectation multiple du style `indice, element = 0, 75` (voir rubrique précédente). 
 
-Dans le même ordre d'idée, nous avons vu précédemment la méthode `.dict_items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
+Dans le même ordre d'idée, nous avons vu plus haut la méthode `.dict_items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
 
 ```python
 >>> dico = {"pinson": 2, "merle": 3}
@@ -419,7 +419,7 @@ merle 3
 
 La méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
 
-Ainsi, on peut itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
+Dans le même ordre d'idée, on peut itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
 
 ```python
 >>> liste = [(5, 6, 7), (6, 7, 8), (7, 8, 9)]
