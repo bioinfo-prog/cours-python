@@ -164,7 +164,7 @@ Toutes les clés de dictionnaire vues dans le chapitre 8 *Dictionnaires et tuple
 
 Pourquoi les clés doivent être des objets hachables ? C'est la raison d'être des dictionnaires, d'ailleurs ils sont aussi appelés [table de hachage](https://fr.wikipedia.org/wiki/Table_de_hachage) dans d'autres langages comme Perl. Convertir chaque clé en sa valeur de hachage permet un accès très rapide à chacun des éléments du dictionnaire ainsi que des comparaisons de clés entre dictionnaires extrêmement efficaces. Même si on a vu que deux objets pouvaient avoir la même valeur de hachage, par exemple `a = 5` et `b = 5`, on ne peut mettre qu'une seule fois la clé `5`. Ceci assure que deux clés d'un même dictionnaire ont forcément une valeur de hachage différente.
 
-Pouvoir utiliser autre chose qu'une chaîne de caractères comme clé peut se révéler très pratique. Par exemple, pour une protéine ou un peptide, on pourrait concevoir d'utiliser comme clé le numéro de résidu, et comme valeur le nom de résidu. Imaginons par ailleurs, que nous commencions à compter le premier acide aminé à 10 (souvent les fichiers PDB ne commence pas à 1 pour le premier acide-aminé). Par exemple :
+Pouvoir utiliser autre chose qu'une chaîne de caractères comme clé peut se révéler très pratique. Par exemple, pour une protéine ou un peptide, on pourrait concevoir d'utiliser comme clé le numéro de résidu, et comme valeur le nom de résidu. Imaginons par ailleurs, que nous commencions à compter le premier acide aminé à 10 (souvent les fichiers PDB ne commence pas à 1 pour le premier acide aminé). Par exemple :
 
 ```python
 >>> sequence = {3: 'S', 4: 'E', 5: 'Q', 6: 'P', 7: 'E', 8: 'P', 9: 'T'}
@@ -184,7 +184,7 @@ Pouvoir utiliser autre chose qu'une chaîne de caractères comme clé peut se r�
 9 T
 ```
 
-Vous voyez l'énorme avantage, on peut utiliser comme clé le vrai numéro de résidu. Avec une liste ou une chaîne de caractère, l'indiçage commence à zéro. Ainsi, il faudrait utiliser les indices 2 et 6 pour retrouver respectivement les acides-aminés 5 et 9 :
+Vous voyez l'énorme avantage, on peut utiliser comme clé le vrai numéro de résidu. Avec une liste ou une chaîne de caractère, l'indiçage commence à zéro. Ainsi, il faudrait utiliser les indices 2 et 6 pour retrouver respectivement les acides aminés 5 et 9 :
 
 ```python
 >>> sequence
