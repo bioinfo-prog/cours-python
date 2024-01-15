@@ -443,12 +443,10 @@ Soit les 2 lignes de code suivantes:
 
 ```python
 dico = {"nom": "Joe", "age": 24, "taille": 181}
-var="nom"
+var = "nom"
 ```
 
 Prédisez le comportement de chaque instruction ci-dessous, sans les recopier dans un script ni dans l'interpréteur Python :
-
-Que renvoie les instructions suivants ?
 
 - `print(dico["age"])`
 - `print(dico[var])`
