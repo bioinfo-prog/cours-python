@@ -439,7 +439,7 @@ Les listes, dictionnaires, tuples et chaînes de caractères sont tous des objet
 
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+*Conseil* : utilisez l'interpréteur Python pour le premier exercice, pour les suivant créez des scripts puis exécutez-les dans un *shell*.
 
 ### Prédire la sortie
 
