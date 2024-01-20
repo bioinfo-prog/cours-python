@@ -4,7 +4,7 @@ Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent ex
 
 ## Dictionnaires
 
-### Définition
+### Définition et fonctionnement
 
 open-box-def
 
@@ -69,6 +69,16 @@ open-box-adv
 Nous verrons dans le chapitre 14 *Conteneurs* que plusieurs types d'objets sont utilisables en tant que clé de dictionnaire. Malgré cela, nous conseillons de n'utiliser que des chaînes de caractères lorsque vous débutez.
 
 close-box-adv
+
+### Fonction `len()`
+
+Comme pour les listes, l'instruction `len()` renvoie la longueur du dictionnaire, sauf qu'ici il s'agit du nombre de couples clé / valeur. Voici un exemple d'utilisation :
+
+```python
+ani3 = {"nom": "pinson", "poids": 0.02, "taille": 0.15}
+>>> len(ani3)
+3
+```
 
 ### Itération sur les clés pour obtenir les valeurs
 
