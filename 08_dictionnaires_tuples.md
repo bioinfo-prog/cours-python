@@ -312,7 +312,7 @@ Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement 
 
 open-box-rem
 
-Comme la fonction `list()`, la fonction `tuple()` prend en argument un objet un objet contenant d'autres objets. Elle ne fonctionne pas avec les entiers, *floats* ou booléens. Par exemple, `tuple(2)` renvoie une erreur. On en verra plus sur ces questions dans le chapitre 14 *Conteneurs*.
+Comme la fonction `list()`, la fonction `tuple()` prend en argument un objet contenant d'autres objets. Elle ne fonctionne pas avec les entiers, *floats* ou booléens. Par exemple, `tuple(2)` renvoie une erreur. On en verra plus sur ces questions dans le chapitre 14 *Conteneurs*.
 
 close-box-rem
 
