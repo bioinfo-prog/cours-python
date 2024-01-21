@@ -868,7 +868,7 @@ Dans cet exemple, Python a automatiquement compté chaque caractère `a`, `t`, `
 
 ### Composition en acides aminés
 
-En utilisant un *set* et la méthode `.count()` des chanînes de caractères, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence `AGWPSGGASAGLAILWGASAIMPGALW`.
+En utilisant un *set* et la méthode `.count()` des chaînes de caractères, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence `AGWPSGGASAGLAILWGASAIMPGALW`.
 
 ### Mots de 2 et 3 lettres dans une séquence d'ADN
 
