@@ -1,47 +1,61 @@
-# Quelques modules d'intérêt en bioinformatique
-
-Nous allons aborder dans ce chapitre quelques modules très importants en bioinformatique. Le premier *NumPy* permet notamment de manipuler des vecteurs et des matrices. Le module *Biopython* permet de travailler sur des données biologiques, comme des séquences (nucléiques et protéiques) ou des structures (fichiers PDB). Le module *matplotlib* permet de créer des graphiques depuis Python. Enfin, le module *pandas* est très performant pour l'analyse de données, et *scipy* étend les possibilités offertes par *NumPy*, notamment en proposant des algorithmes couramment utilisés en calcul scientifique.
-
-Ces modules ne sont pas fournis avec la distribution Python de base (contrairement à tous les autres modules vus précédemment). Avec la distribution Miniconda que nous vous avons conseillé d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod)), vous pouvez rapidement les installer avec la commande :
-
-```bash
-$ conda install -y numpy pandas matplotlib scipy biopython
-```
-
-Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation de ces modules pour vous convaincre de leur pertinence.
-
-
-## Module *NumPy*
+# Modules NumPy
 
 Le module [*NumPy*](http://numpy.scipy.org/) est incontournable en bioinformatique. Il permet d'effectuer des calculs sur des vecteurs ou des matrices, élément par élément, via un nouveau type d'objet appelé *array*.
+
+
+## Installation
+
+Contrairement à tous les autres modules vus précédemment, *NumPy* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement l'installer avec la commande :
+
+```bash
+$ conda install -c conda-forge numpy
+```
+
+
+## Utilisation
 
 On charge le module *NumPy* avec la commande :
 
 ```python
->>> import numpy
+import numpy
 ```
 
-On utilise très souvent un nom raccourci pour *NumPy* :
+On utilise très souvent `np` comme nom raccourci pour *NumPy* :
 
 ```python
->>> import numpy as np
+import numpy as np
 ```
 
 
 ### Objets de type *array*
 
-Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un container (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple simple de conversion d'une liste à une dimension en objet *array* :
+Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un conteneur (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple de conversion d'une liste à une dimension en objet *array* :
 
 ```python
->>> import numpy as np
->>> a = [1, 2, 3]
->>> np.array(a)
+import numpy as np
+a = [1, 2, 3]
+np.array(a)
+```
+
+```
 array([1, 2, 3])
->>> b = np.array(a)
->>> b
+```
+
+```python
+b = np.array(a)
+b
+```
+
+```
 array([1, 2, 3])
->>> type(b)
-<type 'numpy.ndarray'>
+```
+
+```python
+type(b)
+```
+
+```
+numpy.ndarray
 ```
 
 Nous avons converti la liste `[1, 2, 3]` en *array*. Nous aurions obtenu le même résultat si nous avions converti le tuple `(1, 2, 3)` en *array*.
@@ -55,21 +69,26 @@ Un objet *array* ne contient que des données homogènes, c'est-à-dire d'un typ
 Il est possible de créer un objet *array* à partir d'une liste contenant des entiers et des chaînes de caractères, mais dans ce cas, toutes les valeurs seront comprises par *NumPy* comme des chaînes de caractères :
 
 ```python
->>> a = np.array([1, 2, "tigre"])
->>> a
-array(['1', '2', 'tigre'], dtype='<U21')
->>> type(a)
-<class 'numpy.ndarray'>
+a = np.array([1, 2, "tigre"])
+a
 ```
+
+```
+array(['1', '2', 'tigre'], dtype='<U21')
+```
+
+Dans cet exemple, toutes les valeurs du *array* sont entre guillemets, indiquant qu'il s'agit de chaînes de caractères.
+
 
 De même, il est possible de créer un objet *array* à partir d'une liste constituée d'entiers et de *floats*, mais toutes les valeurs seront alors comprises par *NumPy* comme des *floats* :  
 
 ```python
 >>> b = np.array([1, 2, 3.5])
 >>> b
+```
+
+```
 array([1. , 2. , 3.5])
->>> type(b)
-<class 'numpy.ndarray'>
 ```
 
 Ici, la notation `1.` indique qu'il s'agit du *float* `1.0000...` et pas de l'entier `1`.
@@ -77,49 +96,90 @@ Ici, la notation `1.` indique qu'il s'agit du *float* `1.0000...` et pas de l'en
 close-box-rem
 
 
-Sur un modèle similaire à la fonction `range()`, la fonction `arange()` permet de construire un *array* à une dimension de manière simple.
+Sur un modèle similaire à la fonction `range()`, la fonction `arange()` permet de construire un *array* à une dimension :
 
 ```python
->>> np.arange(10)
+np.arange(10)
+```
+
+```
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 ```
 
 Comme avec `range()`, on peut spécifier en argument une borne de début, une borne de fin et un pas :
 
 ```python
->>> np.arange(10, 0, -1)
+np.arange(10, 0, -1)
+```
+
+```
 array([10,  9,  8,  7,  6,  5,  4,  3,  2,  1])
 ```
 
-Un autre avantage de la fonction `arange()` est qu'elle génère des objets *array* qui contiennent des entiers ou des *floats* selon l'argument qu'on lui passe :
+Un autre avantage de la fonction `arange()` est qu'elle génère des objets *array* qui contiennent des entiers ou des *floats* (ce qui n'est pas possible avec `range()`) selon l'argument qu'on lui passe :
 
 ```python
->>> np.arange(10)
-array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
->>> np.arange(10.0)
-array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9.])
+np.arange(10)
 ```
 
+```
+array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+```
+
+```python
+np.arange(10.0)
+```
+
+```
+array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9.])
+```
 
 La différence fondamentale entre un objet *array* à une dimension et une liste (ou un tuple) est que celui-ci est considéré comme un **vecteur**. Par conséquent, on peut effectuer des opérations **élément par élément** sur ce type d'objet, ce qui est bien commode lorsqu'on analyse de grandes quantités de données. Regardez ces exemples :
 
 ```python
->>> v = np.arange(4)
->>> v
+v = np.arange(4)
+v
+```
+
+```
 array([0, 1, 2, 3])
->>> v + 1
+```
+
+```python
+v + 1
+```
+
+```
 array([1, 2, 3, 4])
->>> v + 0.1
+```
+
+```python
+v + 0.1
+```
+
+```
 array([ 0.1,  1.1,  2.1,  3.1])
->>> v * 2
+```
+
+```python
+v * 2
+```
+
+```
 array([0, 2, 4, 6])
->>> v * v
+```
+
+```python
+v * v
+```
+
+```
 array([0, 1, 4, 9])
 ```
 
 Avec les listes, ces opérations n'auraient été possibles qu'en utilisant des boucles. Nous vous encourageons donc à utiliser dorénavant les objets *array* lorsque vous aurez besoin de faire des opérations élément par élément.
 
-Notez également que, dans le dernier exemple de multiplication (ligne 10), l'*array* final correspond à la multiplication **élément par élément** des deux *arrays* initiaux.
+Notez également que, dans le dernier exemple de multiplication, l'*array* final correspond à la multiplication **élément par élément** des deux *arrays* initiaux.
 
 
 ### *Array* et dimensions
@@ -127,8 +187,11 @@ Notez également que, dans le dernier exemple de multiplication (ligne 10), l'*a
 Il est aussi possible de construire des objets *arrays* à deux dimensions, il suffit de passer en argument une liste de listes à la fonction `array()` :
 
 ```python
->>> w = np.array([[1, 2], [3, 4], [5, 6]])
->>> w
+w = np.array([[1, 2], [3, 4], [5, 6]])
+w
+```
+
+```
 array([[1, 2],
        [3, 4],
        [5, 6]])
@@ -137,8 +200,11 @@ array([[1, 2],
 On peut aussi créer des tableaux à trois dimensions en passant comme argument à la fonction `array()` une liste de listes de listes :
 
 ```python
->>> x = np.array([[[1, 2], [2, 3]], [[4, 5], [5, 6]]])
->>> x
+x = np.array([[[1, 2], [2, 3]], [[4, 5], [5, 6]]])
+x
+```
+
+```
 array([[[1, 2],
         [2, 3]],
 
@@ -146,7 +212,7 @@ array([[[1, 2],
         [5, 6]]])
 ```
 
-La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois ça devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être assimilé à un **vecteur** et un *array* à deux dimensions à une **matrice**. Nous nous focaliserons dans la suite sur des *arrays* 1D ou 2D.
+La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois cela devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être assimilé à un **vecteur**, un *array* à deux dimensions à une **matrice** et un *array* à trois dimensions à un **tenseur**. Nous nous focaliserons dans la suite sur des *arrays* 1D ou 2D.
 
 Avant de continuer, il est important de définir comment sont organisés ces *arrays* 2D qui représentent des matrices. Il s'agit de tableaux de nombres qui sont organisés en lignes et en colonnes comme le montre la figure @fig:array2Dlignescolonnes. Les indices indiqués dans cette figure seront définis un peu plus loin dans la rubrique *Indices*.
 
