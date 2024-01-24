@@ -1,4 +1,4 @@
-# Modules NumPy
+# Module NumPy
 
 Le module [*NumPy*](http://numpy.scipy.org/) est incontournable en bioinformatique. Il permet d'effectuer des calculs sur des vecteurs ou des matrices, élément par élément, via un nouveau type d'objet appelé *array*.
 
@@ -20,7 +20,7 @@ On charge le module *NumPy* avec la commande :
 import numpy
 ```
 
-On utilise très souvent `np` comme nom raccourci pour *NumPy* :
+On utilise aussi très souvent `np` comme nom raccourci pour *NumPy* :
 
 ```python
 import numpy as np
@@ -83,8 +83,8 @@ Dans cet exemple, toutes les valeurs du *array* sont entre guillemets, indiquant
 De même, il est possible de créer un objet *array* à partir d'une liste constituée d'entiers et de *floats*, mais toutes les valeurs seront alors comprises par *NumPy* comme des *floats* :  
 
 ```python
->>> b = np.array([1, 2, 3.5])
->>> b
+b = np.array([1, 2, 3.5])
+b
 ```
 
 ```text
@@ -543,7 +543,18 @@ print(a2)
  [1. 1. 1.]]
 ```
 
-Ceci peut amener des confusions spécialement pour un *array* 1D `[0 1 2 3 4 5 6 7 8 9]` et une liste contenant les même éléments `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`. Dans ce cas, seule la présence ou l'absence de virgules permet de savoir s'il s'agit d'un *array* ou d'une liste.
+Ceci peut amener des confusions spécialement pour un *array* 1D 
+
+```text
+[0 1 2 3 4 5 6 7 8 9]
+```
+
+et une liste contenant les même éléments 
+```text
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```text
+
+Dans ce cas, seule la présence ou l'absence de virgules permet de savoir s'il s'agit d'un *array* ou d'une liste.
 
 close-box-rem
 
@@ -719,15 +730,6 @@ array([3, 4])
 ```
 
 Pour cette raison, la syntaxe `a[i][j]` est également valide pour récupérer un élément :
-
-```python
-a
-```
-
-```text
-array([[1, 2],
-       [3, 4]])
-```
 
 ```python
 a[1, 1]
@@ -1593,7 +1595,7 @@ Utilisez les listes :
 - Lorsque vous souhaitez accumuler des valeurs au fur et à mesure des itérations d'une boucle. Pour cela, la méthode `.append()` des listes est bien plus efficace que de faire grandir un *array* ligne par ligne (c'est-à-dire en ajoutant une ligne avec `np.concatenate()` à chaque itération)
 - Lorsqu'on ne peut pas utiliser les fonctions de lecture de fichier de *NumPy* pour quelque raison que ce soit, il est tout à fait classique de faire grandir une liste au fur et à mesure de la lecture du fichier puis de la convertir à la fin en *array*. De manière générale, utilisez `np.concatenate()` seulement pour concaténer des gros *arrays*, pas pour ajouter une seule ligne.
 
-Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) et vos commentaires lorsque vous utilisez des *arrays NumPy*. *NumPy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* ainsi que sa dimensionnalité (1D, 2D, etc.).
+Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) et vos commentaires lorsque vous utilisez des *arrays*. *NumPy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* ainsi que sa dimensionnalité (1D, 2D, etc.).
 
 Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules *SciPy* et *matplotlib* (et aussi aux *notebooks Jupyter*, voir le chapitre précédent), il permet de faire de l'analyse scientifique. On verra un peu plus loin dans ce chapitre que la puissance de *NumPy* est également utilisée par le module *pandas* et ses fameux *dataframes* pour faire de l'analyse de données.
 
@@ -1615,7 +1617,13 @@ close-box-adv
 
 ### Nombres pairs et impairs
 
-Soit `impairs` un *array* *NumPy* qui contient les nombres `1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21`. En une seule instruction, construisez l'*array* `pairs` dans lequel tous les éléments de `impairs` sont incrémentés de 1.
+Soit `impairs` un *array* *NumPy* qui contient les nombres 
+
+```text
+1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21
+```
+
+En une seule instruction, construisez l'*array* `pairs` dans lequel tous les éléments de `impairs` sont incrémentés de 1.
 
 Comparez ce que venez de faire avec l'exercice 5.4.4 du chapitre 4 *Boucles et comparaisons*.
 
@@ -1672,7 +1680,7 @@ Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones 
 
 ### Jour le plus chaud
 
-Le fichier [`temperature.dat`](https://python.sdv.u-paris.fr/data-files/temperatures.dat) contient un relevé de 4 températures pour chaque jour de la semaine :
+Le fichier [`temperature.dat`](https://python.sdv.u-paris.fr/data-files/temperatures.dat) contient un relevé de quatre températures pour chaque jour de la semaine :
 
 ```text
 Lun 12 11 14 12
@@ -1706,18 +1714,21 @@ Nous vous proposons les étapes suivantes pour résoudre cet exercice à l'aide 
 - Une fois tout cela effectué, créez un graphique 3D pour représenter les différents centres de masse. Vous pourrez utiliser la fonction `scatter()` du module *matplotlib*. Pour l'[affichage en 3D](https://matplotlib.org/3.2.1/gallery/mplot3d/scatter3d.html), voici un squelette de programme :
 
 ```python
-# Init plot.
+# Initialisation du graphique.
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 fig = plt.figure()                       
-ax = fig.add_subplot(111, projection='3d')
+ax = fig.add_subplot(111, projection="3d")
 [...]
-# X, Y et Z sont des arrays 1D de n éléments (par exemple X représente tous les x des P de la monocouche upper).
+# X, Y et Z sont des arrays 1D de n éléments.
+# Par exemple X représente tous les x des P de la monocouche upper.
+[...]
+# Affichage de la couche upper.
 ax.scatter(X, Y, Z, c="salmon", marker="o")
-# x, y, z sont des floats avec les coordonnées du COM de la upper.
+# Affichage du COM de la couche upper.
 ax.scatter(x, y, z, c="red", marker="x")
 [...]
-# Axis + title.
+# Affichage des étiquettes des axes et du titre.
 ax.set_xlabel("x (Å)")
 ax.set_ylabel("y (Å)")
 ax.set_zlabel("z (Å)")
