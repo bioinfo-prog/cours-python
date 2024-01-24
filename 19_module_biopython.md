@@ -203,7 +203,7 @@ res_esummary[0]["PubDate"]
 
 ```text
 '2012 Aug'
-
+```
 
 ```python
 res_esummary[0]["Source"]
@@ -233,7 +233,7 @@ ant serum metal-binding protein best known for its role \nin iron del
 [...]
 ```
 
-Le résultat n'est pas très lisible car en un seul bloc. La caractère `\n` 
+Le résultat n'est pas très lisible car il apparait comme un seul bloc. Le caractère `\n` 
 désigne un retour à la ligne. L'instruction `print()` affichera 
 le résultat de manière plus lisible :
 
