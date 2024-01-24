@@ -154,7 +154,7 @@ La commande précédente (`%matplotlib inline`) est une *magic command*. Les [*m
 
 ![*Magic command* `%history`.](img/jupyter-history.png){ #fig:jupyter-history width=80% }
 
-La commande `%%time` (avec deyx symboles `%`) va mesurer le temps d'exécution d'une cellule. C'est très utile pour faire des tests de performance. Par exemple :
+La commande `%%time` (avec deux symboles `%`) va mesurer le temps d'exécution d'une cellule. C'est très utile pour faire des tests de performance. Par exemple cette cellule :
 
 ```python
 %%time
@@ -163,9 +163,14 @@ for conc in concentrations:
     print(conc)
 ```
 
-renvoie le résultat de la figure @fig:jupyter-time. Bien sûr les valeurs obtenues dépendent de la machine sur laquelle vous exécutez cette commande. Mais même en utilisant une même machine, les résultats peuvent fluctuer d'une exécution à l'autre en fonction de l'activité de la machine. Ces fluctuations seront d'autant plus importantes que le temps d'exécution est court.
+renvoie :
 
-![*Magic command* `%%time`.](img/jupyter-time.png){ #fig:jupyter-time width=80% }
+```text
+CPU times: user 10 µs, sys: 0 ns, total: 10 µs
+Wall time: 13.6 µs
+```
+
+Bien sûr les valeurs obtenues dépendent de la machine sur laquelle vous exécutez cette commande. Mais même sur une même machine, les résultats peuvent fluctuer d'une exécution à l'autre en fonction de l'activité de la machine. Ces fluctuations seront d'autant plus importantes que le temps d'exécution est court.
 
 Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Dans l'exemple de la figure @fig:jupyter-timeit, on compare le un parcours de liste avec une boucle `for`, soit directement sur les éléments, soit sur les indices des éléments. Python détermine automatiquement le nombre d'itérations et le nombre de répétions à effectuer pour obtenir un temps d'exécution raisonnable. Ici, chaque cellule sera exécutée un million de fois sur sept répétitions. Comme nous l'avions expliqué dans le chapitre 5. *Boucles et comparaisons*, itérer une liste sur ses éléments est la méthode la plus efficace (et la plus élégante).
 
