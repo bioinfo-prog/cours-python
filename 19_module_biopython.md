@@ -18,7 +18,7 @@ Les cellules de code apparaitront de cette manière
 avec des numéros de lignes.
 ```
 
-```
+```text
 Les résultats seront affichés de cette manière,
 éventuellement sur plusieurs lignes.
 ```
@@ -36,12 +36,12 @@ ADN = Seq("ATATCGGCTATAGCATGC")
 ADN
 ```
 
-```
+```text
 Seq('ATATCGGCTATAGCATGC')
 ```
 
 - Ligne 1. Le module *Biopython* s'appelle `Bio`.
-- Ligne 2. On charge la classe `Seq` du sous-module `Bui.Seq`.
+- Ligne 2. On charge la classe `Seq` du sous-module `Bio.Seq`.
 - Ligne 3. La variable `ADN` est de type `Seq`, comme affiché dans le résultat.
 
 ### Obtention de la séquence complémentaire et de la séquence complémentaire inverse
@@ -50,7 +50,7 @@ Seq('ATATCGGCTATAGCATGC')
 ADN.complement()
 ```
 
-```
+```text
 Seq('TATAGCCGATATCGTACG')
 ```
 
@@ -58,7 +58,7 @@ Seq('TATAGCCGATATCGTACG')
 ADN.reverse_complement()
 ```
 
-```
+```text
 Seq('GCATGCTATAGCCGATAT')
 ```
 
@@ -68,7 +68,7 @@ Seq('GCATGCTATAGCCGATAT')
 ADN.translate()
 ```
 
-```
+```text
 Seq('ISAIAC')
 ```
 
@@ -106,7 +106,7 @@ Voici ses clés :
 res_esearch.keys()
 ```
 
-```
+```text
 dict_keys(['Count', 'RetMax', 'RetStart', 'IdList', 'TranslationSet',
 'TranslationStack', 'QueryTranslation'])
 ```
@@ -118,7 +118,7 @@ La valeur associée à la clé `IdList` est une liste qui contient les identifia
 res_esearch["IdList"]
 ```
 
-```
+```text
 ['30411489', '30409795', '30405884', '30405827', '30402883', '30401570',
 '30399508', '30397276', '30395963', '30394734', '30394728', '30394123',
 '30393423', '30392910', '30392664', '30391706', '30391651', '30391537',
@@ -129,7 +129,7 @@ res_esearch["IdList"]
 len(res_esearch["IdList"])
 ```
 
-```
+```text
 20
 ```
 
@@ -143,7 +143,7 @@ En réalité, le nombre exact de publications (en janvier 2024) est connu :
 res_esearch["Count"]
 ```
 
-```
+```text
 '45717'
 ```
 
@@ -153,7 +153,7 @@ Mais vous pouvez augmenter cette limite en utilisant le paramètre `retmax` dans
 Nous pouvons maintenant récupérer des informations sur une publication précise
 en connaissant son PMID. Par exemple, l'article avec le PMID [22294463](https://www.ncbi.nlm.nih.gov/pubmed/22294463) dont un aperçu est sur la figure @fig:entrez-transferrin.
 
-![Aperçu de la publication *Known and potential roles of transferrin in iron biology* depuis le site PubMed.](img/entrez-transferrin.png "Aperçu de la publication Known and potential roles of transferrin in iron biology"){ #fig:entrez-transferrin width=80% }
+![Aperçu de la publication *Known and potential roles of transferrin in iron biology* depuis le site PubMed.](img/entrez-transferrin.png "Aperçu de la publication Known and potential roles of transferrin in iron biology"){ #fig:entrez-transferrin width=95% }
 
 Nous allons pour cela utiliser la fonction `Entrez.esummary()`
 
@@ -169,7 +169,7 @@ Cette pseudo-liste n'a qu'un seul élément, qui est lui-même un pseudo-diction
 res_esummary[0].keys()
 ```
 
-```
+```text
 dict_keys(['Item', 'Id', 'PubDate', 'EPubDate', 'Source', 'AuthorList',
 'LastAuthor', 'Title', 'Volume', 'Issue', 'Pages', 'LangList',
 'NlmUniqueID', 'ISSN', 'ESSN', 'PubTypeList', 'RecordStatus', 'PubStatus',
@@ -185,7 +185,7 @@ publié :
 res_esummary[0]["Title"]
 ```
 
-```
+```text
 'Known and potential roles of transferrin in iron biology.'
 ```
 
@@ -193,7 +193,7 @@ res_esummary[0]["Title"]
 res_esummary[0]["DOI"]
 ```
 
-```
+```text
 '10.1007/s10534-012-9520-3'
 ```
 
@@ -201,7 +201,7 @@ res_esummary[0]["DOI"]
 res_esummary[0]["PubDate"]
 ```
 
-```
+```text
 '2012 Aug'
 
 
@@ -209,7 +209,7 @@ res_esummary[0]["PubDate"]
 res_esummary[0]["Source"]
 ```
 
-```
+```text
 'Biometals'
 ```
 
@@ -223,7 +223,7 @@ req_efetch = Entrez.efetch(
 req_efetch.read()
 ```
 
-```
+```text
 '1. Biometals. 2012 Aug;25(4):677-86. doi: 10.1007/s10534-012-9520-3.
 \n\nKnown and potential roles of transferrin in iron biology.\n\nBart
 nikas TB(1).\n\nAuthor information:\n(1)Department of Pathology, Chil
@@ -244,7 +244,7 @@ req_efetch = Entrez.efetch(
 print(req_efetch.read())
 ```
 
-```
+```text
 1. Biometals. 2012 Aug;25(4):677-86. doi: 10.1007/s10534-012-9520-3.
 
 Known and potential roles of transferrin in iron biology.
