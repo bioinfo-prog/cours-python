@@ -148,7 +148,7 @@ close-box-rem
 
 ## Les *magic commands*
 
-La commande précédente (`%matplotlib inline`) est une *magic command*. Les *magic commands* apportent des fonctionnalités supplémentaire dans un notebook. Il en existe beaucoup, en voici quelques unes :
+La commande précédente (`%matplotlib inline`) est une *magic command*. Les [*magic commands*](https://ipython.readthedocs.io/en/stable/interactive/magics.html) apportent des fonctionnalités supplémentaire dans un notebook. Il en existe beaucoup, en voici quelques unes :
 
 - `%whos` liste tous les objets (variables, fonctions, modules...) utilisés dans le notebook (voir figure @fig:jupyter-whos).
 - `%history` liste toutes les commandes Python lancées dans un notebook (voir figure @fig:jupyter-history).
