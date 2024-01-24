@@ -541,22 +541,22 @@ L'initialisation des valeurs de `theta` et `dtheta` est très importante car ell
 import matplotlib.pyplot as plt
 import numpy as np
 
-# la fonction np.genfromtxt() renvoie un array à 2 dim
+# La fonction np.genfromtxt() renvoie un array à 2 dim.
 array_data = np.genfromtxt("pendule_basic.dat")
 # col 0: t, col 1: theta
 t = array_data[:,0]
 theta = array_data[:,1]
 
-# plot
-plt.figure(figsize=(8,8))
+# Figure.
+fig, ax = plt.subplots(figsize=(8, 8))
 mini = min(theta) * 1.2
 maxi = max(theta) * 1.2
-plt.xlim(0, max(t))
-plt.ylim(mini, maxi)
-plt.xlabel("t (s)")
-plt.ylabel("theta (deg)")
-plt.plot(t, theta)
-plt.savefig("pendule_basic.png")
+ax.set_xlim(0, max(t))
+ax.set_ylim(mini, maxi)
+ax.set_xlabel("t (s)")
+ax.set_ylabel("theta (deg)")
+ax.plot(t, theta)
+fig.savefig("pendule_basic.png")
 ```
 
 Si vous observez une sinusoïde, bravo, vous venez de réaliser votre première simulation de pendule ! Vous avez maintenant le « squelette » de votre « moteur » de simulation. N'hésitez pas à vous amuser avec d'autres conditions initiales. Ensuite vous pourrez passer à la rubrique suivante.

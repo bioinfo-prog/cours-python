@@ -559,17 +559,17 @@ with open("sin2ori.dat", "r") as f_in:
         coords = line.split()
         x.append(float(coords[0]))
         y.append(float(coords[1]))
-plt.figure(figsize=(8,8))
-plt.plot(x, y)
-plt.xlabel("x")
-plt.ylabel("Distance de sin(x)à l'origine")
-plt.savefig("sin2ori.png")
+fig, ax = plt.subplots(figsize=(6, 6))
+ax.plot(x, y)
+ax.set_xlabel("x")
+ax.set_ylabel("Distance de sin(x) à l'origine")
+fig.savefig("sin2ori.png")
 ```
 
 Ouvrez l'image `sin2ori.png`.
 
 open-box-rem
 
-Le module *matplotlib* sera expliqué en détail dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
+Le module *matplotlib* sera expliqué en détail dans le chapitre 21 *Module matplotlib*.
 
 close-box-rem
