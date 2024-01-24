@@ -116,9 +116,9 @@ Le format Markdown permet de rédiger du texte formaté (gras, italique, liens, 
 
 ![Notebook avec une cellule au format Markdown (après exécution).](img/jupyter-markdown-2.png "Notebook avec une cellule au format Markdown (après exécution)."){ #fig:jupyter-markdown-2 width=80% }
 
-Notez qu'une cellule Markdown est sur fond blanc.
+Notez qu'une cellule Markdown est sur fond blanc (comme sur la figure @fig:jupyter-markdown-2).
 
-Le format Markdown permet de rapidement et très simplement rédiger du texte structuré. Ce cours est par exemple complètement rédigé en Markdown.
+Le format Markdown permet de rédiger du texte structuré rapidement et simplement. Ce cours est par exemple complètement rédigé en Markdown.
 
 Nous vous conseillons d'explorer les possibilités du Markdown en consultant la page [Wikipédia](https://fr.wikipedia.org/wiki/Markdown) ou directement la [page de référence](https://daringfireball.net/projects/markdown/syntax).
 
