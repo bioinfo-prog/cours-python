@@ -216,7 +216,7 @@ La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimen
 
 Avant de continuer, il est important de définir comment sont organisés ces *arrays* 2D qui représentent des matrices. Il s'agit de tableaux de nombres qui sont organisés en lignes et en colonnes comme le montre la figure @fig:array2Dlignescolonnes. Les indices indiqués dans cette figure seront définis un peu plus loin dans la rubrique *Indices*.
 
-![Définition des lignes et colonnes dans un *array* 2D.](img/array_2D_lignes_colonnes.png "Définition des lignes et colonnes dans un array 2D"){ #fig:array2Dlignescolonnes width=60% }
+![Définition des lignes et colonnes dans un *array* 2D.](img/array_2D_lignes_colonnes.png "Définition des lignes et colonnes dans un array 2D"){ #fig:array2Dlignescolonnes width=80% }
 
 
 Voici quelques attributs intéressants pour décrire un objet *array* :
