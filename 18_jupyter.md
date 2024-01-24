@@ -172,7 +172,7 @@ renvoie le résultat de la figure @fig:jupyter-time. Bien sûr les valeurs obten
 
 Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Dans l'exemple de la figure @fig:jupyter-timeit, on compare le un parcours de liste avec une boucle `for`, soit directement sur les éléments, soit sur les indices des éléments. Python détermine automatiquement le nombre d'itérations et le nombre de répétions à effectuer pour obtenir un temps d'exécution raisonnable. Ici, chaque cellule sera exécutée un million de fois sur sept répétitions. Comme nous l'avions expliqué dans le chapitre 5. *Boucles et comparaisons*, itérer une liste sur ses éléments est la méthode la plus efficace (et la plus élégante).
 
-![*Magic command* `%%timeit`.](img/jupyter-timeit.png){ #fig:jupyter-time width=80% }
+![*Magic command* `%%timeit`.](img/jupyter-timeit.png){ #fig:jupyter-timeit width=80% }
 
 
 ## Lancement d'une commande Unix
