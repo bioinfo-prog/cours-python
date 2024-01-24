@@ -1,6 +1,6 @@
 # Jupyter et ses notebooks
 
-Les notebooks Jupyter sont des cahiers électroniques qui, dans le même document, peuvent rassembler du texte, des images, des formules mathématiques et du code informatique exécutable. Ils sont manipulables interactivement dans un navigateur web.
+Les notebooks Jupyter sont des cahiers électroniques qui, dans le même document, peuvent rassembler du texte, des images, des formules mathématiques, des tableaux, des graphiques et du code informatique exécutable. Ils sont manipulables interactivement dans un navigateur web.
 
 Initialement développés pour les langages de programmation Julia, Python et R (d'où le nom *Jupyter*), les notebooks Jupyter supportent près de 40 langages différents.
 
@@ -8,7 +8,7 @@ La cellule est l'élément de base d'un notebook Jupyter. Elle peut contenir du 
 
 Voici un exemple de notebook Jupyter (figure @fig:jupyter-exemple) :
 
-![Exemple de notebook Jupyter. Les chiffres entourés désignent les différentes cellules.](img/jupyter-exemple.png "Exemple de notebook Jupyter"){ #fig:jupyter-exemple width=80% }
+![Exemple de notebook Jupyter. Les chiffres entourés désignent les différentes cellules.](img/jupyter-exemple.png "Exemple de notebook Jupyter"){ #fig:jupyter-exemple width=90% }
 
 Ce notebook est constitué de cinq cellules : deux avec du texte en Markdown (la première et la dernière) et trois avec du code Python (légèrement grisées).
 
@@ -26,7 +26,8 @@ Pour être exact, la commande précédente installe un peu plus que les notebook
 
 ## JupyterLab
 
-En 2018, le consortium Jupyter a lancé *JupyterLab* qui est un environnement complet d'analyse.
+En 2018, le consortium Jupyter a lancé *JupyterLab* qui est un environnement complet de programamtion et d'analyse de données.
+
 Pour obtenir cette interface, lancez la commande suivante depuis un *shell* :
 
 ```bash
@@ -38,24 +39,20 @@ obtenir une interface similaire à la figure @fig:jupyterlab-1, avec à gauche u
 
 ![Interface de JupyterLab.](img/jupyterlab-1.png "Interface de JupyterLab."){ #fig:jupyterlab-1 width=95% }
 
-L'interface proposée par JupyterLab est très riche. On peut y organiser un notebook Jupyter, avec éventuellement une figure en encart, un *shell* (voir figure @fig:jupyterlab-2)... Les possibilités sont infinies !
-
-![JupyterLab comme environnement d'analyse.](img/jupyterlab-2.png "JupyterLab comme environnement d'analyse."){ #fig:jupyterlab-2 width=95% }
+L'interface proposée par JupyterLab est très riche. On peut y organiser un notebook Jupyter, un éditeur de fichier texte, un terminal... Les possibilités sont nombreuses et nous vous invitons à explorer cette interface par vous-même.
 
 
 ## Création d'un notebook
 
-Pour créer un notebook, cliquez sur le bouton *Python 3* situé dans la rubrique *Notebook* dans le *Launcher
-
-Vous noterez au passage qu'il est également possible de créer un fichier texte, un répertoire ou bien encore de lancer un *shell* via un *Terminal* (voir figure @fig:jupyter-nouveau-notebook).
+Pour créer un notebook, cliquez sur le bouton *Python 3* situé dans la rubrique *Notebook* dans le *Launcher* (figure @fig:jupyter-nouveau-notebook).
 
 ![Création d'un nouveau notebook.](img/jupyter-nouveau-notebook.png "Création d'un nouveau notebook"){ #fig:jupyter-nouveau-notebook width=80% }
 
 Le notebook fraîchement créé ne contient qu'une cellule vide.
 
-![Nouveau notebook.](img/jupyter-nouveau-notebook-vide.png "Nouveau notebook"){ #fig:jupyter-nouveau-notebook-vide width=80% }
+![Nouveau notebook avec une cellule vide.](img/jupyter-nouveau-notebook-vide.png "Nouveau notebook avec une cellule vide."){ #fig:jupyter-nouveau-notebook-vide width=80% }
 
-La première chose à faire est de donner un nom à votre notebook. Pour cela cliquer avec le bouton droit de la soris sur *Untitled.ipynb* en haud du notebook. Si le nom de votre notebook est *test.ipynb* alors le fichier *test.ipynb* sera créé dans le répertoire depuis lequel vous avez lancé JupyterLab.
+La première chose à faire est de donner un nom à votre notebook. Pour cela cliquer avec le bouton droit de la souris sur *Untitled.ipynb* en haut du notebook. Si le nom de votre notebook est *test.ipynb* alors le fichier *test.ipynb* sera créé dans le répertoire depuis lequel vous avez lancé JupyterLab.
 
 open-box-rem
 
