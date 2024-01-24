@@ -5,7 +5,7 @@ Nous allons aborder dans ce chapitre un module incontournable en bioinformatique
 
 ## Installation
 
-Contrairement à tous les autres modules vus précédemment, *Biopython* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement les installer avec la commande :
+Contrairement à tous les autres modules vus précédemment, *Biopython* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement l'installer avec la commande :
 
 ```bash
 $ conda install -c conda-forge biopython
@@ -279,6 +279,12 @@ mais aussi d'autres informations comme le titre, le DOI, la date de publication.
 
 
 ## Exercices
+
+open-box-adv
+
+Pour ces exercices, utilisez des notebooks Jupyter.
+
+close-box-adv
 
 
 ### Années de publication des articles relatifs à la barstar
