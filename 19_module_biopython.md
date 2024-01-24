@@ -11,11 +11,11 @@ Contrairement à tous les autres modules vus précédemment, *Biopython* n'est p
 $ conda install -c conda-forge biopython
 ```
 
-Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation de ces modules pour vous convaincre de leur pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
+Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation de ce module pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
 
 ```python
 Les cellules de code apparaitront de cette manière
-avec des numéros de lignes.
+dans un notebook Jupyter, avec des numéros de lignes.
 ```
 
 ```text
