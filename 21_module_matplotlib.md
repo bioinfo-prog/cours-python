@@ -44,7 +44,7 @@ plt.show()
 
 Dans un notebook Jupyter, vous devriez obtenir un graphique ressemblant à celui de la figure @fig:conc-vs-tps0.
 
-![Graphique produit par *matplotlib*.](img/concentration_vs_temps_0.png "Graphique produite par matplotlib"){ #fig:conc-vs-tps1 width=80% }
+![Graphique produit par *matplotlib*.](img/concentration_vs_temps_0.png "Graphique produite par matplotlib"){ #fig:conc-vs-tps0 width=80% }
 
 Revenons maintenant sur le code :
 
