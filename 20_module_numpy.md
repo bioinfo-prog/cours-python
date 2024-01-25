@@ -543,16 +543,17 @@ print(a2)
  [1. 1. 1.]]
 ```
 
-Ceci peut amener des confusions spécialement pour un *array* 1D 
+Ceci peut amener des confusions spécialement entre un *array* 1D 
 
 ```text
 [0 1 2 3 4 5 6 7 8 9]
 ```
 
-et une liste contenant les même éléments 
+et une liste contenant les même éléments :
+
 ```text
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-```text
+```
 
 Dans ce cas, seule la présence ou l'absence de virgules permet de savoir s'il s'agit d'un *array* ou d'une liste.
 
