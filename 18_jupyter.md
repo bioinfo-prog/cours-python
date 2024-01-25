@@ -131,7 +131,7 @@ Voici un exemple en reprenant un graphique présenté dans le chapitre 21 *Modul
 
 ![Incorporation d'un graphique dans un notebook Jupyter.](img/jupyter-matplotlib.png "Incorporation d'un graphique dans un notebook Jupyter."){ #fig:jupyter-matplotlib width=80% }
 
-L'utilisation de `%matplotlib inline` n'est pas nécessaire dans les versions récentes de Jupyter Lab. Mais d'anciennes versions, vous pourriez en avoir besoin pour que les graphiques s'affichent correctement dans le notebook.
+L'utilisation de `%matplotlib inline` n'est pas nécessaire dans les versions récentes de JupyterLab. Mais avec d'anciennes versions, vous pourriez en avoir besoin pour que les graphiques s'affichent dans le notebook.
 
 open-box-rem
 
@@ -172,7 +172,7 @@ Wall time: 13.6 µs
 
 Bien sûr les valeurs obtenues dépendent de la machine sur laquelle vous exécutez cette commande. Mais même sur une même machine, les résultats peuvent fluctuer d'une exécution à l'autre en fonction de l'activité de la machine. Ces fluctuations seront d'autant plus importantes que le temps d'exécution est court.
 
-Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Dans l'exemple de la figure @fig:jupyter-timeit, on compare le un parcours de liste avec une boucle `for`, soit directement sur les éléments, soit sur les indices des éléments. Python détermine automatiquement le nombre d'itérations et le nombre de répétions à effectuer pour obtenir un temps d'exécution raisonnable. Ici, chaque cellule sera exécutée un million de fois sur sept répétitions. Comme nous l'avions expliqué dans le chapitre 5. *Boucles et comparaisons*, itérer une liste sur ses éléments est la méthode la plus efficace (et la plus élégante).
+Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Dans l'exemple de la figure @fig:jupyter-timeit, on compare le un parcours de liste avec une boucle `for`, soit directement sur les éléments, soit sur les indices des éléments. Python détermine automatiquement le nombre d'itérations et le nombre de répétions à effectuer pour obtenir un temps d'exécution raisonnable. Ici, chaque cellule sera exécutée un million de fois sur sept répétitions. Comme nous l'avions expliqué dans le chapitre 5 *Boucles et comparaisons*, itérer une liste sur ses éléments est la méthode la plus efficace (et la plus élégante).
 
 ![*Magic command* `%%timeit`.](img/jupyter-timeit.png){ #fig:jupyter-timeit width=80% }
 
@@ -192,10 +192,8 @@ Pour vous en rendre compte, jetez un œil au [notebook](https://github.com/Maaya
 close-box-rem
 
 
-
-
 open-box-more
 
-Les *notebooks* Jupyter sont particulièrement adaptés à l'analyse de données en combinaison avec les modules *Matplotlib* et *Pandas* que nous verrons dans les prochaines chapitres.
+Les *notebooks* Jupyter sont particulièrement adaptés à l'analyse de données en combinaison avec les modules *matplotlib* et *pandas* que nous verrons dans les prochains chapitres.
 
 close-box-more
