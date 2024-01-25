@@ -158,7 +158,7 @@ dtype: int64
 ### *Dataframes*
 
 Un autre type d'objet particulièrement intéressant introduit par *pandas*
-sont les *dataframes*. Ceux-ci correspondent à des tableaux à deux dimensions
+sont les *Dataframes*. Ceux-ci correspondent à des tableaux à deux dimensions
 avec des étiquettes pour nommer les lignes et les colonnes.
 
 open-box-rem
@@ -168,58 +168,61 @@ Si vous êtes familier avec le langage de programmation et d'analyse statistique
 
 close-box-rem
 
-Voici comment créer un *dataframe* avec *pandas* à partir
+
+Voici comment créer un *Dataframe* avec *pandas* à partir
 de données fournies comme liste de lignes :
 
 ```python
->>> df = pd.DataFrame(columns=["a", "b", "c", "d"],
-...                   index=["chat", "singe", "souris"],
-...                   data=[np.arange(10, 14),
-...                         np.arange(20, 24),
-...                         np.arange(30, 34)])
->>> df
+import numpy as np
+df = pd.DataFrame(columns=["a", "b", "c", "d"],
+                  index=["chat", "singe", "souris"],
+                  data=[np.arange(10, 14),
+                        np.arange(20, 24),
+                        np.arange(30, 34)])
+df
+```
+
+```text
          a   b   c   d
 chat    10  11  12  13
 singe   20  21  22  23
 souris  30  31  32  33
 ```
 
-Ligne 1. Le *dataframe* est créé avec la fonction `DataFrame()` à laquelle
-on fournit plusieurs arguments.
-L'argument `columns` indique le nom des colonnes, sous forme d'une liste.
+Voici quelques commentaires sur le code précédent :
 
-Ligne 2. L'argument `index` définit le nom des lignes, sous forme de liste.
-
-Lignes 3-5. L'argument `data` fournit le contenu du *dataframe*, sous la forme
+- Ligne 1. On charge le module *NumPy* utilisé ensuite.
+- Ligne 2. Le *dataframe* est créé avec la fonction `DataFrame()` à laquelle
+on fournit plusieurs arguments. L'argument `columns` indique le nom des colonnes, 
+sous forme d'une liste.
+- Ligne 3. L'argument `index` définit le nom des lignes, sous forme de liste également.
+- Lignes 4 à 6. L'argument `data` fournit le contenu du *Dataframe*, sous la forme
 d'une liste de valeurs correspondantes à des lignes. Ainsi `np.arange(10, 14)`
- qui est équivalent à `[10, 11, 12, 13]` correspond à la première ligne du *dataframe*. 
-Notez ici qu'il faut avoir préalablement importer numpy avec l'instruction `import numpy as np`.
+ qui est équivalent à `[10, 11, 12, 13]` correspond à la première ligne du *Dataframe*. 
 
-Le même *dataframe* peut aussi être créé à partir des valeurs fournies
+Le même *Dataframe* peut aussi être créé à partir des valeurs fournies
 en colonnes sous la forme d'un dictionnaire :
 
 ```python
->>> data = {"a": np.arange(10, 40, 10),
-...         "b": np.arange(11, 40, 10),
-...         "c": np.arange(12, 40, 10),
-...         "d": np.arange(13, 40, 10)}
->>> df = pd.DataFrame(data)
->>> df.index = ["chat", "singe", "souris"]
->>> df
+data = {"a": np.arange(10, 40, 10),
+        "b": np.arange(11, 40, 10),
+        "c": np.arange(12, 40, 10),
+        "d": np.arange(13, 40, 10)}
+df = pd.DataFrame(data)
+df.index = ["chat", "singe", "souris"]
+df
+```
+
+```text
          a   b   c   d
 chat    10  11  12  13
 singe   20  21  22  23
 souris  30  31  32  33
 ```
 
-Lignes 1-4. Le dictionnaire `data` contient les données en colonnes.
-La clé associée à chaque colonne est le nom de la colonne.
-
-Ligne 5. Le *dataframe* est créé avec la fonction `pd.DataFrame()`
-à laquelle on passe `data` en argument.
-
-Ligne 6. On peut définir les étiquettes des lignes de n'importe quel *dataframe*
-avec l'attribut `df.index`.
+- Lignes 1 à 4. Le dictionnaire `data` contient les données en colonnes. La clé associée à chaque colonne est le nom de la colonne.
+- Ligne 5. Le *dataframe* est créé avec la fonction `pd.DataFrame()` à laquelle on passe `data` en argument.
+- Ligne 6. On peut définir les étiquettes des lignes de n'importe quel *dataframe* avec l'attribut `df.index`.
 
 
 ### Quelques propriétés
@@ -227,31 +230,46 @@ avec l'attribut `df.index`.
 Les dimensions d'un *dataframe* sont données par l'attribut `.shape` :
 
 ```python
->>> df.shape
+df.shape
+```
+
+```text
 (3, 4)
 ```
 
-Ici, le *dataframe* `df` a 3 lignes et 4 colonnes.
+Ici, le *dataframe* `df` a trois lignes et quatre colonnes.
 
 L'attribut `.columns` renvoie le nom des colonnes et permet aussi de renommer
 les colonnes d'un *dataframe* :
 
 ```python
->>> df.columns
+df.columns
+```
+
+```text
 Index(['a', 'b', 'c', 'd'], dtype='object')
->>> df.columns = ["Paris", "Lyon", "Nantes", "Pau"]
->>> df
+```
+
+```python
+df.columns = ["Paris", "Lyon", "Nantes", "Pau"]
+df
+```
+
+```text
         Paris  Lyon  Nantes  Pau
 chat       10    11      12   13
 singe      20    21      22   23
 souris     30    31      32   33
 ```
 
-La méthode `.head(n)` renvoie les *n* premières lignes du *dataframe*
+La méthode `.head(n)` renvoie les *n* premières lignes du *Dataframe*
 (par défaut, *n* vaut 5) :
 
 ```python
->>> df.head(2)
+df.head(2)
+```
+
+```text
        Paris  Lyon  Nantes  Pau
 chat      10    11      12   13
 singe     20    21      22   23
@@ -268,7 +286,10 @@ En voici un rapide aperçu :
 On peut sélectionner une colonne par son étiquette :
 
 ```python
->>> df["Lyon"]
+df["Lyon"]
+```
+
+```text
 chat      11
 singe     21
 souris    31
@@ -277,12 +298,16 @@ souris    31
 ou plusieurs colonnes en même temps :
 
 ```python
->>> df[["Lyon", "Pau"]]
+df[["Lyon", "Pau"]]
+```
+
+```text
         Lyon  Pau
 chat      11   13
 singe     21   23
 souris    31   33
 ```
+
 Pour la sélection de plusieurs colonnes, les étiquettes d'intérêt sont rassemblées dans une liste.
 
 
@@ -292,7 +317,10 @@ Pour sélectionner une ligne, il faut utiliser l'instruction `.loc()`
 et l'étiquette de la ligne :
 
 ```python
->>> df.loc["singe"]
+df.loc["singe"]
+```
+
+```
 Paris     20
 Lyon      21
 Nantes    22
@@ -303,7 +331,10 @@ Name: singe, dtype: int64
 Ici aussi, on peut sélectionner plusieurs lignes :
 
 ```python
->>> df.loc[["singe", "chat"]]
+df.loc[["singe", "chat"]]
+```
+
+```text
        Paris  Lyon  Nantes  Pau
 singe     20    21      22   23
 chat      10    11      12   13
@@ -313,7 +344,10 @@ Enfin, on peut aussi sélectionner des lignes avec l'instruction `.iloc`
 et l'indice de la ligne (la première ligne ayant l'indice 0) :
 
 ```python
->>> df.iloc[1]
+df.iloc[1]
+```
+
+```text
 Paris     20
 Lyon      21
 Nantes    22
@@ -322,7 +356,10 @@ Name: singe, dtype: int64
 ```
 
 ```python
->>> df.iloc[[1,0]]
+df.iloc[[1, 0]]
+```
+
+```text
        Paris  Lyon  Nantes  Pau
 singe     20    21      22   23
 chat      10    11      12   13
@@ -331,7 +368,10 @@ chat      10    11      12   13
 On peut également utiliser les tranches (comme pour les listes) :
 
 ```python
->>> df.iloc[0:2]
+df.iloc[0:2]
+```
+
+```text
        Paris  Lyon  Nantes  Pau
 chat      10    11      12   13
 singe     20    21      22   23
@@ -343,9 +383,18 @@ singe     20    21      22   23
 On peut bien sûr combiner les deux types de sélection (en ligne et en colonne):
 
 ```python
->>> df.loc["souris", "Pau"]
+df.loc["souris", "Pau"]
+```
+
+```text
 33
->>> df.loc[["singe", "souris"], ['Nantes', 'Lyon']]
+```
+
+```python
+df.loc[["singe", "souris"], ["Nantes", "Lyon"]]
+```
+
+```text
         Nantes  Lyon
 singe       22    21
 souris      32    31
@@ -360,7 +409,10 @@ il faut utiliser `loc` (ou `iloc` si on utilise les indices).
 Remémorons-nous d'abord le contenu du *dataframe* `df` :
 
 ```python
->>> df
+df
+```
+
+```text
         Paris  Lyon  Nantes  Pau
 chat       10    11      12   13
 singe      20    21      22   23
@@ -371,7 +423,10 @@ Sélectionnons maintenant toutes les lignes pour lesquelles les effectifs à Pau
 sont supérieurs à 15 :
 
 ```python
->>> df[ df["Pau"]>15 ]
+df[ df["Pau"]>15 ]
+```
+
+```
         Paris  Lyon  Nantes  Pau
 singe      20    21      22   23
 souris     30    31      32   33
@@ -380,7 +435,10 @@ souris     30    31      32   33
 De cette sélection, on ne souhaite garder que les valeurs pour Lyon :
 
 ```python
->>> df[ df["Pau"]>15 ]["Lyon"]
+df[ df["Pau"]>15 ]["Lyon"]
+```
+
+```text
 singe     21
 souris    31
 Name: Lyon, dtype: int64
@@ -389,7 +447,10 @@ Name: Lyon, dtype: int64
 On peut aussi combiner plusieurs conditions avec `&` pour l'opérateur **et** :
 
 ```python
->>> df[ (df["Pau"]>15) & (df["Lyon"]>25) ]
+df[ (df["Pau"]>15) & (df["Lyon"]>25) ]
+```
+
+```text
         Paris  Lyon  Nantes  Pau
 souris     30    31      32   33
 ```
@@ -397,7 +458,10 @@ souris     30    31      32   33
 et `|` pour l'opérateur **ou** :
 
 ```python
->>> df[ (df["Pau"]>15) | (df["Lyon"]>25) ]
+df[ (df["Pau"]>15) | (df["Lyon"]>25) ]
+```
+
+```text
         Paris  Lyon  Nantes  Pau
 singe      20    21      22   23
 souris     30    31      32   33
@@ -406,15 +470,18 @@ souris     30    31      32   33
 
 ### Combinaison de *dataframes*
 
-En biologie, on a souvent besoin de combiner deux tableaux de chiffres à partir d'une colonne commune.
+En biologie, on a souvent besoin de combiner deux tableaux à partir d'une colonne commune.
 
 Par exemple, si on considère les deux *dataframes* suivants :
 
 ```python
->>> data1 = {"Lyon": [10, 23, 17], "Paris": [3, 15, 20]}
->>> df1 = pd.DataFrame.from_dict(data1)
->>> df1.index = ["chat", "singe", "souris"]
->>> df1
+data1 = {"Lyon": [10, 23, 17], "Paris": [3, 15, 20]}
+df1 = pd.DataFrame.from_dict(data1)
+df1.index = ["chat", "singe", "souris"]
+df1
+```
+
+```text
         Lyon  Paris
 chat      10      3
 singe     23     15
@@ -424,22 +491,28 @@ souris    17     20
 et
 
 ```python
->>> data2 = {"Nantes": [3, 9, 14], "Strasbourg": [5, 10, 8]}
->>> df2 = pd.DataFrame.from_dict(data2)
->>> df2.index = ["chat", "souris", "lapin"]
->>> df2
+data2 = {"Nantes": [3, 9, 14], "Strasbourg": [5, 10, 8]}
+df2 = pd.DataFrame.from_dict(data2)
+df2.index = ["chat", "souris", "lapin"]
+df2
+```
+
+```text
         Nantes  Strasbourg
 chat         3           5
 souris       9          10
 lapin       14           8
 ```
 
-On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les 4 villes (Lyon, Paris, Nantes et Strasbourg) le nombre d'animaux. On remarque d'ores et déjà qu'il y a des singes à Lyon et Paris mais pas de lapin et qu'il y a des lapins à Nantes et Strasbourg mais pas de singe. Nous allons voir comment gérer cette situation.
+On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les quatres villes (Lyon, Paris, Nantes et Strasbourg) le nombre d'animaux. On remarque d'ores et déjà qu'il y a des singes à Lyon et Paris mais pas de lapin et qu'il y a des lapins à Nantes et Strasbourg mais pas de singe. Nous allons voir comment gérer cette situation.
 
 *pandas* propose pour cela la fonction [`concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html) qui prend comme argument une liste de *dataframes* :
 
 ```python
->>> pd.concat([df1, df2])
+pd.concat([df1, df2])
+```
+
+```text
         Lyon  Nantes  Paris  Strasbourg
 chat    10.0     NaN    3.0         NaN
 singe   23.0     NaN   15.0         NaN
@@ -454,7 +527,10 @@ Ici, `NaN` indique des valeurs manquantes. Mais le résultat obtenu n'est pas ce
 L'argument supplémentaire `axis=1` produit le résultat attendu :
 
 ```python
- >>> pd.concat([df1, df2], axis=1)
+pd.concat([df1, df2], axis=1)
+```
+
+```text
         Lyon  Paris  Nantes  Strasbourg
 chat    10.0    3.0     3.0         5.0
 lapin    NaN    NaN    14.0         8.0
@@ -479,7 +555,7 @@ Un autre comportement par défaut de `concat()` est que cette fonction va combin
 Pour illustrer les possibilités de *pandas*, voici un exemple plus complet.
 
 Le fichier `transferrin_report.csv` que vous pouvez télécharger
-[ici](https://python.sdv.univ-paris-diderot.fr/data-files/transferrin_report.csv)
+[ici](https://python.sdv.u-paris.fr/data-files/transferrin_report.csv)
 contient une liste de structures de la [transferrine](https://fr.wikipedia.org/wiki/Transferrine).
 Cette protéine est responsable du transport du fer dans l'organisme.
 
@@ -496,7 +572,7 @@ Une fonctionnalité très intéressante de *pandas* est d'ouvrir très facilemen
 un fichier au format `.csv` :
 
 ```python
->>> df = pd.read_csv("transferrin_report.csv")
+df = pd.read_csv("transferrin_report.csv")
 ```
 
 Le contenu est chargé sous la forme d'un *dataframe* dans la variable `df`.
@@ -506,7 +582,10 @@ Le fichier contient 41 lignes de données plus une ligne d'en-tête. Cette derni
  Voici un aperçu des premières lignes :
 
 ```python
->>> df.head()
+df.head()
+```
+
+```text
   PDB ID              Source Deposit Date  Length       MW
 0   1A8E        Homo sapiens   1998-03-24     329  36408.4
 1   1A8F        Homo sapiens   1998-03-25     329  36408.4
@@ -515,7 +594,7 @@ Le fichier contient 41 lignes de données plus une ligne d'en-tête. Cette derni
 4   1B3E        Homo sapiens   1998-12-09     330  36505.5
 ```
 
-Nous avons 5 colonnes de données :
+Nous avons cinq colonnes de données :
 
 - l'identifiant de la structure (`PDB ID`) ;
 - l'organisme d'où provient cette protéine (`Source`) ;
@@ -526,12 +605,16 @@ Nous avons 5 colonnes de données :
 La colonne d'entiers tout à gauche est un index automatiquement créé par *pandas*.
 
 Nous pouvons demander à *pandas* d'utiliser une colonne particulière comme index.
-La colonne `PDB ID` s'y prête très bien car cette colonne ne contient que
+On utilise pour cela le paramètre `index_col` de la fonction `read_csv()`. 
+Ici, la colonne `PDB ID` s'y prête très bien car cette colonne ne contient que
 des identifiants uniques :
 
 ```python
->>> df = pd.read_csv("transferrin_report.csv", index_col="PDB ID")
->>> df.head()
+df = pd.read_csv("transferrin_report.csv", index_col="PDB ID")
+df.head()
+```
+
+```text
                     Source Deposit Date  Length       MW
 PDB ID                                                  
 1A8E          Homo sapiens   1998-03-24     329  36408.4
@@ -541,11 +624,20 @@ PDB ID
 1B3E          Homo sapiens   1998-12-09     330  36505.5
 ```
 
+open-box-rem
+
+La fonction `.read_csv()` permet également d'ouvrir un fichier au format TSV (voir l'annexe A *Quelques formats de données rencontrés en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`) avec l'argument `sep="\t"`.
+
+close-box-rem
+
 Avant d'analyser un jeu de données, il est intéressant de l'explorer un peu.
 Par exemple, connaître ses dimensions :
 
 ```python
->>> df.shape
+df.shape
+```
+
+```text
 (41, 4)
 ```
 
@@ -557,7 +649,10 @@ Il est aussi intéressant de savoir de quel type de données est constituée
 chaque colonne :
 
 ```python
->>> df.dtypes
+df.dtypes
+```
+
+```text
 Source           object
 Deposit Date     object
 Length            int64
@@ -574,7 +669,10 @@ La méthode `.info()` permet d'aller un peu plus loin dans l'exploration du jeu 
 en combinant les informations produites par les propriétés `.shape` et `.dtypes` :
 
 ```python
->>> df.info()
+df.info()
+```
+
+```text
 <class 'pandas.core.frame.DataFrame'>
 Index: 41 entries, 1A8E to 6CTC
 Data columns (total 4 columns):
@@ -589,10 +687,13 @@ memory usage: 1.6+ KB
 ```
 
 Avec l'argument `memory_usage="deep"`, cette méthode permet surtout de connaitre avec précision 
-la taille de l'espace mémoire occupé par le *dataframe* : 
+la quantité de mémoire vive occupée par le *dataframe* : 
 
 ```python
->>> df.info(memory_usage="deep")
+df.info(memory_usage="deep")
+```
+
+```text
 <class 'pandas.core.frame.DataFrame'>
 Index: 41 entries, 1A8E to 6CTC
 Data columns (total 4 columns):
@@ -603,10 +704,10 @@ Data columns (total 4 columns):
  2   Length        41 non-null     int64  
  3   MW            41 non-null     float64
 dtypes: float64(1), int64(1), object(2)
-memory usage: 8.6 KB
+memory usage: 7.6 KB
 ```
 
-Ici, le *dataframe* occupe 8,6 ko en mémoire.
+Ici, le *dataframe* occupe 7,6 kilo-octets (ko) en mémoire.
 
 
 ### Conversion en date
@@ -622,13 +723,16 @@ On peut alors explicitement demander à *pandas* de considérer la colonne
 `Deposit Date` comme une date :
 
 ```python
->>> df["Deposit Date"] = pd.to_datetime(df["Deposit Date"])
+df["Deposit Date"] = pd.to_datetime(df["Deposit Date"])
 ```
 
 L'affichage des données n'est pas modifié :
 
 ```python
->>> df.head()
+df.head()
+```
+
+```
                     Source Deposit Date  Length       MW
 PDB ID                                                  
 1A8E          Homo sapiens   1998-03-24     329  36408.4
@@ -641,7 +745,10 @@ PDB ID
 Mais le type de données de la colonne `Deposit Date` est maintenant une date (`datetime64[ns]`) :
 
 ```python
->>> df.dtypes
+df.dtypes
+```
+
+```text
 Source                  object
 Deposit Date    datetime64[ns]
 Length                   int64
@@ -655,36 +762,45 @@ Pour les colonnes qui contiennent des données numériques, on peut obtenir
 rapidement quelques statistiques descriptives avec la méthode `.describe()` :
 
 ```python
->>> df.describe()
-           Length            MW
-count   41.000000     41.000000
-mean   477.341463  52816.090244
-std    175.710217  19486.594012
-min    304.000000  33548.100000
-25%    331.000000  36542.300000
-50%    337.000000  37229.300000
-75%    679.000000  75298.500000
-max    696.000000  77067.900000
+df.describe()
+```
+
+```text
+                        Deposit Date      Length            MW
+count                             41   41.000000     41.000000
+mean   2003-03-04 22:49:45.365853696  477.341463  52816.090244
+min              1990-08-16 00:00:00  304.000000  33548.100000
+25%              1999-01-07 00:00:00  331.000000  36542.300000
+50%              2001-07-24 00:00:00  337.000000  37229.300000
+75%              2005-09-28 00:00:00  679.000000  75298.500000
+max              2018-03-22 00:00:00  696.000000  77067.900000
+std                              NaN  175.710217  19486.594012
 ```
 
 On apprend ainsi que la masse moléculaire (colonne `MW`)
 a une valeur moyenne de 52816.090244 avec un écart-type de 19486.594012 et que
 la plus petite valeur est 33548.100000 et la plus grande 77067.900000. Pratique !
 
+Mais cela peut paraître curieux, des statistiques sont également proposées pour la colonne `Deposit Date`
+
 La colonne `Source` contient des chaînes de caractères, on peut rapidement
 déterminer le nombre de protéines pour chaque organisme :
 
 ```python
->>> df["Source"].value_counts()
+df["Source"].value_counts()
+```
+
+```text
+Source
 Homo sapiens             26
 Gallus gallus            10
 Anas platyrhynchos        2
 Oryctolagus cuniculus     2
 Sus scrofa                1
-Name: Source, dtype: int64
+Name: count, dtype: int64
 ```
 
-Ainsi, 26 protéines sont d'origine humaine (`Homo sapiens`) et 10 proviennent
+On apprend ainsi que 26 protéines sont d'origine humaine (`Homo sapiens`) et 10 proviennent
 de la poule (`Gallus gallus`).
 
 
@@ -694,14 +810,17 @@ On peut aussi déterminer, pour chaque organisme, la taille et la masse molécul
 moyennes des transferrines :
 
 ```python
->>> df.groupby(["Source"]).mean()
-                           Length            MW
-Source                                         
-Anas platyrhynchos     686.000000  75731.800000
-Gallus gallus          509.300000  56324.080000
-Homo sapiens           439.615385  48663.392308
-Oryctolagus cuniculus  490.000000  54219.600000
-Sus scrofa             696.000000  77067.900000
+df.groupby(["Source"]).mean()
+```
+
+```text
+                                       Deposit Date      Length            MW
+Source                                                                       
+Anas platyrhynchos    1996-04-07 00:00:00.000000000  686.000000  75731.800000
+Gallus gallus         1999-12-19 14:24:00.000000000  509.300000  56324.080000
+Homo sapiens          2005-07-18 23:04:36.923076864  439.615385  48663.392308
+Oryctolagus cuniculus 1996-02-03 12:00:00.000000000  490.000000  54219.600000
+Sus scrofa            2001-07-03 00:00:00.000000000  696.000000  77067.900000
 ```
 
 La méthode `.groupby()` rassemble d'abord les données suivant la colonne
@@ -712,7 +831,14 @@ en une seule fois, il convient alors d'utiliser la méthode `.pivot_table()`
 plus complexe mais aussi beaucoup plus puissante :
 
 ```python
->>> df.pivot_table(index="Source", values=["Length", "MW"], aggfunc=[min, max])
+df.pivot_table(
+    index="Source",
+    values=["Length", "MW"],
+    aggfunc=["min", "max"]
+)
+```
+
+```text
                          min             max         
                       Length       MW Length       MW
 Source                                               
@@ -742,14 +868,13 @@ Pour vérifier cela graphiquement, on représente la masse moléculaire de
 la protéine en fonction de sa taille (c'est-à-dire du nombre d'acides aminés).
 
 ```python
->>> import matplotlib.pyplot as plt
->>> plt.scatter(df["Length"], df["MW"])
-<matplotlib.collections.PathCollection object at 0x7f62c2501780>
->>> plt.xlabel("Taille (nombre d'acides aminés)")
-Text(0.5, 0, "Taille (nombre d'acides aminés)")
->>> plt.ylabel("Masse moléculaire (Dalton)")
-Text(0, 0.5, 'Masse moléculaire (Dalton)')
->>> plt.savefig("transferrine1.png")
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+ax.scatter(df["Length"], df["MW"])
+ax.set_xlabel("Taille (nombre d'acides aminés)")
+ax.set_ylabel("Masse moléculaire (Dalton)")
+fig.savefig("transferrine1.png")
 ```
 
 On obtient un graphique similaire à celui de la figure @fig:transferrine (A)
@@ -759,24 +884,20 @@ avec deux groupes de points distincts (car certaines structures sont incomplète
 
 On peut zoomer sur le groupe de points le plus à gauche en ne sélectionnant
 que les protéines constituées de moins de 400 résidus :
-```
->>> dfz = df[df["Length"]<400]
-```
-Puis en créant un deuxième graphique :  
 
 ```python
->>> plt.clf()
->>> plt.scatter(dfz["Length"], dfz["MW"])
-<matplotlib.collections.PathCollection object at 0x7f85bb4852e8>
->>> plt.xlabel("Taille (nombre d'acides aminés)")
-Text(0.5, 0, "Taille (nombre d'acides aminés)")
->>> plt.ylabel("Masse moléculaire (Dalton)")
-Text(0, 0.5, 'Masse moléculaire (Dalton)')
->>> plt.savefig("transferrine2.png")
+dfz = df[df["Length"]<400]
 ```
 
-Ligne 1. L'instruction `plt.clf()` efface le graphe précédent mais conserve les
-noms des axes des abscisses et des ordonnées.
+Puis en créant un second graphique :  
+
+```python
+fig, ax = plt.subplots()
+ax.scatter(dfz["Length"], dfz["MW"])
+ax.set_xlabel("Taille (nombre d'acides aminés)")
+ax.set_ylabel("Masse moléculaire (Dalton)")
+fig.savefig("transferrine2.png")
+```
 
 Le graphique @fig:transferrine (B) obtenu met en évidence une relation linéaire
 entre le nombre de résidus d'une protéine et sa masse moléculaire.
@@ -785,9 +906,12 @@ En réalisant une régression linéaire, on détermine les paramètres de
 la droite qui passent le plus proche possible des points du graphique.
 
 ```python
->>> from scipy.stats import linregress
->>> lr = linregress(dfz["Length"], dfz["MW"])
->>> lr
+from scipy.stats import linregress
+lr = linregress(dfz["Length"], dfz["MW"])
+lr
+```
+
+```text
 LinregressResult(slope=116.18244897959184, intercept=-1871.6131972789153,
 rvalue=0.993825553885062, pvalue=1.664932379936294e-22,
 stderr=2.765423239336685)
@@ -797,21 +921,17 @@ Ce modèle linaire nous indique qu'un résidu a une masse d'environ 116 Dalton,
 ce qui est cohérent. On peut également comparer ce modèle aux différentes protéines :
 
 ```python
->>> plt.clf()
->>> plt.scatter(dfz["Length"], dfz["MW"])
-<matplotlib.collections.PathCollection object at 0x7f85b97bfef0>
->>> plt.plot(dfz["Length"], dfz["Length"]*lr.slope+lr.intercept, ls=":")
-[<matplotlib.lines.Line2D object at 0x7f85b933e208>]
->>> plt.xlabel("Taille (nombre d'acides aminés)")
-Text(0.5, 0, "Taille (nombre d'acides aminés)")
->>> plt.ylabel("Masse moléculaire (Dalton)")
-Text(0, 0.5, 'Masse moléculaire (Dalton)')
->>> plt.savefig("transferrine3.png")
+fig, ax = plt.subplots()
+ax.scatter(dfz["Length"], dfz["MW"])
+ax.plot(dfz["Length"], dfz["Length"]*lr.slope+lr.intercept, ls=":")
+ax.set_xlabel("Taille (nombre d'acides aminés)")
+ax.set_ylabel("Masse moléculaire (Dalton)")
+fig.savefig("transferrine3.png")
 ```
 
 On obtient ainsi le graphique de la figure @fig:transferrine3.
 
-![Masse moléculaire en fonction de la taille (zoom) avec un modèle linaire.](img/transferrine3.png){ #fig:transferrine3 width=70% }
+![Masse moléculaire en fonction de la taille (zoom) avec un modèle linaire en pointillé.](img/transferrine3.png){ #fig:transferrine3 width=70% }
 
 
 ### Analyse de données temporelles
@@ -822,7 +942,14 @@ et les dernières structures de transferrines ont été déposées dans la PDB.
 La méthode `.pivot_table()` apporte un élément de réponse :
 
 ```python
->>> df.pivot_table(index="Source", values=["Deposit Date"], aggfunc=[min, max])
+df.pivot_table(
+    index="Source",
+    values=["Deposit Date"],
+    aggfunc=["min", "max"]
+)
+```
+
+```text
                                min          max
                       Deposit Date Deposit Date
 Source                                         
@@ -844,68 +971,88 @@ le nombre de structures déposées dans la PDB pour un jour donné. Par exemple,
 deux structures ont été déposées le 4 septembre 2000.
 
 ```python
->>> df["Deposit Date"].value_counts().head()
+df["Deposit Date"].value_counts().head()
+```
+
+```text
+Deposit Date
 1999-01-07    2
-2000-09-04    2
 2002-11-18    2
+2000-09-04    2
+2006-12-12    1
 2003-03-10    1
-2001-07-24    1
-Name: Deposit Date, dtype: int64
+Name: count, dtype: int64
 ```
 
 Si on souhaite une réponse plus globale, par exemple, à l'échelle de
 l'année, la méthode `.resample()` calcule le nombre de structures déposées par
-année (en fournissant l'argument `A`) :
+année (en fournissant l'argument `YE`) :
 
 ```python
->>> df["Deposit Date"].value_counts().resample("A").count()
+df["Deposit Date"].value_counts().resample("YE").count()
+```
+
+```text
+Deposit Date
 1990-12-31    1
 1991-12-31    0
 1992-12-31    1
 1993-12-31    1
+1994-12-31    0
+1995-12-31    2
 ```
+
 Les dates apparaissent maintenant comme le dernier jour de l'année mais désignent
 bien l'année complète. Dans cet exemple, une seule structure de transferrine
 a été déposée dans la PDB entre le 1er janvier 1990 et le 31 décembre 1990.
 
-Pour connaître en quelle année le plus de structures ont été déposées dans la PDB,
+Pour connaître quelle année le plus de structures ont été déposées dans la PDB,
 il faut trier les valeurs obtenus du plus grand au plus petit avec la méthode
 `.sort_values()`. Comme on ne veut  connaître que les premières dates
 (celles où il y a eu le plus de dépôts), on utilisera également la méthode
 `.head()` :
 
 ```python
->>> (df["Deposit Date"].value_counts()
-...                    .resample("A")
-...                    .count()
-...                    .sort_values(ascending=False)
-...                    .head())
+(df["Deposit Date"]
+    .value_counts()
+    .resample("YE")
+    .count()
+    .sort_values(ascending=False)
+    .head()
+)
+```
+
+```text
+Deposit Date
 2001-12-31    5
 2003-12-31    4
 1998-12-31    3
 1999-12-31    3
 2002-12-31    3
-Name: Deposit Date, dtype: int64
+Name: count, dtype: int64
 ```
 
 En 2001, cinq structures de transferrine ont été déposées dans la PDB. La deuxième
 « meilleure » année est 2003 avec quatre structures.
 
 Toutes ces méthodes, enchaînées les unes à la suite des autres, peuvent vous
-sembler complexes mais chacune d'elles correspond à une étape particulière
-du traitement des données. L'utilisation des parenthèses (ligne 1, juste avant
-`df["Deposit Date"]` et ligne 5, juste après `head()`) permet de répartir élégamment
+sembler complexes mais chacune d'elles correspond à une étape du traitement des données. 
+L'utilisation des parenthèses (ligne 1, juste avant
+`df["Deposit Date"]` et ligne 7, juste après `head()`) permet de répartir élégamment
 cette longue instruction sur plusieurs lignes.
 
 Bien sûr, on aurait pu créer des variables intermédiaires
 pour chaque étape mais cela aurait été plus lourd :
 
 ```python
->>> date1 = df["Deposit Date"].value_counts()
->>> date2 = date1.resample("A")
->>> date3 = date2.count()
->>> date4 = date3.sort_values(ascending=False)
->>> date4.head()
+date1 = df["Deposit Date"].value_counts()
+date2 = date1.resample("YE")
+date3 = date2.count()
+date4 = date3.sort_values(ascending=False)
+date4.head()
+```
+
+```text
 2001-12-31    5
 2003-12-31    4
 1998-12-31    3
@@ -914,9 +1061,18 @@ pour chaque étape mais cela aurait été plus lourd :
 Name: Deposit Date, dtype: int64
 ```
 
+open-box-def
+
+Cette manière d'enchaîner les méthodes les unes à la suite des autres est appelée *method chaining*.
+
+C'est une manière efficace et élégante de traiter des données avec *pandas*.
+
+close-box-def
+
+
 open-box-more
 
-- Les ouvrages *Python for Data Analysis* de Wes McKinney et *Pandas Cookbook* de Theodore Petrou sont d'excellentes références pour *pandas*.
+- Les ouvrages *Python for Data Analysis* (2022) de Wes McKinney et *Effective Pandas* (2021) de Matt Harrison sont d'excellentes références pour *pandas*.
 
 close-box-more
 
@@ -929,7 +1085,7 @@ Pour ces exercices, utilisez des notebooks Jupyter.
 
 close-box-adv
 
-### Analyse d'un jeu de données avec *pandas*
+### Analyse d'un jeu de données
 
 Le jeu de données `people.tsv` contient les caractéristiques de quelques individus : prénom, sexe, taille (en cm) et âge (en années). 
 Par exemple :
@@ -949,11 +1105,11 @@ Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseil
 
 #### Chargement du jeu de données
 
-Téléchargez le fichier [people.tsv](https://python.sdv.univ-paris-diderot.fr/data-files/people.tsv).
+Téléchargez le fichier [people.tsv](https://python.sdv.u-paris.fr/data-files/people.tsv).
 
 Ouvrez ce fichier avec *pandas* et la fonction `.read_csv()`. N'oubliez pas de préciser le séparateur par défaut avec l'argument `sep="\t"`. Utilisez également l'argument `index_col` pour utiliser la colonne `name` comme index.
 
-Affichez les 6 premières lignes du jeu de données.
+Affichez les six premières lignes du jeu de données.
 
 Combien de lignes contient le jeu de données ?
 
