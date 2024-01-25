@@ -162,7 +162,8 @@ req_esummary = Entrez.esummary(db="pubmed", id="22294463")
 res_esummary = Entrez.read(req_esummary)
 ```
 
-La variable `res_esummary` n'est pas réellement une liste mais elle en a néanmoins plusieurs propriétés.
+La variable `res_esummary` n'est pas réellement une liste (son type exacte est `Bio.Entrez.Parser.ListElement`), 
+mais elle est indexable (voir chapitre 14 *Conteneurs*).
 Cette pseudo-liste n'a qu'un seul élément, qui est lui-même un pseudo-dictionnaire dont voici les clés :
 
 ```python
