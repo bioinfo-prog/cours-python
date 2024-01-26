@@ -91,6 +91,9 @@ et
 
 ```python
 s.iloc[[1, 3]]
+```
+
+```text
 b    20
 d    40
 dtype: int64
@@ -321,7 +324,7 @@ On trouve parfois l'écriture `df.Lyon` pour sélectionner une colonne. C'est un
 
 Nous vous conseillons de toujours utiliser la notation `df[nom_de_colonne]`.
 
-close-bow-warn
+close-box-warn
 
 
 Pour sélectionner plusieurs colonnes, il faut fournir une liste de noms de colonnes :
@@ -366,7 +369,7 @@ et l'étiquette de la ligne :
 df.loc["singe"]
 ```
 
-```
+```text
 Paris     20
 Lyon      21
 Nantes    22
@@ -472,7 +475,7 @@ sont supérieurs à 15 :
 df[ df["Pau"]>15 ]
 ```
 
-```
+```text
         Paris  Lyon  Nantes  Pau
 singe      20    21      22   23
 souris     30    31      32   33
@@ -778,7 +781,7 @@ L'affichage des données n'est pas modifié :
 df.head()
 ```
 
-```
+```text
                     Source Deposit Date  Length       MW
 PDB ID                                                  
 1A8E          Homo sapiens   1998-03-24     329  36408.4
