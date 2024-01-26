@@ -67,7 +67,17 @@ Revenons maintenant sur le code :
 
 ### Représentation sous forme de courbe
 
-On sait par ailleurs que l'évolution de la concentration du produit en fonction du temps peut-être modélisée par la fonction $f(x) = 2 + 3 \times x$. Représentons ce modèle avec les points expérimentaux et sauvegardons le graphique obtenu sous forme d'une image :
+On sait par ailleurs que l'évolution de la concentration du produit en fonction du temps peut-être modélisée par la fonction $f(x) = 2 + 3 \times x$.
+
+
+open-box-rem
+
+Le modèle présenté ici est puremnt fictif. Vous découvriez dans le chapitre 22 *Module Pandas* comment réaliser une régression linéaire pour modéliser des données expérimentales.
+
+close-box-rem
+
+
+Représentons ce modèle avec les points expérimentaux et sauvegardons le graphique obtenu sous forme d'une image :
 
 ```python
 import numpy as np
