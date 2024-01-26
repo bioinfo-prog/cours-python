@@ -687,7 +687,7 @@ array([[1, 2],
 a[:,0]
 ```
 
-```
+```text
 array([1, 3])
 ```
 
@@ -1067,7 +1067,7 @@ array([[ 0,  5],
        [20, 25]])
 ```
 
-```
+```python
 np.concatenate((a1, a2), axis=0)
 ```
 
@@ -1298,12 +1298,12 @@ array([[1, 2, 3],
        [7, 8, 9]])
 ```
 
-```
+```python
 a1, a2, a3 = a
 a1
 ```
 
-```
+```text
 array([1, 2, 3])
 ```
 
@@ -1311,7 +1311,7 @@ array([1, 2, 3])
 a2
 ```
 
-```te
+```text
 array([4, 5, 6])
 ```
 
@@ -1381,27 +1381,27 @@ a = np.reshape(np.arange(1, 10), (3, 3))
 a
 ```
 
-```
+```text
 array([[1, 2, 3],
        [4, 5, 6],
        [7, 8, 9]])
 ```
 
-```
+```python
 a > 5
 ```
 
-```
+```text
 array([[False, False, False],
        [False, False,  True],
        [ True,  True,  True]])
 ```
 
-```
+```python
 a == 2
 ```
 
-```
+```text
 array([[False,  True, False],
        [False, False, False],
        [False, False, False]])
@@ -1574,7 +1574,7 @@ array([[0.58704728, 0.50212977, 0.70652863, 0.24158108],
        [0.92913469, 0.08383269, 0.10670144, 0.14554345]])
 ```
 
-```
+```python
 seuil = 0.3
 a[a < seuil] = 0
 a[a > seuil] = 1
