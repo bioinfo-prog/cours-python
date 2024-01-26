@@ -351,7 +351,7 @@ Comme vous voyez en ligne 8, la modification de `liste1` a modifié également `
 
 open-box-warn
 
-Cette technique ne fonctionne que pour des listes à une dimension, mais pas pour les listes de listes. Nous expliquerons comment contrer ce problème quelle que soit la dimensionnalité de la liste dans le chapitre 12 *Plus sur les listes*.
+Cette astuce ne fonctionne que pour des listes à une dimension (c'est-à-dire pour des listes qui ne contiennent des éléments de type simple comme des entiers, des floats, des chaînes de caractères et des booléens), mais pas pour des listes de listes. Le chapitre 12 *Plus sur les listes* explique l'origine de ce comportement et comment s'en sortir à tous les coups.
 
 close-box-warn
 
