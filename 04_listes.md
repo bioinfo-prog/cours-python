@@ -314,6 +314,47 @@ TypeError: '<' not supported between instances of 'int' and 'list'
 
 Soit on passe plusieurs entiers et / ou *floats* en argument, soit on passe une liste unique.
 
+## Problème avec les copies de listes
+
+Nous attirons votre attention sur un comportement de Python qui peut paraitre étrange lorsqu'on copie une liste :
+
+```python
+>>> liste1 = list(range(5))
+>>> list(range(5))
+>>> liste1
+[0, 1, 2, 3, 4]
+>>> liste2 = liste1
+>>> liste2
+[0, 1, 2, 3, 4]
+>>> liste1[3] = -50
+>>> liste1
+[0, 1, 2, -50, 4]
+>>> liste2
+[0, 1, 2, -50, 4]
+```
+
+Comme vous voyez en ligne 8, la modification de `liste1` a modifié également `liste2`. Cela vient du fait que Python a effectué la copie de liste en ligne 5 par *référence*. Ainsi, les deux listes pointent vers le même objet dans la mémoire. Pour contrer ce problème et faire en sorte que `liste2` soit bien distincte de `liste1`, on peut utiliser la fonction `list()` :
+
+```python
+>>> liste1 = list(range(5))
+>>> liste1
+[0, 1, 2, 3, 4]
+>>> liste2 = list(liste1)
+>>> liste2
+[0, 1, 2, 3, 4]
+>>> liste1[3] = -50
+>>> liste1
+[0, 1, 2, -50, 4]
+>>> liste2
+[0, 1, 2, 3, 4]
+```
+
+open-box-warn
+
+Cette technique ne fonctionne que pour des listes à une dimension, mais pas pour les listes de listes. Nous expliquerons comment contrer ce problème quelle que soit la dimensionnalité de la liste dans le chapitre 12 *Plus sur les listes*.
+
+close-box-warn
+
 ## Exercices
 
 *Conseil* : utilisez l'interpréteur Python.
