@@ -386,20 +386,20 @@ with open("spirale.dat", "r") as f_in:
         x.append(float(coords[0]))
         y.append(float(coords[1]))
 
-plt.figure(figsize=(8,8))
-mini = min(x+y) * 1.2
-maxi = max(x+y) * 1.2
-plt.xlim(mini, maxi)
-plt.ylim(mini, maxi)
-plt.plot(x, y)
-plt.savefig("spirale.png")
+fig, ax = plt.subplots(figsize=(8,8))
+mini = min(x+y) - 2
+maxi = max(x+y) + 2
+ax.set_xlim(mini, maxi)
+ax.set_ylim(mini, maxi)
+ax.plot(x, y)
+fig.savefig("spirale.png")
 ```
 
 Visualisez l'image `spirale.png` ainsi créée.
 
 open-box-rem
 
-Le module *matplotlib* est utilisé ici pour la visualisation de la spirale. Son utilisation est détaillée dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
+Le module *matplotlib* est utilisé ici pour la visualisation de la spirale. Son utilisation est détaillée dans le chapitre 21 *Module matplotlib*.
 
 close-box-rem
 
