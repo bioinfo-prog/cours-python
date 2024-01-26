@@ -976,6 +976,7 @@ A0A1B0GTW7
 A0AV02
 A0AV96
 A0AVF1
+[...]
 ```
 
 L'objectif de cet exercice est de déterminer quelles sont les protéines humaines qui sont des kinases. Chaque liste de protéines contenant plusieurs milliers d'éléments, il n'est pas possible de la faire à la main. Vous aller utiliser Python et les *sets* pour cela.
