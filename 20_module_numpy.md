@@ -70,7 +70,7 @@ type(b)
 numpy.ndarray
 ```
 
-Nous avons converti la liste `[1, 2, 3]` en *array*. Nous aurions obtenu le même résultat si nous avions converti le tuple `(1, 2, 3)` en *array*.
+Nous avons converti la liste `[1, 2, 3]` en *array*. La fonction `np.array()` accepte aussi comme argument un tuple, ou un objet de type *range*.
 
 Par ailleurs, lorsqu'on demande à Python d'afficher le contenu d'un objet *array*, le mot `array` et les symboles `([` et `])` sont utilisés pour le distinguer d'une liste (délimitée par les caractères `[` et `]`) ou d'un tuple (délimité par les caractères `(` et `)`).
 
