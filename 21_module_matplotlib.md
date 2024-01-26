@@ -10,6 +10,14 @@ Le module *matplotlib* n'est pas fourni avec la distribution Python de base. Ave
 $ conda install -c conda-forge matplotlib
 ```
 
+Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *matplotlib* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
+
+```python
+Les cellules de code apparaitront de cette manière
+dans un notebook Jupyter, avec des numéros de lignes à gauche.
+```
+
+
 ## Représentation sous forme de points
 
 Dans cet exemple, nous considérons l'évolution de la concentration d'un produit dans le sang (exprimé en mg/L) en fonction du temps (exprimé en heure).
@@ -173,12 +181,13 @@ Prenons le temps d'examiner les différentes étapes du script précédent :
 - Lignes 15 à 17. On définit les légendes des axes et le titre du graphique. On insère un retour à la ligne `\n` dans le titre pour qu'il soit réparti sur deux lignes.
 - Ligne 18. Enfin, on enregistre le graphique généré au format png.
 
-On espère que ces courts exemples vous auront convaincu de l'utilité du module *matplotlib*. Sachez qu'il peut faire bien plus, par exemple générer des histogrammes ou toutes sortes de graphiques utiles en analyse de données.
+On espère que ces courts exemples vous auront convaincu de l'utilité du module *matplotlib*. Sachez qu'il peut faire bien plus, par exemple générer des histogrammes ou toutes sortes de graphiques utiles en analyse de données. Il est existe par ailleurs d'autres bibliothèques pour produire des graphiques avec Python, comme [*Seaborn*](https://seaborn.pydata.org/), [*Bokeh*](http://bokeh.org/) ou [*Plotly*](https://plotly.com/). Ces deux dernières permettent de générer des graphiques interactifs, c'est-à-dire des graphiques dans lesquels on peut zoomer, se déplacer, etc. Nous vous invitons à les découvrir par vous-même.
+
 
 open-box-more
 
 - Le site de *matplotlib* fournit de nombreux [exemples détaillés](https://matplotlib.org/gallery/index.html), n'hésitez pas à le consulter.
-- Le site [Python Graph Gallery](https://www.python-graph-gallery.com/matplotlib/) propose aussi des exemples de code pour différents types de graphiques.
+- Le site [Python Graph Gallery](https://www.python-graph-gallery.com/matplotlib/) propose aussi des exemples de code pour différents types de graphiques, réalisés avec *matplotlib* ou d'autres bibliothèques.
 - Enfin, des [*cheat sheets*](https://matplotlib.org/cheatsheets/) de *matplotlib* sont extrêmement utiles et très bien faites.
 
 close-box-more

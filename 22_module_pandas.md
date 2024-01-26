@@ -11,11 +11,11 @@ Le module *pandas* n'est pas fourni avec la distribution Python de base. Avec la
 $ conda install -c conda-forge pandas
 ```
 
-Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation de ce module pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
+Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *pandas* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
 
 ```python
 Les cellules de code apparaitront de cette manière
-dans un notebook Jupyter, avec des numéros de lignes.
+dans un notebook Jupyter, avec des numéros de lignes à gauche.
 ```
 
 ```text
@@ -130,6 +130,7 @@ dtype: int64
 open-box-rem
 
 Cette écriture rappelle celle des masques booléens dans le chapitre 20 *Module NumPy*.
+
 close-box-rem
 
 Enfin, on peut aussi combiner plusieurs critères de sélection avec les opérateurs logiques `&` (pour **ET**) et `|` (pour **OU**) :
@@ -276,6 +277,15 @@ singe     20    21      22   23
 ```
 
 
+open-box-rem
+
+es *Dataframes* utilisés sont volontairement petits.
+Si vous êtes confrontés à des *Dataframes* de grande taille,
+ceux-ci seront affichés partiellement dans un notebook Jupyter. Des ascenseurs en bas et à droite du *Dataframe* permettront de naviguer dans les données.
+
+close-box-rem
+
+
 ### Sélection
 
 Les mécanismes de sélection  fournis avec *pandas* sont très puissants.
@@ -295,7 +305,26 @@ singe     21
 souris    31
 ```
 
-ou plusieurs colonnes en même temps :
+La notation `df["Lyon"]` sélectionne une colonne et renvoie un objet *Series* :
+
+```python
+type(df["Lyon"])
+```
+
+```text
+pandas.core.series.Series
+```
+
+open-box-warn
+
+On trouve parfois l'écriture `df.Lyon` pour sélectionner une colonne. C'est une très mauvaise pratique car cette écriture peut être confondue avec une méthode de l'objet `df`. Par ailleurs, elle ne fonctionne pas pour des noms de colonnes qui contiennent des espaces ou des caractères spéciaux (ce qui n'est pas non plus une bonne pratique).
+
+Nous vous conseillons de toujours utiliser la notation `df[nom_de_colonne]`.
+
+close-bow-warn
+
+
+Pour sélectionner plusieurs colonnes, il faut fournir une liste de noms de colonnes :
 
 ```python
 df[["Lyon", "Pau"]]
@@ -308,7 +337,24 @@ singe     21   23
 souris    31   33
 ```
 
-Pour la sélection de plusieurs colonnes, les étiquettes d'intérêt sont rassemblées dans une liste.
+On obtient cette fois un *Dataframe* avec les colonnes sélectionnées :
+
+```python
+type(df[["Lyon", "Pau"]])
+```
+
+```text
+pandas.core.frame.DataFrame
+```
+
+open-box-rem
+
+La sélection de plusieurs colonnes nécessite une liste entre les crochets,
+par exemple `df[["Lyon", "Pau"]]`.
+Si on utilise un tuple du type `df[("Lyon", "Pau")]`,
+Python renvoie une erreur `KeyError: ('Lyon', 'Pau')`.
+
+close-box-rem
 
 
 #### Sélection de lignes
@@ -522,7 +568,7 @@ souris   NaN     9.0    NaN        10.0
 lapin    NaN    14.0    NaN         8.0
 ```
 
-Ici, `NaN` indique des valeurs manquantes. Mais le résultat obtenu n'est pas celui que nous attendions puisque les lignes de deux *dataframes* ont été recopiées.
+Ici, `NaN` indique des valeurs manquantes, cela signifie littéralement *Not a Number*. Mais le résultat obtenu n'est pas celui que nous attendions puisque les lignes de deux *dataframes* ont été recopiées.
 
 L'argument supplémentaire `axis=1` produit le résultat attendu :
 

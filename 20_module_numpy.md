@@ -11,6 +11,18 @@ Contrairement à tous les autres modules vus précédemment, *NumPy* n'est pas f
 $ conda install -c conda-forge numpy
 ```
 
+Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *NumPy* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
+
+```python
+Les cellules de code apparaitront de cette manière
+dans un notebook Jupyter, avec des numéros de lignes à gauche.
+```
+
+```text
+Les résultats seront affichés de cette manière,
+éventuellement sur plusieurs lignes.
+```
+
 
 ## Utilisation
 
@@ -1205,11 +1217,10 @@ EigResult(eigenvalues=array([1., 2., 3.]), eigenvectors=array([[1., 0., 0.],
        [0., 0., 1.]]))
 ```
 
-La fonction `eig()` renvoie un objet `EigResult` qui contient les valeurs propres (`eigenvalues`) et les vecteurs propres (eigenvectors) qu'on peut ensuite récupérer :
+La fonction `eig()` renvoie un objet `EigResult` qui contient les valeurs propres (`eigenvalues`) et les vecteurs propres (eigenvectors) qu'on peut ensuite récupérer par affection multiple :
 
 ```python
-eigvals = np.linalg.eig(a).eigenvalues
-eigvecs = np.linalg.eig(a).eigenvectors
+eigvals, eigvecs = np.linalg.eig(a)
 eigvals
 ```
 
@@ -1537,7 +1548,7 @@ array([[1, 0, 3],
        [0, 0, 0]])
 ```
 
-Ce mécanisme de sélection avec des masques booléens se révèle très puissant pour manipuler des grandes quantités de données. On verra qu'il peut être également utilisé avec les *dataframes* du module *pandas*.
+Ce mécanisme de sélection avec des masques booléens se révèle très puissant pour manipuler des grandes quantités de données. On verra qu'il peut être également utilisé avec les *Dataframes* du module *pandas*.
 
 
 open-box-rem
@@ -1598,7 +1609,8 @@ Utilisez les listes :
 
 Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) et vos commentaires lorsque vous utilisez des *arrays*. *NumPy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* ainsi que sa dimensionnalité (1D, 2D, etc.).
 
-Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules *SciPy* et *matplotlib* (et aussi aux *notebooks Jupyter*, voir le chapitre précédent), il permet de faire de l'analyse scientifique. On verra un peu plus loin dans ce chapitre que la puissance de *NumPy* est également utilisée par le module *pandas* et ses fameux *dataframes* pour faire de l'analyse de données.
+Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules [*SciPy*](https://scipy.org/) et *matplotlib* (et aussi aux *notebooks Jupyter*, voir le chapitre précédent), il permet de faire de l'analyse scientifique. On verra dans le chapitre 22 *Module Pandas* que la puissance de *NumPy* est également utilisée par le module *pandas* et ses *Dataframes* pour faire de l'analyse de données.
+
 
 open-box-more
 
