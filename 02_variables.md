@@ -303,6 +303,8 @@ Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type
 >>> z = '2'
 >>> type(z)
 <class 'str'>
+>>> type(True)
+<class 'bool'>
 ```
 
 Nous verrons plus tard ce que signifie le mot *class*.
