@@ -590,7 +590,10 @@ souris  17.0   20.0     9.0        10.0
 Par défaut, *pandas* va conserver le plus de lignes possible. Si on ne souhaite conserver que les lignes communes aux deux *dataframes*, il faut ajouter l'argument `join="inner"` :
 
 ```python
->>> pd.concat([df1, df2], axis=1, join="inner")
+pd.concat([df1, df2], axis=1, join="inner")
+```
+
+```text
         Lyon  Paris  Nantes  Strasbourg
 chat      10      3       3           5
 souris    17     20       9          10
