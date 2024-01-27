@@ -413,6 +413,73 @@ split(...)
 Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L'instruction correcte est `help(animaux.split)` et non pas `help(animaux.split())`.
 
 
+## *Method chaining*
+
+Il existe de nombreuses méthodes pour traiter les chaînes de caractères. Ces méthodes renvoient la plus part du temps une chaîne de caractères modifiée.
+
+Par exemple, si on souhaite mettre une majuscule à tous les mots d'une chaîne de caractères, puis remplacer un mot par un autre, puis transformer cette chaîne de caractères en une liste de chaînes de caractères, on peut écrire :
+
+```python
+>>> message = "salut patrick salut pierre"
+>>> message1 = message.title()
+>>> message1
+'Salut Patrick Salut Pierre'
+>>> message2 = message1.replace("Salut", "Bonjour")
+>>> message2
+'Bonjour Patrick Bonjour Pierre'
+>>> message2.split()
+['Bonjour', 'Patrick', 'Bonjour', 'Pierre']
+```
+
+On a créé deux variables intermédiaires `message1` et `message2` pour stocker les chaînes de caractères modifiées par les méthodes `.title()` et `.replace()`.
+
+Il est possible de faire la même chose en une seule ligne en utilisant le *method chaining*  :
+
+```python
+>>> message = "salut patrick salut pierre"
+>>> message.title().replace("Salut", "Bonjour").split()
+['Bonjour', 'Patrick', 'Bonjour', 'Pierre']
+```
+
+On évite ainsi de créer des variables intermédiaires.
+
+Le *method chaining* peut créer des lignes de code très longues.
+On peut couper une ligne de code en plusieurs lignes en utilisant le caractère `\` en fin de ligne :
+
+```python
+>>> message = "salut patrick salut pierre"
+>>> message.title() \
+... .replace("Salut", "Bonjour") \
+... .title()
+'Bonjour Patrick Bonjour Pierre'
+```
+
+On peut aussi utiliser des parenthèses pour couper une ligne de code en plusieurs lignes :
+
+```python
+>>> message = "salut patrick salut pierre"
+>>> (message
+... .title()
+... .replace("Salut", "Bonjour")
+... .split()
+... )
+['Bonjour', 'Patrick', 'Bonjour', 'Pierre']
+```
+
+L'utilisation de parenthèses permet aussi de couper une chaîne de caractères en plusieurs lignes :
+
+```python
+>>> ma_chaine = (
+... "voici une chaine de caractères "
+... "très longue "
+... "définie sur plusieurs lignes")
+>>> ma_chaine
+'voici une chaine de caractères très longue définie sur plusieurs lignes'
+```
+
+Nous utiliserons le *method chaining* dans le chapitre 22 *Module Pandas*.
+
+
 ## Exercices
 
 *Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.

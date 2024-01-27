@@ -1058,11 +1058,13 @@ Les dates apparaissent maintenant comme le dernier jour de l'année mais désign
 bien l'année complète. Dans cet exemple, une seule structure de transferrine
 a été déposée dans la PDB entre le 1er janvier 1990 et le 31 décembre 1990.
 
-Pour connaître quelle année le plus de structures ont été déposées dans la PDB,
+Pour connaître en quelle année le plus de structures ont été déposées dans la PDB,
 il faut trier les valeurs obtenus du plus grand au plus petit avec la méthode
 `.sort_values()`. Comme on ne veut  connaître que les premières dates
 (celles où il y a eu le plus de dépôts), on utilisera également la méthode
-`.head()` :
+`.head()`.
+
+En utilisant le *method chaining* présenté dans le chapitre 11 *Plus sur les chaînes de caractères*, nous pouvons écrire toutes ces transformations en une seule instruction, répartie sur plusieurs lignes pour plus de lisibilité (en utilisant des parenthèses) :
 
 ```python
 (df["Deposit Date"]
@@ -1089,10 +1091,6 @@ En 2001, cinq structures de transferrine ont été déposées dans la PDB. La de
 
 Toutes ces méthodes, enchaînées les unes à la suite des autres, peuvent vous
 sembler complexes mais chacune d'elles correspond à une étape du traitement des données. 
-L'utilisation des parenthèses (ligne 1, juste avant
-`df["Deposit Date"]` et ligne 7, juste après `head()`) permet de répartir élégamment
-cette longue instruction sur plusieurs lignes.
-
 Bien sûr, on aurait pu créer des variables intermédiaires
 pour chaque étape mais cela aurait été plus lourd :
 
@@ -1113,13 +1111,11 @@ date4.head()
 Name: Deposit Date, dtype: int64
 ```
 
-open-box-def
+open-box-rem
 
-Cette manière d'enchaîner les méthodes les unes à la suite des autres est appelée *method chaining*.
+Le *method chaining* est une manière efficace et élégante de traiter des données avec *pandas*.
 
-C'est une manière efficace et élégante de traiter des données avec *pandas*.
-
-close-box-def
+close-box-rem
 
 
 open-box-more
