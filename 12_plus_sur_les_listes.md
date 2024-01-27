@@ -379,7 +379,7 @@ Voici quelques exemples illustrant la puissance des listes de compréhension.
 
 ### Initialisation d'une liste de listes
 
-Une liste de compréhension permet l'initialisation d'une liste de listes en une ligne sans avoir l'inconvénient 
+Une liste de compréhension permet l'initialisation d'une liste de listes en une ligne sans avoir l'inconvénient de faire une référence vers la même sous-liste (voir rubrique précédente) :
 
 ```python
 >>> liste1 = [[0, 0, 0] for i in range(5)]
