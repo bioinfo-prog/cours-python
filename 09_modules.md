@@ -448,7 +448,7 @@ le fichier est absent
 
 Dans cet exemple, si le fichier n'existe pas sur le disque dur, on quitte le programme avec la fonction `exit()` du module *sys* que nous venons de voir.
 
-La méthode `.cwd()` renvoie le répertoire depuis lequel est lancé Python (*cwd* signifiant *current working directory*) :
+La méthode `.cwd()` renvoie le chemin complet du répertoire depuis lequel est lancé Python (*cwd* signifiant *current working directory*) :
 
 ```python
 >>> from pathlib import Path
@@ -582,7 +582,7 @@ Documentation de la fonction `time.sleep()` :
 
 ### Séquences aléatoires de chiffres
 
-Générez une séquence aléatoire de 6 chiffres, ceux-ci étant des entiers tirés entre 1 et 4. Utilisez le module *random* avec la fonction `randint()`.
+Générez une séquence aléatoire de six chiffres, ceux-ci étant des entiers tirés entre 1 et 4. Utilisez le module *random* avec la fonction `randint()`.
 
 Documentation de la fonction `random.randint()` :
 
@@ -591,15 +591,7 @@ Documentation de la fonction `random.randint()` :
 
 ### Séquences aléatoires d'ADN
 
-Générez une séquence aléatoire d'ADN de 20 bases de deux manières différentes. Utilisez le module *random* avec la fonction `randint()` ou `choice()`.
-
-Documentation de la fonction `random.randint()` :
-
-<https://docs.python.org/fr/3/library/random.html#random.randint>
-
-Documentation de la fonction `random.choice()` :
-
-<https://docs.python.org/fr/3/library/random.html#random.choice>
+Générez une séquence aléatoire d'ADN de 20 bases de deux manières différentes. Utilisez le module *random* avec la fonction `choice()` ou `choices()`.
 
 
 ### Séquences aléatoires d'ADN avec argument
@@ -608,8 +600,8 @@ Créez un script `dna_random.py` qui prend comme argument un nombre de bases, co
 
 Le script devra vérifier qu'un argument est bien fourni et renvoyer un message d'erreur si ce n'est pas le cas.
 
-*Conseil* : pour générer la séquence d'ADN, vous utiliserez, au choix, la fonction  
-`random.randint()` ou `random.choice()` abordées dans l'exercice précédent.
+*Conseil* : pour générer la séquence d'ADN, vous utiliserez la fonction `random.choice()` abordée
+dans l'exercice précédent.
 
 
 ### Compteur de lignes
