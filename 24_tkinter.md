@@ -477,10 +477,10 @@ Jusqu'à maintenant nous avons vu les *widgets* *Button*, *Canvas*, *Label*, mai
 
 Il existe par ailleurs des *widgets* qui peuvent contenir d'autres widgets et qui organisent le placement de ces derniers :
 
-- *Frame* : *widget* container pouvant contenir d'autres *widgets* classiques, particulièrement utile lorsqu'on réalise une GUI complexe avec de nombreuses zones.
+- *Frame* : *widget* conteneur pouvant contenir d'autres *widgets* classiques, particulièrement utile lorsqu'on réalise une GUI complexe avec de nombreuses zones.
 - *LabelFrame* : comme *Frame* mais affiche aussi un *label* sur le bord.
 - *Toplevel* : pour créer des fenêtres indépendantes.
-- *PanedWindow* : container pour d'autres *widgets*, mais ici l'utilisateur peut réajuster les zones affectées à chaque *widget* fils.
+- *PanedWindow* : conteneur pour d'autres *widgets*, mais ici l'utilisateur peut réajuster les zones affectées à chaque *widget* fils.
 
 Vous trouverez la documentation exhaustive pour tous ces *widgets* (ainsi que ceux que nous avons décrits dans les rubriques précédentes) sur le [site de l'Institut des mines et de technologie du Nouveau Mexique](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html) (MNT). Par ailleurs, la [page *Universal widget methods*](https://infohost.nmt.edu/tcc/help/pubs/tkinter/web/universal.html) vous donnera une vue d'ensemble des différentes méthodes associées à chaque widget.
 
