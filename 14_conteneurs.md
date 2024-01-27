@@ -794,6 +794,13 @@ Il est aussi intéressant de comparer ces propriétés avec celles des types num
 | *float*         |  non            | non      | non     | non    | non    | oui      |
 | booléen         |  non            | non      | non     | non    | non    | oui      |
 
+### Copie de conteneurs
+
+Un dernier point qu'il peut être utile de mentionner concerne la copie de conteneurs. On avait vu dans le chapitre 12 *Plus sur les listes* que la copie de listes se fait par référence. Cela est un mécanisme général pour tous les types de containers, sauf pour les chaînes de caractères. *Python Tutor* nous permet de voir cela (Figure @fig:copy_container).
+
+![Copie de conteneurs.](img/copy_container.png){ #fig:copy_container width=80% }
+
+Ainsi, il faut toujours faire attention quand on fait une copie d'un conteneur modfiable (liste, dictionnaire, set, etc.). On verra que Python se comporte comme ça aussi avec les objets *arrays* (chapitre 20 *module Numpy*) ou *Dataframes* (chapitre 22 *Module pandas*), car on peut les considérer également comme des conteneurs.
 
 ## Dictionnaires et *sets* de compréhension
 

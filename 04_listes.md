@@ -283,14 +283,14 @@ On verra un peu plus loin qu'il existe en Python des dictionnaires qui sont éga
 Les fonctions `min()`, `max()` et `sum()` renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument.
 
 ```python
->>> liste = list(range(10))
->>> liste
+>>> liste1 = list(range(10))
+>>> liste1
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
->>> sum(liste)
+>>> sum(liste1)
 45
->>> min(liste)
+>>> min(liste1)
 0
->>> max(liste)
+>>> max(liste1)
 9
 ```
 
@@ -306,7 +306,7 @@ Nous avions déjà croisé `min()`, `max()` dans le chapitre 2 *Variables*. On a
 Attention toutefois à ne pas mélanger entiers et *floats* d'une part avec une liste d'autre part, car cela renvoie une erreur :
 
 ```python
->>> min(liste, 3, 4)
+>>> min(liste1, 3, 4)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: '<' not supported between instances of 'int' and 'list'
