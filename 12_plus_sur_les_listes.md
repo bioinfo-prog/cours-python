@@ -318,7 +318,7 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 
 ## Initialisation d'une liste de listes
 
-Un dernier écueil que vous pourrez rencontrer concerne l'initialisation d'une liste de listes avec l'opérateur `*`. Imaginons que l'on souhaite représenter un tableau de nombre que l'on souhaite initialiser avec des 0. Nous pourrions être tenté d'utiliser la duplication de listes :
+Un dernier écueil que vous pourrez rencontrer concerne l'initialisation d'une liste de listes avec l'opérateur `*`. Imaginons que l'on souhaite représenter un tableau de nombre que l'on souhaite initialiser avec des 0. Nous pourrions être tentés d'utiliser la duplication de listes :
 
 ```python
 >>> liste1 = [[0, 0, 0]] * 5
