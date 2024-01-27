@@ -433,7 +433,7 @@ Par exemple, si on souhaite mettre une majuscule à tous les mots d'une chaîne 
 
 On a créé deux variables intermédiaires `message1` et `message2` pour stocker les chaînes de caractères modifiées par les méthodes `.title()` et `.replace()`.
 
-Il est possible de faire la même chose en une seule ligne en utilisant le *method chaining*  :
+Il est possible de faire la même chose en une seule ligne en utilisant le chaînage de méthodes ou *method chaining*  :
 
 ```python
 >>> message = "salut patrick salut pierre"
