@@ -12,22 +12,26 @@ Comme pour les chaînes de caractères, les listes possèdent de nombreuses **m�
 La méthode `.append()`, que l'on a déjà vu au chapitre 4 *Listes*, ajoute un élément à la fin d'une liste :
 
 ```python
->>> a = [1, 2, 3]
->>> a.append(5)
->>> a
+>>> liste1 = [1, 2, 3]
+>>> liste1.append(5)
+>>> liste1
 [1, 2, 3, 5]
 ```
 
 qui est équivalent à :
 
 ```python
->>> a = [1, 2, 3]
->>> a = a + [5]
->>> a
+>>> liste1 = [1, 2, 3]
+>>> liste1 = liste1 + [5]
+>>> liste1
 [1, 2, 3, 5]
 ```
 
-*Conseil* : préférez la version avec `.append()` qui est plus compacte et facile à lire.
+open-box-adv
+
+Préférez la version avec `.append()` qui est plus compacte et facile à lire.
+
+close-box-adv
 
 
 ### `.insert()`
@@ -35,9 +39,9 @@ qui est équivalent à :
 La méthode `.insert()` insère un objet dans une liste à un indice déterminé :
 
 ```python
->>> a = [1, 2, 3]
->>> a.insert(2, -15)
->>> a
+>>> liste1 = [1, 2, 3]
+>>> liste1.insert(2, -15)
+>>> liste1
 [1, 2, -15, 3]
 ```
 
@@ -47,9 +51,9 @@ La méthode `.insert()` insère un objet dans une liste à un indice déterminé
 L'instruction `del` supprime un élément d'une liste à un indice déterminé :
 
 ```python
->>> a = [1, 2, 3]
->>> del a[1]
->>> a
+>>> liste1 = [1, 2, 3]
+>>> del liste1[1]
+>>> liste1
 [1, 3]
 ```
 
@@ -65,21 +69,21 @@ close-box-rem
 La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur :
 
 ```python
->>> a = [1, 2, 3]
->>> a.remove(3)
->>> a
+>>> liste1 = [1, 2, 3]
+>>> liste1.remove(3)
+>>> liste1
 [1, 2]
 ```
 
 S'il y a plusieurs fois la même valeur dans la liste, seule la première est retirée. Il faut appeler la méthode `.remove()` autant de fois que nécessaire pour retirer toutes les occurences d'un même élément :
 
 ```python
->>> a = [1, 2, 3, 4, 3]
->>> a.remove(3)
->>> a
+>>> liste1 = [1, 2, 3, 4, 3]
+>>> liste1.remove(3)
+>>> liste1
 [1, 2, 4, 3]
->>> a.remove(3)
->>> a
+>>> liste1.remove(3)
+>>> liste1
 [1, 2, 4]
 ```
 
@@ -88,18 +92,18 @@ S'il y a plusieurs fois la même valeur dans la liste, seule la première est re
 La méthode `.sort()` trie les éléments d'une liste du plus petit au plus grand:
 
 ```python
->>> a = [3, 1, 2]
->>> a.sort()
->>> a
+>>> liste1 = [3, 1, 2]
+>>> liste1.sort()
+>>> liste1
 [1, 2, 3]
 ```
 
 L'argument `reverse=True` spécifie le tri inverse, c'est-à-dire du plus grand au plus petit élément :
 
 ```python
->>> a = [3, 1, 2]
->>> a.sort(reverse=True)
->>> a
+>>> liste1 = [3, 1, 2]
+>>> liste1.sort(reverse=True)
+>>> liste1
 [3, 2, 1]
 ```
 
@@ -110,20 +114,20 @@ La fonction `sorted()` trie également une liste.
 Contrairement à la méthode précédente `.sort()`, cette fonction renvoie la liste triée et ne modifie pas la liste initiale :
 
 ```python
->>> a = [3, 1, 2]
->>> sorted(a)
+>>> liste1 = [3, 1, 2]
+>>> sorted(liste1)
 [1, 2, 3]
->>> a
+>>> liste1
 [3, 1, 2]
 ```
 
 La fonction `sorted()` supporte aussi l'argument `reverse=True` :
 
 ```python
->>> a = [3, 1, 2]
->>> sorted(a, reverse=True)
+>>> liste1 = [3, 1, 2]
+>>> sorted(liste1, reverse=True)
 [3, 2, 1]
->>> a
+>>> liste1
 [3, 1, 2]
 ```
 
@@ -132,9 +136,9 @@ La fonction `sorted()` supporte aussi l'argument `reverse=True` :
 La méthode `.reverse()` inverse une liste :
 
 ```python
->>> a = [3, 1, 2]
->>> a.reverse()
->>> a
+>>> liste1 = [3, 1, 2]
+>>> liste1.reverse()
+>>> liste1
 [2, 1, 3]
 ```
 
@@ -144,27 +148,27 @@ La méthode `.reverse()` inverse une liste :
 La méthode `.count()` compte le nombre d'éléments (passés en argument) dans une liste :
 
 ```python
->>> a = [1, 2, 4, 3, 1, 1]
->>> a.count(1)
+>>> liste1 = [1, 2, 4, 3, 1, 1]
+>>> liste1.count(1)
 3
->>> a.count(4)
+>>> liste1.count(4)
 1
->>> a.count(23)
+>>> liste1.count(23)
 0
 ```
 
 
 ### Particularités des méthodes associées aux listes
 
-- De nombreuses méthodes mentionnées précédemment (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes : même si `var = liste.reverse()` est une instruction Python valide, elle n'a aucun intérêt, préférez-lui `liste.reverse()`. 
+- De nombreuses méthodes mentionnées précédemment (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes : même si `var = liste1.reverse()` est une instruction Python valide, elle n'a aucun intérêt, préférez-lui `liste1.reverse()`. 
 
 open-box-rem
 
 Pour exprimer la même idée, la documentation parle de modification de la liste « sur place » (*in place* en anglais) :
 
 ```python
->>> liste = [1, 2, 3]
->>> help(liste.reverse)
+>>> liste1 = [1, 2, 3]
+>>> help(liste1.reverse)
 Help on built-in function reverse:
 
 reverse() method of builtins.list instance
@@ -177,14 +181,14 @@ close-box-rem
 
 - Certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
 
-- Enfin, pour obtenir une liste exhaustive des méthodes disponibles pour les listes, utilisez la fonction `dir(ma_liste)` (`ma_liste` étant une liste).
+- Enfin, pour obtenir une liste exhaustive des méthodes disponibles pour les listes, utilisez la fonction `dir(liste1)` (`liste1` étant une liste).
 
 
 ## Construction d'une liste par itération
 
 La méthode `.append()` est très pratique car on peut l'utiliser pour construire une liste au fur et à mesure des itérations d'une boucle.
 
-Pour cela, il est commode de définir préalablement une liste vide de la forme `ma_liste = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
+Pour cela, il est commode de définir préalablement une liste vide de la forme `liste1 = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
 
 ```python
 >>> seq = "CAAAGGTAACGC"
@@ -214,14 +218,14 @@ Cette méthode est certes plus simple, mais il arrive parfois qu'on doive utilis
 L'opérateur `in` teste si un élément fait partie d'une liste.
 
 ```python
-liste = [1, 3, 5, 7, 9]
->>> 3 in liste
+liste1 = [1, 3, 5, 7, 9]
+>>> 3 in liste1
 True
->>> 4 in liste
+>>> 4 in liste1
 False
->>> 3 not in liste
+>>> 3 not in liste1
 False
->>> 4 not in liste
+>>> 4 not in liste1
 True
 ```
 La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'est pas dans une liste.
@@ -232,40 +236,40 @@ La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'es
 Il est très important de savoir que l'affectation d'une liste (à partir d'une liste préexistante) crée en réalité une **référence** et non une **copie** :
 
 ```python
->>> x = [1, 2, 3]
->>> y = x
->>> y
+>>> liste1 = [1, 2, 3]
+>>> liste2 = liste1
+>>> liste2
 [1, 2, 3]
->>> x[1] = -15
->>> x
+>>> liste1[1] = -15
+>>> liste1
 [1, -15, 3]
->>> y
+>>> liste2
 [1, -15, 3]
 ```
 
-Vous voyez que la modification de `x` modifie `y` aussi ! Pour comprendre ce qui se passe nous allons de nouveau utiliser le site *Python Tutor* avec cet exemple (Figure @fig:copy_list) :
+Vous voyez que la modification de `liste1` modifie `liste2` aussi ! Pour comprendre ce qui se passe nous allons de nouveau utiliser le site *Python Tutor* avec cet exemple (Figure @fig:copy_list) :
 
 ![Copie de liste.](img/copy_list.png){ #fig:copy_list width=80% }
 
-Techniquement, Python utilise des pointeurs (comme dans le langage de programmation C) vers les mêmes objets. *Python Tutor* l'illustre avec des flèches qui partent des variables `x` et `y` et qui pointent vers la même liste. Donc, si on modifie la liste `x`, la liste `y` est modifiée de la même manière. Rappelez-vous de ceci dans vos futurs programmes car cela pourrait avoir des effets désastreux !
+Techniquement, Python utilise des pointeurs (comme dans le langage de programmation C) vers les mêmes objets. *Python Tutor* l'illustre avec des flèches qui partent des variables `liste1` et `liste2` et qui pointent vers la même liste. Donc, si on modifie la liste `liste1`, la liste `liste2` est modifiée de la même manière. Rappelez-vous de ceci dans vos futurs programmes car cela pourrait avoir des effets désastreux !
 
 Pour éviter ce problème, il va falloir créer une copie explicite de la liste initiale. Observez cet exemple :
 
 ```python
->>> x = [1, 2, 3]
->>> y = x[:]
->>> x[1] = -15
->>> y
+>>> liste1 = [1, 2, 3]
+>>> liste2 = liste1[:]
+>>> liste1[1] = -15
+>>> liste2
 [1, 2, 3]
 ```
 
-L'instruction `x[:]` a créé une copie « à la volée » de la liste `x`. Vous pouvez utiliser aussi la fonction `list()` qui renvoie explicitement une liste:
+L'instruction `liste1[:]` a créé une copie « à la volée » de la liste `liste1`. Vous pouvez utiliser aussi la fonction `list()` qui renvoie explicitement une liste:
 
 ```python
->>> x = [1, 2, 3]
->>> y = list(x)
->>> x[1] = -15
->>> y
+>>> liste1 = [1, 2, 3]
+>>> liste2 = list(liste1)
+>>> liste1[1] = -15
+>>> liste2
 [1, 2, 3]
 ```
 Si on regarde à nouveau dans *Python Tutor* (Figure @fig:copy_list2), on voit clairement que l'utilisation d'une tranche `[:]` ou de la fonction `list()` crée des copies explicites. Chaque flèche pointe vers une liste différente, indépendante des autres.
@@ -275,25 +279,25 @@ Si on regarde à nouveau dans *Python Tutor* (Figure @fig:copy_list2), on voit c
 Attention, les deux astuces précédentes ne fonctionnent que pour les listes à une dimension, autrement dit les listes qui ne contiennent pas elles-mêmes d'autres listes. Voyez par exemple :
 
 ```python
->>> x = [[1, 2], [3, 4]]
->>> x
+>>> liste1 = [[1, 2], [3, 4]]
+>>> liste1
 [[1, 2], [3, 4]]
->>> y = x[:]
->>> x[1][1] = 55
->>> x
+>>> liste2 = liste1[:]
+>>> liste1[1][1] = 55
+>>> liste1
 [[1, 2], [3, 55]]
->>> y
+>>> liste2
 [[1, 2], [3, 55]]
 ```
 
 et
 
 ```python
->>> y = list(x)
->>> x[1][1] = 77
->>> x
+>>> liste2 = list(liste1)
+>>> liste1[1][1] = 77
+>>> liste1
 [[1, 2], [3, 77]]
->>> y
+>>> liste2
 [[1, 2], [3, 77]]
 ```
 
@@ -301,16 +305,60 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 
 ```python
 >>> import copy
->>> x = [[1, 2], [3, 4]]
->>> x
+>>> liste1 = [[1, 2], [3, 4]]
+>>> liste1
 [[1, 2], [3, 4]]
->>> y = copy.deepcopy(x)
->>> x[1][1] = 99
->>> x
+>>> liste2 = copy.deepcopy(liste1)
+>>> liste1[1][1] = 99
+>>> liste1
 [[1, 2], [3, 99]]
->>> y
+>>> liste2
 [[1, 2], [3, 4]]
 ```
+
+## Initialisation d'une liste de listes
+
+Un dernier écueil que vous pourrez rencontrer concerne l'initialisation d'une liste de listes avec l'opérateur `*`. Imaginons que l'on souhaite représenter un tableau de nombre que l'on souhaite initialiser avec des 0. Nous pourrions être tentés d'utiliser la duplication de listes :
+
+```python
+>>> liste1 = [[0, 0, 0]] * 5
+>>> liste1
+[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+```
+
+Le problème est que si on modifie un élément d'une des sous-listes :
+
+```python
+>>> liste1[2][0] = -12
+>>> liste1
+[[-12, 0, 0], [-12, 0, 0], [-12, 0, 0], [-12, 0, 0], [-12, 0, 0]]
+```
+
+Vous constatez qu'il est modifié dans chaque sous-liste ! En regardant dans *Python Tutor* on voit que Python crée une référence vers la même sous-liste (Figure @fig:copy_list3) :
+
+![Initialisation d'une liste de listes avec l'opérateur de duplication.](img/copy_list3.png){ #fig:copy_list3 width=80% }
+
+Comme disent les auteurs dans la [documentation officielle](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) : *Note that items in the sequence are not copied; they are referenced multiple times. This often haunts new Python programmers*. Pour éviter le problème,  on peut utiliser une boucle :
+
+```python
+>>> liste1 = []
+>>> for i in range(5):
+...    liste1.append([0, 0, 0])
+...
+>>> liste1
+[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+>>> liste1[2][0] = -12
+>>> liste1
+[[0, 0, 0], [0, 0, 0], [-12, 0, 0], [0, 0, 0], [0, 0, 0]]
+```
+
+On verra dans la rubrique suivante une manière très compacte de faire cela avec les listes de compréhension.
+
+open-box-adv
+
+Même si une liste de listes peut représenter un tableau de nombres, il ne faut pas la voir comme un objet mathématique de type [matrice](https://fr.wikipedia.org/wiki/Matrice). En effet, le concept de lignes et colonnes n'est pas défini clairement, on ne peut pas faire d'opérations matricielles simplement, etc. On verra dans le chapitre 20 *Module Numpy* qu'il existe des objets appelés *arrays* qui sont faits pour ça. 
+
+close-box-adv
 
 ## Liste de compréhension
 
@@ -328,6 +376,19 @@ En Python, la notion de liste de compréhension (ou compréhension de listes) re
 Pour plus de détails, consultez à ce sujet le site de [Python](http://www.python.org/dev/peps/pep-0202/) et celui de [Wikipédia](http://fr.wikipedia.org/wiki/Comprehension_de_liste).
 
 Voici quelques exemples illustrant la puissance des listes de compréhension.
+
+### Initialisation d'une liste de listes
+
+Une liste de compréhension permet l'initialisation d'une liste de listes en une ligne sans avoir l'inconvénient de faire une référence vers la même sous-liste (voir rubrique précédente) :
+
+```python
+>>> liste1 = [[0, 0, 0] for i in range(5)]
+>>> liste1
+[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+>>> liste1[2][0] = -12
+>>> liste1
+[[0, 0, 0], [0, 0, 0], [-12, 0, 0], [0, 0, 0], [0, 0, 0]]
+```
 
 ### Nombres pairs compris entre 0 et 30
 
