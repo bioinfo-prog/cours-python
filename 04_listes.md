@@ -207,7 +207,7 @@ L'instruction `len()` vous permet de connaître la longueur d'une liste, c'est-�
 
 ## Les fonctions `range()` et `list()`
 
-L'instruction `range()` est une fonction spéciale en Python qui  génère des nombres entiers compris dans un intervalle. Lorsqu'elle est utilisée en combinaison avec la fonction `list()`, on obtient une liste d'entiers. Par exemple :
+L'instruction `range()` est une fonction spéciale en Python qui génère des nombres entiers compris dans un intervalle. Lorsqu'elle est utilisée en combinaison avec la fonction `list()`, on obtient une liste d'entiers. Par exemple :
 
 ```python
 >>> list(range(10))
