@@ -463,3 +463,22 @@ Le pourcentage de GC est 47.8   %
 Le pourcentage de GC est 47.80  %
 Le pourcentage de GC est 47.804 %
 ```
+
+### Simplification de fractions
+
+Utilisez l'opérateur modulo (`%`) et l'opérateur division entière (`//`) pour simplifier des fractions, connaissant leur numérateur et leur dénominateur, et afficher le résultat avec des *f-strings*.
+
+Par exemple pour la fraction $\frac{7}{3}$, le numérateur vaut 7 et le dénominateur vaut 3, et le résultat s'affichera sous la forme :
+
+```text
+7/3 = 2 + 1/3
+```
+
+ici, 2 est le résultat de la division entière du numérateur par le dénominateur et 1 est le reste de la division entière du numérateur par le dénominateur.
+
+Faites de même pour les fractions suivantes : 
+
+$$
+\frac{9}{4}, \frac{23}{5}, \frac{21}{8} \textrm{et} \frac{7}{2}
+$$
+
