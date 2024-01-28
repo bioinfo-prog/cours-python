@@ -44,6 +44,7 @@ Seq('ATATCGGCTATAGCATGC')
 - Ligne 2. On charge la classe `Seq` du sous-module `Bio.Seq`.
 - Ligne 3. La variable `ADN` est de type `Seq`, comme affiché dans le résultat.
 
+
 ### Obtention de la séquence complémentaire et de la séquence complémentaire inverse
 
 ```python
@@ -284,6 +285,35 @@ mais aussi d'autres informations comme le titre, le DOI, la date de publication.
 open-box-adv
 
 Pour ces exercices, utilisez des notebooks Jupyter.
+
+close-box-adv
+
+
+### Pourcentage de GC de gènes de *Plasmodium falciparum*
+
+*Plasmodium falciparum* (*P falciparum*) est un des parasites responsables du paludisme chez les êtres humains. Le fichier [`p_falciparum_500.fasta`](https://python.sdv.u-paris.fr/data-files/p_falciparum_500.fasta) contient 500 gènes du génome de *P falciparum*.
+
+Écrivez un code Python qui calcule le pourcentage de GC de chaque gène. Les valeurs seront stockées dans un dictionnaire avec comme clés les identifiants des gènes et comme valeurs le pourcentage de GC.
+
+On rappelle que le pourcentage de GC d'une séquence est calculé avec la formule suivante :
+
+$$
+\textrm{pourcentage GC} = \frac{\textrm{nombre de G} + \textrm{nombre de C}}{\textrm{longueur de la séquence}} \times 100
+$$
+
+Affichez ensuite :
+
+- Le nombre total de gènes.
+- L'identifiant de la séquence qui a le pourcentage de GC le plus élevé, avec la valeur du pourcentage affichée avec deux chiffres après la virgule.
+- L'identifiant de la séquence qui a le pourcentage de GC le plus faible, avec la valeur du pourcentage affichée avec deux chiffres après la virgule.
+
+
+open-box-adv
+
+N'hésitez pas à consulter :
+
+- Le chapitre 14 *Conteneurs* pour trier un dictionnaire.
+- L'annnexe A *Quelques formats de données rencontrés en biologie* pour lire un fichier FASTA avec *Biopython*.
 
 close-box-adv
 
