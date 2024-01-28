@@ -125,6 +125,15 @@ with open("insulin.fasta", "r") as fasta_file:
 Cela produit le même résultat. L'utilisation de *Biopython* rend le code plus compacte car on utilise ici la fonction `SeqIO.parse()` qui s'occupe de lire le fichier FASTA.
 
 
+open-box-rem
+
+L'attribut `.id` renvoie l'identifiant d'une séquence, c'est-à-dire la première partie de l'entête, sans le caractère `>`.
+
+Pour obtenir l'entête complet (toutjours sans le caractère `>`), il faut utiliser l'attribut `.description`.
+
+close-box-rem
+
+
 ## GenBank
 
 GenBank est une banque de séquences nucléiques. Le format de fichier associé contient l'information nécessaire pour décrire un gène ou une portion d'un génome. Les fichiers GenBank porte le plus souvent l'extension `.gbk`.
