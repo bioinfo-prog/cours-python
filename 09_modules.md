@@ -2,9 +2,9 @@
 
 ## Définition
 
-Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à réutiliser souvent (on les appelle aussi bibliothèques ou *libraries*). Ce sont des « boîtes à outils » qui vont vous être très utiles.
+Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à réutiliser souvent (on les appelle aussi bibliothèques ou *libraries* en anglais). Ce sont des « boîtes à outils » qui vont vous être très utiles.
 
-Les développeurs de Python ont mis au point de nombreux modules qui effectuent une quantité phénoménale de tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module.
+Les développeurs de Python ont mis au point de nombreux modules qui effectuent différentes tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module.
 
 La plupart de ces modules sont déjà installés dans les versions standards de Python. Vous pouvez accéder à une [documentation exhaustive](https://docs.python.org/fr/3/py-modindex.html) sur le site de Python. N'hésitez pas à explorer un peu ce site, la quantité de modules disponibles est impressionnante (plus de 300).
 
@@ -212,8 +212,8 @@ etrandbits', 'getstate', 'jumpahead', 'lognormvariate', 'normalvariate',
 Il existe une série de modules que vous serez probablement amenés à utiliser si vous programmez en Python. En voici une liste non exhaustive. Pour la liste complète, reportez-vous à [la page des modules](https://docs.python.org/fr/3/py-modindex.html) sur le site de Python :
 
 - [*math*](https://docs.python.org/fr/3/library/math.html#module-math) : fonctions et constantes mathématiques de base (sin, cos, exp, pi...).
-- [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) : interaction avec l'interpréteur Python, passage d'arguments (cf. plus bas).
-- [*os*](https://docs.python.org/fr/3/library/os.html#module-os) : dialogue avec le système d'exploitation (cf. plus bas).
+- [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) : interaction avec l'interpréteur Python, notamment pour le passage d'arguments (voir plus bas).
+- [*pathlib*](https://docs.python.org/fr/3/library/os.html#module-os) : gestion des fichiers et des répertoires (voir plus bas).
 - [*random*](https://docs.python.org/fr/3/library/random.html#module-random) : génération de nombres aléatoires.
 - [*time*](https://docs.python.org/fr/3/library/time.html#module-time) : accès à l'heure de l'ordinateur et aux fonctions gérant le temps.
 - [*urllib*](https://docs.python.org/fr/3/library/urllib.html#module-urllib) : récupération de données sur internet depuis Python.
@@ -222,9 +222,10 @@ Il existe une série de modules que vous serez probablement amenés à utiliser 
 
 Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir toutes leurs potentialités.
 
-Vous verrez dans le chapitre 14 *Création de module* comment créer votre propre module lorsque vous souhaitez réutiliser souvent vos propres fonctions.
+Vous verrez dans le chapitre 15 *Création de module* comment créer votre propre module lorsque vous souhaitez réutiliser souvent vos propres fonctions.
 
-Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Citons-en quelques-uns: *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données)... Ces modules vous serons présentés dans le chapitre 17 *Quelques modules d'intérêt en bioinformatique*.
+Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Par exemple : *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données), etc. Ces modules vous serons présentés dans les chapitres 19 à 22.
+
 
 ## Module *random* : génération de nombres aléatoires
 
@@ -299,11 +300,13 @@ Ici la graine aléatoire est fixée à 42. Si on ne précise pas la graine, par 
 
 Si vous exécutez ces mêmes lignes de code (depuis l'instruction `random.seed(42)`), il se peut que vous ayez des résultats différents selon la version de Python. Néanmoins, vous devriez systématiquement obtenir les mêmes résultats si vous relancez plusieurs fois de suite ces instructions sur une même machine.
 
+
 open-box-rem
 
-Quand on utlise des nombres aléatoires, il est fondamental de connaitre la distribution de probablités utilisée par la fonction. Par exemple, La fonction de base du module random est `random.random()`, elle renvoie un *float* aléatoire entre 0 et 1 tiré dans une **distribution uniforme**. Si on tire beaucoup de nombres, on aura la même probabilité d'obtenir tous les nombres possibles entre 0 et 1. La fonction `random.randint()` tire aussi un entier dans une distribution uniforme. La fonction `random.gauss()` tire quant à elle un *float* aléatoire dans une distribution Gaussienne.
+Quand on utilise des nombres aléatoires, il est fondamental de connaitre la distribution de probablités utilisée par la fonction. Par exemple, La fonction de base du module random est `random.random()`, elle renvoie un *float* aléatoire entre 0 et 1 tiré dans une **distribution uniforme**. Si on tire beaucoup de nombres, on aura la même probabilité d'obtenir tous les nombres possibles entre 0 et 1. La fonction `random.randint()` tire aussi un entier dans une distribution uniforme. La fonction `random.gauss()` tire quant à elle un *float* aléatoire dans une distribution Gaussienne.
 
 close-box-rem
+
 
 ## Module *sys* : passage d'arguments
 
@@ -340,11 +343,14 @@ print(f"Argument vaut : {sys.argv[1]}")
 ```
 
 Puis on l'exécute sans argument :
+
 ```text
 $ python test.py
 ERREUR : il faut exactement un argument.
 ```
+
 et avec un argument :
+
 ```text
 $ python test.py 42
 Argument vaut : 42
@@ -417,16 +423,22 @@ FileNotFoundError: [Errno 2] No such file or directory: 'zoo3.txt'
 La lecture de la partie suivante va nous permettre d'améliorer notre script `compte_lignes.py`.
 
 
-## Module *os* : interaction avec le système d'exploitation
+## Module *pathlib* : gestion des fichiers et des répertoires
 
-Le module [*os*](https://docs.python.org/fr/3/library/os.html#module-os) gère l'interface avec le système d'exploitation.
+Le module [*pathlib*](https://docs.python.org/fr/3/library/pathlib.html) permet de manipuler les fichiers et les répertoires. 
 
-La fonction `os.path.exists()` est une fonction pratique de ce module qui vérifie la présence d'un fichier sur le disque dur.
+Le plus souvent, on utilise uniquement la classe `Path` du module `pathlib` qu'on charge de cette manière :
+
+```python
+>>> from pathlib import Path
+```
+
+La méthode `.exists()` vérifie la présence d'un fichier sur le disque dur :
 
 ```python
 >>> import sys
->>> import os
->>> if os.path.exists("toto.pdb"):
+>>> from pathlib import Path
+>>> if Path("toto.pdb").exists():
 ...     print("le fichier est présent")
 ... else:
 ...     sys.exit("le fichier est absent")
@@ -434,27 +446,87 @@ La fonction `os.path.exists()` est une fonction pratique de ce module qui vérif
 le fichier est absent
 ```
 
-Dans cet exemple, si le fichier n'existe pas sur le disque, on quitte le programme avec la fonction `exit()` du module *sys* que nous venons de voir.
+Dans cet exemple, si le fichier n'existe pas sur le disque dur, on quitte le programme avec la fonction `exit()` du module *sys* que nous venons de voir.
 
-La fonction `os.getcwd()` renvoie le répertoire (sous forme de chemin complet) depuis lequel est lancé Python :
+La méthode `.cwd()` renvoie le chemin complet du répertoire depuis lequel est lancé Python (*cwd* signifiant *current working directory*) :
 
 ```python
->>> import os
->>> os.getcwd()
+>>> from pathlib import Path
+>>> Path().cwd()
+PosixPath('/home/pierre')
+```
+
+On obtient un objet de type `PosixPath` qu'il est possible de transformer si besoin en chaîne de caractères avec la fonction `str()` que nous avons vu dans le chapitre 2 *Variables* :
+
+```python
+>>> str(Path().cwd())
 '/home/pierre'
 ```
 
-Enfin, la fonction `os.listdir()` renvoie le contenu du répertoire depuis lequel est lancé Python :
+Mais l'intérêt de récupérer un objet de type `PosixPath` est qu'on peut ensuite utiliser les méthodes `.name` et `.parent` pour obtenir respectivement le nom du répertoire (sans son chemin complet) et le répertoire parent :
 
 ```python
->>> import os
->>> os.listdir()
-['1BTA.pdb', 'demo.py', 'tests']
+>>> Path().cwd()
+PosixPath('/home/pierre')
+>>> Path().cwd().name
+'pierre'
+>>> Path().cwd().parent
+PosixPath('/home')
 ```
 
-Le résultat est renvoyé sous forme d'une liste contenant à la fois le nom des fichiers et des répertoires.
+Enfin, la méthode `.iterdir()` liste le contenu du répertoire depuis lequel est lancé Python :
 
-Il existe de nombreuse autres fonctions dans le module *os*, n'hésitez pas à consulter la documentation.
+```python
+>>> list(Path().iterdir())
+[PosixPath('demo.py'), PosixPath('tests'), PosixPath('1BTA.pdb')]
+```
+
+Tout comme la fonction `range()` (voir le chapitre 4 *Listes*), la méthode `.iterdir()` est un itérateur. La fonction `list()` permet d'obtenir une liste.
+
+Par contre, il est possible d'itérer très facilement sur le contenu d'un répertoire et de savoir s'il contient des fichiers ou des sous-répertoires : 
+
+```python
+>>> for nom in Path().iterdir():
+...     if nom.is_file():
+...             print(f"{nom} est un fichier")
+...     else:
+...             print(f"{nom} n'est pas un fichier")
+... 
+demo.py est un fichier
+tests n'est pas un fichier
+1BTA.pdb est un fichier
+```
+
+La méthode `.is_file()` renvoie `True` si l'objet est un fichier et `False` si ce n'est pas le cas.
+
+La méthode `.iterdir()` parcourt le contenu d'un répertoire, sans en explorer les éventuels sous-répertoires. Si on souhaite parcourir récursivement un répertoire, on utilise la méthode `.glob()`. Prenons l'arborescence suivante comme exemple :
+
+```text
+├── 1BTA.pdb
+├── demo.py
+└── tests
+    ├── results.csv
+    ├── script1.py
+    └── script2.py
+```
+
+Le répertoire courant contient les fichiers `1BTA.pdb` et `demo.py` ainsi que le répertoire `tests`. Ce dernier contient lui-même les fichiers `results.csv`, `script1.py` et `script2.py`.
+
+On souhaite maintenant lister tous les scripts Python (dont l'extension est `py`) présents dans le répertoire courant et dans ses sous-répertoires :
+
+```python
+>>> for nom in Path().glob("**/*.py"):
+...     print(f"{nom}")
+... 
+demo.py
+tests/script1.py
+tests/script2.py
+```
+
+Dans la chaîne de caractères `"**/*.py"`, `**` recherche tous les sous-répertoires récursivement et `*.py` signifie n'importe quel nom de fichier qui se termine par l'extension `.py`.
+
+Il existe de nombreuse autres méthodes associées à la classe `Path` du module *pathlib*, n'hésitez pas à consulter la [documentation](https://docs.python.org/3/library/pathlib.html).
+
 
 ## Exercices
 
@@ -497,14 +569,6 @@ Affichez le nom et le contenu du répertoire courant (celui depuis lequel vous a
 
 Déterminez également le nombre total de fichiers et de répertoires présents dans le répertoire courant.
 
-Documentation de la fonction `os.getcwd()` :
-
-<https://docs.python.org/fr/3/library/os.html#os.getcwd>
-
-Documentation de la fonction `os.listdir()` :
-
-<https://docs.python.org/fr/3/library/os.html#os.listdir>
-
 
 ### Affichage temporisé
 
@@ -517,7 +581,7 @@ Documentation de la fonction `time.sleep()` :
 
 ### Séquences aléatoires de chiffres
 
-Générez une séquence aléatoire de 6 chiffres, ceux-ci étant des entiers tirés entre 1 et 4. Utilisez le module *random* avec la fonction `randint()`.
+Générez une séquence aléatoire de six chiffres, ceux-ci étant des entiers tirés entre 1 et 4. Utilisez le module *random* avec la fonction `randint()`.
 
 Documentation de la fonction `random.randint()` :
 
@@ -526,15 +590,7 @@ Documentation de la fonction `random.randint()` :
 
 ### Séquences aléatoires d'ADN
 
-Générez une séquence aléatoire d'ADN de 20 bases de deux manières différentes. Utilisez le module *random* avec la fonction `randint()` ou `choice()`.
-
-Documentation de la fonction `random.randint()` :
-
-<https://docs.python.org/fr/3/library/random.html#random.randint>
-
-Documentation de la fonction `random.choice()` :
-
-<https://docs.python.org/fr/3/library/random.html#random.choice>
+Générez une séquence aléatoire d'ADN de 20 bases de deux manières différentes. Utilisez le module *random* avec la fonction `choice()` ou `choices()`.
 
 
 ### Séquences aléatoires d'ADN avec argument
@@ -543,8 +599,8 @@ Créez un script `dna_random.py` qui prend comme argument un nombre de bases, co
 
 Le script devra vérifier qu'un argument est bien fourni et renvoyer un message d'erreur si ce n'est pas le cas.
 
-*Conseil* : pour générer la séquence d'ADN, vous utiliserez, au choix, la fonction  
-`random.randint()` ou `random.choice()` abordées dans l'exercice précédent.
+*Conseil* : pour générer la séquence d'ADN, vous utiliserez la fonction `random.choice()` abordée
+dans l'exercice précédent.
 
 
 ### Compteur de lignes

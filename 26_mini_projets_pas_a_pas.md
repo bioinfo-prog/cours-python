@@ -268,7 +268,7 @@ Vous afficherez un message d'erreur si :
 - le script `genbank2fasta.py` est utilisé sans argument,
 - le fichier fourni en argument n'existe pas.
 
-Pour vous aider, n'hésitez pas à jeter un œil aux descriptions des modules *sys* et *os* dans le chapitre 8 *Modules*.
+Pour vous aider, n'hésitez pas à jeter un œil aux descriptions des modules *sys* et *pathlib* dans le chapitre 9 *Modules*.
 
 Testez votre script ainsi finalisé.
 
@@ -435,7 +435,7 @@ Vous afficherez un message d'erreur si :
 - le script `genbank2fasta.py` est utilisé sans argument,
 - le fichier fourni en argument n'existe pas.
 
-Pour vous aider, n'hésitez pas à jeter un œil aux descriptions des modules *sys* et *os* dans le chapitre 8 sur les modules.
+Pour vous aider, n'hésitez pas à jeter un œil aux descriptions des modules *sys* et *pathlib* dans le chapitre 9 sur les modules.
 
 Testez votre script ainsi finalisé.
 
