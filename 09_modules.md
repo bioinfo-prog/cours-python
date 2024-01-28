@@ -563,9 +563,31 @@ Documentation de la constante `math.pi` :
 <https://docs.python.org/fr/3/library/math.html#math.pi>
 
 
-### Nom et contenu du répertoire courant
+### Comparaison de *floats*
 
-Affichez le nom et le contenu du répertoire courant (celui depuis lequel vous avez lancé l'interpréteur Python).
+Montrez que 
+
+$$\sqrt{5 + \sqrt{4 + \sqrt{3}}}$$
+
+est égale à $e$ à 0,001 près.
+
+Montrez ensuite que 
+
+$$\sqrt{7 + \sqrt{6 + \sqrt{5}}}$$
+
+est égale à $\pi$ à 0,0001 près.
+
+open-box-adv
+
+- Jetez un oeil à la rubrique sur la comparaison de *floats* abordée dans le chapitre 6 *Tests*.
+- Les constantes $\pi$ et $e$ sont obtenues par `math.pi` et `math.e`.
+
+close-box-adv
+
+
+### Chemin et contenu du répertoire courant
+
+Affichez le chemin et le contenu du répertoire courant (celui depuis lequel vous avez lancé l'interpréteur Python).
 
 Déterminez également le nombre total de fichiers et de répertoires présents dans le répertoire courant.
 
