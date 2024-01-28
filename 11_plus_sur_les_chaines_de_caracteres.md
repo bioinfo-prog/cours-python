@@ -515,7 +515,7 @@ puis entre les séquences
 
 Un palindrome est un mot ou une phrase dont l'ordre des lettres reste le même si on le lit de gauche à droite ou de droite à gauche. Par exemple, « ressasser » et « engage le jeu que je le gagne » sont des palindromes.
 
-Créez la fonction `est_palindrome()` qui prend en argument une chaîne de caractères et qui renvoie un booléen (`True` si l'argument est un palindrom, `False` si ce n'est pas le cas). Dans le programme pincipal, affichez `xxx est un palindrome` si la fonction `est_palindrome()` renvoie `True` et `xxx n'est pas un palindrome` sinon. Pensez à vous débarrasser au préalable des majuscules, des signes de ponctuations et des espaces.
+Créez la fonction `est_palindrome()` qui prend en argument une chaîne de caractères et qui renvoie un booléen (`True` si l'argument est un palindrome, `False` si ce n'est pas le cas). Dans le programme principal, affichez `xxx est un palindrome` si la fonction `est_palindrome()` renvoie `True` et `xxx n'est pas un palindrome` sinon. Pensez à vous débarrasser au préalable des majuscules, des signes de ponctuations et des espaces.
 
 Testez ensuite si les expressions suivantes sont des palindromes :
 
