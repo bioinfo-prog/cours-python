@@ -4,7 +4,7 @@
 
 Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à réutiliser souvent (on les appelle aussi bibliothèques ou *libraries* en anglais). Ce sont des « boîtes à outils » qui vont vous être très utiles.
 
-Les développeurs de Python ont mis au point de nombreux modules qui effectuer différentes tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module.
+Les développeurs de Python ont mis au point de nombreux modules qui effectuent différentes tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module.
 
 La plupart de ces modules sont déjà installés dans les versions standards de Python. Vous pouvez accéder à une [documentation exhaustive](https://docs.python.org/fr/3/py-modindex.html) sur le site de Python. N'hésitez pas à explorer un peu ce site, la quantité de modules disponibles est impressionnante (plus de 300).
 
@@ -224,7 +224,7 @@ Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir 
 
 Vous verrez dans le chapitre 15 *Création de module* comment créer votre propre module lorsque vous souhaitez réutiliser souvent vos propres fonctions.
 
-Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Par exemple : *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données)... Ces modules vous serons présentés dans les chapitres 19 à 22.
+Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Par exemple : *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données), etc. Ces modules vous serons présentés dans les chapitres 19 à 22.
 
 
 ## Module *random* : génération de nombres aléatoires
@@ -515,8 +515,7 @@ Le répertoire courant contient les fichiers `1BTA.pdb` et `demo.py` ainsi que l
 On souhaite maintenant lister tous les scripts Python (dont l'extension est `py`) présents dans le répertoire courant et dans ses sous-répertoires :
 
 ```python
->>> extension = "py"
->>> for nom in Path().glob(f"**/*.{extension}"):
+>>> for nom in Path().glob("**/*.py"):
 ...     print(f"{nom}")
 ... 
 demo.py
@@ -524,9 +523,9 @@ tests/script1.py
 tests/script2.py
 ```
 
-Dans la chaîne de caractères `"**/*.{extension}"`, `**` indique n'importe quel répertoire et ses sous-répertoires et `*.{extension}` signifie n'importe quel nom de fichier qui se termine par l'extension voulue.
+Dans la chaîne de caractères `"**/*.py"`, `**` recherche tous les sous-répertoires récursivement et `*.py` signifie n'importe quel nom de fichier qui se termine par l'extension `.py`.
 
-Il existe de nombreuse autres méthodes associées à la classe `Path` du module *pathlib*, n'hésitez pas à consulter la documentation.
+Il existe de nombreuse autres méthodes associées à la classe `Path` du module *pathlib*, n'hésitez pas à consulter la [documentation](https://docs.python.org/3/library/pathlib.html).
 
 
 ## Exercices
