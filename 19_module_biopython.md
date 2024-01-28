@@ -291,14 +291,14 @@ close-box-adv
 
 ### Pourcentage de GC de gènes de *Plasmodium falciparum*
 
-*Plasmodium falciparum* (*P falciparum*) est un des parasites responsables du paludisme chez les êtres humains. Le fichier [`p_falciparum_500.fasta`](https://python.sdv.u-paris.fr/data-files/p_falciparum_500.fasta) contient 500 gènes du génome de *P falciparum*.
+*Plasmodium falciparum* (*P. falciparum*) est un des parasites responsables du paludisme chez les êtres humains. Le fichier [`p_falciparum_500.fasta`](https://python.sdv.u-paris.fr/data-files/p_falciparum_500.fasta) contient 500 gènes du génome de *P. falciparum*.
 
 Écrivez un code Python qui calcule le pourcentage de GC de chaque gène. Les valeurs seront stockées dans un dictionnaire avec comme clés les identifiants des gènes et comme valeurs le pourcentage de GC.
 
 On rappelle que le pourcentage de GC d'une séquence est calculé avec la formule suivante :
 
 $$
-\textrm{pourcentage GC} = \frac{\textrm{nombre de G} + \textrm{nombre de C}}{\textrm{longueur de la séquence}} \times 100
+\textrm{pourcentage GC} = \frac{\textrm{nombre de bases G} + \textrm{nombre de bases C}}{\textrm{longueur de la séquence}} \times 100
 $$
 
 Affichez ensuite :
