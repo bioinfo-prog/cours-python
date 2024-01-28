@@ -4,13 +4,13 @@
 
 En programmation, les **fonctions** sont très utiles pour réaliser plusieurs fois la même opération au sein d'un programme. Elles rendent également le code plus lisible et plus clair en le fractionnant en blocs logiques.
 
-Vous connaissez déjà certaines fonctions Python. Par exemple `math.cos(angle)` du module `math` renvoie le cosinus de la variable `angle` exprimé en radian. Vous connaissez aussi des fonctions internes à Python comme `range()` ou `len()`. Pour l'instant, une fonction est à vos yeux une sorte de « boîte noire » (voir figure @fig:schema_fonction) :
+Vous connaissez déjà certaines fonctions Python. Par exemple `math.cos(angle)` du module `math` renvoie le cosinus de la variable `angle` exprimé en radian. Vous connaissez aussi des fonctions internes à Python comme `range()` ou `len()`. Pour l'instant, une fonction est à vos yeux une sorte de « boîte noire » (comme illustré dans la figure ci-dessous) :
 
 1. À laquelle vous passez aucune, une ou plusieurs variable(s) entre parenthèses. Ces variables sont appelées **arguments**. Il peut s'agir de n'importe quel type d'objet Python.
 2. Qui effectue une action.
 3. Et qui renvoie un objet Python ou rien du tout.
 
-![Fonctionnement schématique d'une fonction.](img/schema_fonction.png){ #fig:schema_fonction width=90% }
+![Fonctionnement schématique d'une fonction.](img/schema_fonction.png){ width=90% }
 
 Par exemple, si vous appelez la fonction `len()` de la manière suivante :
 
@@ -55,6 +55,7 @@ Pour définir une fonction, Python utilise le mot-clé `def`. Si on souhaite que
 >>> print(carre(2))
 4
 ```
+
 Notez que la syntaxe de `def` utilise les deux-points comme les boucles `for` et `while` ainsi que les tests `if`, un bloc d’instructions est donc attendu. De même que pour les boucles et les tests, l'**indentation** de ce bloc d'instructions (qu'on appelle le corps de la fonction) est **obligatoire**.
 
 Dans l'exemple précédent, nous avons passé un argument à la fonction `carre()` qui nous a renvoyé (ou retourné) une valeur que nous avons immédiatement affichée à l'écran avec l'instruction `print()`. Que veut dire valeur renvoyée ? Et bien cela signifie que cette dernière est récupérable dans une variable :
@@ -64,6 +65,7 @@ Dans l'exemple précédent, nous avons passé un argument à la fonction `carre(
 >>> print(res)
 4
 ```
+
 Ici, le résultat renvoyé par la fonction est stocké dans la variable `res`.
 Notez qu'une fonction ne prend pas forcément un argument et ne renvoie pas forcément une valeur, par exemple :
 
