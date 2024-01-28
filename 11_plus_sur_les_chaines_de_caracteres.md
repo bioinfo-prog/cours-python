@@ -4,6 +4,7 @@
 
 Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3 *Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3/library/string.html).
 
+
 ## Chaînes de caractères et listes
 
 Les chaînes de caractères peuvent être considérées comme des listes (de caractères) un peu particulières :
@@ -448,6 +449,7 @@ La séquence possède XXX codons
 10 premières bases : YYYYYYYYYY
 10 dernières bases : ZZZZZZZZZZ
 ```
+
 où `WWW` et `XXX` sont des entiers et `YYYYYYYYYY` et `ZZZZZZZZZZ` sont des bases.
 
 open-box-adv
@@ -455,6 +457,7 @@ open-box-adv
 Vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
 
 close-box-adv
+
 
 ### Fréquence des bases dans une séquence d'ADN
 
@@ -512,14 +515,25 @@ puis entre les séquences
 
 Un palindrome est un mot ou une phrase dont l'ordre des lettres reste le même si on le lit de gauche à droite ou de droite à gauche. Par exemple, « ressasser » et « engage le jeu que je le gagne » sont des palindromes.
 
-Créez la fonction `test_palindrome()` qui prend en argument une chaîne de caractères et qui affiche `xxx est un palindrome` si la chaîne de caractères `xxx` passée en argument est un palindrome ou `xxx n'est pas un palindrome` sinon. Pensez à vous débarrasser au préalable des majuscules et des espaces.
+Créez la fonction `est_palindrome()` qui prend en argument une chaîne de caractères et qui renvoie un booléen (`True` si l'argument est un palindrom, `False` si ce n'est pas le cas). Dans le programme pincipal, affichez `xxx est un palindrome` si la fonction `est_palindrome()` renvoie `True` et `xxx n'est pas un palindrome` sinon. Pensez à vous débarrasser au préalable des majuscules, des signes de ponctuations et des espaces.
 
 Testez ensuite si les expressions suivantes sont des palindromes :
 
-- `radar`
-- `never odd or even`
-- `karine alla en Iran`
-- `un roc si biscornu`
+- `Radar`
+- `Never odd or even`
+- `Karine alla en Iran`
+- `Un roc si biscornu`
+- `Et la marine ira vers Malte`
+- `Deer Madam, Reed`
+- `rotator`
+- `Was it a car or a cat I saw?`
+
+
+open-box-adv
+
+Pour le nettoyage de la chaîne de caractères (retrait des majuscules, signes de ponctations et espaces), essayer d'utiliser le *method chaining*.
+
+close-box-adv
 
 
 ### Mot composable
