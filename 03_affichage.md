@@ -464,7 +464,7 @@ Le pourcentage de GC est 47.80  %
 Le pourcentage de GC est 47.804 %
 ```
 
-### Simplification de fractions
+### Décomposition de fractions
 
 Utilisez l'opérateur modulo (`%`) et l'opérateur division entière (`//`) pour simplifier des fractions, connaissant leur numérateur et leur dénominateur, et afficher le résultat avec des *f-strings*.
 
