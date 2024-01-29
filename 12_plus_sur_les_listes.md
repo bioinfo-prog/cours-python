@@ -373,7 +373,7 @@ close-box-adv
 En Python, la notion de liste de compréhension (ou compréhension de listes) représente une manière originale et très puissante de générer des listes. La syntaxe de base consiste au moins en une boucle `for` au sein de crochets précédés d'une variable (qui peut être la variable d'itération ou pas) :
 
 ```python
->>> [idx for idx in range(10)]
+>>> [i for i in range(10)]
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 >>> [2 for i in range(10)]
 [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
@@ -490,7 +490,7 @@ Traceback (most recent call last):
 NameError: name 'idx_b' is not defined. Did you mean: 'idx_a'?
 ```
 
-La variable d'itération `idx_a` est bien disponible en dehors de la boucle `for` alors que la variable d'itération `idx_b` n'est pas disponible en dehors de la liste de compréhension.
+La variable d'itération `idx_a` est bien disponible en dehors de la boucle `for`. Par contre, la variable d'itération `idx_b` n'est pas disponible en dehors de la liste de compréhension, car elle est créée « à la volée » par Python puis éliminée une fois l'instruction exécutée.
 
 
 ## Exercices
