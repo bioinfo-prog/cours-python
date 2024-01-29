@@ -354,17 +354,23 @@ Comme disent les auteurs dans la [documentation officielle](https://docs.python.
 
 On verra dans la rubrique suivante une manière très compacte de faire cela avec les listes de compréhension.
 
-open-box-adv
+open-box-warn
 
 Même si une liste de listes peut représenter un tableau de nombres, il ne faut pas la voir comme un objet mathématique de type [matrice](https://fr.wikipedia.org/wiki/Matrice). En effet, le concept de lignes et colonnes n'est pas défini clairement, on ne peut pas faire d'opérations matricielles simplement, etc. On verra dans le chapitre 20 *Module Numpy* qu'il existe des objets appelés *arrays* qui sont faits pour ça. 
 
-close-box-adv
+close-box-warn
+
 
 ## Liste de compréhension
 
-*Conseil* : pour les débutants, vous pouvez passer cette rubrique.
+open-box-adv
 
-En Python, la notion de liste de compréhension (ou compréhension de listes) représente une manière originale et très puissante de générer des listes. La syntaxe de base consiste au moins en une boucle `for` au sein de crochets précédés d'une variable (qui peut être la variable d'itération ou pas ):
+Pour les débutants, vous pouvez passer cette rubrique.
+
+close-box-adv
+
+
+En Python, la notion de liste de compréhension (ou compréhension de listes) représente une manière originale et très puissante de générer des listes. La syntaxe de base consiste au moins en une boucle `for` au sein de crochets précédés d'une variable (qui peut être la variable d'itération ou pas) :
 
 ```python
 >>> [i for i in range(10)]
@@ -443,16 +449,57 @@ Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?str
 
 ```python
 >>> with open("1bta.pdb", "r") as f_pdb:
-...     CA_lines = [line for line in f_pdb if line.startswith("ATOM")
-                                           and line[12:16].strip() == "CA"]
-...
+...     CA_lines = [
+...             line
+...             for line in f_pdb
+...             if line.startswith("ATOM")
+...                and line[12:16].strip() == "CA"
+...     ]
+... 
 >>> print(len(CA_lines))
 89
 ```
 
+open-box-adv
+
+Pour plus de lisiblité, il est possible de répartir la liste de compréhension sur plusieurs lignes.
+
+close-box-adv
+
+
+### Portée des variables dans une liste de compréhension
+
+Contrairement à une boucle `for` classique, la variable d'itération de ma liste de compréhension n'est pas accessible en dehors de la liste de compréhension. Par exemple :
+
+```python
+>>> liste_a = []
+>>> for idx_a in range(10):
+...     liste_a.append(idx_a)
+... 
+>>> print(liste_a)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> print(idx_a)
+9
+>>> 
+>>> liste_b = [idx_b for idx_b in range(10)]
+>>> print(liste_b)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> print(idx_b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'idx_b' is not defined. Did you mean: 'idx_a'?
+```
+
+La variable d'itération `idx_a` est bien disponible en dehors de la boucle `for`. Par contre, la variable d'itération `idx_b` n'est pas disponible en dehors de la liste de compréhension, car elle est créée « à la volée » par Python puis éliminée une fois l'instruction exécutée.
+
+
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
 
 
 ### Tri de liste
