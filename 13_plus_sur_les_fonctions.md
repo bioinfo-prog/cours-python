@@ -10,7 +10,7 @@ Dans ce chapitre, nous allons aller un peu plus loin sur la visibilité de ces v
 Dans le chapitre 9 nous avons vu des fonctions qui étaient appelées depuis le programme principal. Il est en fait possible d'appeler une fonction depuis une autre fonction. Et plus généralement, on peut appeler une fonction de n'importe où à partir du moment où elle est visible par Python (c'est-à-dire chargée dans la mémoire). Observez cet exemple :
 
 ```python
-# définition des fonctions
+# Définition des fonctions.
 def polynome(x):
     return (x**2 - 2*x + 1)
 
@@ -20,7 +20,7 @@ def calc_vals(debut, fin):
         liste_vals.append(polynome(x))
     return liste_vals
 
-# programme principal
+# Programme principal.
 print(calc_vals(-5, 5))
 ```
 
@@ -59,7 +59,7 @@ def calc_factorielle(nb):
     else:
         return nb * calc_factorielle(nb - 1)
 
-# prog principal
+# Programme principal.
 print(calc_factorielle(4))
 ```
 
