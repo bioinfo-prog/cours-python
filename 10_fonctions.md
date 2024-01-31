@@ -271,14 +271,14 @@ Une variable est dite **globale** lorsqu'elle est créée dans le programme prin
 Ceci ne vous paraît pas clair ? Nous allons prendre un exemple simple qui vous aidera à mieux saisir ces concepts. Observez le code suivant :
 
 ```python
-# définition d'une fonction carre()
+# Définition d'une fonction carre().
 def carre(x):
     y = x**2
     return y
 
-# programme principal
-z = 5
-resultat = carre(z)
+# Programme principal.
+var = 5
+resultat = carre(var)
 print(resultat)
 ```
 
