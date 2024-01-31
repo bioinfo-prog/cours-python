@@ -359,6 +359,24 @@ close-box-warn
 
 *Conseil* : utilisez l'interpréteur Python.
 
+### Prédire la sortie
+
+Soit les trois lignes de code suivantes :
+
+```python
+liste1 = list(range(5))
+var = 0
+var2 = 10
+```
+
+Prédisez le comportement de chaque instruction ci-dessous, sans les recopier dans un script ni dans l'interpréteur Python :
+
+- `print(liste1[2])`
+- `print(liste1[var])`
+- `print(liste1[var2])`
+- `print(liste1["var"])`
+
+Quelles sont celles qui donnent une erreur et pourquoi ?
 
 ### Jours de la semaine
 
