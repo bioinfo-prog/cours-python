@@ -298,13 +298,12 @@ Regardons maintenant ce qui se passe dans le code ci-dessus, étape par étape :
 \
 
 
-- Étape 3 : Python lit et met en mémoire la variable `z`. Celle-ci étant créée dans le programme principal, il s'agira d'une variable *globale*. Ainsi, elle sera également stockée dans le *Global frame*.
+- Étape 3 : Python lit et met en mémoire la variable `var`. Celle-ci étant créée dans le programme principal, il s'agira d'une variable *globale*. Ainsi, elle sera également stockée dans le *Global frame*.
 
 ![Étape 3.](img/fct_step3.png){ #fig:fct_step3 width=80% }
 \
 
-
-- Étape 4 : La fonction `carre()` est appelée et on lui passe en argument l'entier `z`. La fonction s'exécute et un nouveau cadre est créé dans lequel *Python Tutor* va indiquer toutes les variables *locales* à la fonction. Notez bien que la variable passée en argument, qui s'appelle `x` dans la fonction, est créée en tant que variable *locale*. On remarquera aussi que les variables *globales* situées dans le *Global frame* sont toujours là.
+- Étape 4 : La fonction `carre()` est appelée et on lui passe en argument l'entier `var`. La fonction s'exécute et un nouveau cadre est créé dans lequel *Python Tutor* va indiquer toutes les variables *locales* à la fonction. Notez bien que la variable passée en argument, qui s'appelle `x` dans la fonction, est créée en tant que variable *locale*. On remarquera aussi que les variables *globales* situées dans le *Global frame* sont toujours là.
 
 ![Étape 4.](img/fct_step4.png){ #fig:fct_step4 width=80% }
 \
