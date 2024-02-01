@@ -468,7 +468,7 @@ Prédisez le comportement de chaque instruction ci-dessous, sans les recopier da
 - `print(dico["var"])`
 - `print(dico["taille"])`
 
-Quelles sont celles qui donnent une erreur et pourquoi ?
+Lorsqu'une instruction produit une erreur, identifiez pourquoi.
 
 ### Moyennes des notes
 

@@ -364,7 +364,7 @@ close-box-warn
 Soit les trois lignes de code suivantes :
 
 ```python
-liste1 = list(range(5))
+liste1 = list(range(10, 15))
 var = 0
 var2 = 10
 ```
@@ -376,7 +376,7 @@ Prédisez le comportement de chaque instruction ci-dessous, sans les recopier da
 - `print(liste1[var2])`
 - `print(liste1["var"])`
 
-Quelles sont celles qui donnent une erreur et pourquoi ?
+Lorsqu'une instruction produit une erreur, identifiez pourquoi.
 
 ### Jours de la semaine
 
