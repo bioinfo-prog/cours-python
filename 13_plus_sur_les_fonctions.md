@@ -160,23 +160,23 @@ Soyez extrêmement attentifs avec les types modifiables (tels que les listes) ca
 
 ```python
 >>> def ma_fonction():
-...     liste[1] = -127
+...     liste1[1] = -127
 ...
->>> liste = [1,2,3]
+>>> liste1 = [1,2,3]
 >>> ma_fonction()
->>> liste
+>>> liste1
 [1, -127, 3]
 ```
 
 De même, si vous passez une liste en argument, elle est modifiable au sein de la fonction :
 
 ```python
->>> def ma_fonction(x):
-...     x[1] = -15
+>>> def ma_fonction(liste_tmp):
+...     liste_tmp[1] = -15
 ...
->>> y = [1,2,3]
->>> ma_fonction(y)
->>> y
+>>> liste1 = [1,2,3]
+>>> ma_fonction(liste1)
+>>> liste1
 [1, -15, 3]
 ```
 
@@ -193,15 +193,15 @@ Si vous voulez éviter les problèmes de modification malencontreuse d'une liste
 Une autre solution pour éviter la modification d'une liste, lorsqu'elle est passée comme argument à une fonction, est de la passer explicitement (comme nous l'avons fait pour la copie de liste) afin qu'elle reste intacte dans le programme principal.
 
 ```python
->>> def ma_fonction(x):
-...     x[1] = -15
+>>> def ma_fonction(liste_tmp):
+...     liste_tmp[1] = -15
 ...
->>> y = [1, 2, 3]
->>> ma_fonction(y[:])
->>> y
+>>> liste1 = [1, 2, 3]
+>>> ma_fonction(liste1[:])
+>>> liste1
 [1, 2, 3]
->>> ma_fonction(list(y))
->>> y
+>>> ma_fonction(liste1(y))
+>>> liste1
 [1, 2, 3]
 ```
 
