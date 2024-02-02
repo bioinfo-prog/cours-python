@@ -10,7 +10,7 @@ Dans ce chapitre, nous allons aller un peu plus loin sur la visibilité de ces v
 Dans le chapitre 9 nous avons vu des fonctions qui étaient appelées depuis le programme principal. Il est en fait possible d'appeler une fonction depuis une autre fonction. Et plus généralement, on peut appeler une fonction de n'importe où à partir du moment où elle est visible par Python (c'est-à-dire chargée dans la mémoire). Observez cet exemple :
 
 ```python
-# définition des fonctions
+# Définition des fonctions.
 def polynome(x):
     return (x**2 - 2*x + 1)
 
@@ -20,7 +20,7 @@ def calc_vals(debut, fin):
         liste_vals.append(polynome(x))
     return liste_vals
 
-# programme principal
+# Programme principal.
 print(calc_vals(-5, 5))
 ```
 
@@ -59,7 +59,7 @@ def calc_factorielle(nb):
     else:
         return nb * calc_factorielle(nb - 1)
 
-# prog principal
+# Programme principal.
 print(calc_factorielle(4))
 ```
 
@@ -160,23 +160,23 @@ Soyez extrêmement attentifs avec les types modifiables (tels que les listes) ca
 
 ```python
 >>> def ma_fonction():
-...     liste[1] = -127
+...     liste1[1] = -127
 ...
->>> liste = [1,2,3]
+>>> liste1 = [1,2,3]
 >>> ma_fonction()
->>> liste
+>>> liste1
 [1, -127, 3]
 ```
 
 De même, si vous passez une liste en argument, elle est modifiable au sein de la fonction :
 
 ```python
->>> def ma_fonction(x):
-...     x[1] = -15
+>>> def ma_fonction(liste_tmp):
+...     liste_tmp[1] = -15
 ...
->>> y = [1,2,3]
->>> ma_fonction(y)
->>> y
+>>> liste1 = [1,2,3]
+>>> ma_fonction(liste1)
+>>> liste1
 [1, -15, 3]
 ```
 
@@ -186,22 +186,22 @@ Pour bien comprendre l'origine de ce comportement, utilisons à nouveau le site 
 
 L'instruction `pass` dans la fonction est une instruction Python qui ne fait rien. Elle est là car une fonction ne peut être vide et doit contenir au moins une instruction Python valide.
  
-On voit très clairement que la variable `liste` passée en argument lors de l'appel de la fonction d'une part, et la variable locale `liste_tmp` au sein de la fonction d'autre part, **pointent vers le même objet dans la mémoire**. Ainsi, si on modifie `liste_tmp`, on modifie aussi `liste`. C'est exactement le même mécanisme que pour la copie de listes (cf. rubrique 11.4 *Copie de listes* du chapitre 11 *Plus sur les listes*).
+On voit très clairement que la variable `liste1` passée en argument lors de l'appel de la fonction d'une part, et la variable locale `liste_tmp` au sein de la fonction d'autre part, **pointent vers le même objet dans la mémoire**. Ainsi, si on modifie `liste_tmp`, on modifie aussi `liste1`. C'est exactement le même mécanisme que pour la copie de listes (cf. rubrique 11.4 *Copie de listes* du chapitre 11 *Plus sur les listes*).
 
 Si vous voulez éviter les problèmes de modification malencontreuse d'une liste dans une fonction, utilisez des tuples (ils seront présentés dans le chapitre 13 *Dictionnaires et tuples*), Python renverra une erreur car ces derniers sont non modifiables.
 
 Une autre solution pour éviter la modification d'une liste, lorsqu'elle est passée comme argument à une fonction, est de la passer explicitement (comme nous l'avons fait pour la copie de liste) afin qu'elle reste intacte dans le programme principal.
 
 ```python
->>> def ma_fonction(x):
-...     x[1] = -15
+>>> def ma_fonction(liste_tmp):
+...     liste_tmp[1] = -15
 ...
->>> y = [1, 2, 3]
->>> ma_fonction(y[:])
->>> y
+>>> liste1 = [1, 2, 3]
+>>> ma_fonction(liste1[:])
+>>> liste1
 [1, 2, 3]
->>> ma_fonction(list(y))
->>> y
+>>> ma_fonction(liste1(y))
+>>> liste1
 [1, 2, 3]
 ```
 

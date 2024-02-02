@@ -521,7 +521,7 @@ où `WWW` et `XXX` sont des entiers et `YYYYYYYYYY` et `ZZZZZZZZZZ` sont des bas
 
 open-box-adv
 
-Vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+Vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
 
 close-box-adv
 
@@ -640,7 +640,7 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 
 On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [`NC_001133.gbk`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk).
 
-Le format GenBank est présenté en détails dans l'annexe A *Quelques formats de données rencontrés en biologie*. Pour cet exercice, vous devez savoir que la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par les caractères `//` :
+Le format GenBank est présenté en détails dans l'annexe A *Quelques formats de données en biologie*. Pour cet exercice, vous devez savoir que la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par les caractères `//` :
 
 ```text
 ORIGIN
@@ -690,7 +690,7 @@ Créez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier P
 
 Utilisez la fonction `trouve_calpha()` pour afficher à l'écran les carbones alpha des deux premiers résidus (acides aminés).
 
-*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
 
 
 ### Calcul des distances entre les carbones alpha consécutifs d'une structure de protéine (exercice +++)
@@ -720,7 +720,7 @@ Modifiez maintenant la fonction `calcule_distance()` pour qu'elle affiche à la 
 
 La distance inter-carbone alpha dans les protéines est très stable et de l'ordre de 3,8 angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine barstar. Repérez une valeur surprenante. Essayez de l'expliquer.
 
-*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
 
 ### Compteur de gènes dans un fichier GenBank
 
@@ -749,4 +749,4 @@ gène 100 direct         ->   485 bases
 gène 101 direct         ->  1403 bases
 ```
 
-*Conseil :* vous trouverez des explications sur le format GenBank dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+*Conseil :* vous trouverez des explications sur le format GenBank dans l'annexe A *Quelques formats de données en biologie*.

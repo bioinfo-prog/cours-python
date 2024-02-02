@@ -3,7 +3,7 @@
 Nous allons aborder dans ce chapitre un module incontournable en bioinformatique. En effet, le module [*Biopython*](http://biopython.org/) permet de manipuler des données biologiques, comme des séquences (nucléiques et protéiques) ou des structures (fichiers PDB) et d'interroger des bases de données comme PubMed. Le [tutoriel](http://biopython.org/DIST/docs/tutorial/Tutorial.html) est particulièrement bien fait, n'hésitez pas à le consulter.
 
 
-## Installation
+## Installation et convention
 
 Contrairement à tous les autres modules vus précédemment, *Biopython* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement l'installer avec la commande :
 
@@ -23,7 +23,7 @@ Les résultats seront affichés de cette manière,
 éventuellement sur plusieurs lignes.
 ```
 
-### Manipulation de séquences
+## Manipulation de séquences
 
 Voici quelques exemples de manipulation de séquences avec *Biopython*.
 
@@ -63,7 +63,7 @@ ADN.reverse_complement()
 Seq('GCATGCTATAGCCGATAT')
 ```
 
-#### Traduction en séquence protéique
+### Traduction en séquence protéique
 
 ```python
 ADN.translate()
@@ -73,12 +73,12 @@ ADN.translate()
 Seq('ISAIAC')
 ```
 
-Dans l'annexe A *Quelques formats de données rencontrés en biologie*, vous
+Dans l'annexe A *Quelques formats de données en biologie*, vous
 trouverez de nombreux exemples d'utilisation de *Biopython* pour manipuler
 des données aux formats FASTA, GenBank et PDB.
 
 
-### Interrogation de la base de données PubMed
+## Interrogation de la base de données PubMed
 
 Le sous-module *Entrez* de *Biopython* permet d’utiliser les ressources du NCBI
 et notamment d'interroger la base de données [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/).
@@ -313,7 +313,7 @@ open-box-adv
 N'hésitez pas à consulter :
 
 - Le chapitre 14 *Conteneurs* pour trier un dictionnaire.
-- L'annnexe A *Quelques formats de données rencontrés en biologie* pour lire un fichier FASTA avec *Biopython*.
+- L'annnexe A *Quelques formats de données en biologie* pour lire un fichier FASTA avec *Biopython*.
 
 close-box-adv
 

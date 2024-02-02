@@ -370,7 +370,7 @@ Créez un script `regex_genbank.py` :
 *Conseils* :
 
 - Vous utiliserez des *regex* pour trouver les lignes demandées.
-- Vous trouverez des explications sur le format GenBank et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+- Vous trouverez des explications sur le format GenBank et des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
 
 
 ### Enzyme de restriction
@@ -422,7 +422,7 @@ protein 20373 Q96HZ7
 
 *Conseils* :
 
-- Vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+- Vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
 - La ligne de commentaire d'une séquence au format FASTA est de la forme  
     `>sp|O95139|NDUB6_HUMAN NADH dehydrogenase [...]`  
     Elle débute toujours pas le caractère `>`.
