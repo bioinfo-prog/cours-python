@@ -4,24 +4,19 @@
 
 Ce cours  a été conçu à l'origine pour les étudiants débutants en programmation Python des filières de biologie et de biochimie de l'université Paris Diderot - Paris 7, devenue [Université Paris Cité](https://www.u-paris.fr/) ; et plus spécialement pour les étudiants du master Biologie Informatique.
 
-Ce cours est basé sur la version 3 de Python, version recommandée par la communauté scientifique. Des références à l'ancienne version, Python 2, seront néanmoins régulièrement apportées.
+Ce cours est basé sur la version 3 de Python, version recommandée par la communauté scientifique.
 
 Si vous relevez des erreurs à la lecture de ce document, merci de nous les signaler.
 
-Le cours est disponible en version [HTML](https://python.sdv.univ-paris-diderot.fr/index.html)
-et [PDF](https://python.sdv.univ-paris-diderot.fr/cours-python.pdf).
+Le cours est disponible en version [HTML](https://python.sdv.u-paris.fr/index.html)
+et [PDF](https://python.sdv.u-paris.fr/cours-python.pdf).
 
 
 ## Remerciements {.unnumbered}
 
-Un grand merci à [Sander](http://sander.nabuurs.org/) du *Centre for Molecular and Biomolecular Informatics* de Nijmegen aux Pays-Bas pour la toute [première version](http://www.cmbi.ru.nl/pythoncourse/spy/index.spy?site=python&action=Home) de ce cours qui remonte à l'année 2003.
+Merci également à tous les contributeurs, occasionnels ou réguliers : Jennifer Becq, Benoist Laurent, Hubert Santuz, Virginie Martiny, Romain Laurent, Benjamin Boyer, Jonathan Barnoud, Amélie Bâcle, Thibault Tubiana, Romain Retureau, Catherine Lesourd, Philippe Label, Rémi Cuchillo, Cédric Gageat, Philibert Malbranche, Mikaël Naveau, Alexandra Moine-Franel, et plus généralement les promotions des masters de biologie informatique et  *in silico drug design*, ainsi que du diplôme universitaire en bioinformatique intégrative.
 
-Nous remercions le professeur [Philip Guo](http://pgbovine.net/) de l'UC San Diego, pour nous avoir autorisé à utiliser des copies d'écran de son excellent site [*Python Tutor*](http://pythontutor.com/).
-
-Merci également à tous les contributeurs, occasionels ou réguliers :
-Jennifer Becq, Virginie Martiny, Romain Laurent, Benoist Laurent, Benjamin Boyer, Hubert Santuz, Catherine Lesourd, Philippe Label, Rémi Cuchillo, Cédric Gageat, Philibert Malbranche, Mikaël Naveau, Amélie Bacle, Alexandra Moine-Franel.
-
-Nous remercions aussi Denis Mestivier de qui nous nous sommes inspirés pour certains exercices.
+Nous remercions tout particulièrement Sander Nabuurs pour la première version de ce cours remontant à 2003, Denis Mestivier pour les idées de certains exercices et Philip Guo pour son site[*Python Tutor*](http://pythontutor.com/). 
 
 Enfin, merci à vous tous, les curieux de Python, qui avez été nombreux à nous envoyer des retours sur ce cours, à nous suggérer des améliorations et à nous signaler des coquilles.
 
