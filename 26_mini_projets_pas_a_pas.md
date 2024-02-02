@@ -81,7 +81,7 @@ Déterminez alors quel mot est le plus fréquent dans le protéome humain.
 
 ### genbank2fasta (sans expression régulière)
 
-Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au format FASTA. L'annexe A *Quelques formats de données rencontrés en biologie* rappelle les caractéristiques de ces deux formats de fichiers.
+Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au format FASTA. L'annexe A *Quelques formats de données en biologie* rappelle les caractéristiques de ces deux formats de fichiers.
 
 Le jeu de données avec lequel nous allons travailler est le fichier GenBank du chromosome I de la levure du boulanger *Saccharomyces cerevisiae*. Les indications pour le télécharger sont indiqués dans la description du projet.
 
@@ -278,7 +278,7 @@ Bravo, si vous êtes arrivés jusqu'à cette étape.
 
 ### genbank2fasta (avec expressions régulières)
 
-Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au format FASTA. L'annexe A *Quelques formats de données rencontrés en biologie* rappelle les caractéristiques de ces deux formats de fichiers.
+Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au format FASTA. L'annexe A *Quelques formats de données en biologie* rappelle les caractéristiques de ces deux formats de fichiers.
 
 Le jeu de données avec lequel nous allons travailler est le fichier GenBank du chromosome I de la levure du boulanger *Saccharomyces cerevisiae*. Les indications pour le télécharger sont indiqués dans la description du projet.
 

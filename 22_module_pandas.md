@@ -612,7 +612,7 @@ contient une liste de structures de la [transferrine](https://fr.wikipedia.org/w
 Cette protéine est responsable du transport du fer dans l'organisme.
 
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
-de consulter l'annexe A *Quelques formats de données rencontrés en biologie*.
+de consulter l'annexe A *Quelques formats de données en biologie*.
 
 Voyons maintenant comment explorer les données contenues
 dans ce fichier avec *pandas*.
@@ -678,7 +678,7 @@ PDB ID
 
 open-box-rem
 
-La fonction `.read_csv()` permet également d'ouvrir un fichier au format TSV (voir l'annexe A *Quelques formats de données rencontrés en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`) avec l'argument `sep="\t"`.
+La fonction `.read_csv()` permet également d'ouvrir un fichier au format TSV (voir l'annexe A *Quelques formats de données en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`) avec l'argument `sep="\t"`.
 
 close-box-rem
 
@@ -1148,7 +1148,7 @@ Par exemple :
 
 L'objectif de cet exercice est de manipuler ces données avec *pandas*.
 
-Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseillons de consulter l'annexe A *Quelques formats de données rencontrés en biologie*.
+Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseillons de consulter l'annexe A *Quelques formats de données en biologie*.
 
 
 #### Chargement du jeu de données

@@ -73,7 +73,7 @@ ADN.translate()
 Seq('ISAIAC')
 ```
 
-Dans l'annexe A *Quelques formats de données rencontrés en biologie*, vous
+Dans l'annexe A *Quelques formats de données en biologie*, vous
 trouverez de nombreux exemples d'utilisation de *Biopython* pour manipuler
 des données aux formats FASTA, GenBank et PDB.
 
@@ -313,7 +313,7 @@ open-box-adv
 N'hésitez pas à consulter :
 
 - Le chapitre 14 *Conteneurs* pour trier un dictionnaire.
-- L'annnexe A *Quelques formats de données rencontrés en biologie* pour lire un fichier FASTA avec *Biopython*.
+- L'annnexe A *Quelques formats de données en biologie* pour lire un fichier FASTA avec *Biopython*.
 
 close-box-adv
 
