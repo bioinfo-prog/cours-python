@@ -75,33 +75,39 @@ L'opérateur `+` est très pratique pour concaténer deux listes.
 
 Vous pouvez aussi utiliser la méthode `.append()` lorsque vous souhaitez ajouter un seul élément à la fin d'une liste.
 
+open-box-rem
+
+La notion de méthode est introduite dans la rubrique *Note sur le vocabulaire et la syntaxe* à la fin de ce chapitre.
+
+close-box-rem
+
 Dans l'exemple suivant nous allons créer une liste vide :
 
 ```python
->>> a = []
->>> a
+>>> liste1 = []
+>>> liste1
 []
 ```
 
 puis lui ajouter deux éléments, l'un après l'autre, d'abord avec la concaténation :
 
 ```python
->>> a = a + [15]
->>> a
+>>> liste1 = liste1 + [15]
+>>> liste1
 [15]
->>> a = a + [-5]
->>> a
+>>> liste1 = liste1 + [-5]
+>>> liste1
 [15, -5]
 ```
 
 puis avec la méthode `.append()` :
 
 ```python
->>> a.append(13)
->>> a
+>>> liste1.append(13)
+>>> liste1
 [15, -5, 13]
->>> a.append(-3)
->>> a
+>>> liste1.append(-3)
+>>> liste1
 [15, -5, 13, -3]
 ```
 
@@ -354,6 +360,23 @@ open-box-warn
 Cette astuce ne fonctionne que pour des listes à une dimension (c'est-à-dire pour des listes qui ne contiennent que des éléments de type simple comme des entiers, des floats, des chaînes de caractères et des booléens), mais pas pour des listes de listes. Le chapitre 12 *Plus sur les listes* explique l'origine de ce comportement et comment s'en sortir à tous les coups.
 
 close-box-warn
+
+## Note sur le vocabulaire et la syntaxe
+
+Revenons quelques instants sur la notion de **méthode** abordée dans ce chapitre avec `.append()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est de la forme `objet.méthode()`.
+
+Dans l'exemple suivant :
+
+```python
+>>> liste1 = [1, 2]
+>>> liste1.append(3)
+>>> liste1
+[1, 2, 3]
+```
+
+la méthode `.append()` est liée à `liste1` qui est un objet de type liste. La méthode modifie la liste en lui ajoutant élément.
+
+Nous aurons de nombreuses occasions de revoir cette notation `objet.méthode()`.
 
 ## Exercices
 

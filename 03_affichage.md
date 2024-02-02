@@ -330,22 +330,6 @@ Il est également possible de définir le nombre de chiffres après la virgule. 
 6.022141e+23
 ```
 
-## Note sur le vocabulaire et la syntaxe
-
-Revenons quelques instants sur la notion de **méthode** abordée dans ce chapitre avec `.format()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est de la forme `objet.méthode()`.
-
-Dans l'exemple suivant :
-
-```python
->>> "Joe a {} ans".format(20)
-'Joe a 20 ans'
-```
-
-la méthode `.format()` est liée à `"Joe a {} ans"` qui est un objet de type chaîne de caractères. La méthode renvoie une nouvelle chaîne de caractères avec le bon formatage (ici, `'Joe a 20 ans'`).
-
-Nous aurons de nombreuses occasions de revoir cette notation `objet.méthode()`.
-
-
 ## Exercices
 
 *Conseil* : utilisez l'interpréteur Python pour les exercices 2 à 5.
