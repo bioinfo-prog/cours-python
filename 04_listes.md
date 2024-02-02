@@ -374,7 +374,7 @@ Dans l'exemple suivant :
 [1, 2, 3]
 ```
 
-la méthode `.append()` est liée à `liste1` qui est un objet de type liste. La méthode modifie la liste en lui ajoutant élément.
+la méthode `.append()` est liée à `liste1` qui est un objet de type liste. La méthode modifie la liste en lui ajoutant un élément.
 
 Nous aurons de nombreuses occasions de revoir cette notation `objet.méthode()`.
 
