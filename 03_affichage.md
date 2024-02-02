@@ -307,7 +307,6 @@ Nous aurons l'occasion de revenir sur cette fonctionnalité au fur et à mesure 
 
 Les possibilités offertes par les *f-strings* sont nombreuses. Pour vous y retrouver dans les différentes options de formatage, nous vous conseillons de consulter ce [mémo](https://fstring.help/cheat/) (en anglais).
 
-
 ## Écriture scientifique
 
 Pour les nombres très grands ou très petits, l'écriture formatée permet d'afficher un nombre en notation scientifique (sous forme de puissance de 10) avec la lettre `e` :
@@ -330,81 +329,6 @@ Il est également possible de définir le nombre de chiffres après la virgule. 
 >>> print(f"{avogadro_number:.6e}")
 6.022141e+23
 ```
-
-
-## Ancienne méthode de formatage des chaînes de caractères
-
-*Conseil* : Pour les débutants, tout ce qui est écrit dans cette rubrique n'est pas à retenir.
-
-Dans les premières versions de Python jusqu'à la 2.6, il fallait utiliser l'opérateur `%`, puis de la version 2.7 jusqu'à la 3.5 il était plutôt conseillé d'utiliser la méthode `.format()` (voir la rubrique suivante pour la définition du mot « méthode »). Même si les *f-strings* sont devenues la manière conseillée pour mettre en place l'écriture formatée, ces deux anciennes manières, sont encore pleinement compatibles avec les versions modernes de Python.
-
-Même si elle fonctionne encore, la première manière avec l'opérateur `%` est maintenant clairement déconseillée pour un certain nombre de [raisons](https://docs.python.org/fr/3/library/stdtypes.html?highlight=sprintf#printf-style-string-formatting). Néanmoins, nous rappelons ci-dessous son fonctionnement, car il se peut que vous tombiez dessus dans d'anciens livres ou si vous lisez de vieux programmes Python.
-
-La deuxième manière avec la méthode `.format()` est encore largement utilisée et reste tout à fait valide. Elle est clairement plus puissante et évite un certain nombre de désagréments par rapport à l'opérateur `%`. Vous la croiserez sans doute très fréquemment dans des programmes et ouvrages récents. Heureusement elle a un fonctionnement relativement proche des *f-strings*, donc vous ne serez pas totalement perdus !
-
-Enfin, nous indiquons à la fin de cette rubrique nos conseils sur quelle méthode utiliser.
-
-### L'opérateur `%`
-
-On a vu avec les entiers que l'opérateur `%` ou *modulo* renvoyait le reste d'une division entière. Cet opérateur existe aussi pour les chaînes de caractères mais il met en place l'écriture formatée. En voici un exemple :
-
-```python
->>> x = 32
->>> nom = "John"
->>> print("%s a %d ans" % (nom, x))
-John a 32 ans
->>> nb_G = 4500
->>> nb_C = 2575
->>> prop_GC = (nb_G + nb_C)/14800
->>> print("On a %d G et %d C -> prop GC = %.2f" % (nb_G, nb_C, prop_GC))
-On a 4500 G et 2575 C -> prop GC = 0.48
-```
-
-La syntaxe est légèrement différente. Le symbole `%` est d'abord appelé dans la chaîne de caractères (dans l'exemple ci-dessus `%d`, `%d` et `%.2f`) pour :
-
-- Désigner l'endroit où sera placée la variable dans la chaîne de caractères.
-- Préciser le type de variable à formater, `d` pour un entier (`i` fonctionne également) ou `f` pour un *float*.
-- Éventuellement pour indiquer le format voulu. Ici `.2` signifie une précision de deux décimales.
-
-Le signe `%` est rappelé une seconde fois (`% (nb_G, nb_C, prop_GC)`) pour indiquer les variables à formater.
-
-### La méthode `.format()`
-
-Depuis la version 2.7 de Python, la méthode `.format()` (voir la rubrique suivante pour la définition d'une méthode) a apporté une nette amélioration pour mettre en place l'écriture formatée. Celle-ci fonctionne de la manière suivante :
-
-```python
->>> x = 32
->>> nom = "John"
->>> print("{} a {} ans".format(nom, x))
-John a 32 ans
->>> nb_G = 4500
->>> nb_C = 2575
->>> prop_GC = (nb_G + nb_C)/14800
->>> print("On a {} G et {} C -> prop GC = {:.2f}".format(nb_G, nb_C, prop_GC))
-On a 4500 G et 2575 C -> prop GC = 0.48
-```
-
-- Dans la chaîne de caractères, les accolades vides `{}` précisent l'endroit où le contenu de la variable doit être inséré.
-- Juste après la chaîne de caractères, l'instruction `.format(nom, x)` fournit la liste des variables à insérer, d'abord la variable `nom` puis la variable `x`. 
-- On peut éventuellement préciser le formatage en mettant un caractère deux-points `:` puis par exemple ici `.2f` qui signifie deux chiffres après la virgule.
-- La méthode `.format()` agit sur la chaîne de caractères à laquelle elle est attachée par le point.
-
-Tout ce que nous avons vu avec les *f-strings* sur la manière de formatter l'affichage d'une variable (après les `:` au sein des accolades) est identique avec la méthode `.format()`. Par exemple `{:.2f}`, `{:0>6d}`, `{:.6e}`, etc., fonctionneront de la même manière. La différence notable est qu'on ne met pas directement le nom de la variable au sein des accolades. Comme pour l'opérateur `%`, c'est l'emplacement dans les arguments passés à la méthode `.format()` qui dicte quelle variable doit être remplacée. Par exemple, dans `"{} {} {}".format(bidule, machin, truc)`, les premières accolades remplaceront la variable `bidule`, les deuxièmes la variable `machin`, les troisièmes la variable `truc`.
-
-Le formattage avec la méthode `.format()` se rapproche de la syntaxe des *f-strings* (accolades, deux-points), mais présente l'inconvénient -- comme avec l'opérateur `%` -- de devoir mettre la liste des variables tout à la fin, alourdissant ainsi la syntaxe. En effet, dans l'exemple avec la proportion de GC, la ligne équivalente avec une *f-string* apparait tout de même plus simple à lire :
-
-```python
->>> print(f"On a {nb_G} G et {nb_C} C -> prop GC = {prop_GC:.2f}")
-On a 4500 G et 2575 C -> prop GC = 0.48
-```
-
-open-box-adv
-
-Pour conclure, ces deux anciennes façons de formater une chaîne de caractères avec l'opérateur `%` ou la méthode `.format()` vous sont présentées à titre d'information. La première avec l'opérateur `%` est clairement déconseillée. La deuxième avec la méthode `.format()` est encore tout à fait valable. Si vous débutez Python, nous vous conseillons fortement d'apprendre et d'utiliser les *f-strings*. C'est ce que vous rencontrerez dans la suite de ce cours. Si vous connaissez déjà Python et que vous utilisez la méthode `.format()`, nous vous conseillons de passer aux *f-strings*. Depuis que nous les avons découvertes, aucun retour n'est envisageable pour nous tant elles sont puissantes et plus claires à utiliser ! 
-
-Enfin, si vous souhaitez aller plus loin, voici deux articles (en anglais) très bien faits sur le site *RealPython*: sur l'[écriture formatée](https://realpython.com/python-string-formatting) et sur les [*f-strings*](https://realpython.com/python-f-strings/)
-
-close-box-adv
 
 ## Note sur le vocabulaire et la syntaxe
 
