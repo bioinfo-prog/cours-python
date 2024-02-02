@@ -982,7 +982,7 @@ df.plot(
     xlabel="Taille (nombre d'acides aminés)",
     ylabel="Masse (Dalton)"
 )
-plt.savefig("kinases.png")
+plt.savefig("kinases1.png")
 ```
 
 Ligne 4. On spécifie le type de graphique. Ici, un nuage de points.
@@ -1012,20 +1012,22 @@ ce qui est cohérent. On peut également comparer ce modèle aux différentes pr
 
 ```python
 fig, ax = plt.subplots()
-ax.scatter(df["Length"], df["Mass"])
+ax.scatter(df["Length"], df["Mass"], label="données")
 ax.plot(
         df["Length"],
         df["Length"]*model.slope + model.intercept,
-        ls=":"
+        ls=":",
+        label="modèle"
 )
 ax.set_xlabel("Taille (nombre d'acides aminés)")
 ax.set_ylabel("Masse (Dalton)")
+ax.legend()
 fig.savefig("kinases2.png")
 ```
 
-On obtient ainsi le graphique de la figure @fig:kinanes2.
+On obtient ainsi le graphique de la figure @fig:kinases2.
 
-![Masse en fonction de la taille des protéines avec un modèle linaire en pointillé.](img/kinases2.png){ #fig:kinases2 width=70% }
+![Masse en fonction de la taille des protéines.](img/kinases2.png){ #fig:kinases2 width=70% }
 
 
 ### Analyse de données temporelles
@@ -1081,20 +1083,29 @@ Name: count, dtype: int64
 ```
 
 Si on souhaite une réponse plus globale, par exemple, à l'échelle de
-l'année, la méthode `.resample()` calcule le nombre de structures déposées par
-année (en fournissant l'argument `YE`) :
+l'année, la méthode `.resample()` calcule le nombre de protéines réféencées par
+année (en fournissant l'argument `YE`). En utilisant le *method chaining*
+présenté dans le chapitre 11 *Plus sur les chaînes de caractères*,
+nous pouvons écrire toutes ces transformations en une seule instruction,
+répartie sur plusieurs lignes pour plus de lisibilité (en utilisant des parenthèses) :
 
 ```python
-df["Creation date"].value_counts().resample("YE").count()
+(df["Creation date"]
+    .value_counts()
+    .resample("YE")
+    .count()
+    .head()
+)
 ```
 
 ```text
 Creation date
-1986-12-31     2
-1987-12-31     1
-1988-12-31     4
-1989-12-31     2
-[...]
+1986-12-31    2
+1987-12-31    1
+1988-12-31    4
+1989-12-31    2
+1990-12-31    4
+Freq: YE-DEC, Name: count, dtype: int64
 ```
 
 Les dates apparaissent maintenant comme le dernier jour de l'année mais désignent
@@ -1107,7 +1118,7 @@ il faut trier les valeurs obtenues du plus grand au plus petit avec la méthode
 (celles où il y a eu le plus de protéines référencées),
 on utilisera également la méthode `.head()`.
 
-En utilisant le *method chaining* présenté dans le chapitre 11 *Plus sur les chaînes de caractères*, nous pouvons écrire toutes ces transformations en une seule instruction, répartie sur plusieurs lignes pour plus de lisibilité (en utilisant des parenthèses) :
+
 
 ```python
 (df["Création date"]
@@ -1165,7 +1176,7 @@ Enfin, pour obtenir un graphique de l'évolution du nombre de kinases référenc
 plt.savefig("kinases3.png")
 ```
 
-On obtient ainsi le graphique de la figure @fig:kinanes3.
+On obtient ainsi le graphique de la figure @fig:kinases3.
 
 ![Évolution temporelle du nombre de kinases référencées dans UniProt.](img/kinases3.png){ #fig:kinases3 width=70% }
 
