@@ -14,11 +14,11 @@ La POO permet de rédiger du code plus compact et mieux ré-utilisable. L'utilis
 
 Malgré tous ces avantages, la POO peut paraître difficile à aborder pour le débutant, spécialement dans la conception des programmes / algorithmes. Elle nécessite donc la lecture de nombreux exemples, mais surtout beaucoup de pratique. Bien structurer ses programmes en POO est un véritable art. Il existe même des langages qui formalisent la construction de programmes orientés objets, par exemple le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)).
 
-Dans ce chapitre nous allons vous présenter une introduction à la POO avec Python. Nous vous donnerons tous les éléments pour démarrer la construction de vos premières classes.
+Dans ce chapitre nous vous donnerons tous les éléments pour démarrer la construction de vos premières classes. Le chapitre 24 *Avoir plus la classe avec les objets* (en ligne) abordera des aspects plus poussés de la POO, comme le polymorphisme, la composition, l'héritage, certains pièges à éviter, ainsi que des bonnes pratiques.
 
-Après la lecture de ce chapitre, vous verrez d'un autre œil de nombreux exemples évoqués dans les chapitres précédents, et vous comprendrez sans doute de nombreuses subtilités qui avaient pu vous paraître absconses.
+Après la lecture de ces deux chapitres sur la POO avec Python, vous verrez d'un autre œil de nombreux exemples évoqués dans les chapitres précédents, et vous comprendrez sans doute de nombreuses subtilités qui avaient pu vous paraître absconses.
 
-Enfin, il est vivement recommandé de lire ce chapitre avant d'aborder le chapitre 20 *Fenêtres graphiques et Tkinter*.
+Enfin, il est vivement recommandé de lire ces deux chapitres sur la POO avant d'aborder le chapitre 25 *Tkinter* (en ligne).
 
 
 ## Construction d'une classe
