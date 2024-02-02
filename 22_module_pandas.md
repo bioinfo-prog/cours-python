@@ -1277,7 +1277,7 @@ La kinase `P24941` a 453 structures 3D référencées dans UniProt. Les cinq kin
 
 open-box-more
 
-- Les ouvrages *Python for Data Analysis* (2022) de Wes McKinney et *Effective Pandas* (2021) de Matt Harrison sont d'excellentes références pour *pandas*.
+Les ouvrages *Python for Data Analysis* (2022) de Wes McKinney et *Effective Pandas* (2021) de Matt Harrison sont d'excellentes références pour *pandas*.
 
 close-box-more
 
