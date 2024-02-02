@@ -339,24 +339,6 @@ On verra au chapitre 7 *Fichiers* que ces conversions sont essentielles. En effe
 Toute conversion d'une variable d'un type en un autre est appelé *casting*\index{casting@\textit{casting}} en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
 
 
-## Note sur la division de deux nombres entiers
-
-Notez bien qu'en Python 3, la division de deux nombres entiers renvoie par défaut un *float* :
-
-```python
->>> x = 3 / 4
->>> x
-0.75
->>> type(x)
-<class 'float'>
-```
-
-open-box-rem
-
-Ceci n'était pas le cas en Python 2. Pour en savoir plus sur ce point, vous pouvez consulter le chapitre 21 *Remarques complémentaires*.
-
-close-box-rem
-
 ## Note sur le vocabulaire et la syntaxe
 
 Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet**\index{objet} pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 19 *Avoir la classe avec les objets* ce que le mot « objet » signifie réellement (tout comme le mot « classe\index{classe} »).
