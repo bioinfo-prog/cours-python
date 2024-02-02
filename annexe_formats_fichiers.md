@@ -1,4 +1,4 @@
-# Quelques formats de données rencontrés en biologie
+# Quelques formats de données en biologie
 
 ## FASTA
 

@@ -13,7 +13,7 @@ Vous aurez à votre disposition :
 - Le fichier [`english-common-words.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/english-common-words.txt), qui contient les 3000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
 - Le fichier [`human-proteome.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta) qui contient le protéome humain sous la forme de séquences au format FASTA. Attention, ce fichier est assez gros. Ce fichier provient de la banque de données UniProt à partir de cette [page](https://www.uniprot.org/help/human_proteome).
 
-*Conseil* : vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+*Conseil* : vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
 
 
 ### Genbank2fasta
@@ -25,7 +25,7 @@ Pour cela, nous allons utiliser le fichier GenBank du chromosome I de la levure 
 - soit via le lien sur le site du cours [`NC_001133.gbk`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk);
 - soit directement sur la page de [*Saccharomyces cerevisiae S288c chromosome I, complete sequence*](https://www.ncbi.nlm.nih.gov/nuccore/NC_001133) sur le site du NCBI, puis en cliquant sur *Send to*, puis *Complete Record*, puis *Choose Destination: File*, puis *Format: GenBank  (full)* et enfin sur le bouton *Create File*.
 
-Vous trouverez des explications sur les formats FASTA et GenBank ainsi que des exemples de code dans l'annexe A *Quelques formats de données rencontrés en biologie*.
+Vous trouverez des explications sur les formats FASTA et GenBank ainsi que des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
 
 Vous pouvez réaliser ce projet sans ou avec des expressions régulières (abordées dans le chapitre 15).
 

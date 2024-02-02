@@ -620,7 +620,7 @@ contient des informations tirées de la base de données de séquences UniProt p
 Ces protéines sont responsables de la phosphorylation d'autres protéines.
 
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
-de consulter l'annexe A *Quelques formats de données rencontrés en biologie*.
+de consulter l'annexe A *Quelques formats de données en biologie*.
 
 Voyons maintenant comment explorer les données contenues
 dans ce fichier avec *pandas*.
@@ -687,7 +687,7 @@ A1Z7T0      Fruit fly    1190    2012-01-25  131791  NaN
 
 open-box-rem
 
-La fonction `.read_csv()` peut aussi lire un fichier au format TSV (voir l'annexe A *Quelques formats de données rencontrés en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`) avec l'argument `sep="\t"`.
+La fonction `.read_csv()` permet également d'ouvrir un fichier au format TSV (voir l'annexe A *Quelques formats de données en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`) avec l'argument `sep="\t"`.
 
 close-box-rem
 
