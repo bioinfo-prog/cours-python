@@ -1643,7 +1643,7 @@ Comparez ce que venez de faire avec l'exercice 5.4.4 du chapitre 4 *Boucles et c
 
 ### Distance entre deux atomes carbones alpha consécutifs de la barstar
 
-La barstar est un inhibiteur de ribonucléase. C'est une protéine relativement simple qui contient 89 acides aminés. Sa structure tridimensionnelle, obtenue par cristallographie aux rayons X, se trouve dans la *Protein Data Bank* (PDB) sous le code 1BTA.
+La barstar est un inhibiteur de ribonucléase. C'est une protéine relativement simple qui contient 89 acides aminés. Sa structure tridimensionnelle, obtenue par résonance magnétique nucléaire (RMN), se trouve dans la *Protein Data Bank* (PDB) sous le code 1BTA.
 
 L'objectif de cet exercice est de calculer la distance entre carbones alpha consécutifs le long de la chaîne peptidique avec module *NumPy*.
 

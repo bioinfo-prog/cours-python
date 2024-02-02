@@ -871,7 +871,12 @@ Dans cet exemple, Python a automatiquement compté chaque caractère `a`, `t`, `
 
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
+
 
 ### Composition en acides aminés
 
@@ -940,7 +945,11 @@ Créez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier P
 
 Utilisez la fonction `trouve_calpha()` pour afficher à l'écran le nombre total de carbones alpha de la barstar ainsi que les coordonnées atomiques des carbones alpha des deux premiers résidus (acides aminés).
 
-*Conseil* : vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
+open-box-adv
+
+Vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
+
+close-box-adv
 
 
 ### Barycentre d'une protéine (exercice +++)

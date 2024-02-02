@@ -321,7 +321,7 @@ close-box-adv
 ### Années de publication des articles relatifs à la barstar
 
 L'objectif de cet exercice est d'interroger automatiquement la base de données
-bibliographique PubMed pour déterminer le nombre d'articles relatifs à la barstar
+bibliographique PubMed pour déterminer le nombre d'articles relatifs à la protéine barstar
 publiés chaque année.
 
 Vous utiliserez le module *Biopython* et le module *matplotlib* qui sera vu un peu plus loin (les principales instructions vous sont données).

@@ -536,7 +536,11 @@ Créez une fonction `seq_alea_2()` qui prend comme argument un entier et quatre 
 
 Utilisez cette fonction pour générer aléatoirement une séquence d'ADN de 50 bases contenant 10 % de A, 30 % de T, 50 % de G et 10 % de C.
 
-*Conseil* : la fonction `random.shuffle()` du module *random* vous sera utile.
+open-box-adv
+
+La fonction `random.shuffle()` du module *random* vous sera utile.
+
+close-box-adv
 
 
 ### Le nombre mystère

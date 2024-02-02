@@ -720,7 +720,11 @@ Modifiez maintenant la fonction `calcule_distance()` pour qu'elle affiche à la 
 
 La distance inter-carbone alpha dans les protéines est très stable et de l'ordre de 3,8 angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine barstar. Repérez une valeur surprenante. Essayez de l'expliquer.
 
-*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
+open-box-adv
+
+Vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
+
+close-box-adv
 
 ### Compteur de gènes dans un fichier GenBank
 
@@ -749,4 +753,9 @@ gène 100 direct         ->   485 bases
 gène 101 direct         ->  1403 bases
 ```
 
-*Conseil :* vous trouverez des explications sur le format GenBank dans l'annexe A *Quelques formats de données en biologie*.
+
+open-box-adv
+
+Vous trouverez des explications sur le format GenBank dans l'annexe A *Quelques formats de données en biologie*.
+
+close-box-adv
