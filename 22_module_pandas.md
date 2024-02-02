@@ -11,6 +11,13 @@ Le module *pandas* n'est pas fourni avec la distribution Python de base. Avec la
 $ conda install -c conda-forge pandas
 ```
 
+Vous aurez également besoin des modules *matplotlib* pour créer des graphiques et *scipy* pour réaliser une régression linaire, que vous pouvez installer ainsi :
+
+```bash
+$ conda install -c conda-forge matplotlib scipy
+```
+
+
 Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *pandas* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
 
 ```python
@@ -742,8 +749,8 @@ dtypes: int64(2), object(3)
 memory usage: 67.6+ KB
 ```
 
-Avec l'argument `memory_usage="deep"`, cette méthode permet surtout de connaitre avec précision 
-la quantité de mémoire vive occupée par le *dataframe* : 
+Avec l'argument `memory_usage="deep"`, la méthode `.info()` permet de connaitre avec précision 
+la quantité de mémoire vive occupée par le *Dataframe* : 
 
 ```python
 df.info(memory_usage="deep")
@@ -764,7 +771,7 @@ dtypes: int64(2), object(3)
 memory usage: 351.0 KB
 ```
 
-Ici, le *dataframe* occupe 351 kilo-octets (ko) en mémoire.
+Ici, le *Dataframe* occupe 351 kilo-octets (ko) en mémoire.
 
 
 ### Recherche de valeurs manquantes
@@ -859,7 +866,7 @@ std     404.195273                            NaN   44764.273097
 ```
 
 On apprend ainsi que la taille de la protéine (colonne `Length`)
-a une valeur moyenne de 756,139390 acides aminés et que
+a une valeur moyenne de 756,14 acides aminés et que
 la plus petite protéine est composée de 81 acides aminés et la plus grande de 2986. Pratique !
 
 Des statistiques sont également proposées pour la colonne `Creation date`. La protéine la plus récente a ainsi été référencée le 13 septembre 2023.
@@ -937,7 +944,7 @@ Rabbit        81   9405   1382  158347
 Rat          274  31162   2959  336587
 ```
 
-L'argument `index` précise la colonne dont on agrège les données.
+L'argument `index` précise la colonne dont on veut agrèger les données.
 
 L'argument `values` indique sur quelles colonnes les statistiques sont calculées.
 
@@ -992,8 +999,9 @@ Lignes 5 et 6. On précise les colonnes à utiliser pour les abscisses et les or
 Le graphique de la figure @fig:kinases1 met en évidence une relation linéaire
 entre le nombre de résidus d'une protéine et sa masse.
 
-En réalisant une régression linéaire, on détermine les paramètres de
+En réalisant une régression linéaire, on peut déterminer les paramètres de
 la droite qui passent le plus proche possible des points du graphique.
+On utilise pour cela la fonction [`.linregress()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html) du module `scipy.stats` :
 
 ```python
 from scipy.stats import linregress
@@ -1160,7 +1168,7 @@ On aurait obtenu exactement le même résultat.
 
 open-box-rem
 
-Le *method chaining* est une manière efficace et élégante de traiter des données avec *pandas*.
+Le [*method chaining*](https://www.youtube.com/watch?v=39MEeDLxGGg) est une manière efficace et élégante de traiter des données avec *pandas*.
 
 close-box-rem
 
@@ -1297,7 +1305,7 @@ Par exemple :
 
 L'objectif de cet exercice est de manipuler ces données avec *pandas*.
 
-Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseillons de consulter l'annexe A *Quelques formats de données rencontrés en biologie*.
+Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseillons de consulter l'annexe A *Quelques formats de données en biologie*.
 
 
 #### Chargement du jeu de données
