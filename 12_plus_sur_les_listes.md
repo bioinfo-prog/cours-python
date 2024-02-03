@@ -509,9 +509,10 @@ Soit la liste de nombres `[8, 3, 12.5, 45, 25.5, 52, 1]`. Triez les nombres de c
 
 ### Séquence d'ADN aléatoire
 
-Créez une fonction `seq_alea()` qui prend comme argument un entier positif `taille` représentant le nombre de bases de la séquence et qui renvoie une séquence d'ADN aléatoire sous forme d'une liste de bases. Utilisez la méthode `.append()` pour ajouter les différentes bases à la liste et la fonction `random.choice()` du module *random* pour choisir une base parmi les 4 possibles.
+Créez une fonction `seq_alea()` qui prend comme argument un entier positif `taille` représentant le nombre de bases de la séquence et qui renvoie une séquence d'ADN aléatoire sous forme d'une chaîne de caractères.
+Utilisez la fonctions `random.choices()` présentée dans le chapitre 9 *Modules*.
 
-Utilisez cette fonction pour générer aléatoirement une séquence d'ADN de 15 bases.
+Utilisez la fonction `seq_alea()` pour générer aléatoirement une séquence d'ADN de 15 bases.
 
 
 ### Séquence d'ADN complémentaire inverse
@@ -532,13 +533,23 @@ Soit la liste de nombres `liste = [5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]`.
 
 ### Séquence d'ADN aléatoire 2
 
-Créez une fonction `seq_alea_2()` qui prend comme argument un entier et quatre *floats* représentant respectivement la longueur de la séquence et les pourcentages de chacune des 4 bases A, T, G et C. La fonction générera aléatoirement une séquence d'ADN qui prend en compte les contraintes fournies en arguments et renverra la séquence sous forme d'une liste.
+Créez une fonction `seq_alea_2()` qui prend comme argument un entier et quatre *floats* représentant respectivement la longueur de la séquence et les pourcentages de chacune des quatre bases A, T, G et C. La fonction générera aléatoirement une séquence d'ADN qui prend en compte les contraintes fournies en arguments et renverra la séquence sous forme d'une chaîne de caractères.
 
 Utilisez cette fonction pour générer aléatoirement une séquence d'ADN de 50 bases contenant 10 % de A, 30 % de T, 50 % de G et 10 % de C.
 
 open-box-adv
 
-La fonction `random.shuffle()` du module *random* vous sera utile.
+Utilisez la fonction `random.choises()` avec les paramètres `k` et `weights`. Le paramètre `k` spécifie le nombre de tirages aléatoires à réaliser et le paramètre `weights` indique les probabilités de tirage.
+
+Par exemple, pour réaliser 10 tirages aléatoires entre les lettres `A` et `B` avec 80% de `A` et 20% de `B`, on utilise la fonction `random.choices()` de la manière suivante :
+
+```python
+>>> import random
+>>> random.choices("AB", k=10, weights=[80, 20])
+['A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'A', 'B']
+```
+
+N'hésitez pas à consulter la [documentation](https://docs.python.org/fr/3/library/random.html#random.choices) de la fonction `random.choices()` pour plus de détails.
 
 close-box-adv
 

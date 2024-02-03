@@ -255,7 +255,7 @@ Le module *random* permet aussi de permuter aléatoirement des listes :
 [4, 2, 1, 3]
 ```
 
-Mais aussi de tirer alétoirement un ou plusieurs éléments dans une liste donnée :
+Mais aussi de tirer aléatoirement un élément dans une liste donnée :
 
 ```python
 >>> bases = ["A", "T", "C", "G"]
@@ -263,6 +263,11 @@ Mais aussi de tirer alétoirement un ou plusieurs éléments dans une liste donn
 'A'
 >>> random.choice(bases)
 'G'
+```
+
+La fonction `choices()` (avec un *s* à la fin) réalise plusieurs tirages aléatoires (avec remise, c'est-à-dire qu'on peut piocher plusieurs fois le même élément) dans une liste donnée. Le nombre de tirages est précisé par le paramètre `k` :
+
+```python
 >>> random.choices(bases, k=5)
 ['G', 'A', 'A', 'T', 'G']
 >>> random.choices(bases, k=5)
@@ -271,10 +276,7 @@ Mais aussi de tirer alétoirement un ou plusieurs éléments dans une liste donn
 ['C', 'T', 'T', 'T', 'G', 'A', 'C', 'A', 'G', 'G']
 ```
 
-La fonction `choice()` tire aléatoirement un élément d'une liste alors que `choices()` (avec un *s* à la fin) réalise plusieurs tirages aléatoires, dont le nombre est précisé par le paramètre `k`.
-
 Si vous exécutez vous-même les exemples précédents, vous devriez obtenir des résultats légèrement différents de ceux indiqués.
-C'est l'intérêt de l'aléatoire !
 
 Pour des besoins de reproductibilité des analyses en science, on a souvent besoin de retrouver les mêmes résultats même si on utilise des nombres aléatoires. Pour cela, on peut définir ce qu'on appelle la « graine aléatoire ». 
 
