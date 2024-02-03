@@ -1252,7 +1252,7 @@ L'attribut `.__doc__` est automatiquement créé par Python au moment de la mise
 
 Voici quelques points en vrac auxquels nous vous conseillons de faire attention :
 
-- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuples* (cf. rubrique suivante).
+- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuples* (voir la rubrique suivante).
 - Nous vous déconseillons de mettre comme paramètre par défaut une liste vide (ou tout autre objet séquentiel modifiable) :
 
 	```python
@@ -1281,7 +1281,7 @@ Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souv
 
 Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
-### Pour finir les *namedtuples*
+### Pour finir, les *namedtuples*
 
 Imaginons que l'on souhaite stocker des éléments dans un conteneur, que l'on puisse retrouver ces éléments avec une syntaxe `conteneur.element` et que ces éléments soit non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, il n'est pas conseillé de les utiliser comme des conteneurs inertes, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de conteneur est issu du très utile module *collections* que nous avions évoqué au Chapitre 13 *Dictionnaires, tuples et sets*.
 
