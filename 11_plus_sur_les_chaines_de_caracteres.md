@@ -343,6 +343,31 @@ Retenez bien l'utilisation des instructions précédentes pour extraire des vale
 
 close-box-rem
 
+## Test d'appartenance
+
+L’opérateur `in` teste si une chaîne fait partie d’une autre chaîne.
+
+```python
+>>> chaine = "Néfertiti"
+>>> "toto" in chaine
+False
+>>> "titi" in chaine
+True
+>>> "ti" in chaine
+True
+```
+
+Notez que la chaîne testée peut-être présente à n'importe quelle position dans l'autre chaîne. Par ailleurs, le test est vrai si elle est présente une ou plusieurs fois. 
+
+La variation avec l'opérateur booléen `not` permet de vérifier qu'une chaîne n'est pas présente dans une autre chaîne.
+
+```python
+>>> not "toto" in chaine
+True
+>>> not "fer" in chaine
+False
+```
+
 
 ## Conversion d'une liste de chaînes de caractères en une chaîne de caractères
 
