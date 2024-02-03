@@ -3,7 +3,7 @@
 Le module [*NumPy*](http://numpy.scipy.org/) est incontournable en bioinformatique. Il permet d'effectuer des calculs sur des vecteurs ou des matrices, élément par élément, via un nouveau type d'objet appelé *array*.
 
 
-## Installation
+## Installation et convention
 
 Contrairement à tous les autres modules vus précédemment, *NumPy* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement l'installer avec la commande :
 
@@ -24,7 +24,7 @@ Les résultats seront affichés de cette manière,
 ```
 
 
-## Utilisation
+## Chargement du module
 
 On charge le module *NumPy* avec la commande :
 
@@ -32,14 +32,14 @@ On charge le module *NumPy* avec la commande :
 import numpy
 ```
 
-On utilise aussi très souvent `np` comme nom raccourci pour *NumPy* :
+Par convention, on utilise `np` comme nom raccourci pour *NumPy* :
 
 ```python
 import numpy as np
 ```
 
 
-### Objets de type *array*
+## Objets de type *array*
 
 Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un conteneur (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple de conversion d'une liste à une dimension en objet *array* :
 
@@ -876,7 +876,7 @@ liste_3
 close-box-rem
 
 
-### Construction automatique de matrices
+## Construction automatique de matrices
 
 Il est parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
 
@@ -995,7 +995,7 @@ Il existe d'autres fonctions plus avancées telles que [np.genfromttxt()](https:
 close-box-more
 
 
-### Concaténation d'*arrays*
+## Concaténation d'*arrays*
 
 Il peut être très utile de concaténer un ou plusieurs *arrays*. Il existe pour cela plusieurs fonctions dans *NumPy*, nous développerons celle qui nous parait la plus intuitive et directe : `np.concatenate()`.
 
@@ -1095,7 +1095,7 @@ On concatène d'abord par ligne (`axis=0`), c'est-à-dire qu'on ajoute les ligne
 Ces opérations de concaténation sont très importantes. On les utilise par exemple si on a des données dans plusieurs fichiers différents et qu'on veut obtenir un *array* unique au final. On verra qu'on peut faire le même genre de chose avec les fameux *dataframes* du module *pandas*. Lisez bien également les recommandations dans la dernière rubrique *17.1.10 Quelques conseils* sur quand utiliser la concaténation d'*arrays* avec *NumPy*.
 
 
-### Un peu d'algèbre linéaire
+## Un peu d'algèbre linéaire
 
 Après avoir manipulé les objets *array* comme des vecteurs et des matrices, voici quelques fonctions pour faire de l'algèbre linéaire.
 
@@ -1243,7 +1243,7 @@ array([[1., 0., 0.],
 `eigvecs` est un *array* 2D contenant les 3 vecteurs propres (un par ligne).
 
 
-### Parcours de matrice et affectation de lignes et colonnes
+## Parcours de matrice et affectation de lignes et colonnes
 
 Lorqu'on a une matrice, on est souvent amené à la parcourir par ligne ou par colonne. *NumPy* permet d'itérer directement sur les lignes d'une *array* :
 
@@ -1352,7 +1352,7 @@ c3
 array([3, 6, 9])
 ```
 
-### Masques booléens
+## Masques booléens
 
 Une des grandes puissance des *arrays* *NumPy* est qu'ils supportent les **masques booléens**. Avant de les définir, il est important d'introduire le concept d'*arrays* de booléens. Jusqu'à maintenant nous avions définis uniquement des *arrays* avec des types numériques *int* ou *float*. Il est tout à fait possible de définir des *arrays* de booléens. La fonction `np.full()` vue précédemment nous permet d'en construire facilement :
 
@@ -1591,7 +1591,7 @@ array([[1., 1., 1., 0.],
 On obtient ce résultat avec deux lignes de code en utilisant des *arrays* alors qu'il aurait fallu faire des boucles avec des listes classiques.
 
 
-### Quelques conseils
+## Quelques conseils
 
 Nous venons de voir une petite partie du module *NumPy* mais vous avez pu en constater son extraordinaire puissance. On pourrait au premier abord être tenté d'abandonner les listes, toutefois elles gardent toute leur importance. Alors quand utiliser les listes ou quand utiliser les *arrays NumPy* ? Voici une liste non exhaustive d'éléments qui peuvent guider votre choix :
 
@@ -1609,13 +1609,13 @@ Utilisez les listes :
 
 Enfin, comme nous vous le conseillons depuis le début, soignez bien votre documentation (*docstrings*) et vos commentaires lorsque vous utilisez des *arrays*. *NumPy* permettant de réaliser des opérations vectorielles de manière très compacte, il est essentiel de se mettre à la place du lecteur et de bien indiquer ce que contient chaque *array* ainsi que sa dimensionnalité (1D, 2D, etc.).
 
-Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules [*SciPy*](https://scipy.org/) et *matplotlib* (et aussi aux *notebooks Jupyter*, voir le chapitre précédent), il permet de faire de l'analyse scientifique. On verra dans le chapitre 22 *Module Pandas* que la puissance de *NumPy* est également utilisée par le module *pandas* et ses *Dataframes* pour faire de l'analyse de données.
+Le module *NumPy* est la brique de base pour tout ce qui est numérique. Associé aux modules [*SciPy*](https://scipy.org/) et *matplotlib* (et aussi aux *notebooks Jupyter*, voir le chapitre précédent), il permet de faire du calcul scientifique. On verra dans le chapitre 22 *Module Pandas* que la puissance de *NumPy* est également utilisée par le module *pandas* et ses *Dataframes* pour faire de l'analyse de données.
 
 
 open-box-more
 
 - Le livre de Nicolas Rougier [*From Python to Numpy*](https://www.labri.fr/perso/nrougier/from-python-to-numpy/) est une très bonne ressource pour explorer plus en détails les possibilités de *NumPy*. L'auteur y aborde notamment la puissante notion de « masque ».
-- Les [tutoriels](https://numpy.org/numpy-tutorials/index.html) proposés par les développeurs de *NumPy* sont également un excellent moyen de poursuivre votre découverte de  cette bibliothèque incontournable en sciences.
+- Les [tutoriels](https://numpy.org/numpy-tutorials/index.html) proposés par les développeurs de *NumPy* sont également un excellent moyen de poursuivre votre découverte de cette bibliothèque incontournable en sciences.
 
 close-box-more
 
@@ -1627,6 +1627,7 @@ open-box-adv
 Pour ces exercices, utilisez des notebooks Jupyter.
 
 close-box-adv
+
 
 ### Nombres pairs et impairs
 

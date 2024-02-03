@@ -31,13 +31,14 @@ Les résultats seront affichés de cette manière,
 ```
 
 ## Chargement du module
+
 Pour charger *pandas* dans la mémoire de Python, on utilise la commande `import` habituelle :
 
 ```python
 import pandas
 ```
 
-Par convention, Pandas est souvent chargé avec un nom raccourci :
+Par convention, on utilise `pd` comme nom raccourci pour *pandas* :
 
 ```python
 import pandas as pd
@@ -61,6 +62,8 @@ d    40
 dtype: int64
 ```
 
+### Sélections par étiquette ou indice
+
 Avec *pandas*, chaque élément de la série de données possède une étiquette qui permet d'appeler les éléments.
 Ainsi, pour appeler le premier élément de la série, on peut son étiquette (ici, `"a"`) :
 
@@ -81,7 +84,6 @@ s.iloc[0]
 ```text
 10
 ```
-
 
 Bien sûr, on peut extraire plusieurs éléments, par leurs indices ou leurs étiquettes :
 
@@ -107,6 +109,7 @@ d    40
 dtype: int64
 ```
 
+### Modifications de *Series*
 
 Les étiquettes permettent de modifier et d'ajouter des éléments :
 
@@ -124,6 +127,8 @@ d     40
 z     50
 dtype: int64
 ```
+
+### Filtres
 
 Enfin, on peut filtrer une partie de la *Series* :
 
@@ -176,10 +181,11 @@ avec des étiquettes pour nommer les lignes et les colonnes.
 open-box-rem
 
 Si vous êtes familier avec le langage de programmation et d'analyse statistique R, les
-*dataframes* de *pandas* se rapprochent de ceux trouvés dans R.
+*Dataframes* de *pandas* se rapprochent de ceux trouvés dans R.
 
 close-box-rem
 
+### Création
 
 Voici comment créer un *Dataframe* avec *pandas* à partir
 de données fournies comme liste de lignes :
@@ -204,7 +210,7 @@ souris  30  31  32  33
 Voici quelques commentaires sur le code précédent :
 
 - Ligne 1. On charge le module *NumPy* utilisé ensuite.
-- Ligne 2. Le *dataframe* est créé avec la fonction `DataFrame()` à laquelle
+- Ligne 2. Le *Dataframe* est créé avec la fonction `DataFrame()` à laquelle
 on fournit plusieurs arguments. L'argument `columns` indique le nom des colonnes, 
 sous forme d'une liste.
 - Ligne 3. L'argument `index` définit le nom des lignes, sous forme de liste également.
@@ -290,14 +296,14 @@ singe     20    21      22   23
 
 open-box-rem
 
-es *Dataframes* utilisés sont volontairement petits.
+Les *Dataframes* utilisés ici comme exemples sont volontairement petits.
 Si vous êtes confrontés à des *Dataframes* de grande taille,
 ceux-ci seront affichés partiellement dans un notebook Jupyter. Des ascenseurs en bas et à droite du *Dataframe* permettront de naviguer dans les données.
 
 close-box-rem
 
 
-### Sélection
+### Sélections
 
 Les mécanismes de sélection  fournis avec *pandas* sont très puissants.
 En voici un rapide aperçu :
@@ -330,7 +336,7 @@ open-box-warn
 
 On trouve parfois l'écriture `df.Lyon` pour sélectionner une colonne. C'est une très mauvaise pratique car cette écriture peut être confondue avec un attribut de l'objet `df` (par exemple `.shape`). Par ailleurs, elle ne fonctionne pas pour des noms de colonnes qui contiennent des espaces ou des caractères spéciaux (ce qui n'est pas non plus une bonne pratique).
 
-Nous vous conseillons de toujours utiliser la notation `df[nom_de_colonne]`.
+Nous vous conseillons de toujours utiliser la notation `df["nom_de_colonne"]`.
 
 close-box-warn
 
@@ -610,9 +616,9 @@ souris    17     20       9          10
 Un autre comportement par défaut de `concat()` est que cette fonction va combiner les *dataframes* en se basant sur leurs index. Il est néanmoins possible de préciser, pour chaque *dataframe*, le nom de la colonne qui sera utilisée comme référence avec l'argument `join_axes`.
 
 
-## Un exemple plus complet avec les kinases
+## Un exemple plus concret avec les kinases
 
-Pour illustrer les possibilités de *pandas*, voici un exemple plus complet.
+Pour illustrer les possibilités de *pandas*, voici un exemple plus concret.
 
 Le fichier `kinases.csv` que vous pouvez télécharger
 [ici](https://python.sdv.u-paris.fr/data-files/kinases.csv)
@@ -622,8 +628,15 @@ Ces protéines sont responsables de la phosphorylation d'autres protéines.
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
 de consulter l'annexe A *Quelques formats de données en biologie*.
 
-Voyons maintenant comment explorer les données contenues
-dans ce fichier avec *pandas*.
+open-box-rem
+
+Avant de nous lancer dans l'analyse de ce fichier, nous vous proposons cette petite devinette :
+
+> Qu'est-ce qu'une protéine dans une piscine ?
+
+La réponse sera donnée à la fin de ce chapitre.
+
+close-box-rem
 
 
 ### Prise de contact avec le jeu de données
@@ -635,7 +648,7 @@ un fichier au format `.csv` :
 df = pd.read_csv("kinases.csv")
 ```
 
-Le contenu est chargé sous la forme d'un *dataframe* dans la variable `df`.
+Le contenu est chargé sous la forme d'un *Dataframe* dans la variable `df`.
 
 Le fichier contient 1442 lignes de données plus une ligne d'en-tête. Cette dernière
  est automatiquement utilisée par *pandas* pour nommer les différentes colonnes.
@@ -1280,6 +1293,16 @@ open-box-more
 Les ouvrages *Python for Data Analysis* (2022) de Wes McKinney et *Effective Pandas* (2021) de Matt Harrison sont d'excellentes références pour *pandas*.
 
 close-box-more
+
+open-box-rem
+
+La réponse à la devinette précédente est : 
+
+> Une protéine kinase
+
+(Une protéine qui nage... Vous l'avez ?)
+
+close-box-rem
 
 
 ## Exercices
