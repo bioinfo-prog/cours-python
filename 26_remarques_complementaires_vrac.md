@@ -57,9 +57,9 @@ close-box-def
 
 ## Passage d'arguments avec `*args` et `**kwargs`
 
-Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 9 *Fonctions*.
+Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 10 *Fonctions*.
 
-Dans le chapitre 9, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
+Dans le chapitre 10, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
 
 ```python
 >>> def fct(*args):
@@ -137,7 +137,7 @@ Les noms `*args` et `**kwargs` sont des conventions en Python, ils rappellent le
 
 close-box-adv
 
-L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *Tkinter* présenté dans le chapitre 20.
+L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *Tkinter* présenté dans le chapitre 25 (en ligne).
 
 Enfin, il est possible d'utiliser ce mécanisme d'empaquetage / désempaquetage (*packing* / *unpacking*) dans l'autre sens :
 
