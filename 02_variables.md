@@ -119,7 +119,7 @@ True
 False
 ```
 
-Nous verrons l'utilité des booléens dans les chapitres 5 *Boucles* et chapitre 6 *Tests*.
+Nous verrons l'utilité des booléens dans les chapitres 5 *Boucles* et 6 *Tests*.
 
 ## Nommage
 
@@ -266,7 +266,7 @@ L'opérateur de multiplication `*` entre un nombre entier et une chaîne de cara
 
 open-box-warn
 
-Vous observez que les opérateurs `+` et `*` se comportent différemment s'il s'agit d'entiers ou de chaînes de caractères. Ainsi, l'opération `2 + 2` est une addition alors que l'opération `"2" + "2"` est une concaténation. On appelle ce comportement **redéfinition des opérateurs**. Nous serons amenés à revoir cette notion dans le chapitre 19 *Avoir la classe avec les objets*.
+Vous observez que les opérateurs `+` et `*` se comportent différemment s'il s'agit d'entiers ou de chaînes de caractères. Ainsi, l'opération `2 + 2` est une addition alors que l'opération `"2" + "2"` est une concaténation. On appelle ce comportement **redéfinition des opérateurs**. Nous serons amenés à revoir cette notion dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
 
 close-box-warn
 
@@ -341,7 +341,7 @@ Toute conversion d'une variable d'un type en un autre est appelé *casting*\inde
 
 ## Note sur le vocabulaire et la syntaxe
 
-Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet**\index{objet} pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 19 *Avoir la classe avec les objets* ce que le mot « objet » signifie réellement (tout comme le mot « classe\index{classe} »).
+Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet**\index{objet} pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 23 *Avoir la classe avec les objets* ce que le mot « objet » signifie réellement (tout comme le mot « classe\index{classe} »).
 
 Par ailleurs, nous avons rencontré plusieurs fois des **fonctions**\index{fonction} dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
 
