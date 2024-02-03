@@ -113,7 +113,7 @@ puis avec la méthode `.append()` :
 
 Dans l'exemple ci-dessus, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. Nous vous conseillons dans ce cas précis d'utiliser la méthode `.append()` dont la syntaxe est plus élégante.
 
-Nous reverrons en détail la méthode `.append()` dans le chapitre 11 *Plus sur les listes*.
+Nous reverrons en détail la méthode `.append()` dans le chapitre 12 *Plus sur les listes*.
 
 
 ## Indiçage négatif
@@ -378,9 +378,14 @@ la méthode `.append()` est liée à `liste1` qui est un objet de type liste. La
 
 Nous aurons de nombreuses occasions de revoir cette notation `objet.méthode()`.
 
+
 ## Exercices
 
-*Conseil* : utilisez l'interpréteur Python.
+open-box-adv
+
+Pour ces exercices, utilisez l'interpréteur Python.
+
+close-box-adv
 
 ### Prédire la sortie
 
