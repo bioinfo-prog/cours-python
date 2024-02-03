@@ -35,7 +35,7 @@ open-box-warn
 
 Le nom du module *Biopython* n'est pas `biopython` mais `Bio` (avec un *B* majuscule).
 
-open-box-warn
+close-box-warn
 
 
 ## Manipulation de séquences
