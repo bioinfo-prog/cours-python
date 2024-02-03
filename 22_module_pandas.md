@@ -616,6 +616,50 @@ souris    17     20       9          10
 Un autre comportement par défaut de `concat()` est que cette fonction va combiner les *dataframes* en se basant sur leurs index. Il est néanmoins possible de préciser, pour chaque *dataframe*, le nom de la colonne qui sera utilisée comme référence avec l'argument `join_axes`.
 
 
+### Opérations vectorielles
+
+Pour cette rubrique, créons un *Dataframe* composé de nombres aléatoires compris entre 100 et 200 répartis en trois colonnes (`a`, `b` et `c`) et 50 lignes :
+
+```python
+import numpy as np
+import pandas as pd
+
+nb_rows = 50
+df = pd.DataFrame(
+    {
+        "a": np.random.randint(100, 200, nb_rows),
+        "b": np.random.randint(100, 200, nb_rows),
+        "c": np.random.randint(100, 200, nb_rows),
+    }
+)
+```
+
+Vérifions que ce *Dataframe* a bien les proptiétés attendues :
+
+```python
+df.shape
+```
+
+```text
+(50, 3)
+```
+
+```python
+df.head()
+```
+
+```text
+     a    b    c
+0  105  156  122
+1  116  135  138
+2  125  190  113
+3  196  175  179
+4  129  184  153
+```
+
+On souhaite 
+
+
 ## Un exemple plus concret avec les kinases
 
 Pour illustrer les possibilités de *pandas*, voici un exemple plus concret.
