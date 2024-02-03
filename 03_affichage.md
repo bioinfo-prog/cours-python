@@ -2,7 +2,7 @@
 
 ## La fonction `print()`
 
-Dans le chapitre 1, nous avons rencontré la fonction `print()` qui affiche une chaîne de caractères (le fameux `"Hello world!"`). En fait, la fonction `print()` affiche l'argument qu'on lui passe entre parenthèses **et** un retour à ligne. Ce retour à ligne supplémentaire est ajouté par défaut. Si toutefois, on ne veut pas afficher ce retour à la ligne, on peut utiliser l'argument par « mot-clé » `end` :
+Dans le chapitre 1 *Introduction*, nous avons rencontré la fonction `print()` qui affiche une chaîne de caractères (le fameux `"Hello world!"`). En fait, la fonction `print()` affiche l'argument qu'on lui passe entre parenthèses **et** un retour à ligne. Ce retour à ligne supplémentaire est ajouté par défaut. Si toutefois, on ne veut pas afficher ce retour à la ligne, on peut utiliser l'argument par « mot-clé » `end` :
 
 ```python
 >>> print("Hello world!")
@@ -13,7 +13,7 @@ Hello world!>>>
 
 Ligne 1. On a utilisé l'instruction `print()` classiquement en passant la chaîne de caractères `"Hello world!"` en argument.
 
-Ligne 3. On a ajouté un second argument `end=""`, en précisant le mot-clé `end`. Nous aborderons les arguments par mot-clé dans le chapitre 9 *Fonctions*. Pour l'instant, dites-vous que cela modifie le comportement par défaut des fonctions.
+Ligne 3. On a ajouté un second argument `end=""`, en précisant le mot-clé `end`. Nous aborderons les arguments par mot-clé dans le chapitre 10 *Fonctions*. Pour l'instant, dites-vous que cela modifie le comportement par défaut des fonctions.
 
 Ligne 4. L'effet de l'argument `end=""` est que les trois chevrons `>>>` se retrouvent collés après la chaîne de caractères `"Hello world!"`.
 
@@ -97,7 +97,7 @@ open-box-def
 "Ceci est une chaîne de caractères"
 ```
 
-L'équivalent en *f-string* est tout simplement la même chaîne de caractères précédée du caractère `f` **sans espace** entre les deux :
+L'équivalent en *f-string* est la même chaîne de caractères précédée du caractère `f` **sans espace** entre les deux :
 
 ```python
 f"Ceci est une chaîne de caractères"
@@ -107,7 +107,7 @@ Ce caractère `f` avant les guillemets va indiquer à Python qu'il s'agit d'une 
 
 close-box-def
 
-Nous expliquons plus en détail dans le chapitre 10 *Plus sur les chaînes de caractères* pourquoi on doit mettre ce `f` et le mécanisme sous-jacent.
+Nous expliquons plus en détail dans le chapitre 11 *Plus sur les chaînes de caractères* pourquoi on doit mettre ce `f` et le mécanisme sous-jacent.
 
 
 ### Prise en main des *f-strings*
