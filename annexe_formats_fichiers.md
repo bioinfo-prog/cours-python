@@ -561,7 +561,7 @@ c'est-à-dire un programme qui lit un fichier PDB (sans le module *Biopython*).
 Dans ce cas, la figure @fig:format-pdb vous aidera à déterminer comment extraire
 les différentes informations d'une ligne de coordonnées `ATOM` ou `HETATM`.
 
-![Format PDB et les différents champs de coordonnées.](img/pdb_format_33_rot90.png){ #fig:format-pdb width=99% }
+![Format PDB et les différents champs de coordonnées.](img/pdbformat.jpg){ #fig:format-pdb width=99% }
 
 Exemple : pour extraire le nom du résidu, il faut isoler le contenu des colonnes 18 à 20 du fichier PDB, ce qui correspond aux index de 17 à 19 pour une chaîne de caractères en Python, soit la tranche de chaîne de caractères `[17:20]` car la première borne est incluse et la seconde exclue.
 
@@ -605,6 +605,7 @@ open-box-rem
 Pour extraire des valeurs numériques, comme des numéros de résidus ou des coordonnées atomiques, il ne faudra pas oublier de les convertir en entiers ou en *floats*.
 
 close-box-rem
+
 
 ## Format XML, CSV et TSV
 
