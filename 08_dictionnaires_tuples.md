@@ -70,6 +70,7 @@ Nous verrons dans le chapitre 14 *Conteneurs* que plusieurs types d'objets sont 
 
 close-box-adv
 
+
 ### Fonction `len()`
 
 Comme pour les listes, l'instruction `len()` renvoie la longueur du dictionnaire, sauf qu'ici il s'agit du nombre de couples clé / valeur. Voici un exemple d'utilisation :
@@ -449,11 +450,16 @@ Les listes, dictionnaires, tuples et chaînes de caractères sont tous des objet
 
 ## Exercices
 
-*Conseil* : utilisez l'interpréteur Python pour le premier exercice, pour les suivant créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour le premier exercice, utilisez l'interpréteur Python. Pour les suivants, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
+
 
 ### Prédire la sortie
 
-Soit les 2 lignes de code suivantes: 
+Soit les deux lignes de code suivantes: 
 
 ```python
 dico = {"nom": "Joe", "age": 24, "taille": 181}
@@ -468,7 +474,8 @@ Prédisez le comportement de chaque instruction ci-dessous, sans les recopier da
 - `print(dico["var"])`
 - `print(dico["taille"])`
 
-Lorsqu'une instruction produit une erreur, identifiez pourquoi.
+Lorsqu'une instruction produit une erreur, identifiez pourquoi. Vérifiez ensuite vos prédictions en recopiant les instructions dans l'interpréteur Python.
+
 
 ### Moyennes des notes
 
