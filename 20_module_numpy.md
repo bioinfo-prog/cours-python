@@ -1638,7 +1638,7 @@ Soit `impairs` un *array* *NumPy* qui contient les nombres
 
 En une seule instruction, construisez l'*array* `pairs` dans lequel tous les éléments de `impairs` sont incrémentés de 1.
 
-Comparez ce que venez de faire avec l'exercice 5.4.4 du chapitre 4 *Boucles et comparaisons*.
+Comparez ce que venez de faire avec l'exercice 5.4.4 du chapitre 5 *Boucles et comparaisons*.
 
 
 ### Distance entre deux atomes carbones alpha consécutifs de la barstar
