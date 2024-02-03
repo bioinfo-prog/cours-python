@@ -657,8 +657,14 @@ df.head()
 4  129  184  153
 ```
 
-On souhaite 
+On souhaite maintenant créer une nouvelle colonne (`d`) qui sera le résultat de la multiplication des colonnes `a` et `b`, à laquelle on ajoute la colonne `c`.
 
+Une première manière de faire est procéder ligne par ligne. La méthode `.iterrows()` permet de parcourir les lignes d'un *Dataframe* et renvoie un tuple contenant l'indice de la ligne (sous la forme d'un entier) et la ligne elle-même (sous la forme d'une *Series*) :
+
+```python
+for idx, row in df.iterrows():
+    df.at[idx, "d"] = (row["a"] * row["b"]) + row["c"]
+```
 
 ## Un exemple plus concret avec les kinases
 
