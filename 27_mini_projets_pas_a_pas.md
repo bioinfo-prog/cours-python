@@ -13,7 +13,7 @@ Dans un premier temps, composez 5 mots anglais avec les 20 acides aminés.
 
 #### Des mots
 
-Téléchargez le fichier [english-common-words.txt](https://python.sdv.univ-paris-diderot.fr/data-files/english-common-words.txt). Ce fichier contient les 3000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
+Téléchargez le fichier [english-common-words.txt](https://python.sdv.u-paris.fr/data-files/english-common-words.txt). Ce fichier contient les 3000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
 
 Créez un script `words_in_proteome.py` et écrivez la fonction `read_words()` qui va lire les mots contenus dans le fichier dont le nom est fourni en argument du script et renvoyer une liste contenant les mots convertis en majuscule et composés de 3 caractères ou plus.
 
@@ -21,7 +21,7 @@ Dans le programme principal, affichez le nombre de mots sélectionnés.
 
 #### Des protéines
 
-Téléchargez maintenant le fichier [human-proteome.fasta](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta). Attention, ce fichier est assez gros. Ce fichier provient de la banque de données UniProt à partir de cette [page](https://www.uniprot.org/help/human_proteome).
+Téléchargez maintenant le fichier [human-proteome.fasta](https://python.sdv.u-paris.fr/data-files/human-proteome.fasta). Attention, ce fichier est assez gros. Ce fichier provient de la banque de données UniProt à partir de cette [page](https://www.uniprot.org/help/human_proteome).
 
 Voici les premières lignes de ce fichier (`[...]` indique une coupure que nous avons faite) :
 
@@ -579,9 +579,9 @@ tant qu'on n'arrête pas le pendule:
 
 #### Constructeur de l'application en *tkinter*
 
-Nous allons maintenant construire l'application *tkinter* en vous guidant pas à pas. Il est bien sûr conseillé de relire le chapitre 20 sur *tkinter* avant de vous lancer dans cette partie.
+Nous allons maintenant construire l'application *tkinter* en vous guidant pas à pas. Il est bien sûr conseillé de relire le chapitre 25 sur *Fenêtres graphiques et Tkinter* (en ligne) avant de vous lancer dans cette partie.
 
-Comme expliqué largement dans le chapitre 20, nous allons construire l'application avec une classe. Le programme principal sera donc très allégé et se contentera d'instancier l'application, puis de lancer le gestionnaire d'événements :
+Comme expliqué largement dans les chapitres 23 *Avoir la classe avec les objets* et 24 *Avoir plus la classe avec les objets*, nous allons construire l'application avec une classe. Le programme principal sera donc très allégé et se contentera d'instancier l'application, puis de lancer le gestionnaire d'événements :
 
 ```python
 if __name__ == "__main__":
@@ -620,7 +620,12 @@ La figure @fig:pendule vous montre un aperçu de ce que l'on voudrait obtenir.
 
 Pour le moment, vous pouvez oublier la réglette fixant la valeur initiale de $\theta$, les *labels* affichant la valeur de $\theta$ et $v_{\theta}$ ainsi que les points violets « laissés en route » par le pendule. De même, nous dessinerons le pivot, la boule et la tige plus tard. A ce stade, il est fondamental de tout de suite lancer votre application pour vérifier que les *widgets* sont bien placés. N'oubliez pas, un code complexe se teste **au fur et à mesure** lors de son développement.
 
-*Conseil* : pour éviter un message d'erreur si toutes les méthodes n'existe pas encore, vous pouvez indiquer `command=self.quit` pour chaque bouton (vous le changerez après).
+open-box-adv
+
+Pour éviter un message d'erreur si toutes les méthodes n'existe pas encore, vous pouvez indiquer `command=self.quit` pour chaque bouton (vous le changerez après).
+
+close-box-adv
+
 
 #### Créations des dessins dans le canvas
 
@@ -630,7 +635,7 @@ Comment placer ces éléments dans le *canvas* ? Vous avez remarqué que lors de
 
 ##### Conversion de $\theta$ en coordonnées $(x, y)$
 
-Cette étape est relativement simple si on considère le pivot comme le centre du repère. Avec les fonctions trigonométriques `sin()` et `cos()`, vous pourrez calculer la position de la boule (cf. exercice sur la spirale dans le chapitre 7). Faites attention toutefois aux deux aspects suivants : 
+Cette étape est relativement simple si on considère le pivot comme le centre du repère. Avec les fonctions trigonométriques `sin()` et `cos()`, vous pourrez calculer la position de la boule (voir l'exercice sur la spirale dans le chapitre 7 *Fichiers*). Faites attention toutefois aux deux aspects suivants : 
 
 - la trajectoire de la boule suit les coordonnées d'un cercle de rayon *L* (si on choisit *L* = 1 m, ce sera plus simple) ;
 - nous sommes décalés par rapport au cercle trigonométrique classique ; si on considère *L* = 1 m : 
@@ -695,7 +700,7 @@ Puisque `.start()` ajoute 1 à `self.is_moving`, le premier clic sur le bouton �
 
 #### Le coeur du programme : la méthode `.move()`
 
-Il nous reste maintenant à générer la méthode `.move()` qui meut le pendule. Pour cela vous pouvez vous inspirez de la rubrique *Un canvas animé dans une classe* du chapitre 20 *Fenêtres graphiques et Tkinter*.
+Il nous reste maintenant à générer la méthode `.move()` qui meut le pendule. Pour cela vous pouvez vous inspirez de la rubrique *Un canvas animé dans une classe* du chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
 
 Cette méthode va réaliser un pas de simulation de $t$ à $t+\delta t$. Il faudra ainsi réaliser dans l'ordre :
 
@@ -731,8 +736,8 @@ open-box-rem
 
 close-box-rem
 
-- Mots anglais dans le protéome humain : [words_in_proteome.py](https://python.sdv.univ-paris-diderot.fr/data-files/words_in_proteome.py)
-- Genbank2fasta (sans expression régulière) : [genbank2fasta_sans_regex.py](https://python.sdv.univ-paris-diderot.fr/data-files/genbank2fasta_sans_regex.py)
-- Genbank2fasta (avec expressions régulières) : [genbank2fasta_avec_regex.py](https://python.sdv.univ-paris-diderot.fr/data-files/genbank2fasta_avec_regex.py)
-- Simulation d'un pendule version simple : [tk_pendule.py](https://python.sdv.univ-paris-diderot.fr/data-files/tk_pendule_simple.py)
-- Simulation d'un pendule++ (avec réglette et affichage se mettant à jour) : [tk_pendule.py](https://python.sdv.univ-paris-diderot.fr/data-files/tk_pendule.py)
+- Mots anglais dans le protéome humain : [words_in_proteome.py](https://python.sdv.u-paris.fr/data-files/words_in_proteome.py)
+- Genbank2fasta (sans expression régulière) : [genbank2fasta_sans_regex.py](https://python.sdv.u-paris.fr/data-files/genbank2fasta_sans_regex.py)
+- Genbank2fasta (avec expressions régulières) : [genbank2fasta_avec_regex.py](https://python.sdv.u-paris.fr/data-files/genbank2fasta_avec_regex.py)
+- Simulation d'un pendule version simple : [tk_pendule.py](https://python.sdv.u-paris.fr/data-files/tk_pendule_simple.py)
+- Simulation d'un pendule++ (avec réglette et affichage se mettant à jour) : [tk_pendule.py](https://python.sdv.u-paris.fr/data-files/tk_pendule.py)

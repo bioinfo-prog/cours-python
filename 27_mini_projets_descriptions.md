@@ -10,10 +10,15 @@ L'objectif de ce premier projet est de découvrir si des mots anglais peuvent se
 
 Vous aurez à votre disposition :
 
-- Le fichier [`english-common-words.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/english-common-words.txt), qui contient les 3000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
-- Le fichier [`human-proteome.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta) qui contient le protéome humain sous la forme de séquences au format FASTA. Attention, ce fichier est assez gros. Ce fichier provient de la banque de données UniProt à partir de cette [page](https://www.uniprot.org/help/human_proteome).
+- Le fichier [`english-common-words.txt`](https://python.sdv.u-paris.fr/data-files/english-common-words.txt), qui contient les 3000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
+- Le fichier [`human-proteome.fasta`](https://python.sdv.u-paris.fr/data-files/human-proteome.fasta) qui contient le protéome humain sous la forme de séquences au format FASTA. Attention, ce fichier est assez gros. Ce fichier provient de la banque de données UniProt à partir de cette [page](https://www.uniprot.org/help/human_proteome).
 
-*Conseil* : vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
+
+open-box-adv
+
+Des explications sur le format FASTA et des exemples de code sont fournis dans l'annexe A *Quelques formats de données en biologie*.
+
+close-box-adv
 
 
 ### Genbank2fasta
@@ -22,12 +27,12 @@ Ce projet consiste à écrire un convertisseur de fichier, du format GenBank au 
 
 Pour cela, nous allons utiliser le fichier GenBank du chromosome I de la levure de boulanger *Saccharomyces cerevisiae*. Vous pouvez télécharger ce fichier :
 
-- soit via le lien sur le site du cours [`NC_001133.gbk`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk);
+- soit via le lien sur le site du cours [`NC_001133.gbk`](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk);
 - soit directement sur la page de [*Saccharomyces cerevisiae S288c chromosome I, complete sequence*](https://www.ncbi.nlm.nih.gov/nuccore/NC_001133) sur le site du NCBI, puis en cliquant sur *Send to*, puis *Complete Record*, puis *Choose Destination: File*, puis *Format: GenBank  (full)* et enfin sur le bouton *Create File*.
 
 Vous trouverez des explications sur les formats FASTA et GenBank ainsi que des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
 
-Vous pouvez réaliser ce projet sans ou avec des expressions régulières (abordées dans le chapitre 15).
+Vous pouvez réaliser ce projet sans ou avec des expressions régulières (abordées dans le chapitre 17).
 
 
 ### Simulation d'un pendule
@@ -42,8 +47,8 @@ Pour trouver la valeur de $\theta$ en fonction du temps, on pourra utiliser la [
 
 ![Application pendule.](img/pendule.png){ #fig:pendule width=60% }
 
-Pour la visualisation, vous pourrez utiliser le *widget canvas* du module *Tkinter* (voir le chapitre 20 *Fenêtres graphiques et Tkinter*, rubrique *Un canvas animé dans une classe*). On cherche à obtenir un résultat comme montré dans la figure @fig:pendule.
+Pour la visualisation, vous pourrez utiliser le *widget canvas* du module *Tkinter* (voir le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), rubrique *Un canvas animé dans une classe*). On cherche à obtenir un résultat comme montré dans la figure @fig:pendule.
 
 Nous vous conseillons de procéder d'abord à la mise en place du simulateur physique (c'est-à-dire obtenir $\theta$ en fonction du temps ou du pas de simulation). Faites par exemple un premier script Python qui produit un fichier à deux colonnes (temps et valeur de $\theta$). Une fois que cela fonctionne bien, il vous faudra construire l'interface *Tkinter* et l'animer. Vous pouvez ajouter un bouton pour démarrer / stopper le pendule et une règle pour modifier sa position initiale.
 
-N'oubliez pas, il faudra mettre dans votre programme final une fonction qui convertit l'angle $\theta$ en coordonnées cartésiennes $x$ et $y$ dans le plan du *canvas*. Faites également attention au système de coordonnées du *canvas* où les ordonnées sont inversées par rapport à un repère mathématique. Pour ces deux aspects, reportez-vous à l'exercice *Polygone de Sierpinski* du chapitre 20 *Fenêtres graphiques et Tkinter*.
+N'oubliez pas, il faudra mettre dans votre programme final une fonction qui convertit l'angle $\theta$ en coordonnées cartésiennes $x$ et $y$ dans le plan du *canvas*. Faites également attention au système de coordonnées du *canvas* où les ordonnées sont inversées par rapport à un repère mathématique. Pour ces deux aspects, reportez-vous à l'exercice *Polygone de Sierpinski* du chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
