@@ -330,9 +330,14 @@ Il est également possible de définir le nombre de chiffres après la virgule. 
 6.022141e+23
 ```
 
+
 ## Exercices
 
-*Conseil* : utilisez l'interpréteur Python pour les exercices 2 à 5.
+open-box-adv
+
+Pour les exercices 2 à 6, utilisez l'interpréteur Python.
+
+close-box-adv
 
 
 ### Affichage dans l'interpréteur et dans un programme
