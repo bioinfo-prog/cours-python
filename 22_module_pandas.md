@@ -624,7 +624,7 @@ Pour cette rubrique, créons un *Dataframe* composé de nombres aléatoires comp
 import numpy as np
 import pandas as pd
 
-nb_rows = 50
+nb_rows = 1000
 df = pd.DataFrame(
     {
         "a": np.random.randint(100, 200, nb_rows),
@@ -641,7 +641,7 @@ df.shape
 ```
 
 ```text
-(50, 3)
+(1000, 3)
 ```
 
 ```python
@@ -657,14 +657,52 @@ df.head()
 4  129  184  153
 ```
 
-On souhaite maintenant créer une nouvelle colonne (`d`) qui sera le résultat de la multiplication des colonnes `a` et `b`, à laquelle on ajoute la colonne `c`.
+On souhaite maintenant créer une nouvelle colonne (`d`) qui sera le résultat de la multiplication des colonnes `a` et `b`, à laquelle on ajoute ensuite la colonne `c`.
 
-Une première manière de faire est procéder ligne par ligne. La méthode `.iterrows()` permet de parcourir les lignes d'un *Dataframe* et renvoie un tuple contenant l'indice de la ligne (sous la forme d'un entier) et la ligne elle-même (sous la forme d'une *Series*) :
+Une première manière de faire est de procéder ligne par ligne. La méthode `.iterrows()` permet de parcourir les lignes d'un *Dataframe* et renvoie un tuple contenant l'indice de la ligne (sous la forme d'un entier) et la ligne elle-même (sous la forme d'une *Series*) :
 
 ```python
 for idx, row in df.iterrows():
     df.at[idx, "d"] = (row["a"] * row["b"]) + row["c"]
 ```
+
+Ici la méthode `.at()` va ajouter une cellule à la ligne d'indice `idx` et de colonne `d`. Cette approche fonctionne mais est très lente. Pour évaluer le temps moyen pour réaliser ces opérations, on utilise la commande magique `%%timeit` abordée dans le chapitre 18 *Jupyter et ses notebooks* :
+
+```python
+%%timeit
+for idx, row in df.iterrows():
+    df.at[idx, "d"] = (row["a"] * row["b"]) + row["c"]
+```
+
+qui renvoie 
+
+```text
+52.4 ms ± 3.6 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+```
+
+Cette cellule de code s'exécute en moyenne en 2,99 ms.
+
+Une manière plus efficace est de réaliser les opérations directement entre les colonnes :
+
+```python
+%%timeit
+df["d"] = (df["a"] * df["b"]) + df["c"]
+```
+
+qui renvoie 
+
+```text
+250 µs ± 36.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+```
+
+Ici, la cellule de code s'exécute en moyenne en 250 µs, soit environ 200 fois ($52400/250$) plus rapidement qu'avec `.iterrows()`. Tout comme avec les *arrays* du chapitre 20 *Numpy*, les opérations vectorielles avec les *Dataframes* sont rapides et efficaces. Privilégiez toujours ce type d'approche.
+
+open-box-rem
+
+Dans l'exemple précédent, l'utilisation de commande magique `%%timeit` calcule le temps d'exécution moyen d'une cellule. Python détermine automatiquement le nombre d'itérations à réaliser pour que le calcul se fasse dans un temps raisonnable. Ainsi, pour la méthode `.iterrows()`, le calcul est réalisé 10 fois sur sept répétitions alors que pour les opérations vectorielles, le calcul est effectué 1000 fois sur sept répétitions.
+
+close-box-rem
+
 
 ## Un exemple plus concret avec les kinases
 
