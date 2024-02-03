@@ -632,7 +632,9 @@ close-box-adv
 
 Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, « coucou » est composable à partir de « uocuoceokzefhu ».
 
-Écrivez la fonction `test_composable()` qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères) et qui affiche `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) ou `Le mot xxx n'est pas composable à partir de yyy` sinon.
+Écrivez la fonction `est_composable()` qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères) et qui renvoie `True` si le mot est composable à partir de la séquence, sinon `False`.
+
+Dans le programme principal, créez une liste de tuples contenant les couples mot / séquence (de la forme `[('mot1', 'sequence1'), ...]`. Faites ensuite une boucle sur tous les couples mot / séquence, et à chaque itération appelez la fonction `est_composable()`. Affichez enfin `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) ou `Le mot xxx n'est pas composable à partir de yyy` sinon.
 
 Testez cette fonction avec les mots et les séquences suivantes :
 
