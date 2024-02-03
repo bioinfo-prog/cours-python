@@ -795,7 +795,7 @@ de la protéine et sa masse moléculaire (*MW*).
 | 1DOT   | Anas platyrhynchos    | 1995-08-03   | 686    | 75731.80 |
 | [...]  | [...]                 | [...]        | [...]  | [...]    |
 
-Voici maintenant l'équivalent en [CSV](https://python.sdv.univ-paris-diderot.fr/data-files/transferrin_report.csv) :
+Voici maintenant l'équivalent en [CSV](https://python.sdv.u-paris.fr/data-files/transferrin_report.csv) :
 
 ```text
 PDB ID,Source,Deposit Date,Length,MW
@@ -814,7 +814,7 @@ Sur chaque ligne, les différentes valeurs sont séparées par une virgule.
 La première ligne contient le nom des colonnes et est appelée ligne d'en-tête.
 
 
-L'équivalent en [TSV](https://python.sdv.univ-paris-diderot.fr/data-files/transferrin_report.tsv) est :
+L'équivalent en [TSV](https://python.sdv.u-paris.fr/data-files/transferrin_report.tsv) est :
 
 ```text
 PDB ID	Source	Deposit Date	Length	MW
