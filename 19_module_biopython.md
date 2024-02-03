@@ -23,6 +23,21 @@ Les résultats seront affichés de cette manière,
 éventuellement sur plusieurs lignes.
 ```
 
+## Chargement du module
+
+On charge le module *Biopython* avec la commande :
+
+```python
+import Bio
+```
+
+open-box-warn
+
+Le nom du module *Biopython* n'est pas `biopython` mais `Bio` (avec un *B* majuscule).
+
+open-box-warn
+
+
 ## Manipulation de séquences
 
 Voici quelques exemples de manipulation de séquences avec *Biopython*.
@@ -73,9 +88,13 @@ ADN.translate()
 Seq('ISAIAC')
 ```
 
+open-box-adv
+
 Dans l'annexe A *Quelques formats de données en biologie*, vous
 trouverez de nombreux exemples d'utilisation de *Biopython* pour manipuler
 des données aux formats FASTA, GenBank et PDB.
+
+close-box-adv
 
 
 ## Interrogation de la base de données PubMed

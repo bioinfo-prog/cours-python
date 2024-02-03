@@ -2,7 +2,8 @@
 
 Le module [*matplotlib*](https://matplotlib.org/) permet de générer des graphiques depuis Python. Il est l'outil complémentaire des modules *NumPy*, *scipy* ou *pandas* (que l'on verra juste après) lorsqu'on veut faire de l'analyse de données.
 
-## Installation
+
+## Installation et convention
 
 Le module *matplotlib* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez l'installer avec la commande :
 
@@ -17,8 +18,22 @@ Les cellules de code apparaitront de cette manière
 dans un notebook Jupyter, avec des numéros de lignes à gauche.
 ```
 
+## Chargement du module
 
-## Représentation sous forme de points
+On charge le module *matplotlib* avec la commande :
+
+```python
+import matplotlib.pyplot as plt
+```
+
+open-box-rem
+
+On n'utilise pas le module *matplotlib* directement, mais plutôt son sous-module `pyplot` auquel on donne l'alias `plt` pour l'utiliser plus rapidement.
+
+close-box-rem
+
+
+## Représentation en nuage de points
 
 Dans cet exemple, nous considérons l'évolution de la concentration d'un produit dans le sang (exprimé en mg/L) en fonction du temps (exprimé en heure).
 
@@ -65,7 +80,7 @@ Revenons maintenant sur le code :
 - Ligne 11. L'instruction `plt.show()` affiche le graphique. Elle n'est pas nécessaire dans un notebook Jupyter car le graphique est affiché automatiquement, mais elle est indispensable dans un script Python.
 
 
-### Représentation sous forme de courbe
+## Représentation sous forme de courbe
 
 On sait par ailleurs que l'évolution de la concentration du produit en fonction du temps peut-être modélisée par la fonction $f(x) = 2 + 3 \times x$.
 
@@ -153,7 +168,7 @@ Les différences notables par rapport au code précédent sont :
 - Lignes 22. On affiche la légende avec la méthode `.legend()`. L'argument `loc` permet de préciser la position de la légende dans le graphique. Dans notre exemple, la légende est placée en haut à gauche (`"upper left"`). 
 
 
-### Représentation sous forme de diagramme en bâtons
+## Représentation en diagramme en bâtons
 
 On souhaite maintenant représenter graphiquement la distribution des différentes bases dans une séquence d'ADN.
 
