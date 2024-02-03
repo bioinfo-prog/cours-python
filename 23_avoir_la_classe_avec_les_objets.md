@@ -27,7 +27,7 @@ Nous allons voir dans cette rubrique comment définir une classe en reprenant no
 
 ### La classe minimale
 
-En Python, le mot-clé `class` permet de créer sa propre classe, suivi du nom de cette classe. On se souvient, un nom de classe commence toujours par une majuscule (voir le chapitre 15 *Bonnes pratiques en programmation Python*). Comme d'habitude, cette ligne attend un bloc d'instructions indenté définissant le corps de la classe. Voyons un exemple simple dans l'interpréteur :
+En Python, le mot-clé `class` permet de créer sa propre classe, suivi du nom de cette classe. On se souvient, un nom de classe commence toujours par une majuscule (voir le chapitre 16 *Bonnes pratiques en programmation Python*). Comme d'habitude, cette ligne attend un bloc d'instructions indenté définissant le corps de la classe. Voyons un exemple simple dans l'interpréteur :
 
 ```python
 >>> class Citron:
@@ -234,7 +234,7 @@ Pour les débutants, vous pouvez sauter cette remarque. Certains auteurs préfè
 
 close-box-rem
 
-Pour bien comprendre comment cela fonctionne, nous allons suivre un exemple simple avec le site [*Python Tutor*](http://www.pythontutor.com) (déjà utilisé dans les chapitres 9 et 12 sur les fonctions). N'hésitez pas à copier/coller ce code dans *Python Tutor* pour le tester vous-même :
+Pour bien comprendre comment cela fonctionne, nous allons suivre un exemple simple avec le site [*Python Tutor*](http://www.pythontutor.com) (déjà utilisé dans les chapitres 10 et 13 sur les fonctions). N'hésitez pas à copier/coller ce code dans *Python Tutor* pour le tester vous-même :
 
 ```python
 class Citron:
@@ -272,7 +272,7 @@ close-box-adv
 
 ### Passage d'argument(s) à l'instanciation
 
-Lors de l'instanciation, il est possible de passer des arguments au constructeur. Comme pour les fonctions, on peut passer des arguments positionnels ou par mot-clé et en créer autant que l'on veut (voir chapitre 9 *Fonctions*). Voici un exemple :
+Lors de l'instanciation, il est possible de passer des arguments au constructeur. Comme pour les fonctions, on peut passer des arguments positionnels ou par mot-clé et en créer autant que l'on veut (voir chapitre 10 *Fonctions*). Voici un exemple :
 
 ```python
 class Citron:
@@ -353,7 +353,7 @@ Ligne 2. La méthode `.affiche_attributs()` montre que le `self` est bien une r�
 
 Ligne 3. La méthode `.affiche_attributs()` affiche l'attribut `.couleur` qui avait été créé précédemment dans le constructeur. Vous voyez ici l'intérêt principal de l'argument `self` passé en premier à chaque méthode d'une classe : il « accroche » n'importe quel attribut qui sera visible partout dans la classe, y compris dans une méthode où il n'a pas été défini.
 
-Lignes 4 à 9. La création de la variable `var` dans la méthode `.__init__()` sans l'accrocher à l'objet `self` fait qu'elle n'est plus accessible en dehors de `.__init__()`. C'est exactement comme pour les fonctions classiques, `var` est finalement une variable locale au sein de la méthode `.__init__()` et n'est plus visible lorsque l'exécution de cette dernière est terminée (cf. chapitres 9 et 12 sur les fonctions). Ainsi, Python renvoie une erreur car `var` n'existe pas lorsque `.affiche_attributs()` est en exécution.
+Lignes 4 à 9. La création de la variable `var` dans la méthode `.__init__()` sans l'accrocher à l'objet `self` fait qu'elle n'est plus accessible en dehors de `.__init__()`. C'est exactement comme pour les fonctions classiques, `var` est finalement une variable locale au sein de la méthode `.__init__()` et n'est plus visible lorsque l'exécution de cette dernière est terminée (voir les chapitres 10 et 13 sur les fonctions). Ainsi, Python renvoie une erreur car `var` n'existe pas lorsque `.affiche_attributs()` est en exécution.
 
 En résumé, le `self` est nécessaire lorsqu'on a besoin d'accéder à différents attributs dans les différentes méthodes d'une classe. Le `self` est également nécessaire pour appeler une méthode de la classe depuis une autre méthode :
 
@@ -382,19 +382,29 @@ Testez les deux pour voir ! Dans cette dernière instruction, on appelle la mét
 
 close-box-warn
 
-*Conseil* : c'est la première notation `citron1.affiche_attributs()` (ou plus généralement `instance.méthode()`), plus compacte, qui sera toujours utilisée.
+open-box-adv
+
+C'est la première notation `citron1.affiche_attributs()` (ou plus généralement `instance.méthode()`), plus compacte, qui sera toujours utilisée.
+
+close-box-adv
 
 Ligne 11. On crée l'instance `citron1` en lui passant l'argument `"jaune pâle"`. La variable d'instance `couleur` prendra ainsi cette valeur au lieu de celle par défaut (`"jaune"`). À noter, l'instanciation affichera le message `Le citron c'est trop bon !` puisque la méthode `.affiche_attributs()` est appelée dans le constructeur `.__init__()`.
 
 Afin de bien comprendre les différentes étapes des codes de cette rubrique, nous vous conseillons de les retester de votre côté dans *Python Tutor*.
 
+
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
+
 
 ### Classe `Rectangle`
 
-Téléchargez le script [`rectangle.py`](https://python.sdv.univ-paris-diderot.fr/data-files/rectangle.py) qui implémente la classe `Rectangle`.
+Téléchargez le script [`rectangle.py`](https://python.sdv.u-paris.fr/data-files/rectangle.py) qui implémente la classe `Rectangle`.
 
 Complétez le programme principal pour que le script :
 
