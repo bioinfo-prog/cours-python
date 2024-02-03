@@ -370,8 +370,11 @@ Par rapport à la discussion de la rubrique précédente, `min()` et `max()` son
 
 ## Exercices
 
-*Conseil* : utilisez l'interpréteur Python pour les exercices suivants.
+open-box-adv
 
+Pour ces exercices, utilisez l'interpréteur Python.
+
+close-box-adv
 
 ### Nombres de Friedman
 
