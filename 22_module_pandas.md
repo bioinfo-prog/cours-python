@@ -336,7 +336,7 @@ open-box-warn
 
 On trouve parfois l'écriture `df.Lyon` pour sélectionner une colonne. C'est une très mauvaise pratique car cette écriture peut être confondue avec un attribut de l'objet `df` (par exemple `.shape`). Par ailleurs, elle ne fonctionne pas pour des noms de colonnes qui contiennent des espaces ou des caractères spéciaux (ce qui n'est pas non plus une bonne pratique).
 
-Nous vous conseillons de toujours utiliser la notation `df[nom_de_colonne]`.
+Nous vous conseillons de toujours utiliser la notation `df["nom_de_colonne"]`.
 
 close-box-warn
 
@@ -637,10 +637,6 @@ Avant de nous lancer dans l'analyse de ce fichier, nous vous proposons cette pet
 La réponse sera donnée à la fin de ce chapitre.
 
 close-box-rem
-
-
-Voyons maintenant comment explorer les données contenues
-dans ce fichier avec *pandas*.
 
 
 ### Prise de contact avec le jeu de données
