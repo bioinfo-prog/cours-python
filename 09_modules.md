@@ -24,7 +24,7 @@ Regardons de plus près cet exemple :
 - Ligne 1, l'instruction `import` donne accès à toutes les fonctions du module [*random*](https://docs.python.org/fr/3/library/random.html#module-random).
 - Ensuite, ligne 2, nous utilisons la fonction `randint(0, 10)` du module *random*. Cette fonction renvoie un nombre entier tiré aléatoirement entre `0` inclus et `10` inclus.
 
-Nous avons également croisé le module *math* lors de l'exercice sur la spirale (voir chapitre 7 *Fichiers*). Ce module nous a donné accès aux fonctions trigonométriques sinus et cosinus, et à la constante $\pi$ :
+Nous avons également croisé le module *math* lors de l'exercice sur la spirale (voir le chapitre 7 *Fichiers*). Ce module nous a donné accès aux fonctions trigonométriques sinus et cosinus, et à la constante $\pi$ :
 
 ```python
 >>> import math
@@ -217,14 +217,14 @@ Il existe une série de modules que vous serez probablement amenés à utiliser 
 - [*random*](https://docs.python.org/fr/3/library/random.html#module-random) : génération de nombres aléatoires.
 - [*time*](https://docs.python.org/fr/3/library/time.html#module-time) : accès à l'heure de l'ordinateur et aux fonctions gérant le temps.
 - [*urllib*](https://docs.python.org/fr/3/library/urllib.html#module-urllib) : récupération de données sur internet depuis Python.
-- [*Tkinter*](https://docs.python.org/fr/3/library/tkinter.html#module-tkinter) : interface python avec Tk. Création d'objets graphiques (cf. chapitre 20 *Fenêtres graphiques et Tkinter*).
-- [*re*](https://docs.python.org/fr/3/library/re.html#module-re) : gestion des expressions régulières (cf. chapitre 16 *Expressions régulières et *parsing*).
+- [*Tkinter*](https://docs.python.org/fr/3/library/tkinter.html#module-tkinter) : interface python avec Tk. Création d'objets graphiques (voir chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne)).
+- [*re*](https://docs.python.org/fr/3/library/re.html#module-re) : gestion des expressions régulières (voir chapitre 17 *Expressions régulières et *parsing*).
 
 Nous vous conseillons d'aller explorer les pages de ces modules pour découvrir toutes leurs potentialités.
 
-Vous verrez dans le chapitre 15 *Création de module* comment créer votre propre module lorsque vous souhaitez réutiliser souvent vos propres fonctions.
+Vous verrez dans le chapitre 15 *Création de modules* comment créer votre propre module lorsque vous souhaitez réutiliser souvent vos propres fonctions.
 
-Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Par exemple : *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données), etc. Ces modules vous serons présentés dans les chapitres 19 à 22.
+Enfin, notez qu'il existe de nombreux autres modules externes qui ne sont pas installés de base dans Python mais qui sont très utilisés en bioinformatique et en analyse de données. Par exemple : *NumPy* (manipulations de vecteurs et de matrices, algèbre linéaire), *Biopython* (recherche dans les banques de données biologiques, manipulation de séquences ou de structures de biomolécules), *matplotlib* (représentations graphiques : courbes, nuages de points, diagrammes en bâtons...), *pandas* (analyse de données tabulées), etc. Ces modules vous serons présentés dans les chapitres 19 à 22.
 
 
 ## Module *random* : génération de nombres aléatoires
@@ -530,7 +530,11 @@ Il existe de nombreuse autres méthodes associées à la classe `Path` du module
 
 ## Exercices
 
-*Conseils* : pour les trois premiers exercices, utilisez l'interpréteur Python. Pour les exercices suivants, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour les trois premiers exercices, utilisez l'interpréteur Python. Pour les exercices suivants, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
 
 
 ### Racine carrée
@@ -545,22 +549,16 @@ Affichez sur la même ligne les nombres de 10 à 20 (inclus) ainsi que leur raci
 [...]
 ```
 
-Documentation de la fonction `math.sqrt()` :
-
-<https://docs.python.org/fr/3/library/math.html#math.sqrt>
+Consultez pour cela la [documentation](https://docs.python.org/fr/3/library/math.html#math.sqrt) de la fonction `math.sqrt()`.
 
 
 ### Cosinus
 
 Calculez le cosinus de $\pi/2$ en utilisant le module *math* avec la fonction `cos()` et la constante `pi`.
 
-Documentation de la fonction `math.cos()` :
-
-<https://docs.python.org/fr/3/library/math.html#math.cos>
-
-Documentation de la constante `math.pi` :
-
-<https://docs.python.org/fr/3/library/math.html#math.pi>
+Consultez pour cela la
+[documentation](https://docs.python.org/fr/3/library/math.html#math.cos) de la fonction `math.cos()`
+et la [documentation](https://docs.python.org/fr/3/library/math.html#math.pi) de la constante `math.pi`.
 
 
 ### Comparaison de *floats*
@@ -596,18 +594,14 @@ Déterminez également le nombre total de fichiers et de répertoires présents 
 
 Affichez les nombres de 1 à 10 avec 1 seconde d'intervalle. Utilisez pour cela le module *time* et sa fonction `sleep()`.
 
-Documentation de la fonction `time.sleep()` :
-
-<https://docs.python.org/fr/3/library/time.html#time.sleep>
+Consultez pour cela la [documentation](https://docs.python.org/fr/3/library/time.html#time.sleep) de la fonction `time.sleep()`.
 
 
 ### Séquences aléatoires de chiffres
 
 Générez une séquence aléatoire de six chiffres, ceux-ci étant des entiers tirés entre 1 et 4. Utilisez le module *random* avec la fonction `randint()`.
 
-Documentation de la fonction `random.randint()` :
-
-<https://docs.python.org/fr/3/library/random.html#random.randint>
+Consultez pour cela la [documentation](https://docs.python.org/fr/3/library/random.html#random.randint) de la fonction `random.randint()`.
 
 
 ### Séquences aléatoires d'ADN
@@ -621,8 +615,12 @@ Créez un script `dna_random.py` qui prend comme argument un nombre de bases, co
 
 Le script devra vérifier qu'un argument est bien fourni et renvoyer un message d'erreur si ce n'est pas le cas.
 
-*Conseil* : pour générer la séquence d'ADN, vous utiliserez la fonction `random.choice()` abordée
+open-box-adv
+
+Pour générer la séquence d'ADN, utilisez la fonction `random.choice()` abordée
 dans l'exercice précédent.
+
+close-box-adv
 
 
 ### Compteur de lignes
@@ -680,6 +678,4 @@ $$
 d = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}
 $$
 
-Documentation de la fonction `random.uniform()` :
-
-<https://docs.python.org/fr/3/library/random.html#random.uniform>
+Pour vous aider, consultez la [documentation](https://docs.python.org/fr/3/library/random.html#random.uniform) de la fonction `random.uniform()`.
