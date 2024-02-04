@@ -616,14 +616,103 @@ souris    17     20       9          10
 Un autre comportement par défaut de `concat()` est que cette fonction va combiner les *dataframes* en se basant sur leurs index. Il est néanmoins possible de préciser, pour chaque *dataframe*, le nom de la colonne qui sera utilisée comme référence avec l'argument `join_axes`.
 
 
+### Opérations vectorielles
+
+Pour cette rubrique, créons un *Dataframe* composé de nombres aléatoires compris entre 100 et 200 répartis en trois colonnes (`a`, `b` et `c`) et 1000 lignes :
+
+```python
+import numpy as np
+import pandas as pd
+
+nb_rows = 1000
+df = pd.DataFrame(
+    {
+        "a": np.random.randint(100, 200, nb_rows),
+        "b": np.random.randint(100, 200, nb_rows),
+        "c": np.random.randint(100, 200, nb_rows),
+    }
+)
+```
+
+Vérifions que ce *Dataframe* a bien les propriétés attendues :
+
+```python
+df.shape
+```
+
+```text
+(1000, 3)
+```
+
+```python
+df.head()
+```
+
+```text
+     a    b    c
+0  105  156  122
+1  116  135  138
+2  125  190  113
+3  196  175  179
+4  129  184  153
+```
+
+On souhaite maintenant créer une nouvelle colonne (`d`) qui sera le résultat de la multiplication des colonnes `a` et `b`, à laquelle on ajoute ensuite la colonne `c`.
+
+Une première manière de faire est de procéder ligne par ligne. La méthode `.iterrows()` permet de parcourir les lignes d'un *Dataframe* et renvoie un tuple contenant l'indice de la ligne (sous la forme d'un entier) et la ligne elle-même (sous la forme d'une *Series*) :
+
+```python
+for idx, row in df.iterrows():
+    df.at[idx, "d"] = (row["a"] * row["b"]) + row["c"]
+```
+
+Ici, la méthode `.at()` ajoute une cellule à la ligne d'indice `idx` et de colonne `d`. Cette méthode est plus efficace que la méthode `.loc()` pour ajouter une cellule à un *Dataframe*.
+
+L'approche précente produit le résultat attendu, mais elle n'est pas optimale car très lente. Pour évaluer le temps moyen pour réaliser ces opérations, on utilise la commande magique `%%timeit` abordée dans le chapitre 18 *Jupyter et ses notebooks* :
+
+```python
+%%timeit
+for idx, row in df.iterrows():
+    df.at[idx, "d"] = (row["a"] * row["b"]) + row["c"]
+```
+
+qui renvoie :
+
+```text
+52.4 ms ± 3.6 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+```
+
+Cette cellule de code s'exécute en moyenne en 52,4 ms.
+
+Une autre approche, plus efficace, consiste à réaliser les opérations directement sur les colonnes (et non plus ligne par ligne) :
+
+```python
+%%timeit
+df["d"] = (df["a"] * df["b"]) + df["c"]
+```
+
+qui renvoie 
+
+```text
+250 µs ± 36.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+```
+
+Ici, la cellule de code s'exécute en moyenne en 250 µs, soit environ 200 fois ($52400/250$) plus rapidement qu'avec `.iterrows()`. Tout comme avec les *arrays* du chapitre 20 *Numpy*, les opérations vectorielles avec les *Dataframes* sont rapides et efficaces. Privilégiez toujours ce type d'approche avec les *arrays* de *NumPy* ou les *Series* et *Dataframes* de *pandas*.
+
+open-box-rem
+
+Dans l'exemple précédent, l'utilisation de commande magique `%%timeit` calcule le temps d'exécution moyen d'une cellule. Python détermine automatiquement le nombre d'itérations à réaliser pour que le calcul se fasse dans un temps raisonnable. Ainsi, pour la méthode `.iterrows()`, le calcul est réalisé 10 fois sur sept répétitions alors que pour les opérations vectorielles, le calcul est effectué 1000 fois sur sept répétitions.
+
+close-box-rem
+
+
 ## Un exemple plus concret avec les kinases
 
-Pour illustrer les possibilités de *pandas*, voici un exemple plus concret.
+Pour illustrer les possibilités de *pandas*, voici un exemple plus concret sur un jeu de données de [kinases](https://fr.wikipedia.org/wiki/Kinase). Les kinases sont des protéines responsables de la phosphorylation d'autres protéines.
 
 Le fichier `kinases.csv` que vous pouvez télécharger
 [ici](https://python.sdv.u-paris.fr/data-files/kinases.csv)
-contient des informations tirées de la base de données de séquences UniProt pour quelques protéines de la famille des [kinases](https://fr.wikipedia.org/wiki/Kinase).
-Ces protéines sont responsables de la phosphorylation d'autres protéines.
+contient des informations tirées de la base de données de séquences UniProt pour quelques kinases.
 
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
 de consulter l'annexe A *Quelques formats de données en biologie*.
