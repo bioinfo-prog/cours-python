@@ -581,7 +581,7 @@ tant qu'on n'arrête pas le pendule:
 
 Nous allons maintenant construire l'application *tkinter* en vous guidant pas à pas. Il est bien sûr conseillé de relire le chapitre 25 sur *Fenêtres graphiques et Tkinter* (en ligne) avant de vous lancer dans cette partie.
 
-Comme expliqué largement dans les chapitres 23 *Avoir la classe avec les objets* et 24 *Avoir plus la classe avec les objets*, nous allons construire l'application avec une classe. Le programme principal sera donc très allégé et se contentera d'instancier l'application, puis de lancer le gestionnaire d'événements :
+Comme expliqué largement dans les chapitres 23 *Avoir la classe avec les objets* et 24 *Avoir plus la classe avec les objets* (en ligne), nous allons construire l'application avec une classe. Le programme principal sera donc très allégé et se contentera d'instancier l'application, puis de lancer le gestionnaire d'événements :
 
 ```python
 if __name__ == "__main__":

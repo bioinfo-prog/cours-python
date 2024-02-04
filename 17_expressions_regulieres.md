@@ -374,7 +374,7 @@ Créez un script `regex_genbank.py` :
 open-box-adv
 
 - Utilisez des *regex* pour trouver les lignes demandées.
-- Des explications sur le format GenBank et des exemples de code sont fournis dans l'annexe A *Quelques formats de données en biologie*.
+- Des explications sur le format GenBank et des exemples de code sont fournies dans l'annexe A *Quelques formats de données en biologie*.
 
 close-box-adv
 
