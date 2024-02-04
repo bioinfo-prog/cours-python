@@ -638,6 +638,24 @@ Trouvez le nombre mystère qui répond aux conditions suivantes :
 
 On vous propose d'employer une méthode dite « *brute force* », c'est-à-dire d'utiliser une boucle et à chaque itération de tester les différentes conditions.
 
+### Codes 1 et 3 lettres des acides aminés
+
+On donne les deux listes suivantes décrivant quelques acides aminés en code une et trois lettres :
+
+```python
+code_1_lettre = ["A", "V", "L", "M", "P"]
+code_3_lettres = ["Ala", "Val", "Leu", "Met", "Pro"]
+```
+
+Avec la fonction `zip()` et une boucle, générez la sortie suivante :
+
+```text
+L'acide aminé se note A ou Ala
+L'acide aminé se note V ou Val
+L'acide aminé se note L ou Leu
+L'acide aminé se note M ou Met
+L'acide aminé se note P ou Pro
+```
 
 ### Triangle de Pascal (exercice +++)
 
