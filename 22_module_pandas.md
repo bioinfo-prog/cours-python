@@ -666,7 +666,9 @@ for idx, row in df.iterrows():
     df.at[idx, "d"] = (row["a"] * row["b"]) + row["c"]
 ```
 
-Ici la méthode `.at()` va ajouter une cellule à la ligne d'indice `idx` et de colonne `d`. Cette approche fonctionne mais est très lente. Pour évaluer le temps moyen pour réaliser ces opérations, on utilise la commande magique `%%timeit` abordée dans le chapitre 18 *Jupyter et ses notebooks* :
+Ici, la méthode `.at()` ajoute une cellule à la ligne d'indice `idx` et de colonne `d`. Cette méthode est plus efficace que la méthode `.loc()` pour ajouter une cellule à un *Dataframe*.
+
+L'approche précente produit le résultat attendu, mais elle n'est pas optimale car très lente. Pour évaluer le temps moyen pour réaliser ces opérations, on utilise la commande magique `%%timeit` abordée dans le chapitre 18 *Jupyter et ses notebooks* :
 
 ```python
 %%timeit
@@ -674,15 +676,15 @@ for idx, row in df.iterrows():
     df.at[idx, "d"] = (row["a"] * row["b"]) + row["c"]
 ```
 
-qui renvoie 
+qui renvoie :
 
 ```text
 52.4 ms ± 3.6 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
 
-Cette cellule de code s'exécute en moyenne en 2,99 ms.
+Cette cellule de code s'exécute en moyenne en 52,4 ms.
 
-Une manière plus efficace est de réaliser les opérations directement entre les colonnes :
+Une autre approche, plus efficace, consiste à réaliser les opérations directement sur les colonnes (et non plus ligne par ligne) :
 
 ```python
 %%timeit
@@ -706,12 +708,11 @@ close-box-rem
 
 ## Un exemple plus concret avec les kinases
 
-Pour illustrer les possibilités de *pandas*, voici un exemple plus concret.
+Pour illustrer les possibilités de *pandas*, voici un exemple plus concret sur un jeu de données de [kinases](https://fr.wikipedia.org/wiki/Kinase). Les kinases sont des protéines responsables de la phosphorylation d'autres protéines.
 
 Le fichier `kinases.csv` que vous pouvez télécharger
 [ici](https://python.sdv.u-paris.fr/data-files/kinases.csv)
-contient des informations tirées de la base de données de séquences UniProt pour quelques protéines de la famille des [kinases](https://fr.wikipedia.org/wiki/Kinase).
-Ces protéines sont responsables de la phosphorylation d'autres protéines.
+contient des informations tirées de la base de données de séquences UniProt pour quelques kinases.
 
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
 de consulter l'annexe A *Quelques formats de données en biologie*.
