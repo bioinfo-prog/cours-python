@@ -309,11 +309,42 @@ Traceback (most recent call last):
 ValueError: dictionary update sequence element #1 has length 3; 2 is required
 ```
 
-De manière plus intuitive, il est possible d'utiliser simplement des arguments par mot-clés qui deviendront des clés sous forme de chaîne de caractères :
+open-box-warn
+
+Une manière intuitive utilise simplement des arguments par mot-clés qui deviendront des clés sous forme de chaîne de caractères :
 
 ```python
 >>> dict(un=1, deux=2, trois=3)
 {'un': 1, 'deux': 2, 'trois': 3}
+```
+
+Nous vous déconseillons toutefois cette manière de faire car on ne peut pas mettre d'arguments par mot-clé variables, on doit les écrire en dur.
+
+close-box-warn
+
+Une dernière manière puissante pour générer des dictionnaires combine les fonctions `dict()` et `zip()`. On se souvient que la fonction `zip()` permettait de générer une liste de tuples.
+
+```python
+>>> animaux = ["poulain", "renard", "python"]
+>>> couleurs = ["alezan", "roux", "vert"]
+>>> list(zip(animaux, couleurs))
+[('poulain', 'alezan'), ('renard', 'roux'), ('python', 'vert')]
+```
+
+Si on utilise l'objet *zip* avec la fonction `dict()`, on obtient un dictionnaire.
+
+```python
+>>> dict(zip(animaux, couleurs))
+{'poulain': 'alezan', 'renard': 'roux', 'python': 'vert'}
+```
+
+Attention de ne passer que deux liste à la fonction `zip()`, sinon Python renvoie une erreur :
+
+```python
+>>> dict(zip([1, 2, 3], animaux, couleurs))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: dictionary update sequence element #0 has length 3; 2 is required
 ```
 
 ## Plus sur les tuples
@@ -877,6 +908,9 @@ Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 close-box-adv
 
+### Séquence peptidique et dictionnaire
+
+Les numéros d'acides aminés commencent rarement à 1 dans les fichiers PDB. Créez un dictionnaire où chaque clé est un numéro de résidu de 3 à 9, et chaque valeur est un acide aminé de la séquence peptidique `SEQPEPT`. Utilisez pour cela les fonctions `dict()` et `zip()`. 
 
 ### Composition en acides aminés
 
