@@ -697,7 +697,7 @@ qui renvoie
 250 µs ± 36.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 ```
 
-Ici, la cellule de code s'exécute en moyenne en 250 µs, soit environ 200 fois ($52400/250$) plus rapidement qu'avec `.iterrows()`. Tout comme avec les *arrays* du chapitre 20 *Numpy*, les opérations vectorielles avec les *Dataframes* sont rapides et efficaces. Privilégiez toujours ce type d'approche.
+Ici, la cellule de code s'exécute en moyenne en 250 µs, soit environ 200 fois ($52400/250$) plus rapidement qu'avec `.iterrows()`. Tout comme avec les *arrays* du chapitre 20 *Numpy*, les opérations vectorielles avec les *Dataframes* sont rapides et efficaces. Privilégiez toujours ce type d'approche avec les *arrays* de *NumPy* ou les *Series* et *Dataframes* de *pandas*.
 
 open-box-rem
 
