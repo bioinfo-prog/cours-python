@@ -2,32 +2,32 @@
 
 ## Pourquoi créer ses propres modules ?
 
-Dans le chapitre 9 *Modules*, nous avons découvert quelques modules existants dans Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions* que les fonctions sont utiles pour réutiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer ce code. On peut imaginer qu'une fonction utile pourrait être judicieusement réutilisée dans un autre programme Python. C'est justement l'intérêt de créer un module. On y met un ensemble de fonctions que l'on peut être amené à utiliser souvent. En général, les modules sont regroupés autour d'un thème précis. Par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
+Dans le chapitre 9 *Modules*, nous avons découvert quelques modules existants dans Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions* que les fonctions sont utiles pour réutiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer ce code. On peut imaginer qu'une fonction utile pourrait être judicieusement réutilisée dans un autre programme Python. C'est justement l'intérêt de créer un module. On y regroupe un ensemble de fonctions que l'on peut être amené à utiliser souvent. En général, les modules sont regroupés autour d'un thème précis. Par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
 
 
 ## Création d'un module
 
-En Python, la création d'un module est très simple. Il suffit d'écrire un ensemble de fonctions (et/ou de constantes) dans un fichier, puis d'enregistrer ce dernier avec une extension `.py` (comme n'importe quel script Python). À titre d'exemple, nous allons créer un module simple que nous enregistrerons sous le nom `message.py` :
+En Python, la création d'un module est très simple. Il suffit d'écrire un ensemble de fonctions (et éventuellement de constantes) dans un fichier, puis d'enregistrer ce dernier avec une extension `.py` (comme n'importe quel script Python). À titre d'exemple, nous allons créer un module simple que nous enregistrerons sous le nom `message.py` :
 
 ```python
-"""Module inutile qui affiche des messages :-)."""
+"""Module inutile qui affiche des messages."""
 
-DATE = 16092008
+DATE = "2024-01-05"
 
 
 def bonjour(nom):
     """Dit Bonjour."""
-    return "Bonjour " + nom
+    return f"Bonjour {nom}"
 
 
 def ciao(nom):
     """Dit Ciao."""
-    return "Ciao " + nom
+    return f"Ciao {nom}"
 
 
 def hello(nom):
     """Dit Hello."""
-    return "Hello " + nom
+    return f"Hello {nom}"
 ```
 
 Les chaînes de caractères entre triple guillemets en tête du module et en tête de chaque fonction sont facultatives mais elles jouent néanmoins un rôle essentiel dans la documentation du code.
@@ -69,27 +69,30 @@ Le chargement du module se fait avec la commande `import message`. Notez que le 
 >>> message.bonjour("Monsieur")
 'Bonjour Monsieur'
 >>> message.DATE
-16092008
+'2024-01-05'
 ```
 
 open-box-rem
 
-La première fois qu'un module est importé, Python crée un répertoire nommé `__pycache__` contenant un fichier avec une extension `.pyc` qui contient le [bytecode](https://docs.python.org/fr/3/glossary.html), c'est-à-dire le code précompilé du module.
+La première fois qu'un module est importé, Python crée un répertoire nommé `__pycache__` contenant un fichier avec une extension `.pyc` qui contient le [bytecode](https://docs.python.org/fr/3/glossary.html#term-bytecode), c'est-à-dire le code précompilé du module.
 
 close-box-rem
 
 
 ## Les *docstrings*
 
-Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères entre triple guillemets situées en début du module et de chaque fonction sont là pour cela, on les appelle *docstrings* (« chaînes de documentation » en français). Ces *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
+Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères entre triple guillemets situées en début du module et de chaque fonction sont là pour cela, on les appelle *docstrings* (« chaînes de documentation » en français). Les *docstrings* seront détaillées dans le chapitre 16 *Bonnes pratiques en programmation Python*.
+
+Les *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
 
 ```python
+>>> import message
 >>> help(message)
 
 Help on module message:
 
 NAME
-    message - Module inutile qui affiche des messages :-).
+    message - Module inutile qui affiche des messages.
 
 FUNCTIONS
     bonjour(nom)
@@ -102,7 +105,7 @@ FUNCTIONS
         Dit Hello.
 
 DATA
-    DATE = 16092008
+    DATE = '2024-01-05'
 
 FILE
     /home/pierre/message.py
@@ -154,7 +157,7 @@ $ python message.py
 $
 ```
 
-Cela s'explique par l'absence de programme principal, c'est-à-dire, de lignes de code que l'interpréteur exécute lorsqu'on lance le script.
+Cela s'explique par l'absence de programme principal, c'est-à-dire de lignes de code que l'interpréteur exécute lorsqu'on lance le script.
 
 À l'inverse, que se passe-t-il alors si on importe un script en tant que module alors qu'il contient un programme principal avec des lignes de code ? Prenons par exemple le script `message2.py` suivant :
 
@@ -164,7 +167,7 @@ Cela s'explique par l'absence de programme principal, c'est-à-dire, de lignes d
 
 def bonjour(nom):
     """Dit Bonjour."""
-    return "Bonjour " + nom
+    return f"Bonjour {nom}"
 
 
 # programme principal
@@ -178,7 +181,7 @@ Si on l'importe dans l'interpréteur, on obtient :
 Bonjour Joe
 ```
 
-Ceci n'est pas le comportement voulu pour un module car on n'attend pas d'affichage particulier (par exemple la commande `import math` n'affiche rien dans l'interpréteur).
+Ceci n'est pas le comportement voulu pour un module car on n'attend pas d'affichage particulier lors de son chargement. Par exemple la commande `import math` n'affiche rien dans l'interpréteur.
 
 Afin de pouvoir utiliser un code Python en tant que module ou en tant que script, nous vous conseillons la structure suivante :
 
@@ -188,7 +191,7 @@ Afin de pouvoir utiliser un code Python en tant que module ou en tant que script
 
 def bonjour(nom):
     """Dit Bonjour."""
-    return "Bonjour " + nom
+    return f"Bonjour {nom}"
 
 
 if __name__ == "__main__":
@@ -199,21 +202,28 @@ if __name__ == "__main__":
 
 - Si le programme `message2.py` est exécuté en tant que script dans un *shell*, le résultat du test `if` sera alors `True` et le bloc d'instructions correspondant (ligne 10) sera exécuté :
 
-```bash
-$ python message2.py
-Bonjour Joe
-```
+    ```bash
+    $ python message2.py
+    Bonjour Joe
+    ```
 
 - Si le programme `message2.py` est importé en tant que module, le résultat du test `if` sera alors `False` et le bloc d'instructions correspondant ne sera pas exécuté :
 
-```python
->>> import message2
->>>
-```
+    ```python
+    >>> import message2
+    >>>
+    ```
 
-À nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 24 *Avoir plus la classe avec les objets* (en ligne)).
+À nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus de détail, consultez le chapitre 24 *Avoir plus la classe avec les objets* (en ligne)). Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de signaler clairement où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter le commentaire 
 
-Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de signaler clairement où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == "__main__":` est une bonne pratique que nous vous recommandons !
+`# Programme principal.`
+
+comme nous vous l'avions suggéré dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions*.
+L'utilisation de la ligne 
+
+`if __name__ == "__main__":`
+
+est une bonne pratique que nous vous recommandons !
 
 
 ## Exercice
