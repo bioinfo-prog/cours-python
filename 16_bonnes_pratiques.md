@@ -334,22 +334,20 @@ Lorsque vous avez besoin de décrire plus en détail un module, une fonction, un
 
 Après avoir sauté une ligne, on décrit les détails de cette docstring.
 blablabla
-blablabla
-blublublu
-bliblibli
-On termine la docstring avec les triples guillemets sur la ligne suivante.
+On termine la docstring avec les triples guillemets 
+sur la ligne suivante.
 """
 ```
 
 open-box-rem
 
-La PEP 257 recommande d'écrire des *docstrings* avec des triples doubles guillemets, c'est-à-dire
+La PEP 257 recommande d'écrire des *docstrings* avec des triples doubles guillemets, c'est-à-dire :
 
 `"""Ceci est une docstring recommandée."""`
 
-mais pas
+mais pas :
 
-`'''Ceci n'est pas une docstring recommandée.'''`.
+`'''Ceci n'est pas une docstring recommandée.'''`
 
 close-box-rem
 
