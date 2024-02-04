@@ -152,7 +152,7 @@ Enfin, il existe des caractères spéciaux qui sont bien commodes et qui peuvent
 
 `\s`
 
-: remplace n'importe quel « espace blanc » (*whitespace*) (*s* signifie *space*), équivalent à `[ \t\n\r\f]`. La notion d'espace blanc a été abordée dans le chapitre 10 *Plus sur les chaînes de caractères*. Les espaces blancs les plus classiques sont l'espace ` `, la tabulation `\t`, le retour à la ligne `\n`, mais il en existe d'autres comme `\r` et `\f` que nous ne développerons pas ici. `\s` est très pratique pour détecter une combinaison d'espace(s) et/ou de tabulation(s).
+: remplace n'importe quel « espace blanc » (*whitespace*) (*s* signifie *space*), équivalent à `[ \t\n\r\f]`. La notion d'espace blanc a été abordée dans le chapitre 11 *Plus sur les chaînes de caractères*. Les espaces blancs les plus classiques sont l'espace ` `, la tabulation `\t`, le retour à la ligne `\n`, mais il en existe d'autres comme `\r` et `\f` que nous ne développerons pas ici. `\s` est très pratique pour détecter une combinaison d'espace(s) et/ou de tabulation(s).
 
 Comme vous le constatez, les métacaractères sont nombreux et leur signification est parfois difficile à maîtriser. Faites particulièrement attention aux métacaractères `.`, `+` et `*` qui, combinés ensemble, peuvent donner des résultats ambigus.
 
@@ -355,22 +355,28 @@ Nous espérons vous avoir convaincu de la puissance du module *re* et des expres
 
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
 
 
 ### *Regex* de base
 
-Dans cet exercice, nous allons manipuler le fichier GenBank [`NC_001133.gbk`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk) correspondant au chromosome I de la levure *Saccharomyces cerevisiae*.
+Dans cet exercice, nous allons manipuler le fichier GenBank [`NC_001133.gbk`](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk) correspondant au chromosome I de la levure *Saccharomyces cerevisiae*.
 
 Créez un script `regex_genbank.py` :
 
 - qui recherche le mot `DEFINITION` en début de ligne dans le fichier GenBank, puis affiche la ligne correspondante ;
 - qui recherche tous les journaux (mot-clé `JOURNAL`) dans lesquels ont été publiés les travaux sur cette séquence, puis affiche les lignes correspondantes.
 
-*Conseils* :
+open-box-adv
 
-- Vous utiliserez des *regex* pour trouver les lignes demandées.
-- Vous trouverez des explications sur le format GenBank et des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
+- Utilisez des *regex* pour trouver les lignes demandées.
+- Des explications sur le format GenBank et des exemples de code sont fournies dans l'annexe A *Quelques formats de données en biologie*.
+
+close-box-adv
 
 
 ### Enzyme de restriction
@@ -391,14 +397,14 @@ Pour chacune des enzymes ci-dessous, déterminez les expressions régulières qu
 
 ### Nettoyeur d'espaces
 
-Le fichier [`cigale_fourmi.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/cigale_fourmi.txt) contient le célèbre poème de Jean de la Fontaine. Malheureusement, la personne qui l'a recopié a parfois mis plusieurs espaces au lieu d'un seul entre les mots.
+Le fichier [`cigale_fourmi.txt`](https://python.sdv.u-paris.fr/data-files/cigale_fourmi.txt) contient le célèbre poème de Jean de la Fontaine. Malheureusement, la personne qui l'a recopié a parfois mis plusieurs espaces au lieu d'un seul entre les mots.
 
 Créez un script `cigale_fourmi.py` qui grâce à une *regex* et à la fonction `sub()` remplace plusieurs espaces par un seul espace dans le texte ci-dessus. Le nouveau texte « propre » sera enregistré dans un fichier `cigale_fourmi_propre.txt`.
 
 
 ### Liste des protéines humaines
 
-Téléchargez le fichier [`human-proteome.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta) qui contient le protéome humain, c'est-à-dire les séquences de l'ensemble des protéines chez l'Homme. Ce fichier est au format FASTA.
+Téléchargez le fichier [`human-proteome.fasta`](https://python.sdv.u-paris.fr/data-files/human-proteome.fasta) qui contient le protéome humain, c'est-à-dire les séquences de l'ensemble des protéines chez l'Homme. Ce fichier est au format FASTA.
 
 On souhaite lister toutes ces protéines et les indexer avec un numéro croissant.
 
@@ -420,28 +426,30 @@ protein 20372 Q9UKP6
 protein 20373 Q96HZ7
 ```
 
-*Conseils* :
+open-box-adv
 
-- Vous trouverez des explications sur le format FASTA et des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
+- Des explications sur le format FASTA et des exemples de code sont fournis dans l'annexe A *Quelques formats de données en biologie*.
 - La ligne de commentaire d'une séquence au format FASTA est de la forme  
     `>sp|O95139|NDUB6_HUMAN NADH dehydrogenase [...]`  
     Elle débute toujours pas le caractère `>`.
     Le numéro d'accession `O95139` se situe entre le premier et le second symbole `|` (symbole *pipe*). Attention, il faudra « échapper » ce symbole car il a une signification particulière dans une *regex*.
 - Le numéro qui s'incrémente débutera à 1 et sera affiché sur 5 caractères avec des 0 à sa gauche si nécessaires (formatage `{:05d}`).
 
+close-box-adv
+
 
 ### Le défi du dé-htmliseur (exercice +++)
 
 Le format HTML permet d'afficher des pages web dans un navigateur. Il s'agit d'un langage à balise qui fonctionne avec des balises ouvrantes `<balise>` et des balises fermantes `</balise>`.
 
-Créez un script `dehtmliseur.py` qui lit le fichier [`fichier_a_dehtmliser.html`](https://python.sdv.univ-paris-diderot.fr/data-files/fichier_a_dehtmliser.html) au format HTML et qui renvoie à l'écran tout le texte de ce fichier sans les balises HTML.
+Créez un script `dehtmliseur.py` qui lit le fichier [`fichier_a_dehtmliser.html`](https://python.sdv.u-paris.fr/data-files/fichier_a_dehtmliser.html) au format HTML et qui renvoie à l'écran tout le texte de ce fichier sans les balises HTML.
 
 Nous vous conseillons tout d'abord d'ouvrir le fichier HTML dans un éditeur de texte et de bien l'observer. N'hésitez pas à vous aider des sites mentionnés dans les ressources en ligne
 
 
 ### Nettoyeur de doublons (exercice +++)
 
-Téléchargez le fichier [`breves_doublons.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/breves_doublons.txt) qui contient des mots répétés deux fois. Par exemple :
+Téléchargez le fichier [`breves_doublons.txt`](https://python.sdv.u-paris.fr/data-files/breves_doublons.txt) qui contient des mots répétés deux fois. Par exemple :
 
 ```text
 Le cinéma est devenu parlant, la radio radio finira en images.
@@ -451,4 +459,8 @@ La sardine, c'est un petit petit poisson sans tête qui vit dans l'huile.
 
 Écrivez un script `ote_doublons.py` qui lit le fichier `breves_doublons.txt` et qui supprime tous les doublons à l'aide d'une *regex*. Le script affichera le nouveau texte à l'écran.
 
-*Conseil* : utilisez la méthode `.sub()`.
+open-box-adv
+
+Utilisez la méthode `.sub()`.
+
+close-box-adv

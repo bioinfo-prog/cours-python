@@ -267,7 +267,11 @@ Si vous souhaitez aller plus loin, sachez que l'instruction `with`
 
 ## Note sur les retours à la ligne sous Unix et sous Windows
 
-*Conseil* : si vous êtes débutant, vous pouvez sauter cette rubrique.
+open-box-adv
+
+Si vous êtes débutant, vous pouvez sauter cette rubrique.
+
+close-box-adv
 
 On a vu plus haut que le caractère spécial `\n` correspondait à un retour à la ligne. C'est le standard sous Unix (Mac OS X et Linux).
 
@@ -292,12 +296,16 @@ Maintenant que vous savez lire et écrire des fichiers en Python, vous êtes cap
 
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
 
 
 ### Moyenne des notes
 
-Le fichier [`notes.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
+Le fichier [`notes.txt`](https://python.sdv.u-paris.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
 
 Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas à l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
 
@@ -308,7 +316,7 @@ Terminez le script en calculant et affichant la moyenne des notes avec deux déc
 
 ### Admis ou recalé
 
-Le fichier [`notes.txt`](https://python.sdv.univ-paris-diderot.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
+Le fichier [`notes.txt`](https://python.sdv.u-paris.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
 
 Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
 
@@ -340,7 +348,7 @@ Pour calculer les coordonnées cartésiennes qui décrivent la spirale, vous all
 - l'angle $\theta$, qui va prendre des valeurs de 0 à $4\pi$ radians par pas de 0.1, ce qui correspond à deux tours complets ;
 - le rayon du cercle $r$, qui va prendre comme valeur initiale 0.5 puis que vous allez incrémenter (c'est-à-dire augmenter) par pas de 0.1.
 
-Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module *math* que vous découvrirez plus en détails dans le chapitre 8 *Modules*. Pour les utiliser, vous ajouterez au début de votre script l'instruction :
+Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module *math* que vous découvrirez plus en détails dans le chapitre 9 *Modules*. Pour les utiliser, vous ajouterez au début de votre script l'instruction :
 
 `import math`
 

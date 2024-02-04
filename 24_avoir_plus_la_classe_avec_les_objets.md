@@ -2,7 +2,7 @@
 
 Dans le chapitre précédent, nous avons vu les bases sur comment créer une classe, les notions d'attributs d'instance et de classe, le fonctionnent d'un constructeur et comment passer des arguments lors de l'instanciation. Nous avons vu qu'une classe pouvait être vue comme un constructeur de conteneur (chaque conteneur construit est une instance), qu'on pouvait y mettre tout un tas de variables ou objets (les attributs d'instance), mais également  nous pouvions définir des méthodes réalisant des actions pour modifier ce que contient l'objet.
 
-Dans le présent chapitre, nous abordons de nouvelles notions qui augmentent la puissance des classes, à savoir le polymorphisme et l'héritage. A la fin du chapitre, nous vous donnerons des bonnes pratiques pour construire vos classes. Mais avant d'aborder ces sujets, nous revenons sur un concept important en Python, à savoir les espaces de noms.
+Dans le présent chapitre, nous abordons de nouvelles notions qui augmentent la puissance des classes, à savoir le polymorphisme et l'héritage. À la fin du chapitre, nous vous donnerons des bonnes pratiques pour construire vos classes. Mais avant d'aborder ces sujets, nous revenons sur un concept important en Python, à savoir les espaces de noms.
 
 ## Espace de noms
 
@@ -14,14 +14,14 @@ Dans la [documentation officielle](https://docs.python.org/fr/3/tutorial/classes
 
 close-box-def
 
-Différents espaces de noms peuvent contenir des objets de même nom sans que cela ne pose de problème. Parce qu'ils sont chacun dans un espace différent, ils peuvent cohabiter sans risque d'écrasement de l'un par l'autre. Par exemple, à chaque fois que l'on appelle une fonction, un espace de noms est créé pour cette fonction. *Python Tutor* nous montre cet espace sous la forme d'une zone dédiée (voir les chapitres 9 et 12 sur les fonctions). Si cette fonction appelle une autre fonction, un nouvel espace est créé, bien distinct de la fonction appelante (ce nouvel espace peut donc contenir un objet de même nom). En définitive, ce qui va compter, c'est de savoir quelles règles Python va utiliser pour chercher dans les différents espaces de noms pour finalement accéder à un objet.
+Différents espaces de noms peuvent contenir des objets de même nom sans que cela ne pose de problème. Parce qu'ils sont chacun dans un espace différent, ils peuvent cohabiter sans risque d'écrasement de l'un par l'autre. Par exemple, à chaque fois que l'on appelle une fonction, un espace de noms est créé pour cette fonction. *Python Tutor* nous montre cet espace sous la forme d'une zone dédiée (voir les chapitres 10 et 13 sur les fonctions). Si cette fonction appelle une autre fonction, un nouvel espace est créé, bien distinct de la fonction appelante (ce nouvel espace peut donc contenir un objet de même nom). En définitive, ce qui va compter, c'est de savoir quelles règles Python va utiliser pour chercher dans les différents espaces de noms pour finalement accéder à un objet.
 
 Nous allons dans cette rubrique refaire le point sur ce que l'on a appris dans cet ouvrage sur les espaces de noms en Python, puis se pencher sur les spécificités de ce concept dans les classes.
 
 
 ### Rappel sur la règle LGI
 
-Comme vu dans le chapitre 9 *Fonctions*, la règle LGI peut être résumée ainsi : *Local > Global > Interne*. Lorsque Python rencontre un objet, il utilise cette règle de priorité pour accéder à la valeur de celui-ci. Si on est dans une fonction (ou une méthode), Python va d'abord chercher l'espace de noms *local* à cette fonction. S'il ne trouve pas de nom il va ensuite chercher l'espace de noms du programme principal (ou celui du module), donc des variables *globales* s'y trouvant. S'il ne trouve pas de nom, il va chercher dans les commandes *internes* à Python (on parle des [*Built-in Functions*](https://docs.python.org/fr/3/library/functions.html comme par exemple `print()`) et des [*Built-in Constants*](https://docs.python.org/fr/3/library/constants.html)). Si aucun objet n'est trouvé, Python renvoie une erreur.
+Comme vu dans le chapitre 10 *Fonctions*, la règle LGI peut être résumée ainsi : *Local > Global > Interne*. Lorsque Python rencontre un objet, il utilise cette règle de priorité pour accéder à la valeur de celui-ci. Si on est dans une fonction (ou une méthode), Python va d'abord chercher l'espace de noms *local* à cette fonction. S'il ne trouve pas de nom il va ensuite chercher l'espace de noms du programme principal (ou celui du module), donc des variables *globales* s'y trouvant. S'il ne trouve pas de nom, il va chercher dans les commandes *internes* à Python (on parle des [*Built-in Functions*](https://docs.python.org/fr/3/library/functions.html comme par exemple `print()`) et des [*Built-in Constants*](https://docs.python.org/fr/3/library/constants.html)). Si aucun objet n'est trouvé, Python renvoie une erreur.
 
 
 ### Gestion des noms dans les modules
@@ -151,9 +151,9 @@ Coucou externe
 
 À nouveau, il n'y a pas de conflit possible pour l'utilisation d'une méthode ou d'une fonction avec le même nom. À l'intérieur de la classe on utilise `self.affiche_coucou()` pour la méthode et `affiche_coucou()` pour la fonction. À l'extérieur de la classe, on utilise `instance.affiche_coucou()` pour la méthode et `affiche_coucou()` pour la fonction.
 
-Dans cette rubrique, nous venons de voir une propriété des classes extrêmement puissante : **une classe crée automatiquement son propre espace de noms**. Cela permet d'encapsuler à l'intérieur tous les attributs et méthodes dont on a besoin, sans avoir aucun risque de conflit de nom avec l'extérieur (variables locales, globales ou provenant de modules). L'utilisation de classes évitera ainsi l'utilisation de variables globales qui, on l'a vu aux chapitres 9 et 12 sur les fonctions, sont à proscrire absolument. Tout cela concourt à rendre le code plus lisible.
+Dans cette rubrique, nous venons de voir une propriété des classes extrêmement puissante : **une classe crée automatiquement son propre espace de noms**. Cela permet d'encapsuler à l'intérieur tous les attributs et méthodes dont on a besoin, sans avoir aucun risque de conflit de nom avec l'extérieur (variables locales, globales ou provenant de modules). L'utilisation de classes évitera ainsi l'utilisation de variables globales qui, on l'a vu aux chapitres 10 et 13 sur les fonctions, sont à proscrire absolument. Tout cela concourt à rendre le code plus lisible.
 
-Dans le chapitre 20 *Fenêtres graphiques et Tkinter*, vous verrez une démonstration de l'utilité de tout encapsuler dans une classe afin d'éviter les variables globales.
+Dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), vous verrez une démonstration de l'utilité de tout encapsuler dans une classe afin d'éviter les variables globales.
 
 ### Gestion des noms entre les attributs de classe et d'instance
 
@@ -489,7 +489,7 @@ Le module *builtins* possède toutes les fonctions internes à Python. Il est do
 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
 ```
 
-Au début, on y trouve les exceptions commençant par une lettre majuscule (cf. chapitre 21 *Remarques complémentaires* pour la définition d'une exception), puis les fonctions Python de base tout en minuscule. On retrouve par exemple `list` ou `str`, mais il y a aussi `object`. Toutefois ces fonctions étant chargées de base dans l'interpréteur, l'importation de `builtins` n'est pas obligatoire : par exemple `list` revient au même que `builtins.list`, ou `object` revient au même que `builtins.object`.
+Au début, on y trouve les exceptions commençant par une lettre majuscule (voir le chapitre 26 *Remarques complémentaires* (en ligne) pour la définition d'une exception), puis les fonctions Python de base tout en minuscule. On retrouve par exemple `list` ou `str`, mais il y a aussi `object`. Toutefois ces fonctions étant chargées de base dans l'interpréteur, l'importation de `builtins` n'est pas obligatoire : par exemple `list` revient au même que `builtins.list`, ou `object` revient au même que `builtins.object`.
 
 close-box-rem
 
@@ -604,7 +604,7 @@ conseil: Bon en tarte :-p !
 Prenez bien le temps de suivre ce code pas à pas pour bien en comprendre toutes les étapes.
 
 Vous pourrez vous poser la question « *Pourquoi utilise-t-on en ligne 24 la syntaxe* `Fruit.__init__()` *?* ». Cette syntaxe est souvent utilisée lorsqu'une classe hérite d'une autre classe pour faire appel au constructeur de la classe mère. La raison est que nous souhaitons appeler une méthode de la classe mère qui a le même nom qu'une méthode de la classe fille. Dans ce cas, si on utilisait `self.__init__()`, cela correspondrait à la fonction de notre classe fille Citron. En mettant systématiquement une syntaxe  
-`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *Tkinter* (voir chapitre 20) pour la construction d'interfaces graphiques, nous en verrons de nombreux exemples.
+`ClasseMere.__init__()` on indique sans ambiguïté qu'on appelle le constructeur de la classe mère, en mettant explicitement son nom. Ce mécanisme est assez souvent utilisé dans le module *Tkinter* (voir le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne)) pour la construction d'interfaces graphiques, nous en verrons de nombreux exemples.
 
 open-box-rem
 
@@ -645,7 +645,7 @@ class Orange(Fruit):
 ```
 
 Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on les utilise en Python. Pour chaque fruit, on utilise la méthode  
-`.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 20 *Fenêtres graphiques et Tkinter* ainsi que dans les exercices du présent chapitre. Avec le module *Tkinter*, chaque objet graphique (bouton, zone de texte, etc.) est en fait une classe. On peut ainsi créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
+`.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne) ainsi que dans les exercices du présent chapitre. Avec le module *Tkinter*, chaque objet graphique (bouton, zone de texte, etc.) est en fait une classe. On peut ainsi créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
 
 
 open-box-more
@@ -834,7 +834,7 @@ if __name__ == "__main__":
 
 Lignes 6 à 10. On définit deux méthodes *getters* pour accéder à chaque attribut.
 
-Lignes 12 à 18. On définit deux méthodes *setters* pour modifier chaque attribut. Notez qu'en ligne 16 nous testons si la masse est négative, si tel est le cas nous générons une erreur avec le mot-clé `raise` (cf. chapitre 21 *Remarques complémentaires*). Ceci représente un des avantages des *setters* : contrôler la validité des attributs (on pourrait aussi vérifier qu'il s'agit d'un entier, etc.).
+Lignes 12 à 18. On définit deux méthodes *setters* pour modifier chaque attribut. Notez qu'en ligne 16 nous testons si la masse est négative, si tel est le cas nous générons une erreur avec le mot-clé `raise` (voir le chapitre 26 *Remarques complémentaires* (en ligne)). Ceci représente un des avantages des *setters* : contrôler la validité des attributs (on pourrait aussi vérifier qu'il s'agit d'un entier, etc.).
 
 Lignes 22 à 28. Après instanciation, on affiche la valeur des attributs avec les deux fonctions *getters*, puis on les modifie avec les *setters* et on les réaffiche à nouveau.
 
@@ -886,7 +886,7 @@ pourpre profond -15
 
 Malgré la présence des *getters* et des *setters*, nous avons réussi à accéder et à modifier la valeur des attributs. De plus, nous avons pu mettre une valeur aberrante (masse négative) sans que cela ne génère une erreur !
 
-Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt de mettre des *getters* et des *setters* en Python ? La réponse est très simple : cette  stratégie n'est pas une manière « pythonique » d'opérer (voir le chapitre 15 *Bonnes pratiques en programmation Python* pour la définition de « pythonique »). En Python, la lisibilité est la priorité. Souvenez-vous du Zen de Python « *Readability counts* » (voir  le chapitre 15).
+Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt de mettre des *getters* et des *setters* en Python ? La réponse est très simple : cette  stratégie n'est pas une manière « pythonique » d'opérer (voir le chapitre 16 *Bonnes pratiques en programmation Python* pour la définition de « pythonique »). En Python, la lisibilité est la priorité. Souvenez-vous du Zen de Python « *Readability counts* » (voir le chapitre 16).
 
 De manière générale, une syntaxe avec des *getters* et *setters* du côté client surcharge la lecture. Imaginons que l'on ait une instance nommée `obj` et que l'on souhaite faire la somme de ses trois attributs `x`, `y` et `z` :
 
@@ -912,7 +912,7 @@ Toutefois, si on souhaite contrôler l'accès, la modification (voire la destruc
 attribut = property(fget=accesseur, fset=mutateur, fdel=destructeur)
 ```
 
-Les arguments passés à `property()` sont systématiquement des méthodes dites *callback*, c'est-à-dire des noms de méthodes que l'on a définies précédemment dans notre classe, mais on ne précise ni argument, ni parenthèse, ni `self` (voir le chapitre 20 *Fenêtres graphiques et Tkinter*). Avec cette ligne de code, `attribut` est un objet de type *property* qui fonctionne de la manière suivante à l'extérieur de la classe :
+Les arguments passés à `property()` sont systématiquement des méthodes dites *callback*, c'est-à-dire des noms de méthodes que l'on a définies précédemment dans notre classe, mais on ne précise ni argument, ni parenthèse, ni `self` (voir le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne)). Avec cette ligne de code, `attribut` est un objet de type *property* qui fonctionne de la manière suivante à l'extérieur de la classe :
 
 - L'instruction `instance.attribut` appellera la méthode `.accesseur()`.
 - L'instruction `instance.attribut = valeur` appellera la méthode  
@@ -1007,7 +1007,7 @@ Nous allons voir dans cette rubrique certaines pratiques que nous vous recommand
 
 ### L'accès aux attributs
 
-On a vu dans la rubrique *Accès et modifications des attributs depuis l'extérieur* que nous avions le moyen de contrôler cet accès avec la classe *property*. Toutefois, cela peut parfois alourdir inutilement le code, ce qui va à l'encontre de certains préceptes de la PEP 20 comme « *Sparse is better than dense* », « *Readability counts* », etc. (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
+On a vu dans la rubrique *Accès et modifications des attributs depuis l'extérieur* que nous avions le moyen de contrôler cet accès avec la classe *property*. Toutefois, cela peut parfois alourdir inutilement le code, ce qui va à l'encontre de certains préceptes de la PEP 20 comme « *Sparse is better than dense* », « *Readability counts* », etc. (voir le chapitre 16 *Bonnes pratiques en programmation Python*).
 
 open-box-adv
 
@@ -1225,7 +1225,7 @@ class Citron(builtins.object)
  |  saveur = 'acide'
 ```
 
-Python formate automatiquement l'aide comme il le fait avec les modules (voir chapitre 14 *Création de modules*). Comme nous l'avons dit dans le chapitre 15 *Bonnes pratiques en programmation Python*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
+Python formate automatiquement l'aide comme il le fait avec les modules (voir chapitre 15 *Création de modules*). Comme nous l'avons dit dans le chapitre 16 *Bonnes pratiques en programmation Python*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
 
 Notez que si on instancie la classe `citron1 = Citron()` et qu'on invoque l'aide sur l'instance `help(citron1)`, on obtient la même page d'aide. Comme pour les modules, si on invoque l'aide pour une méthode de la classe  
 `help(citron1.affiche_coucou)`, on obtient l'aide pour cette méthode seulement.
@@ -1252,7 +1252,7 @@ L'attribut `.__doc__` est automatiquement créé par Python au moment de la mise
 
 Voici quelques points en vrac auxquels nous vous conseillons de faire attention :
 
-- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuples* (cf. rubrique suivante).
+- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuples* (voir la rubrique suivante).
 - Nous vous déconseillons de mettre comme paramètre par défaut une liste vide (ou tout autre objet séquentiel modifiable) :
 
 	```python
@@ -1281,9 +1281,9 @@ Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souv
 
 Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
-### Pour finir les *namedtuples*
+### Pour finir, les *namedtuples*
 
-Imaginons que l'on souhaite stocker des éléments dans un conteneur, que l'on puisse retrouver ces éléments avec une syntaxe `conteneur.element` et que ces éléments soit non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, il n'est pas conseillé de les utiliser comme des conteneurs inertes, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de conteneur est issu du très utile module *collections* que nous avions évoqué au Chapitre 13 *Dictionnaires, tuples et sets*.
+Imaginons que l'on souhaite stocker des éléments dans un conteneur, que l'on puisse retrouver ces éléments avec une syntaxe `conteneur.element` et que ces éléments soit non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, il n'est pas conseillé de les utiliser comme des conteneurs inertes, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de conteneur est issu du très utile module *collections* que nous avions évoqué dans le chapitre 14 *Conteneurs*.
 
 ```python
 >>> import collections
@@ -1363,9 +1363,15 @@ Pour aller plus loin, vous pouvez consulter le très bon [article](https://dbade
 
 close-box-more
 
+
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
+
 
 ### Ajouter exo classe atome
 

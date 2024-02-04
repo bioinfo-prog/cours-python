@@ -25,14 +25,14 @@ Toutes ces caractéristiques font que Python est désormais enseigné dans de no
 
 ## Conseils pour installer et configurer Python
 
-Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons dans cette rubrique un résumé des points importants concernant cette installation. Tous les détails et la marche à suivre pas à pas sont donnés à l'adresse <https://python.sdv.univ-paris-diderot.fr/livre-dunod>.
+Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons dans cette rubrique un résumé des points importants concernant cette installation. Tous les détails et la marche à suivre pas à pas sont donnés à l'adresse <https://python.sdv.u-paris.fr/livre-dunod>.
 
 
 ### Python 2 ou Python 3 ?
 
 Ce cours est basé sur la **version 3 de Python**, qui est désormais le standard.
 
-Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 21 *Remarques complémentaires* vous apportera plus de précisions.
+Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 26 *Remarques complémentaires* (en ligne) vous apportera plus de précisions.
 
 
 ### Miniconda
@@ -40,7 +40,7 @@ Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en
 Nous vous conseillons d'installer [Miniconda](https://conda.io/miniconda.html) \index{Miniconda}, 
 logiciel gratuit, disponible pour Windows, Mac OS X et Linux, et qui installera pour vous Python 3.
 
-Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également Jupyter Lab qui vous permettra d'éditer des *notebooks* Jupyter. Vous trouverez en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod) une documentation pas-à-pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours.
+Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également Jupyter Lab qui vous permettra d'éditer des *notebooks* Jupyter. Vous trouverez en [ligne](https://python.sdv.u-paris.fr/livre-dunod) une documentation pas-à-pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours.
 
 
 ### Éditeur de texte
@@ -187,7 +187,7 @@ Il existe de nombreux autres langages interprétés comme [Perl](http://www.perl
 
 Bien sûr, l'interpréteur présente vite des limites dès lors que l'on veut exécuter une suite d'instructions plus complexe. Comme tout langage informatique, on peut enregistrer ces instructions dans un fichier, que l'on appelle communément un script (ou programme) Python.
 
-Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à la rubrique *Installation de Python* en [ligne](https://python.sdv.univ-paris-diderot.fr/livre-dunod)) et entrez le code suivant :
+Pour reprendre l'exemple précédent, ouvrez un éditeur de texte (pour choisir et configurer un éditeur de texte, reportez-vous si nécessaire à la rubrique *Installation de Python* en [ligne](https://python.sdv.u-paris.fr/livre-dunod)) et entrez le code suivant :
 
 `print("Hello world!")`
 
@@ -218,7 +218,7 @@ Dans un script, tout ce qui suit le caractère `#` est ignoré par Python
 jusqu'à la fin de la ligne et est considéré comme un commentaire.
 
 Les commentaires doivent expliquer votre code dans un langage humain.
-L'utilisation des commentaires est rediscutée dans le chapitre 15 *Bonnes pratiques en programmation Python*.
+L'utilisation des commentaires est rediscutée dans le chapitre 16 *Bonnes pratiques en programmation Python*.
 
 Voici un exemple :
 
@@ -248,7 +248,7 @@ Pour chaque base de la séquence ATCCGACTG, nous souhaitons effectuer deux actio
 
 Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer à la suite, c'est-à-dire afficher la taille de la séquence. Pour bien préciser que cet affichage se fait à la fin, donc une fois l'affichage puis le comptage de chaque base terminés, la ligne correspondante n'est pas indentée (c'est-à-dire qu'elle n'est pas décalée vers la droite).
 
-Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 15 *Bonnes pratiques en programmation Python*).
+Pratiquement, l'indentation en Python doit être homogène (soit des espaces, soit des tabulations, mais pas un mélange des deux). Une indentation avec 4 espaces est le style d'indentation recommandé (voir le chapitre 16 *Bonnes pratiques en programmation Python*).
 
 Si tout cela semble un peu complexe, ne vous inquiétez pas. Vous allez comprendre tous ces détails chapitre après chapitre.
 

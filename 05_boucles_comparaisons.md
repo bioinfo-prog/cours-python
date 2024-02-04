@@ -62,7 +62,7 @@ La ligne 4 ne fait pas partie du corps de la boucle car elle est au même niveau
 
 open-box-rem
 
-Outre une meilleure lisibilité, les deux-points et l'**indentation** sont formellement requis en Python. Même si on peut indenter comme on veut (plusieurs espaces ou plusieurs tabulations, mais pas une combinaison des deux), les développeurs recommandent l'utilisation de quatre espaces. Vous pouvez consulter à ce sujet le chapitre 15 *Bonnes pratiques de programmation* en Python.
+Outre une meilleure lisibilité, les deux-points et l'**indentation** sont formellement requis en Python. Même si on peut indenter comme on veut (plusieurs espaces ou plusieurs tabulations, mais pas une combinaison des deux), les développeurs recommandent l'utilisation de quatre espaces. Vous pouvez consulter à ce sujet le chapitre 16 *Bonnes pratiques de programmation* en Python.
 
 Faites en sorte de configurer votre éditeur de texte favori de façon à écrire quatre espaces lorsque vous tapez sur la touche *Tab* (tabulation).
 
@@ -105,7 +105,7 @@ mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou
 
 ### Fonction `range()`
 
-Python possède la fonction `range()` que nous avons rencontrée précédemment dans le chapitre 4 sur les *Listes* et qui est aussi bien commode pour faire une boucle sur une liste d'entiers de manière automatique :
+Python possède la fonction `range()` que nous avons rencontrée précédemment dans le chapitre 4 *Listes* et qui est également pratique pour faire une boucle sur une liste d'entiers de manière automatique :
 
 ```python
 >>> for i in range(4):
@@ -196,7 +196,7 @@ L'animal 3 est un(e) souris
 
 ## Comparaisons
 
-Avant de passer à une autre sorte de boucles (les boucles `while`), nous abordons tout de suite les **comparaisons**. Celles-ci seront reprises dans le chapitre 6 sur les *Tests*.
+Avant de passer à une autre sorte de boucles (les boucles `while`), nous abordons tout de suite les **comparaisons**. Celles-ci seront reprises dans le chapitre 6 *Tests*.
 
 Python est capable d'effectuer toute une série de comparaisons entre le contenu de deux variables, telles que :
 
@@ -310,7 +310,11 @@ La fonction `input()` prend en argument un message (sous la forme d'une chaîne 
 
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
 
 
 ### Boucles de base
@@ -329,7 +333,11 @@ Constituez une liste `semaine` contenant les 7 jours de la semaine.
 
 Avec une boucle, affichez les nombres de 1 à 10 sur une seule ligne.
 
-*Conseil* : n'hésitez pas à relire le début du chapitre 3 *Affichage* qui discute de la fonction `print()`.
+open-box-adv
+
+N'hésitez pas à relire le début du chapitre 3 *Affichage* qui discute de la fonction `print()`.
+
+close-box-adv
 
 
 ### Nombres pairs et impairs
@@ -492,10 +500,13 @@ Avec une boucle `while`, simuler le mouvement de cette puce de l'emplacement ini
 
 ![Sauts de puce.](img/sauts-de-puce.png "Sauts de puce"){ #fig:saut-de-puce width=50% }
 
+open-box-adv
 
-*Conseil* : vous utiliserez l'instruction `random.choice([-1,1])` qui renvoie au hasard les valeurs -1 ou 1 avec la même probabilité. Avant d'utiliser cette instruction vous mettrez au tout début de votre script la ligne  
+Utilisez l'instruction `random.choice([-1,1])` qui renvoie au hasard les valeurs -1 ou 1 avec la même probabilité. Avant d'utiliser cette instruction, mettez au tout début de votre script la ligne  
 `import random`  
-Nous reverrons la signification de cette syntaxe particulière dans le chapitre 8 *Modules*.
+Nous verrons la signification de cette syntaxe particulière dans le chapitre 9 *Modules*.
+
+close-box-adv
 
 
 ### Suite de Fibonacci (exercice +++)

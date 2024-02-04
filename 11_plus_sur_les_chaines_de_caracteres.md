@@ -95,7 +95,7 @@ bla
 
 ## Préfixe de chaîne de caractères
 
-Nous avons vu au chapitre 3 la notion de *f-string*. Il s'agit d'un mécanisme pour formater du texte au sein d'une chaîne de caractères. Par exemple :
+Nous avons vu au chapitre 3 *Affichage* la notion de *f-string*. Il s'agit d'un mécanisme pour formater du texte au sein d'une chaîne de caractères. Par exemple :
 
 ```python
 >>> var = "f-string"
@@ -503,12 +503,16 @@ L'utilisation de parenthèses permet aussi de couper une chaîne de caractères 
 'voici une chaine de caractères très longue définie sur plusieurs lignes'
 ```
 
-Nous utiliserons le *method chaining* dans le chapitre 22 *Module Pandas*.
+Nous reverrons le *method chaining* dans le chapitre 22 *Module Pandas*.
 
 
 ## Exercices
 
-*Conseil* : pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+open-box-adv
+
+Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
+
+close-box-adv
 
 
 ### Parcours d'une liste de chaînes de caractères
@@ -518,7 +522,7 @@ Soit la liste `['girafe', 'tigre', 'singe', 'souris']`. Avec une boucle, affiche
 
 ### Lecture d'une séquence à partir d'un fichier FASTA
 
-Le fichier [`UBI4_SCerevisiae.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/UBI4_SCerevisiae.fasta) contient une séquence d'ADN au format FASTA.
+Le fichier [`UBI4_SCerevisiae.fasta`](https://python.sdv.u-paris.fr/data-files/UBI4_SCerevisiae.fasta) contient une séquence d'ADN au format FASTA.
 
 Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier FASTA sous la forme d'une chaîne de caractères, lit la séquence dans le fichier FASTA et la renvoie sous la forme d'une chaîne de caractères.
 
@@ -665,7 +669,7 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 
 ### Lecture d'une séquence à partir d'un fichier GenBank (exercice +++)
 
-On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [`NC_001133.gbk`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk).
+On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [`NC_001133.gbk`](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk).
 
 Le format GenBank est présenté en détails dans l'annexe A *Quelques formats de données en biologie*. Pour cet exercice, vous devez savoir que la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par les caractères `//` :
 
@@ -717,7 +721,11 @@ Créez la fonction `trouve_calpha()` qui prend en argument le nom d'un fichier P
 
 Utilisez la fonction `trouve_calpha()` pour afficher à l'écran les carbones alpha des deux premiers résidus (acides aminés).
 
-*Conseil :* vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
+open-box-adv
+
+Vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
+
+close-box-adv
 
 
 ### Calcul des distances entre les carbones alpha consécutifs d'une structure de protéine (exercice +++)
@@ -755,7 +763,7 @@ close-box-adv
 
 ### Compteur de gènes dans un fichier GenBank
 
-Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank [NC_001133.gbk](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk) (chromosome I de la levure Saccharomyces cerevisiae) et afficher la longueur de chaque gène. Pour cela, il faudra récupérer les lignes décrivant la position des gènes. Voici par exemple les cinq premières lignes concernées dans le fichier NC_001133.gbk:
+Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank [NC_001133.gbk](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk) (chromosome I de la levure Saccharomyces cerevisiae) et afficher la longueur de chaque gène. Pour cela, il faudra récupérer les lignes décrivant la position des gènes. Voici par exemple les cinq premières lignes concernées dans le fichier NC_001133.gbk:
 
 ```text
      gene            complement(<1807..>2169)

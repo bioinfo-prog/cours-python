@@ -2,7 +2,7 @@
 
 ## Pourquoi créer ses propres modules ?
 
-Dans le chapitre 8 *Modules*, nous avons découvert quelques modules existants dans Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions* que les fonctions sont utiles pour réutiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer ce code. On peut imaginer qu'une fonction bien écrite pourrait être judicieusement réutilisée dans un autre programme Python. C'est justement l'intérêt de créer un module. On y met un ensemble de fonctions que l'on peut être amené à utiliser souvent. En général, les modules sont regroupés autour d'un thème précis. Par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
+Dans le chapitre 9 *Modules*, nous avons découvert quelques modules existants dans Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions* que les fonctions sont utiles pour réutiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer ce code. On peut imaginer qu'une fonction utile pourrait être judicieusement réutilisée dans un autre programme Python. C'est justement l'intérêt de créer un module. On y met un ensemble de fonctions que l'on peut être amené à utiliser souvent. En général, les modules sont regroupés autour d'un thème précis. Par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
 
 
 ## Création d'un module
@@ -131,7 +131,7 @@ En résumé, les *docstrings* sont destinés aux utilisateurs du module. Leur bu
 - ce qu'elle prend en argument,
 - ce qu'elle renvoie.
 
-Pour en savoir plus sur les *docstrings* et comment les écrire, nous vous recommandons de lire le chapitre 15 *Bonnes pratiques en programmation Python*.
+Pour en savoir plus sur les *docstrings* et comment les écrire, nous vous recommandons de lire le chapitre 16 *Bonnes pratiques en programmation Python*.
 
 
 ## Visibilité des fonctions dans un module
@@ -142,7 +142,7 @@ La visibilité des fonctions au sein des modules suit des règles simples :
 
 - Les fonctions dans un module peuvent appeler des fonctions situées dans un autre module s'il a été préalablement importé. Par exemple, si la commande `import autremodule` est utilisée dans un module, il est possible d'appeler une fonction avec `autremodule.fonction()`.
 
-Toutes ces règles viennent de la manière dont Python gère les **espaces de noms**. De plus amples explications sont données sur ce concept dans le chapitre 19 *Avoir la classe avec les objets*.
+Toutes ces règles viennent de la manière dont Python gère les **espaces de noms**. De plus amples explications sont données sur ce concept dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
 
 
 ## Module ou script ?
@@ -211,12 +211,19 @@ Bonjour Joe
 >>>
 ```
 
-À nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 19 *Avoir la classe avec les objets*).
+À nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus détails, consultez le chapitre 24 *Avoir plus la classe avec les objets* (en ligne)).
 
-Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de signaler clairement où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 9 *Fonctions* et 12 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == "__main__":` est une bonne pratique que nous vous recommandons !
+Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de signaler clairement où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter un commentaire `# programme principal` comme nous vous l'avions suggéré dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions*. L'utilisation de la ligne `if __name__ == "__main__":` est une bonne pratique que nous vous recommandons !
 
 
 ## Exercice
+
+open-box-adv
+
+Pour ce exercice, créez un script puis exécutez-le dans un *shell*.
+
+close-box-adv
+
 
 ### Module ADN
 
@@ -231,8 +238,10 @@ Dans le script `adn.py`, construisez un module qui va contenir les fonctions et 
 
 À la fin de votre script, proposez des exemples d'utilisation des fonctions que vous aurez créées. Ces exemples d'utilisation ne devront pas être exécutés lorsque le script est chargé comme un module.
 
-*Conseils* :
+open-box-adv
 
 - Dans cet exercice, on supposera que toutes les séquences sont manipulées comme des chaînes de caractères en majuscules.
-- Pour les fonctions `seq_alea()` et `comp_inv()`, n'hésitez pas à jeter un œil aux exercices correspondants dans le chapitre 11 *Plus sur les listes.*
-- Voici un exemple de fichier FASTA [`adn.fasta`](https://python.sdv.univ-paris-diderot.fr/data-files/adn.fasta) pour tester la fonction `lit_fasta()`.
+- Pour les fonctions `seq_alea()` et `comp_inv()`, n'hésitez pas à jeter un œil aux exercices correspondants dans le chapitre 12 *Plus sur les listes.*
+- Voici un exemple de fichier FASTA [`adn.fasta`](https://python.sdv.u-paris.fr/data-files/adn.fasta) pour tester la fonction `lit_fasta()`.
+
+close-box-adv

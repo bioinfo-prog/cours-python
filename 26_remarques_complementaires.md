@@ -57,7 +57,7 @@ Faites très attention à cet aspect si vous programmez encore en Python 2, c'es
 
 ### La fonction `range()`
 
-En Python 3, la fonction `range()` renvoie un objet de type *range* (cf. chapitres 5 *Boucles et comparaisons* et 13 *Containers, dictionnaires, tuples et sets*) :
+En Python 3, la fonction `range()` renvoie un objet de type *range* (voir les chapitres 5 *Boucles et comparaisons* et 14 *Conteneurs*) :
 
 ```python
 >>> range(3)
@@ -353,7 +353,7 @@ open-box-adv
 
 close-box-adv
 
-Il existe de nombreux types d'exception comme `RuntimeError`, `TypeError`, `NameError`, `IOError`, etc. Vous pouvez aller voir la [liste complète](https://docs.python.org/fr/3.7/library/exceptions.html#exceptions.TypeError) sur le site de Python. Nous avions déjà croisé des noms d'exception au chapitre 19 (*Avoir la classe avec les objets*) en regardant ce que contient le module `builtins`.
+Il existe de nombreux types d'exception comme `RuntimeError`, `TypeError`, `NameError`, `IOError`, etc. Vous pouvez aller voir la [liste complète](https://docs.python.org/fr/3.7/library/exceptions.html#exceptions.TypeError) sur le site de Python. Nous avions déjà croisé des noms d'exception au chapitre 23 (*Avoir la classe avec les objets*) en regardant ce que contient le module `builtins`.
 
 ```python
 >>> import builtins
@@ -366,7 +366,7 @@ Il existe de nombreux types d'exception comme `RuntimeError`, `TypeError`, `Name
 
 Leur présence dans le module `builtins` signifie qu'elles font partie du langage lui même, au même titre que les fonctions de base comme `range()`, `list()`, etc. 
 
-Avez-vous aussi remarqué que leur nom commence toujours par une majuscule et qu'il peut en contenir plusieurs à la façon *CamelCase* ? Si vous avez bien lu le chapitre 15 *Bonnes Pratiques*, avez-vous deviné pourquoi ? Et bien, c'est parce que **les exceptions sont des classes**. C'est très intéressant car il est ainsi possible d'utiliser l'héritage pour créer ses propres exceptions à partir d'exceptions pré-existantes. Nous ne développerons pas cet aspect, mais en guise d'illustration, regardez ce que renvoit  un `help()` de l'exception `OverflowError`.
+Avez-vous aussi remarqué que leur nom commence toujours par une majuscule et qu'il peut en contenir plusieurs à la façon *CamelCase* ? Si vous avez bien lu le chapitre 16 *Bonnes pratiques en programmation Python*, avez-vous deviné pourquoi ? Et bien, c'est parce que **les exceptions sont des classes**. C'est très intéressant car il est ainsi possible d'utiliser l'héritage pour créer ses propres exceptions à partir d'exceptions pré-existantes. Nous ne développerons pas cet aspect, mais en guise d'illustration, regardez ce que renvoit  un `help()` de l'exception `OverflowError`.
 
 ```python
 >>> help(OverflowError)
@@ -384,7 +384,7 @@ class OverflowError(ArithmeticError)
 
 L'exception `OverflowError` hérite de `ArithmeticError`, c'est-à-dire qu'`OverflowError` a été conçue à partir de `ArithmeticError` et en hérite de tous ses attributs.
 
-Un autre aspect très important que nous avons croisé au chapitre 19 est la possibilité de lever vous-même une exception avec le mot-clé `raise`. Nous avions vu le code suivant :
+Un autre aspect très important que nous avons croisé au chapitre 23 est la possibilité de lever vous-même une exception avec le mot-clé `raise`. Nous avions vu le code suivant :
 
 
 ```

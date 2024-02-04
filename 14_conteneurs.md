@@ -1,6 +1,7 @@
 # Conteneurs
 
-Dans ce chapitre nous allons aborder la notion de conteneur, revenir sur certaines propriétés avancées des dictionnaires et tuples, et enfin aborder les types *set* et *frozenset*. Pour les débutants, ce chapitre aborde des notions relativement avancées. Avant de vous lancer, nous vous conseillons vivement de bien maitriser les chapitres 4 et 12 sur les listes, ainsi que le chapitre 8 sur les dictionnaires et tuples, d'avoir effectué un maximum d'exercices, et de se sentir à l'aise avec toutes les notions abordées jusqu'à là.
+Dans ce chapitre nous allons aborder la notion de conteneur, revenir sur certaines propriétés avancées des dictionnaires et tuples, et enfin aborder les types *set* et *frozenset*. Pour les débutants, ce chapitre aborde des notions relativement avancées. Avant de vous lancer, nous vous conseillons vivement de bien maitriser les chapitres 4 *Listes* et 12 *Plus sur les listes*, ainsi que le chapitre 8 *Dictionnaires et tuples**, d'avoir effectué un maximum d'exercices, et de vous sentir à l'aise avec toutes les notions abordées jusque là.
+
 
 ## Conteneurs
 
@@ -52,7 +53,7 @@ Une autre propriété importante que l'on a déjà croisée et qui nous servira 
 
 Qu'en est-il des objets que nous connaissons ? Les listes sont modifiables, on peut modifier un ou plusieurs de ses éléments et ajouter ou retirer un élément. Les dictionnaires sont modifiables, pour une clé donnée, on peut changer la valeur correspondante et ajouter ou retirer un couple clé/valeur. Tous les autres types que nous avons vus précédemment sont quant à eux non modifiables : les chaînes de caractères ou *strings*, les tuples, les objets de type *range*, mais également des objets qui ne sont pas des conteneurs comme les entiers, les *floats* et les booléens. 
 
-On comprend bien l'immutabilité des *strings* comme vu au chapitre 10, mais c'est moins évident pour les entiers, *floats* ou booléens. Nous allons démontrer cela, mais avant nous avons besoin de définir la notion d'identifiant d'un objet.
+On comprend bien l'immutabilité des *strings* comme vu au chapitre 11 *Plus sur les chaînes de caractères*, mais c'est moins évident pour les entiers, *floats* ou booléens. Nous allons démontrer cela, mais avant nous avons besoin de définir la notion d'identifiant d'un objet.
 
 open-box-def
 
@@ -229,7 +230,7 @@ Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted
 ['b', 'a', 'c']
 ```
 
-L'argument `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue au chapitre 8 *Dictionnaires et tuples*, mais sans les parenthèses : `key=dico.get` mais pas `key=dico.get()`. Une fonction ou méthode passée en argument sans les parenthèses est appelée *callback*, nous reverrons cela en détail dans le chapitre 21 *Fenêtres graphiques et Tkinter*.
+L'argument `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue au chapitre 8 *Dictionnaires et tuples*, mais sans les parenthèses : `key=dico.get` mais pas `key=dico.get()`. Une fonction ou méthode passée en argument sans les parenthèses est appelée *callback*, nous reverrons cela en détail dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
 
 Attention, ce sont les clés du dictionnaire qui sont renvoyées, pas les valeurs. Ces clés sont cependant renvoyées dans un ordre qui permet d'obtenir les clés triées par ordre croissant :
 
@@ -332,7 +333,7 @@ Traceback (most recent call last):
 TypeError: 'tuple' object does not support item assignment
 ```
 
-Ce message est similaire à celui que nous avions rencontré quand on essayait de modifier une chaîne de caractères (cf. chapitre 11 *Plus sur les chaînes de caractères*). De manière générale, Python renverra un message `TypeError: '[...]' does not support item assignment` lorsqu'on essaie de modifier un élément d'un objet non modifiable. Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
+Ce message est similaire à celui que nous avions rencontré quand on essayait de modifier une chaîne de caractères (voir chapitre 11 *Plus sur les chaînes de caractères*). De manière générale, Python renverra un message `TypeError: '[...]' does not support item assignment` lorsqu'on essaie de modifier un élément d'un objet non modifiable. Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
 
 ```python
 >>> t = (1, 2, 3)
@@ -357,7 +358,7 @@ close-box-adv
 
 ### Affectation multiple et fonctions
 
-Au chapitre 8 *Dictionnaires et tuples*, nous avons abordé l'affectation multiple. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : `x, y, z = 1, 2, 3`. On a vu qu'il était possible de le faire également avec les listes : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe étant alourdie par la présence des crochets, on préfèrera toujours la première syntaxe avec les tuples sans parenthèses.
+Dans le chapitre 8 *Dictionnaires et tuples*, nous avons abordé l'affectation multiple. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : `x, y, z = 1, 2, 3`. On a vu qu'il était possible de le faire également avec les listes : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe étant alourdie par la présence des crochets, on préfèrera toujours la première syntaxe avec les tuples sans parenthèses.
 
 Concernant les fonctions, nous avions croisé l'importance de l'affectation multiple dans le chapitre 10 lorsqu'une fonction renvoyait plusieurs valeurs.
 
@@ -426,7 +427,7 @@ close-box-rem
 
 open-box-rem
 
-Le caractère *underscore* (`_`) est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 16 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (*leading* et *trailing underscores* en anglais), par exemple : `_var`, `var_`, `__var`, `__var__`. On verra au chapitre 20 *Avoir la classe avec les objets* que ces *underscores* ont aussi une signification particulière.
+Le caractère *underscore* (`_`) est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 16 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (*leading* et *trailing underscores* en anglais), par exemple : `_var`, `var_`, `__var`, `__var__`. On verra au chapitre 23 *Avoir la classe avec les objets* que ces *underscores* ont aussi une signification particulière.
 
 close-box-rem
 
@@ -445,11 +446,11 @@ On a vu que les tuples étaient **non modifiables**. Que se passe-t-il alors si 
 ([-15, 2, 3, -632], 'Plouf')
 ```
 
-On voit que si on modifie un élément de la liste `l1` en ligne 5 ou bien qu'on ajoute un élément à `t[0]` en ligne 6, Python s'exécute et ne renvoie pas de message d'erreur. Or nous avions dit qu'un tuple était non modifiable... Comment cela-est il possible ? Commençons d'abord par regarder comment les objets sont agencés avec *Python Tutor*.
+Si on modifie un élément de la liste `l1` (ligne 5) ou bien qu'on ajoute un élément à `t[0]` (ligne 6), Python s'exécute et ne renvoie pas de message d'erreur. Or nous avions dit qu'un tuple était non modifiable... Comment cela-est il possible ? Commençons d'abord par regarder comment les objets sont agencés avec *Python Tutor*.
 
 ![Tuple contenant une liste.](img/tuple_de_listes.png){ #fig:tuple_de_listes width=90% }
 
-La liste `l1` pointe vers le même objet que l'élément du tuple d'indice 0. Comme pour la copie de liste (par exemple `liste1 = liste2`), ceci est attendu car par défaut Python crée une copie par référence (cf. Chapitre 11 *Plus sur les listes*). Donc, qu'on raisonne en tant que premier élément du tuple ou bien en tant que liste `l1`, on pointe vers **la même liste**. Or, rappelez-vous, au début de ce chapitre nous avons expliqué que lorsqu'on modifiait un élément d'une liste, celle-ci gardait le même identifiant. C'est toujours le cas ici, même si celle-ci se trouve dans un tuple. Regardons cela :
+La liste `l1` pointe vers le même objet que l'élément du tuple d'indice 0. Comme pour la copie de liste (par exemple `liste1 = liste2`), ceci est attendu car par défaut Python crée une copie par référence (voir le chapitre 12 *Plus sur les listes*). Donc, qu'on raisonne en tant que premier élément du tuple ou bien en tant que liste `l1`, on pointe vers **la même liste**. Or, rappelez-vous, au début de ce chapitre nous avons expliqué que lorsqu'on modifiait un élément d'une liste, celle-ci gardait le même identifiant. C'est toujours le cas ici, même si celle-ci se trouve dans un tuple. Regardons cela :
 
 ```python
 >>> l1 = [1, 2, 3]
@@ -796,15 +797,16 @@ Il est aussi intéressant de comparer ces propriétés avec celles des types num
 
 ### Copie de conteneurs
 
-Un dernier point qu'il peut être utile de mentionner concerne la copie de conteneurs. On avait vu dans le chapitre 12 *Plus sur les listes* que la copie de listes se fait par référence. Cela est un mécanisme général pour tous les types de containers, sauf pour les chaînes de caractères. *Python Tutor* nous permet de voir cela (Figure @fig:copy_container).
+Un dernier point qu'il peut être utile de mentionner concerne la copie de conteneurs. On avait vu dans le chapitre 12 *Plus sur les listes* que la copie de listes se fait par référence. Cela est un mécanisme général pour tous les types de conteneurs, sauf pour les chaînes de caractères. *Python Tutor* nous permet de voir cela (Figure @fig:copy_container).
 
 ![Copie de conteneurs.](img/copy_container.png){ #fig:copy_container width=80% }
 
 Ainsi, il faut toujours faire attention quand on fait une copie d'un conteneur modfiable (liste, dictionnaire, set, etc.). On verra que Python se comporte comme ça aussi avec les objets *arrays* (chapitre 20 *module Numpy*) ou *Dataframes* (chapitre 22 *Module pandas*), car on peut les considérer également comme des conteneurs.
 
+
 ## Dictionnaires et *sets* de compréhension
 
-Nous avons vu au chapitre 13 *Plus sur les listes* les listes de compréhension. Il est également possible de générer des dictionnaires de compréhension :
+Nous avons vu dans le chapitre 12 *Plus sur les listes* les listes de compréhension. Il est également possible de générer des dictionnaires de compréhension :
 
 ```python
 >>> dico = {"a": 10, "g": 10, "t": 11, "c": 15}
@@ -818,7 +820,7 @@ dict_items([('a', 10), ('g', 10), ('t', 11), ('c', 15)])
 {'singe': 3, 'girafe': 1, 'rhinocéros': 1, 'gazelle': 4}
 ```
 
-La méthode `.items()` vue au chapitre 8 *Dictionnaires et tuples* est particulièrement bien adaptée pour créer un dictionnaire de compréhension car elle permet d'itérer sur les clés et valeurs en même temps.
+La méthode `.items()` vue dans le chapitre 8 *Dictionnaires et tuples* est particulièrement bien adaptée pour créer un dictionnaire de compréhension car elle permet d'itérer sur les clés et valeurs en même temps.
 
 Avec un dictionnaire de compréhension, on peut rapidement compter le nombre de chaque base dans une séquence d'ADN : 
 
@@ -850,7 +852,7 @@ Le [module *collections*](https://docs.python.org/fr/3/library/collections.html)
 - les [dictionnaires ordonnés](https://docs.python.org/fr/3/library/collections.html#collections.OrderedDict) qui se comportent comme les dictionnaires classiques mais qui sont ordonnés, c'est-à-dire que si on affiche ou itère dessus, l'ordre sera le même que celui utilisé pour sa création ; avant la version 3.6, ces dictionnaires ordonnés avait un intérêt car l'ordre des dictionnaires normaux était arbitraire ; maintenant les dictionnaires normaux se comportent presque en tout point comme les dictionnaires ordonnés ;
 - les [*defaultdicts*](https://docs.python.org/fr/3/library/collections.html#collections.defaultdict) permettant de générer des valeurs par défaut quand on demande une clé qui n'existe pas (cela évite que Python génère une erreur) ;
 - les [compteurs](https://docs.python.org/fr/3/library/collections.html#collections.Counter) dont un exemple est montré ci-dessous ;
-- les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) que nous évoquerons au chapitre 20 *Avoir la classe avec les objets*.
+- les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) que nous évoquerons au chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
 
 L'objet `collection.Counter()` est particulièrement intéressant et simple à utiliser. Il crée des compteurs à partir d'objets itérables, par exemple :
 
@@ -911,7 +913,7 @@ CTA : 5
 
 Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier FASTA sous la forme d'une chaîne de caractères, lit la séquence dans le fichier FASTA et la renvoie sous la forme d'une chaîne de caractères. N'hésitez pas à vous inspirer d'un exercice similaire du chapitre 10 *Plus sur les chaînes de caractères*.
 
-Utilisez cette fonction et la fonction `compte_mots_2_lettres()` de l'exercice précédent pour extraire les mots de 2 lettres et leurs occurrences dans la séquence du chromosome I de la levure du boulanger *Saccharomyces cerevisiae* (fichier [`NC_001133.fna`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.fna)).
+Utilisez cette fonction et la fonction `compte_mots_2_lettres()` de l'exercice précédent pour extraire les mots de 2 lettres et leurs occurrences dans la séquence du chromosome I de la levure du boulanger *Saccharomyces cerevisiae* (fichier [`NC_001133.fna`](https://python.sdv.u-paris.fr/data-files/NC_001133.fna)).
 
 Le génome complet est fourni au format FASTA. Vous trouverez des explications sur ce format et des exemples de code dans l'annexe A *Quelques formats de données en biologie*.
 
@@ -924,8 +926,8 @@ Utilisez pour ce script la fonction `lit_fasta()` de l'exercice précédent. Cr�
 
 Testez ce script avec :
 
-- la séquence du chromosome I de la levure du boulanger *Saccharomyces cerevisiae* (fichier [`NC_001133.fna`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.fna))
-- le génome de la bactérie *Escherichia coli* (fichier [`NC_000913.fna`](https://python.sdv.univ-paris-diderot.fr/data-files/NC_000913.fna))
+- la séquence du chromosome I de la levure du boulanger *Saccharomyces cerevisiae* (fichier [`NC_001133.fna`](https://python.sdv.u-paris.fr/data-files/NC_001133.fna))
+- le génome de la bactérie *Escherichia coli* (fichier [`NC_000913.fna`](https://python.sdv.u-paris.fr/data-files/NC_000913.fna))
 
 Les deux fichiers sont au format FASTA.
 
