@@ -230,6 +230,78 @@ True
 ```
 La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'est pas dans une liste.
 
+## Fonction `zip()`
+
+La très utile fonction `zip()` de Python permet d'itérer sur plusieurs listes en parallèle.
+
+```python
+>>> animaux = ["poulain", "renard", "python"]
+>>> couleurs = ["alezan", "roux", "vert"]
+>>> zip(animaux, couleurs)
+<zip object at 0x7f6cf954a480>
+>>> type(zip(animaux, couleurs))
+<class 'zip'>
+>>> for elt in zip(animaux, couleurs):
+...     print(elt)
+...
+('poulain', 'alezan')
+('renard', 'roux')
+('python', 'vert')
+>>> for ani, couleur in zip(animaux, couleurs):
+...     print(f"le {ani} est {couleur}")
+...
+le poulain est alezan
+le renard est roux
+le python est vert
+```
+
+Lignes 3 et 6. On passe deux listes à `zip()` qui génère un nouvel objet de type *zip*.
+
+Lignes 7 à 12. Un objet *zip* est itérable. La variable  d'itération est un tuple. A la première itération, on a un tuple avec l'élément 0 de chaque liste utilisée pour générer l'objet *zip*, et ainsi de suite.
+
+Lignes 13 à 18. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme on l'avait fait avec la fonction `enumrate()`, voir Chapitres 5 *Boucles* et 8 *Dictionnaires et tuples*).
+
+Un objet *zip* est aussi utile pour générer facilement une liste de tuples.
+
+```python
+>>> list(zip(animaux, couleurs))
+[('poulain', 'alezan'), ('renard', 'roux'), ('python', 'vert')]
+```
+
+Si une des listes passée en argument n'a pas la même longueur, l'objet *zip* s'arrête sur la liste la plus courte.
+
+```python
+>>> animaux = ["poulain", "renard", "python", "orque"]
+>>> couleurs = ["alezan", "roux", "vert"]
+>>> list(zip(animaux, couleurs))
+[('poulain', 'alezan'), ('renard', 'roux'), ('python', 'vert')]
+```
+
+On peut empêcher ce comportement avec l'argument par mot-clé `strict` qui renvoie une erreur si les listes n'ont pas la même longueur.
+
+```python
+>>> list(zip(animaux, couleurs, strict=True))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: zip() argument 2 is shorter than argument 1
+```
+
+Enfin, il est possible de créer des objets *zip* avec autant de listes que l'on veut :
+
+```python
+>>> animaux = ["poulain", "renard", "python"]
+>>> couleurs = ["alezan", "roux", "vert"]
+>>> nb = [1, 2, 3]
+>>> list(zip(nb, animaux, couleurs))
+[(1, 'poulain', 'alezan'), (2, 'renard', 'roux'), (3, 'python', 'vert')]
+```
+
+open-box-rem
+
+La fonction `zip()` fonctionne sur n'importe quel objet itérable : listes, tuples, dictionnaires, objets *range*, etc.
+
+close-box-rem
+
 
 ## Copie de listes
 
