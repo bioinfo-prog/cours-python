@@ -345,7 +345,7 @@ close-box-rem
 
 ## Test d'appartenance
 
-L’opérateur `in` teste si une chaîne fait partie d’une autre chaîne.
+L’opérateur `in` teste si une chaîne de caractères fait partie d’une autre chaîne de caractères.
 
 ```python
 >>> chaine = "Néfertiti"
