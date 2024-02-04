@@ -293,12 +293,12 @@ Soyez également cohérent entre la langue utilisée pour les commentaires et la
 Les commentaires qui suivent le code sur la même ligne sont à éviter le plus possible et doivent être séparés du code par au moins deux espaces :
 
 ```python
-x = x + 1   # Mon super commentaire.
+var_x = var_x + 1   # My useful comment.
 ```
 
 open-box-rem
 
-Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas incluse dans la PEP 8. On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Simples ou doubles ?
+Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas explicitée dans la PEP 8. On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Guillemets simples ou guillemets doubles ?
 
 ```python
 >>> var_1 = "Ma chaîne de caractères"
@@ -310,9 +310,10 @@ Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas in
 >>> var_1 == var_2
 True
 ```
+
 Vous constatez dans l'exemple ci-dessus que pour Python, c'est exactement la même chose. Et à notre connaissance, il n'existe pas de recommandation officielle sur le sujet.
 
-Nous vous conseillons cependant d'utiliser les guillemets doubles car ceux-ci sont, de notre point de vue, plus lisibles.
+Nous vous conseillons cependant d'utiliser les **guillemets doubles** car ceux-ci sont, de notre point de vue, plus lisibles.
 
 close-box-rem
 
@@ -377,10 +378,8 @@ def multiplie_nombres(nombre1, nombre2):
     nombre1 : int
         Le premier nombre entier.
     nombre2 : int
-        Le second nombre entier.
-
-        Avec une description plus longue.
-        Sur plusieurs lignes.
+        Le second nombre entier,
+        très important pour cette fonction.
 
     Returns
     -------
@@ -394,11 +393,11 @@ Lignes 6 et 7. La section `Parameters` précise les paramètres de la fonction. 
 
 Lignes 8 et 9. On indique le nom et le type du paramètre séparés par le caractère deux-points. Le type n'est pas obligatoire. En dessous, on indique une description du paramètre en question. La description est indentée.
 
-Lignes 10 à 14. Même chose pour le second paramètre. La description du paramètre peut s'étaler sur plusieurs lignes.
+Lignes 10 à 12. Même chose pour le second paramètre. La description du paramètre peut s'étaler sur plusieurs lignes.
 
-Lignes 16 et 17. La section `Returns` indique ce qui est renvoyé par la fonction (le cas échéant).
+Lignes 14 et 15. La section `Returns` indique ce qui est renvoyé par la fonction (le cas échéant).
 
-Lignes 18 et 19. La mention du type renvoyé est obligatoire. En dessous, on indique une description de ce qui est renvoyé par la fonction. Cette description est aussi indentée.
+Lignes 16 et 17. La mention du type renvoyé est obligatoire. En dessous, on indique une description de ce qui est renvoyé par la fonction. Cette description est aussi indentée.
 
 open-box-warn
 
@@ -630,7 +629,7 @@ def une_fonction_simple(arg1, arg2):
 
 
 if __name__ == "__main__":
-    # ici débute le programme principal
+    # Ici débute le programme principal.
     [...]
 ```
 
