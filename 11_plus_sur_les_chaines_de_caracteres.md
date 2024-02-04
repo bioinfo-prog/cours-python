@@ -343,6 +343,31 @@ Retenez bien l'utilisation des instructions précédentes pour extraire des vale
 
 close-box-rem
 
+## Test d'appartenance
+
+L’opérateur `in` teste si une chaîne de caractères fait partie d’une autre chaîne de caractères.
+
+```python
+>>> chaine = "Néfertiti"
+>>> "toto" in chaine
+False
+>>> "titi" in chaine
+True
+>>> "ti" in chaine
+True
+```
+
+Notez que la chaîne testée peut-être présente à n'importe quelle position dans l'autre chaîne. Par ailleurs, le test est vrai si elle est présente une ou plusieurs fois. 
+
+La variation avec l'opérateur booléen `not` permet de vérifier qu'une chaîne n'est pas présente dans une autre chaîne.
+
+```python
+>>> not "toto" in chaine
+True
+>>> not "fer" in chaine
+False
+```
+
 
 ## Conversion d'une liste de chaînes de caractères en une chaîne de caractères
 
@@ -607,7 +632,9 @@ close-box-adv
 
 Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, « coucou » est composable à partir de « uocuoceokzefhu ».
 
-Écrivez la fonction `test_composable()` qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères) et qui affiche `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) ou `Le mot xxx n'est pas composable à partir de yyy` sinon.
+Écrivez la fonction `est_composable()` qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères) et qui renvoie `True` si le mot est composable à partir de la séquence, sinon `False`.
+
+Dans le programme principal, créez une liste de tuples contenant les couples mot / séquence (de la forme `[('mot1', 'sequence1'), ...]`. Faites ensuite une boucle sur tous les couples mot / séquence, et à chaque itération appelez la fonction `est_composable()`. Affichez enfin `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) ou `Le mot xxx n'est pas composable à partir de yyy` sinon.
 
 Testez cette fonction avec les mots et les séquences suivantes :
 
