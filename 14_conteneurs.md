@@ -797,7 +797,7 @@ Il est aussi intéressant de comparer ces propriétés avec celles des types num
 
 ### Copie de conteneurs
 
-Un dernier point qu'il peut être utile de mentionner concerne la copie de conteneurs. On avait vu dans le chapitre 12 *Plus sur les listes* que la copie de listes se fait par référence. Cela est un mécanisme général pour tous les types de containers, sauf pour les chaînes de caractères. *Python Tutor* nous permet de voir cela (Figure @fig:copy_container).
+Un dernier point qu'il peut être utile de mentionner concerne la copie de conteneurs. On avait vu dans le chapitre 12 *Plus sur les listes* que la copie de listes se fait par référence. Cela est un mécanisme général pour tous les types de conteneurs, sauf pour les chaînes de caractères. *Python Tutor* nous permet de voir cela (Figure @fig:copy_container).
 
 ![Copie de conteneurs.](img/copy_container.png){ #fig:copy_container width=80% }
 
