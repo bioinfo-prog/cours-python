@@ -1684,12 +1684,12 @@ Le morceau de code suivant vous sera utile pour extraire les coordonnées atomiq
 
 ```python
 with open("1bta.pdb", "r") as f_pdb, open("1bta_CA.txt", "w") as f_CA:
-for ligne in f_pdb:
+    for ligne in f_pdb:
         if ligne.startswith("ATOM") and ligne[12:16].strip() == "CA":
-                x = ligne[30:38]
-                y = ligne[38:46]
-                z = ligne[46:54]
-                f_CA.write(f"{x} {y} {z} ")
+            x = ligne[30:38]
+            y = ligne[38:46]
+            z = ligne[46:54]
+            f_CA.write(f"{x} {y} {z} ")
 ```
 
 - Ligne 1. On ouvre deux fichiers simultanément. Ici, le fichier `1bta.pdb` est ouvert en lecture (`r`)
