@@ -441,7 +441,7 @@ Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L
 
 ## *Method chaining*
 
-Il existe de nombreuses méthodes pour traiter les chaînes de caractères. Ces méthodes renvoient la plus part du temps une chaîne de caractères modifiée.
+Il existe de nombreuses méthodes pour traiter les chaînes de caractères. Ces méthodes renvoient la plupart du temps une chaîne de caractères modifiée.
 
 Par exemple, si on souhaite mettre une majuscule à tous les mots d'une chaîne de caractères, puis remplacer un mot par un autre, puis transformer cette chaîne de caractères en une liste de chaînes de caractères, on peut écrire :
 
