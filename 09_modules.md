@@ -611,8 +611,8 @@ On considère un jeu de belote avec la variante sans-atout, où chaque carte vau
 
 ```python
 # Nombre de points de chaque carte (V = valet, D = dame, R = roi, d = 10, A = as).
-dico_points_sans_atouts = {"7": 0, "8": 0, "9": 0, "V": 2, "D": 3, "R": 4,
-                           "d": 10, "A": 11}
+dico_points_sans_atouts = {"7": 0, "8": 0, "9": 0, "V": 2, "D": 3, 
+                           "R": 4, "d": 10, "A": 11}
 ```
 
 Par ailleurs, on peut représenter un jeu de 32 cartes par une liste `jeu_cartes = ["7", "8", "9", "d", "V", "D", "R", "A"] * 4`.
