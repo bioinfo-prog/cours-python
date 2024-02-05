@@ -498,9 +498,9 @@ L'utilisation de parenthèses permet aussi de couper une chaîne de caractères 
 >>> ma_chaine = (
 ... "voici une chaine de caractères "
 ... "très longue "
-... "définie sur plusieurs lignes")
+... "sur plusieurs lignes")
 >>> ma_chaine
-'voici une chaine de caractères très longue définie sur plusieurs lignes'
+'voici une chaine de caractères très longue sur plusieurs lignes'
 ```
 
 Nous reverrons le *method chaining* dans le chapitre 22 *Module Pandas*.
