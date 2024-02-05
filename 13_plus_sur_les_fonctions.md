@@ -239,6 +239,36 @@ close-box-adv
 
 De manière générale la règle LGI découle de la manière dont Python gère ce que l'on appelle « les espaces de noms ». C'est cette gestion qui définit la portée (visibilité) de chaque variable. Nous en parlerons plus longuement dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
 
+## Fonction `map()`
+
+La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un objet itérable. Par exemple, si on une chaîne de caractères avec 3 entiers séparés par des espaces, on peut convertir les trois en une seule ligne de commande. Comme la fonction *zip* vu au chapitre 12 *Plus sur les listes*, cela produit un objet *map* qui est itérable ou que l'on peut transformer en liste.
+
+```python
+>>> ligne = "67 946   -45"
+>>> ligne.split()
+['67', '946', '-45']
+>>> map(int, ligne.split())
+<map object at 0x7fa34e573b20>
+>>> for entier in map(int, ligne.split()):
+...    print(entier)
+...
+67
+946
+-45
+>>> list(map(int, ligne.split()))
+[67, 946, -45]
+```
+
+Cette fonction est particulièrement utile lorsqu'on lit un fichier de valeurs numériques. Par exemple, si on a un fichier `data.dat` contenant trois colonnes de *floats*, `map()` permet de transformer en *float* les trois nombre en une ligne de code.
+
+```python
+with open("data.dat", "r") as f:
+    for line in f:
+        x, y, z = map(float, line.split())
+        print(x + y + z)
+```
+
+Sans `map()`, il aurait fallu une ligne pour séparer les données `x, y, z = line.split()` et une autre pour les transformer en *float* `x, y, z = float(x), float(y), float(z)`.
 
 ## Recommandations
 
