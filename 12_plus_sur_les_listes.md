@@ -241,23 +241,23 @@ La très utile fonction `zip()` de Python permet d'itérer sur plusieurs listes 
 <zip object at 0x7f6cf954a480>
 >>> type(zip(animaux, couleurs))
 <class 'zip'>
->>> for elt in zip(animaux, couleurs):
-...     print(elt)
+>>> for element in zip(animaux, couleurs):
+...     print(element)
 ...
 ('poulain', 'alezan')
 ('renard', 'roux')
 ('python', 'vert')
->>> for ani, couleur in zip(animaux, couleurs):
-...     print(f"le {ani} est {couleur}")
+>>> for animal, couleur in zip(animaux, couleurs):
+...     print(f"le {animal} est {couleur}")
 ...
 le poulain est alezan
 le renard est roux
 le python est vert
 ```
 
-Lignes 3 et 6. On passe deux listes à `zip()` qui génère un nouvel objet de type *zip*.
+Lignes 3 et 6. On passe en argument deux listes à `zip()` qui génère un nouvel objet de type *zip*.
 
-Lignes 7 à 12. Un objet *zip* est itérable. La variable  d'itération est un tuple. A la première itération, on a un tuple avec l'élément 0 de chaque liste utilisée pour générer l'objet *zip*, et ainsi de suite.
+Lignes 7 à 12. Un objet *zip* est itérable. La variable  d'itération est un tuple. A la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, et ainsi de suite.
 
 Lignes 13 à 18. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme on l'avait fait avec la fonction `enumrate()`, voir Chapitres 5 *Boucles* et 8 *Dictionnaires et tuples*).
 
@@ -291,8 +291,8 @@ Enfin, il est possible de créer des objets *zip* avec autant de listes que l'on
 ```python
 >>> animaux = ["poulain", "renard", "python"]
 >>> couleurs = ["alezan", "roux", "vert"]
->>> nb = [1, 2, 3]
->>> list(zip(nb, animaux, couleurs))
+>>> numero = [1, 2, 3]
+>>> list(zip(numero, animaux, couleurs))
 [(1, 'poulain', 'alezan'), (2, 'renard', 'roux'), (3, 'python', 'vert')]
 ```
 

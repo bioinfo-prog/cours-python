@@ -322,7 +322,7 @@ Nous vous déconseillons toutefois cette manière de faire car on ne peut pas me
 
 close-box-warn
 
-Une dernière manière puissante pour générer des dictionnaires combine les fonctions `dict()` et `zip()`. On se souvient que la fonction `zip()` permettait de générer une liste de tuples.
+Une dernière manière puissante pour générer des dictionnaires combine les fonctions `dict()` et `zip()`. On se souvient que la fonction `zip()` peut générer une liste de tuples.
 
 ```python
 >>> animaux = ["poulain", "renard", "python"]
@@ -338,7 +338,7 @@ Si on utilise l'objet *zip* avec la fonction `dict()`, on obtient un dictionnair
 {'poulain': 'alezan', 'renard': 'roux', 'python': 'vert'}
 ```
 
-Attention de ne passer que deux liste à la fonction `zip()`, sinon Python renvoie une erreur :
+Attention à ne passer que deux listes à la fonction `zip()`, sinon Python renvoie une erreur :
 
 ```python
 >>> dict(zip([1, 2, 3], animaux, couleurs))
