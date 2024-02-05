@@ -155,7 +155,7 @@ souris
 
 La variable `i` prendra les valeurs successives 0, 1, 2 et 3 et on accèdera à chaque élément de la liste `animaux` par son indice (*i.e.* `animaux[i]`). Notez à nouveau le nom `i` de la variable d'itération car on itère sur les **indices**.
 
-Quand utiliser l'une ou l'autre des 2 méthodes ? La plus efficace est celle qui réalise **les itérations directement sur les éléments** :
+Quand utiliser l'une ou l'autre des deux méthodes ? La plus efficace est celle qui réalise **les itérations directement sur les éléments** :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -167,6 +167,13 @@ tigre
 singe
 souris
 ```
+
+open-box-rem
+
+Dans le chapitre 18 *Jupyter et ses notebooks*, nous mesurerons le temps d'exécution de ces deux méthodes pour vous montrez que l'itération sur les éléments est la méthode la plus rapide.
+
+close-box-rem
+
 
 Toutefois, il se peut qu'au cours d'une boucle vous ayez besoin des indices, auquel cas vous devrez itérer sur les indices :
 
@@ -181,7 +188,7 @@ L'animal 2 est un(e) singe
 L'animal 3 est un(e) souris
 ```
 
-Python possède toutefois la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
+Enfin, Python possède la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -305,7 +312,7 @@ Entrez un entier supérieur à 10 : 15
 15
 ```
 
-La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères. Il faut ensuite convertir cette dernière en entier (avec la fonction `int()` ligne 4).
+La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne 4).
 
 
 ## Exercices
@@ -335,7 +342,7 @@ Avec une boucle, affichez les nombres de 1 à 10 sur une seule ligne.
 
 open-box-adv
 
-N'hésitez pas à relire le début du chapitre 3 *Affichage* qui discute de la fonction `print()`.
+Pensez à relire le début du chapitre 3 *Affichage* qui discute de la fonction `print()`.
 
 close-box-adv
 
