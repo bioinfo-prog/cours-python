@@ -188,7 +188,7 @@ L'animal 2 est un(e) singe
 L'animal 3 est un(e) souris
 ```
 
-Python possède toutefois la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
+Enfin, Python possède la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
