@@ -533,4 +533,4 @@ Un athlète court un marathon, malheureusement sa montre mesure son temps en 119
 
 ### Convertisseur de jours
 
-L'âge de Camille et Céline en jours est de respectivement 8331 jours et 8660 jours. Quel est leur âge en années, mois et jours en supposant qu'une année compte 365 jours et qu'un mois compte 30 jours ?
+L'âge de Camille et Céline en jours est de respectivement 8331 jours et 8660 jours. Quel est leur âge en années, mois et jours en supposant qu'une année compte 365 jours et qu'un mois compte 30 jours ? La fonction `divmod()` vous aidera à nouveau.
