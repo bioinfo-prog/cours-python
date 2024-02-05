@@ -478,7 +478,7 @@ Cette fonction est très pratique quand on veut par exemple convertir des second
 (12, 34)
 ```
 
-La division normale nous donne un *float* en minutes qui n'est pas très pratique, il faut encore convertir 0.566666666666666 minute en secondes en gérer les problèmes d'arrondi. La fonction `divmod()` nous renvoie le résultat directement : 12 min et 34 s. On pourrait résonner de manière similaire pour convertir des minutes en heures, des heures en jours, etc.
+La division normale nous donne un *float* en minutes qui n'est pas très pratique, il faut encore convertir 0.566666666666666 minute en secondes en gérer les problèmes d'arrondi. La fonction `divmod()` renvoie le résultat directement : 12 min et 34 s. On pourrait résonner de manière similaire pour convertir des minutes en heures, des heures en jours, etc.
 
 ### Remarque finale
 
@@ -529,7 +529,7 @@ En utilisant un dictionnaire, déterminez le nombre d’occurrences de chaque ac
 
 ### Convertisseur de secondes
 
-Un athlète court un marathon, malheureusement sa montre mesure son temps en 11905 secondes. Aidez le à convertir son temps en heure, minute seconde avec la fonction `divmod()`.
+Un athlète court un marathon, malheureusement sa montre mesure son temps en 11905 secondes. Aidez-le à convertir son temps en heure, minute seconde avec la fonction `divmod()`.
 
 ### Convertisseur de jours
 
