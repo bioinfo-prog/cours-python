@@ -312,7 +312,7 @@ Entrez un entier supérieur à 10 : 15
 15
 ```
 
-La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères. Il faut ensuite convertir cette dernière en entier (avec la fonction `int()` ligne 4).
+La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne 4).
 
 
 ## Exercices
@@ -342,7 +342,7 @@ Avec une boucle, affichez les nombres de 1 à 10 sur une seule ligne.
 
 open-box-adv
 
-N'hésitez pas à relire le début du chapitre 3 *Affichage* qui discute de la fonction `print()`.
+Pensez à relire le début du chapitre 3 *Affichage* qui discute de la fonction `print()`.
 
 close-box-adv
 
