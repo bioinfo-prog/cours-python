@@ -617,7 +617,7 @@ dico_points_sans_atouts = {"7": 0, "8": 0, "9": 0, "V": 2, "D": 3, "R": 4,
 
 Par ailleurs, on peut représenter un jeu de 32 cartes par une liste `jeu_cartes = ["7", "8", "9", "d", "V", "D", "R", "A"] * 4`.
 
-Créez un programme `belote.py` qui tire 8 cartes au hasard sans remise et qui affiche le nombre de points correspondant. Pour cela, vous pouvez utiliser la fonction `rd.sample()` et son argument par mot-clé `k`. N'hésitez pas à consulter la [documentation](https://docs.python.org/fr/3/library/random.html#random.sample). On souhaite une sortie de ce style :
+Créez un programme `belote.py` qui tire 8 cartes au hasard sans remise et qui affiche le nombre de points correspondant. Pour cela, vous pouvez utiliser la fonction `random.sample()` et son argument par mot-clé `k`. N'hésitez pas à consulter la [documentation](https://docs.python.org/fr/3/library/random.html#random.sample). On souhaite une sortie de ce style :
 
 ```text
 $ python ./belote.py
