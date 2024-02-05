@@ -13,9 +13,7 @@ def Multiplie_nombres(nombre1,nombre2 ):
         Le premier nombre entier.
     nombre2 : int
         Le second nombre entier.
-
-        Avec une description plus longue.
-        Sur plusieurs lignes.
+        Très utile.
 
     Returns
     -------

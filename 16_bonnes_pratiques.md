@@ -28,7 +28,7 @@ La PEP 8 [*Style Guide for Python Code*](https://www.python.org/dev/peps/pep-000
 
 ### Indentation
 
-On a vu que l'indentation est obligatoire en Python pour séparer les blocs d'instructions. Cela vient d'un constat simple, l'indentation améliore la lisibilité d'un code. La PEP 8 recommande
+On a vu que l'indentation est obligatoire en Python pour séparer les blocs d'instructions. Cela vient d'un constat simple : l'indentation améliore la lisibilité d'un code. La PEP 8 recommande
 d'utiliser **quatre espaces** pour chaque niveau d'indentation. Nous vous recommandons de suivre impérativement cette règle.
 
 open-box-warn
@@ -40,7 +40,7 @@ close-box-warn
 
 ### Importation des modules
 
-Comme on l'a vu dans le chapitre 9 *Modules*, le chargement d'un module se fait avec l'instruction `import module` plutôt qu'avec `from module import *`.
+Comme on l'a vu dans le chapitre 9 *Modules*, le chargement d'un module est réalisé avec l'instruction `import module` plutôt qu'avec `from module import *`.
 
 Si on souhaite ensuite utiliser une fonction d'un module, la première syntaxe conduit à `module.fonction()` ce qui rend explicite la provenance de la fonction. Avec la seconde syntaxe, il faudrait écrire `fonction()` ce qui peut :
 
@@ -50,7 +50,7 @@ Si on souhaite ensuite utiliser une fonction d'un module, la première syntaxe c
 
 Par ailleurs, la première syntaxe définit un « espace de noms » (voir le chapitre 24 *Avoir plus la classe avec les objets* (en ligne)) spécifique au module.
 
-Dans un script Python, on importe en général un module par ligne. D'abord les modules internes (classés par ordre alphabétique), c'est-à-dire les modules de base de Python, puis les modules externes (ceux que vous avez installés en plus).
+Dans un script Python, on importe un module par ligne. D'abord les modules internes (classés par ordre alphabétique), c'est-à-dire les modules de base de Python, puis les modules externes (ceux que vous avez installés en plus), et enfin, les modules que vous avez créés.
 
 Si le nom du module est trop long, on peut utiliser un alias. L'instruction `from` est tolérée si vous n'importez que quelques fonctions clairement identifiées.
 
@@ -60,11 +60,11 @@ En résumé :
 import module_interne_1
 import module_interne_2
 from module_interne_3 import fonction_spécifique
-from module_interne_4 import constante_1, fonction_1, fonction_2
 
 import module_externe_1
-import module_externe_2
-import module_externe_3_qui_a_un_nom_long as mod3
+import module_externe_2_qui_a_un_nom_long as mod2
+
+import module_cree_par_vous
 ```
 
 ### Règles de nommage
@@ -115,7 +115,6 @@ Bien sûr, une écriture plus « pythonique » de l'exemple précédent permet d
 >>> ma_liste = [1, 3, 5, 7, 9, 11]
 >>> for entier in ma_liste:
 ...     print(entier)
-...
 ```
 
 Enfin, des noms de variable à une lettre peuvent être utilisés lorsque cela a un sens mathématique (par exemple, les noms `x`, `y` et `z` évoquent des coordonnées cartésiennes).
@@ -126,11 +125,11 @@ Enfin, des noms de variable à une lettre peuvent être utilisés lorsque cela a
 La PEP 8 recommande d'entourer les opérateurs (`+`, `-`, `/`, `*`, `==`, `!=`, `>=`, `not`, `in`, `and`, `or`...) d'un espace avant et d'un espace après. Par exemple :
 
 ```python
-# code recommandé :
+# Code recommandé :
 ma_variable = 3 + 7
 mon_texte = "souris"
 mon_texte == ma_variable
-# code non recommandé :
+# Code non recommandé :
 ma_variable=3+7
 mon_texte="souris"
 mon_texte== ma_variable
@@ -139,11 +138,11 @@ mon_texte== ma_variable
 Il n'y a, par contre, pas d'espace à l'intérieur de crochets, d'accolades et de parenthèses :
 
 ```python
-# code recommandé :
+# Code recommandé :
 ma_liste[1]
 mon_dico{"clé"}
 ma_fonction(argument)
-# code non recommandé :
+# Code non recommandé :
 ma_liste[ 1 ]
 mon_dico{"clé" }
 ma_fonction( argument )
@@ -152,27 +151,26 @@ ma_fonction( argument )
 Ni juste avant la parenthèse ouvrante d'une fonction ou le crochet ouvrant d'une liste ou d'un dictionnaire :
 
 ```python
-# code recommandé :
+# Code recommandé :
 ma_liste[1]
 mon_dico{"clé"}
 ma_fonction(argument)
-# code non recommandé :
+# Code non recommandé :
 ma_liste [1]
 mon_dico {"clé"}
 ma_fonction (argument)
 ```
 
-
 On met un espace après les caractères `:` et `,` (mais pas avant) :
 
 ```python
-# code recommandé :
+# Code recommandé :
 ma_liste = [1, 2, 3]
 mon_dico = {"clé1": "valeur1", "clé2": "valeur2"}
 ma_fonction(argument1, argument2)
-# code non recommandé :
+# Code non recommandé :
 ma_liste = [1 , 2 ,3]
-mon_dico = {"clé1": "valeur1", "clé2": "valeur2"}
+mon_dico = {"clé1" : "valeur1", "clé2":"valeur2"}
 ma_fonction(argument1 ,argument2)
 ```
 
@@ -180,11 +178,11 @@ Par contre, pour les tranches de listes, on ne met pas d'espace autour du `:`
 
 ```python
 ma_liste = [1, 3, 5, 7, 9, 1]
-# code recommandé :
+# Code recommandé :
 ma_liste[1:3]
 ma_liste[1:4:2]
 ma_liste[::2]
-# code non recommandé :
+# Code non recommandé :
 ma_liste[1 : 3]
 ma_liste[1: 4:2 ]
 ma_liste[ : :2]
@@ -193,11 +191,11 @@ ma_liste[ : :2]
 Enfin, on n'ajoute pas plusieurs espaces autour du `=` ou des autres opérateurs pour faire joli :
 
 ```python
-# code recommandé :
+# Code recommandé :
 x1 = 1
 x2 = 3
 x_old = 5
-# code non recommandé :
+# Code non recommandé :
 x1    = 1
 x2    = 3
 x_old = 5
@@ -219,7 +217,7 @@ On a déjà vu dans le chapitre 1 *Introduction* que le caractère `\` permet de
 ma variable vaut 3
 ```
 
-À l'intérieur d'une parenthèse, on peut revenir à la ligne sans utiliser le caractère `\`. C'est particulièrement utile pour préciser les arguments d'une fonction ou d'une méthode, lors de sa création ou lors de son utilisation :
+À l'intérieur de parenthèses, on peut revenir à la ligne sans utiliser le caractère `\`. C'est particulièrement utile pour préciser les arguments d'une fonction ou d'une méthode, lors de sa création ou lors de son utilisation :
 
 ```python
 >>> def ma_fonction(argument_1, argument_2,
@@ -231,7 +229,7 @@ ma variable vaut 3
 'texte très longtigre'
 ```
 
-Les parenthèses sont également très pratiques pour répartir sur plusieurs lignes une chaîne de caractères qui sera affichée sur une seule ligne :
+Les parenthèses sont également très pratiques pour répartir sur plusieurs lignes une chaîne de caractères qui sera ensuite affichée sur une seule ligne :
 
 ```python
 >>> print("ATGCGTACAGTATCGATAAC"
@@ -255,7 +253,7 @@ ma variable vaut 3
 
 open-box-rem
 
-Les parenthèses sont aussi très utiles lorsqu'on a besoin d’enchaîner des méthodes les unes à la suite des autres. Cette technique du *method chaining* a été introduite dans le chapitre 11 *Plus sur les chaînes de caractères* et sera très utilisée dans chapitre 22 *Module Pandas*.
+Les parenthèses sont aussi très utiles lorsqu'on a besoin d’enchaîner des méthodes les unes à la suite des autres. Cette technique du *method chaining* a été introduite dans le chapitre 11 *Plus sur les chaînes de caractères* et sera très utilisée dans le chapitre 22 *Module Pandas*.
 
 close-box-rem
 
@@ -282,23 +280,23 @@ On peut aussi laisser une ligne vide dans le corps d'une fonction pour séparer 
 
 ### Commentaires
 
-Les commentaires débutent toujours par le symbole `#` suivi d'un espace. Ils donnent des explications claires sur l'utilité du code et doivent être synchronisés avec le code, c'est-à-dire que si le code est modifié, les commentaires doivent l'être aussi (le cas échéant).
+Les commentaires débutent toujours par le symbole `#` suivi d'un espace. Ils fournissent des explications sur l'utilité du code et permettent de comprendre son fonctionnement.
 
 Les commentaires sont sur le même niveau d'indentation que le code qu'ils commentent. Les commentaires sont constitués de phrases complètes, avec une majuscule au début (sauf si le premier mot est une variable qui s'écrit sans majuscule) et un point à la fin.
 
-La PEP 8 recommande très fortement d'écrire les commentaires en anglais, sauf si vous êtes à 120% sûr que votre code ne sera lu que par des francophones. Dans la mesure où vous allez souvent développer des programmes scientifiques, nous vous conseillons d'écrire vos commentaires en anglais.
+La PEP 8 recommande d'écrire les commentaires en anglais, sauf si vous êtes à 120% sûr que votre code ne sera lu que par des francophones. Dans la mesure où vous allez souvent développer des programmes scientifiques, nous vous conseillons d'écrire vos commentaires en anglais.
 
 Soyez également cohérent entre la langue utilisée pour les commentaires et la langue utilisée pour nommer les variables. Pour un programme scientifique, les commentaires et les noms de variables sont en anglais. Ainsi `ma_liste` deviendra `my_list` et `ma_fonction` deviendra `my_function` (par exemple).
 
 Les commentaires qui suivent le code sur la même ligne sont à éviter le plus possible et doivent être séparés du code par au moins deux espaces :
 
 ```python
-var_x = var_x + 1   # My useful comment.
+var_x = number / total * 100   # My useful comment.
 ```
 
 open-box-rem
 
-Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas explicitée dans la PEP 8. On nous pose souvent la question du type de guillemets à utiliser pour déclarer une chaîne de caractères. Guillemets simples ou guillemets doubles ?
+La PEP 8 [ne fournit pas de recommandation](https://peps.python.org/pep-0008/#string-quotes) quant à l'usage de guillemets simples ou de guillemets doubles pour déclarer une chaîne de caractères.
 
 ```python
 >>> var_1 = "Ma chaîne de caractères"
@@ -311,8 +309,7 @@ Nous terminerons par une remarque qui concerne la syntaxe, mais qui n'est pas ex
 True
 ```
 
-Vous constatez dans l'exemple ci-dessus que pour Python, c'est exactement la même chose. Et à notre connaissance, il n'existe pas de recommandation officielle sur le sujet.
-
+Vous constatez dans l'exemple ci-dessus que pour Python, les guillements simples et doubles sont équivalents.
 Nous vous conseillons cependant d'utiliser les **guillemets doubles** car ceux-ci sont, de notre point de vue, plus lisibles.
 
 close-box-rem
@@ -320,7 +317,7 @@ close-box-rem
 
 ## Les *docstrings* et la PEP 257
 
-Les *docstrings*, que l'on pourrait traduire par « chaînes de documentation » en français, sont un élément essentiel de nos programmes Python comme on l'a vu au chapitre 15 *Création de modules*. À nouveau, les développeurs de Python ont émis des recommandations dans la PEP 8 et plus exhaustivement dans la [PEP 257](https://www.python.org/dev/peps/pep-0257/) sur la manière de rédiger correctement les *docstrings*. En voici un résumé succinct.
+Les *docstrings*, que l'on pourrait traduire par « chaînes de documentation » en français, sont un élément essentiel de programmes Python comme on l'a vu au chapitre 15 *Création de modules*. À nouveau, les développeurs de Python ont émis des recommandations dans la PEP 8 et plus exhaustivement dans la [PEP 257](https://www.python.org/dev/peps/pep-0257/) sur la manière de rédiger correctement les *docstrings*. En voici un résumé succinct.
 
 De manière générale, écrivez des *docstrings* pour les modules, les fonctions, les classes et les méthodes. Lorsque l'explication est courte et compacte comme dans certaines fonctions ou méthodes simples, utilisez des *docstrings* d'une ligne :
 
@@ -334,7 +331,6 @@ Lorsque vous avez besoin de décrire plus en détail un module, une fonction, un
 """Docstring de plusieurs lignes, la première ligne est un résumé.
 
 Après avoir sauté une ligne, on décrit les détails de cette docstring.
-blablabla
 On termine la docstring avec les triples guillemets 
 sur la ligne suivante.
 """
@@ -389,15 +385,11 @@ def multiplie_nombres(nombre1, nombre2):
     return nombre1 * nombre2
 ```
 
-Lignes 6 et 7. La section `Parameters` précise les paramètres de la fonction. Les tirets sur la ligne 7 permettent de souligner le nom de la section et donc de la rendre visible.
-
-Lignes 8 et 9. On indique le nom et le type du paramètre séparés par le caractère deux-points. Le type n'est pas obligatoire. En dessous, on indique une description du paramètre en question. La description est indentée.
-
-Lignes 10 à 12. Même chose pour le second paramètre. La description du paramètre peut s'étaler sur plusieurs lignes.
-
-Lignes 14 et 15. La section `Returns` indique ce qui est renvoyé par la fonction (le cas échéant).
-
-Lignes 16 et 17. La mention du type renvoyé est obligatoire. En dessous, on indique une description de ce qui est renvoyé par la fonction. Cette description est aussi indentée.
+- Lignes 6 et 7. La section `Parameters` précise les paramètres de la fonction. Les tirets sur la ligne 7 soulignent le nom de la section pour la rendre visible.
+- Lignes 8 et 9. On indique le nom et le type du paramètre séparés par le caractère deux-points. Le type n'est pas obligatoire. En dessous, on indique une description du paramètre en question. La description est indentée.
+- Lignes 10 à 12. Même chose pour le second paramètre. La description du paramètre peut s'étaler sur plusieurs lignes.
+- Lignes 14 et 15. La section `Returns` indique ce qui est renvoyé par la fonction (le cas échéant).
+- Lignes 16 et 17. La mention du type renvoyé est obligatoire. En dessous, on indique une description de ce qui est renvoyé par la fonction. Cette description est aussi indentée.
 
 open-box-warn
 
@@ -408,12 +400,12 @@ close-box-warn
 
 ## Outils de contrôle qualité du code
 
-Pour évaluer la qualité d'un code Python, c'est-à-dire sa conformité avec les recommandations de la PEP 8 et de la PEP 257, on peut utiliser des sites internet ou des outils dédiés.
+Pour évaluer la qualité d'un code Python, c'est-à-dire sa conformité avec les recommandations de la PEP 8 et de la PEP 257, on peut utiliser les outils `pycodestyle`, `pydocstyle` et `pylint`.
 
-Le site [pep8online](http://pep8online.com/), par exemple, est très simple d'utilisation. On copie / colle le code à évaluer puis on clique sur le bouton *Check code*.
 
-Les outils `pycodestyle`, `pydocstyle` et `pylint` doivent par contre être installés sur votre machine. Avec la distribution Miniconda, cette étape d'installation se résume à une ligne de commande :
-```
+Ces outils ne sont fournis dans l'installation de base de Python et doivent être installés sur votre machine. Avec la distribution Miniconda, cette étape d'installation se résume à une ligne de commande :
+
+```bash
 $ conda install -c conda-forge pycodestyle pydocstyle pylint
 ```
 
@@ -441,9 +433,7 @@ def Multiplie_nombres(nombre1,nombre2 ):
         Le premier nombre entier.
     nombre2 : int
         Le second nombre entier.
-
-        Avec une description plus longue.
-        Sur plusieurs lignes.
+        Très utile.
 
     Returns
     -------
@@ -463,7 +453,7 @@ if __name__ == "__main__":
 Ce script est d'ailleurs parfaitement fonctionnel :
 
 ```bash
-$ python script_quality_ok.py
+$ python script_quality_not_ok.py
 2 x 3 = 6
 4 x 5 = 20
 ```
@@ -479,17 +469,13 @@ script_quality_not_ok.py:26:21: E225 missing whitespace around operator
 script_quality_not_ok.py:31:10: E211 whitespace before '('
 ```
 
-Ligne 2. Le bloc `script_quality_not_ok.py:6:1:` désigne le nom du script (`script_quality_not_ok.py`), le numéro de la ligne (6) et le numéro de la colonne (1) où se trouve la non-conformité avec la PEP 8. Ensuite, `pycodestyle` fournit un code et un message explicatif. Ici, il faut deux lignes vides avant la fonction `Multiplie_nombres()`.
+- Ligne 2. Le bloc `script_quality_not_ok.py:6:1:` désigne le nom du script (`script_quality_not_ok.py`), le numéro de la ligne (6) et le numéro de la colonne (1) où se trouve la non-conformité avec la PEP 8. Ensuite, `pycodestyle` fournit un code et un message explicatif. Ici, il faut deux lignes vides avant la fonction `Multiplie_nombres()`.
+- Ligne 3. Il manque un espace après la virgule qui sépare les arguments `nombre1` et `nombre2` dans la définition de la fonction `Multiplie_nombres()` à la ligne 6 (colonne 30) du script.
+- Ligne 4. Il y un espace de trop après le second argument `nombre2` dans la définition de la fonction `Multiplie_nombres()` à la ligne 6 (colonne 38) du script.
+- Ligne 5. Il manque un espace après l'opérateur `*` à la ligne 26 (colonne 21) du script.
+- Ligne 6. Il y a un espace de trop entre `print` et `(` à la ligne 31 (colonne 10) du script.
 
-Ligne 3. Il manque un espace après la virgule qui sépare les arguments `nombre1` et `nombre2` dans la définition de la fonction `Multiplie_nombres()` à la ligne 6 (colonne 30) du script.
-
-Ligne 4. Il y un espace de trop après le second argument `nombre2` dans la définition de la fonction `Multiplie_nombres()` à la ligne 6 (colonne 38) du script.
-
-Ligne 5. Il manque un espace après l'opérateur `*` à la ligne 26 (colonne 21) du script.
-
-Ligne 6. Il y a un espace de trop entre `print` et `(` à la ligne 31 (colonne 10) du script.
-
-Remarquez que curieusement, `pycodestyle` n'a pas détecté que le nom de la fonction `Multiplie_nombres()` ne respecte pas la convention de nommage.
+Remarquez que curieusement, `pycodestyle` n'a pas détecté que le nom de la fonction `Multiplie_nombres()` ne respecte pas la convention de nommage (pas de majuscule).
 
 
 Ensuite, l'outil `pydocstyle` va vérifier la conformité avec la PEP 257 et s'intéresser particulièrement aux *docstrings* :
@@ -504,11 +490,9 @@ script_quality_not_ok.py:7 in public function `Multiplie_nombres`:
         D400: First line should end with a period (not 's')
 ```
 
-Lignes 2 et 3. `pydocstyle` indique que la *docstring* à la ligne 1 du script est sur deux lignes alors qu'elle devrait être sur une seule ligne.
-
-Lignes 4 et 5. Dans la *docstring* de la fonction `Multiplie_nombres()` (ligne 7 du script), il manque une ligne vide entre la ligne résumé et la description plus complète.
-
-Lignes 6 et 7. Dans la *docstring* de la fonction `Multiplie_nombres()` (ligne 7 du script), il manque un point à la fin de la première ligne.
+- Lignes 2 et 3. `pydocstyle` indique que la *docstring* à la ligne 1 du script est sur deux lignes alors qu'elle devrait être sur une seule ligne.
+- Lignes 4 et 5. Dans la *docstring* de la fonction `Multiplie_nombres()` (ligne 7 du script), il manque une ligne vide entre la ligne résumé et la description plus complète.
+- Lignes 6 et 7. Dans la *docstring* de la fonction `Multiplie_nombres()` (ligne 7 du script), il manque un point à la fin de la première ligne.
 
 
 Les outils `pycodestyle` et `pydocstyle` vont simplement vérifier la conformité aux PEP 8 et 257. L'outil `pylint` va lui aussi vérifier une partie de ces règles mais il va également essayer de comprendre le contexte du code et proposer des éléments d'amélioration. Par exemple :
@@ -516,42 +500,87 @@ Les outils `pycodestyle` et `pydocstyle` vont simplement vérifier la conformit�
 ```bash
 $ pylint script_quality_not_ok.py
 ************* Module script_quality_not_ok
-script_quality_not_ok.py:6:29: C0326: Exactly one space required after comma
-def Multiplie_nombres(nombre1,nombre2 ):
-                             ^ (bad-whitespace)
-script_quality_not_ok.py:6:38: C0326: No space allowed before bracket
-def Multiplie_nombres(nombre1,nombre2 ):
-                                      ^ (bad-whitespace)
-script_quality_not_ok.py:31:10: C0326: No space allowed before bracket
-    print ((f"4 x 5 = {Multiplie_nombres(4, 5)}")
-          ^ (bad-whitespace)
-script_quality_not_ok.py:6:0: C0103: Function name "Multiplie_nombres"
+script_quality_not_ok.py:6:0: C0103: Function name "Multiplie_nombres" 
 doesn't conform to snake_case naming style (invalid-name)
 script_quality_not_ok.py:4:0: W0611: Unused import os (unused-import)
 
------------------------------------
-Your code has been rated at 0.00/10
-
+------------------------------------------------------------------
+Your code has been rated at 6.67/10
 ```  
 
-Lignes 3 à 5. `pylint` indique qu'il manque un espace entre les paramètres de la fonction `Multiplie_nombres()` (ligne 6 et colonne 29 du script). La ligne du script qui pose problème est affichée, ce qui est pratique.
-
-Lignes 6 à 8. `pylint` identifie un espace de trop après le second paramètre de la fonction `Multiplie_nombres()`.
-
-Ligne 9 à 11. Il y a un espace de trop entre `print` et `(`.
-
-Lignes 12 et 13. Le nom de la fonction `Multiplie_nombres()` ne respecte pas la convention PEP 8. La fonction devrait s'appeler `multiplie_nombres()`.
-
-Ligne 14. Le module `os` est chargé mais pas utilisé (ligne 4 du script).
-
-Ligne 17. `pylint` produit également une note sur 10. Ne soyez pas surpris si cette note est très basse (voire négative) la première fois que vous analysez votre script avec `pylint`. Cet outil fournit de nombreuses suggestions d'amélioration et la note attribuée à votre script devrait rapidement augmenter. Pour autant, la note de 10 est parfois difficile à obtenir. Ne soyez pas trop exigeant.
+- Lignes 3 et 4. `pylint` indique que nom de la fonction `Multiplie_nombres()` ne respecte pas la convention PEP 8 (ligne 6 du script).
+- Ligne 5. Le module `os` est chargé mais pas utilisé (ligne 4 du script).
+- Ligne 8. `pylint` produit également une note sur 10. Ne soyez pas surpris si cette note est très basse (voire négative) la première fois que vous analysez votre script avec `pylint`. Cet outil fournit de nombreuses suggestions d'amélioration et la note attribuée à votre script devrait rapidement augmenter. Pour autant, la note de 10 est parfois difficile à obtenir. Ne soyez pas trop exigeant.
 
 Une version améliorée du script précédent est disponible [en ligne](https://python.sdv.u-paris.fr/data-files/script_quality_ok.py).
 
 
+## Outil de formattage automatique du code
+
+Se souvenir de toutes les règles PEP 8 est fastidieux. Il existe des outils pour formater automatiquement le code Python pour qu'il soit conforme à la PEP 8. L'outil le plus connu est `black`.
+
+Cet outil n'est pas fourni dans l’installation de base de Python et doit être installé
+sur votre machine. Avec la distribution Miniconda, cette étape d’installation se résume à
+une ligne de commande :
+
+```bash
+$ conda install -c conda-forge black
+```
+
+Voici un exemple d'utilisation :
+
+```bash
+$ black script_quality_not_ok.py
+reformatted script_quality_not_ok.py
+
+All done!
+1 file reformatted.
+```
+
+Le script `script_quality_not_ok.py` a été modifié pour être conforme à la PEP 8, ce qu'on peut vérifier avec `pycodestyle` :
+
+```bash
+$ pycodestyle script_quality_not_ok.py
+```
+
+qui ne renvoie aucune erreur.
+
+`black` peut modifier votre code de manière significative. Il est donc recommandé de l'utiliser avec l'option `--diff` au préalable pour afficher les modifications apportées. Par exemple, avec le programme `script_quality_not_ok.py` qui n'aurait pas été modifié :
+
+```bash
+$ black --diff script_quality_not_ok.py 
+--- script_quality_not_ok.py	2024-02-05 12:07:04.851491+00:00
++++ script_quality_not_ok.py	2024-02-05 12:07:10.418009+00:00
+@@ -1,11 +1,12 @@
+ """Un script de multiplication.
+ """
+ 
+ import os
+ 
+-def Multiplie_nombres(nombre1,nombre2 ):
++
++def Multiplie_nombres(nombre1, nombre2):
+[...]
+```
+
+open-box-adv
+
+`black` est très pratique. N'hésitez pas à l'utiliser pour formater automatiquement votre code.
+
+close-box-adv
+
+
+open-box-warn
+
+- `black` ne fait qu'une entorse à la PEP  : il autorise des longueurs de lignes jusqu'à 88 caractères. Si vous souhaitez respecter strictement la PEP 8, utilisez l'option `--line-length 79`.
+- `black` se limite à la PEP 8. Il ne vérifie pas la conformité avec la PEP 257 ni la qualité du code (imports inutiles, etc.). Utilisez toujours `pydocstyle` et `pylint` en complément.
+
+close-box-warn
+
+
 ## Organisation du code
 
-Il est fondamental de toujours structurer et organiser son code de la même manière. Ainsi, on sait tout de suite où trouver l'information et un autre programmeur pourra s'y retrouver. Voici un exemple de code avec les différents éléments dans le bon ordre :
+Il est important de toujours structurer son code de la même manière. Ainsi, on sait tout de suite où trouver l'information et un autre programmeur pourra s'y retrouver. Voici un exemple de code avec les différents éléments dans le bon ordre :
 
 ```python
 """Docstring d'une ligne décrivant brièvement ce que fait le programme.
@@ -568,55 +597,22 @@ __authors__ = ("Johny B Good", "Hubert de la Pâte Feuilletée")
 __contact__ = ("johny@bgood.us", "hub@pate.feuilletee.fr")
 __copyright__ = "MIT"
 __date__ = "2030-01-01"
-__version__= "1.2.3"
+__version__ = "1.2.3"
 
 import module_interne
-import module_interne_2
+import module_interne_2 as mod2
 
 import module_externe
 
+import my_module
+
 UNE_CONSTANTE = valeur
-UNE_AUTRE_CONSTANTE = une_autre_valeur
-
-
-class UneSuperClasse():
-    """Résumé de la docstring décrivant la classe.
-
-    Description détaillée ligne 1
-    Description détaillée ligne 2
-    Description détaillée ligne 3
-    """
-
-    def __init__(self):
-        """Résumé de la docstring décrivant le constructeur.
-
-        Description détaillée ligne 1
-        Description détaillée ligne 2
-        Description détaillée ligne 3
-        """
-        [...]
-
-    def une_méthode_simple(self):
-        """Docstring d'une ligne décrivant la méthode."""
-        [...]
-
-    def une_méthode_complexe(self, arg1):
-        """Résumé de la docstring décrivant la méthode.
-
-        Description détaillée ligne 1
-        Description détaillée ligne 2
-        Description détaillée ligne 3
-        """
-        [...]
-        return un_truc
 
 
 def une_fonction_complexe(arg1, arg2, arg3):
     """Résumé de la docstring décrivant la fonction.
 
-    Description détaillée ligne 1
-    Description détaillée ligne 2
-    Description détaillée ligne 3
+    Description détaillée.
     """
     [...]
     return une_chose
@@ -633,50 +629,38 @@ if __name__ == "__main__":
     [...]
 ```
 
-Lignes 1 à 9. Cette *docstring* décrit globalement le script. Cette *docstring* (ainsi que les autres) seront visibles si on importe le script en tant que module, puis en invoquant la commande `help()` (voir chapitre 15 *Création de modules*).
-
-Lignes 11 à 15. On définit ici un certain nombres de variables avec des doubles *underscores* donnant quelques informations sur la version du script, les auteurs, etc. Il s'agit de métadonnées que la commande `help()` pourra afficher. Bien sûr, ces métadonnées ne sont pas obligatoires, mais elles sont utiles lorsque le code est distribué à la communauté.
-
-Lignes 17 à 20. Importation des modules. D'abord les modules internes à Python (fournis en standard), puis les modules externes (ceux qu'il faut installer en plus), un module par ligne.
-
-Lignes 22 et 23. Définition des constantes. Le nom des constantes est en majuscule.
-
-Ligne 26. Définition d'une classe. On a laissé deux lignes vides avant.
-
-Lignes 27 à 32. *Docstring* décrivant la classe.
-
-Lignes 33, 42 et 46. Avant chaque méthode de la classe, on laisse une ligne vide.
-
-Lignes 58 à 72. Après les classes, on met les fonctions « classiques ». Avant chaque fonction, on laisse deux lignes vides.
-
-Lignes 75 à 77. On écrit le programme principal. Le test ligne 76 n'est vrai que si le script est utilisé en tant que programme. Les lignes suivantes ne sont donc pas exécutées si le script est chargé comme un module.
-
+- Lignes 1 à 9. Cette *docstring* décrit globalement le script. Cette *docstring* (ainsi que les autres) seront visibles si on importe le script en tant que module, puis en invoquant la commande `help()` (voir chapitre 15 *Création de modules*).
+- Lignes 11 à 15. On définit ici un certain nombres de variables avec des doubles *underscores* donnant quelques informations sur la version du script, les auteurs, etc. Il s'agit de métadonnées que la commande `help()` pourra afficher. Ces métadonnées sont utiles lorsque le code est distribué à la communauté.
+- Lignes 17 à 22. Importation des modules. D'abord les modules internes à Python (fournis en standard), puis les modules externes (ceux qu'il faut installer en plus), puis les modules créés localement. Un module par ligne.
+- Ligne 24. Définition des constantes. Le nom des constantes est en majuscule.
+- Lignes 27 à 39. Définition des fonctions. Avant chaque fonction, on laisse deux lignes vides.
+- Lignes 42 à 44. On écrit le programme principal. Le test ligne 42 n'est vrai que si le script est utilisé en tant que programme.
 
 ## Conseils sur la conception d'un script
 
 Voici quelques conseils pour vous aider à concevoir un script Python.
 
-- Réfléchissez avec un papier, un crayon... et un cerveau (voire même plusieurs) ! Reformulez avec des mots en français (ou en anglais) les consignes qui vous ont été données ou le cahier des charges qui vous a été communiqué. Dessinez ou construisez des schémas si cela vous aide.
-- Découpez en fonctions chaque élément de votre programme. Vous pourrez ainsi tester chaque élément indépendamment du reste. Pensez à écrire les *docstrings* en même temps que vous écrivez vos fonctions.
-- Quand l'algorithme est complexe, commentez votre code pour expliquer votre raisonnement. Utiliser des fonctions (ou méthodes) encore plus petites peut aussi être une solution.
-- Documentez-vous. L'algorithme dont vous avez besoin existe-t-il déjà dans un autre module ? Existe-t-il sous la forme de pseudo-code ? De quels outils mathématiques avez-vous besoin dans votre algorithme ?
-- Si vous créez ou manipulez une entité cohérente avec des propriétés propres, essayez de construire une classe. Jetez, pour cela, un œil au chapitre 23 *Avoir la classe avec les objets*.
-- Utilisez des noms de variables explicites, qui signifient quelque chose. En lisant votre code, on doit comprendre ce que vous faites. Choisir des noms de variables pertinents permet aussi de réduire les commentaires.
-- Quand vous construisez une structure de données complexe (par exemple une liste de dictionnaires contenant d'autres objets), documentez et illustrez l'organisation de cette structure de données sur un exemple simple.
-- Testez toujours votre code sur un jeu de données **simple** pour pouvoir comprendre rapidement ce qui se passe. Par exemple, une séquence de 1000 bases est plus facile à gérer que le génome humain ! Cela vous permettra également de retrouver plus facilement une erreur lorsque votre programme ne fait pas ce que vous souhaitez.
-- Lorsque votre programme « plante », **lisez** le message d'erreur. Python tente de vous expliquer ce qui ne va pas. Le numéro de la ligne qui pose problème est aussi indiqué.
-- Discutez avec des gens. Faites tester votre programme par d'autres. Les instructions d'utilisation sont-elles claires ?
-- Si vous distribuez votre code :
+- **Réfléchissez** avec un papier, un crayon... et un cerveau (voire même plusieurs) ! Reformulez avec vos propres mots les consignes qui vous ont été données. Dessinez des schémas si cela vous aide.
+- **Découpez en fonctions** chaque élément de votre programme. Vous pourrez ainsi tester chaque élément indépendamment du reste. Pensez à écrire les *docstrings* en même temps que vous écrivez vos fonctions.
+- **Documentez-vous**. L'algorithme dont vous avez besoin existe-t-il déjà dans un autre module ? De quels outils mathématiques avez-vous besoin dans votre algorithme ?
+- Quand l'algorithme est complexe, **commentez votre code** pour expliquer votre raisonnement. Utiliser des fonctions (ou méthodes) encore plus petites peut aussi être une solution.
+- Utilisez des **noms de variables explicites**, qui signifient quelque chose. En lisant votre code, on doit comprendre ce que vous faites. Choisir des noms de variables pertinents permet aussi de réduire les commentaires.
+- Quand vous construisez une structure de données complexe (par exemple une liste de dictionnaires contenant d'autres objets), **documentez** l'organisation de cette structure de données avec un exemple simple.
+- Si vous créez ou manipulez une entité cohérente avec des propriétés propres, essayez de construire une **classe**. Reportez-vous, pour cela, au chapitre 23 *Avoir la classe avec les objets*.
+- **Testez** votre code sur un **petit jeu de données** pour comprendre rapidement ce qui se passe et corriger d'éventuelles erreurs. Par exemple, une séquence d'ADN de 1000 bases est plus facile à manipuler que le génome humain ($3 \times 10^9 \textrm{ bases}$) !
+- Lorsque votre programme « plante », **lisez le message d'erreur**. Python tente de vous expliquer ce qui ne va pas. Le numéro de la ligne qui pose problème est aussi indiqué.
+- **Discutez avec des gens**. Faites tester votre programme par d'autres. Les instructions d'utilisation sont-elles claires ?
+- Enfin, si vous **distribuez votre code** :
     + Rédigez une documentation claire.
     + Testez votre programme (jetez un œil aux [tests unitaires](https://fr.wikipedia.org/wiki/Test_unitaire)).
-    + Précisez une licence d'utilisation. Voir par exemple le site [*Choose an open source license*](https://choosealicense.com/).
+    + Précisez une licence d'utilisation (voir le site [*Choose an open source license*](https://choosealicense.com/)).
 
 
 ## Pour terminer : la PEP 20
 
 La PEP 20 est une sorte de réflexion philosophique avec des phrases simples qui devraient guider tout programmeur. Comme les développeurs de Python ne manque pas d'humour, celle-ci est accessible sous la forme d'un « œuf de Pâques » (*easter egg* en anglais) ou encore « fonctionnalité cachée d'un programme » en important un module nommé `this` :
 
-```text
+```python
 >>> import this
 The Zen of Python, by Tim Peters
 
@@ -699,7 +683,6 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
->>>
 ```
 
 Et si l'aventure et les *easter eggs* vous plaisent, testez également la commande
