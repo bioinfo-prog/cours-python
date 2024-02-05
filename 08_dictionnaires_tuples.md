@@ -444,6 +444,42 @@ Dans le même ordre d'idée, on peut itérer sur 3 valeurs en même temps à par
 
 On pourrait concevoir la même chose sur 4 ou 5 éléments, voire plus. La seule contrainte est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 variables dans l'exemple ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
 
+### Fonction `divmod()`
+
+Dans le chapitre 2 *Variables*, on a vu les opérateurs `//` et `%` qui renvoient respectivement le quotient et le reste d'une division entière. La fonction `divmod()` prend en argument deux valeurs, le numérateur et le dénominateur d'une division, et renvoie le quotient et le reste de la division entière correspondante.
+
+```python
+>>> 3 / 4
+0.75
+>>> 3 // 4
+0
+>>> 3 % 4
+3
+>>> divmod(3, 4)
+(0, 3)
+```
+
+En utilisant l'affectation multiple, on peut ainsi récupérer à la volée le quotient et le reste en une seule ligne.
+
+```python
+>>> quotient, reste = divmod(3, 4)
+>>> quotient
+0
+>>> reste
+3
+```
+
+Cette fonction est très pratique quand on veut par exemple convertir des secondes en minutes et secondes résiduelles. Par exemple, si on veut convertir 754 secondes en minutes. 
+
+```python
+>>> 754 / 60
+12.566666666666666
+>>> divmod(754, 60)
+(12, 34)
+```
+
+La division normale nous donne un *float* en minutes qui n'est pas très pratique, il faut encore convertir 0.566666666666666 minute en secondes en gérer les problèmes d'arrondi. La fonction `divmod()` renvoie le résultat directement : 12 min et 34 s. On pourrait résonner de manière similaire pour convertir des minutes en heures, des heures en jours, etc.
+
 ### Remarque finale
 
 Les listes, dictionnaires, tuples et chaînes de caractères sont tous des objets contenant une collection d'autres objets. En Python, on peut construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
@@ -491,3 +527,10 @@ Calculez la moyenne de ses notes de deux manières différentes. Calculez à nou
 
 En utilisant un dictionnaire, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence `AGWPSGGASAGLAILWGASAIMPGALW`. Le dictionnaire ne doit contenir que les acides aminés présents dans la séquence. Interdit d'utiliser autant d'instructions `if` que d'acides aminés différents. Pensez au test d'appartenance !
 
+### Convertisseur de secondes
+
+Un athlète court un marathon, malheureusement sa montre mesure son temps en 11905 secondes. Aidez-le à convertir son temps en heure, minute seconde avec la fonction `divmod()`.
+
+### Convertisseur de jours
+
+L'âge de Camille et Céline en jours est de respectivement 8331 jours et 8660 jours. Quel est leur âge en années, mois et jours en supposant qu'une année compte 365 jours et qu'un mois compte 30 jours ? La fonction `divmod()` vous aidera à nouveau.
