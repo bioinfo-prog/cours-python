@@ -1415,52 +1415,36 @@ Par exemple :
 | claire | female | 174 | 31 |
 | ... | ... | ... | ... |
 
-L'objectif de cet exercice est de manipuler ces données avec *pandas*.
+L'objectif de cet exercice est de manipuler ce jeu de données avec *pandas*, de sélectionner des données et d'en calculer quelques statistiques.
+
+open-box-adv
 
 Si vous n'êtes pas familier avec le format de fichier `.tsv`, nous vous conseillons de consulter l'annexe A *Quelques formats de données en biologie*.
 
+close-box-adv
 
-#### Chargement du jeu de données
+1. **Chargement du jeu de données**
+    - Téléchargez le fichier [people.tsv](https://python.sdv.u-paris.fr/data-files/people.tsv).
+    - Ouvrez ce fichier avec *pandas* et la fonction `.read_csv()`. N'oubliez pas de préciser le séparateur par défaut avec l'argument `sep="\t"`. Utilisez également l'argument `index_col` pour utiliser la colonne `name` comme index.
+    - Affichez les six premières lignes du jeu de données.
+    - Combien de lignes contient le jeu de données ?
 
-Téléchargez le fichier [people.tsv](https://python.sdv.u-paris.fr/data-files/people.tsv).
+2. **Sélections** 
+    - Déterminez la taille de Claire.
+    - Déterminez l'âge de Baptiste.
+    - Affichez, en une seule commande, l'âge de Paul et Bob.
 
-Ouvrez ce fichier avec *pandas* et la fonction `.read_csv()`. N'oubliez pas de préciser le séparateur par défaut avec l'argument `sep="\t"`. Utilisez également l'argument `index_col` pour utiliser la colonne `name` comme index.
+3. **Statistiques descriptives et table de comptage**
+    - Déterminez la moyenne et la valeur minimale de la taille et l'âge des individus.
+    - Comptez ensuite le nombre de personnes de chaque sexe.
 
-Affichez les six premières lignes du jeu de données.
+4. **Statistiques par groupe**
+    - Déterminez, la taille et l'âge moyen chez les hommes et les femmes. Utilisez pour cela la méthode `.groupby()`.
 
-Combien de lignes contient le jeu de données ?
+5. **Sélections par filtre**
+    - Déterminez combien de d'individus mesurent plus de 1,80 m.
+    - Quelle femme a moins de 35 ans ?
 
-
-#### Sélections 
-
-Déterminez la taille de Claire.
-
-Déterminez l'âge de Baptiste.
-
-Affichez, en une seule commande, l'âge de Paul et Bob.
-
-
-#### Statistiques descriptives et table de comptage
-
-Déterminez la moyenne et la valeur minimale de la taille et l'âge des individus.
-
-Comptez ensuite le nombre de personnes de chaque sexe.
-
-
-#### Statistiques par groupe
-
-Déterminez, la taille et l'âge moyen chez les hommes et les femmes. Utilisez pour cela la méthode `.groupby()`.
-
-
-#### Sélections par filtre
-
-Déterminez combien de d'individus mesurent plus de 1,80 m.
-
-Quelle femme a moins de 35 ans ?
-
-
-#### Sélections et statistiques
-
-Déterminez l'âge moyen des individus qui mesurent plus de 1,80 m.
-
-Déterminez la taille maximale des femmes qui ont plus de 35 ans.
+6. **Sélections et statistiques**
+    - Déterminez l'âge moyen des individus qui mesurent plus de 1,80 m.
+    - Déterminez la taille maximale des femmes qui ont plus de 35 ans.
