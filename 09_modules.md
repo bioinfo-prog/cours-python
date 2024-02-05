@@ -610,7 +610,8 @@ Consultez pour cela la [documentation](https://docs.python.org/fr/3/library/rand
 On considère un jeu de belote avec la variante sans-atout, où chaque carte vaut un certain nombre de points quelle que soit sa couleur (trèfle, carreau, coeur, pique). Un dictionnaire permet de mettre la correspondance entre chaque carte et son nombre de points :
 
 ```python
-# Nombre de points de chaque carte (V = valet, D = dame, R = roi, d = 10, A = as).
+# Nombre de points de chaque carte.
+# (V = valet, D = dame, R = roi, # d = 10, A = as).
 dico_points_sans_atouts = {"7": 0, "8": 0, "9": 0, "V": 2, "D": 3, 
                            "R": 4, "d": 10, "A": 11}
 ```
