@@ -1389,7 +1389,7 @@ La réponse à la devinette précédente est :
 
 > Une protéine kinase
 
-(Une protéine qui nage... Vous l'avez ?)
+(Une protéine qui nage... dans une piscine... Vous l'avez ?)
 
 close-box-rem
 
