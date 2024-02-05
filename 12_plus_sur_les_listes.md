@@ -4,7 +4,7 @@ Nous avons vu les listes dès le chapitre 4 et les avons largement utilisées de
 
 ## Méthodes associées aux listes
 
-Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leur sont propres et qui peuvent se révéler très pratiques. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
+Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leur sont propres. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
 
 
 ### `.append()`
