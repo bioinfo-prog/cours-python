@@ -214,16 +214,20 @@ if __name__ == "__main__":
     >>>
     ```
 
-À nouveau, ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus de détail, consultez le chapitre 24 *Avoir plus la classe avec les objets* (en ligne)). Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de signaler clairement où se situe le programme principal quand on lit le code. Ainsi, plus besoin d'ajouter le commentaire 
+Ce comportement est possible grâce à la gestion des espaces de noms par Python (pour plus de détail, consultez le chapitre 24 *Avoir plus la classe avec les objets* (en ligne)). Au delà de la commodité de pouvoir utiliser votre script en tant que programme ou en tant que module, cela présente l'avantage de signaler clairement où se situe le programme principal quand on lit le code.
+
+open-box-adv
+
+Ainsi, au lieu d'ajouter le commentaire 
 
 `# Programme principal.`
 
-comme nous vous l'avions suggéré dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions*.
-L'utilisation de la ligne 
+comme nous vous l'avions suggéré dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions*,
+nous vous recommandons désormais d'utiliser la ligne
 
 `if __name__ == "__main__":`
 
-est une bonne pratique que nous vous recommandons !
+close-box-adv
 
 
 ## Exercice
