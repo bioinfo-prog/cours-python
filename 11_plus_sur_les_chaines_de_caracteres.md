@@ -571,29 +571,18 @@ Utilisez cette fonction pour convertir la séquence protéique
 
 Rappel de la nomenclature des acides aminés :
 
-|  Acide aminé  | Code 3-lettres | Code 1-lettre |
-|---------------|:--------------:|:-------------:|
-|    Alanine    |       Ala      |       A       |
-|    Arginine   |       Arg      |       R       |
-|   Asparagine  |       Asn      |       N       |
-|   Aspartate   |       Asp      |       D       |
-|    Cystéine   |       Cys      |       C       |
-|   Glutamate   |       Glu      |       E       |
-|   Glutamine   |       Gln      |       Q       |
-|    Glycine    |       Gly      |       G       |
-|   Histidine   |       His      |       H       |
-|   Isoleucine  |       Ile      |       I       |
-|    Leucine    |       Leu      |       L       |
-|     Lysine    |       Lys      |       K       |
-|   Méthionine  |       Met      |       M       |
-| Phénylalanine |       Phe      |       F       |
-|    Proline    |       Pro      |       P       |
-|     Sérine    |       Ser      |       S       |
-|   Thréonine   |       Thr      |       T       |
-|  Tryptophane  |       Trp      |       W       |
-|    Tyrosine   |       Tyr      |       Y       |
-|     Valine    |       Val      |       V       |
-
+|  Acide aminé  | Code 3-lettres | Code 1-lettre |  Acide aminé  | Code 3-lettres | Code 1-lettre |
+|---------------|:--------------:|:-------------:|---------------|:--------------:|:-------------:|
+|    Alanine    |       Ala      |       A       |    Leucine    |       Leu      |       L       |
+|    Arginine   |       Arg      |       R       |     Lysine    |       Lys      |       K       |
+|   Asparagine  |       Asn      |       N       |   Méthionine  |       Met      |       M       |
+|   Aspartate   |       Asp      |       D       | Phénylalanine |       Phe      |       F       |
+|    Cystéine   |       Cys      |       C       |    Proline    |       Pro      |       P       |
+|   Glutamate   |       Glu      |       E       |     Sérine    |       Ser      |       S       |
+|   Glutamine   |       Gln      |       Q       |   Thréonine   |       Thr      |       T       |
+|    Glycine    |       Gly      |       G       |  Tryptophane  |       Trp      |       W       |
+|   Histidine   |       His      |       H       |    Tyrosine   |       Tyr      |       Y       |
+|   Isoleucine  |       Ile      |       I       |     Valine    |       Val      |       V       |
 
 ### Distance de Hamming
 
