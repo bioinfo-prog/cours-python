@@ -8,7 +8,7 @@ La cellule est l'élément de base d'un *notebook* Jupyter. Elle peut contenir d
 
 Voici un exemple de *notebook* Jupyter (figure @fig:jupyter-exemple) :
 
-![Exemple de *notebook* Jupyter. Les chiffres entourés désignent les différentes cellules.](img/jupyter-exemple.png "Exemple de *notebook* Jupyter"){ #fig:jupyter-exemple width=90% }
+![Exemple de *notebook* Jupyter. Les chiffres entourés désignent les différentes cellules.](img/jupyter-exemple.png "Exemple de *notebook* Jupyter"){ #fig:jupyter-exemple width=95% }
 
 Ce *notebook* est constitué de cinq cellules : deux avec du texte en Markdown (la première et la dernière) et trois avec du code Python (légèrement grisées).
 
@@ -46,11 +46,11 @@ L'interface proposée par JupyterLab est très riche. On peut y organiser un *no
 
 Pour créer un *notebook*, cliquez sur le bouton *Python 3* situé dans la rubrique *Notebook* dans le *Launcher* (figure @fig:jupyter-nouveau-notebook).
 
-![Création d'un nouveau *notebook*.](img/jupyter-nouveau-notebook.png "Création d'un nouveau *notebook*"){ #fig:jupyter-nouveau-notebook width=80% }
+![Création d'un nouveau *notebook*.](img/jupyter-nouveau-notebook.png "Création d'un nouveau *notebook*"){ #fig:jupyter-nouveau-notebook width=85% }
 
 Le *notebook* fraîchement créé ne contient qu'une cellule vide.
 
-![Nouveau *notebook* avec une cellule vide.](img/jupyter-nouveau-notebook-vide.png "Nouveau *notebook* avec une cellule vide."){ #fig:jupyter-nouveau-notebook-vide width=80% }
+![Nouveau *notebook* avec une cellule vide.](img/jupyter-nouveau-notebook-vide.png "Nouveau *notebook* avec une cellule vide."){ #fig:jupyter-nouveau-notebook-vide width=85% }
 
 La première chose à faire est de donner un nom à votre *notebook*. Pour cela cliquer avec le bouton droit de la souris sur *Untitled.ipynb* en haut du *notebook*. Si le nom de votre *notebook* est *test.ipynb* alors le fichier *test.ipynb* sera créé dans le répertoire depuis lequel vous avez lancé JupyterLab.
 
@@ -74,9 +74,9 @@ Pour exécuter le contenu de cette cellule, vous avez plusieurs possibilités :
 - Cliquer sur le bouton *Run* ▶️ (dans la barre de menu au dessus du *notebook*).
 - Presser simultanément les touches *Ctrl* + *Entrée*.
 
-Dans tous les cas, vous devriez obtenir quelque chose qui ressemble à l'image @fig:jupyter-cellule-1. La notation `[1]` à gauche de la cellule indique qu'il s'agit de la première cellule exécutée.
+Dans tous les cas, vous devriez obtenir un résultat similaure à la figure @fig:jupyter-cellule-1. La notation `[1]` à gauche de la cellule indique qu'il s'agit de la première cellule exécutée.
 
-![Exécution d'une première cellule.](img/jupyter-cellule-1.png "Exécution d'une première cellule."){ #fig:jupyter-cellule-1 width=80% }
+![Exécution d'une première cellule.](img/jupyter-cellule-1.png "Exécution d'une première cellule."){ #fig:jupyter-cellule-1 width=85% }
 
 Pour créer une nouvelle cellule, vous avez, ici encore, plusieurs possibilités :
 
@@ -89,20 +89,19 @@ Vous pouvez également créer une nouvelle cellule en positionnant votre curseur
 
 Vous pouvez ainsi créer plusieurs cellules les unes à la suite des autres. Un objet créé dans une cellule antérieure sera disponible dans les cellules suivantes. Par exemple, dans la figure @fig:jupyter-cellule-4, nous avons quatre cellules.
 
-![*Notebook* avec plusieurs cellules de code Python.](img/jupyter-cellule-4.png "*Notebook* avec plusieurs cellules de code Python"){ #fig:jupyter-cellule-4 width=80% }
+![*Notebook* avec plusieurs cellules de code Python.](img/jupyter-cellule-4.png "*Notebook* avec plusieurs cellules de code Python"){ #fig:jupyter-cellule-4 width=85% }
 
 Dans un *notebook* Jupyter, il est parfaitement possible de réexécuter une cellule précédente. Par exemple la première cellule, qui porte désormais à sa gauche la numérotation `[5]` (voir figure @fig:jupyter-cellule-4-mauvais-ordre).
 
-![*Notebook* avec une cellule ré-exécutée.](img/jupyter-cellule-4-mauvais-ordre.png "*Notebook* avec une cellule ré-executée."){ #fig:jupyter-cellule-4-mauvais-ordre width=80% }
+![*Notebook* avec une cellule ré-exécutée.](img/jupyter-cellule-4-mauvais-ordre.png "*Notebook* avec une cellule ré-executée."){ #fig:jupyter-cellule-4-mauvais-ordre width=85% }
 
 open-box-warn
 
-La possibilité d'exécuter les cellules d'un *notebook* Jupyter dans un ordre arbitraire peut prêter à confusion, notamment si vous modifiez la même variable d'une cellule à l'autre.
+La possibilité d'exécuter les cellules d'un *notebook* Jupyter dans un ordre arbitraire peut prêter à confusion, notamment si vous modifiez la même variable dans plusieurs cellules.
 
 Nous vous recommandons de régulièrement relancer complètement l'exécution de toutes les cellules de votre *notebook*, de la première à la dernière, en cliquant sur le menu *Kernel* puis *Restart Kernel and Run All Cells* et enfin de valider le message *Restart Kernel?* en cliquant sur le bouton *Restart*.
 
 close-box-warn
-
 
 ## Le format Markdown
 
@@ -110,13 +109,11 @@ Dans le tout premier exemple (figure @fig:jupyter-exemple), nous avons vu qu'il 
 
 Il faut cependant indiquer à Jupyter que cette cellule est au format Markdown en cliquant sur *Code* sous la barre de menu au dessus du *notebook* puis en choisissant *Markdown*.
 
-Le format Markdown permet de rédiger du texte formaté (gras, italique, liens, titres, images, formules mathématiques...) avec quelques balises très simples. Voici un exemple dans un *notebook* Jupyter (figure @fig:jupyter-markdown-1) et le rendu lorsque la cellule est exécutée (figure @fig:jupyter-markdown-2).
+Le format Markdown permet de rédiger du texte formaté (gras, italique, liens, titres, images, formules mathématiques...) avec quelques balises très simples. Voici un exemple dans un *notebook* Jupyter (figure @fig:jupyter-markdown (A)) et le rendu lorsque la cellule est exécutée (figure @fig:jupyter-markdown (B)).
 
-![*Notebook* avec une cellule au format Markdown.](img/jupyter-markdown-1.png "*Notebook* avec une cellule au format Markdown."){ #fig:jupyter-markdown-1 width=80% }
+![*Notebook* avec : (A) une cellule au format Markdown et (B) le rendu après exécution.](img/jupyter-markdown.png "*Notebook* avec une cellule au format Markdown et son rendu après exécution."){ #fig:jupyter-markdown width=95% }
 
-![*Notebook* avec une cellule au format Markdown (après exécution).](img/jupyter-markdown-2.png "*Notebook* avec une cellule au format Markdown (après exécution)."){ #fig:jupyter-markdown-2 width=80% }
-
-Notez qu'une cellule Markdown est sur fond blanc (comme sur la figure @fig:jupyter-markdown-2).
+Notez qu'une cellule Markdown est sur fond blanc (comme sur la figure @fig:jupyter-markdown (B)).
 
 Le format Markdown permet de rédiger du texte structuré rapidement et simplement. Ce cours est par exemple complètement rédigé en Markdown.
 
@@ -145,55 +142,181 @@ close-box-rem
 
 ## Les *magic commands*
 
-La commande précédente (`%matplotlib inline`) est une *magic command*. Les [*magic commands*](https://ipython.readthedocs.io/en/stable/interactive/magics.html) apportent des fonctionnalités supplémentaires dans un *notebook*. Il en existe beaucoup, en voici quelques unes :
+La commande précédente (`%matplotlib inline`) est une *magic command*. Les [*magic commands*](https://ipython.readthedocs.io/en/stable/interactive/magics.html) apportent des fonctionnalités supplémentaires dans un *notebook*. Il en existe beaucoup, nous allons en aborder ici quelques unes.
 
-- `%whos` liste tous les objets (variables, fonctions, modules...) utilisés dans le *notebook* (voir figure @fig:jupyter-whos).
-- `%history` liste toutes les commandes Python lancées dans un *notebook* (voir figure @fig:jupyter-history).
 
-![*Magic command* `%whos`.](img/jupyter-whos.png){ #fig:jupyter-whos width=80% }
+open-box-rem
 
-![*Magic command* `%history`.](img/jupyter-history.png){ #fig:jupyter-history width=80% }
+Dans cette rubrique, nous vous montrerons quelques exemples d’utilisation de *magic commands* exécutées dans un *notebook* Jupyter.
 
-La commande `%%time` (avec deux symboles `%`) va mesurer le temps d'exécution d'une cellule. C'est très utile pour faire des tests de performance. Par exemple cette cellule :
+```python
+Les cellules de code apparaitront de cette manière
+dans un notebook Jupyter, avec des numéros de lignes à gauche.
+```
+
+```text
+Les résultats seront affichés de cette manière,
+éventuellement sur plusieurs lignes.
+```
+
+close-box-rem
+
+
+### %whos
+
+La commande `%whos` liste tous les objets (variables, fonctions, modules...) utilisés dans un *notebook*.
+
+Si une cellule précédente contenait le code : 
+
+```python
+a = 2 
+b = 3
+
+def ma_fonction(x, y):
+    return x + y
+
+resultat_1 = ma_fonction(a, 10)
+resultat_2 = ma_fonction("Bonjour", "Jupyter")
+```
+
+Alors l'exécution de : 
+
+```python
+%whos
+```
+
+renvoie 
+
+```text
+Variable      Type        Data/Info
+-----------------------------------
+a             int         2
+b             int         3
+ma_fonction   function    <function ma_fonction at 0x7f219c2d04a0>
+resultat_1    int         12
+resultat_2    str         BonjourJupyter
+```
+
+### %history
+
+La commande `%history` liste toutes les commandes Python lancées dans un *notebook* 
+
+```python
+%history
+```
+
+```text
+a = 2
+b = 3
+print(a + b)
+def ma_fonction(x, y):
+    return x + y
+ma_fonction(a, 10)
+ma_fonction("Bonjour", "Jupyter")
+%whos
+%history
+```
+
+### %%time
+
+La commande `%%time` (avec deux symboles `%`) va mesurer le temps d'exécution d'une cellule. C'est très utile pour faire des tests de performance. On peut, par exemple, comparer les vitesses de parcours d'une liste avec une boucle `for`, par les éléments ou par les indices des éléments.
+
+Ainsi, cette cellule :
 
 ```python
 %%time
 concentrations = [5.5, 7.2, 11.8, 13.6, 19.1, 21.7, 29.4]
+somme_carres = 0.0
 for conc in concentrations:
-    print(conc)
+    somme_carres += conc**2
 ```
 
 renvoie :
 
 ```text
-CPU times: user 10 µs, sys: 0 ns, total: 10 µs
-Wall time: 13.6 µs
+CPU times: user 8 µs, sys: 2 µs, total: 10 µs
+Wall time: 11.9 µs
 ```
 
-Bien sûr les valeurs obtenues dépendent de la machine sur laquelle vous exécutez cette commande. Mais même sur une même machine, les résultats peuvent fluctuer d'une exécution à l'autre en fonction de l'activité de la machine. Ces fluctuations seront d'autant plus importantes que le temps d'exécution est court.
+et celle-ci :
 
-Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Dans l'exemple de la figure @fig:jupyter-timeit, on compare un parcours de liste avec une boucle `for`, soit directement sur les éléments, soit sur les indices des éléments. Python détermine automatiquement le nombre d'itérations et le nombre de répétitions à effectuer pour obtenir un temps d'exécution raisonnable. Ici, chaque cellule sera exécutée un million de fois sur sept répétitions (soit sept millions de fois au total). Comme nous l'avions expliqué dans le chapitre 5 *Boucles et comparaisons*, itérer une liste sur ses éléments est la méthode la plus efficace (et la plus élégante).
+```python
+%%time
+concentrations = [5.5, 7.2, 11.8, 13.6, 19.1, 21.7, 29.4]
+somme_carres = 0.0
+for idx in range(len(concentrations)):
+    somme_carres += concentrations[idx]**2
+```
 
-![*Magic command* `%%timeit`.](img/jupyter-timeit.png){ #fig:jupyter-timeit width=80% }
+renvoie :
+
+```text
+CPU times: user 26 µs, sys: 5 µs, total: 31 µs
+Wall time: 37.4 µs
+```
+
+Comme attendu, la première méthode (itération par les éléments) est plus rapide que la seconde (itération par les indices des éléments). Les temps obtenus dépendent de la machine sur laquelle vous exécutez ces commandes. Mais même sur une même machine, les résultats peuvent fluctuer d'une exécution à l'autre en fonction de l'activité de la machine. Ces fluctuations seront d'autant plus importantes que le temps d'exécution est court.
+
+
+### %%timeit
+
+Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Python détermine automatiquement le nombre d'itérations et le nombre de répétitions à effectuer pour obtenir un temps global d'exécution raisonnable.
+
+En reprenant l'exemple précédent, on obtient :
+
+```python
+%%timeit
+concentrations = [5.5, 7.2, 11.8, 13.6, 19.1, 21.7, 29.4]
+somme_carres = 0.0
+for conc in concentrations:
+    somme_carres += conc**2
+```
+
+```text
+492 ns ± 11.8 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+```
+
+et
+
+```python
+%%timeit
+concentrations = [5.5, 7.2, 11.8, 13.6, 19.1, 21.7, 29.4]
+somme_carres = 0.0
+for idx in range(len(concentrations)):
+    somme_carres += concentrations[idx]**2
+```
+
+```text
+606 ns ± 21.6 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+```
+
+Ici, chaque cellule sera exécutée un million de fois sur sept répétitions, soit sept millions de fois au total. Comme nous l'avions expliqué dans le chapitre 5 *Boucles et comparaisons*, itérer une liste sur ses éléments est la méthode la plus efficace (et la plus élégante).
 
 
 ## Lancement d'une commande Unix
 
-Enfin, dans les environnements Linux ou Mac OS X, il est possible de lancer une commande Unix depuis un *notebook* Jupyter. Il faut pour cela précéder la commande du symbole « `!` ». La figure @fig:jupyter-ls illustre cette possibilité avec la commande `ls` qui affiche le contenu d'un répertoire.
+Enfin, dans les environnements Linux ou Mac OS X, il est possible de lancer une commande Unix depuis un *notebook* Jupyter. Il faut pour cela précéder la commande du symbole « `!` ». 
+Par exemple, la commande `ls` affiche le contenu du répertoire courant :
 
-![Lancement d'une commande Unix.](img/jupyter-ls.png){ #fig:jupyter-ls width=80% }
+```python
+!ls
+```
 
-open-box-rem
-
-Le lancement de n'importe quelle commande Unix depuis un *notebook* Jupyter (en précédant cette commande de `!`) est une fonctionnalité très puissante.
-
-Pour vous en rendre compte, jetez un œil au [*notebook*](https://github.com/MaayanLab/Zika-RNAseq-Pipeline/blob/master/Zika.ipynb) produit par les chercheurs Zichen Wang et Avi Ma'ayan qui reproduit l'analyse complète de données obtenues par séquençage haut débit. Ces analyses ont donné lieu à la publication de l'article scientifique « [*An open RNA-Seq data analysis pipeline tutorial with an example of reprocessing data from a recent Zika virus study*](https://f1000research.com/articles/5-1574/) » (F1000 Research, 2016).
-
-close-box-rem
-
+```text
+jupyter-exemple.ipynb  markdown.ipynb	 test.ipynb
+jupyter-logo.png       matplotlib.ipynb
+```
 
 open-box-more
 
-Les *notebooks* Jupyter sont particulièrement adaptés à l'analyse de données en combinaison avec les modules *matplotlib* et *pandas* que nous verrons dans les prochains chapitres.
+Le lancement d'une commande Unix depuis un *notebook* Jupyter (en précédant cette commande de `!`) est très utile pour réaliser de grosses analyses de données.
+Pour vous en rendre compte, explorez ce [*notebook*](https://github.com/MaayanLab/Zika-RNAseq-Pipeline/blob/master/Zika.ipynb) qui reproduit une analyse complète de données de séquençage haut débit. Ces résultats ont donné lieu à la publication de l'article scientifique « [*An open RNA-Seq data analysis pipeline tutorial with an example of reprocessing data from a recent Zika virus study*](https://f1000research.com/articles/5-1574/) » (F1000 Research, 2016).
 
 close-box-more
+
+
+open-box-adv
+
+Les *notebooks* Jupyter sont particulièrement adaptés à l'analyse de données en combinaison avec les modules *matplotlib* et *pandas* qui seront abordés dans les prochains chapitres.
+
+close-box-adv

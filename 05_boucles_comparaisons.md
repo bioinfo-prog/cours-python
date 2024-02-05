@@ -155,7 +155,7 @@ souris
 
 La variable `i` prendra les valeurs successives 0, 1, 2 et 3 et on accèdera à chaque élément de la liste `animaux` par son indice (*i.e.* `animaux[i]`). Notez à nouveau le nom `i` de la variable d'itération car on itère sur les **indices**.
 
-Quand utiliser l'une ou l'autre des 2 méthodes ? La plus efficace est celle qui réalise **les itérations directement sur les éléments** :
+Quand utiliser l'une ou l'autre des deux méthodes ? La plus efficace est celle qui réalise **les itérations directement sur les éléments** :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -167,6 +167,13 @@ tigre
 singe
 souris
 ```
+
+open-box-rem
+
+Dans le chapitre 18 *Jupyter et ses notebooks*, nous mesurerons le temps d'exécution de ces deux méthodes pour vous montrez que l'itération sur les éléments est la méthode la plus rapide.
+
+close-box-rem
+
 
 Toutefois, il se peut qu'au cours d'une boucle vous ayez besoin des indices, auquel cas vous devrez itérer sur les indices :
 
