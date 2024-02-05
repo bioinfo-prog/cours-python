@@ -1013,7 +1013,7 @@ Utilisez la fonction `trouve_calpha()` de l'exercice précédent et la fonction
 
 ### Kinases et protéines humaines
 
-Nous avons extrait de la base de données de protéines UniProt la liste des protéines humaines (fichier [`human_proteins.txt`](https://python.sdv.u-paris.fr/data-files/human_proteins.txt)) et la liste des kinases (fichier [`kinases_proteins.txt`](https://python.sdv.u-paris.fr/data-files/kinase_proteins.txt)), qui sont une [famille de de protéines enzymatiques](https://fr.wikipedia.org/wiki/Kinase) impliquées dans la phosphorylation d'autres protéines.
+Nous avons extrait de la base de données de protéines UniProt la liste des protéines humaines (dans le fichier [`human_proteins.txt`](https://python.sdv.u-paris.fr/data-files/human_proteins.txt)) et la liste des kinases (dans le fichier [`kinases_proteins.txt`](https://python.sdv.u-paris.fr/data-files/kinase_proteins.txt)), qui sont une [famille de protéines enzymatiques](https://fr.wikipedia.org/wiki/Kinase) impliquées dans la phosphorylation d'autres protéines.
 
 Chaque fichier contient un identifiant de protéine par ligne. Voici un exemple pour le fichier `human_proteins.txt` :
 
@@ -1027,20 +1027,15 @@ A0A0U1RRE5
 A0A1B0GTW7
 A0AV02
 A0AV96
-A0AVF1
 [...]
 ```
 
 L'objectif de cet exercice est de déterminer quelles sont les protéines humaines qui sont des kinases. Chaque liste de protéines contenant plusieurs milliers d'éléments, il n'est pas possible de la faire à la main. Vous aller utiliser Python et les *sets* pour cela.
 
-Créez un script `compare_proteins.py`.
-
-Dans ce script, créez une fonction `read_protein_file()` qui prend en argument le nom d'un fichier de protéines sous la forme d'une chaîne de caractères et qui renvoie un *set* contenant la liste des identifiants des protéines contenues dans le fichier passé en argument.
-
-Affichez ensuite le nombre de protéines contenues dans chaque fichier.
-
-En utilisant uniquement les opérations sur les *sets*, déterminez et affichez :
-
-- le nombre de protéines humaines qui sont des kinases ;
-- le nombre de protéines humaines qui ne sont pas des kinases ;
-- le nombre de kinases qui ne sont pas humaines.
+- Créez un script `compare_proteins.py`.
+- Dans ce script, créez une fonction `read_protein_file()` qui prend en argument le nom d'un fichier de protéines sous la forme d'une chaîne de caractères et qui renvoie un *set* contenant la liste des identifiants des protéines contenues dans le fichier passé en argument.
+- Affichez ensuite le nombre de protéines listées dans chaque fichier.
+- En utilisant uniquement des opérations sur les *sets*, déterminez et affichez :
+  - le nombre de protéines humaines qui sont des kinases ;
+  - le nombre de protéines humaines qui ne sont pas des kinases ;
+  - le nombre de kinases qui ne sont pas des protéines humaines.
