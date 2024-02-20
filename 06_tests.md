@@ -416,10 +416,13 @@ Pour vous aider, nous vous proposons plusieurs méthodes.
 
 Pour chaque nombre de 2 à 100, calculez le reste de la division entière (avec l'opérateur modulo `%`) depuis 1 jusqu'à lui-même. Si c'est un nombre premier, il aura exactement deux nombres pour lesquels le reste de la division entière est égal à 0 (1 et lui-même). Si ce n'est pas un nombre premier, il aura plus de deux nombres pour lesquels le reste de la division entière est égal à 0.
 
-#### Méthode 2 (plus optimale et plus rapide, mais un peu plus compliquée)
+#### Méthode 2 (quelques petites optimisations qui font gagner du temps)
 
-Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire qu'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier. Attention, pour cette méthode, il faudra initialiser la liste de nombres premiers avec le premier nombre premier (donc 2 !).
+On reprend la méthode 1 avec deux petites optimisations. On sait que tout entier $N$ supérieur à 1 est divisible par 1 et par lui-même. Ainsi, il est inutile de tester ces 2 diviseurs. On propose donc de tester tous les diviseurs de 2 à $N-1$. Si on ne trouve aucun diviseur, alors $N$ est premier. A partir du moment où on trouve un diviseur, il est inutile de cherche s'il existe d'autres diviseurs car $N$ ne sera pas premier. On suggère ainsi de stopper la boucle (pensez à `break` !).
 
+#### Méthode 3 (plus optimale et plus rapide, mais un peu plus compliquée)
+
+Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire s'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier. On peut encore accélérer le calcul en ne testant que les nombres premiers inférieurs à $\sqrt{N}$. Si vous voulez savoir pourquoi, c'est [ici](https://stackoverflow.com/questions/5811151/why-do-we-check-up-to-the-square-root-of-a-number-to-determine-if-the-number-is).
 
 ### Recherche d'un nombre par dichotomie (exercice +++)
 
