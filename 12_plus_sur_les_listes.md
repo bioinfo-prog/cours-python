@@ -259,7 +259,7 @@ Lignes 3 et 6. On passe en argument deux listes à `zip()` qui génère un nouve
 
 Lignes 7 à 12. Un objet *zip* est itérable. La variable  d'itération est un tuple. A la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, et ainsi de suite.
 
-Lignes 13 à 18. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme on l'avait fait avec la fonction `enumrate()`, voir Chapitres 5 *Boucles* et 8 *Dictionnaires et tuples*).
+Lignes 13 à 18. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme on l'avait fait avec la fonction `enumerate()`, voir Chapitres 5 *Boucles* et 8 *Dictionnaires et tuples*).
 
 Un objet *zip* est aussi utile pour générer facilement une liste de tuples.
 
