@@ -350,6 +350,12 @@ close-box-rem
 
 ## Fonction `map()`
 
+open-box-adv
+
+Pour les débutants, vous pouvez passer cette rubrique.
+
+close-box-adv
+
 La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un objet itérable. Par exemple, si on a une chaîne de caractères avec trois entiers séparés par des espaces, on peut extraire et convertir les trois nombres en entier en une seule ligne de commande. La fonction `map()` produit un objet de type *map* qui est itérable ou que l'on peut transformer en liste.
 
 ```python
