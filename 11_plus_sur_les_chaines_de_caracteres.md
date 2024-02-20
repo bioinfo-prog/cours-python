@@ -647,7 +647,7 @@ puis entre les séquences
 
 ### Moyenne de notes
 
-Le fichier [`notes.csv`](https://python.sdv.u-paris.fr/data-files/notes.csv) contient des noms d'étudiant ainsi que leurs notes dans différentes matières. Chaque donnée est séparée par une virgule. On trouve dans l'ordre : i) nom de l'étudiant, ii) note en géographie, iii) note en sport, iv) note en anglais. Faites un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Joe", "geo": 10, "sport": 7, "anglais": 16}, ...]`. Faites ensuite une boucle sur cette liste de dictionnaires, et afficher le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et d'anglais sur tous les étudiants.
+Le fichier [`notes.csv`](https://python.sdv.u-paris.fr/data-files/notes.csv) contient des noms d'étudiant ainsi que leurs notes dans différentes matières. Chaque donnée est séparée par une virgule. On trouve dans l'ordre : i) nom de l'étudiant, ii) note en géographie, iii) note en sport, iv) note en anglais. Faites un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Joe", "geo": 10, "sport": 7, "anglais": 16}, ...]`. Vous pouvez tenter d'utiliser la fonction `map()` pour convertir les nombres lus dans le fichier en entier. Faites ensuite une boucle sur cette liste de dictionnaires, et afficher le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et d'anglais sur tous les étudiants.
 
 ### Palindrome
 
