@@ -348,6 +348,53 @@ Retenez bien l'utilisation des instructions précédentes pour extraire des vale
 
 close-box-rem
 
+## Fonction `map()`
+
+La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un objet itérable. Par exemple, si on a une chaîne de caractères avec trois entiers séparés par des espaces, on peut extraire et convertir les trois nombres en entier en une seule ligne de commande. La fonction `map()` produit un objet de type *map* qui est itérable ou que l'on peut transformer en liste.
+
+```python
+>>> ligne = "67 946   -45"
+>>> ligne.split()
+['67', '946', '-45']
+>>> map(int, ligne.split())
+<map object at 0x7fa34e573b20>
+>>> for entier in map(int, ligne.split()):
+...    print(entier)
+...
+67
+946
+-45
+>>> list(map(int, ligne.split()))
+[67, 946, -45]
+```
+
+open-box-rem
+
+La fonction `map()` prend deux arguments. Le deuxième est un objet itérable, souvent une liste comme dans notre exemple. Le premier argument est le nom de fonction qu'on souhaite appliquer à chaque élément de la liste, mais sans les parenthèses (ici `int` et non pas `int()`). Une fonction passée en argument d'une autre fonction est appelée [fonction de rappel](https://fr.wikipedia.org/wiki/Fonction_de_rappel) ou *callback* en anglais. Nous reverrons cette notion dans le chapitre 25 *Tkinter*.
+
+close-box-rem
+
+La fonction `map()` est particulièrement utile lorsqu'on lit un fichier de valeurs numériques. Par exemple, si on a un fichier `data.dat` contenant trois colonnes de nombres, `map()` en conjonction avec `.split()` permet de séparer les trois nombres puis de les convertir  en *float* en une seule ligne de code.
+
+```python
+with open("data.dat", "r") as filin:
+    for line in filin:
+        x, y, z = map(float, line.split())
+        print(x + y + z)
+```
+
+Sans `map()`, il aurait fallu une ligne pour séparer les données `x, y, z = line.split()` et une autre pour les transformer en *float* `x, y, z = float(x), float(y), float(z)`.
+
+Enfin, on peut utiliser `map()` avec ses propres fonctions.
+
+```python
+>>> def calc_cube(x):
+...     return x**3
+...
+>>> list(map(calc_cube, [1, 2, 3, 4]))
+[1, 8, 27, 64]
+```
+
 ## Test d'appartenance
 
 L’opérateur `in` teste si une chaîne de caractères fait partie d’une autre chaîne de caractères.
