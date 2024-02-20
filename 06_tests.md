@@ -422,7 +422,7 @@ On reprend la méthode 1 avec deux petites optimisations. On sait que tout entie
 
 #### Méthode 3 (plus optimale et plus rapide, mais un peu plus compliquée)
 
-Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire s'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier. On peut encore accélérer le calcul en ne testant que les nombres premiers inférieurs à $\sqrt{N}$. Si vous voulez savoir pourquoi, c'est [ici](https://stackoverflow.com/questions/5811151/why-do-we-check-up-to-the-square-root-of-a-number-to-determine-if-the-number-is).
+Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire s'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier.
 
 ### Recherche d'un nombre par dichotomie (exercice +++)
 
