@@ -314,10 +314,10 @@ La méthode `.strip()` est très pratique quand on lit un fichier et qu'on veut 
 
 Une tâche courante en Python est de lire une chaîne de caractères (provenant par exemple d'un fichier), d'extraire des valeurs de cette chaîne de caractères pour ensuite les manipuler.
 
-On considère par exemple la chaîne de caractères `val` :
+On considère par exemple la chaîne de caractères `chaine1` :
 
 ```python
->>> val = "3.4 17.2 atom"
+>>> chaine1 = "3.4 17.2 atom"
 ```
 
 On souhaite extraire les valeurs `3.4` et `17.2` pour ensuite les additionner.
@@ -325,15 +325,20 @@ On souhaite extraire les valeurs `3.4` et `17.2` pour ensuite les additionner.
 Dans un premier temps, on découpe la chaîne de caractères avec la méthode `.split()` :
 
 ```python
->>> val2 = val.split()
->>> val2
+>>> liste1 = chaine1.split()
+>>> liste1
 ['3.4', '17.2', 'atom']
+>>> nb1, nb2, nom = liste1
+>>> nb1
+'3.4'
+>>> nb2
+'17.2'
 ```
 
-On obtient alors une liste de chaînes de caractères. On transforme ensuite les deux premiers éléments de cette liste en *floats* (avec la fonction `float()`) pour pouvoir les additionner :
+On obtient alors une liste de chaînes de caractères `liste1`. Avec l'affectation multiple, on récupère les nombres souhaités dans `nb1` et `nb2`, mais ils sont toujours sous forme de chaîne de caractères. Il faut ensuite les convertir en *floats* pour pouvoir les additionner.
 
 ```python
->>> float(val2[0]) + float(val2[1])
+>>> float(nb1) + float(nb2)
 20.599999999999998
 ```
 
