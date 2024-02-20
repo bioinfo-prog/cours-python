@@ -461,22 +461,13 @@ On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse
 >>> animaux = "girafe tigre"
 >>> dir(animaux)
 ['__add__', '__class__', '__contains__', '__delattr__', '__dir__',
-'__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '_
-_getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '_
-_init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mo
-d__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__'
-, '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__',
-'__str__', '__subclasshook__', 'capitalize', 'casefold', 'center',
-'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'for
-mat_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'i
-sidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'is
-title', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans',
+ ...,
  'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition',
  'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip',
  'swapcase', 'title', 'translate', 'upper', 'zfill']
 ```
 
-Pour l'instant, vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`.
+Pour l'instant, vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`. Nous n'avons pas mis l'ensemble de la sortie de cette commande `dir()` pour ne pas surcharger le texte, mais n'hésitez pas à la tester dans l'interpréteur.
 
 Vous pouvez également accéder à l'aide et à la documentation d'une méthode particulière avec `help()`, par exemple pour la méthode `.split()` :
 
