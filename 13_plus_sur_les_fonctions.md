@@ -239,7 +239,6 @@ close-box-adv
 
 De manière générale la règle LGI découle de la manière dont Python gère ce que l'on appelle « les espaces de noms ». C'est cette gestion qui définit la portée (visibilité) de chaque variable. Nous en parlerons plus longuement dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
 
-
 ## Recommandations
 
 ### Évitez les variables globales
