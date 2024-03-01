@@ -356,7 +356,7 @@ Pour les débutants, vous pouvez passer cette rubrique.
 
 close-box-adv
 
-La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un objet itérable. Par exemple, si on a une chaîne de caractères avec trois entiers séparés par des espaces, on peut extraire et convertir les trois nombres en entier en une seule ligne de commande. La fonction `map()` produit un objet de type *map* qui est itérable ou que l'on peut transformer en liste.
+La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un objet itérable. Par exemple, si on a une chaîne de caractères avec trois entiers séparés par des espaces, on peut extraire et convertir les trois nombres en entier en une seule ligne. La fonction `map()` produit un objet de type *map* qui est itérable ou que l'on peut transformer en liste.
 
 ```python
 >>> ligne = "67 946   -45"
@@ -376,7 +376,7 @@ La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un
 
 open-box-rem
 
-La fonction `map()` prend deux arguments. Le deuxième est un objet itérable, souvent une liste comme dans notre exemple. Le premier argument est le nom de fonction qu'on souhaite appliquer à chaque élément de la liste, mais sans les parenthèses (ici `int` et non pas `int()`). Une fonction passée en argument d'une autre fonction est appelée [fonction de rappel](https://fr.wikipedia.org/wiki/Fonction_de_rappel) ou *callback* en anglais. Nous reverrons cette notion dans le chapitre 25 *Tkinter* (en ligne).
+La fonction `map()` prend deux arguments. Le second est un objet itérable, souvent une liste comme dans notre exemple. Le premier argument est le nom d'une fonction qu'on souhaite appliquer à chaque élément de la liste, mais sans les parenthèses (ici `int` et non pas `int()`). Une fonction passée en argument d'une autre fonction est appelée [fonction de rappel](https://fr.wikipedia.org/wiki/Fonction_de_rappel) ou *callback* en anglais. Nous reverrons cette notion dans le chapitre 25 *Tkinter* (en ligne).
 
 close-box-rem
 
@@ -647,7 +647,16 @@ puis entre les séquences
 
 ### Moyenne de notes
 
-Le fichier [`notes.csv`](https://python.sdv.u-paris.fr/data-files/notes.csv) contient des noms d'étudiant ainsi que leurs notes dans différentes matières. Chaque donnée est séparée par une virgule. On trouve dans l'ordre : i) nom de l'étudiant, ii) note en géographie, iii) note en sport, iv) note en anglais. Faites un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Joe", "geo": 10, "sport": 7, "anglais": 16}, ...]`. Vous pouvez tenter d'utiliser la fonction `map()` pour convertir les nombres lus dans le fichier en entier. Faites ensuite une boucle sur cette liste de dictionnaires, et afficher le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et d'anglais sur tous les étudiants.
+Le fichier [`notes.csv`](https://python.sdv.u-paris.fr/data-files/notes.csv) contient des noms d'étudiant ainsi que leurs notes dans différentes matières. Chaque donnée est séparée par une virgule. On trouve dans l'ordre le nom de l'étudiant, la note en géographie, la note en sport, la note en anglais. 
+
+```text
+Jason,17,3,1
+William,9,18,15
+Susan,3,8,10
+[...]
+```
+
+Créez un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Jason", "geo": 17, "sport": 3, "anglais": 1}, ...]`. Utilisez si possible la fonction la fonction `map()` pour convertir les nombres lus dans le fichier en entier. Réalisez ensuite une boucle sur cette liste de dictionnaires, et affichez le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et de géographie pour tous les étudiants.
 
 ### Palindrome
 
