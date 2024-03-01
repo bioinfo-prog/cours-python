@@ -418,7 +418,7 @@ Pour chaque nombre de 2 à 100, calculez le reste de la division entière (avec 
 
 #### Méthode 2 (quelques petites optimisations qui font gagner du temps)
 
-On reprend la méthode 1 avec deux petites optimisations. On sait que tout entier $N$ supérieur à 1 est divisible par 1 et par lui-même. Ainsi, il est inutile de tester ces 2 diviseurs. On propose donc de tester tous les diviseurs de 2 à $N-1$. Si on ne trouve aucun diviseur, alors $N$ est premier. A partir du moment où on trouve un diviseur, il est inutile de cherche s'il existe d'autres diviseurs car $N$ ne sera pas premier. On suggère ainsi de stopper la boucle (pensez à `break` !).
+On reprend la méthode 1 avec deux petites optimisations. On sait que tout entier $N$ supérieur à 1 est divisible par 1 et par lui-même. Ainsi, il est inutile de tester ces deux diviseurs. On propose donc de tester tous les diviseurs de 2 à $N-1$. Si on ne trouve aucun diviseur, alors $N$ est premier. À partir du moment où on trouve un diviseur, il est inutile de chercher s'il existe d'autres diviseurs car $N$ ne sera pas premier. On suggère ainsi de stopper la boucle (pensez à `break`).
 
 #### Méthode 3 (plus optimale et plus rapide, mais un peu plus compliquée)
 
