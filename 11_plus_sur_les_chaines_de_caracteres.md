@@ -314,10 +314,10 @@ La méthode `.strip()` est très pratique quand on lit un fichier et qu'on veut 
 
 Une tâche courante en Python est de lire une chaîne de caractères (provenant par exemple d'un fichier), d'extraire des valeurs de cette chaîne de caractères pour ensuite les manipuler.
 
-On considère par exemple la chaîne de caractères `val` :
+On considère par exemple la chaîne de caractères `chaine1` :
 
 ```python
->>> val = "3.4 17.2 atom"
+>>> chaine1 = "3.4 17.2 atom"
 ```
 
 On souhaite extraire les valeurs `3.4` et `17.2` pour ensuite les additionner.
@@ -325,15 +325,20 @@ On souhaite extraire les valeurs `3.4` et `17.2` pour ensuite les additionner.
 Dans un premier temps, on découpe la chaîne de caractères avec la méthode `.split()` :
 
 ```python
->>> val2 = val.split()
->>> val2
+>>> liste1 = chaine1.split()
+>>> liste1
 ['3.4', '17.2', 'atom']
+>>> nb1, nb2, nom = liste1
+>>> nb1
+'3.4'
+>>> nb2
+'17.2'
 ```
 
-On obtient alors une liste de chaînes de caractères. On transforme ensuite les deux premiers éléments de cette liste en *floats* (avec la fonction `float()`) pour pouvoir les additionner :
+On obtient alors une liste de chaînes de caractères `liste1`. Avec l'affectation multiple, on récupère les nombres souhaités dans `nb1` et `nb2`, mais ils sont toujours sous forme de chaîne de caractères. Il faut ensuite les convertir en *floats* pour pouvoir les additionner.
 
 ```python
->>> float(val2[0]) + float(val2[1])
+>>> float(nb1) + float(nb2)
 20.599999999999998
 ```
 
@@ -342,6 +347,59 @@ open-box-rem
 Retenez bien l'utilisation des instructions précédentes pour extraire des valeurs numériques d'une chaîne de caractères. Elles sont régulièrement employées pour analyser des données extraites d'un fichier.
 
 close-box-rem
+
+## Fonction `map()`
+
+open-box-adv
+
+Pour les débutants, vous pouvez passer cette rubrique.
+
+close-box-adv
+
+La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un objet itérable. Par exemple, si on a une chaîne de caractères avec trois entiers séparés par des espaces, on peut extraire et convertir les trois nombres en entier en une seule ligne. La fonction `map()` produit un objet de type *map* qui est itérable ou que l'on peut transformer en liste.
+
+```python
+>>> ligne = "67 946   -45"
+>>> ligne.split()
+['67', '946', '-45']
+>>> map(int, ligne.split())
+<map object at 0x7fa34e573b20>
+>>> for entier in map(int, ligne.split()):
+...    print(entier)
+...
+67
+946
+-45
+>>> list(map(int, ligne.split()))
+[67, 946, -45]
+```
+
+open-box-rem
+
+La fonction `map()` prend deux arguments. Le second est un objet itérable, souvent une liste comme dans notre exemple. Le premier argument est le nom d'une fonction qu'on souhaite appliquer à chaque élément de la liste, mais sans les parenthèses (ici `int` et non pas `int()`). Une fonction passée en argument d'une autre fonction est appelée [fonction de rappel](https://fr.wikipedia.org/wiki/Fonction_de_rappel) ou *callback* en anglais. Nous reverrons cette notion dans le chapitre 25 *Tkinter* (en ligne).
+
+close-box-rem
+
+La fonction `map()` est particulièrement utile lorsqu'on lit un fichier de valeurs numériques. Par exemple, si on a un fichier `data.dat` contenant trois colonnes de nombres, `map()` en conjonction avec `.split()` permet de séparer les trois nombres puis de les convertir  en *float* en une seule ligne de code.
+
+```python
+with open("data.dat", "r") as filin:
+    for line in filin:
+        x, y, z = map(float, line.split())
+        print(x + y + z)
+```
+
+Sans `map()`, il aurait fallu une ligne pour séparer les données `x, y, z = line.split()` et une autre pour les transformer en *float* `x, y, z = float(x), float(y), float(z)`.
+
+Enfin, on peut utiliser `map()` avec ses propres fonctions.
+
+```python
+>>> def calc_cube(x):
+...     return x**3
+...
+>>> list(map(calc_cube, [1, 2, 3, 4]))
+[1, 8, 27, 64]
+```
 
 ## Test d'appartenance
 
@@ -403,22 +461,13 @@ On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse
 >>> animaux = "girafe tigre"
 >>> dir(animaux)
 ['__add__', '__class__', '__contains__', '__delattr__', '__dir__',
-'__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '_
-_getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '_
-_init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mo
-d__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__'
-, '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__',
-'__str__', '__subclasshook__', 'capitalize', 'casefold', 'center',
-'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'for
-mat_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'i
-sidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'is
-title', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans',
+ ...,
  'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition',
  'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip',
  'swapcase', 'title', 'translate', 'upper', 'zfill']
 ```
 
-Pour l'instant, vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`.
+Pour l'instant, vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`. Nous n'avons pas mis l'ensemble de la sortie de cette commande `dir()` pour ne pas surcharger le texte, mais n'hésitez pas à la tester dans l'interpréteur.
 
 Vous pouvez également accéder à l'aide et à la documentation d'une méthode particulière avec `help()`, par exemple pour la méthode `.split()` :
 
@@ -598,7 +647,16 @@ puis entre les séquences
 
 ### Moyenne de notes
 
-Le fichier [`notes.csv`](https://python.sdv.u-paris.fr/data-files/notes.csv) contient des noms d'étudiant ainsi que leurs notes dans différentes matières. Chaque donnée est séparée par une virgule. On trouve dans l'ordre : i) nom de l'étudiant, ii) note en géographie, iii) note en sport, iv) note en anglais. Faites un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Joe", "geo": 10, "sport": 7, "anglais": 16}, ...]`. Faites ensuite une boucle sur cette liste de dictionnaires, et afficher le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et d'anglais sur tous les étudiants.
+Le fichier [`notes.csv`](https://python.sdv.u-paris.fr/data-files/notes.csv) contient des noms d'étudiant ainsi que leurs notes dans différentes matières. Chaque donnée est séparée par une virgule. On trouve dans l'ordre le nom de l'étudiant, la note en géographie, la note en sport, la note en anglais. 
+
+```text
+Jason,17,3,1
+William,9,18,15
+Susan,3,8,10
+[...]
+```
+
+Créez un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Jason", "geo": 17, "sport": 3, "anglais": 1}, ...]`. Utilisez si possible la fonction la fonction `map()` pour convertir les nombres lus dans le fichier en entier. Réalisez ensuite une boucle sur cette liste de dictionnaires, et affichez le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et de géographie pour tous les étudiants.
 
 ### Palindrome
 

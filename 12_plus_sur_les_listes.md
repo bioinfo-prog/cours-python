@@ -4,7 +4,7 @@ Nous avons vu les listes dès le chapitre 4 et les avons largement utilisées de
 
 ## Méthodes associées aux listes
 
-Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leur sont propres et qui peuvent se révéler très pratiques. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
+Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leur sont propres. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
 
 
 ### `.append()`
@@ -255,9 +255,9 @@ le renard est roux
 le python est vert
 ```
 
-Lignes 3 et 6. On passe en argument deux listes à `zip()` qui génère un nouvel objet de type *zip*.
+Lignes 3 et 6. On passe en argument deux listes à `zip()` qui génère un nouvel objet de type *zip*. Comme pour les objets de type *map* vu au chapitre 11 *Plus sur les chaînes de caractères*, les objets *zip* sont itérables.
 
-Lignes 7 à 12. Un objet *zip* est itérable. La variable  d'itération est un tuple. A la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, et ainsi de suite.
+Lignes 7 à 12. Lorsqu'on itère sur un objet *zip*, la variable  d'itération est un tuple. À la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, à la deuxième itération ce sera le deuxième élément, et ainsi de suite.
 
 Lignes 13 à 18. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme on l'avait fait avec la fonction `enumerate()`, voir Chapitres 5 *Boucles* et 8 *Dictionnaires et tuples*).
 
