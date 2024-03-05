@@ -94,8 +94,8 @@ Python est un langage interprété, c'est-à-dire que chaque ligne de code est l
 La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
 
 ```text
-PS C:\Users\pierre> python
-Python 3.7.1 (default, Dec 10 2018, 22:54:23) [MSC v.1915 64 bit (AMD64)] [...]
+PS C:\Users\pierre>python
+Python 3.12.2 | packaged by Anaconda, Inc. | (main, Feb 27 2024, 17:28:07) [MSC v.1916 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -114,8 +114,7 @@ ou pour Linux :
 
 ```text
 pierre@jeera:~$ python
-Python 3.7.1 (default, Dec 14 2018, 19:28:38)
-[GCC 7.3.0] :: Anaconda, Inc. on linux
+Python 3.12.1 | packaged by conda-forge | (main, Dec 23 2023, 08:03:24) [GCC 12.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```

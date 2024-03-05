@@ -39,7 +39,7 @@ Notez bien les types des variables utilisées ici :
 - `animaux` est une **liste** sur laquelle on itère,
 - `animal` est une **chaîne de caractères** car chaque élément de la liste `animaux` est une chaîne de caractères.
 
-Nous verrons plus loin que la variable d'itération peut être de n'importe quel type selon la liste parcourue. En Python, une boucle itère toujours sur un objet dit **séquentiel** (c'est-à-dire un objet constitué d'autres objets) tel qu'une liste. Nous verrons aussi plus tard d'autres objets séquentiels sur lesquels on peut itérer dans une boucle.
+Nous verrons plus loin que la variable d'itération peut être de n'importe quel type selon la liste parcourue. En Python, une boucle itère la plupart du temps sur un objet dit **séquentiel** (c'est-à-dire un objet constitué d'autres objets) tel qu'une liste. Nous verrons aussi plus tard d'autres objets séquentiels sur lesquels on peut itérer dans une boucle.
 
 D'ores et déjà, prêtez attention au caractère **deux-points** « `:` » à la fin de la ligne débutant par `for`. Cela signifie que la boucle `for` attend un **bloc d'instructions**, en l’occurrence toutes les instructions que Python répétera à chaque itération de la boucle. On appelle ce bloc d'instructions le **corps de la boucle**. Comment indique-t-on à Python où ce bloc commence et se termine ? Cela est signalé uniquement par l'**indentation**, c'est-à-dire le décalage vers la droite de la (ou des) ligne(s) du bloc d'instructions.
 
@@ -121,7 +121,7 @@ Dans cet exemple, nous pouvons faire plusieurs remarques importantes :
 
 Contrairement à la création de liste avec `list(range(4))`, la fonction `range()` peut être utilisée telle quelle dans une boucle. Il n'est pas nécessaire de taper `for i in list(range(4)):` même si cela fonctionnerait également.
 
-Comment cela est-ce possible ? Et bien `range()` est une fonction qui a été spécialement conçue pour [cela](https://docs.python.org/fr/3/library/stdtypes.html#typesseq-range), c'est-à-dire que l'on peut itérer directement dessus. Pour Python, il s'agit d'un nouveau type, par exemple dans l'instruction `x = range(3)` la variable `x` est de type *range* (tout comme on avait les types *int*, *float*, *str* ou *list*) à utiliser spécialement avec les boucles.
+Comment cela est possible ? Et bien `range()` est une fonction qui a été spécialement conçue pour [cela](https://docs.python.org/fr/3/library/stdtypes.html#typesseq-range), c'est-à-dire que l'on peut itérer directement dessus. Pour Python, il s'agit d'un nouveau type, par exemple dans l'instruction `x = range(3)` la variable `x` est de type *range* (tout comme on avait les types *int*, *float*, *str* ou *list*) à utiliser spécialement avec les boucles.
 
 L'instruction `list(range(4))` se contente de transformer un objet de type *range* en un objet de type *list*. Si vous vous souvenez bien, il s'agit d'une fonction de *casting*, qui convertit un type en un autre (voir chapitre 2 *Variables*). Il n'y aucun intérêt à utiliser dans une boucle la construction `for i in list(range(4)):`. C'est même contre-productif. En effet, `range()` se contente de stocker l'entier actuel, le pas pour passer à l'entier suivant, et le dernier entier à parcourir, ce qui revient à stocker seulement 3 nombres entiers et ce quelle que soit la longueur de la séquence, même avec un `range(1000000)`. Si on utilisait `list(range(1000000))`, Python construirait d'abord une liste de 1 million d'éléments dans la mémoire puis itérerait dessus, d'où une énorme perte de temps !
 
@@ -130,7 +130,7 @@ L'instruction `list(range(4))` se contente de transformer un objet de type *rang
 
 Dans l'exemple précédent, nous avons choisi le nom `i` pour la variable d'itération. Ceci est une habitude en informatique et indique en général qu'il s'agit d'un entier (le nom `i` vient sans doute du mot indice ou *index* en anglais). Nous vous conseillons de suivre cette convention afin d'éviter les confusions, si vous itérez sur les indices vous pouvez appeler la variable d'itération `i` (par exemple dans `for i in range(4):`).
 
-Si, par contre, vous itérez sur une liste comportant des chaînes de caractères, utilisez un nom explicite pour la variable d'itération. Par exemple :
+Si, par contre, vous itérez sur une liste comportant des chaînes de caractères (ou tout autre type de variable), utilisez un nom explicite pour la variable d'itération. Par exemple :
 
 `for prenom in ["Joe", "Bill", "John"]:`
 
@@ -228,7 +228,7 @@ False
 True
 ```
 
-Python renvoie la valeur `True` si la comparaison est vraie et `False` si elle est fausse. `True` et `False` sont des booléens (un nouveau type de variable).
+Python renvoie la valeur `True` si la comparaison est vraie et `False` si elle est fausse. `True` et `False` sont des booléens comme nous avions vu au chapitre 2 *Variables*.
 
 Faites bien attention à ne pas confondre l'**opérateur d'affectation** `=` qui affecte une valeur à une variable et l'**opérateur de comparaison** `==` qui compare les valeurs de deux variables.
 
@@ -292,7 +292,7 @@ Faites bien attention aux tests et à l'incrémentation que vous utilisez car un
 ```python
 i = 0
 while i < 10:
-    print("Le python c'est cool !")
+    print("Le Python c'est cool !")
 ```
 
 Ici, nous avons omis de mettre à jour la variable `i` dans le corps de la boucle. Par conséquent, la boucle ne s'arrêtera jamais (sauf en pressant *Ctrl-C*) puisque la condition `i < 10` sera toujours vraie.
@@ -312,8 +312,13 @@ Entrez un entier supérieur à 10 : 15
 15
 ```
 
-La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne 4).
+La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne 4). Si on reprend les trois éléments d'une boucle while, on trouve l'initialisation de la variable d'itération en ligne 1, le test de sa valeur en ligne 2, et sa mise à jour en ligne 4. 
 
+open-box-adv
+
+Comment choisir entre la boucle while et la boucle for ? La boucle while s'utilisera généralement lorsqu'on ne sait pas à l'avance le nombre d'itérations (comme dans le dernier exemple). Si on connait à l'avance le nombre d'itérations, par exemple si on veut écrire 10 fois `Le Python c'est cool`, nous vous conseillons la boucle for.
+
+close-box-adv
 
 ## Exercices
 

@@ -34,7 +34,7 @@ liste  : ["girafe", "tigre", "singe", "souris"]
 indice :        0        1        2         3
 ```
 
-Soyez très **attentif** au fait que les indices d'une liste de *n* éléments commencent à *0* et se terminent à *n-1*. Voyez l'exemple suivant :
+Soyez très **attentif** au fait que les indices d'une liste de *n* éléments commencent à $0$ et se terminent à $n-1$. Voyez l'exemple suivant :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -111,7 +111,13 @@ puis avec la méthode `.append()` :
 [15, -5, 13, -3]
 ```
 
-Dans l'exemple ci-dessus, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. Nous vous conseillons dans ce cas précis d'utiliser la méthode `.append()` dont la syntaxe est plus élégante.
+Dans l'exemple ci-dessus, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. 
+
+open-box-adv
+
+Nous vous conseillons dans ce cas précis d'utiliser la méthode `.append()` dont la syntaxe est plus élégante.
+
+close-box-adv
 
 Nous reverrons en détail la méthode `.append()` dans le chapitre 12 *Plus sur les listes*.
 
@@ -256,11 +262,11 @@ Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 
 Pour finir, sachez qu'il est tout à fait possible de construire des listes de listes. Cette fonctionnalité peut parfois être très pratique. Par exemple :
 
 ```python
->>> enclos1 = ["girafe", 4]
->>> enclos2 = ["tigre", 2]
->>> enclos3 = ["singe", 5]
->>> zoo = [enclos1, enclos2, enclos3]
->>> zoo
+>>> prairie1 = ["girafe", 4]
+>>> prairie2 = ["tigre", 2]
+>>> prairie3 = ["singe", 5]
+>>> savane = [prairie1, prairie2, prairie3]
+>>> savane
 [['girafe', 4], ['tigre', 2], ['singe', 5]]
 ```
 
@@ -269,16 +275,16 @@ Dans cet exemple, chaque sous-liste contient une catégorie d'animal et le nombr
 Pour accéder à un élément de la liste, on utilise l'indiçage habituel :
 
 ```python
->>> zoo[1]
+>>> savane[1]
 ['tigre', 2]
 ```
 
 Pour accéder à un élément de la sous-liste, on utilise un double indiçage :
 
 ```python
->>> zoo[1][0]
+>>> savane[1][0]
 'tigre'
->>> zoo[1][1]
+>>> savane[1][1]
 2
 ```
 
@@ -374,7 +380,7 @@ Dans l'exemple suivant :
 [1, 2, 3]
 ```
 
-la méthode `.append()` est liée à `liste1` qui est un objet de type liste. La méthode modifie la liste en lui ajoutant un élément.
+la méthode `.append()` est liée à `liste1` qui est un objet de type liste. La méthode modifie l'objet liste en lui ajoutant un élément.
 
 Nous aurons de nombreuses occasions de revoir cette notation `objet.méthode()`.
 

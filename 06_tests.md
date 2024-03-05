@@ -159,6 +159,12 @@ Notez que le même résultat serait obtenu en utilisant deux instructions `if` i
 le test est vrai
 ```
 
+open-box-adv
+
+Nous vous conseillons la syntaxe avec un `and` qui est plus compacte. De manière générale, moins il y a de niveau d'indentations mieux dans la mesure où ça ne nuis pas à la lisibilité.
+
+close-box-adv
+
 Vous pouvez aussi tester directement l'effet de ces opérateurs à l'aide de `True` et `False` (attention à respecter la casse).
 
 ```python
@@ -308,7 +314,7 @@ La fonction `min()` de Python renvoie l'élément le plus petit d'une liste cons
 
 La liste ci-dessous représente une séquence d'acides aminés :
 
-`["A", "R", "A", "W", "W", "A", "W", "A", "R", "W", "W", "R", "A", "G"]`
+`["A", "R", "A", "W", "W", "A", "W", "A", "R", "W", "G", "R", "A"]`
 
 Calculez la fréquence des acides aminés alanine (A), arginine (R), tryptophane (W) et glycine (G) dans cette séquence.
 
@@ -333,12 +339,8 @@ Pour cet exercice, vous pourrez utiliser l'opérateur modulo `%`  qui renvoie le
 2
 >>> 4 % 2
 0
->>> 5 % 2
-1
 >>> 6 % 2
 0
->>> 7 % 2
-1
 ```
 
 Vous remarquerez qu'un nombre est pair lorsque le reste de sa division entière par 2 est nul.

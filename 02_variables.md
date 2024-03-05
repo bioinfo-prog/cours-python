@@ -76,7 +76,7 @@ close-box-warn
 
 \index{variable@type (de variable)}
 
-Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers\index{entier} (*integer*\index{integer@\textit{integer}} ou *int*\index{int@\textit{int}}), les nombres décimaux que nous appellerons *floats*\index{float@\textit{float}} et les chaînes de caractères\index{chaine de caracteres@chaîne de caractères} (*string*\index{string@\textit{string}} ou *str*\index{str@\textit{str}}). Bien sûr, il existe de nombreux autres types (par exemple, les booléens, les nombres complexes, etc.). Si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/fr/3.7/library/stdtypes.html).
+Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers\index{entier} (*integer*\index{integer@\textit{integer}} ou *int*\index{int@\textit{int}}), les nombres décimaux que nous appellerons *floats*\index{float@\textit{float}} et les chaînes de caractères\index{chaine de caracteres@chaîne de caractères} (*string*\index{string@\textit{string}} ou *str*\index{str@\textit{str}}). Bien sûr, il existe de nombreux autres types (par exemple, les booléens, les nombres complexes, etc.). Si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/fr/3.12/library/stdtypes.html).
 
 Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la variable `x`, mais il est tout à fait possible de stocker des *floats*, des chaînes de caractères (*string* ou *str*) ou de nombreux autres types de variable que nous verrons par la suite :
 
@@ -152,22 +152,22 @@ On appelle cela écriture ou notation scientifique. On pourra noter deux choses 
 - `1e6` ou `3.12e-3` n'implique pas l'utilisation du nombre exponentiel *e* mais signifie $1 \times 10^{6}$ ou $3.12 \times 10^{-3}$ respectivement ;
 - Même si on ne met que des entiers à gauche et à droite du symbole `e` (comme dans `1e6`), Python génère systématiquement un *float*.
 
-Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des nombres composés de beaucoup de chiffres, par exemple le nombre d'Avogradro $6.02214076 \times 10^{23}$ ou le nombre d'humains sur Terre (au 26 août 2020) 7807568245. Pour s'y retrouver, Python autorise l'utilisation du caractère « souligné » (ou *underscore*) `_` pour séparer des groupes de chiffres. Par exemple :
+Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des nombres composés de beaucoup de chiffres, par exemple le nombre d'Avogradro $6.02214076 \times 10^{23}$ ou le [nombre d'humains sur Terre](https://thepopulationproject.org/) 8094752749 au 5 mars 2024 à 19h34. Pour s'y retrouver, Python autorise l'utilisation du caractère « souligné » (ou *underscore*) `_` pour séparer des groupes de chiffres. Par exemple :
 
 ```python
 >>> avogadro_number = 6.022_140_76e23
 >>> print(avogadro_number)
 6.02214076e+23
->>> humans_on_earth = 7_807_568_245
+>>> humans_on_earth = 8_094_752_749
 >>> print(humans_on_earth)
-7807568245
+8094752749
 ```
 
 Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de trois chiffres mais on peut faire ce qu'on veut :
 
 ```python
->>> print(7_80_7568_24_5)
-7807568245
+>>> print(80_94_7527_49)
+8094752749
 ```
 
 
@@ -341,7 +341,7 @@ Toute conversion d'une variable d'un type en un autre est appelé *casting*\inde
 
 ## Note sur le vocabulaire et la syntaxe
 
-Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet**\index{objet} pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 23 *Avoir la classe avec les objets* ce que le mot « objet » signifie réellement (tout comme le mot « classe\index{classe} »).
+Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet**\index{objet} pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 23 *Avoir la classe avec les objets* (en ligne) ce que le mot « objet » signifie réellement (tout comme le mot « classe\index{classe} »).
 
 Par ailleurs, nous avons rencontré plusieurs fois des **fonctions**\index{fonction} dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
 

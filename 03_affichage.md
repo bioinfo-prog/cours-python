@@ -84,7 +84,7 @@ L'écriture formatée est un mécanisme permettant d'afficher des variables avec
 
 close-box-def
 
-Depuis la version 3.6, Python a introduit les *f-strings* pour mettre en place l'écriture formatée que nous allons décrire en détail dans cette rubrique. Il existe d'autres  manières pour formatter des chaînes de caractères qui étaient utilisées avant la version 3.6, nous en avons mis un rappel bref dans la rubrique suivante. Toutefois, nous conseillons vivement l'utilisation des *f-strings* si vous débutez l'apprentissage de Python.
+Depuis la version 3.6, Python a introduit les *f-strings* pour mettre en place l'écriture formatée que nous allons décrire en détail dans cette rubrique. Il existe d'autres  manières pour formater des chaînes de caractères qui étaient utilisées avant la version 3.6, nous expliquons cela dans le chapitre 26 *Remarques complémentaires* (en ligne). Toutefois, nous vous conseillons vivement l'utilisation des *f-strings* si vous débutez l'apprentissage de Python, il est inutile d'apprendre les anciennes manières.
 
 
 #### *f-string*
@@ -203,14 +203,18 @@ ou mettre plusieurs nombres dans une même chaîne de caractères.
 ```python
 >>> nb_G = 4500
 >>> nb_C = 2575
->>> print(f"Ce génome contient {nb_G:d} G et {nb_C:d} C, soit une prop de GC de {prop_GC:.2f}")
-Ce génome contient 4500 G et 2575 C, soit une prop de GC de 0.48
+>>> print(f"Ce génome contient {nb_G:d} G et {nb_C:d} C, "
+...       f"soit une proportion de {prop_GC:.2f}")
+Ce génome contient 4500 G et 2575 C, soit une proportion de 0.48
 >>> perc_GC = prop_GC * 100
->>> print(f"Ce génome contient {nb_G:d} G et {nb_C:d} C, soit un %GC de {perc_GC:.2f} %")
+>>> print(f"Ce génome contient {nb_G:d} G et {nb_C:d} C, "
+...       f"soit un %GC de {perc_GC:.2f} %")
 Ce génome contient 4500 G et 2575 C, soit un %GC de 47.80 %
 ```
 
-Enfin, il est possible de préciser sur combien de caractères vous voulez qu'un résultat soit écrit et comment se fait l'alignement (à gauche, à droite ou centré). Dans la portion de code suivante, le caractère `;` sert de séparateur entre les instructions sur une même ligne :
+Vous noterez dans cet exemple que les phrases étant longues, nous avons coupé chaque chaîne de caractères sur deux lignes. Nous reverrons cette syntaxe dans le chapitre 11 *Plus sur les chaînes de caractères*.
+
+Enfin, il est possible de préciser sur combien de caractères vous voulez qu'un résultat soit écrit et comment se fait l'alignement (à gauche, à droite), ou si vous voulez centrer le texte. Dans la portion de code suivante, le caractère `;` sert de séparateur entre les instructions sur une même ligne :
 
 ```python
 >>> print(10) ; print(1000)
@@ -264,7 +268,8 @@ L'instruction `7.3f` signifie que l'on souhaite écrire un *float* avec 3 décim
 Si on veut afficher des accolades littérales avec les *f-strings*, il faut les doubler pour échapper au formatage :
 
 ```python
->>> print(f"Accolades littérales {{}} ou {{ ou }} et pour le formatage {10}")
+>>> print(f"Accolades littérales {{}} ou {{ ou }} "
+...       f"et pour le formatage {10}")
 Accolades littérales {} ou { ou } et pour le formatage 10
 ```
 
