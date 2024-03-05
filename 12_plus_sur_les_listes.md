@@ -160,7 +160,21 @@ La méthode `.count()` compte le nombre d'éléments (passés en argument) dans 
 
 ### Particularités des méthodes associées aux listes
 
-- De nombreuses méthodes mentionnées précédemment (`.append()`, `.sort()`, etc.) modifient la liste mais ne renvoient rien, c'est-à-dire qu'elles ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes : même si `var = liste1.reverse()` est une instruction Python valide, elle n'a aucun intérêt, préférez-lui `liste1.reverse()`. 
+De nombreuses méthodes mentionnées précédemment (`.append()`, `.sort()`, etc.) modifient la liste, mais ne renvoient pas d'objet récupérable dans une variable. Il s'agit d'un exemple d'utilisation de méthode (donc de fonction particulière) qui fait une action, mais qui ne renvoie rien. Pensez-y dans vos utilisations futures des listes. Ainsi, même si l'instruction `var = liste1.reverse()` est une instruction Python valide, `var` ne contiendra que `None` c'est-à-dire un objet vide en Python, préférez-lui directement l'instruction `liste1.reverse()` :
+
+```python
+>>> liste1 = [1, 2, 3]
+>>> var = liste1.reverse()
+>>> var
+>>> print(var)
+None
+>>> liste1
+[3, 2, 1]
+>>> liste2 = [5, 6, 7]
+>>> liste2.reverse()
+>>> liste2
+[7, 6, 5]
+```
 
 open-box-rem
 
@@ -175,20 +189,20 @@ reverse() method of builtins.list instance
     Reverse *IN PLACE*.
 ```
 
-Cela signifie que la liste est modifiée « sur place », c'est-à-dire **dans la méthode** au moment où elle s'exécute. La liste étant modifiée « en dur » dans la méthode, cette dernière ne renvoie donc rien. L'explication du mécanisme sous-jacent vous sera donnée dans la rubrique 12.4 *Portée des listes* du chapitre 13 *Plus sur les fonctions*.
+Cela signifie que la liste est modifiée « sur place », c'est-à-dire **dans la méthode** au moment où elle s'exécute. La liste étant modifiée « en dur » dans la méthode, cette dernière ne renvoie donc rien. L'explication du mécanisme sous-jacent vous sera donnée dans la rubrique 13.4 *Portée des listes* du chapitre 13 *Plus sur les fonctions*.
 
 close-box-rem
 
-- Certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
+Certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
 
-- Enfin, pour obtenir une liste exhaustive des méthodes disponibles pour les listes, utilisez la fonction `dir(liste1)` (`liste1` étant une liste).
+Enfin, pour obtenir une liste exhaustive des méthodes disponibles pour les listes, utilisez la fonction `dir(liste1)` (`liste1` étant une liste).
 
 
 ## Construction d'une liste par itération
 
 La méthode `.append()` est très pratique car on peut l'utiliser pour construire une liste au fur et à mesure des itérations d'une boucle.
 
-Pour cela, il est commode de définir préalablement une liste vide de la forme `liste1 = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
+Pour cela, il est commode de définir préalablement une liste vide avec l'instruction `liste1 = []`. Voici un exemple où une chaîne de caractères est convertie en liste :
 
 ```python
 >>> seq = "CAAAGGTAACGC"
@@ -202,7 +216,7 @@ Pour cela, il est commode de définir préalablement une liste vide de la forme 
 ['C', 'A', 'A', 'A', 'G', 'G', 'T', 'A', 'A', 'C', 'G', 'C']
 ```
 
-Remarquez que dans cet exemple, vous pouvez directement utiliser la fonction `list()` qui prend n'importe quel objet séquentiel (liste, chaîne de caractères, etc.) et qui renvoie une liste :
+Remarquez que dans cet exemple, vous pouvez aussi utiliser directement la fonction `list()` qui prend n'importe quel objet séquentiel (liste, chaîne de caractères, etc.) et qui renvoie une liste :
 
 ```python
 >>> seq = "CAAAGGTAACGC"
@@ -210,7 +224,7 @@ Remarquez que dans cet exemple, vous pouvez directement utiliser la fonction `li
 ['C', 'A', 'A', 'A', 'G', 'G', 'T', 'A', 'A', 'C', 'G', 'C']
 ```
 
-Cette méthode est certes plus simple, mais il arrive parfois qu'on doive utiliser des boucles tout de même, comme lorsqu'on lit un fichier. On rappelle que l'instruction `list(seq)` convertit un objet de type chaîne de caractères en un objet de type liste (il s'agit donc d'une opération de *casting*). De même que `list(range(10))` convertit un objet de type `range` en un objet de type `list`.
+Cette méthode est certes plus simple, mais il arrive parfois qu'on doive utiliser des boucles tout de même, comme lorsqu'on lit un fichier. Nous vous rappellons que l'instruction `list(seq)` convertit un objet de type chaîne de caractères en un objet de type liste (il s'agit donc d'une opération de *casting*). De même que `list(range(10))` convertit un objet de type `range` en un objet de type `list`.
 
 
 ## Test d'appartenance
@@ -230,9 +244,10 @@ True
 ```
 La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'est pas dans une liste.
 
+
 ## Fonction `zip()`
 
-La très utile fonction `zip()` de Python permet d'itérer sur plusieurs listes en parallèle.
+La fonction `zip()` de Python permet d'itérer sur plusieurs listes en parallèle.
 
 ```python
 >>> animaux = ["poulain", "renard", "python"]
@@ -321,7 +336,7 @@ Il est très important de savoir que l'affectation d'une liste (à partir d'une 
 
 Vous voyez que la modification de `liste1` modifie `liste2` aussi ! Pour comprendre ce qui se passe nous allons de nouveau utiliser le site *Python Tutor* avec cet exemple (Figure @fig:copy_list) :
 
-![Copie de liste.](img/copy_list.png){ #fig:copy_list width=80% }
+![Copie de liste.](img/copy_list.png){ #fig:copy_list width=90% }
 
 Techniquement, Python utilise des pointeurs (comme dans le langage de programmation C) vers les mêmes objets. *Python Tutor* l'illustre avec des flèches qui partent des variables `liste1` et `liste2` et qui pointent vers la même liste. Donc, si on modifie la liste `liste1`, la liste `liste2` est modifiée de la même manière. Rappelez-vous de ceci dans vos futurs programmes car cela pourrait avoir des effets désastreux !
 
@@ -346,7 +361,7 @@ L'instruction `liste1[:]` a créé une copie « à la volée » de la liste `lis
 ```
 Si on regarde à nouveau dans *Python Tutor* (Figure @fig:copy_list2), on voit clairement que l'utilisation d'une tranche `[:]` ou de la fonction `list()` crée des copies explicites. Chaque flèche pointe vers une liste différente, indépendante des autres.
 
-![Copie de liste avec une tranche `[:]` et la fonction `list()`.](img/copy_list2.png){ #fig:copy_list2 width=80% }
+![Copie de liste avec une tranche `[:]` et la fonction `list()`.](img/copy_list2.png){ #fig:copy_list2 width=90% }
 
 Attention, les deux astuces précédentes ne fonctionnent que pour les listes à une dimension, autrement dit les listes qui ne contiennent pas elles-mêmes d'autres listes. Voyez par exemple :
 
@@ -408,7 +423,7 @@ Le problème est que si on modifie un élément d'une des sous-listes :
 
 Vous constatez qu'il est modifié dans chaque sous-liste ! En regardant dans *Python Tutor* on voit que Python crée une référence vers la même sous-liste (Figure @fig:copy_list3) :
 
-![Initialisation d'une liste de listes avec l'opérateur de duplication.](img/copy_list3.png){ #fig:copy_list3 width=80% }
+![Initialisation d'une liste de listes avec l'opérateur de duplication.](img/copy_list3.png){ #fig:copy_list3 width=90% }
 
 Comme disent les auteurs dans la [documentation officielle](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) : *Note that items in the sequence are not copied; they are referenced multiple times. This often haunts new Python programmers*. Pour éviter le problème,  on peut utiliser une boucle :
 
@@ -499,7 +514,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
 
-### Formatage FASTA d'une séquence (avec la ligne de commentaire)
+### Formatage FASTA d'une séquence
 
 Exemple d'une séquence constituée de 150 alanines :
 
@@ -515,17 +530,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
 
-### Sélection des carbones alpha dans un fichier pdb
+### Sélection des carbones alpha dans un fichier PDB
 
 Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) :
 
 ```python
 >>> with open("1bta.pdb", "r") as f_pdb:
 ...     CA_lines = [
-...             line
-...             for line in f_pdb
-...             if line.startswith("ATOM")
-...                and line[12:16].strip() == "CA"
+...         line for line in f_pdb
+...         if line.startswith("ATOM") and line[12:16].strip() == "CA"
 ...     ]
 ... 
 >>> print(len(CA_lines))
@@ -541,7 +554,7 @@ close-box-adv
 
 ### Portée des variables dans une liste de compréhension
 
-Contrairement à une boucle `for` classique, la variable d'itération de ma liste de compréhension n'est pas accessible en dehors de la liste de compréhension. Par exemple :
+Contrairement à une boucle `for`, la variable d'itération d'une liste de compréhension n'est pas accessible en dehors de la liste de compréhension elle-même. Par exemple :
 
 ```python
 >>> liste_a = []
@@ -562,7 +575,7 @@ Traceback (most recent call last):
 NameError: name 'idx_b' is not defined. Did you mean: 'idx_a'?
 ```
 
-La variable d'itération `idx_a` est bien disponible en dehors de la boucle `for`. Par contre, la variable d'itération `idx_b` n'est pas disponible en dehors de la liste de compréhension, car elle est créée « à la volée » par Python puis éliminée une fois l'instruction exécutée.
+La variable d'itération `idx_a` reste disponible en dehors de la boucle `for`. Par contre, la variable d'itération `idx_b` n'est pas disponible en dehors de la liste de compréhension, car elle est créée « à la volée » par Python puis éliminée une fois l'instruction exécutée.
 
 
 ## Exercices
@@ -630,7 +643,7 @@ close-box-adv
 
 Trouvez le nombre mystère qui répond aux conditions suivantes :
 
-- *Il est composé de 3 chiffres*.
+- *Il est composé de trois chiffres*.
 - *Il est strictement inférieur à 300*.
 - *Il est pair*.
 - *Deux de ses chiffres sont identiques*.
@@ -638,7 +651,7 @@ Trouvez le nombre mystère qui répond aux conditions suivantes :
 
 On vous propose d'employer une méthode dite « *brute force* », c'est-à-dire d'utiliser une boucle et à chaque itération de tester les différentes conditions.
 
-### Codes 1 et 3 lettres des acides aminés
+### Codes une et trois lettres des acides aminés
 
 On donne les deux listes suivantes décrivant quelques acides aminés en code une et trois lettres :
 
