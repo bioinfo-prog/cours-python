@@ -193,7 +193,7 @@ Cela signifie que la liste est modifiée « sur place », c'est-à-dire **dans l
 
 close-box-rem
 
-Certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
+Par ailleurs, certaines méthodes ou instructions des listes décalent les indices d'une liste (par exemple `.insert()`, `del`, etc.).
 
 Enfin, pour obtenir une liste exhaustive des méthodes disponibles pour les listes, utilisez la fonction `dir(liste1)` (`liste1` étant une liste).
 
@@ -246,6 +246,12 @@ La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'es
 
 
 ## Fonction `zip()`
+
+open-box-adv
+
+Pour les débutants, vous pouvez passer cette rubrique.
+
+close-box-adv
 
 La fonction `zip()` de Python permet d'itérer sur plusieurs listes en parallèle.
 
