@@ -95,9 +95,10 @@ MyException
 
 open-box-rem
 
-Le style recommandé pour nommer les variables et les fonctions en Python est
+- Le style recommandé pour nommer les variables et les fonctions en Python est
 appelé *snake_case*. Il est différent du *CamelCase* utilisé pour les noms des
 classes et des exceptions.
+- La variable `_` est habituellement employée pour stocker des valeurs qui ne seront pas utilisées par la suite. Par exemple, dans le cas d'une affectation multiple, on peut utiliser `_` pour stocker une valeur qui ne nous intéresse pas (voir chapitre 14 *Conteneurs*).
 
 close-box-rem
 
@@ -317,9 +318,14 @@ close-box-rem
 
 ## Les *docstrings* et la PEP 257
 
-Les *docstrings*, que l'on pourrait traduire par « chaînes de documentation » en français, sont un élément essentiel de programmes Python comme on l'a vu au chapitre 15 *Création de modules*. À nouveau, les développeurs de Python ont émis des recommandations dans la PEP 8 et plus exhaustivement dans la [PEP 257](https://www.python.org/dev/peps/pep-0257/) sur la manière de rédiger correctement les *docstrings*. En voici un résumé succinct.
+Les *docstrings*, que l'on pourrait traduire par « chaînes de documentation » en français, sont un élément essentiel des programmes Python, comme on l'a vu au chapitre 15 *Création de modules*. À nouveau, les développeurs de Python ont émis des recommandations dans la PEP 8 et plus exhaustivement dans la [PEP 257](https://www.python.org/dev/peps/pep-0257/) sur la manière de rédiger correctement les *docstrings*. En voici un résumé succinct.
 
-De manière générale, écrivez des *docstrings* pour les modules, les fonctions, les classes et les méthodes. Lorsque l'explication est courte et compacte comme dans certaines fonctions ou méthodes simples, utilisez des *docstrings* d'une ligne :
+
+### Les principales règles
+
+De manière générale, écrivez des *docstrings* pour les modules, les fonctions, les classes et les méthodes que vous développez.
+
+Lorsque l'explication est courte et compacte comme dans certaines fonctions ou méthodes simples, utilisez des *docstrings* d'une ligne :
 
 ```python
 """Docstring simple d'une ligne se finissant par un point."""
@@ -361,7 +367,12 @@ Pour autant, la PEP 257 ne dit pas explicitement comment organiser les *docstrin
 - La solution Google avec le [*Google Style Python Docstrings*](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html).
 - La solution *NumPy* avec le [*NumPy Style Python Docstrings*](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html). *NumPy* qui est un module complémentaire à Python, très utilisé en analyse de données et dont on parlera dans le chapitre 20.
 
-On illustre ici la solution *NumPy* pour des raisons de goût personnel. Sentez-vous libre d'aller explorer la proposition de Google. Voici un exemple très simple :
+
+### Un exemple concret
+
+On illustre ici la solution de *docstrings* *NumPy* pour des raisons de goût personnel. Sentez-vous libre d'explorer la proposition de Google.
+
+Voici un exemple pour une fonction qui prend en argument deux entiers et qui renvoie leur produit :
 
 ```python
 def multiplie_nombres(nombre1, nombre2):
