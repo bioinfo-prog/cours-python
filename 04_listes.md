@@ -4,11 +4,11 @@
 
 open-box-def
 
-Une **liste** est une structure de données qui contient une collection d'objets Python. Il s'agit d'un nouveau type par rapport aux entiers, *float*, booléens et chaîne de caractères que nous avons vus jusqu'à maintenant. On parle aussi d'**objet séquentiel** en ce sens qu'il contient une séquence d'autres objets.
+Une **liste** est une structure de données qui contient une collection d'objets Python. Il s'agit d'un nouveau type par rapport aux entiers, *float*, booléens et chaînes de caractères que nous avons vus jusqu'à maintenant. On parle aussi d'**objet séquentiel** en ce sens qu'il contient une séquence d'autres objets.
 
 close-box-def
 
-Python autorise la construction de liste contenant des valeurs de types différents (par exemple entier et chaîne de caractères), ce qui leur confère une grande flexibilité. Une liste est déclarée par une série de valeurs (n'oubliez pas les guillemets, simples ou doubles, s'il s'agit de chaînes de caractères) séparées par des **virgules**, et le tout encadré par des **crochets**. En voici quelques exemples :
+Python autorise la construction de liste contenant des valeurs de types différents (par exemple entier et chaîne de caractères), ce qui leur confère une grande flexibilité. Une liste est déclarée par une série de **valeurs** (n'oubliez pas les guillemets, simples ou doubles, s'il s'agit de chaînes de caractères) séparées par des **virgules**, et le tout encadré par des **crochets**. En voici quelques exemples :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -81,7 +81,7 @@ La notion de méthode est introduite dans la rubrique *Note sur le vocabulaire e
 
 close-box-rem
 
-Dans l'exemple suivant nous allons créer une liste vide :
+Dans l'exemple suivant, nous allons créer une liste vide :
 
 ```python
 >>> liste1 = []
@@ -111,11 +111,11 @@ puis avec la méthode `.append()` :
 [15, -5, 13, -3]
 ```
 
-Dans l'exemple ci-dessus, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. 
+Dans cet exemple, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. 
 
 open-box-adv
 
-Nous vous conseillons dans ce cas précis d'utiliser la méthode `.append()` dont la syntaxe est plus élégante.
+Nous vous conseillons dans ce cas précis d'utiliser la méthode `.append()`, dont la syntaxe est plus élégante.
 
 close-box-adv
 
@@ -180,7 +180,7 @@ Un autre avantage des listes est la possibilité de sélectionner une partie d'u
 ['tigre', 'singe']
 ```
 
-Notez que lorsqu'aucun indice n'est indiqué à gauche ou à droite du symbole deux-points, Python prend par défaut tous les éléments depuis le début ou tous les éléments jusqu'à la fin respectivement.
+Notez que lorsqu'aucun indice n'est indiqué à gauche ou à droite du symbole deux-points `:`, Python prend par défaut tous les éléments depuis le début ou tous les éléments jusqu'à la fin respectivement.
 
 On peut aussi préciser le pas en ajoutant un symbole deux-points supplémentaire et en indiquant le pas par un entier.
 
@@ -308,7 +308,7 @@ Les fonctions `min()`, `max()` et `sum()` renvoient respectivement le minimum, l
 
 Même si en théorie ces fonctions peuvent prendre en argument une liste de *strings*, on les utilisera la plupart du temps avec des types numériques (liste d'entiers et / ou de *floats*). 
 
-Nous avions déjà croisé `min()`, `max()` dans le chapitre 2 *Variables*. On avait vu que ces deux fonctions pouvaient prendre plusieurs arguments entiers et / ou *floats*, par exemple :
+Nous avions déjà croisé `min()`, `max()` dans le chapitre 2 *Variables*. Ces deux fonctions pouvaient prendre plusieurs arguments entiers et / ou *floats*, par exemple :
 
 ```python
 >>> min(3, 4)

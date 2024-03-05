@@ -11,11 +11,11 @@ Hello world!
 Hello world!>>>
 ```
 
-Ligne 1. On a utilisé l'instruction `print()` classiquement en passant la chaîne de caractères `"Hello world!"` en argument.
+**Ligne 1**. On a utilisé l'instruction `print()` classiquement en passant la chaîne de caractères `"Hello world!"` en argument.
 
-Ligne 3. On a ajouté un second argument `end=""`, en précisant le mot-clé `end`. Nous aborderons les arguments par mot-clé dans le chapitre 10 *Fonctions*. Pour l'instant, dites-vous que cela modifie le comportement par défaut des fonctions.
+**Ligne 3**. On a ajouté un second argument `end=""`, en précisant le mot-clé `end`. Nous aborderons les arguments par mot-clé dans le chapitre 10 *Fonctions*. Pour l'instant, dites-vous que cela modifie le comportement par défaut des fonctions.
 
-Ligne 4. L'effet de l'argument `end=""` est que les trois chevrons `>>>` se retrouvent collés après la chaîne de caractères `"Hello world!"`.
+**Ligne 4**. L'effet de l'argument `end=""` est que les trois chevrons `>>>` se retrouvent collés après la chaîne de caractères `"Hello world!"`.
 
 Une autre manière de s'en rendre compte est d'utiliser deux fonctions `print()` à la suite. Dans la portion de code suivante, le caractère « `;` » sert à séparer plusieurs instructions Python sur une même ligne :
 
@@ -76,7 +76,7 @@ chatsouris
 
 ### Définitions
 
-#### « écriture formatée »
+#### « Écriture formatée »
 
 open-box-def
 
@@ -84,7 +84,7 @@ L'écriture formatée est un mécanisme permettant d'afficher des variables avec
 
 close-box-def
 
-Depuis la version 3.6, Python a introduit les *f-strings* pour mettre en place l'écriture formatée que nous allons décrire en détail dans cette rubrique. Il existe d'autres  manières pour formater des chaînes de caractères qui étaient utilisées avant la version 3.6, nous expliquons cela dans le chapitre 26 *Remarques complémentaires* (en ligne). Toutefois, nous vous conseillons vivement l'utilisation des *f-strings* si vous débutez l'apprentissage de Python, il est inutile d'apprendre les anciennes manières.
+Depuis la version 3.6, Python a introduit les *f-strings* pour mettre en place l'écriture formatée que nous allons décrire en détail dans cette rubrique. Il existe d'autres  manières pour formater des chaînes de caractères qui étaient utilisées avant la version 3.6, nous expliquons cela dans le chapitre 26 *Remarques complémentaires* (en ligne). Toutefois, nous vous conseillons vivement l'utilisation des *f-strings* si vous débutez l'apprentissage de Python. Il est inutile d'apprendre les anciennes manières.
 
 
 #### *f-string*
@@ -107,7 +107,7 @@ Ce caractère `f` avant les guillemets va indiquer à Python qu'il s'agit d'une 
 
 close-box-def
 
-Nous expliquons plus en détail dans le chapitre 11 *Plus sur les chaînes de caractères* pourquoi on doit mettre ce `f` et le mécanisme sous-jacent.
+Nous expliquons plus en détail dans le chapitre 11 *Plus sur les chaînes de caractères* pourquoi on doit mettre ce `f` et quel est le mécanisme sous-jacent.
 
 
 ### Prise en main des *f-strings*
@@ -163,7 +163,7 @@ Même si cela ne présente que peu d'intérêt pour l'instant, il s'agit d'une c
 
 Les *f-strings* permettent de remplacer des variables au sein d'une chaîne de caractères. On peut également spécifier le format de leur affichage.
 
-Prenons un exemple. Imaginez maintenant que vous vouliez calculer, puis afficher, la proportion de GC d'un génome. La proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G) du génome considéré. Si on a, par exemple, 4500 bases G et 2575 bases C, pour un total de 14800 bases, vous pourriez procéder comme suit (notez bien l'utilisation des parenthèses pour gérer les priorités des opérateurs) :
+Prenons un exemple. Imaginez que vous vouliez calculer, puis afficher, la proportion de GC d'un génome. La proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G) du génome considéré. Si on a, par exemple, 4500 bases G et 2575 bases C, pour un total de 14800 bases, vous pourriez procéder comme suit (notez bien l'utilisation des parenthèses pour gérer les priorités des opérateurs) :
 
 ```python
 >>> prop_GC = (4500 + 2575) / 14800
@@ -392,7 +392,7 @@ Par exemple pour la fraction $\frac{7}{3}$, le numérateur vaut 7 et le dénomin
 7/3 = 2 + 1/3
 ```
 
-ici, 2 est le résultat de la division entière du numérateur par le dénominateur et 1 est le reste de la division entière du numérateur par le dénominateur.
+Ici, 2 est le résultat de la division entière du numérateur par le dénominateur et 1 est le reste de la division entière du numérateur par le dénominateur.
 
 Faites de même pour les fractions suivantes : 
 

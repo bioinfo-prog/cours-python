@@ -36,7 +36,7 @@ La variable `animal` est appelée **variable d'itération**, elle prend successi
 
 Notez bien les types des variables utilisées ici :
 
-- `animaux` est une **liste** sur laquelle on itère,
+- `animaux` est une **liste** sur laquelle on itère ;
 - `animal` est une **chaîne de caractères** car chaque élément de la liste `animaux` est une chaîne de caractères.
 
 Nous verrons plus loin que la variable d'itération peut être de n'importe quel type selon la liste parcourue. En Python, une boucle itère la plupart du temps sur un objet dit **séquentiel** (c'est-à-dire un objet constitué d'autres objets) tel qu'une liste. Nous verrons aussi plus tard d'autres objets séquentiels sur lesquels on peut itérer dans une boucle.
@@ -45,11 +45,11 @@ D'ores et déjà, prêtez attention au caractère **deux-points** « `:` » à l
 
 open-box-rem
 
-Les notions de bloc d'instruction et d'indentations ont été introduites dans le chapitre 1 *Introduction*.
+Les notions de bloc d'instruction et d'indentations ont été introduites dans le chapitre~1 *Introduction*.
 
 close-box-rem
 
-Dans l'exemple suivant, le corps de la boucle contient deux instructions (ligne 2 et ligne 3) car elles sont indentées par rapport à la ligne débutant par `for` :
+Dans l'exemple suivant, le corps de la boucle contient deux instructions (ligne 2 et ligne~3) car elles sont indentées par rapport à la ligne débutant par `for` :
 
 ```python
 for animal in animaux:
@@ -105,7 +105,7 @@ mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou
 
 ### Fonction `range()`
 
-Python possède la fonction `range()` que nous avons rencontrée précédemment dans le chapitre 4 *Listes* et qui est également pratique pour faire une boucle sur une liste d'entiers de manière automatique :
+Python possède la fonction `range()` que nous avons rencontrée précédemment dans le chapitre 4 *Listes*, pratique pour faire une boucle sur une liste d'entiers de manière automatique :
 
 ```python
 >>> for i in range(4):
@@ -119,16 +119,16 @@ Python possède la fonction `range()` que nous avons rencontrée précédemment 
 
 Dans cet exemple, nous pouvons faire plusieurs remarques importantes :
 
-Contrairement à la création de liste avec `list(range(4))`, la fonction `range()` peut être utilisée telle quelle dans une boucle. Il n'est pas nécessaire de taper `for i in list(range(4)):` même si cela fonctionnerait également.
+- Contrairement à la création de liste avec `list(range(4))`, la fonction `range()` peut être utilisée telle quelle dans une boucle. Il n'est pas nécessaire de taper `for i in list(range(4)):` même si cela fonctionnerait également.
 
-Comment cela est possible ? Et bien `range()` est une fonction qui a été spécialement conçue pour [cela](https://docs.python.org/fr/3/library/stdtypes.html#typesseq-range), c'est-à-dire que l'on peut itérer directement dessus. Pour Python, il s'agit d'un nouveau type, par exemple dans l'instruction `x = range(3)` la variable `x` est de type *range* (tout comme on avait les types *int*, *float*, *str* ou *list*) à utiliser spécialement avec les boucles.
+- Comment cela est possible ? `range()` est une fonction qui a été spécialement conçue pour [cela](https://docs.python.org/fr/3/library/stdtypes.html#typesseq-range), c'est-à-dire que l'on peut itérer directement dessus. Pour Python, il s'agit d'un nouveau type : par exemple dans l'instruction `x = range(3)`, la variable `x` est de type *range* (tout comme on avait les types *int*, *float*, *str* ou *list*) à utiliser spécialement avec les boucles.
 
-L'instruction `list(range(4))` se contente de transformer un objet de type *range* en un objet de type *list*. Si vous vous souvenez bien, il s'agit d'une fonction de *casting*, qui convertit un type en un autre (voir chapitre 2 *Variables*). Il n'y aucun intérêt à utiliser dans une boucle la construction `for i in list(range(4)):`. C'est même contre-productif. En effet, `range()` se contente de stocker l'entier actuel, le pas pour passer à l'entier suivant, et le dernier entier à parcourir, ce qui revient à stocker seulement 3 nombres entiers et ce quelle que soit la longueur de la séquence, même avec un `range(1000000)`. Si on utilisait `list(range(1000000))`, Python construirait d'abord une liste de 1 million d'éléments dans la mémoire puis itérerait dessus, d'où une énorme perte de temps !
+- L'instruction `list(range(4))` se contente de transformer un objet de type *range* en un objet de type *list*. Si vous vous souvenez bien, il s'agit d'une fonction de *casting*, qui convertit un type en un autre (voir chapitre 2 *Variables*). Il n'y aucun intérêt à utiliser dans une boucle la construction `for i in list(range(4)):`. C'est même contre-productif. En effet, `range()` se contente de stocker l'entier actuel, le pas pour passer à l'entier suivant, et le dernier entier à parcourir, ce qui revient à stocker seulement 3 nombres entiers et ce quelle que soit la longueur de la séquence, même avec un `range(1000000)`. Si on utilisait `list(range(1000000))`, Python construirait d'abord une liste de 1 million d'éléments dans la mémoire puis itérerait dessus, d'où une énorme perte de temps !
 
 
 ### Nommage de la variable d'itération
 
-Dans l'exemple précédent, nous avons choisi le nom `i` pour la variable d'itération. Ceci est une habitude en informatique et indique en général qu'il s'agit d'un entier (le nom `i` vient sans doute du mot indice ou *index* en anglais). Nous vous conseillons de suivre cette convention afin d'éviter les confusions, si vous itérez sur les indices vous pouvez appeler la variable d'itération `i` (par exemple dans `for i in range(4):`).
+Dans l'exemple précédent, nous avons choisi le nom `i` pour la variable d'itération. Ceci est une habitude en informatique et indique en général qu'il s'agit d'un entier (le nom `i` vient sans doute du mot indice ou *index* en anglais). Nous vous conseillons de suivre cette convention afin d'éviter les confusions. Si vous itérez sur les indices, vous pouvez appeler la variable d'itération `i` (par exemple dans `for i in range(4):`).
 
 Si, par contre, vous itérez sur une liste comportant des chaînes de caractères (ou tout autre type de variable), utilisez un nom explicite pour la variable d'itération. Par exemple :
 
@@ -155,7 +155,7 @@ souris
 
 La variable `i` prendra les valeurs successives 0, 1, 2 et 3 et on accèdera à chaque élément de la liste `animaux` par son indice (*i.e.* `animaux[i]`). Notez à nouveau le nom `i` de la variable d'itération car on itère sur les **indices**.
 
-Quand utiliser l'une ou l'autre des deux méthodes ? La plus efficace est celle qui réalise **les itérations directement sur les éléments** :
+Quand utiliser l'une ou l'autre des deux méthodes ? La plus efficace est celle qui **réalise les itérations directement sur les éléments** :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -170,7 +170,7 @@ souris
 
 open-box-rem
 
-Dans le chapitre 18 *Jupyter et ses notebooks*, nous mesurerons le temps d'exécution de ces deux méthodes pour vous montrez que l'itération sur les éléments est la méthode la plus rapide.
+Dans le chapitre 18 *Jupyter et ses notebooks*, nous mesurerons le temps d'exécution de ces deux méthodes pour vous montrer que l'itération sur les éléments est la méthode la plus rapide.
 
 close-box-rem
 
@@ -203,7 +203,7 @@ L'animal 3 est un(e) souris
 
 ## Comparaisons
 
-Avant de passer à une autre sorte de boucles (les boucles `while`), nous abordons tout de suite les **comparaisons**. Celles-ci seront reprises dans le chapitre 6 *Tests*.
+Avant de passer aux boucles `while`, abordons tout de suite les **comparaisons**. Celles-ci seront reprises dans le chapitre 6 *Tests*.
 
 Python est capable d'effectuer toute une série de comparaisons entre le contenu de deux variables, telles que :
 
@@ -312,7 +312,7 @@ Entrez un entier supérieur à 10 : 15
 15
 ```
 
-La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne 4). Si on reprend les trois éléments d'une boucle while, on trouve l'initialisation de la variable d'itération en ligne 1, le test de sa valeur en ligne 2, et sa mise à jour en ligne 4. 
+La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne~4). Si on reprend les trois éléments d'une boucle while, on trouve l'initialisation de la variable d'itération en ligne 1, le test de sa valeur en ligne 2, et sa mise à jour en ligne 4. 
 
 open-box-adv
 
@@ -499,7 +499,7 @@ Pour une matrice 4x4, on a parcouru 6 cases
 
 Testez votre script avec `N=3`, puis `N=4` et enfin `N=5`.
 
-Concevez une seconde version à partir du script précédent, où cette fois on n'affiche plus tous les couples possibles mais simplement la valeur de `N`, et le nombre de cases parcourues. Affichez cela pour des valeurs de `N` allant de 2 à 10.
+Concevez une seconde version à partir du script précédent, où cette fois on n'affiche plus tous les couples possibles, mais simplement la valeur de `N` et le nombre de cases parcourues. Affichez cela pour des valeurs de `N` allant de 2 à 10.
 
 Pouvez-vous trouver une formule générale reliant le nombre de cases parcourues à `N` ?
 
@@ -508,7 +508,7 @@ Pouvez-vous trouver une formule générale reliant le nombre de cases parcourues
 
 On imagine une puce qui se déplace aléatoirement sur une ligne, en avant ou en arrière, par pas de 1 ou -1. Par exemple, si elle est à l'emplacement 0, elle peut sauter à l'emplacement 1 ou -1; si elle est à l'emplacement 2, elle peut sauter à l'emplacement 3 ou 1, etc.
 
-Avec une boucle `while`, simuler le mouvement de cette puce de l'emplacement initial 0 à l'emplacement final 5 (voir le schéma de la figure @fig:saut-de-puce). Combien de sauts sont nécessaires pour réaliser ce parcours ? Relancez plusieurs fois le programme. Trouvez-vous le même nombre de sauts à chaque exécution ?
+Avec une boucle `while`, simuler le mouvement de cette puce de l'emplacement initial~0 à l'emplacement final 5 (voir le schéma de la figure @fig:saut-de-puce). Combien de sauts sont nécessaires pour réaliser ce parcours ? Relancez plusieurs fois le programme. Trouvez-vous le même nombre de sauts à chaque exécution ?
 
 ![Sauts de puce.](img/sauts-de-puce.png "Sauts de puce"){ #fig:saut-de-puce width=50% }
 
