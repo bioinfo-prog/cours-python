@@ -8,7 +8,7 @@ Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent ex
 
 open-box-def
 
-Un **dictionnaire** contient une collections d'objets Python auxquels on accède à l'aide d'une **clé** de correspondance plutôt qu'un indice. Ainsi, il ne s'agit pas d'objets séquentiels comme les listes, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs.
+Un **dictionnaire** contient une collection d'objets Python auxquels on accède à l'aide d'une **clé** de correspondance plutôt qu'un indice. Ainsi, il ne s'agit pas d'objets séquentiels comme les listes, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs.
 
 close-box-def
 
@@ -23,11 +23,11 @@ Ceci étant défini, comment fonctionnent-ils exactement ? Regardons un exemple 
 {'nom': 'girafe', 'taille': 5.0, 'poids': 1100}
 ```
 
-Ligne 1. On définit un dictionnaire vide avec les accolades `{}` (tout comme on peut le faire pour les listes avec `[]`). Lignes 2 à 4, on remplit le dictionnaire avec différentes clés (`"nom"`, `"taille"`, `"poids"`) auxquelles on affecte des valeurs (`"girafe"`, `5.0`, `1100`). 
+- **Ligne 1**. On définit un dictionnaire vide avec les accolades `{}` (tout comme on peut le faire pour les listes avec `[]`).
+- **Lignes 2 à 4**. On remplit le dictionnaire avec plusieurs clés (`"nom"`, `"taille"`, `"poids"`) auxquelles on affecte des valeurs (`"girafe"`, `5.0`, `1100`). 
+- **Ligne 5**. On affiche le contenu du dictionnaire. Les accolades nous montrent qu'il s'agit bien d'un dictionnaire, et pour chaque élément séparé par une virgule on a une association du type `clé: valeur`. Ici, les clés sont des chaînes de caractères (ce qui sera souvent le cas), et les valeurs peuvent être n'importe quel objet Python.
 
-Ligne 5. On affiche le contenu du dictionnaire. Les accolades nous montre qu'il s'agit bien d'un dictionnaire, et pour chaque élément séparé par une virgule on a une association du type `clé: valeur`. On voit que les clés sont des chaînes de caractères (ce qui sera souvent le cas), et les valeurs peuvent être n'importe quel objet Python.
-
-Une fois le dictionnaire créé, on récupére la valeur associée à une clé donnée avec une syntaxe du type `dictionnaire["clé"]`. Par exemple :
+Une fois le dictionnaire créé, on récupère la valeur associée à une clé donnée avec une syntaxe du type `dictionnaire["clé"]`. Par exemple :
 
 ```python
 >>> ani1["nom"]
@@ -36,13 +36,13 @@ Une fois le dictionnaire créé, on récupére la valeur associée à une clé d
 5.0
 ```
 
-On se souvient que pour accéder à l'élément d'une liste, il fallait utiliser un indice (par exemple, `liste[2]`). Ici, l'utilisation d'une clé - qui est souvent une chaîne de caractères - rend les choses plus explicites.
+On se souvient que pour accéder à l'élément d'une liste, il fallait utiliser un indice (par exemple, `liste[2]`). Ici, l'utilisation d'une clé (qui est souvent une chaîne de caractères) rend les choses plus explicites.
 
-Vous pouvez mettre autant de couples clé / valeur que vous voulez dans un dictionnaire (tout comme vous pouvez ajouter autant d'éléments que vous voulez dans une liste).
+Vous pouvez mettre autant de couples clé / valeur que vous voulez dans un dictionnaire (tout comme vous pouvez ajouter autant d'éléments que vous le souhaitez dans une liste).
 
 open-box-rem
 
-Jusqu'à la version 3.6 de Python, un dictionnaire était affiché sans ordre particulier. L'ordre d'affichage des éléments n'était pas forcément le même que celui dans lequel il avait été rempli. De même lorsqu'on itérait dessus, l'ordre n'était pas garanti. Depuis Python 3.7 (inclus), ce comportement a changé, un dictionnaire est toujours affiché dans le même ordre que celui utilisé pour le remplir. De même, si on itère sur un dictionnaire, cet ordre est respecté. Ce détail provient de l'implémentation interne des dictionnaires dans Python, mais cela nous concerne peu. Ce qui importe, c'est de se rappeler qu'on accède aux éléments par leur clé, et non par leur position lorsque le dictionnaire est affiché. Donc cet ordre n'a pas d'importance spéciale sauf dans de rares cas.
+Jusqu'à la version 3.6 de Python, un dictionnaire était affiché sans ordre particulier. L'ordre d'affichage des éléments n'était pas forcément le même que celui dans lequel il avait été rempli. De même, lorsqu'on itérait dessus, l'ordre n'était pas garanti. Depuis Python 3.7 (inclus), ce comportement a changé : un dictionnaire est toujours affiché dans le même ordre que celui utilisé pour le remplir. Et si on itère sur un dictionnaire, cet ordre est aussi respecté. Ce détail provient de l'implémentation interne des dictionnaires dans Python, mais cela nous concerne peu. Ce qui importe, c'est de se rappeler qu'on accède aux éléments par leur clé, et non par leur position telle que le dictionnaire est affiché. Cet ordre n'a pas d'importance, sauf dans de rares cas.
 
 close-box-rem
 
@@ -60,7 +60,7 @@ Mais rien ne nous empêche d'ajouter une clé et une valeur supplémentaire :
 {'nom': 'singe', 'poids': 70, 'taille': 1.75, 'age': 15}
 ```
 
-Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires. Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices.
+Après ce premier tour d'horizon, on perçoit l'avantage des dictionnaires : pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices.
 
 Les humains retiennent mieux les noms que les chiffres. Ainsi, les dictionnaires se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. L'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées $(x, y, z)$ d'un point dans l'espace, nous pourrions utiliser `coors = [0, 1, 2]` pour la version liste et `coors = {"x": 0, "y": 1, "z": 2}` pour la version dictionnaire. Quelqu'un qui lit le code comprendra tout de suite que `coors["z"]` contient la coordonnée $z$, ce sera moins intuitif avec `coors[2]`.
 
@@ -154,7 +154,7 @@ TypeError: 'dict_items' object is not subscriptable
 3 o
 ```
 
-Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. Nous aurons l'explication de ce mécanisme dans la rubrique sur les tuples ci-dessous.
+Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au chapitre 5 *Boucles et comparaisons*. On itère à la fois sur `key` et sur `val`. Nous aurons l'explication de ce mécanisme dans la rubrique sur les tuples ci-après.
 
 
 ### Existence d'une clé ou d'une valeur
@@ -209,7 +209,7 @@ La méthode `.get()` s'affranchit de ce problème. Elle extrait la valeur associ
 >>> 
 ```
 
-Ici la valeur associée à la clé `nom` est `singe` mais la clé `age` n'existe pas. 
+Ici, la valeur associée à la clé `nom` est `singe`, mais la clé `age` n'existe pas. 
 On peut également indiquer à `.get()` une valeur par défaut si la clé n'existe pas :
 
 ```python
@@ -243,7 +243,7 @@ Vous constatez ainsi que les dictionnaires permettent de gérer des structures c
 
 open-box-def
 
-Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** correspondant aux listes mais ils sont toutefois **non modifiables**. On dit aussi qu'ils sont **immuables**. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
+Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** correspondant aux listes, mais ils sont toutefois **non modifiables**. On dit aussi qu'ils sont **immuables**. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
 
 close-box-def
 
@@ -351,15 +351,23 @@ Traceback (most recent call last):
 ValueError: too many values to unpack (expected 2)
 ```
 
-On pourra noter qu'il est possible de faire de l'affectation multiple avec les listes également : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la syntaxe avec les tuples sans parenthèses.
+Il est aussi possible de faire des affectations multiples avec des listes, par exemple :
+
+`[x, y, z] = [1, 2, 3]`.
+
+Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la syntaxe avec les tuples sans parenthèses.
 
 open-box-rem
 
-Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps. Toutefois, vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par « désempaquetage de tuple ». De même, il existe le *list unpacking*.
+Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps. 
+
+Vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par «~désempaquetage de tuple ». De même, il existe le *list unpacking*.
 
 close-box-rem
 
-Ce terme *tuple unpacking* provient du fait que l'on peut décomposer un tuple initial de $n$ éléments en autant de variables différentes en une seule instruction. Si on crée un tuple de trois éléments :
+Ce terme *tuple unpacking* provient du fait que l'on peut décomposer un tuple initial de $n$ éléments en autant de variables différentes en une seule instruction.
+
+Par exemple, si on crée un tuple de trois éléments :
 
 ```python
 >>> t = (1, 2, 3)
@@ -367,10 +375,12 @@ Ce terme *tuple unpacking* provient du fait que l'on peut décomposer un tuple i
 (1, 2, 3)
 ```
 
-On peut « désempaqueter » le tuple en une instruction :
+On peut « désempaqueter » le tuple en une seule instruction :
 
 ```python
 >>> x, y, z = t
+>>> x
+1
 ```
 
 Cela serait possible également avec l'indiçage, mais il faudrait utiliser autant d'instruction que d'éléments :
@@ -381,7 +391,7 @@ Cela serait possible également avec l'indiçage, mais il faudrait utiliser auta
 >>> z = t[2]
 ```
 
-Dans les 2 cas, `x` vaudra `1`, `y` vaudra `2` et  `z` vaudra `3`. 
+Dans les deux cas, `x` vaudra `1`, `y` vaudra `2` et  `z` vaudra `3`. 
 
 open-box-adv
 
@@ -393,7 +403,7 @@ L'affectation multiple est un mécanisme très puissant et important en Python. 
 
 ### Itérations sur plusieurs valeurs à la fois
 
-Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons*. Cette dernière permettait d'itérer en même temps sur les indices et les éléments d'une liste :
+Nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons*. Cette dernière permettait d'itérer en même temps sur les indices et les éléments d'une liste :
 
 ```python
 >>> for indice, element in enumerate([75, -75, 0]):
@@ -410,9 +420,9 @@ Pratiquement, nous avons déjà croisé les tuples avec la fonction `enumerate()
 (2, 0) <class 'tuple'>
 ```
 
-Lignes 7 à 12. En fin de compte, la fonction `enumerate()` itère sur une série de tuples. Pouvoir séparer `indice` et `element` dans la boucle est possible du fait que Python autorise l'affectation multiple du style `indice, element = 0, 75` (voir rubrique précédente). 
+**Lignes 7 à 12**. La fonction `enumerate()` itère sur une série de tuples. Pouvoir séparer `indice` et `element` dans la boucle est possible avec l'affectation multiple, par exemple : `indice, element = 0, 75` (voir rubrique précédente). 
 
-Dans le même ordre d'idée, nous avons vu plus haut la méthode `.dict_items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
+Dans le même ordre d'idée, nous avons déjà vu la méthode `.items()` qui permettait d'itérer sur des couples clé / valeur d'un dictionnaire :
 
 ```python
 >>> dico = {"pinson": 2, "merle": 3}
@@ -430,7 +440,7 @@ merle 3
 
 La méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
 
-Dans le même ordre d'idée, on peut itérer sur 3 valeurs en même temps à partir d'une liste de tuples de 3 éléments :
+Enfin, on peut itérer sur trois valeurs en même temps à partir d'une liste de tuples de trois éléments :
 
 ```python
 >>> liste = [(5, 6, 7), (6, 7, 8), (7, 8, 9)]
@@ -442,7 +452,7 @@ Dans le même ordre d'idée, on peut itérer sur 3 valeurs en même temps à par
 7 8 9
 ```
 
-On pourrait concevoir la même chose sur 4 ou 5 éléments, voire plus. La seule contrainte est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple 3 variables dans l'exemple ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (chaque sous-*tuple* a 3 éléments ci-dessus).
+On pourrait concevoir la même chose sur quatre ou cinq éléments, voire plus. La seule contrainte est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple trois variables dans l'exemple ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (dans l'exemple ci-dessus, chaque sous-*tuple* a trois éléments).
 
 ### Fonction `divmod()`
 
@@ -459,7 +469,7 @@ Dans le chapitre 2 *Variables*, on a vu les opérateurs `//` et `%` qui renvoien
 (0, 3)
 ```
 
-En utilisant l'affectation multiple, on peut ainsi récupérer à la volée le quotient et le reste en une seule ligne.
+En utilisant l'affectation multiple, on peut ainsi récupérer à la volée le quotient et le reste en une seule ligne :
 
 ```python
 >>> quotient, reste = divmod(3, 4)
@@ -469,7 +479,7 @@ En utilisant l'affectation multiple, on peut ainsi récupérer à la volée le q
 3
 ```
 
-Cette fonction est très pratique quand on veut par exemple convertir des secondes en minutes et secondes résiduelles. Par exemple, si on veut convertir 754 secondes en minutes. 
+Cette fonction est très pratique, notamment quand on souhaite convertir des secondes en minutes et secondes résiduelles. Par exemple, si on veut convertir 754 secondes en minutes :
 
 ```python
 >>> 754 / 60
@@ -495,7 +505,7 @@ close-box-adv
 
 ### Prédire la sortie
 
-Soit les deux lignes de code suivantes: 
+Soit les deux lignes de code suivantes : 
 
 ```python
 dico = {"nom": "Joe", "age": 24, "taille": 181}
@@ -518,19 +528,28 @@ Lorsqu'une instruction produit une erreur, identifiez pourquoi. Vérifiez ensuit
 Soit le dictionnaire suivant donnant les notes d'un étudiant :
 
 ```python
-dico_notes = {"math": 14, "programmation": 12, "anglais": 16, "biologie": 10, "sport": 19}
+dico_notes = {
+  "math": 14, "programmation": 12,
+  "anglais": 16, "biologie": 10,
+  "sport": 19
+}
 ```
 
 Calculez la moyenne de ses notes de deux manières différentes. Calculez à nouveau la moyenne sans la note de biologie.
 
+
 ### Composition en acides aminés
 
-En utilisant un dictionnaire, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence `AGWPSGGASAGLAILWGASAIMPGALW`. Le dictionnaire ne doit contenir que les acides aminés présents dans la séquence. Interdit d'utiliser autant d'instructions `if` que d'acides aminés différents. Pensez au test d'appartenance !
+En utilisant un dictionnaire, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence `AGWPSGGASAGLAILWGASAIMPGALW`. Le dictionnaire ne doit contenir que les acides aminés présents dans la séquence.
+
+Vous ne pouvez pas utiliser autant d'instructions `if` que d'acides aminés différents. Pensez au test d'appartenance.
+
 
 ### Convertisseur de secondes
 
-Un athlète court un marathon, malheureusement sa montre mesure son temps en 11905 secondes. Aidez-le à convertir son temps en heure, minute seconde avec la fonction `divmod()`.
+Un athlète court un marathon, malheureusement sa montre mesure son temps en 11905 secondes. Aidez-le à convertir son temps en heures, minutes et secondes avec la fonction `divmod()`.
+
 
 ### Convertisseur de jours
 
-L'âge de Camille et Céline en jours est de respectivement 8331 jours et 8660 jours. Quel est leur âge en années, mois et jours en supposant qu'une année compte 365 jours et qu'un mois compte 30 jours ? La fonction `divmod()` vous aidera à nouveau.
+L'âge de Camille et Céline en jours est respectivement de 8331 jours et 8660 jours. Quel est leur âge en années, mois et jours, en supposant qu'une année compte 365 jours et qu'un mois compte 30 jours ? La fonction `divmod()` vous aidera à nouveau.

@@ -6,7 +6,9 @@ Une grande partie de l'information en biologie est stockée sous forme de texte 
 
 ### Méthode `.readlines()`
 
-Avant de passer à un exemple concret, créez un fichier dans un éditeur de texte que vous enregistrerez dans votre répertoire courant avec le nom `zoo.txt` et le contenu suivant :
+Avant de passer à un exemple concret, créez un fichier dans l'éditeur de texte de votre choix 
+avec le contenu suivant :
+
 
 ```text
 girafe
@@ -15,7 +17,8 @@ singe
 souris
 ```
 
-Ensuite, testez le code suivant dans l'interpréteur Python :
+Enregistrez ce fichier dans votre répertoire courant avec le nom `zoo.txt`.
+Puis, testez le code suivant dans l'interpréteur Python :
 
 ```python
 >>> filin = open("zoo.txt", "r")
@@ -32,15 +35,12 @@ ValueError: I/O operation on closed file.
 
 Il y a plusieurs commentaires à faire sur cet exemple :
 
-Ligne 1. L'instruction `open()` ouvre le fichier `zoo.txt`. Ce fichier est ouvert en lecture seule, comme l'indique le second argument `r` (pour *read*) de la fonction `open()`. Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (*un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu*). Le curseur de lecture est prêt à lire le premier caractère du fichier. L'instruction `open("zoo.txt", "r")` suppose que le fichier `zoo.txt` est dans le répertoire depuis lequel l'interpréteur Python a été lancé. Si ce n'est pas le cas, il faut préciser le **chemin d'accès** au fichier. Par exemple, `/home/pierre/zoo.txt` pour Linux ou Mac OS X ou `C:\Users\pierre\zoo.txt` pour Windows.
+- **Ligne 1**. La fonction `open()` ouvre le fichier `zoo.txt`. Ce fichier est ouvert en lecture seule, comme l'indique le second argument `r` (pour *read*) de `open()`. Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu). Le curseur de lecture est prêt à lire le premier caractère du fichier. L'instruction `open("zoo.txt", "r")` suppose que le fichier `zoo.txt` est dans le répertoire depuis lequel l'interpréteur Python a été lancé. Si ce n'est pas le cas, il faut préciser le **chemin d'accès** au fichier. Par exemple, `/home/pierre/zoo.txt` pour Linux ou Mac OS X ou `C:\Users\pierre\zoo.txt` pour Windows.
+- **Ligne 2**. Lorsqu'on affiche le contenu de la variable `filin`, on se rend compte que Python la considère comme un objet de type fichier ouvert (ligne 3).
+- **Ligne 4**. Nous utilisons à nouveau la syntaxe `objet.méthode()` (présentée dans le chapitre 3 *Affichage*). Ici la méthode `.readlines()` agit sur l'objet `filin` en déplaçant le curseur de lecture du début à la fin du fichier, puis elle renvoie une liste contenant toutes les lignes du fichier (dans notre analogie avec un livre, ceci correspondrait à lire toutes les lignes du livre).
+- **Ligne 6**. Enfin, on applique la méthode `.close()` sur l'objet `filin`, ce qui, vous vous en doutez, ferme le fichier (ceci reviendrait à fermer le livre). Vous remarquerez que la méthode `.close()` ne renvoie rien, mais modifie l'état de l'objet `filin` en fichier fermé. Ainsi, si on essaie de lire à nouveau les lignes du fichier, Python renvoie une erreur, car il ne peut pas lire un fichier fermé (lignes 7 à 10).
 
-Ligne 2. Lorsqu'on affiche le contenu de la variable `filin`, on se rend compte que Python la considère comme un objet de type fichier ouvert (ligne 3).
-
-Ligne 4. Nous utilisons à nouveau la syntaxe `objet.méthode()` (présentée dans le chapitre 3 *Affichage*). Ici la méthode `.readlines()` agit sur l'objet `filin` en déplaçant le curseur de lecture du début à la fin du fichier, puis elle renvoie une liste contenant toutes les lignes du fichier (*dans notre analogie avec un livre, ceci correspondrait à lire toutes les lignes du livre*).
-
-Ligne 6. Enfin, on applique la méthode `.close()` sur l'objet `filin`, ce qui, vous vous en doutez, ferme le fichier (*ceci correspondrait à fermer le livre*). Vous remarquerez que la méthode `.close()` ne renvoie rien mais modifie l'état de l'objet `filin` en fichier fermé. Ainsi, si on essaie de lire à nouveau les lignes du fichier, Python renvoie une erreur car il ne peut pas lire un fichier fermé (lignes 7 à 10).
-
-Voici maintenant un exemple complet de lecture d'un fichier avec Python.
+Voici maintenant un exemple complet de lecture d'un fichier avec Python :
 
 ```python
 >>> filin = open("zoo.txt", "r")
@@ -134,10 +134,10 @@ souris
 ```
 
 
-### Itérations directe sur le fichier
+### Itérations directes sur le fichier
 
 Python essaie de vous faciliter la vie au maximum.
-Voici un moyen à la fois simple et élégant de parcourir un fichier.
+Voici un moyen à la fois simple et élégant de parcourir un fichier :
 
 ```python
 >>> with open("zoo.txt", "r") as filin:
@@ -188,13 +188,10 @@ close-box-rem
 
 Quelques commentaires sur cet exemple :
 
-Ligne 1. Création d'une liste de chaînes de caractères `animaux2`.
-
-Ligne 2. Ouverture du fichier `zoo2.txt` en mode écriture, avec le caractère `w` pour *write*. L'instruction `with` crée un bloc d'instructions qui doit être indenté.
-
-Ligne 3. Parcours de la liste `animaux2` avec une boucle `for`.
-
-Ligne 4. À chaque itération de la boucle, nous avons écrit chaque élément de la liste dans le fichier. La méthode `.write()` s'applique sur l'objet `filout`. Notez qu'à chaque utilisation de la méthode `.write()`, celle-ci nous affiche le nombre d'octets (équivalent au nombre de caractères) écrits dans le fichier (lignes 6 à 8). Ceci est valable uniquement dans l'interpréteur, si vous créez un programme avec les mêmes lignes de code, ces valeurs ne s'afficheront pas à l'écran.
+- **Ligne 1**. Création d'une liste de chaînes de caractères `animaux2`.
+- **Ligne 2**. Ouverture du fichier `zoo2.txt` en mode écriture, avec le caractère `w` pour *write*. L'instruction `with` crée un bloc d'instructions qui doit être indenté.
+- **Ligne 3**. Parcours de la liste `animaux2` avec une boucle `for`.
+- **Ligne 4**. À chaque itération de la boucle, nous avons écrit chaque élément de la liste dans le fichier. La méthode `.write()` s'applique sur l'objet `filout`. Notez qu'à chaque utilisation de la méthode `.write()`, celle-ci nous affiche le nombre d'octets (équivalent au nombre de caractères) écrits dans le fichier (lignes 6 à 8). Ceci est valable uniquement dans l'interpréteur. Si vous créez un programme avec les mêmes lignes de code, ces valeurs ne s'afficheront pas à l'écran.
 
 Si nous ouvrons le fichier `zoo2.txt` avec un éditeur de texte, voici ce que nous obtenons :
 
@@ -215,9 +212,8 @@ Pour ce faire, nous pouvons utiliser l'écriture formatée :
 5
 ```
 
-Ligne 4. L'écriture formatée vue au chapitre 3 *Affichage* permet d'ajouter un retour à la ligne (`\n`) après le nom de chaque animal.
-
-Lignes 6 à 8. Le nombre d'octets écrits dans le fichier est augmenté de 1 par rapport à l'exemple précédent car le caractère retour à la ligne compte pour un seul octet.
+- **Ligne 4**. L'écriture formatée, vue au chapitre 3 *Affichage*, permet d'ajouter un retour à la ligne (`\n`) après le nom de chaque animal.
+- **Lignes 6 à 8**. Le nombre d'octets écrits dans le fichier est augmenté de 1 par rapport à l'exemple précédent, car le caractère retour à la ligne compte pour un seul octet.
 
 Le contenu du fichier `zoo2.txt` est alors :
 
@@ -227,7 +223,7 @@ abeille
 chat
 ```
 
-Vous voyez qu'il est extrêmement simple en Python de lire ou d'écrire dans un fichier.
+Vous voyez qu'il est relativement simple en Python de lire ou d'écrire dans un fichier.
 
 
 ## Ouvrir deux fichiers avec l'instruction `with`
@@ -262,7 +258,7 @@ alors le contenu de `zoo2.txt` sera :
 Dans cet exemple, `with` permet une notation très compacte en s'affranchissant de deux méthodes `.close()`.
 
 Si vous souhaitez aller plus loin, sachez que l'instruction `with`
- est plus générale et est utilisable dans d'[autres contextes](https://docs.python.org/fr/3/reference/compound_stmts.html#the-with-statement).
+ est plus générale et peut être utilisée dans d'[autres contextes](https://docs.python.org/fr/3/reference/compound_stmts.html#the-with-statement).
 
 
 ## Note sur les retours à la ligne sous Unix et sous Windows
@@ -277,14 +273,14 @@ On a vu plus haut que le caractère spécial `\n` correspondait à un retour à 
 
 Toutefois, Windows utilise deux caractères spéciaux pour le retour à la ligne : `\r` correspondant à un retour chariot (hérité des machines à écrire) et `\n` comme sous Unix.
 
-Si vous avez commencé à programmer en Python 2, vous aurez peut-être remarqué que selon les versions, la lecture de fichier supprimait parfois les `\r` et d'autres fois les laissait. Heureusement, la fonction [`open()` dans Python 3](https://docs.python.org/fr/3/library/functions.html#open) gère tout ça automatiquement et renvoie uniquement des sauts de ligne sous forme d'un seul `\n` (même si le fichier a été conçu sous Windows et qu'il contient initialement des `\r`).
+Si vous avez commencé à programmer en Python 2, vous aurez peut-être remarqué que, selon les versions, la lecture de fichier supprimait parfois les `\r` et d'autres fois les laissait. Heureusement, la fonction [`open()` dans Python 3](https://docs.python.org/fr/3/library/functions.html#open) gère tout ça automatiquement et renvoie uniquement des sauts de ligne sous forme d'un seul `\n` (même si le fichier a été conçu sous Windows et qu'il contient initialement des `\r`).
 
 
 ## Importance des conversions de types avec les fichiers
 
-Vous avez sans doute remarqué que les méthodes qui lisent un fichier (par exemple `.readlines()`) vous renvoient systématiquement des chaînes de caractères. De même, pour écrire dans un fichier il faut fournir une chaîne de caractères à la méthode `.write()`.
+Vous avez sans doute remarqué que les méthodes qui lisent un fichier (par exemple `.readlines()`) vous renvoient systématiquement des chaînes de caractères. De même, pour écrire dans un fichier, il faut fournir une chaîne de caractères à la méthode `.write()`.
 
-Pour tenir compte de ces contraintes, il faudra utiliser les fonctions de conversions de types vues au chapitre 2 *Variables* : `int()`, `float()` et `str()`. Ces fonctions de conversion sont essentielles lorsqu'on lit ou écrit des nombres dans un fichier.
+Pour tenir compte de ces contraintes, il faudra utiliser les fonctions de conversion de types vues au chapitre 2 *Variables* : `int()`, `float()` et `str()`. Ces fonctions de conversion sont essentielles lorsqu'on lit ou écrit des nombres dans un fichier.
 
 En effet, les nombres dans un fichier sont considérés comme du texte, donc comme des chaînes de caractères, par la méthode `.readlines()`. Par conséquent, il faut les convertir (en entier ou en *float*) si on veut effectuer des opérations numériques avec.
 
@@ -316,13 +312,11 @@ Terminez le script en calculant et affichant la moyenne des notes avec deux déc
 
 ### Admis ou recalé
 
-Le fichier [`notes.txt`](https://python.sdv.u-paris.fr/data-files/notes.txt) contient les notes obtenues par des étudiants pour le cours de Python. Chaque ligne du fichier ne contient qu'une note.
-
-Téléchargez le fichier `notes.txt` et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
+Téléchargez le fichier `notes.txt` de l'exercice précédent et enregistrez-le dans votre répertoire de travail. N'hésitez pas l'ouvrir avec un éditeur de texte pour voir à quoi il ressemble.
 
 Créez un script Python qui lit chaque ligne de ce fichier, extrait les notes sous forme de *float* et les stocke dans une liste.
 
-Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une note par ligne suivie de « recalé » si la note est inférieure à 10 et « admis » si la note est supérieure ou égale à 10. Toutes les notes seront écrites avec une décimale. À titre d'exemple, voici les 3 premières lignes attendues pour le fichier `notes2.txt` :
+Le script réécrira ensuite les notes dans le fichier `notes2.txt` avec une note par ligne suivie de « recalé » si la note est inférieure à 10 et « admis » si la note est supérieure ou égale à 10. Toutes les notes seront écrites avec une décimale. À titre d'exemple, voici les trois premières lignes attendues pour le fichier `notes2.txt` :
 
 ```text
 13.5 admis
@@ -345,8 +339,8 @@ $$ y_A = \sin(\theta) \times r$$
 
 Pour calculer les coordonnées cartésiennes qui décrivent la spirale, vous allez faire varier deux variables en même temps :
 
-- l'angle $\theta$, qui va prendre des valeurs de 0 à $4\pi$ radians par pas de 0.1, ce qui correspond à deux tours complets ;
-- le rayon du cercle $r$, qui va prendre comme valeur initiale 0.5 puis que vous allez incrémenter (c'est-à-dire augmenter) par pas de 0.1.
+- l'angle $\theta$, qui va prendre des valeurs de $0$ à $4\pi$ radians par pas de $0,1$, ce qui correspond à deux tours complets ;
+- le rayon du cercle $r$, qui va prendre comme valeur initiale $0,5$ puis que vous allez incrémenter (c'est-à-dire augmenter) par pas de $0,1$.
 
 Les fonctions trigonométriques sinus et cosinus sont disponibles dans le module *math* que vous découvrirez plus en détails dans le chapitre 9 *Modules*. Pour les utiliser, vous ajouterez au début de votre script l'instruction :
 

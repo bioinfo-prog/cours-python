@@ -24,7 +24,7 @@ Il y a plusieurs remarques à faire concernant ces deux exemples :
 - Dans le premier exemple, le test étant vrai, l'instruction
     `print("Le test est vrai !")`
     est exécutée. Dans le second exemple, le test est faux et rien n'est affiché.
-- Les blocs d'instructions dans les tests doivent forcément être indentés comme pour les boucles `for` et `while`.  L'indentation indique la portée des instructions à exécuter si le test est vrai.
+- Les blocs d'instructions dans les tests doivent forcément être indentés comme pour les boucles `for` et `while`. L'indentation indique la portée des instructions à exécuter si le test est vrai.
 - Comme avec les boucles `for` et `while`, la ligne qui contient l'instruction `if` se termine par le caractère deux-points « `:` ».
 
 
@@ -51,7 +51,7 @@ Le test est faux !
 
 On peut utiliser une série de tests dans la même instruction `if`, notamment pour tester plusieurs valeurs d'une même variable.
 
-Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 9 *Modules*, admettez pour le moment qu'elle est nécessaire.
+Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 9 *Modules*, admettons pour le moment qu'elle est nécessaire.
 
 ```python
 >>> import random
@@ -68,7 +68,7 @@ Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le no
 choix d'une cytosine
 ```
 
-Dans cet exemple, Python teste la première condition, puis, si et seulement si elle est fausse, teste la deuxième et ainsi de suite... Le code correspondant à la première condition vérifiée est exécuté puis Python sort du bloc d'instructions du `if`.
+Dans cet exemple, Python teste la première condition puis, si et seulement si elle est fausse, teste la deuxième et ainsi de suite... Le code correspondant à la première condition vérifiée est exécuté puis Python sort du bloc d'instructions du `if`.
 
 
 ## Importance de l'indentation
@@ -111,12 +111,12 @@ car la variable nb vaut 5
 car la variable nb vaut 6
 ```
 
-Les deux codes pourtant très similaires produisent des résultats très différents. Si vous observez avec attention l'indentation des instructions sur la ligne 5, vous remarquerez que dans le code 1, l'instruction est indentée deux fois, ce qui signifie qu'elle appartient au bloc d'instructions du test `if`. Dans le code 2, l'instruction de la ligne 5 n'est indentée qu'une seule fois, ce qui fait qu'elle n'appartient plus au bloc d'instructions du test `if`, d'où l'affichage de `car la variable nb vaut xx` pour toutes les valeurs de `nb`.
+Les deux codes, pourtant très similaires, produisent des résultats très différents. Si vous observez avec attention l'indentation des instructions sur la ligne 5, vous remarquerez que dans le code 1, l'instruction est indentée deux fois, ce qui signifie qu'elle appartient au bloc d'instructions du test `if`. Dans le code 2, l'instruction de la ligne 5 n'est indentée qu'une seule fois, ce qui fait qu'elle n'appartient plus au bloc d'instructions du test `if`, d'où l'affichage de `car la variable nb vaut xx` pour toutes les valeurs de `nb`.
 
 
 ## Tests multiples
 
-Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont le **OU** et le **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
+Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
 
 
 | Condition 1 | Opérateur | Condition 2 | Résultat |
@@ -180,33 +180,30 @@ False
 
 ## Instructions `break` et `continue`
 
-Ces deux instructions permettent de modifier le comportement d'une boucle (`for` ou `while`) avec un test.
-
-L'instruction `break` stoppe la boucle.
+Ces deux instructions modifient le comportement d'une boucle (`for` ou `while`) avec un test.
+Ainsi, l'instruction `break` stoppe la boucle en cours :
 
 ```python
->>> for i in range(5):
-...     if i > 2:
+>>> for nombre in range(4):
+...     if nombre > 1:
 ...         break
-...     print(i)
+...     print(nombre)
 ...
 0
 1
-2
 ```
 
-L'instruction `continue` saute à l'itération suivante, sans exécuter la suite du bloc d'instructions de la boucle.
+L'instruction `continue` saute à l'itération suivante, sans exécuter la suite du bloc d'instructions de la boucle :
 
 ```python
->>> for i in range(5):
-...     if i == 2:
+>>> for nombre in range(4):
+...     if nombre == 2:
 ...         continue
-...     print(i)
+...     print(nombre)
 ...
 0
 1
 3
-4
 ```
 
 
@@ -219,7 +216,7 @@ Lorsque l'on souhaite tester la valeur d'une variable de type *float*, le premie
 True
 ```
 
-Toutefois, nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques des *floats* sous forme de nombres flottants (d'où leur nom !), et cela mène à certaines [limitations](https://docs.python.org/fr/3/tutorial/floatingpoint.html). Observez l'exemple suivant :
+Toutefois, nous vous le déconseillons formellement. Pourquoi ? Python stocke les valeurs numériques des *floats* sous forme de nombres flottants (d'où leur nom), et cela mène à certaines [limitations](https://docs.python.org/fr/3/tutorial/floatingpoint.html). Observez l'exemple suivant :
 
 ```python
 >>> (3 - 2.7) == 0.3
@@ -228,7 +225,7 @@ False
 0.2999999999999998
 ```
 
-Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le `False` en ligne 2.
+Nous voyons que le résultat de l'opération `3 - 2.7` n'est pas exactement `0.3` d'où le résultat `False` en ligne 2.
 
 En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont un ordinateur traite les nombres flottants (comme un rapport de nombres binaires). Ainsi certaines valeurs de *float* ne peuvent être qu'approchées. Une manière de s'en rendre compte est d'utiliser l'écriture formatée en demandant l'affichage d'un grand nombre de décimales :
 
@@ -243,7 +240,7 @@ En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont u
 '0.299999999999999822364316059974953532218933105468750000000000'
 ```
 
-On observe que lorsqu'on tape `0.3`, Python affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est donc essentiel d'avoir cela en tête lorsque l'on effectue un test.
+On observe que lorsqu'on tape `0.3`, Python affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est essentiel d'avoir cela en tête lorsque l'on compare deux *floats*.
 
 open-box-adv
 
@@ -258,7 +255,7 @@ True
 True
 ```
 
-Ici on teste si `var` est compris dans l'intervalle $0.3 \pm delta$. Les deux méthodes mènent à un résultat strictement équivalent :
+Ici on teste si `var` est compris dans l'intervalle $0,3 \pm delta$. Les deux méthodes mènent à un résultat strictement équivalent :
 
 - La ligne 3 est intuitive car elle ressemble à un encadrement mathématique.
 - La ligne 5 utilise la fonction valeur absolue `abs()` et est plus compacte.
@@ -308,7 +305,7 @@ La fonction `min()` de Python renvoie l'élément le plus petit d'une liste cons
 
 La liste ci-dessous représente une séquence d'acides aminés :
 
-`["A", "R", "A", "W", "W", "A", "W", "A", "R", "W", "W", "R", "A", "G"]`
+`["R", "A", "W", "W", "A", "W", "A", "R", "W", "W", "R", "A", "G"]`
 
 Calculez la fréquence des acides aminés alanine (A), arginine (R), tryptophane (W) et glycine (G) dans cette séquence.
 
@@ -357,19 +354,19 @@ Par exemple, les premiers éléments de la suite de Syracuse si on prend comme p
 
 Créez un script qui, partant d'un entier positif *n* (par exemple 10 ou 20), crée une liste des nombres de la suite de Syracuse. Avec différents points de départ (c'est-à-dire avec différentes valeurs de *n*), la conjecture de Syracuse est-elle toujours vérifiée ? Quels sont les nombres qui constituent le cycle trivial ?
 
-open-box-rem
+open-box-adv
 
 1. Pour cet exercice, vous avez besoin de faire un nombre d'itérations inconnu pour que la suite de Syracuse atteigne le chiffre 1 puis entame son cycle trivial. Vous pourrez tester votre algorithme avec un nombre arbitraire d'itérations, typiquement 20 ou 100, suivant votre nombre *n* de départ.
 2. Un nombre est pair lorsque le reste de sa division entière (opérateur modulo `%`) par 2 est nul.
 
-close-box-rem
+close-box-adv
 
 
 ### Attribution de la structure secondaire des acides aminés d'une protéine (exercice +++)
 
 Dans une protéine, les différents acides aminés sont liés entre eux par une liaison peptidique. Les angles phi et psi sont deux angles mesurés autour de cette liaison peptidique. Leurs valeurs sont utiles pour définir la conformation spatiale (appelée « structure secondaire ») adoptée par les acides aminés.
 
-Par exemples, les angles phi et psi d'une conformation en « hélice alpha » parfaite ont une valeur de -57 degrés et -47 degrés respectivement. Bien sûr, il est très rare que l'on trouve ces valeurs parfaites dans une protéine, et il est habituel de tolérer une déviation de $\pm$ 30 degrés autour des valeurs idéales de ces angles.
+Par exemple, les angles phi et psi d'une conformation en « hélice alpha » parfaite ont une valeur de -57 degrés et -47 degrés respectivement. Bien sûr, il est très rare que l'on trouve ces valeurs parfaites dans une protéine, et il est habituel de tolérer une déviation de $\pm$ 30 degrés autour des valeurs idéales de ces angles.
 
 Vous trouverez ci-dessous une liste de listes contenant les valeurs des angles phi et psi de 15 acides aminés de la protéine [1TFE](https://www.rcsb.org/structure/1TFE) :
 
@@ -385,7 +382,7 @@ Pour le premier acide aminé, l'angle phi vaut *48.6* et l'angle psi *53.4*. Pou
 
 En utilisant cette liste, créez un script qui teste, pour chaque acide aminé, s'il est ou non en hélice et affiche les valeurs des angles phi et psi et le message adapté *est en hélice* ou *n'est pas en hélice*.
 
-Par exemple, pour les 3 premiers acides aminés :
+Par exemple, pour les trois premiers acides aminés :
 
 ```text
 [48.6, 53.4] n'est pas en hélice
@@ -405,21 +402,21 @@ close-box-rem
 ### Détermination des nombres premiers inférieurs à 100 (exercice +++)
 
 Voici un extrait de l'article sur les nombres premiers tiré de l'encyclopédie en ligne
-[wikipédia](http://fr.wikipedia.org/wiki/Nombre_premier).
+[Wikipédia](http://fr.wikipedia.org/wiki/Nombre_premier) :
 
 *Un nombre premier est un entier naturel qui admet exactement deux diviseurs distincts entiers et positifs (qui sont alors 1 et lui-même). Cette définition exclut 1, qui n'a qu'un seul diviseur entier positif. Par opposition, un nombre non nul produit de deux nombres entiers différents de 1 est dit composé. Par exemple $6 = 2 \times 3$ est composé, tout comme $21 = 3 \times 7$, mais 11 est premier car 1 et 11 sont les seuls diviseurs de 11. Les nombres 0 et 1 ne sont ni premiers ni composés.*
 
 Déterminez les nombres premiers inférieurs à 100. Combien y a-t-il de nombres premiers entre 0 et 100 ?
 Pour vous aider, nous vous proposons plusieurs méthodes.
 
-####  Méthode 1 (peu optimale mais assez intuitive)
+####  Méthode 1 (peu optimale, mais assez intuitive) {.unnumbered}
 
 Pour chaque nombre de 2 à 100, calculez le reste de la division entière (avec l'opérateur modulo `%`) depuis 1 jusqu'à lui-même. Si c'est un nombre premier, il aura exactement deux nombres pour lesquels le reste de la division entière est égal à 0 (1 et lui-même). Si ce n'est pas un nombre premier, il aura plus de deux nombres pour lesquels le reste de la division entière est égal à 0.
 
-#### Méthode 2 (quelques petites optimisations qui font gagner du temps)
+#### Méthode 2 (quelques petites optimisations qui font gagner du temps) {.unnumbered}
 
 On reprend la méthode 1 avec deux petites optimisations. On sait que tout entier $N$ supérieur à 1 est divisible par 1 et par lui-même. Ainsi, il est inutile de tester ces deux diviseurs. On propose donc de tester tous les diviseurs de 2 à $N-1$. Si on ne trouve aucun diviseur, alors $N$ est premier. À partir du moment où on trouve un diviseur, il est inutile de chercher s'il existe d'autres diviseurs car $N$ ne sera pas premier. On suggère ainsi de stopper la boucle (pensez à `break`).
 
-#### Méthode 3 (plus optimale et plus rapide, mais un peu plus compliquée)
+#### Méthode 3 (plus optimale et rapide, mais un peu plus compliquée) {.unnumbered}
 
 Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire s'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier.
