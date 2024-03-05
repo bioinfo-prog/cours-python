@@ -477,7 +477,11 @@ Si tous ces tests ont bien fonctionné, bravo, vous avez installé correctement 
 
 ### Un mot sur pip pour installer des modules complémentaires
 
-*Conseil* : Pour les débutants, vous pouvez sauter cette rubrique.
+open-box-adv
+
+Pour les débutants, vous pouvez passer cette rubrique.
+
+close-box-adv
 
 Comme indiqué au début de ce chapitre, [pip](https://pip.pypa.io/en/stable/) est un gestionnaire de paquets pour Python et permet d'installer des modules externes. *Pip* est également présent dans Miniconda, donc utilisable et parfaitement fonctionnel. Vous pouvez vous poser la question « Pourquoi utiliser le gestionnaire de paquets *pip* si le gestionnaire de paquets `conda` est déjà présent ? ». La réponse est simple, certains modules ne sont présents que sur les dépôts *pip*. Si vous souhaitez les installer il  faudra impérativement utiliser *pip*. Inversement, certains modules ne sont présent que dans les dépôts de *conda*. Toutefois, pour les modules classiques (comme *NumPy*, *scipy*, etc), tout est gérable avec *conda*.
 
