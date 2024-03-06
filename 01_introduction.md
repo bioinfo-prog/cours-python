@@ -104,17 +104,16 @@ pour Mac OS X :
 
 ```text
 iMac-de-pierre:Downloads$ python
-Python 3.7.1 (default, Dec 14 2018, 19:28:38)
-[Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
+Python 3.12.2 | packaged by Anaconda, Inc. | (main, Feb 27 2024, 12:57:28) [Clang 14.0.6 ] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
->>>
+>>> 
 ```
 
 ou pour Linux :
 
 ```text
 pierre@jeera:~$ python
-Python 3.12.1 | packaged by conda-forge | (main, Dec 23 2023, 08:03:24) [GCC 12.3.0] on linux
+Python 3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:50:58) [GCC 12.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -125,7 +124,7 @@ Les blocs
 - `iMac-de-pierre:Downloads$` pour Mac OS X,
 - `pierre@jeera:~$` pour Linux.
 
-représentent l'invite de commande de votre *shell*. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
+représentent l'invite de commande de votre *shell*. Il se peut que vous ayez aussi le mot `(base)` qui indique que vous avez un environnement conda activé. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
 
 Le triple chevron `>>>` est l'invite de commande (*prompt* en anglais) de l'interpréteur Python. Ici, Python attend une commande que vous devez saisir au clavier.
 Tapez par exemple l'instruction :
