@@ -131,6 +131,8 @@ Par ailleurs, un nom de variable ne doit pas débuter par un chiffre et il n'est
 
 De plus, il faut absolument éviter d'utiliser un mot « réservé » par Python\index{mot reserve@mot réservé} comme nom de variable (par exemple : `print`, `range`, `for`, `from`, etc.).
 
+Dans la mesure du possible, il est conseillé de mettre des noms de variables explicites. Sauf dans de rares cas que nous expliquerons plus tard dans le cours, évitez les noms de variables à une lettre.
+
 Enfin, Python est sensible à la casse\index{casse@casse (nom de variable)}, ce qui signifie que les variables `TesT`, `test` et `TEST` sont différentes.
 
 
