@@ -1,6 +1,6 @@
 # Introduction
 
-## C'est quoi Python ?
+## Qu'est-ce que Python ?
 
 Le langage de programmation Python a été créé en 1989 par Guido van Rossum, aux Pays-Bas. Le nom *Python* vient d'un hommage à la série télévisée *Monty Python's Flying Circus* dont G. van Rossum est fan. La première version publique de ce langage a été publiée en 1991.
 
@@ -25,7 +25,7 @@ Toutes ces caractéristiques font que Python est désormais enseigné dans de no
 
 ## Conseils pour installer et configurer Python
 
-Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons dans cette rubrique un résumé des points importants concernant cette installation. Tous les détails et la marche à suivre pas à pas sont donnés à l'adresse <https://python.sdv.u-paris.fr/livre-dunod>.
+Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons dans cette rubrique un résumé des points importants concernant cette installation. Tous les détails et la marche à suivre pas-à-pas sont donnés à l'adresse <https://python.sdv.u-paris.fr/livre-dunod>.
 
 
 ### Python 2 ou Python 3 ?
@@ -94,8 +94,8 @@ Python est un langage interprété, c'est-à-dire que chaque ligne de code est l
 La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
 
 ```text
-PS C:\Users\pierre> python
-Python 3.7.1 (default, Dec 10 2018, 22:54:23) [MSC v.1915 64 bit (AMD64)] [...]
+PS C:\Users\pierre>python
+Python 3.12.2 | packaged by Anaconda, Inc. | (main, Feb 27 2024, 17:28:07) [MSC v.1916 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -104,18 +104,16 @@ pour Mac OS X :
 
 ```text
 iMac-de-pierre:Downloads$ python
-Python 3.7.1 (default, Dec 14 2018, 19:28:38)
-[Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
+Python 3.12.2 | packaged by Anaconda, Inc. | (main, Feb 27 2024, 12:57:28) [Clang 14.0.6 ] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
->>>
+>>> 
 ```
 
 ou pour Linux :
 
 ```text
 pierre@jeera:~$ python
-Python 3.7.1 (default, Dec 14 2018, 19:28:38)
-[GCC 7.3.0] :: Anaconda, Inc. on linux
+Python 3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:50:58) [GCC 12.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -126,7 +124,7 @@ Les blocs
 - `iMac-de-pierre:Downloads$` pour Mac OS X,
 - `pierre@jeera:~$` pour Linux.
 
-représentent l'invite de commande de votre *shell*. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
+représentent l'invite de commande de votre *shell*. Il se peut que vous ayez aussi le mot `(base)` qui indique que vous avez un environnement conda activé. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
 
 Le triple chevron `>>>` est l'invite de commande (*prompt* en anglais) de l'interpréteur Python. Ici, Python attend une commande que vous devez saisir au clavier.
 Tapez par exemple l'instruction :
@@ -169,7 +167,7 @@ où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape a
 résultat
 ```
 
-En ligne 1 on a rentré la première partie de la ligne de code. On termine par un `\`, ainsi Python sait que la ligne de code n'est pas finie. L'interpréteur nous l'indique avec les `...`. En ligne 2, on rentre la fin de la ligne de code puis on appuie sur *Entrée*. À ce moment, Python nous génère le résultat. Si la ligne de code est vraiment très longue, il est même possible de la découper en trois voire plus :
+En ligne 1 on a rentré la première partie de la ligne de code. On termine par un `\`, ainsi Python sait que la ligne de code n'est pas finie. L'interpréteur nous l'indique avec les trois points `...`. En ligne 2, on rentre la fin de la ligne de code puis on appuie sur *Entrée*. À ce moment, Python nous génère le résultat. Si la ligne de code est vraiment très longue, il est même possible de la découper en trois voire plus :
 
 ```python
 >>> Voici une ligne de code qui \

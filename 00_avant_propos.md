@@ -16,7 +16,7 @@ et [PDF](https://python.sdv.u-paris.fr/cours-python.pdf).
 
 Merci également à tous les contributeurs, occasionnels ou réguliers : Jennifer Becq, Benoist Laurent, Hubert Santuz, Virginie Martiny, Romain Laurent, Benjamin Boyer, Jonathan Barnoud, Amélie Bâcle, Thibault Tubiana, Romain Retureau, Catherine Lesourd, Philippe Label, Rémi Cuchillo, Cédric Gageat, Philibert Malbranche, Mikaël Naveau, Alexandra Moine-Franel, et plus généralement les promotions des masters de biologie informatique et  *in silico drug design*, ainsi que du diplôme universitaire en bioinformatique intégrative.
 
-Nous remercions tout particulièrement Sander Nabuurs pour la première version de ce cours remontant à 2003, Denis Mestivier pour les idées de certains exercices et Philip Guo pour son site[*Python Tutor*](http://pythontutor.com/). 
+Nous remercions tout particulièrement Sander Nabuurs pour la première version de ce cours remontant à 2003, Denis Mestivier pour les idées de certains exercices et Philip Guo pour son site [*Python Tutor*](http://pythontutor.com/). 
 
 Enfin, merci à vous tous, les curieux de Python, qui avez été nombreux à nous envoyer des retours sur ce cours, à nous suggérer des améliorations et à nous signaler des coquilles.
 
@@ -29,4 +29,4 @@ Ce cours est également publié aux éditions Dunod sous le titre « [Programmat
 
 ![Couverture livre Dunod.](img/couverture_livre_dunod.jpg){ width=30% }
 
-Afin de promouvoir le partage des connaissances et le logiciel libre, nos droits d'auteurs provenant de la vente de cet ouvrage seront reversés à deux associations. [Wikimédia France](https://www.wikimedia.fr/) qui s'occupe notamment de l'encyclopédie libre Wikipédia. [NumFOCUS](https://numfocus.org/) qui soutient le développement de logiciels libres scientifiques et notamment l'écosystème scientifique autour de Python.
+Afin de promouvoir le partage des connaissances et le logiciel libre, nos droits d'auteurs provenant de la vente de cet ouvrage seront reversés à deux associations : [Wikimédia France](https://www.wikimedia.fr/) qui s'occupe notamment de l'encyclopédie libre Wikipédia et [NumFOCUS](https://numfocus.org/) qui soutient le développement de logiciels libres scientifiques et notamment l'écosystème scientifique autour de Python.
