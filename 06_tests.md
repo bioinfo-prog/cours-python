@@ -159,6 +159,12 @@ Notez que le même résultat serait obtenu en utilisant deux instructions `if` i
 le test est vrai
 ```
 
+open-box-adv
+
+Nous vous conseillons la syntaxe avec un `and` qui est plus compacte. De manière générale, moins il y a de niveau d'indentations mieux dans la mesure où ça ne nuis pas à la lisibilité.
+
+close-box-adv
+
 Vous pouvez aussi tester directement l'effet de ces opérateurs à l'aide de `True` et `False` (attention à respecter la casse).
 
 ```python
@@ -330,12 +336,8 @@ Pour cet exercice, vous pourrez utiliser l'opérateur modulo `%`  qui renvoie le
 2
 >>> 4 % 2
 0
->>> 5 % 2
-1
 >>> 6 % 2
 0
->>> 7 % 2
-1
 ```
 
 Vous remarquerez qu'un nombre est pair lorsque le reste de sa division entière par 2 est nul.
@@ -406,17 +408,17 @@ Voici un extrait de l'article sur les nombres premiers tiré de l'encyclopédie 
 
 *Un nombre premier est un entier naturel qui admet exactement deux diviseurs distincts entiers et positifs (qui sont alors 1 et lui-même). Cette définition exclut 1, qui n'a qu'un seul diviseur entier positif. Par opposition, un nombre non nul produit de deux nombres entiers différents de 1 est dit composé. Par exemple $6 = 2 \times 3$ est composé, tout comme $21 = 3 \times 7$, mais 11 est premier car 1 et 11 sont les seuls diviseurs de 11. Les nombres 0 et 1 ne sont ni premiers ni composés.*
 
-Déterminez les nombres premiers inférieurs à 100. Combien y a-t-il de nombres premiers entre 0 et 100 ?
+Déterminez tous les nombres premiers inférieurs à 100. Combien y a-t-il de nombres premiers entre 0 et 100 ?
 Pour vous aider, nous vous proposons plusieurs méthodes.
 
 ####  Méthode 1 (peu optimale, mais assez intuitive) {.unnumbered}
 
-Pour chaque nombre de 2 à 100, calculez le reste de la division entière (avec l'opérateur modulo `%`) depuis 1 jusqu'à lui-même. Si c'est un nombre premier, il aura exactement deux nombres pour lesquels le reste de la division entière est égal à 0 (1 et lui-même). Si ce n'est pas un nombre premier, il aura plus de deux nombres pour lesquels le reste de la division entière est égal à 0.
+Pour chaque nombre $N$ de 2 à 100, calculez le reste de la division entière (avec l'opérateur modulo `%`) depuis 1 jusqu'à lui-même. Si $N$ est premier, il aura exactement deux nombres pour lesquels le reste de la division entière est égal à 0 (1 et lui-même). Si $N$ n'est pas  premier, il aura plus de deux nombres pour lesquels le reste de la division entière est égal à 0.
 
 #### Méthode 2 (quelques petites optimisations qui font gagner du temps) {.unnumbered}
 
-On reprend la méthode 1 avec deux petites optimisations. On sait que tout entier $N$ supérieur à 1 est divisible par 1 et par lui-même. Ainsi, il est inutile de tester ces deux diviseurs. On propose donc de tester tous les diviseurs de 2 à $N-1$. Si on ne trouve aucun diviseur, alors $N$ est premier. À partir du moment où on trouve un diviseur, il est inutile de chercher s'il existe d'autres diviseurs car $N$ ne sera pas premier. On suggère ainsi de stopper la boucle (pensez à `break`).
+On reprend la méthode 1 avec deux petites optimisations. On sait que tout entier $N$ supérieur à 1 est divisible par 1 et par lui-même. Ainsi, il est inutile de tester ces deux diviseurs. On propose donc de tester tous les diviseurs de 2 à $N-1$. Si on ne trouve aucun diviseur, alors $N$ est premier. À partir du moment où on trouve un diviseur, il est inutile de continuer à chercher d'autres diviseurs car $N$ ne sera pas premier. On suggère ainsi de stopper la boucle (pensez à `break`). Vous pourrez aussi utiliser une variable *drapeau* comme `est_premier` qui sera à `True` si $N$ est premier, sinon à `False`.
 
 #### Méthode 3 (plus optimale et rapide, mais un peu plus compliquée) {.unnumbered}
 
-Parcourez tous les nombres de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire s'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre le nombre considéré et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, ce nombre n'est pas premier.
+Parcourez tous les nombres $N$ de 2 à 100 et vérifiez si ceux-ci sont composés, c'est-à-dire s'ils sont le produit de deux nombres premiers. Pratiquement, cela consiste à vérifier que le reste de la division entière (opérateur modulo `%`) entre $N$ et chaque nombre premier déterminé jusqu'à maintenant est nul. Le cas échéant, $N$ n'est pas premier.
