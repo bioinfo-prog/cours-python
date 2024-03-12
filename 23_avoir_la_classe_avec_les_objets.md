@@ -18,7 +18,7 @@ Dans ce chapitre nous vous donnerons tous les éléments pour démarrer la const
 
 Après la lecture de ces deux chapitres sur la POO avec Python, vous verrez d'un autre œil de nombreux exemples évoqués dans les chapitres précédents, et vous comprendrez sans doute de nombreuses subtilités qui avaient pu vous paraître absconses.
 
-Enfin, il est vivement recommandé de lire ces deux chapitres sur la POO avant d'aborder le chapitre 25 *Tkinter* (en ligne).
+Enfin, il est vivement recommandé de lire ces deux chapitres sur la POO avant d'aborder le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
 
 
 ## Construction d'une classe
