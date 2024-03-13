@@ -709,14 +709,16 @@ Créez la fonction `get_alphabet()` qui utilise une boucle et la fonction `chr()
 
 Un [pangramme](http://fr.wikipedia.org/wiki/Pangramme) est une phrase comportant au moins une fois chaque lettre de l'alphabet. Par exemple, « Portez ce vieux whisky au juge blond qui fume » est un pangramme.
 
-Créez la fonction `pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères (`xxx`) et qui renvoie `xxx est un pangramme` si cette chaîne de caractères est un pangramme ou `xxx n'est pas un pangramme` sinon. Pensez à vous débarrasser des majuscules le cas échéant.
+Créez la fonction `est_pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères (`xxx`) et qui renvoie `True` si la phrase est un pangramme, sinon `False`.
+
+Le programme affichera `xxx est un pangramme` si cette chaîne de caractères est un pangramme ou `xxx n'est pas un pangramme` sinon. Pensez à vous débarrasser des majuscules le cas échéant.
 
 Testez ensuite si les expressions suivantes sont des pangrammes :
 
 - Portez ce vieux whisky au juge blond qui fume
 - Monsieur Jack vous dactylographiez bien mieux que votre ami Wolf
 - Buvez de ce whisky que le patron juge fameux
-
+- Ceci n'est pas un pangramme
 
 ### Lecture d'une séquence à partir d'un fichier GenBank (exercice +++)
 
