@@ -608,7 +608,7 @@ Utilisez la fonction `seq_alea()` pour générer aléatoirement une séquence d'
 
 ### Séquence d'ADN complémentaire inverse
 
-Créez une fonction `comp_inv()` qui prend comme argument une séquence d'ADN sous la forme d'une chaîne de caractères, qui renvoie la séquence complémentaire inverse sous la forme d'une autre chaîne de caractères et qui utilise des méthodes associées aux listes. Dans cette fonction, utilisez un dictionnaire `{"A": "T", "T": "A", "G": "C", "C": "G"}` donnant la correspondance entre le brin direct et le brin complémentaire.
+Créez une fonction `gen_comp_inv()` qui prend comme argument une séquence d'ADN sous la forme d'une chaîne de caractères, qui renvoie la séquence complémentaire inverse sous la forme d'une autre chaîne de caractères et qui utilise des méthodes associées aux listes. Dans cette fonction, utilisez un dictionnaire `{"A": "T", "T": "A", "G": "C", "C": "G"}` donnant la correspondance entre nucléotides des brins direct et complémentaire.
 
 Utilisez cette fonction pour transformer la séquence d'ADN `TCTGTTAACCATCCACTTCG` en sa séquence complémentaire inverse.
 
