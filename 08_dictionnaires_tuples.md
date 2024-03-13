@@ -553,3 +553,11 @@ Un athlète court un marathon, malheureusement sa montre mesure son temps en 119
 ### Convertisseur de jours
 
 L'âge de Camille et Céline en jours est respectivement de 8331 jours et 8660 jours. Quel est leur âge en années, mois et jours, en supposant qu'une année compte 365 jours et qu'un mois compte 30 jours ? La fonction `divmod()` vous aidera à nouveau.
+
+### Propriétés des acides aminés
+
+Les acides aminés peuvent être séparés en quatre grandes catégories : apolaires (a), polaires (p), chargés positivement (+) et chargés négativement (-). Le dictionnaire suivant implémente cette classification `{'A': 'a', 'V': 'a', 'L': 'a', 'G': 'a', 'I': 'a', 'M': 'a', 'W': 'a', 'F': 'a', 'P': 'a', 'S': 'p', 'C': 'p', 'N': 'p', 'Q': 'p', 'T': 'p', 'Y': 'p', 'D': '+', 'E': '+', 'K': '-', 'R': '-', 'H': '-'}`. On souhaite convertir la séquence en acide aminé du domaine transmembranaire d'une intégrine humaine `SNADVVYEKQMLYLYVLSGIGGLLLLLLIFIVLYKVGFFKRNLKEKMEAG` en une série de signes indiquant la nature des acides aminés (a, p, + et -). Affichez la séquence sur une ligne, et la nature des acides aminés sur une autre ligne. La séquence contient une hélice transmembranaire, donc une succesion de résidus apolaires, êtes-vous capable de la retrouver ?
+
+### Boucle sur plusieurs éléments simultanément
+
+A partir de la liste de tuples suivante `[("chien", 3), ("chat", 4), ("souris", 16)]`, affichez chaque animal et son nombre en utilisant qu'une seule boucle for. Attention, pour cet exercice, il est interdit d'utiliser l'indiçage des listes.
