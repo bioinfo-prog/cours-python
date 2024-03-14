@@ -1,8 +1,12 @@
 # Variables
 
-## Définition
+## Définition et création
+
+open-box-def 
 
 Une **variable**\index{variable} est une zone de la mémoire de l'ordinateur dans laquelle une **valeur** est stockée. Aux yeux du programmeur, cette variable est définie par un **nom**, alors que pour l'ordinateur, il s'agit en fait d'une adresse, c'est-à-dire d'une zone particulière de la mémoire.
+
+close-box-def
 
 En Python, la **déclaration**\index{declaration@déclaration (de variable)} d'une variable et son **initialisation**\index{initialisation@initialisation (de variable)} (c'est-à-dire la première valeur que l'on va stocker dedans) se font en même temps. Pour vous en convaincre, testez les instructions suivantes après avoir lancé l'interpréteur :
 
@@ -76,7 +80,13 @@ close-box-warn
 
 \index{variable@type (de variable)}
 
-Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers\index{entier} (*integer*\index{integer@\textit{integer}} ou *int*\index{int@\textit{int}}), les nombres décimaux que nous appellerons *floats*\index{float@\textit{float}} et les chaînes de caractères\index{chaine de caracteres@chaîne de caractères} (*string*\index{string@\textit{string}} ou *str*\index{str@\textit{str}}). Bien sûr, il existe de nombreux autres types (par exemple, les booléens, les nombres complexes, etc.). Si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/fr/3.12/library/stdtypes.html).
+open-box-def
+
+Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers\index{entier} (*integer*\index{integer@\textit{integer}} ou *int*\index{int@\textit{int}}), les nombres décimaux que nous appellerons *floats*\index{float@\textit{float}} et les chaînes de caractères\index{chaine de caracteres@chaîne de caractères} (*string*\index{string@\textit{string}} ou *str*\index{str@\textit{str}}). 
+
+close-box-def
+
+Bien sûr, il existe de nombreux autres types (par exemple, les booléens, les nombres complexes, etc.). Si vous n'êtes pas effrayés, vous pouvez vous en rendre compte [ici](https://docs.python.org/fr/3.12/library/stdtypes.html).
 
 Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la variable `x`, mais il est tout à fait possible de stocker des *floats*, des chaînes de caractères (*string* ou *str*) ou de nombreux autres types de variables que nous verrons par la suite :
 
