@@ -613,10 +613,9 @@ Créez pour cela une fonction `calc_composition()` à laquelle vous passez en ar
 
 ### Conversion des acides aminés du code à trois lettres au code à une lettre
 
-Créez une fonction `convert_3_lettres_1_lettre()` qui prend en argument une chaîne de caractères avec des acides aminés en code à trois lettres et renvoie une chaîne de caractères avec les acides aminés en code à 1 lettre.
+Créez une fonction `convert_3_lettres_1_lettre()` qui prend en argument une chaîne de caractères avec des acides aminés en code à trois lettres et renvoie une chaîne de caractères avec les acides aminés en code à 1 lettre. Vous pourrez tenter d'utiliser le *method chaining* dans cette fonction.
 
-Utilisez cette fonction pour convertir la séquence protéique  
-`ALA GLY GLU ARG TRP TYR SER GLY ALA TRP`.
+Utilisez cette fonction pour convertir la séquence protéique `ALA GLY GLU ARG TRP TYR SER GLY ALA TRP`.
 
 Rappel de la nomenclature des acides aminés :
 
