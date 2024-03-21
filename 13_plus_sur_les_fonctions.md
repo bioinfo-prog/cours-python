@@ -11,28 +11,44 @@ Dans le chapitre 10, nous avons vu des fonctions qui étaient appelées depuis l
 
 ```python
 # Définition des fonctions.
-def polynome(x):
-    return (x**2 - 2*x + 1)
+def est_pair(x):
+    if x % 2 == 0:
+        return True
+    else:
+        return False
 
-def calc_vals(debut, fin):
-    liste_vals = []
-    for x in range(debut, fin + 1):
-        liste_vals.append(polynome(x))
-    return liste_vals
-
+def calc_somme_nb_pairs(debut, fin):
+    somme = 0
+    for nombre in range(debut, fin+1):
+        if est_pair(nombre):
+            somme += nombre
+        
 # Programme principal.
-print(calc_vals(-5, 5))
+somme = calc_somme_nb_pairs(1, 5)
+print(f"La somme des nombres de 1 à 5 est {somme}")
 ```
 
-Nous appelons depuis le programme principal la fonction `calc_vals()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `polynome()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `polynome()` est exécutée dans la Figure @fig:appel_fct_ds_fct.
+Nous appelons depuis le programme principal la fonction `calc_somme_nb_pairs()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `est_pair()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `calc_somme_nb_pairs()` est exécutée dans la Figure @fig:appel_fct_ds_fct.
 
 ![Appel d'une fonction dans une fonction.](img/appel_fct_ds_fct.png){ #fig:appel_fct_ds_fct width=90% }
 
-L'espace mémoire alloué à `polynome()` est grisé, indiquant que cette fonction est en cours d'exécution. La fonction appelante `calc_vals()` est toujours là (sur un fond blanc) car son exécution n'est pas terminée. Elle est en quelque sorte *figée* dans le même état qu'avant l'appel de `polynome()`, et on pourra ainsi noter que ses variables *locales* (`debut`, `fin`, `liste_vals` et `x`) sont toujours là .
-De manière générale, les variables *locales* d'une fonction ne seront détruites que lorsque l'exécution de celle-ci sera terminée. Dans notre exemple, les variables *locales* de `calc_vals()` ne seront détruites que lorsque la boucle sera terminée et que la liste `liste_vals` sera retournée au programme principal. Enfin, notez bien que la fonction `calc_vals()` appelle la fonction `polynome()` à chaque itération de la boucle.
+L'espace mémoire alloué à `est_pair()` est grisé, indiquant que cette fonction est en cours d'exécution. La fonction appelante `calc_somme_nb_pairs()` est toujours là (sur un fond blanc) car son exécution n'est pas terminée. Elle est en quelque sorte *figée* dans le même état qu'avant l'appel de `est_pair()`, et on pourra ainsi noter que ses variables *locales* (`debut`, `fin`) sont toujours là .
+De manière générale, les variables *locales* d'une fonction ne seront détruites que lorsque l'exécution de celle-ci sera terminée. Dans notre exemple, les variables *locales* de `calc_somme_nb_pairs()` ne seront détruites que lorsque la boucle sera terminée et que la variable `somme` sera retournée au programme principal. Enfin, notez bien que la fonction `calc_somme_nb_pairs()` appelle la fonction `est_pair()` à chaque itération de la boucle.
 
 Ainsi, le programmeur est libre de faire tous les appels qu'il souhaite. Une fonction peut appeler une autre fonction, cette dernière peut appeler une autre fonction et ainsi de suite (et autant de fois qu'on le veut). Une fonction peut même s'appeler elle-même, cela s'appelle une fonction *récursive* (voir la rubrique suivante). Attention toutefois à retrouver vos petits si vous vous perdez dans les appels successifs !
 
+open-box-adv
+
+Dans la fonction `est_pair()` on teste si le nombre est pair et on renvoie `True`, sinon on renvoie `False`. Cette fonction pourrait être écrite de manière plus compacte :
+
+```python
+def est_pair(x):
+    return x % 2
+```
+
+Comme l'expression `x % 2` renvoie un booléen directement, elle revient au même que le `if` / `else` ci-dessus. C'est bien sûr cette dernière notation plus compacte que nous vous recommandons.
+
+close-box-adv
 
 ## Fonctions récursives
 
