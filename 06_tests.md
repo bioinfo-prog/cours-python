@@ -21,9 +21,7 @@ et un second :
 
 Il y a plusieurs remarques à faire concernant ces deux exemples :
 
-- Dans le premier exemple, le test étant vrai, l'instruction
-    `print("Le test est vrai !")`
-    est exécutée. Dans le second exemple, le test est faux et rien n'est affiché.
+- Dans le premier exemple, l'instruction `print("Le test est vrai !")` est exécutée car le test est vrai. Dans le second exemple, le test est faux et rien n'est affiché.
 - Les blocs d'instructions dans les tests doivent forcément être indentés comme pour les boucles `for` et `while`. L'indentation indique la portée des instructions à exécuter si le test est vrai.
 - Comme avec les boucles `for` et `while`, la ligne qui contient l'instruction `if` se termine par le caractère deux-points « `:` ».
 
@@ -51,7 +49,7 @@ Le test est faux !
 
 On peut utiliser une série de tests dans la même instruction `if`, notamment pour tester plusieurs valeurs d'une même variable.
 
-Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 9 *Modules*, admettons pour le moment qu'elle est nécessaire.
+Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 9 *Modules*, admettez pour le moment qu'elle est nécessaire.
 
 ```python
 >>> import random
@@ -92,6 +90,8 @@ Le test est vrai
 car la variable nb vaut 5
 ```
 
+\newpage
+
 **Code 2**
 
 ```python
@@ -111,12 +111,12 @@ car la variable nb vaut 5
 car la variable nb vaut 6
 ```
 
-Les deux codes, pourtant très similaires, produisent des résultats très différents. Si vous observez avec attention l'indentation des instructions sur la ligne 5, vous remarquerez que dans le code 1, l'instruction est indentée deux fois, ce qui signifie qu'elle appartient au bloc d'instructions du test `if`. Dans le code 2, l'instruction de la ligne 5 n'est indentée qu'une seule fois, ce qui fait qu'elle n'appartient plus au bloc d'instructions du test `if`, d'où l'affichage de `car la variable nb vaut xx` pour toutes les valeurs de `nb`.
+Les deux codes pourtant très similaires produisent des résultats très différents. Si vous observez avec attention l'indentation des instructions sur la ligne 5, vous remarquerez que dans le code 1, l'instruction est indentée deux fois, ce qui signifie qu'elle appartient au bloc d'instructions du test `if`. Dans le code 2, l'instruction de la ligne 5 n'est indentée qu'une seule fois, ce qui fait qu'elle n'appartient plus au bloc d'instructions du test `if`, d'où l'affichage de `car la variable nb vaut xx` pour toutes les valeurs de `nb`.
 
 
 ## Tests multiples
 
-Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
+Les tests multiples permettent de tester plusieurs conditions en même temps en \hbox{utilisant} des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
 
 
 | Condition 1 | Opérateur | Condition 2 | Résultat |
