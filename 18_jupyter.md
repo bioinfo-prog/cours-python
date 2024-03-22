@@ -8,7 +8,7 @@ La cellule est l'élément de base d'un *notebook* Jupyter. Elle peut contenir d
 
 Voici un exemple de *notebook* Jupyter (figure @fig:jupyter-exemple) :
 
-![Exemple de *notebook* Jupyter. Les chiffres entourés désignent les différentes cellules.](img/jupyter-exemple.png "Exemple de *notebook* Jupyter"){ #fig:jupyter-exemple width=95% }
+![Exemple de *notebook* Jupyter. Les chiffres entourés désignent les différentes cellules.](img/jupyter-exemple.png "Exemple de *notebook* Jupyter"){ #fig:jupyter-exemple width=98% }
 
 Ce *notebook* est constitué de cinq cellules : deux avec du texte en Markdown (la première et la dernière) et trois avec du code Python (légèrement grisées).
 
@@ -21,12 +21,12 @@ Avec la distribution Miniconda, les *notebooks* Jupyter s'installent avec la com
 $ conda install -c conda-forge -y jupyterlab
 ```
 
-Pour être exact, la commande précédente installe un peu plus que les *notebooks* Jupyter mais nous verrons cela par la suite.
+Pour être exact, la commande précédente installe un peu plus que les *notebooks* Jupyter, mais nous verrons cela par la suite.
 
 
 ## JupyterLab
 
-En 2018, le consortium Jupyter a lancé *JupyterLab* qui est un environnement complet de programamtion et d'analyse de données.
+En 2018, le consortium Jupyter a lancé *JupyterLab*, qui est un environnement complet de programmation et d'analyse de données.
 
 Pour obtenir cette interface, lancez la commande suivante depuis un *shell* :
 
@@ -35,9 +35,9 @@ $ jupyter lab
 ```
 
 Une nouvelle page devrait s'ouvrir dans votre navigateur web et vous devriez
-obtenir une interface similaire à la figure @fig:jupyterlab-1, avec à gauche un navigateur de fichiers et à droite le « *Launcher* » qui permet de créer un nouveau *notebook* Jupyter, de lancer un terminal ou d'éditer un fichier texte, un fichier Mardown, un script Python...
+obtenir une interface similaire à la figure @fig:jupyterlab-1, avec à gauche un navigateur de fichiers et à droite le « *Launcher* », qui permet de créer un nouveau *notebook* Jupyter, de lancer un terminal ou d'éditer un fichier texte, un fichier Mardown, un script Python...
 
-![Interface de JupyterLab.](img/jupyterlab-1.png "Interface de JupyterLab."){ #fig:jupyterlab-1 width=95% }
+![Interface de JupyterLab.](img/jupyterlab-1.png "Interface de JupyterLab."){ #fig:jupyterlab-1 width=98% }
 
 L'interface proposée par JupyterLab est très riche. On peut y organiser un *notebook* Jupyter, un éditeur de fichier texte, un terminal... Les possibilités sont nombreuses et nous vous invitons à explorer cette interface par vous-même.
 
@@ -46,13 +46,13 @@ L'interface proposée par JupyterLab est très riche. On peut y organiser un *no
 
 Pour créer un *notebook*, cliquez sur le bouton *Python 3* situé dans la rubrique *Notebook* dans le *Launcher* (figure @fig:jupyter-nouveau-notebook).
 
-![Création d'un nouveau *notebook*.](img/jupyter-nouveau-notebook.png "Création d'un nouveau *notebook*"){ #fig:jupyter-nouveau-notebook width=85% }
+![Création d'un nouveau *notebook*.](img/jupyter-nouveau-notebook.png "Création d'un nouveau *notebook*"){ #fig:jupyter-nouveau-notebook width=95% }
 
 Le *notebook* fraîchement créé ne contient qu'une cellule vide.
 
-![Nouveau *notebook* avec une cellule vide.](img/jupyter-nouveau-notebook-vide.png "Nouveau *notebook* avec une cellule vide."){ #fig:jupyter-nouveau-notebook-vide width=85% }
+![Nouveau *notebook* avec une cellule vide.](img/jupyter-nouveau-notebook-vide.png "Nouveau *notebook* avec une cellule vide."){ #fig:jupyter-nouveau-notebook-vide width=95% }
 
-La première chose à faire est de donner un nom à votre *notebook*. Pour cela cliquer avec le bouton droit de la souris sur *Untitled.ipynb* en haut du *notebook*. Si le nom de votre *notebook* est *test.ipynb* alors le fichier *test.ipynb* sera créé dans le répertoire depuis lequel vous avez lancé JupyterLab.
+La première chose à faire est de donner un nom à votre *notebook*. Pour cela, cliquer avec le bouton droit de la souris sur *Untitled.ipynb*, en haut du *notebook*. Si le nom de votre *notebook* est *test.ipynb*, alors le fichier *test.ipynb* sera créé dans le répertoire depuis lequel vous avez lancé JupyterLab.
 
 open-box-rem
 
@@ -71,29 +71,29 @@ print(a+b)
 Pour exécuter le contenu de cette cellule, vous avez plusieurs possibilités :
 
 - Cliquer sur le menu *Run*, puis *Run Selected Cells*.
-- Cliquer sur le bouton *Run* ▶️ (dans la barre de menu au dessus du *notebook*).
+- Cliquer sur le bouton ▶️ dans la barre de menu au dessus du *notebook*.
 - Presser simultanément les touches *Ctrl* + *Entrée*.
 
-Dans tous les cas, vous devriez obtenir un résultat similaure à la figure @fig:jupyter-cellule-1. La notation `[1]` à gauche de la cellule indique qu'il s'agit de la première cellule exécutée.
+Dans tous les cas, vous devriez obtenir un résultat similaire à la figure @fig:jupyter-cellule-1. La notation `[1]` à gauche de la cellule indique qu'il s'agit de la première cellule de code qui a été exécutée.
 
-![Exécution d'une première cellule.](img/jupyter-cellule-1.png "Exécution d'une première cellule."){ #fig:jupyter-cellule-1 width=85% }
+![Exécution d'une première cellule.](img/jupyter-cellule-1.png "Exécution d'une première cellule."){ #fig:jupyter-cellule-1 width=95% }
 
 Pour créer une nouvelle cellule, vous avez, ici encore, plusieurs possibilités :
 
-- Cliquer sur l’icône *+* dans la barre de menu.
-- Cliquer sur la 2e icône à partir de la droite (juste à côté de la poubelle) dans la suite d'icônes situées à droite de la cellule.
+- Cliquer sur l’icône *+* dans la barre de menu au dessus du *notebook*.
+- Cliquer sur la 2e icône à partir de la droite (juste à côté de la poubelle), dans les icônes situées à l'intérieur de la cellule, à droite.
 
 Une nouvelle cellule vide devrait apparaître.
 
-Vous pouvez également créer une nouvelle cellule en positionnant votre curseur dans la première cellule, puis en pressant simultanément les touches *Alt* + *Entrée*. Si vous utilisez cette combinaison de touches, vous remarquerez que le numéro à gauche de la première cellule est passée de `[1]` à `[2]` car vous avez exécuté une nouvelle fois la première cellule *puis* créé une nouvelle cellule.
+Vous pouvez également créer une nouvelle cellule, en positionnant votre curseur dans la première cellule, puis en pressant simultanément les touches *Alt* + *Entrée*. Si vous utilisez cette combinaison de touches, vous remarquerez que le numéro à gauche de la première cellule est passée de `[1]` à `[2]`, car vous avez exécuté une nouvelle fois la première cellule *puis* créé une nouvelle cellule.
 
 Vous pouvez ainsi créer plusieurs cellules les unes à la suite des autres. Un objet créé dans une cellule antérieure sera disponible dans les cellules suivantes. Par exemple, dans la figure @fig:jupyter-cellule-4, nous avons quatre cellules.
 
-![*Notebook* avec plusieurs cellules de code Python.](img/jupyter-cellule-4.png "*Notebook* avec plusieurs cellules de code Python"){ #fig:jupyter-cellule-4 width=85% }
+![*Notebook* avec plusieurs cellules de code Python.](img/jupyter-cellule-4.png "*Notebook* avec plusieurs cellules de code Python"){ #fig:jupyter-cellule-4 width=95% }
 
 Dans un *notebook* Jupyter, il est parfaitement possible de réexécuter une cellule précédente. Par exemple la première cellule, qui porte désormais à sa gauche la numérotation `[5]` (voir figure @fig:jupyter-cellule-4-mauvais-ordre).
 
-![*Notebook* avec une cellule ré-exécutée.](img/jupyter-cellule-4-mauvais-ordre.png "*Notebook* avec une cellule ré-executée."){ #fig:jupyter-cellule-4-mauvais-ordre width=85% }
+![*Notebook* avec une cellule ré-exécutée.](img/jupyter-cellule-4-mauvais-ordre.png "*Notebook* avec une cellule ré-executée."){ #fig:jupyter-cellule-4-mauvais-ordre width=95% }
 
 open-box-warn
 
@@ -103,28 +103,25 @@ Nous vous recommandons de régulièrement relancer complètement l'exécution de
 
 close-box-warn
 
+
 ## Le format Markdown
 
 Dans le tout premier exemple (figure @fig:jupyter-exemple), nous avons vu qu'il était possible de mettre du texte au format Markdown dans une cellule.
 
-Il faut cependant indiquer à Jupyter que cette cellule est au format Markdown en cliquant sur *Code* sous la barre de menu au dessus du *notebook* puis en choisissant *Markdown*.
+Il faut cependant indiquer à Jupyter que cette cellule est au format Markdown en cliquant sur *Code*, sous la barre de menu au dessus du *notebook*, puis en choisissant *Markdown*.
 
-Le format Markdown permet de rédiger du texte formaté (gras, italique, liens, titres, images, formules mathématiques...) avec quelques balises très simples. Voici un exemple dans un *notebook* Jupyter (figure @fig:jupyter-markdown (A)) et le rendu lorsque la cellule est exécutée (figure @fig:jupyter-markdown (B)).
+Le format Markdown permet de rédiger du texte formaté (gras, italique, liens, titres, images, formules mathématiques...) avec quelques balises très simples. Voici un exemple dans un *notebook* Jupyter (figure @fig:jupyter-markdown (A)) et le rendu lorsque la cellule est exécutée (figure @fig:jupyter-markdown (B)). Notez qu'une cellule Markdown est sur fond blanc (comme sur la figure @fig:jupyter-markdown (B)).
 
-![*Notebook* avec : (A) une cellule au format Markdown et (B) le rendu après exécution.](img/jupyter-markdown.png "*Notebook* avec une cellule au format Markdown et son rendu après exécution."){ #fig:jupyter-markdown width=95% }
+![*Notebook* avec : (A) une cellule au format Markdown et (B) le rendu après exécution.](img/jupyter-markdown.png "*Notebook* avec une cellule au format Markdown et son rendu après exécution."){ #fig:jupyter-markdown width=98% }
 
-Notez qu'une cellule Markdown est sur fond blanc (comme sur la figure @fig:jupyter-markdown (B)).
-
-Le format Markdown permet de rédiger du texte structuré rapidement et simplement. Ce cours est par exemple complètement rédigé en Markdown.
-
-Nous vous conseillons d'explorer les possibilités du Markdown en consultant la page [Wikipédia](https://fr.wikipedia.org/wiki/Markdown) ou directement la [page de référence](https://daringfireball.net/projects/markdown/syntax).
+Le format Markdown permet de rédiger du texte structuré rapidement et simplement. Ce cours est par exemple complètement rédigé en Markdown. Nous vous conseillons d'explorer les possibilités du Markdown en consultant la page [Wikipédia](https://fr.wikipedia.org/wiki/Markdown) ou directement la [page de référence](https://daringfireball.net/projects/markdown/syntax).
 
 
 ## Des graphiques dans les *notebooks*
 
 Un autre intérêt des *notebooks* Jupyter est de pouvoir y incorporer des graphiques réalisés avec la bibliothèque *matplotlib* (que nous verrons prochainement).
 
-Voici un exemple en reprenant un graphique présenté dans le chapitre 21 *Module Matplotlib* (figure @fig:jupyter-matplotlib).
+Voici un exemple, d'un graphique qui présenté dans le chapitre 21 *Module Matplotlib* (figure @fig:jupyter-matplotlib).
 
 ![Incorporation d'un graphique dans un *notebook* Jupyter.](img/jupyter-matplotlib.png "Incorporation d'un graphique dans un *notebook* Jupyter."){ #fig:jupyter-matplotlib width=80% }
 
@@ -134,7 +131,7 @@ open-box-rem
 
 Pour quitter l'interface Jupyter Lab, il y a plusieurs possibilités :
 
-- Dans le menu en haut à gauche de l'interface, cliquer sur *File*, puis *Shut Down*, puis confirmer en cliquant sur le bouton "Shut Down".
+- Dans le menu en haut à gauche de l'interface, cliquer sur *File*, puis *Shut Down*, puis confirmer en cliquant sur le bouton *Shut Down*.
 - Une méthode plus radicale est de revenir sur le *shell* depuis lequel JupyterLab a été lancé, puis de presser deux fois de suite la combinaison de touches *Ctrl* + *C*.
 
 close-box-rem
@@ -179,13 +176,13 @@ resultat_1 = ma_fonction(a, 10)
 resultat_2 = ma_fonction("Bonjour", "Jupyter")
 ```
 
-Alors l'exécution de : 
+alors l'exécution de : 
 
 ```python
 %whos
 ```
 
-renvoie 
+renvoie :
 
 ```text
 Variable      Type        Data/Info
@@ -197,9 +194,10 @@ resultat_1    int         12
 resultat_2    str         BonjourJupyter
 ```
 
+
 ### %history
 
-La commande `%history` liste toutes les commandes Python lancées dans un *notebook* 
+La commande `%history` liste toutes les commandes Python lancées dans un *notebook* :
 
 ```python
 %history
@@ -216,6 +214,7 @@ ma_fonction("Bonjour", "Jupyter")
 %whos
 %history
 ```
+
 
 ### %%time
 
@@ -255,7 +254,7 @@ CPU times: user 26 µs, sys: 5 µs, total: 31 µs
 Wall time: 37.4 µs
 ```
 
-Comme attendu, la première méthode (itération par les éléments) est plus rapide que la seconde (itération par les indices des éléments). Les temps obtenus dépendent de la machine sur laquelle vous exécutez ces commandes. Mais même sur une même machine, les résultats peuvent fluctuer d'une exécution à l'autre en fonction de l'activité de la machine. Ces fluctuations seront d'autant plus importantes que le temps d'exécution est court.
+Comme attendu, la première méthode (itération par les éléments) est plus rapide que la seconde (itération par les indices des éléments). Les temps obtenus dépendent de la machine sur laquelle vous exécutez ces commandes. Mais, sur une même machine, les résultats peuvent fluctuer d'une exécution à l'autre en fonction de l'activité de la machine. Ces fluctuations seront d'autant plus importantes que le temps d'exécution est court.
 
 
 ### %%timeit
@@ -295,7 +294,7 @@ Ici, chaque cellule sera exécutée un million de fois sur sept répétitions, s
 
 ## Lancement d'une commande Unix
 
-Enfin, dans les environnements Linux ou Mac OS X, il est possible de lancer une commande Unix depuis un *notebook* Jupyter. Il faut pour cela précéder la commande du symbole « `!` ». 
+Enfin, dans les environnements Linux ou Mac OS X, il est possible de lancer une commande Unix depuis un *notebook* Jupyter. Il faut pour cela faire précéder la commande du symbole « `!` ». 
 Par exemple, la commande `ls` affiche le contenu du répertoire courant :
 
 ```python
@@ -310,13 +309,13 @@ jupyter-logo.png       matplotlib.ipynb
 open-box-more
 
 Le lancement d'une commande Unix depuis un *notebook* Jupyter (en précédant cette commande de `!`) est très utile pour réaliser de grosses analyses de données.
-Pour vous en rendre compte, explorez ce [*notebook*](https://github.com/MaayanLab/Zika-RNAseq-Pipeline/blob/master/Zika.ipynb) qui reproduit une analyse complète de données de séquençage haut débit. Ces résultats ont donné lieu à la publication de l'article scientifique « [*An open RNA-Seq data analysis pipeline tutorial with an example of reprocessing data from a recent Zika virus study*](https://f1000research.com/articles/5-1574/) » (F1000 Research, 2016).
+Pour vous en rendre compte, explorez ce [*notebook*](https://github.com/MaayanLab/Zika-RNAseq-Pipeline/blob/master/Zika.ipynb) qui reproduit une analyse complète de données de séquençage haut débit. Ces résultats ont donné lieu à la publication de l'article scientifique « [An open RNA-Seq data analysis pipeline tutorial with an example of reprocessing data from a recent Zika virus study](https://f1000research.com/articles/5-1574/) » (F1000 Research, 2016).
 
 close-box-more
 
 
 open-box-adv
 
-Les *notebooks* Jupyter sont particulièrement adaptés à l'analyse de données en combinaison avec les modules *matplotlib* et *pandas* qui seront abordés dans les prochains chapitres.
+Les *notebooks* Jupyter sont particulièrement adaptés à l'analyse de données en combinaison avec les modules *matplotlib* et *pandas*, qui seront abordés dans les prochains chapitres.
 
 close-box-adv
