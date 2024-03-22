@@ -488,7 +488,7 @@ Cette fonction est très pratique, notamment quand on souhaite convertir des sec
 (12, 34)
 ```
 
-La division normale nous donne un *float* en minutes qui n'est pas très pratique, il faut encore convertir 0.566666666666666 minute en secondes et gérer les problèmes d'arrondi. La fonction `divmod()` renvoie le résultat directement : 12 min et 34 s. On pourrait raisonner de manière similaire pour convertir des minutes en heures, des heures en jours, etc.
+La division normale nous donne un *float* en minutes qui n'est pas très pratique, il faut encore convertir `0.566666666666666` minute en secondes et gérer les problèmes d'arrondi. La fonction `divmod()` renvoie le résultat directement : 12 min et 34 s. On pourrait raisonner de manière similaire pour convertir des minutes en heures, des heures en jours, etc.
 
 ### Remarque finale
 
@@ -547,7 +547,7 @@ Vous ne pouvez pas utiliser autant d'instructions `if` que d'acides aminés diff
 
 ### Convertisseur de secondes
 
-Un athlète court un marathon, malheureusement sa montre mesure son temps en 11905 secondes. Aidez-le à convertir son temps en heures, minutes et secondes avec la fonction `divmod()`.
+Un athlète court un marathon, malheureusement sa montre ne mesure son temps qu'en secondes. Celle-ci affiche 11905. Aidez-le à convertir son temps en heures, minutes et secondes avec la fonction `divmod()`.
 
 
 ### Convertisseur de jours
@@ -570,6 +570,8 @@ aa2prop = {'A': 'a', 'V': 'a', 'L': 'a', 'G': 'a', 'I': 'a', 'M': 'a',
 On souhaite convertir la séquence en acide aminé du domaine transmembranaire d'une intégrine humaine `SNADVVYEKQMLYLYVLSGIGGLLLLLLIFIVLYKVGFFKRNLKEKMEAG` en une série de signes indiquant la nature des acides aminés (*a*, *p*, *+* et *-*). Affichez tout d'abord la séquence sur une ligne, puis la nature des acides aminés sur une seconde ligne.
 
 La séquence contient une hélice transmembranaire, donc une succession de résidus apolaires, essayez de la retrouver visuellement.
+
+Pour cette exercice, nous vous conseillons d'itérer sur la chaîne de caractères contenant la séquence. Nous reverrons cela dans le chapitre 11 *Plus sur les chaînes de caractères*.
 
 
 ### Boucle sur plusieurs éléments simultanément
