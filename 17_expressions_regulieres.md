@@ -1,23 +1,23 @@
 # Expressions régulières et *parsing*
 
-Le module *re* permet d'utiliser des expressions régulières avec Python. Les expressions régulières sont aussi appelées en anglais *regular expressions* ou en plus court *regex*. Dans la suite de ce chapitre, nous utiliserons souvent le mot *regex* pour désigner une expression régulière. Les expressions régulières sont puissantes et incontournables en bioinformatique, spécialement lorsque vous souhaitez récupérer des informations dans de gros fichiers.
+Le module *re* permet d'utiliser des expressions régulières avec Python. Les expressions régulières sont aussi appelées en anglais *regular expressions*, ou en plus court *regex*. Dans la suite de ce chapitre, nous utiliserons souvent le mot *regex* pour désigner une expression régulière. Les expressions régulières sont puissantes et incontournables en bioinformatique, surtout lorsque vous souhaitez récupérer des informations dans de gros fichiers.
 
-Cette action de recherche de données dans un fichier est appelée plus généralement *parsing* (qui signifie littéralement « analyse syntaxique »). Le *parsing* fait partie du travail quotidien du bioinformaticien, il est sans arrêt en train de « fouiller » dans des fichiers pour en extraire des informations d'intérêt comme par exemple récupérer les coordonnées 3D des atomes d'une protéine dans un fichier PDB ou encore extraire les gènes d'un fichier GenBank.
+Cette action de recherche de données dans un fichier est appelée généralement *parsing* (qui signifie littéralement « analyse syntaxique »). Le *parsing* fait partie du travail quotidien du bioinformaticien, il est sans arrêt en train de « fouiller » dans des fichiers pour en extraire des informations d'intérêt, par exemple récupérer les coordonnées 3D des atomes d'une protéine dans un fichier PDB, ou encore extraire les gènes d'un fichier GenBank.
 
 Dans ce chapitre, nous ne ferons que quelques rappels sur les expressions régulières. Pour une documentation plus complète, référez-vous à la [page d'aide des expressions régulières](https://docs.python.org/fr/3/library/re.html) sur le site officiel de Python.
 
 
 ## Définition et syntaxe
 
-Une expression régulière est une suite de caractères qui a pour but de décrire un fragment de texte. Cette suite de caractères est encore appelée **motif** (en anglais *pattern*), motif qui est constitué de deux types de caractères:
+Une expression régulière est une suite de caractères qui a pour but de décrire un fragment de texte. Cette suite de caractères est encore appelée **motif** (en anglais, *pattern*), qui est constitué de deux types de caractères :
 
-- Les caractères dits *normaux*.
-- Les *métacaractères* ayant une signification particulière, par exemple le caractère `^` signifie début de ligne et non pas le caractère « chapeau » littéral.
+- les caractères dits *normaux* ;
+- les *métacaractères* ayant une signification particulière, par exemple le caractère `^` signifie début de ligne, et non pas le caractère « chapeau » littéral.
 
-Avant de présenter les *regex* en Python, nous allons faire un petit détour par Unix. En effet, certains programmes comme `egrep`, `sed` ou encore `awk` savent interpréter les expressions régulières. Tous ces programmes fonctionnent généralement selon le schéma suivant :
+Avant de présenter les *regex* en Python, nous allons faire un petit détour par Unix. En effet, certains programmes, comme `egrep`, `sed` ou encore `awk`, savent interpréter les expressions régulières. Tous ces programmes fonctionnent généralement selon le schéma suivant :
 
-- Le programme lit un fichier ligne par ligne.
-- Pour chaque ligne lue, si l'expression régulière passée en argument est retrouvée dans la ligne, alors le programme effectue une action.
+- le programme lit un fichier ligne par ligne ;
+- pour chaque ligne lue, si l'expression régulière passée en argument est retrouvée dans la ligne, alors le programme effectue une action.
 
 Par exemple, pour le programme `egrep` :
 
@@ -30,7 +30,7 @@ Ici, `egrep` affiche toutes les lignes du fichier du virus de l'herpès (`herp_v
 
 open-box-rem
 
-Il est intéressant de faire un point sur le vocabulaire utilisé en anglais et en français. En général, on utilise le verbe *to match* pour indiquer qu'une *regex* « a fonctionné ». Bien qu'il n'y ait pas de traduction littérale en français, on peut utiliser les verbes « retrouver » ou « correspondre ». Par exemple, on pourra traduire l'expression « *The regex matches the line* » par « La *regex* est retrouvée dans la ligne » ou encore « La *regex* correspond dans la ligne ».
+Il est intéressant de faire un point sur le vocabulaire utilisé en anglais et en français. En général, on utilise le verbe *to match* pour indiquer qu'une *regex* « a fonctionné ». Bien qu'il n'y ait pas de traduction littérale en français, on peut utiliser les verbes « retrouver~» ou « correspondre ». Par exemple, on pourra traduire l'expression « *The regex matches the line* » par « La *regex* est retrouvée dans la ligne » ou encore « La *regex* correspond dans la ligne ».
 
 close-box-rem
 
@@ -156,8 +156,11 @@ Enfin, il existe des caractères spéciaux qui sont bien commodes et qui peuvent
 
 Comme vous le constatez, les métacaractères sont nombreux et leur signification est parfois difficile à maîtriser. Faites particulièrement attention aux métacaractères `.`, `+` et `*` qui, combinés ensemble, peuvent donner des résultats ambigus.
 
-Il est important de savoir par ailleurs que les *regex* sont « avides » (*greedy* en anglais) lorsqu'on utilise les métacaractères `+` et `*`. C'est-à-dire que la *regex* cherchera à « s'étendre » au maximum. Par exemple, si on utilise la *regex* `A+` pour faire une recherche dans la chaîne `TTTAAAAAAAAGC`, tous les A de cette chaîne (8 en tout) seront concernés, bien que `AA`, `AAA`, etc. « fonctionnent » également avec cette *regex*.
+open-box-warn
 
+Il est important de savoir par ailleurs que les *regex* sont « avides » (*greedy* en anglais) lorsqu'on utilise les métacaractères `+` et `*`. Cela signifie que la *regex* cherchera à «~s'étendre » au maximum. Par exemple, si on utilise la *regex* `A+` pour faire une recherche dans la chaîne `TTTAAAAAAAAGC`, tous les A de cette chaîne (huit en tout) seront concernés, bien que `AA`, `AAA`, etc. « fonctionnent » également avec cette *regex*.
+
+close-box-warn
 
 ## Quelques ressources en ligne
 
@@ -177,7 +180,7 @@ N'hésitez pas à explorer ces sites avant de vous lancer dans les exercices ou 
 
 Dans le module *re*, la fonction `search()` est incontournable. Elle permet de rechercher un motif, c'est-à-dire une *regex*, au sein d'une chaîne de caractères avec une syntaxe de la forme `search(motif, chaine)`. Si `motif` est retrouvé dans `chaine`, Python renvoie un objet du type `SRE_Match`.
 
-Sans entrer dans les détails propres au langage orienté objet, si on utilise un objet du type `SRE_Match` dans un test, il sera considéré comme vrai. Regardez cet exemple dans lequel on va rechercher le motif `tigre` dans la chaîne de caractères `"girafe tigre singe"` :
+Sans entrer dans les détails propres au langage orienté objet, si on utilise un objet du type `SRE_Match` dans un test, il sera considéré comme vrai. Regardez cet exemple, dans lequel on va rechercher le motif `tigre` dans la chaîne de caractères `"girafe tigre singe"` :
 
 ```python
 >>> import re
@@ -213,7 +216,7 @@ Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le 
 >>>
 ```
 
-Il existe également la fonction `fullmatch()` qui renvoie un objet du type `SRE_Match` si et seulement si l'expression régulière correspond **exactement** à la chaîne de caractères.
+Il existe également la fonction `fullmatch()`, qui renvoie un objet du type `SRE_Match` si et seulement si l'expression régulière correspond **exactement** à la chaîne de caractères.
 
 ```python
 >>> animaux = "tigre "
@@ -223,12 +226,12 @@ Il existe également la fonction `fullmatch()` qui renvoie un objet du type `SRE
 <_sre.SRE_Match object; span=(0, 5), match='tigre'>
 ```
 
-De manière générale, nous vous recommandons l'usage de la fonction `search()`. Si vous souhaitez avoir une correspondance avec le début de la chaîne de caractères comme dans la fonction `match()`, vous pouvez toujours utiliser l'accroche de début de ligne `^`. Si vous voulez une correspondance exacte comme dans la fonction `fullmatch()`, vous pouvez utiliser les métacaractères `^` et `$`, par exemple `^tigre$`.
+De manière générale, nous vous recommandons l'usage de la fonction `search()`. Si vous souhaitez avoir une correspondance avec le début de la chaîne de caractères comme dans la fonction `match()`, vous pouvez toujours utiliser l'accroche de début de ligne `^`. Si vous voulez une correspondance exacte, comme dans la fonction `fullmatch()`, vous pouvez utiliser les métacaractères `^` et `$`, par exemple `^tigre$`.
 
 
 ### Compilation d'expressions régulières
 
-Lorsqu'on a besoin de tester la même expression régulière sur plusieurs milliers de chaînes de caractères, il est pratique de compiler préalablement la *regex* à l'aide de la fonction `compile()` qui renvoie un objet de type `SRE_Pattern` :
+Lorsqu'on a besoin de tester la même expression régulière sur plusieurs milliers de chaînes de caractères, il est pratique de compiler préalablement la *regex* à l'aide de la fonction `compile()`, qui renvoie un objet de type `SRE_Pattern` :
 
 ```python
 >>> regex = re.compile("^tigre")
@@ -292,7 +295,7 @@ Les méthodes `.start()` et `.end()` donnent respectivement la position de débu
 
 ### La méthode `.findall()`
 
-Pour récupérer chaque zone, s'il y en a plusieurs, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance.
+Pour récupérer chaque zone correspondante à la *regex*, s'il y en a plusieurs, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance.
 
 ```python
 >>> regex = re.compile("[0-9]+\.[0-9]+")
@@ -301,7 +304,7 @@ Pour récupérer chaque zone, s'il y en a plusieurs, vous pouvez utiliser la mé
 ['3.14', '2.72']
 ```
 
-L'utilisation des groupes entre parenthèses est également possible et ceux-ci sont alors renvoyés sous la forme de tuples.
+L'utilisation des groupes entre parenthèses est également possible, ceux-ci sont alors renvoyés sous la forme de tuples :
 
 ```python
 >>> regex = re.compile("([0-9]+)\.([0-9]+)")
@@ -313,7 +316,7 @@ L'utilisation des groupes entre parenthèses est également possible et ceux-ci 
 
 ### La méthode `.sub()`
 
-Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants. Par défaut la méthode `.sub(chaine1, chaine2)` remplace toutes les occurrences trouvées par l'expression régulière dans `chaine2` par `chaine1`. Si vous souhaitez ne remplacer que les *n* premières occurrences, utilisez l'argument `count=n` :
+Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants. Par défaut, la méthode `.sub(chaine1, chaine2)` remplace toutes les occurrences trouvées par l'expression régulière dans `chaine2` par `chaine1`. Si vous souhaitez ne remplacer que les *n* premières occurrences, utilisez l'argument `count=n` :
 
 ```python
 >>> regex = re.compile("[0-9]+\.[0-9]+")
@@ -345,7 +348,7 @@ Enfin, sachez que la réutilisation d'un groupe précédemment capturé est auss
 >>>
 ```
 
-Dans la *regex* `(pan)\\1`, on capture d'abord le groupe `(pan)` grâce aux parenthèses (il s'agit du groupe 1 puisque c'est le premier jeu de parenthèses), immédiatement suivi du même groupe grâce au `\\1`. Dans cet exemple, on capture donc le mot `panpan` (lignes 1 et 2). Si, par contre, on a une seule occurrence du mot `pan`, cette *regex* ne fonctionne pas, ce qui est le cas ligne 3.
+Dans la *regex* `(pan)\\1`, on capture d'abord le groupe `(pan)` grâce aux parenthèses (il s'agit du groupe 1, puisque c'est le premier jeu de parenthèses), immédiatement suivi du même groupe grâce au `\\1`. Dans cet exemple, on capture donc le mot `panpan` (lignes 1 et 2). Si, par contre, on a une seule occurrence du mot `pan`, cette *regex* ne fonctionne pas, ce qui est le cas ligne 3.
 
 Bien sûr, si on avait eu un deuxième groupe, on aurait pu le réutiliser avec `\\2`, un troisième groupe avec `\\3`, etc.
 
@@ -397,9 +400,9 @@ Pour chacune des enzymes ci-dessous, déterminez les expressions régulières qu
 
 ### Nettoyeur d'espaces
 
-Le fichier [`cigale_fourmi.txt`](https://python.sdv.u-paris.fr/data-files/cigale_fourmi.txt) contient le célèbre poème de Jean de la Fontaine. Malheureusement, la personne qui l'a recopié a parfois mis plusieurs espaces au lieu d'un seul entre les mots.
+Le fichier [`cigale_fourmi.txt`](https://python.sdv.u-paris.fr/data-files/cigale_fourmi.txt) contient la célèbre fable de Jean de la Fontaine. Malheureusement, la personne qui l'a recopié a parfois mis plusieurs espaces au lieu d'un seul entre les mots.
 
-Créez un script `cigale_fourmi.py` qui grâce à une *regex* et à la fonction `sub()` remplace plusieurs espaces par un seul espace dans le texte ci-dessus. Le nouveau texte « propre » sera enregistré dans un fichier `cigale_fourmi_propre.txt`.
+Créez un script `cigale_fourmi.py` qui, grâce à une *regex* et à la fonction `sub()`, remplace plusieurs espaces par un seul dans le texte ci-dessus. Le nouveau texte, ainsi nettoyé, sera enregistré dans un fichier `cigale_fourmi_propre.txt`.
 
 
 ### Liste des protéines humaines
@@ -411,7 +414,7 @@ On souhaite lister toutes ces protéines et les indexer avec un numéro croissan
 Créez un script `liste_proteome.py` qui :
 
 - lit le fichier `human-proteome.fasta` ;
-- extrait, avec une *regex*, de toutes les lignes de commentaires des séquences, le numéro d'accession de la protéine ;
+- extrait, avec une *regex*, le numéro d'accession de la protéine de toutes les lignes de commentaires des séquences ;
 - affiche le mot `protein`, suivi d'un numéro qui s'incrémente, suivi du numéro d'accession.
 
 Voici un exemple de sortie attendue :
@@ -433,18 +436,18 @@ open-box-adv
     `>sp|O95139|NDUB6_HUMAN NADH dehydrogenase [...]`  
     Elle débute toujours pas le caractère `>`.
     Le numéro d'accession `O95139` se situe entre le premier et le second symbole `|` (symbole *pipe*). Attention, il faudra « échapper » ce symbole car il a une signification particulière dans une *regex*.
-- Le numéro qui s'incrémente débutera à 1 et sera affiché sur 5 caractères avec des 0 à sa gauche si nécessaires (formatage `{:05d}`).
+- Le numéro qui s'incrémente débutera à 1 et sera affiché sur 5 caractères, avec des 0 à sa gauche si nécessaires (formatage `{:05d}`).
 
 close-box-adv
 
 
-### Le défi du dé-htmliseur (exercice +++)
+### Le défi du dé-HTMLiseur (exercice +++)
 
 Le format HTML permet d'afficher des pages web dans un navigateur. Il s'agit d'un langage à balise qui fonctionne avec des balises ouvrantes `<balise>` et des balises fermantes `</balise>`.
 
 Créez un script `dehtmliseur.py` qui lit le fichier [`fichier_a_dehtmliser.html`](https://python.sdv.u-paris.fr/data-files/fichier_a_dehtmliser.html) au format HTML et qui renvoie à l'écran tout le texte de ce fichier sans les balises HTML.
 
-Nous vous conseillons tout d'abord d'ouvrir le fichier HTML dans un éditeur de texte et de bien l'observer. N'hésitez pas à vous aider des sites mentionnés dans les ressources en ligne
+Nous vous conseillons tout d'abord d'ouvrir le fichier HTML dans un éditeur de texte et de bien l'observer. N'hésitez pas à vous aider des sites mentionnés dans les ressources en ligne.
 
 
 ### Nettoyeur de doublons (exercice +++)
