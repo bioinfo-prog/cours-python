@@ -3,9 +3,7 @@
 Dans ce chapitre nous allons aborder la notion de conteneur, revenir sur certaines propriétés avancées des dictionnaires et tuples, et enfin aborder les types *set* et *frozenset*. Pour les débutants, ce chapitre aborde des notions relativement avancées. Avant de vous lancer, nous vous conseillons vivement de bien maitriser les chapitres 4 *Listes* et 12 *Plus sur les listes*, ainsi que le chapitre 8 *Dictionnaires et tuples**, d'avoir effectué un maximum d'exercices, et de vous sentir à l'aise avec toutes les notions abordées jusque là.
 
 
-## Conteneurs
-
-### Définition
+## Définition et propriétés
 
 open-box-def
 
@@ -15,9 +13,7 @@ close-box-def
 
 Les conteneurs que nous connaissons depuis le début de ce cours sont les listes, les chaînes de caractères, les dictionnaires et les tuples. Même si on ne l'a pas vu explicitement, les objets de type *range* sont également des conteneurs.
 
-Dans la section suivante, nous allons examiner les différentes propriétés des conteneurs. A la fin de ce chapitre, nous ferons un tableau récapitulatif de ces propriétés.
-
-### Propriétés
+Dans la suite de cette rubrique, nous allons examiner les différentes propriétés des conteneurs. A la fin de ce chapitre, nous ferons un tableau récapitulatif de ces propriétés.
 
 Examinons d'abord les propriétés qui caractérisent tous les types de conteneur.
 
