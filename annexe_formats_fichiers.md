@@ -306,7 +306,7 @@ SSBOND   2 CYS A   42    CYS A   58                          1555   1555  2.02
 - **Ligne 14.** `DBREF` indique les liens éventuels vers d'autres banques de données. Ici, l'identifiant correspondant à cette protéine dans UniProt (*UNP*) est [P00760](https://www.uniprot.org/uniprot/P00760).
 - **Ligne 15-18.** `SEQRES` donnent à la séquence de la protéine. Les résidus sont représentés par leur code à trois lettres.
 - **Lignes 20-22** et **23-24.** `HELIX` et `SHEET` correspondent aux structures secondaires hélices $\alpha$ et brin $\beta$ de cette protéine. Ici, *H1 SER A  164  ILE A  176* indique qu'il y a une première hélice $\alpha$ (*H1*), comprise entre les résidus Ser164 et Ile176 de la chaîne A.
-- **Lignes 26-27.** `SSBOND` indique les bonds disulfures. Ici, entre les résidus Cys22 et Cys157 et entre les résidus Cys42 et Cys58.
+- **Lignes 26-27.** `SSBOND` indique les ponts disulfures. Ici, entre les résidus Cys22 et Cys157 et entre les résidus Cys42 et Cys58.
 
 
 ### Coordonnées
@@ -399,7 +399,7 @@ les deux chaînes est marquée par la ligne :
 TER     765      ALA A  44
 ```
 
-Dans un fichier PDB, chaque structure porte un nom de chaîne différent (`A`, `B`, `C`, etc.).
+Dans un fichier PDB, chaque structure porte un nom de chaîne différent (par exemple : A`, `B`, `C`, etc.).
 
 Enfin, lorsque la structure est déterminée par RMN, il est possible que plusieurs structures soient présentes
 dans le même fichier PDB. Toutes ces structures, ou « modèles », sont des solutions possibles du jeu de contraintes mesurées
