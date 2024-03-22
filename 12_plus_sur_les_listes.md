@@ -1,10 +1,10 @@
 # Plus sur les listes
 
-Nous avons vu les listes dès le chapitre 4 et les avons largement utilisées depuis le début de ce cours. Dans ce chapitre nous allons plus loin avec les méthodes associées aux listes, ainsi que d'autres caractéristiques très puissantes telles que les tests d'appartenance ou les listes de compréhension.
+Nous avons vu les listes dès le chapitre 4 et les avons largement utilisées depuis le début de ce cours. Dans ce chapitre, nous allons plus loin avec les méthodes associées aux listes, ainsi que d'autres caractéristiques très puissantes telles que les tests d'appartenance ou les listes de compréhension.
 
 ## Méthodes associées aux listes
 
-Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leur sont propres. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
+Comme pour les chaînes de caractères, les listes possèdent de nombreuses **méthodes** qui leurs sont propres. On rappelle qu'une méthode est une fonction qui agit sur l'objet auquel elle est attachée par un point.
 
 
 ### `.append()`
@@ -229,7 +229,7 @@ Cette méthode est certes plus simple, mais il arrive parfois qu'on doive utilis
 
 ## Test d'appartenance
 
-L'opérateur `in` teste si un élément fait partie d'une liste.
+L'opérateur `in` teste si un élément fait partie d'une liste :
 
 ```python
 liste1 = [1, 3, 5, 7, 9]
@@ -276,11 +276,11 @@ le renard est roux
 le python est vert
 ```
 
-Lignes 3 et 6. On passe en argument deux listes à `zip()` qui génère un nouvel objet de type *zip*. Comme pour les objets de type *map* vu au chapitre 11 *Plus sur les chaînes de caractères*, les objets *zip* sont itérables.
+**Lignes 3 et 6**. On passe en argument deux listes à `zip()` qui génère un nouvel objet de type *zip*. Comme pour les objets de type *map* vu au chapitre 11 *Plus sur les chaînes de caractères*, les objets *zip* sont itérables.
 
-Lignes 7 à 12. Lorsqu'on itère sur un objet *zip*, la variable  d'itération est un tuple. À la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, à la deuxième itération ce sera le deuxième élément, et ainsi de suite.
+**Lignes 7 à 12**. Lorsqu'on itère sur un objet *zip*, la variable  d'itération est un tuple. À la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, à la deuxième itération ce sera le deuxième élément, et ainsi de suite.
 
-Lignes 13 à 18. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme on l'avait fait avec la fonction `enumerate()`, voir Chapitres 5 *Boucles* et 8 *Dictionnaires et tuples*).
+**Lignes 13 à 18**. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme avec `enumerate()` dans les Chapitres~5 *Boucles* et 8 *Dictionnaires et tuples*).
 
 Un objet *zip* est aussi utile pour générer facilement une liste de tuples.
 
@@ -298,7 +298,7 @@ Si une des listes passée en argument n'a pas la même longueur, l'objet *zip* s
 [('poulain', 'alezan'), ('renard', 'roux'), ('python', 'vert')]
 ```
 
-On peut empêcher ce comportement avec l'argument par mot-clé `strict` qui renvoie une erreur si les listes n'ont pas la même longueur.
+On peut empêcher ce comportement avec l'argument par mot-clé `strict`, qui renvoie une erreur si les listes n'ont pas la même longueur.
 
 ```python
 >>> list(zip(animaux, couleurs, strict=True))
@@ -340,11 +340,11 @@ Il est très important de savoir que l'affectation d'une liste (à partir d'une 
 [1, -15, 3]
 ```
 
-Vous voyez que la modification de `liste1` modifie `liste2` aussi ! Pour comprendre ce qui se passe nous allons de nouveau utiliser le site *Python Tutor* avec cet exemple (Figure @fig:copy_list) :
+Vous voyez que la modification de `liste1` modifie `liste2` aussi ! Pour comprendre ce qu'il se passe, nous allons de nouveau utiliser le site *Python Tutor* avec cet exemple (Figure @fig:copy_list) :
 
 ![Copie de liste.](img/copy_list.png){ #fig:copy_list width=90% }
 
-Techniquement, Python utilise des pointeurs (comme dans le langage de programmation C) vers les mêmes objets. *Python Tutor* l'illustre avec des flèches qui partent des variables `liste1` et `liste2` et qui pointent vers la même liste. Donc, si on modifie la liste `liste1`, la liste `liste2` est modifiée de la même manière. Rappelez-vous de ceci dans vos futurs programmes car cela pourrait avoir des effets désastreux !
+Techniquement, Python utilise des pointeurs (comme dans le langage de programmation C) vers les mêmes objets. *Python Tutor* l'illustre avec des flèches qui partent des variables `liste1` et `liste2` et qui pointent vers la même liste. Donc, si on modifie la liste `liste1`, la liste `liste2` est modifiée de la même manière. Rappelez-vous de ceci dans vos futurs programmes, car cela pourrait avoir des effets désastreux !
 
 Pour éviter ce problème, il va falloir créer une copie explicite de la liste initiale. Observez cet exemple :
 
@@ -356,7 +356,7 @@ Pour éviter ce problème, il va falloir créer une copie explicite de la liste 
 [1, 2, 3]
 ```
 
-L'instruction `liste1[:]` a créé une copie « à la volée » de la liste `liste1`. Vous pouvez utiliser aussi la fonction `list()` qui renvoie explicitement une liste:
+L'instruction `liste1[:]` a créé une copie « à la volée » de la liste `liste1`. Vous pouvez utiliser aussi la fonction `list()`, qui renvoie explicitement une liste:
 
 ```python
 >>> liste1 = [1, 2, 3]
@@ -427,7 +427,7 @@ Le problème est que si on modifie un élément d'une des sous-listes :
 [[-12, 0, 0], [-12, 0, 0], [-12, 0, 0], [-12, 0, 0], [-12, 0, 0]]
 ```
 
-Vous constatez qu'il est modifié dans chaque sous-liste ! En regardant dans *Python Tutor* on voit que Python crée une référence vers la même sous-liste (Figure @fig:copy_list3) :
+Vous constatez qu'il est modifié dans chaque sous-liste ! À l'aide de *Python Tutor* on voit que Python crée une référence vers la même sous-liste (Figure @fig:copy_list3) :
 
 ![Initialisation d'une liste de listes avec l'opérateur de duplication.](img/copy_list3.png){ #fig:copy_list3 width=90% }
 
@@ -617,14 +617,12 @@ Rappel : la séquence complémentaire inverse doit être « inversée ». Par ex
 
 ### Doublons
 
-Soit la liste de nombres `liste = [5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]`.
-
-À partir de `liste`, créez une nouvelle liste sans les doublons, triez-la et affichez-la.
+Soit la liste de nombres `liste1 = [5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]`. À partir de `liste1`, créez une nouvelle liste sans les doublons, triez-la et affichez-la.
 
 
 ### Séquence d'ADN aléatoire 2
 
-Créez une fonction `seq_alea_2()` qui prend comme argument un entier et quatre *floats* représentant respectivement la longueur de la séquence et les pourcentages de chacune des quatre bases A, T, G et C. La fonction générera aléatoirement une séquence d'ADN qui prend en compte les contraintes fournies en arguments et renverra la séquence sous forme d'une chaîne de caractères.
+Créez une fonction `seq_alea_2()` qui prend comme argument un entier et quatre *floats*, représentant respectivement la longueur de la séquence et les pourcentages de chacune des quatre bases A, T, G et C. La fonction générera aléatoirement une séquence d'ADN qui prend en compte les contraintes fournies en arguments et renverra la séquence sous forme d'une chaîne de caractères.
 
 Utilisez cette fonction pour générer aléatoirement une séquence d'ADN de 50 bases contenant 10 % de A, 30 % de T, 50 % de G et 10 % de C.
 
