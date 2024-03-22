@@ -2,7 +2,7 @@
 
 ## Préambule
 
-Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3 *Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3/library/string.html).
+Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3~*Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3/library/string.html).
 
 
 ## Chaînes de caractères et listes
@@ -107,13 +107,13 @@ Que signifie le `f` que l'on accole aux guillements de la chaîne de caractères
 
 open-box-rem
 
-Un *stringprefix* modifie la manière dont Python va interpréter la dite *string*. Celui-ci doit être systématiquement « collé » à la chaîne de caractères, c'est-à-dire pas d'espace entre les deux.
+Un *stringprefix* modifie la manière dont Python va interpréter la dite *string*. Celui-ci doit être systématiquement « collé » à la chaîne de caractères, c'est-à-dire sans d'espace entre les deux.
 
 close-box-rem
 
 Il existe différents *stringprefixes* en Python, nous vous montrons ici les deux qui nous apparaissent les plus importants.
 
-- Le préfixe `r` mis pour *raw string* qui force la non-interprétation des caractères spéciaux :
+- Le préfixe `r` mis pour *raw string*, qui force la non-interprétation des caractères spéciaux :
 
 ```python
 >>> s = "Voici un retour à la ligne\nEt là une autre ligne"
@@ -129,11 +129,11 @@ Et là une autre ligne
 Voici un retour à la ligne\nEt là une autre ligne
 ```
 
-L'ajout du `r` va forcer Python à ne pas interpréter le `\n` comme un retour à la ligne, mais comme un *backslash* littéral suivi d'un *n*. Quand on demande à l'interpréteur d'afficher cette chaîne de caractères, celui-ci met deux *backslashes* pour signifier qu'il s'agit d'un *backslash* littéral (le premier échappe le second). Finalement, l'utilisation de la syntaxe `r"Voici un retour à la ligne\nEt là une autre ligne"` renvoie une chaîne de caractères normale, puisqu'on voit ensuite que le `r` à disparu lorsqu'on demande à Python d'afficher le contenu de la variable `s`. Comme dans `var = 2 + 2`, d'abord Python évalue `2 + 2` et c'est ce résultat qui est affecté à la variable `var`. Enfin, on notera que seule l'utilisation du `print()` mène à l'interprétation des caractères spéciaux comme `\n`, comme expliqué dans la rubrique précédente.
+L'ajout du `r` va forcer Python à ne pas interpréter le `\n` comme un retour à la ligne, mais comme un *backslash* littéral suivi d'un *n*. Quand on demande à l'interpréteur d'afficher cette chaîne de caractères, celui-ci met deux *backslashes* pour signifier qu'il s'agit d'un *backslash* littéral (le premier échappe le second). Finalement, l'utilisation de la syntaxe `r"Voici un retour à la ligne\nEt là une autre ligne"` renvoie une chaîne de caractères normale, puisqu'on voit ensuite que le `r` a disparu lorsqu'on demande à Python d'afficher le contenu de la variable `s`. Comme dans `var = 2 + 2`, d'abord Python évalue `2 + 2`. Puis ce résultat est affecté à la variable `var`. Enfin, on notera que seule l'utilisation du `print()` mène à l'interprétation des caractères spéciaux comme `\n`, comme expliqué dans la rubrique précédente.
 
 Les caractères spéciaux non interprétés dans les *raw strings* sont de manière générale tout ce dont le *backslash* modifie la signification, par exemple un `\n`, un `\t`, etc.
 
-- Le préfixe `f` mis pour *formatted string* qui met en place l'écriture formattée comme vue au chapitre 3 *Affichage* :
+- Le préfixe `f` mis pour *formatted string*, qui met en place l'écriture formattée comme vue au chapitre 3 *Affichage* :
 
 ```python
 >>> animal = "renard"
@@ -175,7 +175,7 @@ Voici quelques [méthodes](https://docs.python.org/fr/3/library/string.html) sp�
 'tigre'
 ```
 
-Les méthodes `.lower()` et `.upper()` renvoient un texte en minuscule et en majuscule respectivement. On remarque que l'utilisation de ces méthodes n'altère pas la chaîne de caractères de départ mais renvoie une chaîne de caractères transformée.
+Les méthodes `.lower()` et `.upper()` renvoient un texte en minuscule et en majuscule respectivement. On remarque que l'utilisation de ces méthodes n'altère pas la chaîne de caractères de départ, mais renvoie une chaîne de caractères transformée.
 
 Pour mettre en majuscule la première lettre seulement, vous pouvez faire :
 
@@ -307,12 +307,12 @@ La méthode `.strip()` enlève les espaces situés sur les bords de la chaîne d
 'fonctionne avec les tabulations et les retours à la ligne'
 ```
 
-La méthode `.strip()` est très pratique quand on lit un fichier et qu'on veut se débarrasser des retours à la ligne.
+Cette méthode est utile pour se débarrasser des retours à la ligne quand on lit un fichier.
 
 
 ## Extraction de valeurs numériques d'une chaîne de caractères
 
-Une tâche courante en Python est de lire une chaîne de caractères (provenant par exemple d'un fichier), d'extraire des valeurs de cette chaîne de caractères pour ensuite les manipuler.
+Une tâche courante en Python est de lire une chaîne de caractères (provenant par exemple d'un fichier), d'en extraire des valeurs pour ensuite les manipuler.
 
 On considère par exemple la chaîne de caractères `chaine1` :
 
@@ -322,7 +322,7 @@ On considère par exemple la chaîne de caractères `chaine1` :
 
 On souhaite extraire les valeurs `3.4` et `17.2` pour ensuite les additionner.
 
-Dans un premier temps, on découpe la chaîne de caractères avec la méthode `.split()` :
+D'abord, on découpe la chaîne de caractères avec la méthode `.split()` :
 
 ```python
 >>> liste1 = chaine1.split()
@@ -429,7 +429,7 @@ False
 
 ## Conversion d'une liste de chaînes de caractères en une chaîne de caractères
 
-On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *float* et chaîne de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est particulière puisqu'elle fait appelle à la méthode `.join()`.
+On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *float* et chaîne de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est moins intuitive. Elle fait appelle à la méthode `.join()` :
 
 ```python
 >>> seq = ["A", "T", "G", "A", "T"]
@@ -443,7 +443,7 @@ On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *
 'ATGAT'
 ```
 
-Les éléments de la liste initiale sont concaténés les uns à la suite des autres et intercalés par un séparateur qui peut être n'importe quelle chaîne de caractères. Ici, on a utilisé un tiret, un espace et rien (une chaîne de caractères vide).
+Les éléments de la liste initiale sont concaténés les uns à la suite des autres et intercalés par un séparateur, qui peut être n'importe quelle chaîne de caractères. Ici, on a utilisé un tiret, un espace et rien (une chaîne de caractères vide).
 
 Attention, la méthode `.join()` ne s'applique qu'à une liste de chaînes de caractères.
 
@@ -508,7 +508,7 @@ Par exemple, si on souhaite mettre une majuscule à tous les mots d'une chaîne 
 
 On a créé deux variables intermédiaires `message1` et `message2` pour stocker les chaînes de caractères modifiées par les méthodes `.title()` et `.replace()`.
 
-Il est possible de faire la même chose en une seule ligne en utilisant le chaînage de méthodes ou *method chaining*  :
+Il est possible de faire la même chose en une seule ligne, en utilisant le chaînage de méthodes ou *method chaining*  :
 
 ```python
 >>> message = "salut patrick salut pierre"
@@ -608,12 +608,12 @@ close-box-adv
 
 Soit la séquence d'ADN `ATATACGGATCGGCTGTTGCCTGCGTAGTAGCGT`. On souhaite calculer la fréquence de chaque base A, T, C et G dans cette séquence et afficher le résultat à l'écran.
 
-Créez pour cela une fonction `calc_composition()` à laquelle vous passez en argument votre séquence d'ADN sous forme d'une chaîne de caractères et qui renvoie une liste de quatre *floats* indiquant respectivement la fréquence en bases `A`, `T`, `G` et `C`.
+Créez pour cela une fonction `calc_composition()` à laquelle vous passez en argument votre séquence d'ADN sous forme d'une chaîne de caractères, et qui renvoie une liste de quatre *floats* indiquant respectivement la fréquence en bases `A`, `T`, `G` et `C`.
 
 
 ### Conversion des acides aminés du code à trois lettres au code à une lettre
 
-Créez une fonction `convert_3_lettres_1_lettre()` qui prend en argument une chaîne de caractères avec des acides aminés en code à trois lettres et renvoie une chaîne de caractères avec les acides aminés en code à 1 lettre. Vous pourrez tenter d'utiliser le *method chaining* dans cette fonction.
+Créez une fonction `convert_3_lettres_1_lettre()` qui prend en argument une chaîne de caractères avec des acides aminés en code à trois lettres et renvoie une chaîne de caractères avec les acides aminés en code à une lettre. Vous pourrez tenter d'utiliser le *method chaining* dans cette fonction.
 
 Utilisez cette fonction pour convertir la séquence protéique `ALA GLY GLU ARG TRP TYR SER GLY ALA TRP`.
 
@@ -638,9 +638,11 @@ La [distance de Hamming](https://fr.wikipedia.org/wiki/Distance_de_Hamming) mesu
 
 Créez la fonction `dist_hamming()`  qui prend en argument deux chaînes de caractères et qui renvoie la distance de Hamming (sous la forme d'un entier) entre ces deux chaînes de caractères.
 
-Calculez la distance de Hamming entre les séquences  
-`AGWPSGGASAGLAIL` et `IGWPSAGASAGLWIL`  
-puis entre les séquences  
+Calculez la distance de Hamming entre les séquences :
+`AGWPSGGASAGLAIL` et `IGWPSAGASAGLWIL`
+
+puis entre les séquences :
+
 `ATTCATACGTTACGATT` et `ATACTTACGTAACCATT`.
 
 
@@ -655,13 +657,13 @@ Susan,3,8,10
 [...]
 ```
 
-Créez un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Jason", "geo": 17, "sport": 3, "anglais": 1}, ...]`. Utilisez si possible la fonction la fonction `map()` pour convertir les nombres lus dans le fichier en entier. Réalisez ensuite une boucle sur cette liste de dictionnaires, et affichez le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et de géographie pour tous les étudiants.
+Créez un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Jason", "geo": 17, "sport": 3, "anglais": 1}, ...]`. Utilisez si possible la fonction la fonction `map()` pour convertir les nombres lus dans le fichier en entiers. Réalisez ensuite une boucle sur cette liste de dictionnaires, et affichez le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et de géographie pour tous les étudiants.
 
 ### Palindrome
 
 Un palindrome est un mot ou une phrase dont l'ordre des lettres reste le même si on le lit de gauche à droite ou de droite à gauche. Par exemple, « ressasser » et « engage le jeu que je le gagne » sont des palindromes.
 
-Créez la fonction `est_palindrome()` qui prend en argument une chaîne de caractères et qui renvoie un booléen (`True` si l'argument est un palindrome, `False` si ce n'est pas le cas). Dans le programme principal, affichez `xxx est un palindrome` si la fonction `est_palindrome()` renvoie `True` et `xxx n'est pas un palindrome` sinon. Pensez à vous débarrasser au préalable des majuscules, des signes de ponctuations et des espaces.
+Créez la fonction `est_palindrome()` qui prend en argument une chaîne de caractères et qui renvoie un booléen (`True` si l'argument est un palindrome, `False` si ce n'est pas le cas). Dans le programme principal, affichez `xxx est un palindrome` si la fonction `est_palindrome()` renvoie `True` sinon `xxx n'est pas un palindrome`. Pensez à vous débarrasser au préalable des majuscules, des signes de ponctuations et des espaces.
 
 Testez ensuite si les expressions suivantes sont des palindromes :
 
@@ -686,9 +688,9 @@ close-box-adv
 
 Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, « coucou » est composable à partir de « uocuoceokzefhu ».
 
-Écrivez la fonction `est_composable()` qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères) et qui renvoie `True` si le mot est composable à partir de la séquence, sinon `False`.
+Écrivez la fonction `est_composable()`, qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères), et qui renvoie `True` si le mot est composable à partir de la séquence, sinon `False`.
 
-Dans le programme principal, créez une liste de tuples contenant les couples mot / séquence (de la forme `[('mot1', 'sequence1'), ...]`. Faites ensuite une boucle sur tous les couples mot / séquence, et à chaque itération appelez la fonction `est_composable()`. Affichez enfin `Le mot xxx est composable à partir de yyy` si le mot (`xxx`) est composable à partir de la séquence de lettres (`yyy`) ou `Le mot xxx n'est pas composable à partir de yyy` sinon.
+Dans le programme principal, créez une liste de tuples contenant les couples mot / séquence (de la forme `[('mot1', 'sequence1'), ...]`. Faites ensuite une boucle sur tous les couples mot / séquence, et  appelez à chaque itération la fonction `est_composable()`. Affichez enfin `Le mot xxx est composable à partir de yyy` si le mot `xxx` est composable à partir de la séquence de lettres (`yyy`) sinon `Le mot xxx n'est pas composable à partir de yyy`.
 
 Testez cette fonction avec les mots et les séquences suivantes :
 
@@ -708,9 +710,9 @@ Créez la fonction `get_alphabet()` qui utilise une boucle et la fonction `chr()
 
 Un [pangramme](http://fr.wikipedia.org/wiki/Pangramme) est une phrase comportant au moins une fois chaque lettre de l'alphabet. Par exemple, « Portez ce vieux whisky au juge blond qui fume » est un pangramme.
 
-Créez la fonction `est_pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères (`xxx`) et qui renvoie `True` si la phrase est un pangramme, sinon `False`.
+Créez la fonction `est_pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères `xxx`, et qui renvoie `True` si la phrase est un pangramme sinon `False`.
 
-Le programme affichera `xxx est un pangramme` si cette chaîne de caractères est un pangramme ou `xxx n'est pas un pangramme` sinon. Pensez à vous débarrasser des majuscules le cas échéant.
+Le programme affichera au final `xxx est un pangramme` ou `xxx n'est pas un pangramme`. Pensez à vous débarrasser des majuscules le cas échéant.
 
 Testez ensuite si les expressions suivantes sont des pangrammes :
 
@@ -723,7 +725,7 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 
 On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [`NC_001133.gbk`](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk).
 
-Le format GenBank est présenté en détails dans l'annexe A *Quelques formats de données en biologie*. Pour cet exercice, vous devez savoir que la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par les caractères `//` :
+Le format GenBank est présenté en détail dans l'annexe A *Quelques formats de données en biologie*. Pour cet exercice, vous devez savoir que la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par les caractères `//` :
 
 ```text
 ORIGIN
@@ -735,7 +737,7 @@ ORIGIN
 //
 ```
 
-Pour extraire la séquence d'ADN, nous vous proposons d'utiliser un algorithme de « drapeau », c'est-à-dire une variable qui sera à `True` lorsqu'on lira les lignes contenant la séquence et à `False` pour les autres lignes.
+Pour extraire la séquence d'ADN, nous vous proposons d'utiliser un algorithme de «~drapeau », c'est-à-dire une variable qui sera à `True` lorsqu'on lira les lignes contenant la séquence et à `False` pour les autres lignes.
 
 Créez une fonction `lit_genbank()` qui prend comme argument le nom d'un fichier GenBank sous la forme d'une chaîne de caractères, lit la séquence dans le fichier GenBank et la renvoie sous la forme d'une chaîne de caractères.
 
@@ -794,7 +796,7 @@ Créez ensuite la fonction `calcule_distance()` qui prend en argument la liste r
 
 `numero_calpha_1 numero_calpha_2 distance`
 
-Les numéros des carbones alpha seront affichés sur 2 caractères. La distance sera affichée avec deux chiffres après la virgule. Voici un exemple avec les premiers carbones alpha :
+Les numéros des carbones alpha seront affichés sur deux caractères. La distance sera affichée avec deux chiffres après la virgule. Voici un exemple avec les premiers carbones alpha :
 
 ```text
  1  2 3.80
@@ -805,7 +807,7 @@ Les numéros des carbones alpha seront affichés sur 2 caractères. La distance 
 
 Modifiez maintenant la fonction `calcule_distance()` pour qu'elle affiche à la fin la moyenne des distances.
 
-La distance inter-carbone alpha dans les protéines est très stable et de l'ordre de 3,8 angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine barstar. Repérez une valeur surprenante. Essayez de l'expliquer.
+La distance inter-carbone alpha dans les protéines est très stable et de l'ordre de 3,8~angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine barstar. Repérez une valeur surprenante. Essayez de l'expliquer.
 
 open-box-adv
 
@@ -815,7 +817,7 @@ close-box-adv
 
 ### Compteur de gènes dans un fichier GenBank
 
-Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank [NC_001133.gbk](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk) (chromosome I de la levure Saccharomyces cerevisiae) et afficher la longueur de chaque gène. Pour cela, il faudra récupérer les lignes décrivant la position des gènes. Voici par exemple les cinq premières lignes concernées dans le fichier NC_001133.gbk:
+Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank [NC_001133.gbk](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk) (chromosome I de la levure *Saccharomyces cerevisiae*) et afficher la longueur de chaque gène. Pour cela, il faudra récupérer les lignes décrivant la position des gènes. Voici par exemple les cinq premières lignes concernées dans le fichier NC_001133.gbk:
 
 ```text
      gene            complement(<1807..>2169)
