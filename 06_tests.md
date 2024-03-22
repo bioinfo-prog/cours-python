@@ -73,7 +73,7 @@ Dans cet exemple, Python teste la première condition puis, si et seulement si e
 
 De nouveau, faites bien attention à l'indentation ! Vous devez être très rigoureux sur ce point. Pour vous en convaincre, exécutez ces deux exemples de code :
 
-**Code 1**
+### Code 1 {.unnumbered}
 
 ```python
 nombres = [4, 5, 6]
@@ -90,9 +90,7 @@ Le test est vrai
 car la variable nb vaut 5
 ```
 
-\newpage
-
-**Code 2**
+### Code 2 {.unnumbered}
 
 ```python
 nombres = [4, 5, 6]
@@ -116,7 +114,7 @@ Les deux codes pourtant très similaires produisent des résultats très différ
 
 ## Tests multiples
 
-Les tests multiples permettent de tester plusieurs conditions en même temps en \hbox{utilisant} des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
+Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
 
 
 | Condition 1 | Opérateur | Condition 2 | Résultat |
