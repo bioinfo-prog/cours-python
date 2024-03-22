@@ -137,7 +137,7 @@ Les noms `*args` et `**kwargs` sont des conventions en Python, ils rappellent le
 
 close-box-adv
 
-L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *Tkinter* présenté dans le chapitre 25 (en ligne).
+L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *Fenêtres graphiques et Tkinter* présenté dans le chapitre 25 (en ligne).
 
 Enfin, il est possible d'utiliser ce mécanisme d'empaquetage / désempaquetage (*packing* / *unpacking*) dans l'autre sens :
 
