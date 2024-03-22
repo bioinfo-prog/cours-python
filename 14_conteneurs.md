@@ -485,7 +485,7 @@ Si on modifie un élément de la liste `liste1` (ligne 5) ou bien qu'on ajoute u
 
 ![Tuple contenant une liste.](img/tuple_de_listes.png){ #fig:tuple_de_listes width=90% }
 
-La liste `liste1` pointe vers le même objet que l'élément du tuple d'indice 0. Comme pour la copie de liste (par exemple `liste4 = liste5`), ceci est attendu car, par défaut, Python crée une copie par référence (voir le chapitre 12 *Plus sur les listes*). Ainsi, qu'on raisonne en tant que premier élément du tuple ou bien en tant que liste `liste1`, on pointe vers **la même liste**. Or, rappelez-vous, nous avons expliqué au début de ce chapitre que lorsqu'on modifiait un élément d'une liste, celle-ci gardait le même identifiant. C'est toujours le cas ici, même si celle-ci se trouve dans un tuple. Regardons cela :
+La liste `liste1` pointe vers le même objet que l'élément du tuple d'indice 0. Comme pour la copie de liste (par exemple `liste_b = liste_a`), ceci est attendu car, par défaut, Python crée une copie par référence (voir le chapitre 12 *Plus sur les listes*). Ainsi, qu'on raisonne en tant que premier élément du tuple ou bien en tant que liste `liste1`, on pointe vers **la même liste**. Or, rappelez-vous, nous avons expliqué au début de ce chapitre que lorsqu'on modifiait un élément d'une liste, celle-ci gardait le même identifiant. C'est toujours le cas ici, même si celle-ci se trouve dans un tuple. Regardons cela :
 
 ```python
 >>> liste1 = [1, 2, 3]
@@ -511,7 +511,7 @@ Nous confirmons ici le schéma de *Python Tutor*, c'est bien la même liste que 
 139971081980816
 ```
 
-Malgré la modification de cette liste, l'identifiant n'a toujours pas changé puisque la fonction `id()` nous renvoie le même depuis le début. Même si la liste a été modifiée « de l'intérieur », Python considère que c'est toujours la même liste, puisqu'elle n'a pas changé d'identifiant. Si au contraire on essaie de remplacer cette sous-liste par autre chose, Python renvoie une erreur :
+Malgré la modification de cette liste, l'identifiant n'a toujours pas changé puisque la fonction `id()` nous renvoie la même valeur depuis le début. Même si la liste a été modifiée « de l'intérieur », Python considère que c'est toujours la même liste, puisqu'elle n'a pas changé d'identifiant. Si au contraire on essaie de remplacer cette sous-liste par autre chose, Python renvoie une erreur :
 
 ```python
 >>> tuple1[0] = "Plif"
@@ -599,9 +599,9 @@ Les objets de type *set* représentent un autre type de conteneur qui peut se r�
 <class 'set'>
 ```
 
-Remarquez que la répétition du chiffre 5 dans la définition du *set* ligne 1 produit au final un seul chiffre ,5 car chaque élément ne peut être présent qu'une seule fois. Comme pour les dictionnaires (jusqu'à la version 3.6), les *sets* sont non ordonnés. La manière dont Python les affiche n'a pas de sens en tant que tel et peut être différente de celle utilisée lors de leur création.
+Remarquez que la répétition du chiffre 5 dans la définition du *set* ligne 1 produit finalement un seul chiffre 5, car chaque élément ne peut être présent qu'une seule fois. Comme pour les dictionnaires (jusqu'à la version 3.6), les *sets* sont non ordonnés. La manière dont Python les affiche n'a pas de sens en tant que tel et peut être différente de celle utilisée lors de leur création.
 
-Les *sets* ne peuvent contenir que des objets **hachables**. On a déjà eu le cas avec les clés de dictionnaire. Ceci optimise l'accès à chaque élément du *set*. Pour rappel, les objets hachables que nous connaissons sont les chaînes de caractères, les tuples, les entiers, les *floats*, les booléens et les *frozensets* (cf. plus bas) ; les objets non hachables que l'on connait sont les listes, les *sets* et les dictionnaires. Si on essaie tout de même de mettre une liste dans un *set*, Python renvoie une erreur :
+Les *sets* ne peuvent contenir que des objets **hachables**. On a déjà eu le cas avec les clés de dictionnaire. Ceci optimise l'accès à chaque élément du *set*. Pour rappel, les objets hachables que nous connaissons sont les chaînes de caractères, les tuples, les entiers, les *floats*, les booléens et les *frozensets* (voir plus bas). Les objets non hachables que l'on connait sont les listes, les *sets* et les dictionnaires. Si on essaie tout de même de mettre une liste dans un *set*, Python renvoie une erreur :
 
 ```python
 >>> set1 = {3, 4, "Plouf", (1, 3)}
@@ -893,7 +893,7 @@ Il est également possible de générer des *sets* de compréhension sur le mêm
 
 Le [module *collections*](https://docs.python.org/fr/3/library/collections.html) contient d'autres types de conteneurs qui peuvent se révéler utiles, c'est une véritable mine d'or ! Nous n'aborderons pas tous ces objets ici, mais nous pouvons citer tout de même certains d'entre eux si vous souhaitez aller un peu plus loin :
 
-- Les [dictionnaires ordonnés](https://docs.python.org/fr/3/library/collections.html#collections.OrderedDict), qui se comportent comme les dictionnaires classiques mais qui sont ordonnés, c'est-à-dire que si on les affiche ou on itère dessus, l'ordre sera le même que celui utilisé pour sa création. Avant la version 3.6 de Python, ces dictionnaires ordonnés avaient un intérêtn car l'ordre des dictionnaires normaux était arbitraire. Désormais, les dictionnaires normaux se comportent presque en tout point comme les dictionnaires ordonnés.
+- Les [dictionnaires ordonnés](https://docs.python.org/fr/3/library/collections.html#collections.OrderedDict), qui se comportent comme les dictionnaires classiques, mais qui sont ordonnés, c'est-à-dire que si on les affiche ou on itère dessus, l'ordre sera le même que celui utilisé pour sa création. Avant la version 3.6 de Python, ces dictionnaires ordonnés avaient un intérêt, car l'ordre des dictionnaires normaux était arbitraire. Désormais, les dictionnaires normaux se comportent presque en tout point comme les dictionnaires ordonnés.
 - Les [*defaultdicts*](https://docs.python.org/fr/3/library/collections.html#collections.defaultdict), qui génèrent des valeurs par défaut quand on demande une clé qui n'existe pas (cela évite que Python génère une erreur).
 - Les [compteurs](https://docs.python.org/fr/3/library/collections.html#collections.Counter), dont un exemple est présenté ci-dessous.
 - Les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple), que nous évoquerons au chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
@@ -924,15 +924,18 @@ Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 
 close-box-adv
 
+
 ### Séquence peptidique et dictionnaire
 
 Les numéros d'acides aminés commencent rarement à 1 dans les fichiers PDB. Créez un dictionnaire où chaque clé est un numéro de résidu de 3 à 9, et chaque valeur est un acide aminé de la séquence peptidique `SEQPEPT`. Utilisez pour cela les fonctions `dict()` et `zip()`. 
+
 
 ### Composition en acides aminés
 
 En utilisant un *set* et la méthode `.count()` des chaînes de caractères, déterminez le nombre d’occurrences de chaque acide aminé dans la séquence
 
 `AGWPSGGASAGLAILWGASAIMPGALW`.
+
 
 ### Mots de deux et trois lettres dans une séquence d'ADN
 
@@ -960,6 +963,7 @@ CCT : 2
 CTA : 5
 [...]
 ```
+
 
 ### Mots de deux lettres dans la séquence du chromosome I de *Saccharomyces cerevisiae*
 
