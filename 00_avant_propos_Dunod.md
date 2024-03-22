@@ -3,10 +3,7 @@
 
 ## Quelques mots sur l'origine de ce cours {.unnumbered}
 
-Recruté à l'université Paris Diderot en 2002, j'ai proposé dès 2003 d'enseigner le Python en master de bioinformatique. J'ai donc créé un premier site web car je trouvais ce format pratique pour les étudiants. Le succès a été au rendez-vous et les étudiants se sont rapidement appropriés ce langage tellement puissant et pratique dans le monde de la bioinformatique. Quelle ne fut pas ma surprise lorsque je me rendis compte du bon référencement de ce cours dans les moteurs de recherche, sans aucune action de ma part. Il était bel et bien devenu une ressource en français, régulièrement consultée par les internautes. En 2007, Pierre Poulain m'a rejoint pour m'aider à développer le cours. À deux, nous avons pu y ajouter de nombreux chapitres, permettant de garder un document à jour, et d'y ajouter les dernières tendances. L'augmentation de la masse de données à traiter dans la science moderne rend l'apprentissage d'un langage comme Python totalement incontournable. Ainsi, arrivé en 2024, notre cours a atteint une taille conséquente et nous en sommes à la deuxième édition de ce livre. Pierre Poulain et moi-même espérons qu'il sera utile à un maximum de personnes, scientifiques ou non.
-
-Patrick Fuchs
-
+La toute première version de ce cours de Python a été créée en 2003 par Patrick Fuchs, dans le cadre du master de biologie informatique de l'université Paris Diderot - Paris 7. En 2007, Pierre Poulain s'est associé à Patrick Fuchs pour continuer le développement du cours. Bien que destiné en priorité aux étudiants de l'université Paris Diderot, le cours a toujours été proposé sous licence libre et accessible par tout un chacun sur internet. Il est rapidement devenu une ressource importante dans le monde francophone. En 2017, le cours ayant atteint une taille conséquente, l'idée d'en faire un livre a germé. Une première version a ainsi été publiée en 2019 aux éditions Dunod. Cinq ans plus tard, le langage Python ayant beaucoup évolué, il est apparu intéressant d'en proposer une deuxième édition que vous tenez actuellement entre les mains. Nous espérons que cet ouvrage sera utile à un maximum de personnes, scientifiques ou non.
 
 ## Contenu {.unnumbered}
 
@@ -24,10 +21,14 @@ Afin de promouvoir le partage des connaissances et le logiciel libre, nos droits
 
 Nous espérons que vous aurez autant de plaisir à apprendre Python que nous en avons à l'enseigner, tous les ans, avec la même ardeur !
 
+## Nouveautés par rapport à la première édition {.unnumbered}
+
+En 2024, au vu de l'importance de l'utilisation de Python en science des données, nous avons décidé de remanier les chapitres par rapport à la première édition. Nous avons donc scinder l'ancien chapitre *Quelques modules d'intérêt en bioinformatique* en autant de chapitres différents : chapitre 18 *Jupyter et ses notebooks*, chapitre 19 *Module Biopython*, chapitre 20 *Module NumPy*, chapitre 21 *Module Matplotlib* et chapitre 22 *Module Pandas*. Ainsi les notions introduites sur ces modules essentiels sont plus approfondis et représentent un bon point de départ pour aborder la gestion de données en Python. Les bases du langage sont bien sûr toujours présentes, mais nous avons également approfondi les notions de conteneurs (chapitre 14), et introduit les dictionnaires et les tuples plus en amont (chapitre 8). L'espace n'étant pas infini, l'introduction sur la programmation orientée objet a été raccourcie (chapitre 23). Toutefois, comme dit ci-dessus, la suite sur la programmation orientée objet (chapitre 24) ainsi que ce qui traite des fenêtres graphiques et du module Tkinter (chapitre 25) sont disponibles sur notre site en ligne (<https://python.sdv.u-paris.fr>).
+
 ## Remerciements {.unnumbered}
 
-Merci également à tous les contributeurs, occasionnels ou réguliers : Jennifer Becq, Benoist Laurent, Hubert Santuz, Virginie Martiny, Romain Laurent, Benjamin Boyer, Jonathan Barnoud, Amélie Bâcle, Thibault Tubiana, Romain Retureau, Catherine Lesourd, Philippe Label, Rémi Cuchillo, Cédric Gageat, Philibert Malbranche, Mikaël Naveau, Alexandra Moine-Franel, et plus généralement les promotions des masters de biologie informatique et  *in silico drug design*, ainsi que du diplôme universitaire en bioinformatique intégrative.
+Les auteurs remercient tous les contributeurs, occasionnels ou réguliers, entre autre : Jennifer Becq, Benoist Laurent, Hubert Santuz, Virginie Martiny, Romain Laurent, Benjamin Boyer, Jonathan Barnoud, Amélie Bâcle, Thibault Tubiana, Romain Retureau, Catherine Lesourd, Philippe Label, Rémi Cuchillo, Cédric Gageat, Philibert Malbranche, Mikaël Naveau, Alexandra Moine-Franel, Dominique Tinel, et plus généralement les promotions des masters de biologie informatique et  *in silico drug design*, ainsi que du diplôme universitaire en bioinformatique intégrative.
 
-Nous remercions tout particulièrement Sander Nabuurs pour la première version de ce cours remontant à 2003, Denis Mestivier pour les idées de certains exercices et Philip Guo pour son site[*Python Tutor*](http://pythontutor.com/). 
+Nous remercions tout particulièrement Sander Nabuurs pour la première version de ce cours remontant à 2003, Denis Mestivier pour les idées de certains exercices et Philip Guo pour son site[*Python Tutor*](http://pythontutor.com/).
 
-Enfin, merci à vous tous, les curieux de Python, qui avez été nombreux à nous envoyer des retours sur ce cours, à nous suggérer des améliorations et à nous signaler des coquilles.
+Enfin, merci à vous tous, les curieux de Python, qui avez été nombreux à nous envoyer des retours sur ce cours, à nous suggérer des améliorations et à nous signaler des coquilles. Cela rend le cours vivant et dynamique, continuez comme ça !

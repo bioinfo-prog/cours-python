@@ -11,28 +11,44 @@ Dans le chapitre 10, nous avons vu des fonctions qui étaient appelées depuis l
 
 ```python
 # Définition des fonctions.
-def polynome(x):
-    return (x**2 - 2*x + 1)
+def est_pair(x):
+    if x % 2 == 0:
+        return True
+    else:
+        return False
 
-def calc_vals(debut, fin):
-    liste_vals = []
-    for x in range(debut, fin + 1):
-        liste_vals.append(polynome(x))
-    return liste_vals
-
+def calc_somme_nb_pairs(debut, fin):
+    somme = 0
+    for nombre in range(debut, fin+1):
+        if est_pair(nombre):
+            somme += nombre
+        
 # Programme principal.
-print(calc_vals(-5, 5))
+somme = calc_somme_nb_pairs(1, 5)
+print(f"La somme des nombres de 1 à 5 est {somme}")
 ```
 
-Nous appelons depuis le programme principal la fonction `calc_vals()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `polynome()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `polynome()` est exécutée dans la Figure @fig:appel_fct_ds_fct.
+Nous appelons depuis le programme principal la fonction `calc_somme_nb_pairs()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `est_pair()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `calc_somme_nb_pairs()` est exécutée dans la Figure @fig:appel_fct_ds_fct.
 
 ![Appel d'une fonction dans une fonction.](img/appel_fct_ds_fct.png){ #fig:appel_fct_ds_fct width=90% }
 
-L'espace mémoire alloué à `polynome()` est grisé, indiquant que cette fonction est en cours d'exécution. La fonction appelante `calc_vals()` est toujours là (sur un fond blanc) car son exécution n'est pas terminée. Elle est en quelque sorte *figée* dans le même état qu'avant l'appel de `polynome()`, et on pourra ainsi noter que ses variables *locales* (`debut`, `fin`, `liste_vals` et `x`) sont toujours là.
-De manière générale, les variables *locales* d'une fonction ne seront détruites que lorsque l'exécution de celle-ci sera terminée. Dans notre exemple, les variables *locales* de `calc_vals()` ne seront détruites que lorsque la boucle sera terminée et que la liste `liste_vals` sera retournée au programme principal. Enfin, notez bien que la fonction `calc_vals()` appelle la fonction `polynome()` à chaque itération de la boucle.
+L'espace mémoire alloué à `est_pair()` est grisé, indiquant que cette fonction est en cours d'exécution. La fonction appelante `calc_somme_nb_pairs()` est toujours là (sur un fond blanc) car son exécution n'est pas terminée. Elle est en quelque sorte *figée* dans le même état qu'avant l'appel de `est_pair()`, et on pourra ainsi noter que ses variables *locales* (`debut`, `fin`) sont toujours là.
+De manière générale, les variables *locales* d'une fonction ne seront détruites que lorsque l'exécution de celle-ci sera terminée. Dans notre exemple, les variables *locales* de `calc_somme_nb_pairs()` ne seront détruites que lorsque la boucle sera terminée et que la variable `somme` sera retournée au programme principal. Enfin, notez bien que la fonction `calc_somme_nb_pairs()` appelle la fonction `est_pair()` à chaque itération de la boucle.
 
 Ainsi, le programmeur est libre de faire tous les appels qu'il souhaite. Une fonction peut appeler une autre fonction, cette dernière peut appeler une autre fonction et ainsi de suite (et autant de fois qu'on le veut). Une fonction peut même s'appeler elle-même, cela s'appelle une fonction *récursive* (voir la rubrique suivante). Attention toutefois à retrouver vos petits si vous vous perdez dans les appels successifs !
 
+open-box-adv
+
+Dans la fonction `est_pair()` on teste si le nombre est pair et on renvoie `True`, sinon on renvoie `False`. Cette fonction pourrait être écrite de manière plus compacte :
+
+```python
+def est_pair(x):
+    return x % 2
+```
+
+Comme l'expression `x % 2` renvoie un booléen directement, elle revient au même que le `if` / `else` ci-dessus. C'est bien sûr cette dernière notation plus compacte que nous vous recommandons.
+
+close-box-adv
 
 ## Fonctions récursives
 
@@ -42,15 +58,16 @@ Pour les débutants, vous pouvez passer cette rubrique.
 
 close-box-adv
 
-Une fonction récursive est une fonction qui s'appelle elle-même. Les fonctions récursives permettent d'obtenir une efficacité redoutable dans la résolution de certains algorithmes comme le [tri rapide](https://fr.wikipedia.org/wiki/Tri_rapide) (en anglais *quicksort*).
+Une fonction récursive est une fonction qui s'appelle elle-même. Les fonctions récursives permettent d'obtenir une efficacité redoutable dans la résolution de certains algorithmes, comme le [tri rapide](https://fr.wikipedia.org/wiki/Tri_rapide) (en anglais, *quicksort*).
 
 Oublions la recherche d'efficacité pour l'instant et concentrons-nous sur l'exemple de la fonction mathématique factorielle. Nous vous rappelons que la factorielle s'écrit avec un `!` et se définit de la manière suivante :
 
 $$
 \begin{split}
-3! = & 3 \times 2 \times 1 = 6 \\
-4! = & 4 \times 3 \times 2 \times 1 = 30 \\
-n! = & n \times n - 1 \times \ldots \times 2 \times 1
+3! = & \ 3 \times 2 \times 1 = 6 \\
+4! = & \ 4 \times 3 \times 2 \times 1 = 30 \\
+\ldots & \\
+n! = & \ n \times n - 1 \times \ldots \times 2 \times 1
 \end{split}
 $$
 
@@ -67,11 +84,11 @@ def calc_factorielle(nb):
 print(calc_factorielle(4))
 ```
 
-Pas très facile à comprendre, n'est-ce pas ? À nouveau, nous nous aidons de *Python Tutor* pour visualiser ce qui se passe dans la figure @fig:fct-recursive-factorielle (nous vous conseillons bien sûr de tester vous-même cet exemple) :
+Pas si facile à comprendre, n'est-ce pas ? À nouveau, aidons nous de *Python Tutor* pour visualiser ce qui se passe dans la figure @fig:fct-recursive-factorielle (nous vous conseillons bien sûr de tester vous-même cet exemple) :
 
 ![Fonction récursive : factorielle.](img/fct_recursive_factorielle.png){ #fig:fct-recursive-factorielle width=90% }
 
-Ligne 8, on appelle la fonction `calc_factorielle()` en passant comme argument l'entier 4. Dans la fonction, la variable locale qui récupère cet argument est `nb`. Au sein de la fonction, celle-ci se rappelle elle-même (ligne 5), mais cette fois-ci en passant la valeur 3. Au prochain appel, ce sera avec la valeur 2, puis finalement 1. Dans ce dernier cas, le test `if nb == 1:` est vrai et l'instruction `return 1` sera exécutée. À ce moment précis de l'exécution, les appels successifs forment une sorte de *pile* (voir la figure @fig:fct-recursive-factorielle). La valeur 1 sera ainsi renvoyée au niveau de l'appel précédent, puis le résultat $2 \times 1 = 2$ (où 2 correspond à `nb` et 1 provient de `calc_factorielle(nb - 1)` soit 1) va être renvoyé à l'appel précédent, puis $3 \times 2 = 6$ (où 3 correspond à `nb` et 2 provient de `calc_factorielle(nb - 1)` soit 2) va être renvoyé à l'appel précédent, pour finir par $4 \times 6 = 24$ (où 4 correspond à `nb` et 6 provient de `calc_factorielle(nb - 1)` soit 6), soit la valeur de $4!$. Les appels successifs vont donc se « dépiler » et nous reviendrons dans le programme principal.
+*Ligne 8*, on appelle la fonction `calc_factorielle()` en passant comme argument l'entier 4. Dans la fonction, la variable locale qui récupère cet argument est `nb`. Au sein de la fonction, celle-ci se rappelle elle-même (*ligne 5*), mais cette fois-ci en passant la valeur 3. Au prochain appel, ce sera avec la valeur 2, puis finalement 1. Dans ce dernier cas, le test `if nb == 1:` est vrai et l'instruction `return 1` sera exécutée. À ce moment précis de l'exécution, les appels successifs forment une sorte de *pile* (voir la figure @fig:fct-recursive-factorielle). La valeur 1 sera ainsi renvoyée au niveau de l'appel précédent, puis le résultat $2 \times 1 = 2$ (où 2 correspond à `nb` et 1 provient de `calc_factorielle(nb - 1)`, soit 1) va être renvoyé à l'appel précédent, puis $3 \times 2 = 6$ (où 3 correspond à `nb` et 2 provient de `calc_factorielle(nb - 1)`, soit 2) va être renvoyé à l'appel précédent, pour finir par $4 \times 6 = 24$ (où 4 correspond à `nb` et 6 provient de `calc_factorielle(nb - 1)`, soit 6), soit la valeur de $4!$. Les appels successifs vont donc se « dépiler » et nous reviendrons dans le programme principal.
 
 Même si les fonctions récursives peuvent être ardues à comprendre, notre propos est ici de vous illustrer qu'une fonction qui en appelle une autre (ici il s'agit d'elle-même) reste « figée » dans le même état, jusqu'à ce que la fonction appelée lui renvoie une valeur.
 
@@ -215,7 +232,7 @@ D'autres suggestions sur l'envoi de liste dans une fonction vous sont données d
 
 ## Règle LGI
 
-Lorsque Python rencontre une variable, il va traiter la résolution de son  nom avec des priorités particulières. D'abord il va regarder si la variable est **locale**, puis si elle n'existe pas localement, il vérifiera si elle est **globale** et enfin si elle n'est pas globale, il testera si elle est **interne** (par exemple la fonction `len()` est considérée comme une fonction interne à Python, elle existe à chaque fois que vous lancez Python). On appelle cette règle la règle **LGI** pour locale, globale, interne. En voici un exemple :
+Lorsque Python rencontre une variable, il va traiter la résolution de son  nom avec des priorités particulières. D'abord il va regarder si la variable est **locale**, puis si elle n'existe pas localement, il vérifiera si elle est **globale** et enfin si elle n'est pas globale, il testera si elle est **interne** (par exemple la fonction `len()` est considérée comme une fonction interne à Python, elle existe à chaque fois que vous lancez Python). On appelle cela la règle **LGI** pour locale, globale, interne. En voici un exemple :
 
 ```python
 >>> def ma_fonction():
@@ -233,11 +250,11 @@ Dans la fonction, `x` a pris la valeur qui lui était définie localement en pri
 
 open-box-adv
 
-Même si Python peut reconnaître une variable ayant le même nom que ses propres fonctions ou variables internes, évitez de les utiliser car ceci rendra votre code confus !
+Même si Python accepte qu'une variable ait le même nom que ses propres fonctions ou variables internes, évitez d'utiliser de tels noms, car ceci rendra votre code confus !
 
 close-box-adv
 
-De manière générale la règle LGI découle de la manière dont Python gère ce que l'on appelle « les espaces de noms ». C'est cette gestion qui définit la portée (visibilité) de chaque variable. Nous en parlerons plus longuement dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
+De manière générale, la règle LGI découle de la manière dont Python gère ce que l'on appelle « les espaces de noms ». C'est cette gestion qui définit la portée (visibilité) de chaque variable. Nous en parlerons plus longuement dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
 
 ## Recommandations
 
@@ -286,7 +303,7 @@ ajoute_un(liste_notes)
 print(liste_notes)
 ```
 
-Cela reste toutefois moins intuitif car il n'est pas évident de comprendre que la liste est modifiée dans la fonction en lisant la ligne 7. Dans un tel cas, il serait essentiel d'indiquer dans la documentation de la fonction que la liste est modifiée « sur place »  (*in place* en anglais) dans la fonction. Vous verrez dans le chapitre 15 *Création de modules* comment documenter vos fonctions.
+Cela reste toutefois moins intuitif, car il n'est pas évident de comprendre que la liste est modifiée dans la fonction en lisant la ligne 7. Dans un tel cas, il serait essentiel d'indiquer dans la documentation de la fonction que la liste est modifiée « sur place »  (*in place* en anglais) dans la fonction. Vous verrez dans le chapitre 15 *Création de modules* comment documenter vos fonctions.
 
 open-box-adv
 
@@ -311,7 +328,7 @@ Vous connaissez maintenant les fonctions sous tous leurs angles. Comme indiqué 
 
 open-box-adv
 
-pour le second exercice, créez un script puis exécutez-le dans un *shell*.
+Pour le second exercice, créez un script puis exécutez-le dans un *shell*.
 
 close-box-adv
 
@@ -379,7 +396,7 @@ print(x)
 
 Créez une fonction `ajoute_nb_alea()` qui prend en argument une liste et qui ajoute un nombre entier aléatoire entre -10 et 10 (inclus) à chaque élément. La fonction affichera à l'écran cette nouvelle liste modifiée.
 
-Dans le programme principal, on effectuera les actions suivantes :
+Dans le programme principal, effectuez les actions suivantes :
 
 1. Créez une variable `ma_liste = [7, 3, 8, 4, 5, 1, 9, 10, 2, 6]`.
 2. Affichez `ma_liste` à l'écran.

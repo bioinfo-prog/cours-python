@@ -376,7 +376,7 @@ La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un
 
 open-box-rem
 
-La fonction `map()` prend deux arguments. Le second est un objet itérable, souvent une liste comme dans notre exemple. Le premier argument est le nom d'une fonction qu'on souhaite appliquer à chaque élément de la liste, mais sans les parenthèses (ici `int` et non pas `int()`). Une fonction passée en argument d'une autre fonction est appelée [fonction de rappel](https://fr.wikipedia.org/wiki/Fonction_de_rappel) ou *callback* en anglais. Nous reverrons cette notion dans le chapitre 25 *Tkinter* (en ligne).
+La fonction `map()` prend deux arguments. Le second est un objet itérable, souvent une liste comme dans notre exemple. Le premier argument est le nom d'une fonction qu'on souhaite appliquer à chaque élément de la liste, mais sans les parenthèses (ici `int` et non pas `int()`). Une fonction passée en argument d'une autre fonction est appelée [fonction de rappel](https://fr.wikipedia.org/wiki/Fonction_de_rappel) ou *callback* en anglais. Nous reverrons cette notion dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
 
 close-box-rem
 
@@ -613,10 +613,9 @@ Créez pour cela une fonction `calc_composition()` à laquelle vous passez en ar
 
 ### Conversion des acides aminés du code à trois lettres au code à une lettre
 
-Créez une fonction `convert_3_lettres_1_lettre()` qui prend en argument une chaîne de caractères avec des acides aminés en code à trois lettres et renvoie une chaîne de caractères avec les acides aminés en code à 1 lettre.
+Créez une fonction `convert_3_lettres_1_lettre()` qui prend en argument une chaîne de caractères avec des acides aminés en code à trois lettres et renvoie une chaîne de caractères avec les acides aminés en code à 1 lettre. Vous pourrez tenter d'utiliser le *method chaining* dans cette fonction.
 
-Utilisez cette fonction pour convertir la séquence protéique  
-`ALA GLY GLU ARG TRP TYR SER GLY ALA TRP`.
+Utilisez cette fonction pour convertir la séquence protéique `ALA GLY GLU ARG TRP TYR SER GLY ALA TRP`.
 
 Rappel de la nomenclature des acides aminés :
 
@@ -709,14 +708,16 @@ Créez la fonction `get_alphabet()` qui utilise une boucle et la fonction `chr()
 
 Un [pangramme](http://fr.wikipedia.org/wiki/Pangramme) est une phrase comportant au moins une fois chaque lettre de l'alphabet. Par exemple, « Portez ce vieux whisky au juge blond qui fume » est un pangramme.
 
-Créez la fonction `pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères (`xxx`) et qui renvoie `xxx est un pangramme` si cette chaîne de caractères est un pangramme ou `xxx n'est pas un pangramme` sinon. Pensez à vous débarrasser des majuscules le cas échéant.
+Créez la fonction `est_pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères (`xxx`) et qui renvoie `True` si la phrase est un pangramme, sinon `False`.
+
+Le programme affichera `xxx est un pangramme` si cette chaîne de caractères est un pangramme ou `xxx n'est pas un pangramme` sinon. Pensez à vous débarrasser des majuscules le cas échéant.
 
 Testez ensuite si les expressions suivantes sont des pangrammes :
 
 - Portez ce vieux whisky au juge blond qui fume
 - Monsieur Jack vous dactylographiez bien mieux que votre ami Wolf
 - Buvez de ce whisky que le patron juge fameux
-
+- Ceci n'est pas un pangramme
 
 ### Lecture d'une séquence à partir d'un fichier GenBank (exercice +++)
 

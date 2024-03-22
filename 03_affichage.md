@@ -103,7 +103,7 @@ L'équivalent en *f-string* est la même chaîne de caractères précédée du c
 f"Ceci est une chaîne de caractères"
 ```
 
-Ce caractère `f` avant les guillemets va indiquer à Python qu'il s'agit d'une *f-string* permettant de mettre en place le mécanisme de l'écriture formatée, contrairement à une *string* normale.
+Ce caractère `f` avant les guillemets va indiquer à Python qu'il s'agit d'une *f-string* mettant en place le mécanisme de l'écriture formatée, contrairement à une *string* normale.
 
 close-box-def
 
@@ -212,7 +212,7 @@ Ce génome contient 4500 G et 2575 C, soit une proportion de 0.48
 Ce génome contient 4500 G et 2575 C, soit un %GC de 47.80 %
 ```
 
-Vous noterez dans cet exemple que les phrases étant longues, nous avons coupé chaque chaîne de caractères sur deux lignes. Nous reverrons cette syntaxe dans le chapitre 11 *Plus sur les chaînes de caractères*.
+Les instructions étant longues dans cet exemple, nous avons coupé chaque chaîne de caractères sur deux lignes. Il faut mettre à chaque fois le `f` pour préciser à Python qu'on utilise une *f-string*. Les `...` indiquent que l'interpréteur attend que l'on ferme la parenthèse du `print` entamé sur la ligne précédente. Nous reverrons cette syntaxe dans le chapitre 11 *Plus sur les chaînes de caractères*.
 
 Enfin, il est possible de préciser sur combien de caractères vous voulez qu'un résultat soit écrit et comment se fait l'alignement (à gauche, à droite), ou si vous voulez centrer le texte. Dans la portion de code suivante, le caractère `;` sert de séparateur entre les instructions sur une même ligne :
 

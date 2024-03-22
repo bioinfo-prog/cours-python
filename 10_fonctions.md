@@ -148,6 +148,22 @@ Renvoyer un *tuple* ou une liste de deux éléments (ou plus) est très pratique
 
 Cela permet de récupérer plusieurs valeurs renvoyées par une fonction et de les affecter à la volée à des variables différentes.
 
+Une fonction peut aussi renvoyer un booléen :
+
+```python
+def est_pair(x):
+    if x % == 0:
+        return True
+    else:
+        return False
+
+# Programme principal.
+for chiffre in range(1, 5):
+    if est_pair(chiffre):
+        print(f"{chiffre} est pair")
+```
+
+Comme la fonction renvoie un booléen, on peut utiliser la notation `if est_pair(chiffre):` qui équivaut à `if est_pair(chiffre) == True:`. Il est courant d'appeler une fonction qui renvoie un booléen `est_quelquechose()` car on comprend que ça pose la question si c'est vrai ou faux. En anglais, on trouvera la nnotation `is_even()`. Nous reverrons ces notions dans le chapitre 13 *Plus sur les fonctions*.
 
 ## Arguments positionnels et arguments par mot-clé
 
