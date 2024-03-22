@@ -2,7 +2,7 @@
 
 ## Quelques mots sur l'origine de ce cours {.unnumbered}
 
-Ce cours  a été conçu à l'origine pour les étudiants débutants en programmation Python des filières de biologie et de biochimie de l'université Paris Diderot - Paris 7, devenue [Université Paris Cité](https://www.u-paris.fr/) ; et plus spécialement pour les étudiants du master Biologie Informatique.
+Ce cours a été conçu à l'origine pour les étudiants débutants en programmation Python des filières de biologie et de biochimie de l'université Paris Diderot - Paris 7, devenue [Université Paris Cité](https://www.u-paris.fr/) ; et plus spécialement pour les étudiants du master Biologie Informatique.
 
 Ce cours est basé sur la version 3 de Python, version recommandée par la communauté scientifique.
 
