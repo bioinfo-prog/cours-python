@@ -234,7 +234,7 @@ Dans la fonction, `x` a pris la valeur qui lui était définie localement en pri
 
 open-box-adv
 
-Même si Python peut reconnaître une variable ayant le même nom que ses propres fonctions ou variables internes, évitez de les utiliser, car ceci rendra votre code confus !
+Même si Python accepte qu'une variable ait le même nom que ses propres fonctions ou variables internes, évitez d'utiliser de tels noms, car ceci rendra votre code confus !
 
 close-box-adv
 
