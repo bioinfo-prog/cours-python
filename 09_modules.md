@@ -21,8 +21,8 @@ Dans les chapitres précédents, nous avons rencontré la notion de module plusi
 
 Regardons de plus près cet exemple :
 
-- **Ligne 1**, l'instruction `import` donne accès à toutes les fonctions du module [*random*](https://docs.python.org/fr/3/library/random.html#module-random).
-- Ensuite, **ligne 2**, nous utilisons la fonction `randint(0, 10)` du module *random*. Cette fonction renvoie un nombre entier tiré aléatoirement entre `0` inclus et `10` inclus.
+- **Ligne 1**. L'instruction `import` donne accès à toutes les fonctions du module [*random*](https://docs.python.org/fr/3/library/random.html#module-random).
+- **Ligne 2**. Nous utilisons la fonction `randint(0, 10)` du module *random*. Cette fonction renvoie un nombre entier tiré aléatoirement entre `0` inclus et `10` inclus.
 
 Nous avons également croisé le module *math* lors de l'exercice sur la spirale (voir le chapitre 7 *Fichiers*). Ce module nous a donné accès aux fonctions trigonométriques sinus et cosinus, et à la constante $\pi$ :
 
@@ -43,7 +43,7 @@ Dans le chapitre 3 *Affichage*, nous avons introduit la syntaxe `truc.bidule()` 
 - elle était liée à un objet par un point ;
 - en général, elle agissait sur ou utilisait l'objet auquel elle était liée.
 
-Par exemple, la méthode `.format()` (vue dans le chapitre 3 *Affichage*) dans l'instruction `"{}".format(3.14)` utilise l'objet chaîne de caractères `"{}"` (auquel elle est liée), pour finalement renvoyer une autre chaîne de caractères (`"3.14"`).
+Par exemple, la méthode `.append()` vue dans le chapitre 4 *Listes*. Dans l'instruction `liste1.append(3)`, la méthode `.append()` ajoute l'entier `3` à l'objet `liste1` auquel elle est liée.
 
 Avec les modules, nous rencontrons une syntaxe similaire. Par exemple, dans l'instruction `math.cos()`, on pourrait penser que `.cos()` est aussi une méthode. En fait la [documentation officielle de Python](https://docs.python.org/fr/3/tutorial/modules.html) précise bien que dans ce cas `.cos()` est une fonction. Dans cet ouvrage, nous utiliserons ainsi le mot **fonction** lorsqu'on évoquera des fonctions issues de modules.
 
@@ -306,7 +306,7 @@ En Python, la graine aléatoire se définit avec la fonction `seed()` :
 4
 ```
 
-Ici, la graine aléatoire est fixée à 42. Si on ne précise pas la graine, par défaut Python utilise la date (plus précisément, il s'agit du nombre de secondes écoulées depuis une date passée). Ainsi, à chaque fois qu'on relance Python, la graine sera différente, car ce nombre de secondes sera différent.
+Ici, la graine aléatoire est fixée à 42. Si on ne précise pas la graine, par défaut Python utilise la date (plus précisément, il s'agit du nombre de secondes écoulées depuis une date fixe passée). Ainsi, à chaque fois qu'on relance Python, la graine sera différente, car ce nombre de secondes sera différent.
 
 Si vous exécutez ces mêmes lignes de code (depuis l'instruction `random.seed(42)`), il se peut que vous ayez des résultats différents selon la version de Python. Néanmoins, vous devriez systématiquement obtenir les mêmes résultats si vous relancez plusieurs fois de suite ces instructions sur une même machine.
 
@@ -341,7 +341,7 @@ $ python test.py salut girafe 42
 ```
 
 - **Ligne 1**. Le caractère `$` représente l'invite du *shell*, `test.py` est le nom du script Python, `salut`, `girafe` et `42` sont les arguments passés au script (tous séparés par un espace).
-- **Ligne 2**. Le script affiche le contenu de la variable `sys.argv`. Cette variable est une liste qui contient tous les arguments de la ligne de commande, y compris le nom du script Python lui-même qu'on retrouve comme premier élément de cette liste dans `sys.argv[0]`. On peut donc accéder à chacun des différents arguments du script avec `sys.argv[1]`, `sys.argv[2]`...
+- **Ligne 2**. Le script affiche le contenu de la variable `sys.argv`. Cette variable est une liste qui contient tous les arguments de la ligne de commande, y compris le nom du script Python lui-même qu'on retrouve comme premier élément de cette liste dans `sys.argv[0]`. On peut donc accéder à chacun des différents arguments du script avec `sys.argv[1]`, `sys.argv[2]`, etc.
 
 
 Toujours dans le module *sys*, la fonction `sys.exit()` est utile pour quitter un script Python. On peut donner un argument à cette fonction (en général une chaîne de caractères) qui sera renvoyé au moment où Python quittera le script. Par exemple, si vous attendez au moins un argument en ligne de commande, vous pouvez renvoyer un message pour indiquer à l'utilisateur ce que le script attend comme argument :
@@ -400,7 +400,7 @@ with open(nom_fichier, "r") as f_in:
 print(f"{nom_fichier} contient {taille} lignes.")
 ```
 
-Supposons que dans le même répertoire, nous ayons le fichier `zoo1.txt` dont voici le contenu :
+Supposons que dans le même répertoire, nous ayons le fichier `animaux1.txt` dont voici le contenu :
 
 ```text
 girafe
@@ -409,7 +409,7 @@ singe
 souris
 ```
 
-et le fichier `zoo2.txt` qui contient :
+et le fichier `animaux2.txt` qui contient :
 
 ```text
 poisson
@@ -422,11 +422,11 @@ Utilisons maintenant le script `compte_lignes.py` :
 ```bash
 $ python compte_lignes.py
 ERREUR : il faut exactement un argument.
-$ python compte_lignes.py zoo1.txt
-zoo1.txt contient 4 lignes.
-$ python compte_lignes.py zoo2.txt
-zoo2.txt contient 3 lignes.
-$ python compte_lignes.py zoo1.txt zoo2.txt
+$ python compte_lignes.py animaux1.txt
+animaux1.txt contient 4 lignes.
+$ python compte_lignes.py animaux2.txt
+animaux2.txt contient 3 lignes.
+$ python compte_lignes.py animaux1.txt animaux2.txt
 ERREUR : il faut exactement un argument.
 ```
 
@@ -438,12 +438,12 @@ Notre script est donc capable de :
 Par contre, le script ne vérifie pas si le fichier fourni en argument existe bien :
 
 ```bash
-$ python compte_lignes.py zoo3.txt
+$ python compte_lignes.py animaux3.txt
 Traceback (most recent call last):
   File "compte_lignes.py", line 8, in <module>
     with open(nom_fichier, "r") as f_in:
          ^^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'zoo3.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'animaux3.txt'
 ```
 
 La lecture de la partie suivante va nous permettre d'améliorer notre script `compte_lignes.py`.
@@ -514,9 +514,9 @@ Toutefois, il est possible d'itérer très facilement sur le contenu d'un réper
 ```python
 >>> for nom in Path().iterdir():
 ...     if nom.is_file():
-...             print(f"{nom} est un fichier")
+...         print(f"{nom} est un fichier")
 ...     else:
-...             print(f"{nom} n'est pas un fichier")
+...         print(f"{nom} n'est pas un fichier")
 ... 
 demo.py est un fichier
 tests n'est pas un fichier
@@ -684,15 +684,15 @@ close-box-adv
 
 Améliorez le script `compte_lignes.py`, dont le code a été donné précédemment, de façon à ce qu'il renvoie un message d'erreur si le fichier n'existe pas.
 
-Par exemple, si les fichiers `zoo1.txt` et `zoo2.txt` sont bien dans le répertoire courant, mais pas `zoo3.txt` :
+Par exemple, si les fichiers `animaux1.txt` et `animaux2.txt` sont bien dans le répertoire courant, mais pas `animaux3.txt` :
 
 ```bash
-$ python compte_lignes.py zoo1.txt
-zoo1.txt contient 4 lignes.
-$ python compte_lignes.py zoo2.txt
-zoo2.txt contient 3 lignes.
-$ python compte_lignes.py zoo3.txt
-ERREUR : zoo3.txt n'existe pas.
+$ python compte_lignes.py animaux1.txt
+animaux1.txt contient 4 lignes.
+$ python compte_lignes.py animaux2.txt
+animaux2.txt contient 3 lignes.
+$ python compte_lignes.py animaux3.txt
+ERREUR : animaux3.txt n'existe pas.
 ```
 
 
