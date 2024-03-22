@@ -1,17 +1,17 @@
 # Module Biopython
 
-Nous allons aborder dans ce chapitre un module incontournable en bioinformatique. En effet, le module [*Biopython*](http://biopython.org/) permet de manipuler des données biologiques, comme des séquences (nucléiques et protéiques) ou des structures (fichiers PDB) et d'interroger des bases de données comme PubMed. Le [tutoriel](http://biopython.org/DIST/docs/tutorial/Tutorial.html) est particulièrement bien fait, n'hésitez pas à le consulter.
+Nous allons aborder dans ce chapitre un module incontournable en bioinformatique. En effet, le module [*Biopython*](http://biopython.org/) permet de manipuler des données biologiques, comme des séquences (nucléiques et protéiques) ou des structures (fichiers PDB), et d'interroger des bases de données comme PubMed. Le [tutoriel](http://biopython.org/DIST/docs/tutorial/Tutorial.html) est particulièrement bien fait, n'hésitez pas à le consulter.
 
 
 ## Installation et convention
 
-Contrairement à tous les autres modules vus précédemment, *Biopython* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement l'installer avec la commande :
+Contrairement aux autres modules vus précédemment, *Biopython* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement l'installer avec la commande :
 
 ```bash
 $ conda install -c conda-forge biopython
 ```
 
-Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *Biopython* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
+Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *Biopython* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un *notebook* Jupyter.
 
 ```python
 Les cellules de code apparaitront de cette manière
@@ -33,7 +33,7 @@ import Bio
 
 open-box-warn
 
-Le nom du module *Biopython* n'est pas `biopython` mais `Bio` (avec un *B* majuscule).
+Le nom du module *Biopython* n'est pas `biopython` mais `Bio` (avec un B majuscule).
 
 close-box-warn
 
@@ -55,9 +55,9 @@ ADN
 Seq('ATATCGGCTATAGCATGC')
 ```
 
-- Ligne 1. Le module *Biopython* s'appelle `Bio`.
-- Ligne 2. On charge la classe `Seq` du sous-module `Bio.Seq`.
-- Ligne 3. La variable `ADN` est de type `Seq`, comme affiché dans le résultat.
+- **Ligne 1.** Le module *Biopython* s'appelle `Bio`.
+- **Ligne 2.** On charge la classe `Seq` du sous-module `Bio.Seq`.
+- **Ligne 3.** La variable `ADN` est de type `Seq`, comme affiché dans le résultat.
 
 
 ### Obtention de la séquence complémentaire et de la séquence complémentaire inverse
@@ -101,7 +101,6 @@ close-box-adv
 
 Le sous-module *Entrez* de *Biopython* permet d’utiliser les ressources du NCBI
 et notamment d'interroger la base de données [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/).
-
 Nous allons par exemple utiliser PubMed pour chercher des articles scientifiques
 relatifs à la transferrine (*transferrin* en anglais):
 
@@ -112,12 +111,12 @@ req_esearch = Entrez.esearch(db="pubmed", term="transferrin")
 res_esearch = Entrez.read(req_esearch)
 ```
 
-- Ligne 1. On charge directement le sous-module *Entrez*.
-- Ligne 2. Lors d'une requête sur le site du NCBI, il est important de définir correctement
-la variable `Entrez.email` qui sera transmise au NCBI lors de la requête et qui
+- **Ligne 1.** On charge directement le sous-module *Entrez*.
+- **Ligne 2.** Lors d'une requête sur le site du NCBI, il est important de définir correctement
+la variable `Entrez.email`, qui sera transmise au NCBI lors de la requête et qui
 pourra être utilisée pour vous contacter en cas de difficulté avec le serveur.
-- Ligne 3. On lance la requête (`transferrin`) sur le moteur de recherche `pubmed`. La requête est stockée dans la variable `req_esearch`.
-- Ligne 4. Le résultat est lu et stocké dans la variable `res_esearch`.
+- **Ligne 3.** On lance la requête (`transferrin`) sur le moteur de recherche `pubmed`. La requête est stockée dans la variable `req_esearch`.
+- **Ligne 4.** Le résultat est lu et stocké dans la variable `res_esearch`.
 
 Sans être un vrai dictionnaire, la variable `res_esearch` en a cependant plusieurs propriétés.
 Voici ses clés :
@@ -153,9 +152,9 @@ len(res_esearch["IdList"])
 20
 ```
 
-Cette liste ne contient les identifiants que de 20 publications alors que si nous
+Cette liste ne contient les identifiants que de 20 publications, alors que, si nous
 faisons cette même requête directement sur le site de PubMed depuis un navigateur
-web, nous obtenons plus de 45700 résultats.
+web, nous obtenons plus de 45 700 résultats.
 
 En réalité, le nombre exact de publications (en janvier 2024) est connu :
 
@@ -171,9 +170,9 @@ Pour ne pas saturer les serveurs du NCBI, seulement 20 PMID sont renvoyés par d
 Mais vous pouvez augmenter cette limite en utilisant le paramètre `retmax` dans la fonction `Entrez.esearch()`.
 
 Nous pouvons maintenant récupérer des informations sur une publication précise
-en connaissant son PMID. Par exemple, l'article avec le PMID [22294463](https://www.ncbi.nlm.nih.gov/pubmed/22294463) dont un aperçu est sur la figure @fig:entrez-transferrin.
+en connaissant son PMID, par exemple, l'article avec le PMID [22294463](https://www.ncbi.nlm.nih.gov/pubmed/22294463), dont un aperçu est sur la figure @fig:entrez-transferrin.
 
-![Aperçu de la publication *Known and potential roles of transferrin in iron biology* depuis le site PubMed.](img/entrez-transferrin.png "Aperçu de la publication Known and potential roles of transferrin in iron biology"){ #fig:entrez-transferrin width=95% }
+![Aperçu de la publication *Known and potential roles of transferrin in iron biology* depuis le site PubMed.](img/entrez-transferrin.png "Aperçu de la publication Known and potential roles of transferrin in iron biology"){ #fig:entrez-transferrin width=98% }
 
 Nous allons pour cela utiliser la fonction `Entrez.esummary()`
 
@@ -254,7 +253,7 @@ ant serum metal-binding protein best known for its role \nin iron del
 [...]
 ```
 
-Le résultat n'est pas très lisible car il apparait comme un seul bloc. Le caractère `\n` 
+Le résultat n'est pas très lisible, car il apparait comme un seul bloc. Le caractère `\n` 
 désigne un retour à la ligne. L'instruction `print()` affichera 
 le résultat de manière plus lisible :
 
@@ -303,7 +302,7 @@ mais aussi d'autres informations comme le titre, le DOI, la date de publication.
 
 open-box-adv
 
-Pour ces exercices, utilisez des notebooks Jupyter.
+Pour ces exercices, utilisez des *notebooks* Jupyter.
 
 close-box-adv
 
@@ -312,7 +311,7 @@ close-box-adv
 
 *Plasmodium falciparum* (*P. falciparum*) est un des parasites responsables du paludisme chez les êtres humains. Le fichier [`p_falciparum_500.fasta`](https://python.sdv.u-paris.fr/data-files/p_falciparum_500.fasta) contient 500 gènes du génome de *P. falciparum*.
 
-Écrivez un code Python qui calcule le pourcentage de GC de chaque gène. Les valeurs seront stockées dans un dictionnaire avec comme clés les identifiants des gènes et comme valeurs le pourcentage de GC.
+Écrivez un code Python qui calcule le pourcentage de GC de chaque gène. Les valeurs seront stockées dans un dictionnaire, avec comme clés les identifiants des gènes et comme valeurs le pourcentage de GC.
 
 On rappelle que le pourcentage de GC d'une séquence est calculé avec la formule suivante :
 
@@ -329,10 +328,10 @@ Affichez ensuite :
 
 open-box-adv
 
-N'hésitez pas à consulter :
+Pour cet exercice, n'hésitez pas à consulter :
 
 - Le chapitre 14 *Conteneurs* pour trier un dictionnaire.
-- L'annnexe A *Quelques formats de données en biologie* pour lire un fichier FASTA avec *Biopython*.
+- L'annexe A *Quelques formats de données en biologie* pour lire un fichier FASTA avec *Biopython*.
 
 close-box-adv
 
@@ -343,7 +342,7 @@ L'objectif de cet exercice est d'interroger automatiquement la base de données
 bibliographique PubMed pour déterminer le nombre d'articles relatifs à la protéine barstar
 publiés chaque année.
 
-Vous utiliserez le module *Biopython* et le module *matplotlib* qui sera vu un peu plus loin (les principales instructions vous sont données).
+Vous utiliserez le module *Biopython* et le module *matplotlib*, qui sera vu un peu plus loin (les principales instructions vous seront fournies).
 
 
 #### Requête avec un mot-clé
@@ -374,17 +373,17 @@ Affichez ce résumé.
 
 #### Distribution des années de publication des articles relatifs à la barstar
 
-En utilisant la méthode `Entrez.esearch()`, récupérez tous les PMID relatifs à la barstar. Pour cela, pensez à augmenter le paramètre `retmax`. Vos PMID seront stockés dans la liste `pmids` sous forme de chaînes de caractères. Vérifiez sur PubMed que vous avez bien récupéré le bon nombre d'articles.
+En utilisant la méthode `Entrez.esearch()`, récupérez tous les PMID relatifs à la barstar. Pour cela, pensez à augmenter le paramètre `retmax`. Vos PMID seront stockés dans la liste `pmids` sous forme de chaînes de caractères. Vérifiez sur PubMed que vous avez récupéré le bon nombre d'articles.
 
-En utilisant maintenant la méthode `Entrez.esummary()` dans une boucle, récupérez la date de publication de chaque article. Stockez l'année sous forme d'un nombre entier dans la liste `years`. Cette étape peut prendre une dizaine de minutes, soyez patient. Vous pouvez dans votre boucle afficher un message qui indique où vous en êtes dans la récupération des articles.
+En utilisant maintenant la méthode `Entrez.esummary()` dans une boucle, récupérez la date de publication de chaque article. Stockez l'année sous forme d'un nombre entier dans la liste `years`. Cette étape peut prendre une dizaine de minutes, soyez patient. Vous pouvez afficher dans votre boucle un message qui indique où vous en êtes dans la récupération des articles.
 
-À la fin vérifiez que votre liste `years` contient bien autant d'éléments que la liste `pmids`.
+À la fin, vérifiez que votre liste `years` contient bien autant d'éléments que la liste `pmids`.
 
 Calculez maintenant le nombre de publications par année. Vous créerez pour cela un dictionnaire `freq` qui aura pour clé les années (oui, une clé de dictionnaire peut aussi être un entier) et pour valeur le nombre de publications associées à une année donnée.
 
-Créez une liste `x` qui contient les clés du dictionnaire `freq`. Ordonnez les valeurs dans `x` avec la méthode `.sort()`. Créez maintenant une seconde liste `y` qui contient, dans l'ordre, le nombre de publications associées à chaque années. Bien évidemment, les listes `x` et `y` doivent avoir la même taille. Au fait, en quelle année la barstar apparaît pour la première fois dans une publication scientifique ?
+Créez une liste `x` qui contient les clés du dictionnaire `freq`. Ordonnez les valeurs dans `x` avec la méthode `.sort()`. Créez maintenant une seconde liste `y` qui contient, dans l'ordre, le nombre de publications associées à chaque année. Bien évidemment, les listes `x` et `y` doivent avoir la même taille. Au fait, en quelle année la barstar apparaît pour la première fois dans une publication scientifique ?
 
-Ensuite, avec le module *matplotlib* (qui nous aborderons prochainement), vous allez pouvoir afficher la distribution des publications en fonction des années :
+Ensuite, avec le module *matplotlib* (que nous aborderons prochainement), vous allez pouvoir afficher la distribution des publications en fonction des années :
 
 ```python
 import matplotlib.pyplot as plt
