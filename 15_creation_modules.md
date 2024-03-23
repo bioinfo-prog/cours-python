@@ -2,7 +2,7 @@
 
 ## Pourquoi créer ses propres modules ?
 
-Dans le chapitre 9 *Modules*, nous avons découvert quelques modules existants dans Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions* que les fonctions sont utiles pour réutiliser une fraction de code plusieurs fois au sein d'un même programme sans avoir à dupliquer ce code. On peut imaginer qu'une fonction utile pourrait être judicieusement réutilisée dans un autre programme Python. C'est justement l'intérêt de créer un module. On y regroupe un ensemble de fonctions que l'on peut être amené à utiliser souvent. En général, les modules sont regroupés autour d'un thème précis. Par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
+Dans le chapitre 9 *Modules*, nous avons découvert quelques modules Python comme *random*, *math*, etc. Nous avons vu par ailleurs dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions* que les fonctions sont utiles pour réutiliser une fraction de code plusieurs fois au sein d'un même programme, sans avoir à dupliquer ce code. On peut imaginer qu'une fonction utile pourrait être judicieusement réutilisée dans un autre programme Python. C'est justement l'intérêt de créer un module. On y regroupe un ensemble de fonctions que l'on peut être amené à utiliser souvent. En général, les modules sont regroupés autour d'un thème précis. Par exemple, on pourrait concevoir un module d'analyse de séquences biologiques ou encore de gestion de fichiers PDB.
 
 
 ## Création d'un module
@@ -34,7 +34,7 @@ Les chaînes de caractères entre triple guillemets en tête du module et en tê
 
 open-box-rem
 
-Une constante est, par définition, une variable dont la valeur n'est pas modifiée. Par convention en Python, le nom des constantes est écrit en majuscules (comme `DATE` dans notre exemple).
+Une constante est, par définition, une variable dont la valeur n'est pas modifiée. Par convention, en Python, le nom des constantes est écrit en majuscules (comme `DATE` dans notre exemple).
 
 close-box-rem
 
@@ -58,7 +58,7 @@ Une fois cette manipulation effectuée, vous pouvez contrôler que le chemin ver
 
 close-box-rem
 
-Le chargement du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py` et pourtant on ne la précise pas lorsqu'on importe le module. Ensuite, on peut utiliser les fonctions comme avec un module classique.
+Le chargement du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py`, pourtant on ne la précise pas lorsqu'on importe le module. Ensuite, on peut utiliser les fonctions comme avec un module classique.
 
 ```python
 >>> import message
@@ -81,7 +81,7 @@ close-box-rem
 
 ## Les *docstrings*
 
-Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères entre triple guillemets situées en début du module et de chaque fonction sont là pour cela, on les appelle *docstrings* (« chaînes de documentation » en français). Les *docstrings* seront détaillées dans le chapitre 16 *Bonnes pratiques en programmation Python*.
+Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères entre triple guillemets, situées en début du module et de chaque fonction, sont là pour cela : on les appelle *docstrings* (« chaînes de documentation » en français). Les *docstrings* seront détaillées dans le chapitre 16 *Bonnes pratiques en programmation Python*.
 
 Les *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
 
@@ -159,7 +159,7 @@ $
 
 Cela s'explique par l'absence de programme principal, c'est-à-dire de lignes de code que l'interpréteur exécute lorsqu'on lance le script.
 
-À l'inverse, que se passe-t-il alors si on importe un script en tant que module alors qu'il contient un programme principal avec des lignes de code ? Prenons par exemple le script `message2.py` suivant :
+À l'inverse, que se passe-t-il si on importe un script en tant que module alors qu'il contient un programme principal avec des lignes de code ? Prenons par exemple le script `message2.py` suivant :
 
 ```python
 """Script de test."""
@@ -181,7 +181,7 @@ Si on l'importe dans l'interpréteur, on obtient :
 Bonjour Joe
 ```
 
-Ceci n'est pas le comportement voulu pour un module car on n'attend pas d'affichage particulier lors de son chargement. Par exemple la commande `import math` n'affiche rien dans l'interpréteur.
+Ceci n'est pas le comportement voulu pour un module, car on n'attend pas d'affichage particulier lors de son chargement. Par exemple la commande `import math` n'affiche rien dans l'interpréteur.
 
 Afin de pouvoir utiliser un code Python en tant que module ou en tant que script, nous vous conseillons la structure suivante :
 
@@ -234,7 +234,7 @@ close-box-adv
 
 open-box-adv
 
-Pour ce exercice, créez un script puis exécutez-le dans un *shell*.
+Pour cet exercice, créez un script puis exécutez-le dans un *shell*.
 
 close-box-adv
 
@@ -246,8 +246,7 @@ Dans le script `adn.py`, construisez un module qui va contenir les fonctions et 
 - Fonction `lit_fasta()` : prend en argument un nom de fichier sous forme d'une chaîne de caractères et renvoie la séquence d'ADN lue dans le fichier sous forme d'une chaîne de caractères.
 - Fonction `seq_alea()` : prend en argument une taille de séquence sous forme d'un entier et renvoie une séquence aléatoire d'ADN de la taille correspondante sous forme d'une chaîne de caractères.
 - Fonction `comp_inv()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la séquence complémentaire inverse (aussi sous forme d'une chaîne de caractères).
-- Fonction `prop_gc()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la proportion en GC de la séquence sous forme d'un *float*. Nous vous rappelons que la proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C) divisée par le nombre total de bases (A, T, C, G).
-
+- Fonction `prop_gc()` : prend en argument une séquence d'ADN sous forme d'une chaîne de caractères et renvoie la proportion en GC de la séquence sous forme d'un *float*. Nous vous rappelons que la proportion de GC s'obtient comme la somme des bases Guanine (G) et Cytosine (C), divisée par le nombre total de bases (A, T, C, G).
 - Constante `BASE_COMP` : dictionnaire qui contient la complémentarité des bases d'ADN (`A`$\rightarrow$`T`, `T`$\rightarrow$`C`, `G`$\rightarrow$`C` et `C`$\rightarrow$`G`). Ce dictionnaire sera utilisé par la fonction `comp_inv()`.
 
 À la fin de votre script, proposez des exemples d'utilisation des fonctions que vous aurez créées. Ces exemples d'utilisation ne devront pas être exécutés lorsque le script est chargé comme un module.
