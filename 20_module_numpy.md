@@ -5,13 +5,13 @@ Le module [*NumPy*](http://numpy.scipy.org/) est incontournable en bioinformatiq
 
 ## Installation et convention
 
-Contrairement à tous les autres modules vus précédemment, *NumPy* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement l'installer avec la commande :
+Contrairement aux modules vus précédemment, *NumPy* n'est pas fourni avec la distribution Python de base. Avec la distribution Miniconda que nous vous conseillons d'utiliser (consultez pour cela la documentation en [ligne](https://python.sdv.u-paris.fr/livre-dunod)), vous pouvez rapidement l'installer avec la commande :
 
 ```bash
 $ conda install -c conda-forge numpy
 ```
 
-Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *NumPy* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
+Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *NumPy* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un *notebook* Jupyter.
 
 ```python
 Les cellules de code apparaitront de cette manière
@@ -77,8 +77,7 @@ Par ailleurs, lorsqu'on demande à Python d'afficher le contenu d'un objet *arra
 open-box-rem
 
 Un objet *array* ne contient que des données homogènes, c'est-à-dire d'un type identique.
-
-Il est possible de créer un objet *array* à partir d'une liste contenant des entiers et des chaînes de caractères, mais dans ce cas, toutes les valeurs seront comprises par *NumPy* comme des chaînes de caractères :
+Il est possible de créer un objet *array* à partir d'une liste contenant des entiers et des chaînes de caractères, mais, dans ce cas, toutes les valeurs seront comprises par *NumPy* comme des chaînes de caractères :
 
 ```python
 a = np.array([1, 2, "tigre"])
@@ -169,7 +168,7 @@ v + 1
 array([1, 2, 3, 4])
 ```
 
-On mutliple par `2` **chacun** des éléments de l'*array* `v` :
+On multiplie par `2` **chacun** des éléments de l'*array* `v` :
 
 ```python
 v * 2
@@ -222,7 +221,7 @@ array([[[1, 2],
         [5, 6]]])
 ```
 
-La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois cela devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être assimilé à un **vecteur**, un *array* à deux dimensions à une **matrice**. On peut généraliser ces objets mathématiques avec un nombre arbitraires de dimensions, on parle alors de **tenseur**, qui sont représentés avec NumPy en *array* à $n$ dimensions. Nous nous focaliserons dans la suite sur des *arrays* à une dimension (1D) ou deux dimensions (2D).
+La fonction `array()` peut créer des tableaux à n'importe quel nombre de dimensions. Toutefois, cela devient vite compliqué lorsqu'on dépasse trois dimensions. Retenez qu'un objet *array* à une dimension peut être assimilé à un **vecteur**, un *array* à deux dimensions à une **matrice**. On peut généraliser ces objets mathématiques avec un nombre arbitraires de dimensions, on parle alors de **tenseur**, qui sont représentés avec NumPy en *array* à $n$ dimensions. Nous nous focaliserons dans la suite sur des *arrays* à une dimension (1D) ou deux dimensions (2D).
 
 Avant de continuer, il est important de définir comment sont organisés ces *arrays* 2D qui représentent des matrices. Il s'agit de tableaux de nombres qui sont organisés en lignes et en colonnes comme le montre la figure @fig:array2Dlignescolonnes. Les indices indiqués dans cette figure seront définis un peu plus loin dans la rubrique *Indices*.
 
@@ -287,7 +286,7 @@ w.shape
 (3, 2)
 ```
 
-Enfin, l'attribut `.size` renvoie le nombre total d'éléments contenus dans l'`array`.
+Enfin, l'attribut `.size` renvoie le nombre total d'éléments contenus dans l'`array` :
 
 
 ```python
@@ -468,7 +467,7 @@ array([[0, 1, 2],
 
 open-box-warn
 
-- Cette modification de la forme de l'*array* par la méthode `.resize()` est faite « sur place » (*in place*), c'est-à-dire que la méthode ne renvoie rien mais l'*array* initial est bel et bien modifié (comme des méthodes sur les listes telles que la méthode `.reverse()`, voir le chapitre 13 *Plus sur les listes*). 
+- Cette modification de la forme de l'*array* par la méthode `.resize()` est faite « sur place » (*in place*), c'est-à-dire que la méthode ne renvoie rien, mais l'*array* initial est bel et bien modifié (comme des méthodes sur les listes telles que la méthode `.reverse()`, voir le chapitre 13 *Plus sur les listes*). 
 - Si l'option `refcheck=False` n'est pas présente, Python peut parfois renvoyer une erreur s'il existe des références vers l'*array* qu'on souhaite modifier.
 
 close-box-warn
@@ -512,11 +511,11 @@ a
 array([0, 1, 2, 3, 4, 5])
 ```
 
-Notez que la fonction `np.resize()` renvoie un nouvel *array* mais ne modifie pas l'*array* initial contrairement à la méthode `.resize()` décrite ci-dessus.
+Notez que la fonction `np.resize()` renvoie un nouvel *array* mais ne modifie pas l'*array* initial, contrairement à la méthode `.resize()`, décrite ci-dessus.
 
 open-box-rem
 
-Depuis le début de ce chapitre, nous avons toujours montré l'affichage d'un *array* tel quel dans un notebook Jupyter :
+Depuis le début de ce chapitre, nous avons toujours montré l'affichage d'un *array* tel quel dans un *notebook* Jupyter :
 
 ```python
 a = np.array(range(10))
@@ -558,13 +557,13 @@ print(a2)
  [1. 1. 1.]]
 ```
 
-Ceci peut amener des confusions spécialement entre un *array* 1D 
+Ceci peut amener des confusions, en particulier entre un *array* 1D :
 
 ```text
 [0 1 2 3 4 5 6 7 8 9]
 ```
 
-et une liste contenant les même éléments :
+et une liste contenant les mêmes éléments :
 
 ```text
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -577,7 +576,7 @@ close-box-rem
 
 ### Méthodes de calcul sur les *arrays* et l'argument `axis`
 
-Chaque *array NumPy* possède une multitude de méthodes. Nombre d'entre elles permettent de faire des calculs de base comme `.mean()` pour la moyenne, `.sum()` pour la somme, `.std()` pour l'écart-type, `.max()` pour extraire le maximum, `.min()` pour extraire le minimum, etc. La liste exhaustive est [ici](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation). Par défaut, chacune de ces méthodes effectuera l'opération sur l'*array* entier, quelle que soit sa dimensionnalité. Par exemple :
+Chaque *array NumPy* possède une multitude de méthodes. Nombre d'entre elles permettent de faire des calculs de base comme `.mean()` pour la moyenne, `.sum()` pour la somme, `.std()` pour l'écart-type, `.max()` pour extraire le maximum, `.min()` pour extraire le minimum, etc. La liste exhaustive est disponible [en ligne](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation). Par défaut, chacune de ces méthodes effectuera l'opération sur l'*array* entier, quelle que soit sa dimensionnalité. Par exemple :
 
 ```python
 import random
@@ -610,7 +609,7 @@ a.max()
 7
 ```
 
-La méthode `.max()` a bien renvoyé la valeur maximale 7. Un argument *très* utile existant dans toutes ces méthodes est `axis`. Pour un *array* 2D, `axis=0` signifie qu'on fera l'opération le long de l'axe 0, à savoir les lignes. C'est-à-dire que l'opération se fait en faisant varier les lignes. On récupère ainsi une valeur par colonne :
+La méthode `.max()` a bien renvoyé la valeur maximale 7. Un argument *très* utile existant dans toutes ces méthodes est `axis`. Pour un *array* 2D, `axis=0` signifie qu'on fera l'opération le long de l'axe 0, à savoir les lignes. C'est-à-dire que l'opération se fait en variant les lignes. On récupère ainsi une valeur par colonne :
 
 ```python
 a.max(axis=0)
@@ -622,7 +621,7 @@ array([6, 7])
 
 Dans l'*array* 1D récupéré, le premier élément vaut 6 (maximum de la 1ère colonne) et le second vaut 7 (maximum de la seconde colonne).
 
-Avec `axis=1` on fait une opération similaire mais en faisant varier les colonnes. On récupère ainsi une valeur par ligne :
+Avec `axis=1`, on fait une opération similaire, mais en faisant varier les colonnes. On récupère ainsi une valeur par ligne :
 
 ```python
 a.max(axis=1)
@@ -708,7 +707,7 @@ a[0,:]
 array([1, 2])
 ```
 
-La syntaxe `a[i,:]` renvoie la ligne d'indice `i` et `a[:,j]` renvoie la colonne d'indice `j`. Les tranches sont aussi utilisables sur un *array* à deux dimensions.
+La syntaxe `a[i,:]` renvoie la ligne d'indice `i`, et `a[:,j]` renvoie la colonne d'indice `j`. Les tranches sont aussi utilisables sur un *array* à deux dimensions.
 
 ```python
 a[1, 1]
@@ -718,7 +717,7 @@ a[1, 1]
 4
 ```
 
-La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, **on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne.
+La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, qu'**on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne.
 
 
 open-box-rem
@@ -769,7 +768,7 @@ a[1][1]
 4
 ```
 
-Nous vous recommandons la syntaxe `a[i, j]` qui est plus proche de la [définition mathématique d'un élément de matrice](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions).
+Nous vous recommandons la syntaxe `a[i, j]`, qui est plus proche de la [définition mathématique d'un élément de matrice](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions).
 
 close-box-rem
 
@@ -807,11 +806,11 @@ array([   0,    1, -300,    3,    4])
 
 open-box-warn
 
-Par défaut la copie d'*arrays* se fait par référence comme pour tous les conteneurs en Python (listes, *tuples*, dictionnaires, etc.).
+Par défaut la copie d'*arrays* se fait par référence, comme pour tous les conteneurs en Python (listes, *tuples*, dictionnaires, etc.).
 
 close-box-warn
 
-Afin d'éviter le problème, vous pouvez soit utiliser la fonction `np.array()` qui crée une nouvelle copie distincte de l'*array* initial, soit la fonction `copy.deepcopy()` comme pour les listes (voir chapitre 12 *Plus sur les listes*) :
+Afin d'éviter le problème, vous pouvez soit utiliser la fonction `np.array()`, qui crée une nouvelle copie distincte de l'*array* initial, soit la fonction `copy.deepcopy()`, comme pour les listes (voir chapitre 12 *Plus sur les listes*) :
 
 ```python
 a = np.full((2, 2), 0)
@@ -859,7 +858,7 @@ La fonction `np.full()` est expliquée dans la rubrique suivante.
 
 open-box-rem
 
-L'instruction `b = np.array(a)` réalise bien une copie distincte de l'*array* `a` quelle que soit sa dimensionnalité. Ceci n'était pas le cas avec la fonction `list()` pour les copies de listes à partir de la dimension 2 (liste de listes) : 
+L'instruction `b = np.array(a)` réalise bien une copie distincte de l'*array* `a`, quelle que soit sa dimensionnalité. Ceci n'était pas le cas avec la fonction `list()` pour les copies de listes à partir de la dimension deux (liste de listes) : 
 
 ```python
 liste_1 = [[0, 0], [1, 1]]
@@ -944,7 +943,7 @@ Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes. Celle
 
 ## Chargement d'un *array* depuis un fichier
 
-Le module *NumPy* contient aussi des fonctions pour lire des données à partir de fichiers et créer des *arrays* automatiquement. C'est très pratique car la plupart du temps les données que l'on analyse proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes et colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
+Le module *NumPy* contient aussi des fonctions pour lire des données à partir de fichiers et créer des *arrays* automatiquement. C'est très pratique, car la plupart du temps les données que l'on analyse proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes et colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
 
 ```text
   1   7 310
@@ -972,7 +971,7 @@ Pratique, non ? Attention toutefois aux points suivants :
 
 Nous vous conseillons de consulter la [documentation complète](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) de cette fonction. En effet, `np.loadtxt()` contient de nombreux arguments permettant de récupérer telles ou telles lignes ou colonnes, d'ignorer des lignes de commentaire, de changer le séparateur par défaut (par exemple la virgule `,` pour les fichiers .csv)... qui peuvent se révéler utiles.
 
-L'opération inverse consistant à sauver un *array* dans un fichier se fait avec la fonction `np.savetxt()` :
+L'opération inverse qui consiste à sauver un *array* dans un fichier se fait avec la fonction `np.savetxt()` :
 
 ```python
 a = np.reshape(range(1, 10), (3, 3))
@@ -1002,7 +1001,7 @@ La fonction `np.savetxt()` écrit par défaut les données comme des *floats* en
 
 open-box-more
 
-Il existe d'autres fonctions plus avancées telles que [np.genfromttxt()](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html) gérant les données manquantes, ou encore [np.load()](https://numpy.org/doc/stable/reference/generated/numpy.load.html) et [np.fromfile()](https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html) permettant de lire des données au format binaire. De même, il existe des fonctions ou méthodes permettant d'écrire au format binaire : [np.save()](https://numpy.org/doc/stable/reference/generated/numpy.save.html) ou [.tofile()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile). Le format binaire possède en général l'extension `.npy` ou `.npz` lorsque les données sont compressées. L'avantage d'écrire au format binaire est que cela prend moins de place pour de gros tableaux de données.
+Il existe d'autres fonctions plus avancées telles que [np.genfromttxt()](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html), gérant les données manquantes, ou encore [np.load()](https://numpy.org/doc/stable/reference/generated/numpy.load.html) et [np.fromfile()](https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html), permettant de lire des données au format binaire. De même, il existe des fonctions ou méthodes permettant d'écrire au format binaire : [np.save()](https://numpy.org/doc/stable/reference/generated/numpy.save.html) ou [.tofile()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile). Le format binaire possède en général l'extension `.npy` ou `.npz` lorsque les données sont compressées. L'avantage d'écrire au format binaire est que cela prend moins de place pour de gros tableaux de données.
 
 close-box-more
 
@@ -1057,7 +1056,7 @@ np.concatenate((a1, a2, a1, a2))
 array([0, 1, 3, 4, 0, 1, 3, 4])
 ```
 
-Pour les *arrays* 2D ça se complique un peu car on peut concaténer des lignes ou des colonnes ! Ainsi, `np.concatenate()` prend un argument optionnel, à savoir `axis`. Comme nous l'avions expliqué plus haut, celui-ci va indiquer à *NumPy* si on veut concaténer le long de l'axe 0 (les lignes) ou le long de l'axe 1 (les colonnes). Voyons un exemple :
+Pour les *arrays* 2D, ça se complique un peu, car on peut concaténer des lignes ou des colonnes ! Ainsi, `np.concatenate()` prend un argument optionnel, à savoir `axis`. Comme nous l'avions expliqué plus haut, celui-ci va indiquer à *NumPy* si on veut concaténer le long de l'axe 0 (les lignes) ou le long de l'axe 1 (les colonnes). Voyons un exemple :
 
 ```python
 a1 = np.reshape(np.array(range(6)), (3, 2))
@@ -1108,7 +1107,7 @@ array([[ 0,  1,  0,  5],
        [ 4,  5, 20, 25]])
 ```
 
-Ces opérations de concaténation sont très importantes. On les utilise par exemple si on a des données dans plusieurs fichiers différents et qu'on veut les aggréger dans un *array* unique. On verra qu'on peut faire le même genre de chose avec les fameux *Dataframes* du module *pandas*. Lisez bien également les recommandations dans la dernière rubrique *17.1.10 Quelques conseils* sur quand utiliser la concaténation d'*arrays* avec *NumPy*.
+Ces opérations de concaténation sont très importantes. On les utilise par exemple si on a des données dans plusieurs fichiers différents et qu'on veut les agréger dans un *array* unique. On verra qu'on peut faire le même genre de chose avec les fameux *Dataframes* du module *pandas*. Lisez bien également les recommandations dans la dernière rubrique *17.1.10 Quelques conseils* sur quand utiliser la concaténation d'*arrays* avec *NumPy*.
 
 
 ## Un peu d'algèbre linéaire
@@ -1239,7 +1238,7 @@ EigResult(eigenvalues=array([1., 2., 3.]), eigenvectors=array([[1., 0., 0.],
        [0., 0., 1.]]))
 ```
 
-La fonction `eig()` renvoie un objet `EigResult` qui contient les valeurs propres (`eigenvalues`) et les vecteurs propres (eigenvectors) qu'on peut ensuite récupérer par affectation multiple :
+La fonction `eig()` renvoie un objet `EigResult`, qui contient les valeurs propres (`eigenvalues`) et les vecteurs propres (`eigenvectors`), qu'on peut ensuite récupérer par affectation multiple :
 
 ```python
 eigvals, eigvecs = np.linalg.eig(a)
@@ -1345,7 +1344,7 @@ a3
 array([7, 8, 9])
 ```
 
-Par défaut, l'affectation multiple cela se fait sur les lignes de l'*array* 2D. Cette fonctionnalité s'explique à nouveau par le fait que pour *NumPy* `a[i]` correspond à la ligne d'indice `i` d'un *array* 2D. 
+Par défaut, l'affectation multiple se fait sur les lignes de l'*array* 2D. Cette fonctionnalité s'explique à nouveau par le fait que pour *NumPy*, `a[i]` correspond à la ligne d'indice `i` d'un *array* 2D. 
 
 Pour utiliser l'affectation multiple sur les colonnes, il suffit d'utiliser la transposée `a.T` :
 
@@ -1376,7 +1375,7 @@ array([3, 6, 9])
 
 ## Masques booléens
 
-Une des grandes puissance des *arrays* *NumPy* est qu'ils supportent les **masques booléens**. Avant de les définir, il est important d'introduire le concept d'*arrays* de booléens. Jusqu'à maintenant nous avions définis uniquement des *arrays* avec des types numériques *int* ou *float*. Il est tout à fait possible de définir des *arrays* de booléens. La fonction `np.full()` vue précédemment nous permet d'en construire facilement :
+Une fonctionnalité puissante des *arrays* *NumPy* est l'utilisation des **masques booléens**. Avant de les définir, il est important d'introduire le concept d'*arrays* de booléens. Jusqu'à maintenant nous avions définis uniquement des *arrays* avec des types numériques *int* ou *float*. Il est tout à fait possible de définir des *arrays* de booléens. La fonction `np.full()` vue précédemment nous permet d'en construire facilement :
 
 ```python
 np.full((2, 2), True)
@@ -1396,7 +1395,7 @@ array([[False, False],
        [False, False]])
 ```
 
-Au premier abord nous n'en voyons pas forcément l'utilité... Mais qu'en est-il lorsqu'on utilise les opérateurs de comparaison avec un *array* ? Et bien cela renvoie un *array* de booléens !
+Au premier abord, nous n'en voyons pas forcément l'utilité... Mais qu'en est-il lorsqu'on utilise les opérateurs de comparaison avec un *array* ? Et bien cela renvoie un *array* de booléens !
 
 ```python
 a = np.reshape(np.arange(1, 10), (3, 3))
@@ -1462,15 +1461,15 @@ array([[False,  True, False],
        [ True,  True,  True]])
 ```
 
-- Les opérateurs logiques `&` et `|` s'appliquent sur les *arrays* et sont différents des opérateurs logiques `and` et `or` qui eux s'appliquent sur les booléens (`True` ou `False`) ;
-- Il est conseillé de mettre des parenthèses pour chaque condition afin d'éviter les ambiguïtés.
+- Les opérateurs logiques `&` et `|` s'appliquent sur les *arrays* et sont différents des opérateurs logiques `and` et `or`, qui eux s'appliquent sur les booléens (`True` ou `False`).
+- Il est conseillé de mettre entre parenthèses chaque condition afin d'éviter les ambiguïtés.
 
 Maintenant que les *arrays* de booléens ont été introduits, nous pouvons définir les masques booléens :
 
 
 open-box-def
 
-Les masques booléens sont des *arrays* de booléens qui sont utilisés en tant qu'« indice » d'un *array* initial. Cela permet de récupérer ou de modifier une partie de l'*array* initial.
+Les masques booléens sont des *arrays* de booléens qui sont utilisés en tant qu'« indice~» d'un *array* initial. Cela permet de récupérer ou de modifier une partie de l'*array* initial.
 
 close-box-def
 
@@ -1586,7 +1585,7 @@ Ce mécanisme de sélection avec des masques booléens se révèle très puissan
 
 open-box-rem
 
-Les masques booléens ne doivent pas être confondus avec les [*masked arrays*](https://numpy.org/doc/1.18/reference/maskedarray.html) qui sont des *arrays* dans lesquels on peut trouver des valeurs manquantes ou invalides.
+Les masques booléens ne doivent pas être confondus avec les [*masked arrays*](https://numpy.org/doc/1.18/reference/maskedarray.html), qui sont des *arrays* dans lesquels on peut trouver des valeurs manquantes ou invalides.
 
 close-box-rem
 
@@ -1621,12 +1620,12 @@ array([[1., 1., 1., 0.],
        [1., 0., 0., 0.]])
 ```
 
-On obtient ce résultat avec deux lignes de code en utilisant des *arrays* alors qu'il aurait fallu faire des boucles avec des listes classiques.
+On obtient ce résultat avec deux lignes de code en utilisant des *arrays*, alors qu'il aurait fallu faire des boucles avec des listes classiques.
 
 
 ## Quelques conseils
 
-Nous vous avons présenté une petite partie du module *NumPy*, mais vous avez pu en constater son extraordinaire puissance. On pourrait au premier abord être tenté d'abandonner les listes, toutefois elles gardent toute leur importance. Alors quand utiliser les listes ou quand utiliser les *arrays NumPy* ? Voici une liste non exhaustive d'éléments qui peuvent guider votre choix :
+Nous vous avons présenté une petite partie du module *NumPy*, mais vous avez pu en constater son extraordinaire puissance. On pourrait au premier abord être tenté d'abandonner les listes, toutefois elles gardent toute leur importance. Alors, quand utiliser les listes ou quand utiliser les *arrays NumPy* ? Voici une liste non exhaustive d'éléments qui peuvent guider votre choix :
 
 Utilisez *NumPy* pour :
 
@@ -1657,21 +1656,21 @@ close-box-more
 
 open-box-adv
 
-Pour ces exercices, utilisez des notebooks Jupyter.
+Pour ces exercices, utilisez des *notebooks* Jupyter.
 
 close-box-adv
 
 
 ### Nombres pairs et impairs
 
-Soit `impairs` un *array* *NumPy* qui contient les nombres 
+Soit `impairs` un *array* *NumPy* qui contient les nombres :
 
 ```text
 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21
 ```
 
 En une seule instruction, construisez l'*array* `pairs` dans lequel tous les éléments de `impairs` sont incrémentés de 1.
-Comparez ce que venez de faire avec l'exercice 5.4.4 du chapitre 5 *Boucles et comparaisons*.
+Comparez ce que vous venez de faire avec l'exercice 5.4.4 du chapitre 5 *Boucles et comparaisons*.
 
 
 ### Distance entre deux atomes carbones alpha consécutifs de la barstar
@@ -1692,9 +1691,9 @@ with open("1bta.pdb", "r") as f_pdb, open("1bta_CA.txt", "w") as f_CA:
             f_CA.write(f"{x} {y} {z} ")
 ```
 
-- Ligne 1. On ouvre deux fichiers simultanément. Ici, le fichier `1bta.pdb` est ouvert en lecture (`r`)
+- **Ligne 1**. On ouvre deux fichiers simultanément. Ici, le fichier `1bta.pdb` est ouvert en lecture (`r`)
 et le fichier `1bta_CA.txt` est ouvert en écriture (`w`).
-- Pour chaque ligne du fichier PDB (ligne 2), si la ligne débute par `ATOM` et le  nom de l'atome est `CA` (ligne 3), alors on extrait les coordonnées atomiques (lignes 4 à 6) et on les écrit dans le fichier `1bta_CA.txt` (ligne 7). Les coordonnées sont toutes enregistrées sur une seule ligne, les unes après les autres.
+- Pour chaque ligne du fichier PDB (**ligne 2**), si la ligne débute par `ATOM` et le nom de l'atome est `CA` (**ligne 3**), alors on extrait les coordonnées atomiques (**lignes 4 à 6**) et on les écrit dans le fichier `1bta_CA.txt` (**ligne 7**). Les coordonnées sont toutes enregistrées sur une seule ligne, les unes après les autres.
 
 Voici les étapes à suivre :
 
@@ -1716,9 +1715,9 @@ Voici les étapes à suivre :
 
 4. **Calcul de la distance**
 
-- Créez maintenant une matrice qui contient les coordonnées des $n-1$ premiers carbones alpha et une autre qui contient les coordonnées des $n-1$ derniers carbones alpha. Affichez les dimensions des matrices pour vérification.
-- En utilisant les opérateurs mathématiques habituels (`-`, `+`, `**2`) et les fonctions `sqrt()` et `sum()` du module *NumPy*, calculez la distance entre les atomes $n$ et $n+1$.
-- Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones alpha consécutifs avec un chiffres après la virgule. Repérez la valeur surprenante.
+    - Créez maintenant une matrice qui contient les coordonnées des $n-1$ premiers carbones alpha et une autre qui contient les coordonnées des $n-1$ derniers carbones alpha. Affichez les dimensions des matrices pour vérification.
+    - En utilisant les opérateurs mathématiques habituels (`-`, `+`, `**2`) et les fonctions `sqrt()` et `sum()` du module *NumPy*, calculez la distance entre les atomes $n$ et $n+1$.
+    - Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones alpha consécutifs avec un chiffres après la virgule. Repérez la valeur surprenante.
 
 
 ### Jour le plus chaud
@@ -1742,7 +1741,7 @@ Mer 11 11 14 13
 
 ### Calcul du centre de masse d'une membrane
 
-L'image de gauche de la figure @fig:exo_get_leaflet montre le cliché d'une membrane de POPC (cyan) entourée d'eau (bleu) (coordonnées trouvées [ici](https://zenodo.org/record/153944)). Les atomes de phosphore des groupes phosphates sont représentés en boule de van der Waals brune. Dans cet exercice on cherche à calculer le centre de masse de la membrane, ainsi que le centre de masse (COM) de chaque monocouche de phosphores. Ces COM sont représentés sous forme de croix dans le graphique de droite de la figure @fig:exo_get_leaflet.
+L'image de gauche de la figure @fig:exo_get_leaflet montre le cliché d'une membrane de POPC (cyan) entourée d'eau (bleu) (coordonnées trouvées [ici](https://zenodo.org/record/153944)). Les atomes de phosphore des groupes phosphates sont représentés en boule de van der Waals brune. Dans cet exercice, on cherche à calculer le centre de masse de la membrane, ainsi que le centre de masse (COM) de chaque monocouche de phosphores. Ces COM sont représentés sous forme de croix dans le graphique de droite de la figure @fig:exo_get_leaflet.
 
 ![Cliché d'une membrane de POPC.](img/exo_get_leaflet.png){ #fig:exo_get_leaflet width=95% }
 
@@ -1750,11 +1749,11 @@ Les coordonnées cartésiennes $(x, y, z)$ de chaque atome de phosphore (en Å) 
 
 Nous vous proposons les étapes suivantes pour résoudre cet exercice à l'aide du module *NumPy* :
 
-- Récupérez les coordonnées des atomes de phosphore depuis le fichier `coors_P.dat` et stockez-les dans un *array* 2D (matrice) `coors_P`. La dimensionnalité de cette matrice est $n \times 3$, avec $n$ le nombre de phosphores.
-- Calculez le $z$ moyen de tous les phosphores (nombre réel) et stockez-le dans la variable `mean_z`. La méthode `.mean()` vous sera utile.
-- Avec des masques de booléens, récupérez les coordonnées des phosphores de la monocouche du haut dans un *array* 2D `upper`. Faites de même avec la monocouche du bas dans un *array* 2D `lower`.
-- Calculez le centre de masse `COM` de la membrane, ainsi que de la monocouche du haut `COM_upper` et du bas `COM_lower`. Pensez aux méthodes de calcul sur les *arrays* et l'argument `axis`.
-- Une fois tout cela effectué, créez un graphique 3D pour représenter les différents centres de masse. Utilisez la fonction `scatter()` du module *matplotlib* pour l'[affichage en 3D](https://matplotlib.org/3.2.1/gallery/mplot3d/scatter3d.html). Voici un squelette de programme pour vous aider :
+1. Récupérez les coordonnées des atomes de phosphore depuis le fichier `coors_P.dat` et stockez-les dans un *array* 2D (matrice) `coors_P`. La dimensionnalité de cette matrice est $n \times 3$, avec $n$ le nombre de phosphores.
+2. Calculez le $z$ moyen de tous les phosphores (nombre réel) et stockez-le dans la variable `mean_z`. La méthode `.mean()` vous sera utile.
+3. Avec des masques de booléens, récupérez les coordonnées des phosphores de la monocouche du haut dans un *array* 2D `upper`. Faites de même avec la monocouche du bas dans un *array* 2D `lower`.
+4. Calculez le centre de masse `COM` de la membrane, ainsi que de la monocouche du haut `COM_upper` et du bas `COM_lower`. Pensez aux méthodes de calcul sur les *arrays* et l'argument `axis`.
+5. Une fois tout cela effectué, créez un graphique 3D pour représenter les différents centres de masse. Utilisez la fonction `scatter()` du module *matplotlib* pour l'[affichage en 3D](https://matplotlib.org/3.2.1/gallery/mplot3d/scatter3d.html). Voici un squelette de programme pour vous aider :
 
 
 ```python
