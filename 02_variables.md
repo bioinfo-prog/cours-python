@@ -18,7 +18,7 @@ En Python, la **déclaration**\index{declaration@déclaration (de variable)} d'u
 
 **Ligne 1**. Dans cet exemple, nous avons déclaré, puis initialisé la variable `x` avec la valeur 2. Notez bien qu'en réalité, il s'est passé plusieurs choses :
 
-- Python a « deviné » que la variable était un entier. On dit que Python est un langage au **typage dynamique**.
+- Python a « deviné » que la variable était un entier. On dit que Python est un langage au **typage dynamique** \index{typage dynamique@typage dynamique}.
 - Python a alloué (réservé) l'espace en mémoire pour y accueillir un entier. Chaque type de variable prend plus ou moins d'espace en mémoire. Python a aussi fait en sorte qu'on puisse retrouver la variable sous le nom `x`.
 - Enfin, Python a assigné la valeur 2 à la variable `x`.
 
@@ -72,7 +72,7 @@ Voici d'autres cas de figures que vous rencontrerez avec l'opérateur `=` :
 
 open-box-warn
 
-L'opérateur d'affectation `=` écrase systématiquement la valeur de la variable située à sa gauche si celle-ci existe déjà.
+L'opérateur d'affectation `=` \index{operateur affectation@opérateur d'affectation} écrase systématiquement la valeur de la variable située à sa gauche si celle-ci existe déjà.
 
 close-box-warn
 
@@ -118,7 +118,7 @@ En Python, comme dans la plupart des langages de programmation, c'est le point q
 
 close-box-rem
 
-Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` et `False` :
+Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` \index{True} et `False` \index{False} :
 
 ```python
 >>> var = True
@@ -278,7 +278,7 @@ L'opérateur de multiplication `*` entre un nombre entier et une chaîne de cara
 
 open-box-warn
 
-Vous observez que les opérateurs `+` et `*` se comportent différemment s'il s'agit d'entiers ou de chaînes de caractères. Ainsi, l'opération `2 + 2` est une addition alors que l'opération `"2" + "2"` est une concaténation. On appelle ce comportement **redéfinition des opérateurs**. Nous serons amenés à revoir cette notion dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
+Vous observez que les opérateurs `+` et `*` se comportent différemment s'il s'agit d'entiers ou de chaînes de caractères. Ainsi, l'opération `2 + 2` est une addition alors que l'opération `"2" + "2"` est une concaténation. On appelle ce comportement **redéfinition des opérateurs** \index{redefinition operateur@redéfinition des opérateurs}. Nous serons amenés à revoir cette notion dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
 
 close-box-warn
 
@@ -330,6 +330,8 @@ close-box-warn
 
 ## Conversion de types
 
+\index{conversion type@conversion (de types)}
+
 En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`\index{int@int()}, `float()` \index{float@float()} et `str()`\index{str@str()}. Pour vous en convaincre, regardez ces exemples :
 
 ```python
@@ -348,7 +350,7 @@ En programmation, on est souvent amené à convertir les types, c'est-à-dire pa
 
 On verra au chapitre 7 *Fichiers* que ces conversions sont essentielles. En effet, lorsqu'on lit ou écrit des nombres dans un fichier, ils sont considérés comme du texte, donc des chaînes de caractères.
 
-Toute conversion d'une variable d'un type en un autre est appelé *casting*\index{casting@casting} en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
+Toute conversion d'une variable d'un type en un autre est appelé *casting*\index{casting} en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
 
 
 ## Note sur le vocabulaire et la syntaxe

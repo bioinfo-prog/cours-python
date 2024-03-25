@@ -2,7 +2,7 @@
 
 ## Qu'est-ce que Python ?
 
-Le langage de programmation Python a été créé en 1989 par Guido van Rossum, aux Pays-Bas. Le nom *Python* vient d'un hommage à la série télévisée *Monty Python's Flying Circus* dont G. van Rossum est fan. La première version publique de ce langage a été publiée en 1991.
+Le langage de programmation Python \index{Python} a été créé en 1989 par Guido van Rossum, aux Pays-Bas. Le nom *Python* vient d'un hommage à la série télévisée *Monty Python's Flying Circus* dont G. van Rossum est fan. La première version publique de ce langage a été publiée en 1991.
 
 La dernière version de Python est la version 3. Plus précisément, la version 3.11 a été publiée en octobre 2022. La version 2 de Python est obsolète et n'est plus maintenue, évitez de l'utiliser.
 
@@ -25,6 +25,8 @@ Toutes ces caractéristiques font que Python est désormais enseigné dans de no
 
 ## Conseils pour installer et configurer Python
 
+\index{installation@installation (de Python)}
+
 Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons dans cette rubrique un résumé des points importants concernant cette installation. Tous les détails et la marche à suivre pas-à-pas sont donnés à l'adresse <https://python.sdv.u-paris.fr/livre-dunod>.
 
 
@@ -45,7 +47,11 @@ Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez ins
 
 ### Éditeur de texte
 
+\index{editeur texte@éditeur de texte}
+
 L'apprentissage d'un langage informatique comme Python va nécessiter d'écrire des lignes de codes à l'aide d'un éditeur de texte. Si vous êtes débutants, on vous conseille d'utiliser *notepad++* sous Windows, *BBEdit* ou *CotEditor* sous Mac OS X et *gedit* sous Linux. La configuration de ces éditeurs de texte est détaillée dans la rubrique *Installation de Python* disponible en ligne. Bien sûr, si vous préférez d'autres éditeurs comme *Visual Studio Code*, *Sublime Text*, *emacs*, *vim*, *geany*... utilisez-les !
+
+\index{traitement texte@traitement de texte}
 
 À toute fin utile, on rappelle que les logiciels *Microsoft Word*, *WordPad* et *LibreOffice Writer* ne sont pas des éditeurs de texte, ce sont des traitements de texte qui ne peuvent pas et ne doivent pas être utilisés pour écrire du code informatique.
 
@@ -69,7 +75,7 @@ Par ailleurs, dans le cas de programmes, de contenus de fichiers ou de résultat
 
 ## Introduction au *shell*
 
-Un *shell* est un interpréteur de commandes interactif permettant d'interagir avec l'ordinateur. On utilisera le *shell* pour lancer l'interpréteur Python.
+Un *shell* \index{shell} est un interpréteur de commandes interactif permettant d'interagir avec l'ordinateur. On utilisera le *shell* pour lancer l'interpréteur Python.
 
 Pour approfondir la notion de *shell*, vous pouvez consulter les pages Wikipedia :
 
@@ -91,7 +97,7 @@ Python est un langage interprété, c'est-à-dire que chaque ligne de code est l
 
 `python`
 
-La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
+La commande précédente va lancer l'**interpréteur Python** \index{interpreteur@interpréteur (Python)}. Vous devriez obtenir quelque chose de ce style pour Windows :
 
 ```text
 PS C:\Users\pierre>python
@@ -124,9 +130,9 @@ Les blocs
 - `iMac-de-pierre:Downloads$` pour Mac OS X,
 - `pierre@jeera:~$` pour Linux.
 
-représentent l'invite de commande de votre *shell*. Il se peut que vous ayez aussi le mot `(base)` qui indique que vous avez un environnement conda activé. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
+représentent l'invite de commande de votre *shell* \index{invite@invite (de commande)}. Il se peut que vous ayez aussi le mot `(base)` qui indique que vous avez un environnement conda activé. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
 
-Le triple chevron `>>>` est l'invite de commande (*prompt* en anglais) de l'interpréteur Python. Ici, Python attend une commande que vous devez saisir au clavier.
+Le triple chevron `>>>` est l'invite de commande (*prompt* \index{prompt} en anglais) de l'interpréteur Python. Ici, Python attend une commande que vous devez saisir au clavier.
 Tapez par exemple l'instruction :
 
 `print("Hello world!")`
@@ -159,7 +165,7 @@ En résumant, l'interpréteur fonctionne sur le modèle :
 résultat
 ```
 
-où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape au clavier, et l'absence de chevron en début de ligne correspond à la sortie (*output*) générée par Python. Une exception se présente toutefois : lorsqu'on a une longue ligne de code, on peut la couper en deux avec le caractère `\` (*backslash*) pour des raisons de lisibilité :
+où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape au clavier, et l'absence de chevron en début de ligne correspond à la sortie (*output*) générée par Python. Une exception se présente toutefois : lorsqu'on a une longue ligne de code \index{ligne longue@ligne longue (de code)}, on peut la couper en deux avec le caractère `\` (*backslash*) pour des raisons de lisibilité :
 
 ```python
 >>> Voici une longue ligne de code \
@@ -193,11 +199,11 @@ Ensuite, enregistrez votre fichier sous le nom `test.py`, puis quittez l'éditeu
 
 open-box-rem
 
-L'extension de fichier standard des scripts Python est `.py`.
+L'extension de fichier standard des scripts Python est `.py` \index{extension@extension (de nom de fichier)}.
 
 close-box-rem
 
-Pour exécuter votre script, ouvrez un *shell*  et entrez la commande :  
+Pour exécuter votre script, ouvrez un *shell*  et entrez la commande :
 `python test.py`
 
 Vous devriez obtenir un résultat similaire à ceci :
@@ -213,7 +219,7 @@ Si c'est bien le cas, bravo ! Vous avez exécuté votre premier programme Python
 ## Commentaires
 
 Dans un script, tout ce qui suit le caractère `#` est ignoré par Python
-jusqu'à la fin de la ligne et est considéré comme un commentaire.
+jusqu'à la fin de la ligne et est considéré comme un commentaire \index{commentaire}.
 
 Les commentaires doivent expliquer votre code dans un langage humain.
 L'utilisation des commentaires est rediscutée dans le chapitre 16 *Bonnes pratiques en programmation Python*.
@@ -229,12 +235,15 @@ print("Hello world!")
 
 open-box-rem
 
-On appelle souvent à tort le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe))~».
+On appelle souvent à tort le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe))~» \index{croisillon}.
 
 close-box-rem
 
 
 ## Notion de bloc d'instructions et d'indentation
+
+\index{bloc instruction@bloc d'instructions}
+\index{indentation}
 
 En programmation, il est courant de répéter un certain nombre de choses (avec les boucles, voir le chapitre 5 *Boucles et comparaisons*) ou d'exécuter plusieurs instructions si une condition est vraie (avec les tests, voir le chapitre 6 *Tests*).
 
