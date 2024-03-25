@@ -20,7 +20,7 @@ dans un notebook Jupyter, avec des numéros de lignes à gauche.
 
 ## Chargement du module
 
-On charge le module *matplotlib* avec la commande :
+On importe le module *matplotlib* avec la commande :
 
 ```python
 import matplotlib.pyplot as plt
@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 
 open-box-rem
 
-On ne charge pas le module *matplotlib* directement, mais plutôt son sous-module `pyplot`. Par convention et pour l'utiliser plus rapidement, ce sous-module prendre l'alias `plt`.
+On n'importe pas le module *matplotlib* directement, mais plutôt son sous-module `pyplot`. Par convention, et pour l'utiliser plus rapidement, ce sous-module prendre l'alias `plt`.
 
 close-box-rem
 
