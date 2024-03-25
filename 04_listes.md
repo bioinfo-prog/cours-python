@@ -4,7 +4,7 @@
 
 open-box-def
 
-Une **liste** est une structure de données qui contient une collection d'objets Python. Il s'agit d'un nouveau type par rapport aux entiers, *float*, booléens et chaînes de caractères que nous avons vus jusqu'à maintenant. On parle aussi d'**objet séquentiel** en ce sens qu'il contient une séquence d'autres objets.
+Une **liste** \index{liste} est une structure de données qui contient une collection d'objets Python. Il s'agit d'un nouveau type par rapport aux entiers, *float*, booléens et chaînes de caractères que nous avons vus jusqu'à maintenant. On parle aussi d'**objet séquentiel** \index{objet sequentiel@objet séquentiel} en ce sens qu'il contient une séquence d'autres objets.
 
 close-box-def
 
@@ -27,7 +27,7 @@ Lorsque l'on affiche une liste, Python la restitue telle qu'elle a été saisie.
 
 ## Utilisation
 
-Un des gros avantages d'une liste est que vous accédez à ses éléments par leur position. Ce numéro est appelé **indice** (ou *index*) de la liste.
+Un des gros avantages d'une liste est que vous accédez à ses éléments par leur position. Ce numéro est appelé **indice** (ou *index*) de la liste \index{indice@indice (d'une liste)}.
 
 ```text
 liste  : ["girafe", "tigre", "singe", "souris"]
@@ -60,7 +60,7 @@ N'oubliez pas ceci ou vous risquez d'obtenir des bugs inattendus !
 
 ## Opération sur les listes
 
-Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de concaténation, ainsi que l'opérateur `*` pour la duplication :
+Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de concaténation \index{concatenation@concaténation (de liste)}, ainsi que l'opérateur `*` pour la duplication \index{duplication@duplication (de liste)}:
 
 ```python
 >>> ani1 = ["girafe", "tigre"]
@@ -111,7 +111,7 @@ puis avec la méthode `.append()` :
 [15, -5, 13, -3]
 ```
 
-Dans cet exemple, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. 
+Dans cet exemple, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()` \index{append@.append()}. 
 
 open-box-adv
 
@@ -124,7 +124,7 @@ Nous reverrons en détail la méthode `.append()` dans le chapitre 12 *Plus sur 
 
 ## Indiçage négatif
 
-La liste peut également être indexée avec des nombres négatifs selon le modèle suivant :
+La liste peut également être indexée avec des nombres négatifs selon le modèle suivant \index{indice negatif@indice négatif (d'une liste)} :
 
 ```text
 liste          : ["girafe", "tigre", "singe", "souris"]
@@ -161,6 +161,8 @@ Dans ce cas, on utilise plutôt `animaux[0]`.
 
 
 ## Tranches
+
+\index{tranche@tranche (d'une liste)}
 
 Un autre avantage des listes est la possibilité de sélectionner une partie d'une liste en utilisant un indiçage construit sur le modèle `[m:n+1]` pour récupérer tous les éléments, du émième au énième (de l'élément `m` inclu à l'élément `n+1` exclu). On dit alors qu'on récupère une **tranche** de la liste, par exemple :
 
@@ -206,6 +208,8 @@ Finalement, on se rend compte que l'accès au contenu d'une liste fonctionne sur
 
 ## Fonction `len()`
 
+\index{len@len()}
+
 L'instruction `len()` vous permet de connaître la longueur d'une liste, c'est-à-dire le nombre d'éléments que contient la liste. Voici un exemple d'utilisation :
 
 ```python
@@ -218,6 +222,9 @@ L'instruction `len()` vous permet de connaître la longueur d'une liste, c'est-�
 
 
 ## Les fonctions `range()` et `list()`
+
+\index{len@range()}
+\index{len@list()}
 
 L'instruction `range()` est une fonction spéciale en Python qui génère des nombres entiers compris dans un intervalle. Lorsqu'elle est utilisée en combinaison avec la fonction `list()`, on obtient une liste d'entiers. Par exemple :
 
@@ -259,6 +266,8 @@ Ici la liste est vide car Python a pris la valeur du pas par défaut qui est de 
 
 ## Listes de listes
 
+\index{liste de listes}
+
 Pour finir, sachez qu'il est tout à fait possible de construire des listes de listes. Cette fonctionnalité peut parfois être très pratique. Par exemple :
 
 ```python
@@ -292,7 +301,7 @@ On verra un peu plus loin qu'il existe en Python des dictionnaires qui sont éga
 
 ## Minimum, maximum et somme d'une liste
 
-Les fonctions `min()`, `max()` et `sum()` renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument.
+Les fonctions `min()` \index{min@min()}, `max()` \index{max@max()} et `sum()` \index{sum@sum()} renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument.
 
 ```python
 >>> liste1 = list(range(10))
@@ -327,6 +336,8 @@ TypeError: '<' not supported between instances of 'int' and 'list'
 Soit on passe plusieurs entiers et / ou *floats* en argument, soit on passe une liste unique.
 
 ## Problème avec les copies de listes
+
+\index{copie listes@copie (de listes)}
 
 Nous attirons votre attention sur un comportement de Python qui peut paraitre étrange lorsqu'on copie une liste :
 
@@ -369,7 +380,7 @@ close-box-warn
 
 ## Note sur le vocabulaire et la syntaxe
 
-Revenons quelques instants sur la notion de **méthode** abordée dans ce chapitre avec `.append()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est de la forme `objet.méthode()`.
+Revenons quelques instants sur la notion de **méthode** \index{methode@méthode} abordée dans ce chapitre avec `.append()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est de la forme `objet.méthode()`.
 
 Dans l'exemple suivant :
 

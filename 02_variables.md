@@ -272,9 +272,9 @@ Pour les chaînes de caractères, deux opérations sont possibles, l'addition et
 'SalutSalutSalut'
 ```
 
-L'opérateur d'addition `+` concatène (assemble) deux chaînes de caractères. On parle de concaténation\index{concatenation@concaténation (chaîne de caracteres)}.
+L'opérateur d'addition `+` concatène (assemble) deux chaînes de caractères. On parle de concaténation\index{concatenation@concaténation (de chaîne de caracteres)}.
 
-L'opérateur de multiplication `*` entre un nombre entier et une chaîne de caractères duplique (répète) plusieurs fois une chaîne de caractères. On parle de duplication\index{duplication@duplication (chaîne de caracteres)}.
+L'opérateur de multiplication `*` entre un nombre entier et une chaîne de caractères duplique (répète) plusieurs fois une chaîne de caractères. On parle de duplication\index{duplication@duplication (de chaîne de caracteres)}.
 
 open-box-warn
 
