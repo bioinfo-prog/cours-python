@@ -295,7 +295,7 @@ Les méthodes `.start()` et `.end()` donnent respectivement la position de débu
 
 ### La méthode `.findall()`
 
-Pour récupérer chaque zone correspondante à la *regex*, s'il y en a plusieurs, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance.
+Pour récupérer chaque zone dans la *regex*, s'il y en a plusieurs, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance :
 
 ```python
 >>> regex = re.compile("[0-9]+\.[0-9]+")
