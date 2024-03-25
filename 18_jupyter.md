@@ -121,7 +121,7 @@ Le format Markdown permet de rédiger du texte structuré rapidement et simpleme
 
 Un autre intérêt des *notebooks* Jupyter est de pouvoir y incorporer des graphiques réalisés avec la bibliothèque *matplotlib* (que nous verrons prochainement).
 
-Voici un exemple, d'un graphique qui présenté dans le chapitre 21 *Module Matplotlib* (figure @fig:jupyter-matplotlib).
+Voici un exemple, d'un graphique qui sera présenté dans le chapitre 21 *Module Matplotlib* (figure @fig:jupyter-matplotlib).
 
 ![Incorporation d'un graphique dans un *notebook* Jupyter.](img/jupyter-matplotlib.png "Incorporation d'un graphique dans un *notebook* Jupyter."){ #fig:jupyter-matplotlib width=80% }
 
