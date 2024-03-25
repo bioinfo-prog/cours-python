@@ -199,7 +199,7 @@ Ensuite, enregistrez votre fichier sous le nom `test.py`, puis quittez l'éditeu
 
 open-box-rem
 
-L'extension de fichier standard des scripts Python est `.py` \index{extension@extension (de nom de fichier)}.
+L'extension de fichier standard des scripts Python est `.py` \index{extension@extension (de nom de script Python)}.
 
 close-box-rem
 

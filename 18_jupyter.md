@@ -1,8 +1,14 @@
 # Jupyter et ses *notebooks*
 
+\index{notebook@notebook Jupyter}
+
 Les *notebooks* Jupyter sont des cahiers électroniques qui, dans le même document, peuvent rassembler du texte, des images, des formules mathématiques, des tableaux, des graphiques et du code informatique exécutable. Ils sont manipulables interactivement dans un navigateur web.
 
+\index{Jupyter@Jupyter}
+
 Initialement développés pour les langages de programmation Julia, Python et R (d'où le nom *Jupyter*), les *notebooks* Jupyter supportent près de 40 langages différents.
+
+\index{cellule@cellule (de notebook Jupyter)}
 
 La cellule est l'élément de base d'un *notebook* Jupyter. Elle peut contenir du texte formaté au format Markdown ou du code informatique qui pourra être exécuté.
 
@@ -25,6 +31,8 @@ Pour être exact, la commande précédente installe un peu plus que les *noteboo
 
 
 ## JupyterLab
+
+\index{JupyterLab@JupyterLab}
 
 En 2018, le consortium Jupyter a lancé *JupyterLab*, qui est un environnement complet de programmation et d'analyse de données.
 
@@ -53,6 +61,8 @@ Le *notebook* fraîchement créé ne contient qu'une cellule vide.
 ![Nouveau *notebook* avec une cellule vide.](img/jupyter-nouveau-notebook-vide.png "Nouveau *notebook* avec une cellule vide."){ #fig:jupyter-nouveau-notebook-vide width=95% }
 
 La première chose à faire est de donner un nom à votre *notebook*. Pour cela, cliquer avec le bouton droit de la souris sur *Untitled.ipynb*, en haut du *notebook*. Si le nom de votre *notebook* est *test.ipynb*, alors le fichier *test.ipynb* sera créé dans le répertoire depuis lequel vous avez lancé JupyterLab.
+
+\index{extension@extension (de notebook Jupyter)}
 
 open-box-rem
 
@@ -106,13 +116,15 @@ close-box-warn
 
 ## Le format Markdown
 
+\index{Markdown}
+
 Dans le tout premier exemple (figure @fig:jupyter-exemple), nous avons vu qu'il était possible de mettre du texte au format Markdown dans une cellule.
 
 Il faut cependant indiquer à Jupyter que cette cellule est au format Markdown en cliquant sur *Code*, sous la barre de menu au dessus du *notebook*, puis en choisissant *Markdown*.
 
 Le format Markdown permet de rédiger du texte formaté (gras, italique, liens, titres, images, formules mathématiques...) avec quelques balises très simples. Voici un exemple dans un *notebook* Jupyter (figure @fig:jupyter-markdown (A)) et le rendu lorsque la cellule est exécutée (figure @fig:jupyter-markdown (B)). Notez qu'une cellule Markdown est sur fond blanc (comme sur la figure @fig:jupyter-markdown (B)).
 
-![*Notebook* avec : (A) une cellule au format Markdown et (B) le rendu après exécution.](img/jupyter-markdown.png "*Notebook* avec une cellule au format Markdown et son rendu après exécution."){ #fig:jupyter-markdown width=98% }
+![*Notebook* avec : (A) une cellule au format Markdown et (B) le rendu après exécution.](img/jupyter-markdown.png "*Notebook* avec une cellule au format Markdown et son rendu après exécution de la cellule."){ #fig:jupyter-markdown width=98% }
 
 Le format Markdown permet de rédiger du texte structuré rapidement et simplement. Ce cours est par exemple complètement rédigé en Markdown. Nous vous conseillons d'explorer les possibilités du Markdown en consultant la page [Wikipédia](https://fr.wikipedia.org/wiki/Markdown) ou directement la [page de référence](https://daringfireball.net/projects/markdown/syntax).
 
@@ -125,11 +137,11 @@ Voici un exemple, d'un graphique qui sera présenté dans le chapitre 21 *Module
 
 ![Incorporation d'un graphique dans un *notebook* Jupyter.](img/jupyter-matplotlib.png "Incorporation d'un graphique dans un *notebook* Jupyter."){ #fig:jupyter-matplotlib width=80% }
 
-L'utilisation de `%matplotlib inline` n'est pas nécessaire dans les versions récentes de JupyterLab. Mais avec d'anciennes versions, vous pourriez en avoir besoin pour que les graphiques s'affichent dans le *notebook*.
+L'instruction `%matplotlib inline` n'est pas nécessaire dans les versions récentes de JupyterLab. Mais avec d'anciennes versions, vous pourriez en avoir besoin pour que les graphiques s'affichent dans le *notebook*.
 
 open-box-rem
 
-Pour quitter l'interface Jupyter Lab, il y a plusieurs possibilités :
+Pour quitter l'interface JupyterLab, il y a plusieurs possibilités :
 
 - Dans le menu en haut à gauche de l'interface, cliquer sur *File*, puis *Shut Down*, puis confirmer en cliquant sur le bouton *Shut Down*.
 - Une méthode plus radicale est de revenir sur le *shell* depuis lequel JupyterLab a été lancé, puis de presser deux fois de suite la combinaison de touches *Ctrl* + *C*.
@@ -138,6 +150,8 @@ close-box-rem
 
 
 ## Les *magic commands*
+
+\index{magic command@magic command Jupyter}
 
 La commande précédente (`%matplotlib inline`) est une *magic command*. Les [*magic commands*](https://ipython.readthedocs.io/en/stable/interactive/magics.html) apportent des fonctionnalités supplémentaires dans un *notebook*. Il en existe beaucoup, nous allons en aborder ici quelques unes.
 
@@ -160,6 +174,8 @@ close-box-rem
 
 
 ### %whos
+
+\index{whos@\%whos (magic command Jupyter)}
 
 La commande `%whos` liste tous les objets (variables, fonctions, modules...) utilisés dans un *notebook*.
 
@@ -197,6 +213,8 @@ resultat_2    str         BonjourJupyter
 
 ### %history
 
+\index{history@\%history (magic command Jupyter)}
+
 La commande `%history` liste toutes les commandes Python lancées dans un *notebook* :
 
 ```python
@@ -217,6 +235,8 @@ ma_fonction("Bonjour", "Jupyter")
 
 
 ### %%time
+
+\index{time@\%\%time (magic command Jupyter)}
 
 La commande `%%time` (avec deux symboles `%`) va mesurer le temps d'exécution d'une cellule. C'est très utile pour faire des tests de performance. On peut, par exemple, comparer les vitesses de parcours d'une liste avec une boucle `for`, par les éléments ou par les indices des éléments.
 
@@ -258,6 +278,8 @@ Comme attendu, la première méthode (itération par les éléments) est plus ra
 
 
 ### %%timeit
+
+\index{timeit@\%\%timeit (magic command Jupyter)}
 
 Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Python détermine automatiquement le nombre d'itérations et le nombre de répétitions à effectuer pour obtenir un temps global d'exécution raisonnable.
 
