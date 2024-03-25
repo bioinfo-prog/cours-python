@@ -18,7 +18,7 @@ $ conda install -c conda-forge matplotlib scipy
 ```
 
 
-Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *pandas* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un notebook Jupyter.
+Dans ce chapitre, nous vous montrerons quelques exemples d’utilisation du module *pandas* pour vous convaincre de sa pertinence. Ces exemples seront exécutés dans un *notebook* Jupyter.
 
 ```python
 Les cellules de code apparaitront de cette manière
@@ -64,8 +64,8 @@ dtype: int64
 
 ### Sélections par étiquette ou indice
 
-Avec *pandas*, chaque élément de la série de données possède une étiquette qui permet d'appeler les éléments.
-Ainsi, pour appeler le premier élément de la série, on peut son étiquette (ici, `"a"`) :
+Avec *pandas*, chaque élément de la série de données possède une étiquette qui permet d'appeler les éléments qui la composent.
+Ainsi, pour appeler le premier élément de la série, on peut utiliser son étiquette (ici, `"a"`) :
 
 ```python
 s["a"]
@@ -209,13 +209,13 @@ souris  30  31  32  33
 
 Voici quelques commentaires sur le code précédent :
 
-- Ligne 1. On charge le module *NumPy* utilisé ensuite.
-- Ligne 2. Le *Dataframe* est créé avec la fonction `DataFrame()` à laquelle
+- **Ligne 1.** On charge le module *NumPy* utilisé ensuite.
+- **Ligne 2.** Le *Dataframe* est créé avec la fonction `DataFrame()` à laquelle
 on fournit plusieurs arguments. L'argument `columns` indique le nom des colonnes, 
 sous forme d'une liste.
-- Ligne 3. L'argument `index` définit le nom des lignes, sous forme de liste également.
-- Lignes 4 à 6. L'argument `data` fournit le contenu du *Dataframe*, sous la forme
-d'une liste de valeurs correspondantes à des lignes. Ainsi `np.arange(10, 14)`
+- **Ligne 3.** L'argument `index` définit le nom des lignes, sous forme de liste également.
+- **Lignes 4 à 6.** L'argument `data` fournit le contenu du *Dataframe*, sous la forme
+d'une liste de valeurs correspondantes à des lignes. Ainsi, `np.arange(10, 14)`
  qui est équivalent à `[10, 11, 12, 13]` correspond à la première ligne du *Dataframe*. 
 
 Le même *Dataframe* peut aussi être créé à partir des valeurs fournies
@@ -238,9 +238,9 @@ singe   20  21  22  23
 souris  30  31  32  33
 ```
 
-- Lignes 1 à 4. Le dictionnaire `data` contient les données en colonnes. La clé associée à chaque colonne est le nom de la colonne.
-- Ligne 5. Le *dataframe* est créé avec la fonction `pd.DataFrame()` à laquelle on passe `data` en argument.
-- Ligne 6. On peut définir les étiquettes des lignes de n'importe quel *dataframe* avec l'attribut `df.index`.
+- **Lignes 1 à 4.** Le dictionnaire `data` contient les données en colonnes. La clé associée à chaque colonne est le nom de la colonne.
+- **Ligne 5.** Le *dataframe* est créé avec la fonction `pd.DataFrame()` à laquelle on passe `data` en argument.
+- **Ligne 6.** On peut définir les étiquettes des lignes de n'importe quel *dataframe* avec l'attribut `df.index`.
 
 
 ### Quelques propriétés
@@ -255,7 +255,7 @@ df.shape
 (3, 4)
 ```
 
-Ici, le *dataframe* `df` a trois lignes et quatre colonnes.
+Ici, le *dataframe* `df` possède trois lignes et quatre colonnes.
 
 L'attribut `.columns` renvoie le nom des colonnes et permet aussi de renommer
 les colonnes d'un *dataframe* :
@@ -298,7 +298,7 @@ open-box-rem
 
 Les *Dataframes* utilisés ici comme exemples sont volontairement petits.
 Si vous êtes confrontés à des *Dataframes* de grande taille,
-ceux-ci seront affichés partiellement dans un notebook Jupyter. Des ascenseurs en bas et à droite du *Dataframe* permettront de naviguer dans les données.
+ceux-ci seront affichés partiellement dans un *notebook* Jupyter. Des ascenseurs en bas et à droite du *Dataframe* permettront de naviguer dans les données.
 
 close-box-rem
 
@@ -334,9 +334,9 @@ pandas.core.series.Series
 
 open-box-warn
 
-On trouve parfois l'écriture `df.Lyon` pour sélectionner une colonne. C'est une très mauvaise pratique car cette écriture peut être confondue avec un attribut de l'objet `df` (par exemple `.shape`). Par ailleurs, elle ne fonctionne pas pour des noms de colonnes qui contiennent des espaces ou des caractères spéciaux (ce qui n'est pas non plus une bonne pratique).
+On trouve parfois l'écriture `df.Lyon` pour sélectionner une colonne. C'est une très mauvaise pratique, car cette écriture peut être confondue avec un attribut de l'objet `df` (par exemple `.shape`). Par ailleurs, elle ne fonctionne pas pour des noms de colonnes qui contiennent des espaces ou des caractères spéciaux (ce qui n'est pas non plus une bonne pratique).
 
-Nous vous conseillons de toujours utiliser la notation `df["nom_de_colonne"]`.
+Nous vous conseillons de toujours utiliser la notation **`df["nom_de_colonne"]`**.
 
 close-box-warn
 
@@ -534,7 +534,6 @@ souris     30    31      32   33
 ### Combinaison de *dataframes*
 
 En biologie, on a souvent besoin de combiner deux tableaux à partir d'une colonne commune.
-
 Par exemple, si on considère les deux *dataframes* suivants :
 
 ```python
@@ -567,9 +566,9 @@ souris       9          10
 lapin       14           8
 ```
 
-On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les quatres villes (Lyon, Paris, Nantes et Strasbourg) le nombre d'animaux. On remarque d'ores et déjà qu'il y a des singes à Lyon et Paris mais pas de lapin et qu'il y a des lapins à Nantes et Strasbourg mais pas de singe. Nous allons voir comment gérer cette situation.
+On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les quatre villes (Lyon, Paris, Nantes et Strasbourg) le nombre d'animaux. On remarque d'ores et déjà qu'il y a des singes à Lyon et Paris, mais pas de lapin et qu'il y a des lapins à Nantes et Strasbourg, mais pas de singe. Nous allons voir comment gérer cette situation.
 
-*pandas* propose pour cela la fonction [`concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html) qui prend comme argument une liste de *dataframes* :
+*Pandas* propose pour cela la fonction [`concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html), qui prend comme argument une liste de *dataframes* :
 
 ```python
 pd.concat([df1, df2])
@@ -585,7 +584,7 @@ souris   NaN     9.0    NaN        10.0
 lapin    NaN    14.0    NaN         8.0
 ```
 
-Ici, `NaN` indique des valeurs manquantes, cela signifie littéralement *Not a Number*. Mais le résultat obtenu n'est pas celui que nous attendions puisque les lignes de deux *dataframes* ont été recopiées.
+Ici, `NaN` indique des valeurs manquantes, cela signifie littéralement *Not a Number*. Mais le résultat obtenu n'est pas celui que nous attendions, puisque les lignes de deux *dataframes* ont été recopiées.
 
 L'argument supplémentaire `axis=1` produit le résultat attendu :
 
@@ -618,7 +617,7 @@ Un autre comportement par défaut de `concat()` est que cette fonction va combin
 
 ### Opérations vectorielles
 
-Pour cette rubrique, créons un *Dataframe* composé de nombres aléatoires compris entre 100 et 200 répartis en trois colonnes (`a`, `b` et `c`) et 1000 lignes :
+Pour cette rubrique, créons un *Dataframe* composé de nombres aléatoires compris entre 100 et 200, répartis en trois colonnes (`a`, `b` et `c`) et 1000 lignes :
 
 ```python
 import numpy as np
@@ -691,7 +690,7 @@ Une autre approche, plus efficace, consiste à réaliser les opérations directe
 df["d"] = (df["a"] * df["b"]) + df["c"]
 ```
 
-qui renvoie 
+qui renvoie :
 
 ```text
 250 µs ± 36.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
@@ -701,7 +700,7 @@ Ici, la cellule de code s'exécute en moyenne en 250 µs, soit environ 200 fois 
 
 open-box-rem
 
-Dans l'exemple précédent, l'utilisation de commande magique `%%timeit` calcule le temps d'exécution moyen d'une cellule. Python détermine automatiquement le nombre d'itérations à réaliser pour que le calcul se fasse dans un temps raisonnable. Ainsi, pour la méthode `.iterrows()`, le calcul est réalisé 10 fois sur sept répétitions alors que pour les opérations vectorielles, le calcul est effectué 1000 fois sur sept répétitions.
+Dans l'exemple précédent, l'utilisation de la commande magique `%%timeit` calcule le temps d'exécution moyen d'une cellule. Python détermine automatiquement le nombre d'itérations à réaliser pour que le calcul se fasse dans un temps raisonnable. Ainsi, pour la méthode `.iterrows()`, le calcul est réalisé 10 fois sur sept répétitions alors que pour les opérations vectorielles, le calcul est effectué 1000 fois sur sept répétitions.
 
 close-box-rem
 
@@ -711,7 +710,7 @@ close-box-rem
 Pour illustrer les possibilités de *pandas*, voici un exemple plus concret sur un jeu de données de [kinases](https://fr.wikipedia.org/wiki/Kinase). Les kinases sont des protéines responsables de la phosphorylation d'autres protéines.
 
 Le fichier `kinases.csv` que vous pouvez télécharger
-[ici](https://python.sdv.u-paris.fr/data-files/kinases.csv)
+[en ligne](https://python.sdv.u-paris.fr/data-files/kinases.csv)
 contient des informations tirées de la base de données de séquences UniProt pour quelques kinases.
 
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
@@ -721,7 +720,7 @@ open-box-rem
 
 Avant de nous lancer dans l'analyse de ce fichier, nous vous proposons cette petite devinette :
 
-> Qu'est-ce qu'une protéine dans une piscine ?
+> *Qu'est-ce qu'une protéine dans une piscine ?*
 
 La réponse sera donnée à la fin de ce chapitre.
 
@@ -739,7 +738,7 @@ df = pd.read_csv("kinases.csv")
 
 Le contenu est chargé sous la forme d'un *Dataframe* dans la variable `df`.
 
-Le fichier contient 1442 lignes de données plus une ligne d'en-tête. Cette dernière
+Le fichier contient 1 442 lignes de données plus une ligne d'en-tête. Cette dernière
  est automatiquement utilisée par *pandas* pour nommer les différentes colonnes.
  Voici un aperçu des premières lignes :
 
@@ -769,7 +768,7 @@ La colonne d'entiers tout à gauche est un index automatiquement créé par *pan
 
 Nous pouvons demander à *pandas* d'utiliser une colonne particulière comme index.
 On utilise pour cela le paramètre `index_col` de la fonction `read_csv()`. 
-Ici, la colonne `Entry` s'y prête très bien car cette colonne ne contient que
+Ici, la colonne `Entry` s'y prête très bien, car cette colonne ne contient que
 des identifiants uniques :
 
 ```python
@@ -789,7 +788,7 @@ A1Z7T0      Fruit fly    1190    2012-01-25  131791  NaN
 
 open-box-rem
 
-La fonction `.read_csv()` permet également d'ouvrir un fichier au format TSV (voir l'annexe A *Quelques formats de données en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`) avec l'argument `sep="\t"`.
+La fonction `.read_csv()` permet également d'ouvrir un fichier au format TSV (voir l'annexe A *Quelques formats de données en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`), avec l'argument `sep="\t"`.
 
 close-box-rem
 
@@ -804,7 +803,7 @@ df.shape
 (1442, 5)
 ```
 
-Notre jeu de données contient donc 1442 lignes et 5 colonnes. En effet,
+Notre jeu de données contient donc 1 442 lignes et 5 colonnes. En effet,
 la colonne `Entry` est maintenant utilisée comme index et n'est donc plus
 prise en compte.
 
@@ -880,7 +879,7 @@ Ici, le *Dataframe* occupe 351 kilo-octets (ko) en mémoire.
 
 Il est aussi utile de savoir si des valeurs manquantes sont présentes dans le jeu de données. Ces valeurs manquantes correspondent à des champs pour lesquels aucune valeur n'ont été fournies. Elles sont souvent représentées par `NaN` (pour *Not a Number*).
 
-La méthode `.isna()` renvoie un *Dataframe* de la même dimension que le *Dataframe* initial mais avec des valeurs booléennes (`True` si la valeur est manquante (`NaN`) ou `False` sinon). En le combinant avec la méthode `.sum()`, on peut compter le nombre de valeurs manquantes pour chaque colonne :
+La méthode `.isna()` renvoie un *Dataframe* de la même dimension que le *Dataframe* initial, mais avec des valeurs booléennes (`True` si la valeur est manquante (`NaN`) ou `False` sinon). En le combinant avec la méthode `.sum()`, on peut compter le nombre de valeurs manquantes pour chaque colonne :
 
 ```python
 df.isna().sum()
@@ -895,9 +894,7 @@ PDB              954
 dtype: int64
 ```
 
-Ici, la seule colonne qui contient des valeurs manquantes est la colonne `PDB`, qui contient 954 valeurs manquantes. Cela signifie que pour 954 protéines, aucune structure 3D n'est disponible.
-
-Nous reviendrons plus tard sur cette colonne `PDB`.
+Ici, la seule colonne qui contient des valeurs manquantes est la colonne `PDB`, qui contient 954 valeurs manquantes. Cela signifie que pour 954 protéines, aucune structure 3D n'est disponible. Nous reviendrons plus tard sur cette colonne `PDB`.
 
 
 ### Conversion en date
@@ -969,7 +966,7 @@ std     404.195273                            NaN   44764.273097
 
 On apprend ainsi que la taille de la protéine (colonne `Length`)
 a une valeur moyenne de 756,14 acides aminés et que
-la plus petite protéine est composée de 81 acides aminés et la plus grande de 2986. Pratique !
+la plus petite protéine est composée de 81 acides aminés et la plus grande de 2 986. Pratique !
 
 Des statistiques sont également proposées pour la colonne `Creation date`. La protéine la plus récente a ainsi été référencée le 13 septembre 2023.
 
@@ -999,7 +996,7 @@ du maïs (`Maize`).
 ### Statistiques par groupe
 
 On peut aussi déterminer, pour chaque organisme, la taille 
-et la masse moyennes des kinases :
+et la masse moyenne des kinases :
 
 ```python
 df.groupby(["Organism"])[["Length", "Mass"]].mean()
@@ -1021,9 +1018,8 @@ La méthode `.groupby()` rassemble d'abord les données suivant la colonne
 `Organism`. Puis on sélectionne les colonnes `Length` et `Mass`.
 Enfin, la méthode `.mean()` calcule la moyenne pour chaque groupe.
 
-Si on souhaite obtenir deux statistiques (par exemple la valeur minimale et maximale)
-en une seule fois, il convient alors d'utiliser la méthode `.pivot_table()`
-plus complexe mais aussi beaucoup plus puissante :
+Si on souhaite obtenir deux statistiques (par exemple les valeurs minimale et maximale)
+en une seule fois, il convient alors d'utiliser la méthode `.pivot_table()`, méthode plus complexe, mais aussi beaucoup plus puissante :
 
 ```python
 df.pivot_table(
@@ -1046,11 +1042,9 @@ Rabbit        81   9405   1382  158347
 Rat          274  31162   2959  336587
 ```
 
-L'argument `index` précise la colonne dont on veut agrèger les données.
-
-L'argument `values` indique sur quelles colonnes les statistiques sont calculées.
-
-Enfin, `aggfunc` liste les statistiques calculées, ici la valeur minimale et maximale.
+- L'argument `index` précise la colonne dont on veut agréger les données.
+- L'argument `values` indique sur quelles colonnes les statistiques sont calculées.
+- Enfin, `aggfunc` liste les statistiques calculées, ici les valeurs minimale et maximale.
 
 Notez que les valeurs renvoyées sont d'abord les valeurs minimales pour `Length`
 et `Mass` puis les valeurs maximales pour `Length` et `Mass`.
@@ -1094,9 +1088,8 @@ df.plot(
 plt.savefig("kinases1.png")
 ```
 
-Ligne 4. On spécifie le type de graphique. Ici, un nuage de points.
-
-Lignes 5 et 6. On précise les colonnes à utiliser pour les abscisses et les ordonnées.
+- **Ligne 4.** On spécifie le type de graphique. Ici, un nuage de points.
+- **Lignes 5 et 6.** On précise les colonnes à utiliser pour les abscisses et les ordonnées.
 
 Le graphique de la figure @fig:kinases1 met en évidence une relation linéaire
 entre le nombre de résidus d'une protéine et sa masse.
@@ -1117,7 +1110,7 @@ rvalue=0.9989676084416755, pvalue=0.0, stderr=0.13258187632073232,
 intercept_stderr=113.66584551734655)
 ```
 
-Ce modèle linaire nous indique qu'un résidu a une masse d'environ 111 Dalton,
+Ce modèle linéaire nous indique qu'un résidu a une masse d'environ 111 Dalton,
 ce qui est cohérent. On peut également comparer ce modèle aux différentes protéines :
 
 ```python
@@ -1168,15 +1161,15 @@ Rabbit       1986-07-21    2010-03-02
 Rat          1986-07-21    2023-09-13
 ```
 
-Chez le poulet (*Chicken*), la première séquence a été référencées 
+Chez le poulet (*Chicken*), la première séquence a été référencée 
 le 21 juillet 1986 et la dernière le 10 février 2021.
 
 Une autre question est de savoir combien de kinases ont
 été référencées en fonction du temps.
 
-La méthode `.value_counts()` peut être utilisée mais elle ne renvoie que
+La méthode `.value_counts()` peut être utilisée, mais elle ne renvoie que
 le nombre de protéines référencées dans UniProt pour un jour donné. Par exemple,
-40 structures ont été références le 28 novembre 2006.
+40 structures ont été référencées le 28 novembre 2006.
 
 ```python
 df["Creation date"].value_counts().head()
@@ -1192,8 +1185,8 @@ Creation date
 Name: count, dtype: int64
 ```
 
-Si on souhaite une réponse plus globale, par exemple, à l'échelle de
-l'année, la méthode `.resample()` calcule le nombre de protéines réféencées par
+Si on souhaite une réponse plus globale, par exemple à l'échelle de
+l'année, la méthode `.resample()` calcule le nombre de protéines référencées par
 année (en fournissant l'argument `YE`). En utilisant le *method chaining*
 présenté dans le chapitre 11 *Plus sur les chaînes de caractères*,
 nous pouvons écrire toutes ces transformations en une seule instruction,
@@ -1218,11 +1211,11 @@ Creation date
 Freq: YE-DEC, Name: count, dtype: int64
 ```
 
-Les dates apparaissent maintenant comme le dernier jour de l'année mais désignent
+Les dates apparaissent maintenant comme le dernier jour de l'année, mais désignent
 bien l'année complète. Dans cet exemple, une seule kinase a été référencée
 dans UniProt entre le 1er janvier et le 31 décembre 1987.
 
-Pour connaître quelle année le plus de kinases ont été référencées dans UniProt,
+Pour connaître en quelle année le plus de kinases ont été référencées dans UniProt,
 il faut trier les valeurs obtenues du plus grand au plus petit avec la méthode
 `.sort_values()`. Comme on ne veut connaître que les premières dates
 (celles où il y a eu le plus de protéines référencées),
@@ -1254,9 +1247,9 @@ En 2005, 21 kinases ont été référencées dans UniProt. La deuxième
 « meilleure » année est 2004 avec 20 protéines.
 
 Toutes ces méthodes, enchaînées les unes à la suite des autres, peuvent vous
-sembler complexes mais chacune d'elles correspond à une étape du traitement des données. 
+sembler complexes, mais chacune d'elles correspond à une étape du traitement des données. 
 Bien sûr, on aurait pu créer des variables intermédiaires
-pour chaque étape mais cela aurait été plus lourd :
+pour chaque étape, mais cela aurait été plus lourd :
 
 ```python
 date1 = df["Creation date"].value_counts()
@@ -1296,7 +1289,7 @@ On observe un pic du nombre de kinases référencées dans UniProt sur la pério
 ### Transformation d'une colonne
 
 Nous avons vu précédemment que la colonne `PDB` contenait de nombreuses valeurs manquantes (`NaN`).
-Mais il est intéressant de savoir ce que peut contenir cette colonne quand elle n'est pas vide :
+Toutefois, il est intéressant de savoir ce que peut contenir cette colonne quand elle n'est pas vide :
 
 ```python
 (df
@@ -1313,13 +1306,12 @@ D3ZMK9      Rat    1368    2018-07-18  147716                 6EWX;
 O00141    Human     431    1998-12-15   48942  2R5T;3HDM;3HDN;7PUE;
 ```
 
-Ligne 2. La méthode `isna()` sélectionne les lignes qui contiennent des valeurs manquantes dans la colonne `PDB` puis l'opérateur `~` inverse cette sélection.
-
-Ligne 3. On limite l'affichage aux trois premières lignes.
+- **Ligne 2.** La méthode `isna()` sélectionne les lignes qui contiennent des valeurs manquantes dans la colonne `PDB`, puis l'opérateur `~` inverse cette sélection.
+- **Ligne 3.** On limite l'affichage aux trois premières lignes.
 
 On découvre que la colonne `PDB` contient des identifiants de structures 3D de protéines. Ces identifiants sont séparés par des points-virgules, y compris pour la dernière valeur.
 
-Nous souhaitons compter le nombre de structures 3D pour chaque protéine. Pour cela, nous allons d'abord créer une fonctionne qui compte le nombre de points-virgules dans une chaîne de caractères :
+Nous souhaitons compter le nombre de structures 3D pour chaque protéine. Pour cela, nous allons d'abord créer une fonction qui compte le nombre de points-virgules dans une chaîne de caractères :
 
 ```python
 def count_structures(row):
@@ -1359,11 +1351,9 @@ Les premières lignes ne sont pas très intéressantes car elles ne contiennent 
 )
 ```
 
-Ligne 2. On trie les données par ordre décroissant de la colonne `nb_structures`.
-
-Ligne 3. On ne conserve que les colonnes `Organism` et `nb_structures` à afficher.
-
-Ligne 4. On limite l'affichage aux cinq premières lignes.
+- **Ligne 2.** On trie les données par ordre décroissant de la colonne `nb_structures`.
+- **Ligne 3.** On ne conserve que les colonnes `Organism` et `nb_structures` à afficher.
+- **Ligne 4.** On limite l'affichage aux cinq premières lignes.
 
 ```text
        Organism  nb_structures
@@ -1387,7 +1377,7 @@ open-box-rem
 
 La réponse à la devinette précédente est : 
 
-> Une protéine kinase
+> *Une protéine kinase*
 
 (Une protéine qui nage... dans une piscine... Vous l'avez ?)
 
@@ -1398,7 +1388,7 @@ close-box-rem
 
 open-box-adv
 
-Pour ces exercices, utilisez des notebooks Jupyter.
+Pour ces exercices, utilisez des *notebooks* Jupyter.
 
 close-box-adv
 
@@ -1439,7 +1429,7 @@ close-box-adv
     - Comptez ensuite le nombre de personnes de chaque sexe.
 
 4. **Statistiques par groupe**
-    - Déterminez, la taille et l'âge moyen chez les hommes et les femmes. Utilisez pour cela la méthode `.groupby()`.
+    - Déterminez la taille et l'âge moyen chez les hommes et les femmes. Utilisez pour cela la méthode `.groupby()`.
 
 5. **Sélections par filtre**
     - Déterminez combien de d'individus mesurent plus de 1,80 m.
