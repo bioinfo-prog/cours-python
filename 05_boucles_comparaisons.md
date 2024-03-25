@@ -16,7 +16,7 @@ print(animaux[2])
 print(animaux[3])
 ```
 
-Si votre liste ne contient que 4 éléments, ceci est encore faisable mais imaginez qu'elle en contienne 100 voire 1000 ! 
+Si votre liste ne contient que 4 éléments, ceci est encore faisable mais imaginez qu'elle en contienne 100 voire 1 000 ! 
 Pour remédier à cela, il faut utiliser les boucles. Regardez l'exemple suivant :
 
 ```python

@@ -547,12 +547,12 @@ Vous ne pouvez pas utiliser autant d'instructions `if` que d'acides aminés diff
 
 ### Convertisseur de secondes
 
-Un athlète court un marathon, malheureusement sa montre ne mesure son temps qu'en secondes. Celle-ci affiche 11905. Aidez-le à convertir son temps en heures, minutes et secondes avec la fonction `divmod()`.
+Un athlète court un marathon, malheureusement sa montre ne mesure son temps qu'en secondes. Celle-ci affiche 11 905. Aidez-le à convertir son temps en heures, minutes et secondes avec la fonction `divmod()`.
 
 
 ### Convertisseur de jours
 
-L'âge de Camille et Céline en jours est respectivement de 8331 jours et 8660 jours. Quel est leur âge en années, mois et jours, en supposant qu'une année compte 365 jours et qu'un mois compte 30 jours ? La fonction `divmod()` vous aidera à nouveau.
+L'âge de Camille et Céline en jours est respectivement de 8 331 jours et 8 660 jours. Quel est leur âge en années, mois et jours, en supposant qu'une année compte 365 jours et qu'un mois compte 30 jours ? La fonction `divmod()` vous aidera à nouveau.
 
 
 ### Propriétés des acides aminés

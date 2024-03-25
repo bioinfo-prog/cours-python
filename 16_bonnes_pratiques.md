@@ -658,7 +658,7 @@ Voici quelques conseils pour vous aider à concevoir un script Python.
 - Utilisez des **noms de variables explicites**, qui signifient quelque chose. En lisant votre code, on doit comprendre ce que vous faites. Choisir des noms de variables pertinents permet aussi de réduire les commentaires.
 - Quand vous construisez une structure de données complexe (par exemple une liste de dictionnaires contenant d'autres objets), **documentez** l'organisation de cette structure de données avec un exemple simple.
 - Si vous créez ou manipulez une entité cohérente avec des propriétés propres, essayez de construire une **classe**. Reportez-vous, pour cela, au chapitre 23 *Avoir la classe avec les objets*.
-- **Testez** votre code sur un **petit jeu de données** pour comprendre rapidement ce qui se passe et corriger d'éventuelles erreurs. Par exemple, une séquence d'ADN de 1000 bases est plus facile à manipuler que le génome humain ($3 \times 10^9 \textrm{ bases}$) !
+- **Testez** votre code sur un **petit jeu de données** pour comprendre rapidement ce qui se passe et corriger d'éventuelles erreurs. Par exemple, une séquence d'ADN de 1 000 bases est plus facile à manipuler que le génome humain ($3 \times 10^9 \textrm{ bases}$) !
 - Lorsque votre programme « plante », **lisez le message d'erreur**. Python tente de vous expliquer ce qui ne va pas. Le numéro de la ligne qui pose problème est aussi indiqué.
 - **Discutez avec des gens**. Faites tester votre programme par d'autres. Les instructions d'utilisation sont-elles claires ?
 - Enfin, si vous **distribuez votre code** :

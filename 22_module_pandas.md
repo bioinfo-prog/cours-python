@@ -617,7 +617,7 @@ Un autre comportement par défaut de `concat()` est que cette fonction va combin
 
 ### Opérations vectorielles
 
-Pour cette rubrique, créons un *Dataframe* composé de nombres aléatoires compris entre 100 et 200, répartis en trois colonnes (`a`, `b` et `c`) et 1000 lignes :
+Pour cette rubrique, créons un *Dataframe* composé de nombres aléatoires compris entre 100 et 200, répartis en trois colonnes (`a`, `b` et `c`) et 1 000 lignes :
 
 ```python
 import numpy as np

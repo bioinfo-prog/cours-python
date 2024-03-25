@@ -10,7 +10,7 @@ L'objectif de ce premier projet est de découvrir si des mots anglais peuvent se
 
 Vous aurez à votre disposition :
 
-- Le fichier [`english-common-words.txt`](https://python.sdv.u-paris.fr/data-files/english-common-words.txt), qui contient les 3000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
+- Le fichier [`english-common-words.txt`](https://python.sdv.u-paris.fr/data-files/english-common-words.txt), qui contient les 3 000 mots anglais les plus fréquents, à raison d'1 mot par ligne.
 - Le fichier [`human-proteome.fasta`](https://python.sdv.u-paris.fr/data-files/human-proteome.fasta) qui contient le protéome humain sous la forme de séquences au format FASTA. Attention, ce fichier est assez gros. Ce fichier provient de la banque de données UniProt à partir de cette [page](https://www.uniprot.org/help/human_proteome).
 
 
