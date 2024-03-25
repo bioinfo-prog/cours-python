@@ -118,7 +118,9 @@ En Python, comme dans la plupart des langages de programmation, c'est le point q
 
 close-box-rem
 
-Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` \index{True} et `False` \index{False} :
+\index{booleen@booléen}
+
+Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` \index{True@True (booléen)} et `False` \index{False@False (booléen)} :
 
 ```python
 >>> var = True
