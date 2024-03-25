@@ -435,8 +435,3 @@ Créez quatre listes `hiver`, `printemps`, `ete` et `automne` contenant les mois
 ### Table de multiplication par 9
 
 Affichez la table de multiplication par 9 en une seule commande avec les instructions `range()` et `list()`.
-
-
-### Nombres pairs
-
-Répondez à la question suivante en une seule commande. Combien y a-t-il de nombres pairs dans l'intervalle `[2, 10000]` inclus ?
