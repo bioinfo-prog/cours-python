@@ -2,6 +2,8 @@
 
 ## La fonction `print()`
 
+\index{print@print()}
+
 Dans le chapitre 1 *Introduction*, nous avons rencontré la fonction `print()` qui affiche une chaîne de caractères (le fameux `"Hello world!"`). En fait, la fonction `print()` affiche l'argument qu'on lui passe entre parenthèses **et** un retour à ligne. Ce retour à ligne supplémentaire est ajouté par défaut. Si toutefois, on ne veut pas afficher ce retour à la ligne, on peut utiliser l'argument par « mot-clé » `end` :
 
 ```python
@@ -72,11 +74,11 @@ chatsouris
 chatsouris
 ```
 
-## Écriture formatée
+## Écriture formatée et *f-strings*
 
 ### Définitions
 
-#### « Écriture formatée »
+\index{ecriture formatee@écriture formatée}
 
 open-box-def
 
@@ -87,7 +89,7 @@ close-box-def
 Depuis la version 3.6, Python a introduit les *f-strings* pour mettre en place l'écriture formatée que nous allons décrire en détail dans cette rubrique. Il existe d'autres  manières pour formater des chaînes de caractères qui étaient utilisées avant la version 3.6, nous expliquons cela dans le chapitre 26 *Remarques complémentaires* (en ligne). Toutefois, nous vous conseillons vivement l'utilisation des *f-strings* si vous débutez l'apprentissage de Python. Il est inutile d'apprendre les anciennes manières.
 
 
-#### *f-string*
+\index{fstring@f-string}
 
 open-box-def
 
@@ -160,6 +162,8 @@ J'affiche la chaine Python
 Même si cela ne présente que peu d'intérêt pour l'instant, il s'agit d'une commande Python parfaitement valide. Nous verrons des exemples plus pertinents par la suite. Cela fonctionne avec n'importe quel type de variable (entiers, chaînes de caractères, *floats*, etc.). Attention toutefois pour les chaînes de caractères, utilisez des guillemets simples au sein des accolades si vous définissez votre *f-string* avec des guillemets doubles.
 
 ### Spécification de format
+
+\format{format string@format (dans une f-string)}
 
 Les *f-strings* permettent de remplacer des variables au sein d'une chaîne de caractères. On peut également spécifier le format de leur affichage.
 
@@ -313,6 +317,8 @@ Nous aurons l'occasion de revenir sur cette fonctionnalité au fur et à mesure 
 Les possibilités offertes par les *f-strings* sont nombreuses. Pour vous y retrouver dans les différentes options de formatage, nous vous conseillons de consulter ce [mémo](https://fstring.help/cheat/) (en anglais).
 
 ## Écriture scientifique
+
+\index{ecriture scientifique@écriture scientifique}
 
 Pour les nombres très grands ou très petits, l'écriture formatée permet d'afficher un nombre en notation scientifique (sous forme de puissance de 10) avec la lettre `e` :
 
