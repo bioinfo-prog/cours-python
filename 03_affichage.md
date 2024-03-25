@@ -163,7 +163,7 @@ Même si cela ne présente que peu d'intérêt pour l'instant, il s'agit d'une c
 
 ### Spécification de format
 
-\format{format string@format (dans une f-string)}
+\index{format string@format (dans une f-string)}
 
 Les *f-strings* permettent de remplacer des variables au sein d'une chaîne de caractères. On peut également spécifier le format de leur affichage.
 
