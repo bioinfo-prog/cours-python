@@ -78,11 +78,11 @@ close-box-warn
 
 ## Les types de variables
 
-\index{variable@type (de variable)}
+\index{type@type (de variable)}
 
 open-box-def
 
-Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers\index{entier} (*integer*\index{integer@\textit{integer}} ou *int*\index{int@\textit{int}}), les nombres décimaux que nous appellerons *floats*\index{float@\textit{float}} et les chaînes de caractères\index{chaine de caracteres@chaîne de caractères} (*string*\index{string@\textit{string}} ou *str*\index{str@\textit{str}}). 
+Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers\index{entier} (*integer*\index{integer@integer (type de variable)} ou *int*\index{int@int (type de variable)), les nombres décimaux que nous appellerons *floats*\index{float@float (type de variable)} et les chaînes de caractères\index{chaine de caracteres@chaîne de caractères} (*string*\index{string@string (type de variable)} ou *str*\index{str@str (type de variable)}). 
 
 close-box-def
 
@@ -224,7 +224,7 @@ L'opérateur puissance utilise les symboles `**` :
 16
 ```
 
-Pour obtenir le quotient et le reste d'une division entière\index{division entiere@division entière} (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo\index{modulo} `%` :
+Pour obtenir le quotient et le reste d'une division entière\index{division entiere@division entière} (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo\index{modulo@modulo (opérateur)} `%` :
 
 ```python
 >>> 5 // 4
@@ -303,7 +303,7 @@ Notez que Python vous donne des informations dans son message d'erreur. Dans le 
 
 ## La fonction `type()`
 
-Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type()`\index{type@\texttt{type()}} qui vous le rappellera.
+Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type()`\index{type@type()} qui vous le rappellera.
 
 ```python
 >>> x = 2
@@ -330,7 +330,7 @@ close-box-warn
 
 ## Conversion de types
 
-En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`\index{int@\texttt{int()}}, `float()` \index{float@\texttt{float()}} et `str()`\index{str@\texttt{str()}}. Pour vous en convaincre, regardez ces exemples :
+En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`\index{int@int()}, `float()` \index{float@float()} et `str()`\index{str@str()}. Pour vous en convaincre, regardez ces exemples :
 
 ```python
 >>> i = 3
@@ -348,7 +348,7 @@ En programmation, on est souvent amené à convertir les types, c'est-à-dire pa
 
 On verra au chapitre 7 *Fichiers* que ces conversions sont essentielles. En effet, lorsqu'on lit ou écrit des nombres dans un fichier, ils sont considérés comme du texte, donc des chaînes de caractères.
 
-Toute conversion d'une variable d'un type en un autre est appelé *casting*\index{casting@\textit{casting}} en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
+Toute conversion d'une variable d'un type en un autre est appelé *casting*\index{casting@casting} en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
 
 
 ## Note sur le vocabulaire et la syntaxe
@@ -364,7 +364,7 @@ Si ces notions vous semblent obscures, ne vous inquiétez pas, au fur et à mesu
 
 ## Minimum et maximum
 
-Python propose les fonctions `min()`\index{min@\texttt{min()}} et `max()`\index{max@\texttt{max()}} qui renvoient respectivement le minimum et le maximum de plusieurs entiers ou *floats* :
+Python propose les fonctions `min()`\index{min@min()} et `max()`\index{max@max()} qui renvoient respectivement le minimum et le maximum de plusieurs entiers ou *floats* :
 
 ```python
 >>> min(1, -2, 4)
@@ -390,7 +390,7 @@ close-box-adv
 
 ### Nombres de Friedman
 
-Les [nombres de Friedman](https://fr.wikipedia.org/wiki/Nombre_de_Friedman)\index{nombres de Friedman} sont des nombres qui peuvent s'exprimer avec tous leurs chiffres dans une expression mathématique.
+Les [nombres de Friedman](https://fr.wikipedia.org/wiki/Nombre_de_Friedman) sont des nombres qui peuvent s'exprimer avec tous leurs chiffres dans une expression mathématique.
 
 Par exemple, 347 est un nombre de Friedman car il peut s'écrire sous la forme $4+7^3$. De même pour 127 qui peut s'écire sous la forme $2^7 - 1$.
 
