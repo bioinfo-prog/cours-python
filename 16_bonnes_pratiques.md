@@ -74,6 +74,8 @@ import module_cree_par_vous
 
 ### Règles de nommage
 
+\index{nommage@nommage (de variable)}
+
 Les noms de variables, de fonctions et de modules doivent être de la forme :
 
 ```python
