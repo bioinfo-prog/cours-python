@@ -2,6 +2,9 @@
 
 ## Définition
 
+\index{test}
+\index{if@if (test)}
+
 Les **tests** sont un élément essentiel à tout langage informatique si on veut lui donner un peu de complexité car ils permettent à l'ordinateur de prendre des décisions. Pour cela, Python utilise l'instruction `if` ainsi qu'une comparaison que nous avons abordée au chapitre précédent. Voici un premier exemple :
 
 ```python
@@ -25,10 +28,9 @@ Il y a plusieurs remarques à faire concernant ces deux exemples :
 - Les blocs d'instructions dans les tests doivent forcément être indentés comme pour les boucles `for` et `while`. L'indentation indique la portée des instructions à exécuter si le test est vrai.
 - Comme avec les boucles `for` et `while`, la ligne qui contient l'instruction `if` se termine par le caractère deux-points « `:` ».
 
-
 ## Tests à plusieurs cas
 
-Parfois, il est pratique de tester si la condition est vraie ou si elle est fausse dans une même instruction `if`. Plutôt que d'utiliser deux instructions `if`, on peut se servir des instructions `if` et `else` :
+Parfois, il est pratique de tester si la condition est vraie ou si elle est fausse dans une même instruction `if`. Plutôt que d'utiliser deux instructions `if`, on peut se servir des instructions `if` et `else` \index{else@else (test)}:
 
 ```python
 >>> x = 2
@@ -51,6 +53,8 @@ On peut utiliser une série de tests dans la même instruction `if`, notamment p
 
 Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 9 *Modules*, admettez pour le moment qu'elle est nécessaire.
 
+\index{elif@elif (test)}
+
 ```python
 >>> import random
 >>> base = random.choice(["a", "t", "c", "g"])
@@ -66,8 +70,7 @@ Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le no
 choix d'une cytosine
 ```
 
-Dans cet exemple, Python teste la première condition puis, si et seulement si elle est fausse, teste la deuxième et ainsi de suite... Le code correspondant à la première condition vérifiée est exécuté puis Python sort du bloc d'instructions du `if`.
-
+Dans cet exemple, Python teste la première condition puis, si et seulement si elle est fausse, teste la deuxième et ainsi de suite... Le code correspondant à la première condition vérifiée est exécuté puis Python sort du bloc d'instructions du `if`. Il est également possible d'ajouter une condition `else` supplémentaire qui est exécutée si aucune des conditions du `if` et des `elif` n'est vraie.
 
 ## Importance de l'indentation
 
@@ -114,7 +117,9 @@ Les deux codes pourtant très similaires produisent des résultats très différ
 
 ## Tests multiples
 
-Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
+\index{test multiple}
+
+Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens \index{operateur booleen@opérateur (booléen)}. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
 
 
 | Condition 1 | Opérateur | Condition 2 | Résultat |
@@ -134,7 +139,7 @@ et de l'opérateur **ET** :
 |     Faux    |     ET    |     Faux    |   Faux   |
 
 
-En Python, on utilise le mot réservé `and` pour l'opérateur **ET** et le mot réservé `or` pour l'opérateur **OU**. Respectez bien la casse des opérateurs `and` et `or` qui, en Python, s'écrivent en minuscule. En voici un exemple d'utilisation :
+En Python, on utilise le mot réservé `and` \index{and@and (opérateur booléen)} pour l'opérateur **ET** et le mot réservé `or` \index{or@or (opérateur booléen)}pour l'opérateur **OU**. Respectez bien la casse des opérateurs `and` et `or` qui, en Python, s'écrivent en minuscule. En voici un exemple d'utilisation :
 
 ```python
 >>> x = 2
@@ -170,7 +175,7 @@ Vous pouvez aussi tester directement l'effet de ces opérateurs à l'aide de `Tr
 True
 ```
 
-Enfin, on peut utiliser l'opérateur logique de négation `not` qui inverse le résultat d'une condition :
+Enfin, on peut utiliser l'opérateur logique de négation `not` \index{not@not (opérateur booléen)} qui inverse le résultat d'une condition :
 
 ```python
 >>> not True
@@ -184,6 +189,8 @@ False
 
 ## Instructions `break` et `continue`
 
+\index{break@break (instruction)}
+
 Ces deux instructions modifient le comportement d'une boucle (`for` ou `while`) avec un test.
 Ainsi, l'instruction `break` stoppe la boucle en cours :
 
@@ -196,6 +203,8 @@ Ainsi, l'instruction `break` stoppe la boucle en cours :
 0
 1
 ```
+
+\index{continue@continue (instruction)}
 
 L'instruction `continue` saute à l'itération suivante, sans exécuter la suite du bloc d'instructions de la boucle :
 
@@ -212,6 +221,8 @@ L'instruction `continue` saute à l'itération suivante, sans exécuter la suite
 
 
 ## Tests de valeur sur des *floats*
+
+\index{test@test (sur les floats)}
 
 Lorsque l'on souhaite tester la valeur d'une variable de type *float*, le premier réflexe serait d'utiliser l'opérateur d'égalité comme :
 
@@ -262,7 +273,7 @@ True
 Ici on teste si `var` est compris dans l'intervalle $0,3 \pm delta$. Les deux méthodes mènent à un résultat strictement équivalent :
 
 - La ligne 3 est intuitive car elle ressemble à un encadrement mathématique.
-- La ligne 5 utilise la fonction valeur absolue `abs()` et est plus compacte.
+- La ligne 5 utilise la fonction valeur absolue `abs()` \index{abs@abs()} et est plus compacte.
 
 close-box-adv
 
