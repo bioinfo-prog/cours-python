@@ -769,7 +769,7 @@ close-box-rem
 
 ### Prise de contact avec le jeu de données
 
-\index{readcsv@.read_csv() (pandas)}
+\index{readcsv@.read\_csv() (pandas)}
 
 Une fonctionnalité très intéressante de *pandas* est d'ouvrir très facilement
 un fichier au format `.csv` :
@@ -956,7 +956,7 @@ Si le format de date utilisé est homogène sur tout le jeu de données et non a
 on peut demander à *pandas* de considérer la colonne `Creation Date` comme une date. 
 *pandas* détectera alors automatiquement le format de date utilisé :
 
-\index{todatetime@.to_datetime() (pandas)}
+\index{todatetime@.to\_datetime() (pandas)}
 
 ```python
 df["Creation date"] = pd.to_datetime(df["Creation date"])
@@ -1025,7 +1025,7 @@ Des statistiques sont également proposées pour la colonne `Creation date`. La 
 La colonne `Organism` contient des chaînes de caractères, on peut rapidement
 déterminer le nombre de protéines pour chaque organisme :
 
-\index{valuecounts@.value_counts() (pandas)}
+\index{valuecounts@.value\_counts() (pandas)}
 
 ```python
 df["Organism"].value_counts()
@@ -1077,7 +1077,7 @@ Enfin, la méthode `.mean()` calcule la moyenne pour chaque groupe.
 Si on souhaite obtenir deux statistiques (par exemple les valeurs minimale et maximale)
 en une seule fois, il convient alors d'utiliser la méthode `.pivot_table()`, méthode plus complexe, mais aussi beaucoup plus puissante :
 
-\index{pivottable@.pivot_table() (pandas)}
+\index{pivottable@.pivot\_table() (pandas)}
 
 ```python
 df.pivot_table(
@@ -1202,7 +1202,7 @@ et les dernières séquences de kinases ont été référencées dans UniProt.
 
 La méthode `.pivot_table()` apporte des éléments de réponse :
 
-\index{pivottable@.pivot_table() (pandas)}
+\index{pivottable@.pivot\_table() (pandas)}
 
 ```python
 df.pivot_table(
@@ -1235,7 +1235,7 @@ La méthode `.value_counts()` peut être utilisée, mais elle ne renvoie que
 le nombre de protéines référencées dans UniProt pour un jour donné. Par exemple,
 40 structures ont été référencées le 28 novembre 2006.
 
-\index{valuecounts@.value_counts() (pandas)}
+\index{valuecounts@.value\_counts() (pandas)}
 
 ```python
 df["Creation date"].value_counts().head()
@@ -1289,7 +1289,7 @@ il faut trier les valeurs obtenues du plus grand au plus petit avec la méthode
 (celles où il y a eu le plus de protéines référencées),
 on utilisera également la méthode `.head()`.
 
-\index{sortvalues@.sort_values() (pandas)}
+\index{sortvalues@.sort\_values() (pandas)}
 
 ```python
 (df["Création date"]

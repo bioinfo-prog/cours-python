@@ -67,9 +67,9 @@ plt.show()
 
 \index{subplots@.subplots() (matplotlib)}
 \index{scatter@.scatter() (matplotlib)}
-\index{setxlabel@.set_xlabel() (matplotlib)}
-\index{setylabel@.set_ylabel() (matplotlib)}
-\index{settitle@.set_title() (matplotlib)}
+\index{setxlabel@.set\_xlabel() (matplotlib)}
+\index{setylabel@.set\_ylabel() (matplotlib)}
+\index{settitle@.set\_title() (matplotlib)}
 \index{show@.show() (matplotlib)}
 
 
