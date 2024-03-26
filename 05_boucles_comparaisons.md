@@ -17,7 +17,7 @@ print(animaux[3])
 ```
 
 Si votre liste ne contient que 4 éléments, ceci est encore faisable mais imaginez qu'elle en contienne 100 voire 1 000 ! 
-Pour remédier à cela, il faut utiliser les boucles. Regardez l'exemple suivant :
+Pour remédier à cela, il faut utiliser les boucles \index{for@for (boucle)}\index{boucle}. Regardez l'exemple suivant :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -32,16 +32,16 @@ souris
 
 Commentons en détails ce qu'il s'est passé dans cet exemple :
 
-La variable `animal` est appelée **variable d'itération**, elle prend successivement les différentes valeurs de la liste `animaux` à chaque itération de la boucle. On verra un peu plus loin dans ce chapitre que l'on peut choisir le nom que l'on veut pour cette variable. Celle-ci est créée par Python la première fois que la ligne contenant le `for` est exécutée (si elle existait déjà son contenu serait écrasé). Une fois la boucle terminée, cette variable d'itération `animal` n'est pas détruite et conserve la dernière valeur de la liste `animaux` (ici la chaîne de caractères `"souris"`).
+La variable `animal` est appelée **variable d'itération** \index{variable@variable (d'itération)}, elle prend successivement les différentes valeurs de la liste `animaux` à chaque **itérations** \index{iteration@itération (boucle)} (ou tour) de boucle. On verra un peu plus loin dans ce chapitre que l'on peut choisir le nom que l'on veut pour cette variable. Celle-ci est créée par Python la première fois que la ligne contenant le `for` est exécutée (si elle existait déjà son contenu serait écrasé). Une fois la boucle terminée, cette variable d'itération `animal` n'est pas détruite et conserve la dernière valeur de la liste `animaux` (ici la chaîne de caractères `"souris"`).
 
 Notez bien les types des variables utilisées ici :
 
 - `animaux` est une **liste** sur laquelle on itère ;
 - `animal` est une **chaîne de caractères** car chaque élément de la liste `animaux` est une chaîne de caractères.
 
-Nous verrons plus loin que la variable d'itération peut être de n'importe quel type selon la liste parcourue. En Python, une boucle itère la plupart du temps sur un objet dit **séquentiel** (c'est-à-dire un objet constitué d'autres objets) tel qu'une liste. Nous verrons aussi plus tard d'autres objets séquentiels sur lesquels on peut itérer dans une boucle.
+Nous verrons plus loin que la variable d'itération peut être de n'importe quel type selon la liste parcourue. En Python, une boucle itère la plupart du temps sur un objet dit **séquentiel** \index{objet sequentiel@objet séquentiel} (c'est-à-dire un objet constitué d'autres objets) tel qu'une liste. De tels objets sont dits **itérables** \index{iterable@itérable} car on peut effectuer une boucle dessus. Nous verrons aussi plus tard d'autres objets séquentiels sur lesquels on peut itérer dans une boucle.
 
-D'ores et déjà, prêtez attention au caractère **deux-points** « `:` » à la fin de la ligne débutant par `for`. Cela signifie que la boucle `for` attend un **bloc d'instructions**, en l’occurrence toutes les instructions que Python répétera à chaque itération de la boucle. On appelle ce bloc d'instructions le **corps de la boucle**. Comment indique-t-on à Python où ce bloc commence et se termine ? Cela est signalé uniquement par l'**indentation**, c'est-à-dire le décalage vers la droite de la (ou des) ligne(s) du bloc d'instructions.
+D'ores et déjà, prêtez attention au caractère **deux-points** « `:` » à la fin de la ligne débutant par `for`. Cela signifie que la boucle `for` attend un **bloc d'instructions** \index{bloc instruction@bloc d'instructions}, en l’occurrence toutes les instructions que Python répétera à chaque itération de la boucle. On appelle ce bloc d'instructions le **corps de la boucle**. Comment indique-t-on à Python où ce bloc commence et se termine ? Cela est signalé uniquement par l'**indentation** \index{indentation}, c'est-à-dire le décalage vers la droite de la (ou des) ligne(s) du bloc d'instructions.
 
 open-box-rem
 
@@ -105,6 +105,8 @@ mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou
 
 ### Fonction `range()`
 
+\index{range@range()}
+
 Python possède la fonction `range()` que nous avons rencontrée précédemment dans le chapitre 4 *Listes*, pratique pour faire une boucle sur une liste d'entiers de manière automatique :
 
 ```python
@@ -128,6 +130,8 @@ Dans cet exemple, nous pouvons faire plusieurs remarques importantes :
 
 ### Nommage de la variable d'itération
 
+\index{nommage@nommage (de variable)}
+
 Dans l'exemple précédent, nous avons choisi le nom `i` pour la variable d'itération. Ceci est une habitude en informatique et indique en général qu'il s'agit d'un entier (le nom `i` vient sans doute du mot indice ou *index* en anglais). Nous vous conseillons de suivre cette convention afin d'éviter les confusions. Si vous itérez sur les indices, vous pouvez appeler la variable d'itération `i` (par exemple dans `for i in range(4):`).
 
 Si, par contre, vous itérez sur une liste comportant des chaînes de caractères (ou tout autre type de variable), utilisez un nom explicite pour la variable d'itération. Par exemple :
@@ -139,6 +143,8 @@ ou
 `for proportion in [0.12, 0.53, 0.07, 0.28]:`
 
 ### Itération sur les indices ou les éléments
+
+\index{iteration@itération (sur les indices ou les éléments)}
 
 Revenons à notre liste `animaux`. Nous allons maintenant parcourir cette liste, mais cette fois par une itération sur ses indices :
 
@@ -188,6 +194,8 @@ L'animal 2 est un(e) singe
 L'animal 3 est un(e) souris
 ```
 
+\index{enumerate@enumerate()}
+
 Enfin, Python possède la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
 
 ```python
@@ -203,18 +211,22 @@ L'animal 3 est un(e) souris
 
 ## Comparaisons
 
+\index{comparaisons}
+
 Avant de passer aux boucles `while`, abordons tout de suite les **comparaisons**. Celles-ci seront reprises dans le chapitre 6 *Tests*.
 
 Python est capable d'effectuer toute une série de comparaisons entre le contenu de deux variables, telles que :
 
-| Syntaxe Python | Signification           |
-|:--------------:|-------------------------|
-|      `==`      | égal à                  |
-|      `!=`      | différent de            |
-|       `>`      | strictement supérieur à |
-|      `>=`      | supérieur ou égal à     |
-|       `<`      | strictement inférieur à |
-|      `<=`      | inférieur ou égal à     |
+\index{operateur@opérateur (de comparaison)}
+
+| Opérateur de comparaison | Signification           |
+|:------------------------:|-------------------------|
+|           `==`           | égal à                  |
+|           `!=`           | différent de            |
+|           `>`            | strictement supérieur à |
+|           `>=`           | supérieur ou égal à     |
+|           `<`            | strictement inférieur à |
+|           `<=`           | inférieur ou égal à     |
 
 Observez les exemples suivants avec des nombres entiers.
 
@@ -265,6 +277,9 @@ Dans ce cas, Python compare les deux chaînes de caractères, caractère par car
 
 ## Boucles `while`
 
+\index{while@while (boucle)}
+\index{boucle}
+
 Une alternative à l'instruction `for` couramment utilisée en informatique est la boucle `while`. Avec ce type de boucle, une série d'instructions est exécutée tant qu'une condition est vraie. Par exemple :
 
 ```python
@@ -283,7 +298,7 @@ Remarquez qu'il est encore une fois nécessaire d'indenter le bloc d'instruction
 
 Une boucle `while` nécessite généralement **trois éléments** pour fonctionner correctement :
 
-1. Initialisation de la variable d'itération avant la boucle (ligne 1).
+1. Initialisation de la variable d'itération \index{variable@variable (d'itération)} avant la boucle (ligne 1).
 2. Test de la variable d'itération associée à l'instruction `while` (ligne 2).
 3. Mise à jour de la variable d'itération dans le corps de la boucle (ligne 4).
 
@@ -311,6 +326,8 @@ Entrez un entier supérieur à 10 : 15
 >>> i
 15
 ```
+
+\index{input@input()}
 
 La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne~4). Si on reprend les trois éléments d'une boucle while, on trouve l'initialisation de la variable d'itération en ligne 1, le test de sa valeur en ligne 2, et sa mise à jour en ligne 4. 
 
