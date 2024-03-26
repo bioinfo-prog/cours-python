@@ -2,6 +2,8 @@
 
 ## Définition
 
+\index{module}
+
 Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à souvent réutiliser (on les appelle aussi bibliothèques, ou *libraries* en anglais). Ce sont des « boîtes à outils » qui vous seront très utiles.
 
 Les développeurs de Python ont mis au point de nombreux modules qui effectuent différentes tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module.
@@ -11,6 +13,9 @@ La plupart de ces modules sont déjà installés dans les versions standards de 
 
 ## Importation de modules
 
+\index{import (instruction)}
+\index{importatnion@importation (de module)}
+
 Dans les chapitres précédents, nous avons rencontré la notion de module plusieurs fois, notamment lorsque nous avons voulu tirer un nombre aléatoire :
 
 ```python
@@ -19,12 +24,16 @@ Dans les chapitres précédents, nous avons rencontré la notion de module plusi
 4
 ```
 
+\index{random@random (module)}
+
 Regardons de plus près cet exemple :
 
 - **Ligne 1**. L'instruction `import` donne accès à toutes les fonctions du module [*random*](https://docs.python.org/fr/3/library/random.html#module-random).
 - **Ligne 2**. Nous utilisons la fonction `randint(0, 10)` du module *random*. Cette fonction renvoie un nombre entier tiré aléatoirement entre `0` inclus et `10` inclus.
 
 Nous avons également croisé le module *math* lors de l'exercice sur la spirale (voir le chapitre 7 *Fichiers*). Ce module nous a donné accès aux fonctions trigonométriques sinus et cosinus, et à la constante $\pi$ :
+
+\index{math@math (module)}
 
 ```python
 >>> import math
@@ -58,6 +67,8 @@ Il existe un autre moyen d'importer une ou plusieurs fonctions d'un module :
 >>> randint(0,10)
 7
 ```
+
+\index{from@from (instruction)}
 
 À l'aide du mot-clé `from`, on peut importer une fonction spécifique d'un module donné. Remarquez bien qu'il est inutile de répéter le nom du module dans ce cas : seul le nom de la fonction en question est requis.
 
@@ -129,6 +140,8 @@ On constate alors qu'un rappel (ligne 7) d'une fonction du module *random*, apr�
 
 ## Obtenir de l'aide sur les modules importés
 
+\index{help@help()}
+
 Pour obtenir de l'aide sur un module, rien de plus simple : il suffit d'utiliser la commande `help()` :
 
 ```python
@@ -198,6 +211,8 @@ class list(object)
 ```
 
 Enfin, pour connaître d'un seul coup d’œil toutes les méthodes ou variables associées à un objet, utilisez la fonction `dir()` :
+
+\index{dir@dir()}
 
 ```python
 >>> import random
@@ -321,6 +336,8 @@ close-box-rem
 
 
 ## Module *sys* : passage d'arguments
+
+\index{sys@sys (module)}
 
 Le module [*sys*](https://docs.python.org/fr/3/library/sys.html#module-sys) contient des fonctions et des variables spécifiques à l'interpréteur Python lui-même. 
 
@@ -450,6 +467,8 @@ La lecture de la partie suivante va nous permettre d'améliorer notre script `co
 
 
 ## Module *pathlib* : gestion des fichiers et des répertoires
+
+\index{pathlib@pathlib (module)}
 
 Le module [*pathlib*](https://docs.python.org/fr/3/library/pathlib.html) permet de manipuler les fichiers et les répertoires. 
 
