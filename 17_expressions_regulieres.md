@@ -6,8 +6,13 @@ Cette action de recherche de données dans un fichier est appelée généralemen
 
 Dans ce chapitre, nous ne ferons que quelques rappels sur les expressions régulières. Pour une documentation plus complète, référez-vous à la [page d'aide des expressions régulières](https://docs.python.org/fr/3/library/re.html) sur le site officiel de Python.
 
+\index{re@re (regex)}
 
 ## Définition et syntaxe
+
+\index{motif@motif (regex)}
+\index{pattern@pattern (regex)}
+\index{metacaracteres@métacaractères (regex)}
 
 Une expression régulière est une suite de caractères qui a pour but de décrire un fragment de texte. Cette suite de caractères est encore appelée **motif** (en anglais, *pattern*), qui est constitué de deux types de caractères :
 
@@ -25,6 +30,8 @@ Par exemple, pour le programme `egrep` :
 $ egrep "^DEF" herp_virus.gbk
 DEFINITION  Human herpesvirus 2, complete genome.
 ```
+
+\index{egrep@egrep (regex)}
 
 Ici, `egrep` affiche toutes les lignes du fichier du virus de l'herpès (`herp_virus.gbk`) dans lesquelles la *regex* `^DEF` (c'est-à-dire le mot `DEF` en début de ligne) est retrouvée.
 
@@ -162,6 +169,7 @@ Il est important de savoir par ailleurs que les *regex* sont « avides » (*gree
 
 close-box-warn
 
+
 ## Quelques ressources en ligne
 
 Nous vous conseillons de tester systématiquement vos expressions régulières sur des exemples simples. Pour vous aider, nous vous recommandons plusieurs sites internet :
@@ -177,6 +185,8 @@ N'hésitez pas à explorer ces sites avant de vous lancer dans les exercices ou 
 ## Le module *re*
 
 ### La fonction `search()`
+
+\index{search@search() (regex)}
 
 Dans le module *re*, la fonction `search()` est incontournable. Elle permet de rechercher un motif, c'est-à-dire une *regex*, au sein d'une chaîne de caractères avec une syntaxe de la forme `search(motif, chaine)`. Si `motif` est retrouvé dans `chaine`, Python renvoie un objet du type `SRE_Match`.
 
@@ -202,6 +212,8 @@ close-box-warn
 
 ### Les fonctions `match()` et `fullmatch()`
 
+\index{match@match() (regex)}
+
 Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le modèle de `search()`. La différence est qu'elle renvoie un objet du type `SRE_Match` seulement lorsque la *regex* correspond au début de la chaîne de caractères (à partir du premier caractère).
 
 ```python
@@ -215,6 +227,8 @@ Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le 
 <_sre.SRE_Match object; span=(0, 5), match='tigre'>
 >>>
 ```
+
+\index{fullmatch@fullmatch() (regex)}
 
 Il existe également la fonction `fullmatch()`, qui renvoie un objet du type `SRE_Match` si et seulement si l'expression régulière correspond **exactement** à la chaîne de caractères.
 
@@ -230,6 +244,8 @@ De manière générale, nous vous recommandons l'usage de la fonction `search()`
 
 
 ### Compilation d'expressions régulières
+
+\index{compile@compile() (regex)}
 
 Lorsqu'on a besoin de tester la même expression régulière sur plusieurs milliers de chaînes de caractères, il est pratique de compiler préalablement la *regex* à l'aide de la fonction `compile()`, qui renvoie un objet de type `SRE_Pattern` :
 
@@ -259,6 +275,8 @@ L'intérêt de l'objet de type `SRE_Match` renvoyé par Python lorsqu'une *regex
 ```python
 >>> regex = re.compile("([0-9]+)\.([0-9]+)")
 ```
+
+\index{groupe@.group() (regex)}
 
 Dans cet exemple, on recherche un nombre décimal, c'est-à-dire une chaîne de caractères :
 
@@ -295,6 +313,8 @@ Les méthodes `.start()` et `.end()` donnent respectivement la position de débu
 
 ### La méthode `.findall()`
 
+\index{findall@.findall() (regex)}
+
 Pour récupérer chaque zone dans la *regex*, s'il y en a plusieurs, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance :
 
 ```python
@@ -315,6 +335,8 @@ L'utilisation des groupes entre parenthèses est également possible, ceux-ci so
 
 
 ### La méthode `.sub()`
+
+\index{sub@.sub() (regex)}
 
 Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants. Par défaut, la méthode `.sub(chaine1, chaine2)` remplace toutes les occurrences trouvées par l'expression régulière dans `chaine2` par `chaine1`. Si vous souhaitez ne remplacer que les *n* premières occurrences, utilisez l'argument `count=n` :
 
