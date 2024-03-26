@@ -52,6 +52,8 @@ close-box-adv
 
 ## Fonctions récursives
 
+\index{fonction recursive@fonction récursive}
+
 open-box-adv
 
 Pour les débutants, vous pouvez passer cette rubrique.
@@ -95,6 +97,9 @@ Même si les fonctions récursives peuvent être ardues à comprendre, notre pro
 
 ## Portée des variables
 
+\index{portee variables@portée (des variables)}
+\index{variable locale}
+
 Il est très important lorsque l'on manipule des fonctions de connaître la portée des variables (*scope* en anglais), c'est-à-dire savoir là où elles sont visibles. On a vu que les variables créées au sein d'une fonction ne sont pas visibles à l'extérieur de celle-ci car elles étaient **locales** à la fonction. Observez le code suivant :
 
 ```python
@@ -126,6 +131,8 @@ Traceback (most recent call last):
 NameError: name 'x' is not defined
 ```
 
+\index{variable globale}
+
 Lorsqu'une variable est déclarée dans le programme principal, elle est visible dans celui-ci ainsi que dans toutes les fonctions. On a vu qu'on parlait de variable **globale** :
 
 ```python
@@ -153,6 +160,8 @@ Traceback (most recent call last):
 UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
 ```
 
+\index{global@global (instruction)}
+
 L'erreur renvoyée montre que Python pense que `x` est une variable locale qui n'a pas été encore assignée. Si on veut vraiment modifier une variable globale dans une fonction, il faut utiliser le mot-clé `global` :
 
 ```python
@@ -170,6 +179,8 @@ Dans ce dernier cas, le mot-clé `global` a forcé la variable `x` à être glob
 
 
 ## Portée des listes
+
+\index{portee liste@portée (des listes)}
 
 open-box-warn
 
@@ -231,6 +242,8 @@ Dans ces deux derniers exemples, une copie de `y` est créée à la volée lorsq
 D'autres suggestions sur l'envoi de liste dans une fonction vous sont données dans la rubrique *Recommandations* ci-dessous.
 
 ## Règle LGI
+
+\index{LGI@LGI (règle)}
 
 Lorsque Python rencontre une variable, il va traiter la résolution de son  nom avec des priorités particulières. D'abord il va regarder si la variable est **locale**, puis si elle n'existe pas localement, il vérifiera si elle est **globale** et enfin si elle n'est pas globale, il testera si elle est **interne** (par exemple la fonction `len()` est considérée comme une fonction interne à Python, elle existe à chaque fois que vous lancez Python). On appelle cela la règle **LGI** pour locale, globale, interne. En voici un exemple :
 
@@ -302,6 +315,8 @@ liste_notes = [10, 8, 16, 7, 15]
 ajoute_un(liste_notes)
 print(liste_notes)
 ```
+
+\index{modification sur place@modification sur place (d'une liste)}
 
 Cela reste toutefois moins intuitif, car il n'est pas évident de comprendre que la liste est modifiée dans la fonction en lisant la ligne 7. Dans un tel cas, il serait essentiel d'indiquer dans la documentation de la fonction que la liste est modifiée « sur place »  (*in place* en anglais) dans la fonction. Vous verrez dans le chapitre 15 *Création de modules* comment documenter vos fonctions.
 
