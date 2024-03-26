@@ -202,7 +202,7 @@ On constate que passer un seul argument à une fonction qui en attend deux condu
 
 open-box-def
 
-\index{argument positionnel@argument positionnel (passé à une fonction)}
+\index{argument positionnel@argument positionnel}
 
 Lorsqu'on définit une fonction `def fct(x, y):` les arguments `x` et `y` sont appelés **arguments positionnels** (en anglais, *positional arguments*). Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x` et `3` correspondra à `y`. Finalement, tout dépendra de leur position, d'où leur qualification de positionnel.
 
@@ -222,7 +222,7 @@ Mais il est aussi possible de passer un ou plusieurs argument(s) de manière fac
 
 open-box-def
 
-\index{argument mot cle@argument par mot-clé (passé à une fonction)}
+\index{argument mot cle@argument par mot-clé}
 
 Un argument défini avec une syntaxe `def fct(arg=val):` est appelé **argument par mot-clé** (en anglais, *keyword argument*). Le passage d'un tel argument lors de l'appel de la fonction est facultatif. Ce type d'argument ne doit pas être confondu avec les arguments positionnels présentés ci-dessus, dont la syntaxe est `def fct(arg):`.
 
