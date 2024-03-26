@@ -68,7 +68,7 @@ dtype: int64
 
 ### Sélections par étiquette ou indice
 
-\index{etiquette@étiquette de données}
+\index{etiquette@étiquette de données (pandas)}
 
 Avec *pandas*, chaque élément de la série de données possède une étiquette qui permet d'appeler les éléments qui la composent.
 Ainsi, pour appeler le premier élément de la série, on peut utiliser son étiquette (ici, `"a"`) :

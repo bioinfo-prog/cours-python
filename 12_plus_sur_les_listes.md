@@ -572,6 +572,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ### Sélection des carbones alpha dans un fichier PDB
 
 \index{PDB@PDB (format de fichier)}
+\index{startswith@.startswith()}
 
 Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) :
 
