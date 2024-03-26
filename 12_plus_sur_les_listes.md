@@ -98,6 +98,7 @@ S'il y a plusieurs fois la même valeur dans la liste, seule la première est re
 ### `.sort()`
 
 \index{sort@.sort()}
+\index{tri liste@tri (de liste)}
 
 La méthode `.sort()` trie les éléments d'une liste du plus petit au plus grand:
 
