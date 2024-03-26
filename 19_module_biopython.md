@@ -31,9 +31,11 @@ On charge le module *Biopython* avec la commande :
 import Bio
 ```
 
+\index{bio@Bio (biopython)}
+
 open-box-warn
 
-Le nom du module *Biopython* n'est pas `biopython` mais `Bio` (avec un B majuscule).
+Le nom du module *Biopython* n'est pas `biopython`, mais `Bio` (avec un B majuscule).
 
 close-box-warn
 
@@ -43,6 +45,8 @@ close-box-warn
 Voici quelques exemples de manipulation de séquences avec *Biopython*.
 
 ### Définition d'une séquence
+
+\index{seq@Seq (biopython)}
 
 ```python
 import Bio
@@ -62,6 +66,8 @@ Seq('ATATCGGCTATAGCATGC')
 
 ### Obtention de la séquence complémentaire et de la séquence complémentaire inverse
 
+\index{complement@.complement() (biopython)}
+
 ```python
 ADN.complement()
 ```
@@ -69,6 +75,8 @@ ADN.complement()
 ```text
 Seq('TATAGCCGATATCGTACG')
 ```
+
+\index{reversecomplement@.reverse\_complement() (biopython)}
 
 ```python
 ADN.reverse_complement()
@@ -79,6 +87,8 @@ Seq('GCATGCTATAGCCGATAT')
 ```
 
 ### Traduction en séquence protéique
+
+\index{translate@.translate() (biopython)}
 
 ```python
 ADN.translate()
@@ -103,6 +113,9 @@ Le sous-module *Entrez* de *Biopython* permet d’utiliser les ressources du NCB
 et notamment d'interroger la base de données [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/).
 Nous allons par exemple utiliser PubMed pour chercher des articles scientifiques
 relatifs à la transferrine (*transferrin* en anglais):
+
+\index{entrez@Entrez (biopython)}
+\index{esearch@esearch() (biopython)}
 
 ```python
 from Bio import Entrez
@@ -176,6 +189,8 @@ en connaissant son PMID, par exemple, l'article avec le PMID [22294463](https://
 
 Nous allons pour cela utiliser la fonction `Entrez.esummary()`
 
+\index{esummary@esummary() (biopython)}
+
 ```python
 req_esummary = Entrez.esummary(db="pubmed", id="22294463")
 res_esummary = Entrez.read(req_esummary)
@@ -235,6 +250,8 @@ res_esummary[0]["Source"]
 
 Enfin, pour récupérer le résumé de la publication précédente, nous allons
 utiliser la fonction `Entrez.efetch()` :
+
+\index{efetch@efetch() (biopython)}
 
 ```python
 req_efetch = Entrez.efetch(
