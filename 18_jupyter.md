@@ -151,7 +151,7 @@ close-box-rem
 
 ## Les *magic commands*
 
-\index{magic command@magic command Jupyter}
+\index{magic command@magic command}
 
 La commande précédente (`%matplotlib inline`) est une *magic command*. Les [*magic commands*](https://ipython.readthedocs.io/en/stable/interactive/magics.html) apportent des fonctionnalités supplémentaires dans un *notebook*. Il en existe beaucoup, nous allons en aborder ici quelques unes.
 
@@ -175,7 +175,7 @@ close-box-rem
 
 ### %whos
 
-\index{whos@\%whos (magic command Jupyter)}
+\index{whos@\%whos (magic command)}
 
 La commande `%whos` liste tous les objets (variables, fonctions, modules...) utilisés dans un *notebook*.
 
@@ -213,7 +213,7 @@ resultat_2    str         BonjourJupyter
 
 ### %history
 
-\index{history@\%history (magic command Jupyter)}
+\index{history@\%history (magic command)}
 
 La commande `%history` liste toutes les commandes Python lancées dans un *notebook* :
 
@@ -236,7 +236,7 @@ ma_fonction("Bonjour", "Jupyter")
 
 ### %%time
 
-\index{time@\%\%time (magic command Jupyter)}
+\index{time@\%\%time (magic command)}
 
 La commande `%%time` (avec deux symboles `%`) va mesurer le temps d'exécution d'une cellule. C'est très utile pour faire des tests de performance. On peut, par exemple, comparer les vitesses de parcours d'une liste avec une boucle `for`, par les éléments ou par les indices des éléments.
 
@@ -279,7 +279,7 @@ Comme attendu, la première méthode (itération par les éléments) est plus ra
 
 ### %%timeit
 
-\index{timeit@\%\%timeit (magic command Jupyter)}
+\index{timeit@\%\%timeit (magic command)}
 
 Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Python détermine automatiquement le nombre d'itérations et le nombre de répétitions à effectuer pour obtenir un temps global d'exécution raisonnable.
 

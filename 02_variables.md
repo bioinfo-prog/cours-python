@@ -120,7 +120,7 @@ close-box-rem
 
 \index{booleen@booléen}
 
-Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` \index{True@True (booléen)} et `False` \index{False@False (booléen)} :
+Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` \index{True} et `False` \index{False} :
 
 ```python
 >>> var = True
@@ -177,7 +177,9 @@ Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des n
 8094752749
 ```
 
-Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de trois chiffres mais on peut faire ce qu'on veut :
+\index{\_}
+
+Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de trois chiffres, mais on peut faire ce qu'on veut :
 
 ```python
 >>> print(80_94_7527_49)
@@ -274,9 +276,9 @@ Pour les chaînes de caractères, deux opérations sont possibles, l'addition et
 'SalutSalutSalut'
 ```
 
-L'opérateur d'addition `+` concatène (assemble) deux chaînes de caractères. On parle de concaténation\index{concatenation@concaténation (de chaîne de caracteres)}.
+L'opérateur d'addition `+` concatène (assemble) deux chaînes de caractères. On parle de concaténation\index{concatenation@concaténation}.
 
-L'opérateur de multiplication `*` entre un nombre entier et une chaîne de caractères duplique (répète) plusieurs fois une chaîne de caractères. On parle de duplication\index{duplication@duplication (de chaîne de caracteres)}.
+L'opérateur de multiplication `*` entre un nombre entier et une chaîne de caractères duplique (répète) plusieurs fois une chaîne de caractères. On parle de duplication\index{duplication}.
 
 open-box-warn
 

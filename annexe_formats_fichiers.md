@@ -2,6 +2,8 @@
 
 ## FASTA
 
+\index{FASTA@FASTA (format de fichier)}
+
 Le format FASTA est utilisé pour stocker une ou plusieurs séquences, d'ADN, d'ARN ou de protéines. Ces séquences sont classiquement représentées sous la forme :
 
 ```text
@@ -131,6 +133,8 @@ close-box-rem
 
 ## GenBank
 
+\index{GenBank@GenBank (format de fichier)}
+
 GenBank est une banque de séquences nucléiques. Le format de fichier associé contient l'information nécessaire pour décrire un gène ou une portion d'un génome. Les fichiers GenBank portent le plus souvent l'extension `.gbk`.
 
 Le format GenBank est décrit de manière très complète sur le site du [NCBI](https://www.ncbi.nlm.nih.gov/Sitemap/samplerecord.html). En voici néanmoins les principaux éléments, avec l'exemple du gène qui code pour la [trypsine](https://www.ncbi.nlm.nih.gov/nuccore/M22612.1) chez l'Homme.
@@ -249,6 +253,8 @@ Il est également possible de lire un fichier GenBank sans le module *Biopython*
 
 
 ## PDB
+
+\index{PDB@PDB (format de fichier)}
 
 La *[Protein Data Bank](https://www.rcsb.org/)* (PDB) est une banque de données qui contient les structures de biomacromolécules (protéines, ADN, ARN, virus...). Historiquement, le format de fichier qui y est associé est le PDB, dont une documentation détaillée est disponible sur le [site éponyme](http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html). Les extensions de fichier pour ce format de données sont `.ent` et surtout `.pdb`.
 
@@ -608,6 +614,8 @@ Ils sont également très utilisés en biologie. En voici quelques exemples :
 
 ### XML
 
+\index{XML@XML (format de fichier)}
+
 Le format XML est un format de fichier à balises qui permet de stocker quasiment
 n'importe quel type d'information de façon structurée et hiérarchisée.
 L'acronyme XML signifie *Extensible Markup Language* qui pourrait se traduire
@@ -756,6 +764,9 @@ length: 247
 ### CSV et TSV
 
 #### Définition des formats
+
+\index{CSV@CSV (format de fichier)}
+\index{TSV@TSV (format de fichier)}
 
 L'acronyme CSV signifie « *Comma-Separated values* », qu'on peut traduire littéralement
 par « valeurs séparées par des virgules ». De façon similaire, TSV signifie «~*Tabulation-Separated Values* »,

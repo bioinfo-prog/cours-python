@@ -56,7 +56,7 @@ close-box-def
 
 Une autre propriété importante que l'on a déjà croisée, et qui nous servira dans ce chapitre, concerne la possibilité ou non de modifier un objet.
 
-\index{immutabilite@immutabilité (d'un objet)}
+\index{immutabilite@immutabilité}
 
 - Un objet est dit **non modifiable** lorsqu'on ne peut pas le modifier, ou lorsqu'on ne peut pas en modifier un de ses éléments si c'est un conteneur. On parle aussi d'[objet immuable](https://fr.wikipedia.org/wiki/Objet_immuable) (*immutable object* en anglais). Cela signifie qu'une fois créé, Python ne permet plus de le modifier par la suite.
 
@@ -377,7 +377,7 @@ Nous revenons sur les tuples, que nous avons défini dans le chapitre 8 *Diction
 
 ## Immutabilité
 
-\index{immutabilite@immutabilité (d'un objet)}
+\index{immutabilite@immutabilité}
 
 Nous avions vu que les tuples étaient immuables :
 
@@ -453,6 +453,8 @@ close-box-adv
 
 Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (caractère *underscore*) pour indiquer que certaines valeurs ne nous intéressent pas :
 
+\index{\_}
+
 ```python
 >>> def ma_fonction():
 ...     return 1, 2, 3, 4
@@ -483,10 +485,14 @@ Dans l'interpréteur interactif, la variable `_` a une signification différente
 
 Attention, ceci n'est vrai que dans l'interpréteur !
 
+\index{\_}
+
 close-box-rem
 
 
 open-box-rem
+
+\index{snakecase@snake\_case}
 
 Le caractère *underscore* (`_`) est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple `seq_ADN` ou `liste_listes_residus`. On verra dans le chapitre 16 *Bonnes pratiques en programmation Python* que ce style de nommage est appelé *snake_case*. Toutefois, il faut éviter d'utiliser les *underscores* en début et/ou en fin de nom de variable (*leading* et *trailing underscores* en anglais), par exemple : `_var`, `var_`, `__var`, `__var__`. On verra au chapitre 23 *Avoir la classe avec les objets* que ces *underscores* ont aussi une signification particulière.
 
@@ -840,8 +846,6 @@ close-box-adv
 
 ## Récapitulation des propriétés des conteneurs
 
-\index{propriete conteneurs@propriétés (des conteneurs)}
-
 Après ce tour d'horizon des différents conteneurs, voici des tableaux récapitulants leurs propriétés. La mention « `in` et `len()` » indique que l'on peut tester l'appartenance d'un élément à un conteneur avec l'opérateur `in`, et que l'on peut connaître le nombre d'éléments du conteneur avec la fonction `len()`. Les mentions « index. » et « modif. » indiquent respectivement « indexable » et « modifiable ».
 
 
@@ -1020,6 +1024,8 @@ CTA : 5
 
 ### Mots de deux lettres dans la séquence du chromosome I de *Saccharomyces cerevisiae*
 
+\index{FASTA@FASTA (format de fichier)}
+
 Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier FASTA sous la forme d'une chaîne de caractères, lit la séquence dans le fichier FASTA et la renvoie sous la forme d'une chaîne de caractères. Inspirez-vous d'un exercice similaire du chapitre 10 *Plus sur les chaînes de caractères*.
 
 Utilisez cette fonction et la fonction `compte_mots_2_lettres()` de l'exercice précédent pour extraire les mots de deux lettres et leurs occurrences dans la séquence du chromosome I de la levure du boulanger *Saccharomyces cerevisiae* (fichier [`NC_001133.fna`](https://python.sdv.u-paris.fr/data-files/NC_001133.fna)).
@@ -1028,6 +1034,8 @@ Le génome complet est fourni au format FASTA. Vous trouverez des explications s
 
 
 ### Mots de *n* lettres dans un fichier FASTA
+
+\index{FASTA@FASTA (format de fichier)}
 
 Créez un script `extract-words.py` qui prend comme arguments le nom d'un fichier FASTA suivi d'un entier compris entre 1 et 4. Ce script doit extraire du fichier FASTA tous les mots et leurs occurrences, en fonction du nombre de lettres passé en option.
 
@@ -1044,6 +1052,8 @@ Cette méthode vous paraît-elle efficace sur un génome assez gros comme celui 
 
 
 ### Atomes carbone alpha d'un fichier PDB
+
+\index{PDB@PDB (format de fichier)}
 
 Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb), qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
 

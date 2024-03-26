@@ -49,7 +49,7 @@ import pandas as pd
 
 ## *Series*
 
-\index{series@series (pandas)}
+\index{series@series}
 
 Le premier type de données apporté par *pandas* est la *Series*, qui correspond à un vecteur à une dimension.
 
@@ -68,7 +68,7 @@ dtype: int64
 
 ### Sélections par étiquette ou indice
 
-\index{etiquette@étiquette (pandas)}
+\index{etiquette@étiquette de données}
 
 Avec *pandas*, chaque élément de la série de données possède une étiquette qui permet d'appeler les éléments qui la composent.
 Ainsi, pour appeler le premier élément de la série, on peut utiliser son étiquette (ici, `"a"`) :
@@ -81,7 +81,7 @@ s["a"]
 10
 ```
 
-\index{iloc@.iloc (pandas)}
+\index{iloc@.iloc}
 
 Pour accéder au premier élément par son indice (ici 0), comme on le ferait avec une liste, on utilise la méthode `.iloc` :
 
@@ -153,7 +153,7 @@ dtype: int64
 
 open-box-rem
 
-\index{masque booleen@masque booléen (pandas)}
+\index{masque booleen@masque booléen}
 
 Cette écriture rappelle celle des masques booléens dans le chapitre 20 *Module NumPy*.
 
@@ -184,7 +184,7 @@ dtype: int64
 
 ## *Dataframes*
 
-\index{dataframe@dataframe (pandas)}
+\index{dataframe@dataframe}
 
 Un autre type d'objet particulièrement intéressant introduit par *pandas*
 sont les *Dataframes*. Ceux-ci correspondent à des tableaux à deux dimensions
@@ -259,7 +259,7 @@ souris  30  31  32  33
 
 Les dimensions d'un *dataframe* sont données par l'attribut `.shape` :
 
-\index{shape@.shape (pandas)}
+\index{shape@.shape}
 
 ```python
 df.shape
@@ -271,7 +271,7 @@ df.shape
 
 Ici, le *dataframe* `df` possède trois lignes et quatre colonnes.
 
-\index{columns@.columns (pandas)}
+\index{columns@.columns}
 
 L'attribut `.columns` renvoie le nom des colonnes et permet aussi de renommer
 les colonnes d'un *dataframe* :
@@ -296,7 +296,7 @@ singe      20    21      22   23
 souris     30    31      32   33
 ```
 
-\index{head@.head() (pandas)}
+\index{head@.head()}
 
 La méthode `.head(n)` renvoie les *n* premières lignes du *Dataframe*
 (par défaut, *n* vaut 5) :
@@ -396,7 +396,7 @@ close-box-rem
 
 #### Sélection de lignes
 
-\index{loc@.loc (pandas)}
+\index{loc@.loc}
 
 Pour sélectionner une ligne, il faut utiliser l'instruction `.loc`
 et l'étiquette de la ligne :
@@ -425,7 +425,7 @@ singe     20    21      22   23
 chat      10    11      12   13
 ```
 
-\index{iloc@.iloc (pandas)}
+\index{iloc@.iloc}
 
 Enfin, on peut aussi sélectionner des lignes avec l'instruction `.iloc`
 et l'indice de la ligne (la première ligne ayant l'indice 0) :
@@ -592,7 +592,7 @@ lapin       14           8
 
 On souhaite combiner ces deux *dataframes*, c'est-à-dire connaître pour les quatre villes (Lyon, Paris, Nantes et Strasbourg) le nombre d'animaux. On remarque d'ores et déjà qu'il y a des singes à Lyon et Paris, mais pas de lapin et qu'il y a des lapins à Nantes et Strasbourg, mais pas de singe. Nous allons voir comment gérer cette situation.
 
-\index{concat@concat() (pandas)}
+\index{concat@concat()}
 
 *Pandas* propose pour cela la fonction [`concat()`](https://pandas.pydata.org/pandas-docs/stable/merging.html), qui prend comme argument une liste de *dataframes* :
 
@@ -612,7 +612,7 @@ lapin    NaN    14.0    NaN         8.0
 
 \index{nan@NaN (pandas)}
 
-\index{valeur manquante@valeur manquante(pandas)}
+\index{valeur manquante@valeur manquante}
 
 Ici, `NaN` indique des valeurs manquantes, cela signifie littéralement *Not a Number*. Mais le résultat obtenu n'est pas celui que nous attendions, puisque les lignes de deux *dataframes* ont été recopiées.
 
@@ -688,7 +688,7 @@ df.head()
 
 On souhaite maintenant créer une nouvelle colonne (`d`) qui sera le résultat de la multiplication des colonnes `a` et `b`, à laquelle on ajoute ensuite la colonne `c`.
 
-\index{iterrows@.iterrows() (pandas)}
+\index{iterrows@.iterrows()}
 
 Une première manière de faire est de procéder ligne par ligne. La méthode `.iterrows()` permet de parcourir les lignes d'un *Dataframe* et renvoie un tuple contenant l'indice de la ligne (sous la forme d'un entier) et la ligne elle-même (sous la forme d'une *Series*) :
 
@@ -697,13 +697,13 @@ for idx, row in df.iterrows():
     df.at[idx, "d"] = (row["a"] * row["b"]) + row["c"]
 ```
 
-\index{at@.at (pandas)}
+\index{at@.at}
 
 Ici, l'instruction `.at` ajoute une cellule à la ligne d'indice `idx` et de colonne `d`. Cette instruction est plus efficace que `.loc` pour ajouter une cellule à un *Dataframe*.
 
 L'approche précédente produit le résultat attendu, mais elle n'est pas optimale, car très lente. Pour évaluer le temps moyen pour réaliser ces opérations, on utilise la commande magique `%%timeit` abordée dans le chapitre 18 *Jupyter et ses notebooks* :
 
-\index{timeit@\%\%timeit (magic command Jupyter)}
+\index{timeit@\%\%timeit (magic command)}
 
 
 ```python
@@ -753,6 +753,7 @@ contient des informations tirées de la base de données de séquences UniProt p
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
 de consulter l'annexe A *Quelques formats de données en biologie*.
 
+\index{CSV@CSV (format de fichier)}
 
 \index{devinette}
 
@@ -769,7 +770,7 @@ close-box-rem
 
 ### Prise de contact avec le jeu de données
 
-\index{readcsv@.read\_csv() (pandas)}
+\index{readcsv@.read\_csv()}
 
 Une fonctionnalité très intéressante de *pandas* est d'ouvrir très facilement
 un fichier au format `.csv` :
@@ -832,6 +833,8 @@ open-box-rem
 
 La fonction `.read_csv()` permet également d'ouvrir un fichier au format TSV (voir l'annexe A *Quelques formats de données en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`), avec l'argument `sep="\t"`.
 
+\index{TSV@TSV (format de fichier)}
+
 close-box-rem
 
 Avant d'analyser un jeu de données, il est intéressant de l'explorer un peu.
@@ -852,7 +855,7 @@ prise en compte.
 Il est aussi intéressant de savoir de quel type de données est constituée
 chaque colonne :
 
-\index{dtypes@.dtypes (pandas)}
+\index{dtypes@.dtypes}
 
 ```python
 df.dtypes
@@ -875,7 +878,7 @@ Le type `object` est un type par défaut.
 La méthode `.info()` permet d'aller un peu plus loin dans l'exploration du jeu de données 
 en combinant les informations produites par les propriétés `.shape` et `.dtypes` :
 
-\index{info@.info() (pandas)}
+\index{info@.info()}
 
 ```python
 df.info()
@@ -925,7 +928,7 @@ Ici, le *Dataframe* occupe 351 kilo-octets (ko) en mémoire.
 
 Il est aussi utile de savoir si des valeurs manquantes sont présentes dans le jeu de données. Ces valeurs manquantes correspondent à des champs pour lesquels aucune valeur n'ont été fournies. Elles sont souvent représentées par `NaN` (pour *Not a Number*).
 
-\index{isna@.isna() (pandas)}
+\index{isna@.isna()}
 
 La méthode `.isna()` renvoie un *Dataframe* de la même dimension que le *Dataframe* initial, mais avec des valeurs booléennes (`True` si la valeur est manquante (`NaN`) ou `False` sinon). En le combinant avec la méthode `.sum()`, on peut compter le nombre de valeurs manquantes pour chaque colonne :
 
@@ -956,7 +959,7 @@ Si le format de date utilisé est homogène sur tout le jeu de données et non a
 on peut demander à *pandas* de considérer la colonne `Creation Date` comme une date. 
 *pandas* détectera alors automatiquement le format de date utilisé :
 
-\index{todatetime@.to\_datetime() (pandas)}
+\index{todatetime@.to\_datetime()}
 
 ```python
 df["Creation date"] = pd.to_datetime(df["Creation date"])
@@ -998,7 +1001,7 @@ dtype: object
 Pour les colonnes qui contiennent des données numériques, on peut obtenir
 rapidement quelques statistiques descriptives avec la méthode `.describe()` :
 
-\index{describe@.describe() (pandas)}
+\index{describe@.describe()}
 
 ```python
 df.describe()
@@ -1025,7 +1028,7 @@ Des statistiques sont également proposées pour la colonne `Creation date`. La 
 La colonne `Organism` contient des chaînes de caractères, on peut rapidement
 déterminer le nombre de protéines pour chaque organisme :
 
-\index{valuecounts@.value\_counts() (pandas)}
+\index{valuecounts@.value\_counts()}
 
 ```python
 df["Organism"].value_counts()
@@ -1052,7 +1055,7 @@ du maïs (`Maize`).
 On peut aussi déterminer, pour chaque organisme, la taille 
 et la masse moyenne des kinases :
 
-\index{groupby@.groupby() (pandas)}
+\index{groupby@.groupby()}
 
 ```python
 df.groupby(["Organism"])[["Length", "Mass"]].mean()
@@ -1077,7 +1080,7 @@ Enfin, la méthode `.mean()` calcule la moyenne pour chaque groupe.
 Si on souhaite obtenir deux statistiques (par exemple les valeurs minimale et maximale)
 en une seule fois, il convient alors d'utiliser la méthode `.pivot_table()`, méthode plus complexe, mais aussi beaucoup plus puissante :
 
-\index{pivottable@.pivot\_table() (pandas)}
+\index{pivottable@.pivot\_table()}
 
 ```python
 df.pivot_table(
@@ -1202,7 +1205,7 @@ et les dernières séquences de kinases ont été référencées dans UniProt.
 
 La méthode `.pivot_table()` apporte des éléments de réponse :
 
-\index{pivottable@.pivot\_table() (pandas)}
+\index{pivottable@.pivot\_table()}
 
 ```python
 df.pivot_table(
@@ -1235,7 +1238,7 @@ La méthode `.value_counts()` peut être utilisée, mais elle ne renvoie que
 le nombre de protéines référencées dans UniProt pour un jour donné. Par exemple,
 40 structures ont été référencées le 28 novembre 2006.
 
-\index{valuecounts@.value\_counts() (pandas)}
+\index{valuecounts@.value\_counts()}
 
 ```python
 df["Creation date"].value_counts().head()
@@ -1251,7 +1254,7 @@ Creation date
 Name: count, dtype: int64
 ```
 
-\index{resample@.resample() (pandas)}
+\index{resample@.resample()}
 
 Si on souhaite une réponse plus globale, par exemple à l'échelle de
 l'année, la méthode `.resample()` calcule le nombre de protéines référencées par
@@ -1289,7 +1292,7 @@ il faut trier les valeurs obtenues du plus grand au plus petit avec la méthode
 (celles où il y a eu le plus de protéines référencées),
 on utilisera également la méthode `.head()`.
 
-\index{sortvalues@.sort\_values() (pandas)}
+\index{sortvalues@.sort\_values()}
 
 ```python
 (df["Création date"]
@@ -1358,7 +1361,7 @@ On observe un pic du nombre de kinases référencées dans UniProt sur la pério
 
 ### Transformation d'une colonne
 
-\index{isna@.isna() (pandas)}
+\index{isna@.isna()}
 
 Nous avons vu précédemment que la colonne `PDB` contenait de nombreuses valeurs manquantes (`NaN`).
 Toutefois, il est intéressant de savoir ce que peut contenir cette colonne quand elle n'est pas vide :
@@ -1395,7 +1398,7 @@ def count_structures(row):
 
 Dans la ligne 2, la méthode `.isna()` teste si la valeur est manquante et si ce n'est pas le cas, la fonction renvoie le nombre de points-virgules dans la chaîne de caractères de la colonne `PDB` (ligne 5).
 
-\index{apply@.apply() (pandas)}
+\index{apply@.apply()}
 
 On applique ensuite la fonction `count_structures()` au *Dataframe* avec la méthode `.apply()`.
 On crée la nouvelle colonne `nb_structures` en même temps :

@@ -348,8 +348,7 @@ close-box-rem
 
 ## Copie de listes
 
-\index{copie liste@copie (de listes)}
-\index{copie reference@copie par référence (de listes)}
+\index{copie listes@copie (de listes)}
 
 Il est très important de savoir que l'affectation d'une liste (à partir d'une liste préexistante) crée en réalité une **référence** et non une **copie** :
 
@@ -421,8 +420,8 @@ et
 
 La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la fonction `deepcopy()` du module *copy*.
 
-\index{deepcopy@deepcopy (module)}
-\index{copie profonde@copie profonde (de listes)}
+\index{deepcopy@deepcopy()}
+\index{copie listes@copie (de listes)}
 
 ```python
 >>> import copy
@@ -571,6 +570,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
 
 ### Sélection des carbones alpha dans un fichier PDB
+
+\index{PDB@PDB (format de fichier)}
 
 Exemple avec la structure de la [barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) :
 

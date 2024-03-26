@@ -89,7 +89,7 @@ close-box-def
 Depuis la version 3.6, Python a introduit les *f-strings* pour mettre en place l'écriture formatée que nous allons décrire en détail dans cette rubrique. Il existe d'autres  manières pour formater des chaînes de caractères qui étaient utilisées avant la version 3.6, nous expliquons cela dans le chapitre 26 *Remarques complémentaires* (en ligne). Toutefois, nous vous conseillons vivement l'utilisation des *f-strings* si vous débutez l'apprentissage de Python. Il est inutile d'apprendre les anciennes manières.
 
 
-\index{fstring@f-string}
+\index{f-string}
 
 open-box-def
 
@@ -163,7 +163,7 @@ Même si cela ne présente que peu d'intérêt pour l'instant, il s'agit d'une c
 
 ### Spécification de format
 
-\index{format string@format (dans une f-string)}
+\index{f-string}
 
 Les *f-strings* permettent de remplacer des variables au sein d'une chaîne de caractères. On peut également spécifier le format de leur affichage.
 

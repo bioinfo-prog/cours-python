@@ -60,7 +60,7 @@ N'oubliez pas ceci ou vous risquez d'obtenir des bugs inattendus !
 
 ## Opération sur les listes
 
-Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de concaténation \index{concatenation@concaténation (de liste)}, ainsi que l'opérateur `*` pour la duplication \index{duplication@duplication (de liste)}:
+Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de concaténation \index{concatenation@concaténation}, ainsi que l'opérateur `*` pour la duplication \index{duplication}:
 
 ```python
 >>> ani1 = ["girafe", "tigre"]

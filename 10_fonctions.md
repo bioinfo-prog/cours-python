@@ -9,7 +9,7 @@ En programmation, les **fonctions** sont très utiles pour réaliser plusieurs f
 Vous connaissez déjà certaines fonctions Python. Par exemple `math.cos(angle)` du module `math` renvoie le cosinus de la variable `angle` exprimé en radian. Vous connaissez aussi des fonctions internes à Python comme `range()` ou `len()`. Pour l'instant, une fonction est à vos yeux une sorte de « boîte noire » :
 
 \index{argument@argument (passé à une fonction)}
-\index{renvoi@renvoi (d'élément(s) par une fonction)}
+\index{renvoi@renvoi (par une fonction)}
 
 1. À laquelle vous passez aucune, une ou plusieurs variable(s) entre parenthèses. Ces variables sont appelées **arguments**. Il peut s'agir de n'importe quel type d'objet Python.
 2. Qui effectue une action.
@@ -129,7 +129,7 @@ L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de cara
 
 ## Renvoi de résultats
 
-\index{renvoi@renvoi (d'élément(s) par une fonction)}
+\index{renvoi@renvoi (par une fonction)}
 
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs objets à la fois, comme dans cette fraction de code :
 

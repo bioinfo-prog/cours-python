@@ -41,9 +41,11 @@ import numpy as np
 
 ## Objets de type *array*
 
-\index{array@array (numpy)}
+\index{array@array (type de variable)}
 
 Les objets de type *array* correspondent à des tableaux à une ou plusieurs dimensions et permettent d'effectuer du calcul vectoriel. La fonction `array()` convertit un conteneur (comme une liste ou un tuple) en un objet de type *array*. Voici un exemple de conversion d'une liste à une dimension en objet *array* :
+
+\index{array@array()}
 
 ```python
 import numpy as np
@@ -111,7 +113,7 @@ close-box-rem
 
 Sur un modèle similaire à la fonction `range()`, la fonction `arange()` permet de construire un *array* à une dimension :
 
-\index{arange@arange() (numpy)}
+\index{arange@arange()}
 
 ```python
 np.arange(10)
@@ -256,7 +258,7 @@ array([[1, 2],
 
 L'attribut `.ndim` renvoie le nombre de dimensions de l'*array*. Par exemple, 1 pour un vecteur et 2 pour une matrice :
 
-\index{ndim@.ndim (numpy)}
+\index{ndim@.ndim}
 
 ```python
 v.ndim
@@ -274,7 +276,7 @@ w.ndim
 2
 ```
 
-\index{shape@.shape (numpy)}
+\index{shape@.shape}
 
 L'attribut `.shape` renvoie les dimensions sous forme d'un tuple. Dans le cas d'une matrice (*array* à deux dimensions), la première valeur du tuple correspond au nombre de lignes et la seconde au nombre de colonnes.
 
@@ -294,7 +296,7 @@ w.shape
 (3, 2)
 ```
 
-\index{size@.size (numpy)}
+\index{size@.size}
 
 Enfin, l'attribut `.size` renvoie le nombre total d'éléments contenus dans l'`array` :
 
@@ -317,7 +319,7 @@ w.size
 
 ### Redimensionnement d'*array*
 
-\index{reshape@.reshape() (numpy)}
+\index{reshape@.reshape()}
 
 La méthode `.reshape()` renvoie un nouvel *array* avec les dimensions spécifiées en argument :
 
@@ -420,7 +422,7 @@ Cell In[36], line 1
 ValueError: cannot reshape array of size 6 into shape (3,4)
 ```
 
-\index{resize@.resize() (numpy)}
+\index{resize@.resize()}
 
 La méthode `.resize()`, par contre, ne déclenche pas d'erreur dans une telle situation et ajoute des 0 jusqu'à ce que le nouvel *array* soit rempli, ou bien coupe la liste initiale.
 
@@ -540,7 +542,7 @@ a
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 ```
 
-\index{ones@ones() (numpy)}
+\index{ones@ones()}
 
 ```python
 a2 = np.ones((3, 3))
@@ -625,7 +627,7 @@ a.max()
 7
 ```
 
-\index{max@.max() (numpy)}
+\index{max@max()}
 
 La méthode `.max()` a bien renvoyé la valeur maximale 7. Un argument *très* utile existant dans toutes ces méthodes est `axis`. Pour un *array* 2D, `axis=0` signifie qu'on fera l'opération le long de l'axe 0, à savoir les lignes. C'est-à-dire que l'opération se fait en variant les lignes. On récupère ainsi une valeur par colonne :
 
@@ -637,7 +639,7 @@ a.max(axis=0)
 array([6, 7])
 ```
 
-\index{axis@axis (numpy)}
+\index{axis@axis}
 
 Dans l'*array* 1D récupéré, le premier élément vaut 6 (maximum de la 1ère colonne) et le second vaut 7 (maximum de la seconde colonne).
 
@@ -841,7 +843,7 @@ array([[0, 0],
        [0, 0]])
 ```
 
-\index{deepcopy@.deepcopy()}
+\index{deepcopy@deepcopy()}
 
 ```python
 b = np.array(a)
@@ -909,8 +911,8 @@ close-box-rem
 
 Il est parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
 
-\index{zeros@zeros() (numpy)}
-\index{ones@ones() (numpy)}
+\index{zeros@zeros()}
+\index{ones@ones()}
 
 ```python
 np.zeros((2, 3))
@@ -944,7 +946,7 @@ array([[0, 0, 0],
 
 Enfin, si vous voulez construire une matrice avec autre chose que des 0 ou des 1, vous avez à votre disposition la fonction `full()` :
 
-\index{full@full() (numpy)}
+\index{full@full()}
 
 ```python
 np.full((2, 3), 7, int)
@@ -969,7 +971,7 @@ Nous construisons ainsi une matrice constituée de 2 lignes et 3 colonnes. Celle
 
 ## Chargement d'un *array* depuis un fichier
 
-\index{loadtext@loadtext() (numpy)}
+\index{loadtext@loadtext()}
 
 Le module *NumPy* contient aussi des fonctions pour lire des données à partir de fichiers et créer des *arrays* automatiquement. C'est très pratique, car la plupart du temps les données que l'on analyse proviennent de fichiers. La fonction la plus simple à prendre en main est `np.loadtxt()`. Celle-ci lit un fichier organisé en lignes et colonnes. Par exemple, imaginons que nous ayons un fichier `donnees.dat` contenant :
 
@@ -999,9 +1001,11 @@ Pratique, non ? Attention toutefois aux points suivants :
 
 Nous vous conseillons de consulter la [documentation complète](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) de cette fonction. En effet, `np.loadtxt()` contient de nombreux arguments permettant de récupérer telles ou telles lignes ou colonnes, d'ignorer des lignes de commentaire, de changer le séparateur par défaut (par exemple la virgule `,` pour les fichiers .csv)... qui peuvent se révéler utiles.
 
+\index{CSV@CSV (format de fichier)}
+
 L'opération inverse qui consiste à sauver un *array* dans un fichier se fait avec la fonction `np.savetxt()` :
 
-\index{savetxt@savetxt() (numpy)}
+\index{savetxt@savetxt()}
 
 ```python
 a = np.reshape(range(1, 10), (3, 3))
@@ -1040,7 +1044,7 @@ close-box-more
 
 Il peut être très utile de concaténer un ou plusieurs *arrays*. Il existe pour cela plusieurs fonctions dans *NumPy*, nous développerons celle qui nous parait la plus intuitive et directe : `np.concatenate()`.
 
-\index{arangeconcatenate@concatenate() (numpy)}
+\index{arangeconcatenate@concatenate()}
 
 Pour les *arrays* 1D, `np.concatenate()` prend en argument un tuple contenant les *arrays* à concaténer :
 
@@ -1090,7 +1094,7 @@ array([0, 1, 3, 4, 0, 1, 3, 4])
 
 Pour les *arrays* 2D, ça se complique un peu, car on peut concaténer des lignes ou des colonnes ! Ainsi, `np.concatenate()` prend un argument optionnel, à savoir `axis`. Comme nous l'avions expliqué plus haut, celui-ci va indiquer à *NumPy* si on veut concaténer le long de l'axe 0 (les lignes) ou le long de l'axe 1 (les colonnes). Voyons un exemple :
 
-\index{axis@axis (numpy)}
+\index{axis@axis}
 
 ```python
 a1 = np.reshape(np.array(range(6)), (3, 2))
@@ -1150,7 +1154,7 @@ Après avoir manipulé les objets *array* comme des vecteurs et des matrices, vo
 
 La fonction `transpose()` renvoie la [transposée](https://fr.wikipedia.org/wiki/Matrice_transpos%C3%A9e) d'un *array*. Par exemple, pour une matrice :
 
-\index{transpose@transpose() (numpy)}
+\index{transpose@transpose()}
 
 ```python
 a = np.resize(np.arange(1, 10), (3, 3))
@@ -1175,7 +1179,7 @@ array([[1, 4, 7],
 
 Tout objet *array* possède un attribut `.T` qui contient la transposée, il est ainsi possible d'utiliser cette notation objet plus compacte :
 
-\index{T@.T (numpy)}
+\index{T@.T}
 
 ```python
 a.T
@@ -1187,7 +1191,7 @@ array([[1, 4, 7],
        [3, 6, 9]])
 ```
 
-\index{dot@dot() (numpy)}
+\index{dot@dot()}
 
 La fonction `dot()` permet de [multiplier deux matrices](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_matriciel_ordinaire).
 
@@ -1231,7 +1235,7 @@ close-box-rem
 
 Pour toutes les opérations suivantes, nous utiliserons des fonctions du sous-module *linalg* de *NumPy*.
 
-\index{diag@diag() (numpy)}
+\index{diag@diag()}
 
 La fonction `diag()` permet de générer une matrice diagonale :
 
@@ -1246,7 +1250,7 @@ array([[1, 0, 0],
        [0, 0, 3]])
 ```
 
-\index{inv@inv() (numpy)}
+\index{inv@inv()}
 
 La fonction `inv()` renvoie l'[inverse d'une matrice carrée](https://fr.wikipedia.org/wiki/Matrice_inversible) :
 
@@ -1260,7 +1264,7 @@ array([[1.        , 0.        , 0.        ],
        [0.        , 0.        , 0.33333333]])
 ```
 
-\index{det@det() (numpy)}
+\index{det@det()}
 
 La fonction `det()` renvoie le [déterminant](https://fr.wikipedia.org/wiki/Calcul_du_d%C3%A9terminant_d%27une_matrice) d'une matrice carrée :
 
@@ -1272,7 +1276,7 @@ np.linalg.det(a)
 6.0
 ```
 
-\index{eig@eig() (numpy)}
+\index{eig@eig()}
 
 Enfin, la fonction `eig()` renvoie les vecteurs et valeurs propres :
 
@@ -1396,7 +1400,7 @@ Par défaut, l'affectation multiple se fait sur les lignes de l'*array* 2D. Cett
 
 Pour utiliser l'affectation multiple sur les colonnes, il suffit d'utiliser la transposée `a.T` :
 
-\index{T@.T (numpy)}
+\index{T@.T}
 
 ```python
 c1, c2, c3 = a.T
@@ -1425,7 +1429,7 @@ array([3, 6, 9])
 
 ## Masques booléens
 
-\index{masque booleen@masque booléen (numpy)}
+\index{masque booleen@masque booléen}
 
 Une fonctionnalité puissante des *arrays* *NumPy* est l'utilisation des **masques booléens**. Avant de les définir, il est important d'introduire le concept d'*arrays* de booléens. Jusqu'à maintenant nous avions définis uniquement des *arrays* avec des types numériques *int* ou *float*. Il est tout à fait possible de définir des *arrays* de booléens. La fonction `np.full()` vue précédemment nous permet d'en construire facilement :
 
@@ -1480,8 +1484,8 @@ array([[False,  True, False],
        [False, False, False]])
 ```
 
-\index{true@True}
-\index{false@False}
+\index{True}
+\index{False}
 
 Tous les éléments de l'*array* satisfaisant la condition seront à `True`, les autres à `False`. Il est même possible de combiner plusieurs conditions avec les opérateurs logiques `&` et `|` (respectivement **ET** et **OU**) :
 
@@ -1735,6 +1739,8 @@ La barstar est un inhibiteur de ribonucléase. C'est une protéine relativement 
 L'objectif de cet exercice est de calculer la distance entre carbones alpha consécutifs le long de la chaîne peptidique avec module *NumPy* et de découvrir une anomalie.
 
 Le morceau de code suivant vous sera utile pour extraire les coordonnées atomiques des carbones alpha de la barstar depuis un fichier PDB :
+
+\index{PDB@PDB (format de fichier)}
 
 ```python
 with open("1bta.pdb", "r") as f_pdb, open("1bta_CA.txt", "w") as f_CA:

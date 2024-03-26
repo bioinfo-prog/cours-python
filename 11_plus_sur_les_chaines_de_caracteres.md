@@ -34,7 +34,7 @@ Nous pouvons donc utiliser certaines propriétés des listes comme les tranches 
 'iaetg'
 ```
 
-\index{immutabilite@immutabilité (d'une chaîne de caractères)}
+\index{immutabilite@immutabilité}
 
 Mais *a contrario* des listes, les chaînes de caractères présentent toutefois une différence notable, ce sont **des listes non modifiables**. Une fois une chaîne de caractères définie, vous ne pouvez plus modifier un de ses éléments. Le cas échéant, Python renvoie un message d'erreur :
 
@@ -100,9 +100,6 @@ bla
 
 ## Préfixe de chaîne de caractères
 
-\index{prefixe@préfixe (de chaîne de caracteres)}
-\index{stringprefix}
-
 Nous avons vu au chapitre 3 *Affichage* la notion de *f-string*. Il s'agit d'un mécanisme pour formater du texte au sein d'une chaîne de caractères. Par exemple :
 
 ```python
@@ -111,11 +108,11 @@ Nous avons vu au chapitre 3 *Affichage* la notion de *f-string*. Il s'agit d'un 
 'voici une belle f-string'
 ```
 
-Que signifie le `f` que l'on accole aux guillements de la chaîne de caractères ? Celui-ci est appelé « préfixe de chaîne de caractères » ou *stringprefix*. 
+Que signifie le `f` que l'on accole aux guillemets de la chaîne de caractères ? Celui-ci est appelé « préfixe de chaîne de caractères » ou *stringprefix*. 
 
 open-box-rem
 
-Un *stringprefix* modifie la manière dont Python va interpréter la dite *string*. Celui-ci doit être systématiquement « collé » à la chaîne de caractères, c'est-à-dire sans d'espace entre les deux.
+Un *stringprefix* modifie la manière dont Python va interpréter ladite *string*. Celui-ci doit être systématiquement « collé » à la chaîne de caractères, c'est-à-dire sans d'espace entre les deux.
 
 close-box-rem
 
@@ -145,7 +142,7 @@ Les caractères spéciaux non interprétés dans les *raw strings* sont de mani�
 
 \index{f-string}
 
-- Le préfixe `f` mis pour *formatted string*, qui met en place l'écriture formattée comme vue au chapitre 3 *Affichage* :
+- Le préfixe `f` mis pour *formatted string*, qui met en place l'écriture formatée comme vue au chapitre 3 *Affichage* :
 
 ```python
 >>> animal = "renard"
@@ -168,7 +165,7 @@ La *f-string* remplace le contenu des variables situées entre les accolades et 
 
 open-box-adv
 
-Il existe de nombreux autres détails concernant les préfixes qui vont au delà de ce cours. Pour en savoir plus, vous pouvez consulter la [documentations officielle](https://docs.python.org/fr/3/reference/lexical_analysis.html#grammar-token-stringprefix).
+Il existe de nombreux autres détails concernant les préfixes qui vont au-delà de ce cours. Pour en savoir plus, vous pouvez consulter la [documentations officielle](https://docs.python.org/fr/3/reference/lexical_analysis.html#grammar-token-stringprefix).
 
 close-box-adv
 
@@ -512,6 +509,8 @@ On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse
 
 Pour l'instant, vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`. Nous n'avons pas mis l'ensemble de la sortie de cette commande `dir()` pour ne pas surcharger le texte, mais n'hésitez pas à la tester dans l'interpréteur.
 
+\index{\_}
+
 Vous pouvez également accéder à l'aide et à la documentation d'une méthode particulière avec `help()`, par exemple pour la méthode `.split()` :
 
 \index{help@help()}
@@ -618,6 +617,8 @@ Soit la liste `['girafe', 'tigre', 'singe', 'souris']`. Avec une boucle, affiche
 
 ### Lecture d'une séquence à partir d'un fichier FASTA
 
+\index{FASTA@FASTA (format de fichier)}
+
 Le fichier [`UBI4_SCerevisiae.fasta`](https://python.sdv.u-paris.fr/data-files/UBI4_SCerevisiae.fasta) contient une séquence d'ADN au format FASTA.
 
 Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier FASTA sous la forme d'une chaîne de caractères, lit la séquence dans le fichier FASTA et la renvoie sous la forme d'une chaîne de caractères.
@@ -670,6 +671,8 @@ puis entre les séquences : `ATTCATACGTTACGATT` et `ATACTTACGTAACCATT`.
 
 
 ### Moyenne de notes
+
+\index{CSV@CSV (format de fichier)}
 
 Le fichier [`notes.csv`](https://python.sdv.u-paris.fr/data-files/notes.csv) contient des noms d'étudiant ainsi que leurs notes dans différentes matières. Chaque donnée est séparée par une virgule. On trouve dans l'ordre le nom de l'étudiant, la note en géographie, la note en sport, la note en anglais. 
 
@@ -768,6 +771,8 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 
 ### Lecture d'une séquence à partir d'un fichier GenBank (exercice +++)
 
+\index{GenBank@GenBank (format de fichier)}
+
 On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [`NC_001133.gbk`](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk).
 
 Le format GenBank est présenté en détail dans l'annexe A *Quelques formats de données en biologie*. Pour cet exercice, vous devez savoir que la séquence démarre après la ligne commençant par le mot `ORIGIN` et se termine avant la ligne commençant par les caractères `//` :
@@ -813,6 +818,8 @@ Lire toutes les lignes du fichier:
 
 
 ### Affichage des carbones alpha d'une structure de protéine
+
+\index{PDB@PDB (format de fichier)}
 
 Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
 

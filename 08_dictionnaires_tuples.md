@@ -238,8 +238,6 @@ On peut également indiquer à `.get()` une valeur par défaut si la clé n'exis
 
 ### Liste de dictionnaires
 
-\index{liste dictionnaire@liste (de dictionnaires)}
-
 En créant une liste de dictionnaires qui possèdent les mêmes clés, on obtient une structure qui ressemble à une base de données :
 
 ```python
@@ -263,7 +261,7 @@ Vous constatez ainsi que les dictionnaires permettent de gérer des structures c
 ### Définition
 
 \index{tuple}
-\index{immutabilite@immutabilité (d'un tuple)}
+\index{immutabilite@immutabilité}
 
 open-box-def
 
@@ -325,8 +323,8 @@ Autre particularité des tuples, il est possible de les créer sans les parenth�
 
 Toutefois, afin d'éviter les confusions, nous vous conseillons d'utiliser systématiquement les parenthèses lorsque vous débutez.
 
-\index{concatenation@concaténation (de tuple)}
-\index{duplication@duplication (de tuple)}
+\index{concatenation@concaténation}
+\index{duplication}
 
 Les opérateurs `+` et `*` fonctionnent comme pour les listes (concaténation et duplication) :
 

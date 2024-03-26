@@ -102,10 +102,13 @@ souris
 >>>
 ```
 
+\index{bloc instruction@bloc d'instructions}
+\index{indentation}
+
 open-box-rem
 
-- L'instruction `with` introduit un bloc d'indentation. C'est à l'intérieur de ce bloc que nous effectuons toutes les opérations sur le fichier.
-- Une fois sorti du bloc d'indentation, Python fermera **automatiquement** le fichier. Vous n'avez donc plus besoin d’utiliser la méthode `.close()`.
+- L'instruction `with` introduit un bloc d'instructions qui doit être indenté. C'est à l'intérieur de ce bloc que nous effectuons toutes les opérations sur le fichier.
+- Une fois sorti du bloc d'instructions, Python fermera **automatiquement** le fichier. Vous n'avez donc plus besoin d’utiliser la méthode `.close()`.
 
 close-box-rem
 

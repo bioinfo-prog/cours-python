@@ -85,7 +85,7 @@ close-box-rem
 
 ## Les *docstrings*
 
-\index{docstring@docstring (chaîne de documentation)}
+\index{docstrings}
 
 Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères entre triple guillemets, situées en début du module et de chaque fonction, sont là pour cela : on les appelle *docstrings* (« chaînes de documentation » en français). Les *docstrings* seront détaillées dans le chapitre 16 *Bonnes pratiques en programmation Python*.
 
@@ -229,12 +229,14 @@ Ce comportement est possible grâce à la gestion des espaces de noms par Python
 
 open-box-adv
 
-Ainsi, au lieu d'ajouter le commentaire 
+\index{commentaire}
+
+Ainsi, au lieu d'ajouter le commentaire :
 
 `# Programme principal.`
 
 comme nous vous l'avions suggéré dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions*,
-nous vous recommandons désormais d'utiliser la ligne
+nous vous recommandons désormais d'utiliser la ligne :
 
 `if __name__ == "__main__":`
 
@@ -251,6 +253,8 @@ close-box-adv
 
 
 ### Module ADN
+
+\index{FASTA@FASTA (format de fichier)}
 
 Dans le script `adn.py`, construisez un module qui va contenir les fonctions et constantes suivantes.
 

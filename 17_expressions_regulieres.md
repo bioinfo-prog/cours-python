@@ -159,13 +159,15 @@ Enfin, il existe des caractères spéciaux qui sont bien commodes et qui peuvent
 
 `\s`
 
-: remplace n'importe quel « espace blanc » (*whitespace*) (*s* signifie *space*), équivalent à `[ \t\n\r\f]`. La notion d'espace blanc a été abordée dans le chapitre 11 *Plus sur les chaînes de caractères*. Les espaces blancs les plus classiques sont l'espace ` `, la tabulation `\t`, le retour à la ligne `\n`, mais il en existe d'autres comme `\r` et `\f` que nous ne développerons pas ici. `\s` est très pratique pour détecter une combinaison d'espace(s) et/ou de tabulation(s).
+: remplace n'importe quel « espace blanc » (*whitespace*) (*s* signifie *space*), équivalent à `[ \t\n\r\f]`. La notion d'espace blanc a été abordée dans le chapitre 11 *Plus sur les chaînes de caractères*. Les espaces blancs les plus classiques sont l'espace ` `, la tabulation `\t`, le retour à la ligne `\n`, mais il en existe d'autres comme `\r` et `\f` que nous ne développerons pas ici. `\s` est très pratique pour détecter une combinaison d'espace(s) et/ou de tabulation(s). \index{whitespace} \index{espace blanc}
 
 Comme vous le constatez, les métacaractères sont nombreux et leur signification est parfois difficile à maîtriser. Faites particulièrement attention aux métacaractères `.`, `+` et `*` qui, combinés ensemble, peuvent donner des résultats ambigus.
 
 open-box-warn
 
 Il est important de savoir par ailleurs que les *regex* sont « avides » (*greedy* en anglais) lorsqu'on utilise les métacaractères `+` et `*`. Cela signifie que la *regex* cherchera à «~s'étendre » au maximum. Par exemple, si on utilise la *regex* `A+` pour faire une recherche dans la chaîne `TTTAAAAAAAAGC`, tous les A de cette chaîne (huit en tout) seront concernés, bien que `AA`, `AAA`, etc. « fonctionnent » également avec cette *regex*.
+
+\index{greedy@greedy (regex)}
 
 close-box-warn
 
@@ -389,6 +391,8 @@ close-box-adv
 
 ### *Regex* de base
 
+\index{GenBank@GenBank (format de fichier)}
+
 Dans cet exercice, nous allons manipuler le fichier GenBank [`NC_001133.gbk`](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk) correspondant au chromosome I de la levure *Saccharomyces cerevisiae*.
 
 Créez un script `regex_genbank.py` :
@@ -428,6 +432,8 @@ Créez un script `cigale_fourmi.py` qui, grâce à une *regex* et à la fonction
 
 
 ### Liste des protéines humaines
+
+\index{FASTA@FASTA (format de fichier)}
 
 Téléchargez le fichier [`human-proteome.fasta`](https://python.sdv.u-paris.fr/data-files/human-proteome.fasta) qui contient le protéome humain, c'est-à-dire les séquences de l'ensemble des protéines chez l'Homme. Ce fichier est au format FASTA.
 

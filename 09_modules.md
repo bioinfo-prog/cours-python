@@ -2,8 +2,6 @@
 
 ## Définition
 
-\index{module}
-
 Les modules sont des programmes Python qui contiennent des fonctions que l'on est amené à souvent réutiliser (on les appelle aussi bibliothèques, ou *libraries* en anglais). Ce sont des « boîtes à outils » qui vous seront très utiles.
 
 Les développeurs de Python ont mis au point de nombreux modules qui effectuent différentes tâches. Pour cette raison, prenez toujours le réflexe de vérifier si une partie du code que vous souhaitez écrire n'existe pas déjà sous forme de module.
@@ -14,7 +12,6 @@ La plupart de ces modules sont déjà installés dans les versions standards de 
 ## Importation de modules
 
 \index{import (instruction)}
-\index{importatnion@importation (de module)}
 
 Dans les chapitres précédents, nous avons rencontré la notion de module plusieurs fois, notamment lorsque nous avons voulu tirer un nombre aléatoire :
 
