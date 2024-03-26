@@ -193,7 +193,7 @@ None
 
 open-box-rem
 
-\index{modification sur place@modification sur place (d'une variable)}
+\index{modification sur place@modification sur place (d'une liste)}
 
 Pour exprimer la même idée, la documentation parle de modification de la liste « sur place » (*in place* en anglais) :
 
