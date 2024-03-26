@@ -7,6 +7,9 @@ Dans ce chapitre nous allons aborder la notion de conteneur, revenir sur certain
 
 open-box-def
 
+\index{conteneur}
+\index{container}
+
 Un **conteneur** (*container* en anglais) est un nom générique pour définir un objet Python qui contient une collection d'autres objets. 
 
 close-box-def
@@ -16,6 +19,8 @@ Les conteneurs que nous connaissons depuis le début de ce cours sont les listes
 Dans la suite de cette rubrique, nous allons examiner les différentes propriétés des conteneurs. A la fin de ce chapitre, nous ferons un tableau récapitulatif de ces propriétés.
 
 Examinons d'abord les propriétés qui caractérisent tous les types de conteneur.
+
+\index{in@in (opérateur)}
 
 - Capacité à supporter le **test d'appartenance**. Souvenez-vous, il permet de vérifier si un élément était présent dans une liste. Cela fonctionne donc aussi sur les chaînes de caractères ou tout autre conteneur :
 
@@ -31,6 +36,10 @@ True
 
 Voici d'autres propriétés générales que nous avons déjà croisées. Un conteneur peut être :
 
+\index{ordonne@ordonné}
+\index{indexable}
+\index{iterable@itérable}
+
 - **Ordonné** (*ordered* en anglais) : il y a un ordre précis des éléments ; cet ordre correspond à celui utilisé lors de la création ou de la modification du conteneur (si cela est permis) ; ce même ordre est utilisé lorqu'on itère dessus.
 - **Indexable** (*subscriptable* en anglais) : on peut retrouver un élément par son indice (i.e. sa position dans le conteneur) ou plusieurs éléments avec une tranche ; en général, tout conteneur indexable est ordonné.
 - **Itérable** (*iterable* en anglais) : on peut faire une boucle dessus. 
@@ -39,11 +48,15 @@ Certains conteneurs sont appelés objets séquentiels ou séquence.
 
 open-box-def
 
+\index{objet sequentiel@objet séquentiel}
+
 Un **objet séquentiel** ou **séquence** est un conteneur itérable, ordonné et indexable. Les objets séquentiels sont les listes, les chaînes de caractères, les objets de type *range*, ainsi que les tuples.
 
 close-box-def
 
 Une autre propriété importante que l'on a déjà croisée, et qui nous servira dans ce chapitre, concerne la possibilité ou non de modifier un objet.
+
+\index{immutabilite@immutabilité (d'un objet)}
 
 - Un objet est dit **non modifiable** lorsqu'on ne peut pas le modifier, ou lorsqu'on ne peut pas en modifier un de ses éléments si c'est un conteneur. On parle aussi d'[objet immuable](https://fr.wikipedia.org/wiki/Objet_immuable) (*immutable object* en anglais). Cela signifie qu'une fois créé, Python ne permet plus de le modifier par la suite.
 
@@ -53,11 +66,15 @@ On comprend bien l'immutabilité des *strings* comme vu au chapitre 11 *Plus sur
 
 open-box-def
 
+\index{identifiant@identifiant (d'un objet)}
+
 L'**identifiant** d'un objet est un nombre entier qui est garanti constant pendant toute la durée de vie de l'objet. Cet identifiant est en général unique pour chaque objet. Toutefois, pour des raisons d'optimisation, Python crée parfois le même identifiant pour deux objets non modifiables différents qui ont la même valeur. L'identifiant peut être assimilé à l'adresse mémoire de l'objet qui elle aussi est unique. En Python, on utilise la fonction interne `id()` qui prend en argument un objet et renvoie son identifiant.
 
 close-box-def
 
 Maintenant que l'identifiant est défini, regardons l'exemple suivant qui montre l'immutabilité des entiers.
+
+\index{id@id()}
 
 ```python
 >>> var = 4
@@ -84,6 +101,8 @@ En ligne 1 on définit l'entier `var` puis on regarde son identifiant. En ligne 
 
 La liste `liste1` a été modifiée en ligne 4 (changement de l'élément d'indice 1) et en ligne 7 (ajout d'un élément). Pour autant, l'identifiant de cette liste est resté identique tout du long. Ceci démontre la mutabilité des listes : quelle que soit la manière dont on modifie une liste, celle-ci garde le même identifiant.
 
+\index{hachabilite@hachabilité (d'un objet)}
+
 - Une dernière propriété importante est la capacité d'un conteneur (ou tout autre objet Python) à être **hachable**.
 
 open-box-def
@@ -93,6 +112,8 @@ Un objet Python est dit **hachable** (*hashable* en anglais) s'il est possible d
 close-box-def
 
 open-box-warn
+
+\index{hash@hash()}
 
 La valeur de hachage d'un objet renvoyée par la fonction `hash()` n'a pas le même sens que son identifiant renvoyé par la fonction `id()`. La valeur de hachage est obtenue en «~moulinant » le contenu de l'objet dans une fonction de hachage. L'identifiant est quant à lui attribué par Python à la création de l'objet. Il est constant tout le long de la durée de vie de l'objet, un peu comme une carte d'identité. Tout objet a un identifiant, mais il doit être hachable pour avoir une valeur de hachage.
 
@@ -126,6 +147,8 @@ TypeError: unhashable type: 'list'
 Les valeurs de hachage renvoyées par la fonction `hash()` de Python sont systématiquement des entiers. Par contre, Python renvoie une erreur pour une liste, car elle est non hachable.
 
 ### Conteneurs de type *range*
+
+\index{range@range (objets)}
 
 Revenons rapidement sur les objets de type *range*. Jusqu'à maintenant, on s'en est servi pour faire des boucles ou générer des listes de nombres. Toutefois, on a vu ci-dessus qu'ils étaient aussi des conteneurs. Ils sont ordonnés, indexables, itérables, hachables et non modifiables.
 
@@ -206,6 +229,8 @@ Pour les listes, on utilise l'indice entre crochet pour détruire l'élément, p
 
 ### Tri par clés
 
+\index{tri dictionnaire@tri (de dictionnaire)}
+
 On peut utiliser la fonction `sorted()` vue précédemment avec les listes pour trier un dictionnaire par ses clés :
 
 ```python
@@ -277,6 +302,8 @@ Les fonctions `min()` et `max()`, que vous avez déjà manipulées dans les chap
 ```
 
 ### Fonction `dict()`
+
+\index{dict@dict()}
 
 La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de *casting*, comme `int()`, `str()`, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière : un objet séquentiel contenant d'autres objets séquentiels de 2 éléments. Par exemple, une liste de listes de 2 éléments :
 
@@ -350,6 +377,8 @@ Nous revenons sur les tuples, que nous avons défini dans le chapitre 8 *Diction
 
 ## Immutabilité
 
+\index{immutabilite@immutabilité (d'un objet)}
+
 Nous avions vu que les tuples étaient immuables :
 
 ```python
@@ -385,6 +414,8 @@ close-box-adv
 
 
 ### Affectation multiple et fonctions
+
+\index{affectation multiple}
 
 Dans le chapitre 8 *Dictionnaires et tuples*, nous avons abordé l'affectation multiple. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : `x, y, z = 1, 2, 3`. On a vu qu'il était possible de le faire également avec les listes : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe étant alourdie par la présence des crochets, on préfèrera toujours la première syntaxe avec les tuples sans parenthèses.
 
@@ -528,6 +559,8 @@ close-box-adv
 
 ### Fonction `tuple()`
 
+\index{tuple@tuple()}
+
 Nous avions vu également la fonction `tuple()`, qui permet de convertir un objet séquentiel en tuple (opération de *casting*). Cela est possible seulement si l'objet passé en argument est itérable :
 
 ```python
@@ -549,6 +582,8 @@ Bien sûr, un entier ou un booléen ne sont pas itérables.
 
 
 ### Hachabilité des tuples
+
+\index{hachabilite@hachabilité (d'un objet)}
 
 Les tuples sont hachables s'ils ne contiennent que des éléments hachables. Si un tuple contient un ou plusieurs objet(s) non hachable(s), comme une liste, il devient non hachable.
 
@@ -584,6 +619,8 @@ close-box-adv
 ## *Sets* et *frozensets*
 
 ### Définition et propriétés
+
+\index{set@set (type de variable)}
 
 Les objets de type *set* représentent un autre type de conteneur qui peut se révéler très pratique. Ils ont la particularité d'être modifiables, non hachables, non ordonnés, non indexables et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau *set* on peut utiliser les accolades :
 
@@ -655,6 +692,10 @@ Par contre, les *sets* sont itérables :
 
 Les *sets* ne peuvent être modifiés que par des méthodes spécifiques. 
 
+\index{add@.add()}
+\index{discard@.discard()}
+\index{set@set()}
+
 ```python
 >>> set1 = set(range(5))
 >>> set1
@@ -715,6 +756,9 @@ Les *sets* permettent aussi l'évaluation d'union ou d'intersection mathématiqu
 {1, 3, 5}
 ```
 
+\index{union@.union()}
+\index{intersection@.intersection()}
+
 Notez qu'il existe les méthodes `.union()` et `.intersection` permettant de réaliser ces opérations d'union et d'intersection :
 
 ```python
@@ -725,6 +769,8 @@ Notez qu'il existe les méthodes `.union()` et `.intersection` permettant de ré
 >>> set1.intersection(set2)
 {1, 3, 5}
 ```
+
+\index{difference@.difference()}
 
 L'instruction `set1.difference(set2)` renvoie sous la forme d'un nouveau *set* les éléments de `set1` qui ne sont pas dans `set2`. Et inversement pour `set2.difference(set1)` :
 
@@ -760,7 +806,11 @@ Il existe de nombreuses autres méthodes que nous n'abordons pas ici, mais qui p
 
 ### *Frozensets*
 
+\index{frozenset@frozenset (type de variable)}
+
 Les *frozensets* sont des *sets* non modifiables et hachables. Ainsi, un *set* peut contenir des *frozensets* mais pas l'inverse. À quoi servent-ils ? Comme la différence entre tuple et liste, l'immutabilité des *frozensets* donne l'assurance de ne pas pouvoir les modifier par erreur. Pour créer un *frozenset* on utilise la fonction interne `frozenset()`, qui prend en argument un objet itérable et le convertit (opération de *casting*) :
+
+\index{frozenset@frozenset()}
 
 ```python
 >>> frozen1 = frozenset([3, 3, 5, 1, 3, 4, 1, 1, 4, 4])
@@ -789,6 +839,8 @@ close-box-adv
 
 
 ## Récapitulation des propriétés des conteneurs
+
+\index{propriete conteneurs@propriétés (des conteneurs)}
 
 Après ce tour d'horizon des différents conteneurs, voici des tableaux récapitulants leurs propriétés. La mention « `in` et `len()` » indique que l'on peut tester l'appartenance d'un élément à un conteneur avec l'opérateur `in`, et que l'on peut connaître le nombre d'éléments du conteneur avec la fonction `len()`. Les mentions « index. » et « modif. » indiquent respectivement « indexable » et « modifiable ».
 
@@ -845,6 +897,9 @@ Ainsi, il faut toujours faire attention quand on fait une copie d'un conteneur m
 
 ## Dictionnaires et *sets* de compréhension
 
+\index{dictionnaire comprehension@dictionnaire de compréhension}
+\index{set comprehension@set de compréhension}
+
 Nous avons abordé les listes de compréhension dans le chapitre 12 *Plus sur les listes*. Il est également possible de générer des dictionnaires de compréhension :
 
 ```python
@@ -886,6 +941,8 @@ Il est également possible de générer des *sets* de compréhension sur le mêm
 
 
 ## Module *collections*
+
+\index{collections@collections (module)}
 
 Le [module *collections*](https://docs.python.org/fr/3/library/collections.html) contient d'autres types de conteneurs qui peuvent se révéler utiles, c'est une véritable mine d'or ! Nous n'aborderons pas tous ces objets ici, mais nous pouvons citer tout de même certains d'entre eux si vous souhaitez aller un peu plus loin :
 
