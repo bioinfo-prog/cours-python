@@ -6,6 +6,10 @@ Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent ex
 
 ### Définition et fonctionnement
 
+\index{dictionnaire}
+\index{cle@clé (dictionnaire)}
+\index{valeur@valeur (dictionnaire)}
+
 open-box-def
 
 Un **dictionnaire** contient une collection d'objets Python auxquels on accède à l'aide d'une **clé** de correspondance plutôt qu'un indice. Ainsi, il ne s'agit pas d'objets séquentiels comme les listes, mais plutôt d'objets dits de correspondance (*mapping objects* en anglais) ou tableaux associatifs.
@@ -15,24 +19,24 @@ close-box-def
 Ceci étant défini, comment fonctionnent-ils exactement ? Regardons un exemple :
 
 ```python
->>> ani1 = {}
->>> ani1["nom"] = "girafe"
->>> ani1["taille"] = 5.0
->>> ani1["poids"] = 1100
->>> ani1
+>>> animal1 = {}
+>>> animal1["nom"] = "girafe"
+>>> animal1["taille"] = 5.0
+>>> animal1["poids"] = 1100
+>>> animal1
 {'nom': 'girafe', 'taille': 5.0, 'poids': 1100}
 ```
 
 - **Ligne 1**. On définit un dictionnaire vide avec les accolades `{}` (tout comme on peut le faire pour les listes avec `[]`).
-- **Lignes 2 à 4**. On remplit le dictionnaire avec plusieurs clés (`"nom"`, `"taille"`, `"poids"`) auxquelles on affecte des valeurs (`"girafe"`, `5.0`, `1100`). 
+- **Lignes 2 à 4**. On remplit le dictionnaire avec plusieurs clés (`"nom"`, `"taille"`, `"poids"`) auxquelles on affecte des **valeurs** (`"girafe"`, `5.0`, `1100`). 
 - **Ligne 5**. On affiche le contenu du dictionnaire. Les accolades nous montrent qu'il s'agit bien d'un dictionnaire, et pour chaque élément séparé par une virgule on a une association du type `clé: valeur`. Ici, les clés sont des chaînes de caractères (ce qui sera souvent le cas), et les valeurs peuvent être n'importe quel objet Python.
 
 Une fois le dictionnaire créé, on récupère la valeur associée à une clé donnée avec une syntaxe du type `dictionnaire["clé"]`. Par exemple :
 
 ```python
->>> ani1["nom"]
+>>> animal1["nom"]
 'girafe'
->>> ani1["taille"]
+>>> animal1["taille"]
 5.0
 ```
 
@@ -46,17 +50,19 @@ Jusqu'à la version 3.6 de Python, un dictionnaire était affiché sans ordre pa
 
 close-box-rem
 
+\index{initialisation@initialisation (dictionnaire)}
+
 On peut aussi initialiser toutes les clés et les valeurs d'un dictionnaire en une seule opération :
 
 ```python
->>> ani2 = {"nom": "singe", "poids": 70, "taille": 1.75}
+>>> animal2 = {"nom": "singe", "poids": 70, "taille": 1.75}
 
 ```
 Mais rien ne nous empêche d'ajouter une clé et une valeur supplémentaire :
 
 ```python
->>> ani2["age"] = 15
->>> ani2
+>>> animal2["age"] = 15
+>>> animal2
 {'nom': 'singe', 'poids': 70, 'taille': 1.75, 'age': 15}
 ```
 
@@ -73,6 +79,8 @@ close-box-adv
 
 ### Fonction `len()`
 
+\index{len@len()}
+
 Comme pour les listes, l'instruction `len()` renvoie la longueur du dictionnaire, sauf qu'ici il s'agit du nombre de couples clé / valeur. Voici un exemple d'utilisation :
 
 ```python
@@ -83,44 +91,49 @@ ani3 = {"nom": "pinson", "poids": 0.02, "taille": 0.15}
 
 ### Itération sur les clés pour obtenir les valeurs
 
+\index{iteration@itération (sur un dictionnaire)}
+
 Si on souhaite voir toutes les associations clés / valeurs, on peut itérer sur un dictionnaire de la manière suivante :
 
 ```python
->>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
->>> for key in ani2:
-...     print(key, ani2[key])
+>>> animal2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> for key in animal2:
+...     print(key, animal2[key])
 ...
 poids 70
 nom singe
 taille 1.75
 ```
 
-Par défaut, l'itération sur un dictionnaire se fait sur les clés. Dans cet exemple, la variable d'itération `key` prend successivement la valeur de chaque clé, `ani2[key]` donne la valeur correspondant à chaque clé.
+Par défaut, l'itération sur un dictionnaire se fait sur les clés. Dans cet exemple, la variable d'itération `key` prend successivement la valeur de chaque clé, `animal2[key]` donne la valeur correspondant à chaque clé.
 
 ### Méthodes `.keys()` et `.values()`
+
+\index{keys@.keys()}
+\index{values@.values()}
 
 Les méthodes `.keys()` et `.values()` renvoient, comme vous vous en doutez, les clés et les valeurs d'un dictionnaire :
 
 ```python
->>> ani2.keys()
+>>> animal2.keys()
 dict_keys(['poids', 'nom', 'taille'])
->>> ani2.values()
+>>> animal2.values()
 dict_values([70, 'singe', 1.75])
 ```
 
 Les mentions `dict_keys` et `dict_values` indiquent que nous avons à faire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice, par exemple `dico.keys()[0]` renverra une erreur). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
 
 ```python
->>> ani2.values()
+>>> animal2.values()
 dict_values(['singe', 70, 1.75])
->>> list(ani2.values())
+>>> list(animal2.values())
 ['singe', 70, 1.75]
 ```
 
 Toutefois, on peut itérer dessus dans une boucle (on dit qu'ils sont itérables) :
 
 ```python
->>> for cle in ani2.keys():
+>>> for cle in animal2.keys():
 ...     print(cle)
 ...
 nom
@@ -129,6 +142,8 @@ taille
 ```
 
 ### Méthode `.items()`
+
+\index{items@.items()}
 
 La méthode `.items()` renvoie un nouvel objet `dict_items` :
 
@@ -159,42 +174,46 @@ Notez la syntaxe particulière qui ressemble à la fonction `enumerate()` vue au
 
 ### Existence d'une clé ou d'une valeur
 
+\index{in@in (opérateur)}
+
 Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'opérateur `in` qui renvoie un booléen :
 
 ```python
->>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
->>> "poids" in ani2
+>>> animal2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> "poids" in animal2
 True
->>> if "poids" in ani2:
-...     print("La clé 'poids' existe pour ani2")
+>>> if "poids" in animal2:
+...     print("La clé 'poids' existe pour animal2")
 ...
-La clé 'poids' existe pour ani2
->>> "age" in ani2
+La clé 'poids' existe pour animal2
+>>> "age" in animal2
 False
->>> if "age" in ani2:
-...     print("La clé 'age' existe pour ani2")
+>>> if "age" in animal2:
+...     print("La clé 'age' existe pour animal2")
 ...
 ```
 
-Dans le second test (lignes 10 à 12), le message n'est pas affiché car la clé `age` n'est pas présente dans le dictionnaire `ani2`.
+Dans le second test (lignes 10 à 12), le message n'est pas affiché car la clé `age` n'est pas présente dans le dictionnaire `animal2`.
 
 Si on souhaite tester si une valeur existe dans un dictionnaire, on peut utiliser l'opérateur `in` avec l'objet renvoyé par la méthode `.values()` :
 
 ```python
->>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
->>> ani2.values()
+>>> animal2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> animal2.values()
 dict_values(['singe', 70, 1.75])
->>> "singe" in ani2.values()
+>>> "singe" in animal2.values()
 True
 ```
 
 ### Méthode `.get()`
 
+\index{get@.get()}
+
 Par défaut, si on demande la valeur associée à une clé qui n'existe pas, Python renvoie une erreur :
 
 ```python
->>> ani2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
->>> ani2["age"]
+>>> animal2 = {'nom': 'singe', 'poids': 70, 'taille': 1.75}
+>>> animal2["age"]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'age'
@@ -203,9 +222,9 @@ KeyError: 'age'
 La méthode `.get()` s'affranchit de ce problème. Elle extrait la valeur associée à une clé mais ne renvoie pas d'erreur si la clé n'existe pas :
 
 ```python
->>> ani2.get("nom")
+>>> animal2.get("nom")
 'singe'
->>> ani2.get("age")
+>>> animal2.get("age")
 >>> 
 ```
 
@@ -213,16 +232,18 @@ Ici, la valeur associée à la clé `nom` est `singe`, mais la clé `age` n'exis
 On peut également indiquer à `.get()` une valeur par défaut si la clé n'existe pas :
 
 ```python
->>> ani2.get("age", 42)
+>>> animal2.get("age", 42)
 42
 ```
 
 ### Liste de dictionnaires
 
+\index{liste dictionnaire@liste (de dictionnaires)}
+
 En créant une liste de dictionnaires qui possèdent les mêmes clés, on obtient une structure qui ressemble à une base de données :
 
 ```python
->>> animaux = [ani1, ani2]
+>>> animaux = [animal1, animal2]
 >>> animaux
 [{'nom': 'girafe', 'poids': 1100, 'taille': 5.0}, {'nom': 'singe',
 'poids': 70, 'taille': 1.75}]
@@ -241,25 +262,27 @@ Vous constatez ainsi que les dictionnaires permettent de gérer des structures c
 
 ### Définition
 
+\index{tuple}
+
 open-box-def
 
-Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** correspondant aux listes, mais ils sont toutefois **non modifiables**. On dit aussi qu'ils sont **immuables**. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
+Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** \index{objet sequentiel@objet séquentiel} correspondant aux listes, mais ils sont toutefois **non modifiables**. On dit aussi qu'ils sont **immuables**. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
 
 close-box-def
 
 Pratiquement, on utilise les parenthèses au lieu des crochets pour les créer :
 
 ```python
->>> t = (1, 2, 3)
->>> t
+>>> tuple1 = (1, 2, 3)
+>>> tuple1
 (1, 2, 3)
->>> type(t)
+>>> type(tuple1)
 <class 'tuple'>
->>> t[2]
+>>> tuple1[2]
 3
->>> t[0:2]
+>>> tuple1[0:2]
 (1, 2)
->>> t[2] = 15
+>>> tuple1[2] = 15
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'tuple' object does not support item assignment
@@ -268,11 +291,11 @@ TypeError: 'tuple' object does not support item assignment
 L'affectation et l'indiçage fonctionnent comme avec les listes. Mais si on essaie de modifier un des éléments du tuple (en ligne 10), Python renvoie un message d'erreur car les tuples sont non modifiables. Si vous voulez ajouter un élément (ou le modifier), vous devez créer un nouveau tuple :
 
 ```python
->>> t = (1, 2, 3)
->>> t
+>>> tuple1 = (1, 2, 3)
+>>> tuple1
 (1, 2, 3)
->>> t = t + (2,)
->>> t
+>>> tuple1 = tuple1 + (2,)
+>>> tuple1
 (1, 2, 3, 2)
 ```
 
@@ -291,15 +314,18 @@ close-box-rem
 Autre particularité des tuples, il est possible de les créer sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :
 
 ```python
->>> t = (1, 2, 3)
->>> t
+>>> tuple1 = (1, 2, 3)
+>>> tuple1
 (1, 2, 3)
->>> t = 1, 2, 3
->>> t
+>>> tuple1 = 1, 2, 3
+>>> tuple1
 (1, 2, 3)
 ```
 
 Toutefois, afin d'éviter les confusions, nous vous conseillons d'utiliser systématiquement les parenthèses lorsque vous débutez.
+
+\index{concatenation@concaténation (de tuple)}
+\index{duplication@duplication (de tuple)}
 
 Les opérateurs `+` et `*` fonctionnent comme pour les listes (concaténation et duplication) :
 
@@ -309,6 +335,8 @@ Les opérateurs `+` et `*` fonctionnent comme pour les listes (concaténation et
 >>> (1, 2) * 4
 (1, 2, 1, 2, 1, 2, 1, 2)
 ```
+
+\index{tuple@tuple()}
 
 Enfin, on peut utiliser la fonction `tuple(sequence)` qui fonctionne exactement comme la fonction `list()`, c'est-à-dire qu'elle prend en argument un objet et renvoie le tuple correspondant (opération de *casting*) :
 
@@ -329,6 +357,8 @@ close-box-rem
 
 
 ### Affectation multiple
+
+\index{affectation multiple}
 
 Les tuples sont souvent utilisés pour l'**affectation multiple**, c'est-à-dire, affecter des valeurs à plusieurs variables en même temps :
 
@@ -359,6 +389,8 @@ Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèr
 
 open-box-rem
 
+\index{tuple unpacking}
+
 Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps. 
 
 Vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par «~désempaquetage de tuple ». De même, il existe le *list unpacking*.
@@ -370,15 +402,15 @@ Ce terme *tuple unpacking* provient du fait que l'on peut décomposer un tuple i
 Par exemple, si on crée un tuple de trois éléments :
 
 ```python
->>> t = (1, 2, 3)
->>> t
+>>> tuple1 = (1, 2, 3)
+>>> tuple1
 (1, 2, 3)
 ```
 
 On peut « désempaqueter » le tuple en une seule instruction :
 
 ```python
->>> x, y, z = t
+>>> x, y, z = tuple1
 >>> x
 1
 ```
@@ -386,9 +418,9 @@ On peut « désempaqueter » le tuple en une seule instruction :
 Cela serait possible également avec l'indiçage, mais il faudrait utiliser autant d'instruction que d'éléments :
 
 ```python
->>> x = t[0]
->>> y = t[1]
->>> z = t[2]
+>>> x = tuple1[0]
+>>> y = tuple1[1]
+>>> z = tuple1[2]
 ```
 
 Dans les deux cas, `x` vaudra `1`, `y` vaudra `2` et  `z` vaudra `3`. 
@@ -402,6 +434,8 @@ close-box-adv
 L'affectation multiple est un mécanisme très puissant et important en Python. Nous verrons qu'il est particulièrement utile avec les fonctions dans les chapitres 10 *Fonctions* et 13 *Plus sur les fonctions*.
 
 ### Itérations sur plusieurs valeurs à la fois
+
+\index{iteration@itération (sur plusieurs valeurs)}
 
 Nous avons déjà croisé les tuples avec la fonction `enumerate()` dans le chapitre 5 *Boucles et comparaisons*. Cette dernière permettait d'itérer en même temps sur les indices et les éléments d'une liste :
 
@@ -455,6 +489,8 @@ Enfin, on peut itérer sur trois valeurs en même temps à partir d'une liste de
 On pourrait concevoir la même chose sur quatre ou cinq éléments, voire plus. La seule contrainte est d'avoir une correspondance systématique entre le nombre de variables d'itération (par exemple trois variables dans l'exemple ci-dessus avec `x, y, z`) et la longueur de chaque sous-*tuple* de la liste sur laquelle on itère (dans l'exemple ci-dessus, chaque sous-*tuple* a trois éléments).
 
 ### Fonction `divmod()`
+
+\index{divmod@divmod()}
 
 Dans le chapitre 2 *Variables*, on a vu les opérateurs `//` et `%` qui renvoient respectivement le quotient et le reste d'une division entière. La fonction `divmod()` prend en argument deux valeurs, le numérateur et le dénominateur d'une division, et renvoie le quotient et le reste de la division entière correspondante.
 
