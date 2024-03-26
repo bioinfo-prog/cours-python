@@ -263,6 +263,7 @@ Vous constatez ainsi que les dictionnaires permettent de gérer des structures c
 ### Définition
 
 \index{tuple}
+\index{immutabilite@immutabilité (d'un tuple)}
 
 open-box-def
 
