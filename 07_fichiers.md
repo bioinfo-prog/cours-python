@@ -2,9 +2,13 @@
 
 ## Lecture dans un fichier
 
+\index{fichier@fichier (lecture)}
+
 Une grande partie de l'information en biologie est stockée sous forme de texte dans des fichiers. Pour traiter cette information, vous devez le plus souvent lire ou écrire dans un ou plusieurs fichiers. Python possède pour cela de nombreux outils qui vous simplifient la vie.
 
 ### Méthode `.readlines()`
+
+\index{readlines@.readlines()}
 
 Avant de passer à un exemple concret, créez un fichier dans l'éditeur de texte de votre choix 
 avec le contenu suivant :
@@ -17,13 +21,15 @@ singe
 souris
 ```
 
-Enregistrez ce fichier dans votre répertoire courant avec le nom `zoo.txt`.
+Enregistrez ce fichier dans votre répertoire courant avec le nom `animaux.txt`.
 Puis, testez le code suivant dans l'interpréteur Python :
 
+\index{open@open()}
+
 ```python
->>> filin = open("zoo.txt", "r")
+>>> filin = open("animaux.txt", "r")
 >>> filin
-<_io.TextIOWrapper name='zoo.txt' mode='r' encoding='UTF-8'>
+<_io.TextIOWrapper name='animaux.txt' mode='r' encoding='UTF-8'>
 >>> filin.readlines()
 ['girafe\n', 'tigre\n', 'singe\n', 'souris\n']
 >>> filin.close()
@@ -35,7 +41,7 @@ ValueError: I/O operation on closed file.
 
 Il y a plusieurs commentaires à faire sur cet exemple :
 
-- **Ligne 1**. La fonction `open()` ouvre le fichier `zoo.txt`. Ce fichier est ouvert en lecture seule, comme l'indique le second argument `r` (pour *read*) de `open()`. Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu). Le curseur de lecture est prêt à lire le premier caractère du fichier. L'instruction `open("zoo.txt", "r")` suppose que le fichier `zoo.txt` est dans le répertoire depuis lequel l'interpréteur Python a été lancé. Si ce n'est pas le cas, il faut préciser le **chemin d'accès** au fichier. Par exemple, `/home/pierre/zoo.txt` pour Linux ou Mac OS X ou `C:\Users\pierre\zoo.txt` pour Windows.
+- **Ligne 1**. La fonction `open()` ouvre le fichier `animaux.txt`. Ce fichier est ouvert en lecture seule, comme l'indique le second argument `r` (pour *read*) de `open()`. Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu). Le curseur de lecture est prêt à lire le premier caractère du fichier. L'instruction `open("animaux.txt", "r")` suppose que le fichier `animaux.txt` est dans le répertoire depuis lequel l'interpréteur Python a été lancé. Si ce n'est pas le cas, il faut préciser le **chemin d'accès** au fichier. Par exemple, `/home/pierre/animaux.txt` pour Linux ou Mac OS X ou `C:\Users\pierre\animaux.txt` pour Windows.
 - **Ligne 2**. Lorsqu'on affiche le contenu de la variable `filin`, on se rend compte que Python la considère comme un objet de type fichier ouvert (ligne 3).
 - **Ligne 4**. Nous utilisons à nouveau la syntaxe `objet.méthode()` (présentée dans le chapitre 3 *Affichage*). Ici la méthode `.readlines()` agit sur l'objet `filin` en déplaçant le curseur de lecture du début à la fin du fichier, puis elle renvoie une liste contenant toutes les lignes du fichier (dans notre analogie avec un livre, ceci correspondrait à lire toutes les lignes du livre).
 - **Ligne 6**. Enfin, on applique la méthode `.close()` sur l'objet `filin`, ce qui, vous vous en doutez, ferme le fichier (ceci reviendrait à fermer le livre). Vous remarquerez que la méthode `.close()` ne renvoie rien, mais modifie l'état de l'objet `filin` en fichier fermé. Ainsi, si on essaie de lire à nouveau les lignes du fichier, Python renvoie une erreur, car il ne peut pas lire un fichier fermé (lignes 7 à 10).
@@ -43,7 +49,7 @@ Il y a plusieurs commentaires à faire sur cet exemple :
 Voici maintenant un exemple complet de lecture d'un fichier avec Python :
 
 ```python
->>> filin = open("zoo.txt", "r")
+>>> filin = open("animaux.txt", "r")
 >>> lignes = filin.readlines()
 >>> lignes
 ['girafe\n', 'tigre\n', 'singe\n', 'souris\n']
@@ -65,17 +71,22 @@ Vous voyez qu'en cinq lignes de code, vous avez lu, parcouru le fichier et affic
 
 open-box-rem
 
+\index{saut de ligne}
+\index{retour a la ligne@retour à la ligne}
+
 - Chaque élément de la liste `lignes` est une chaîne de caractères. C'est en effet sous forme de chaînes de caractères que Python lit le contenu d'un fichier.
-- Chaque élément de la liste `lignes` se termine par le caractère `\n`. Ce caractère un peu particulier correspond au « [saut de ligne](https://fr.wikipedia.org/wiki/Saut_de_ligne) » qui permet de passer d'une ligne à la suivante. Ceci est codé par un caractère spécial que l'on représente par `\n`. Vous pourrez parfois rencontrer également la notation octale `\012`. Dans la suite de cet ouvrage, nous emploierons aussi l'expression « retour à la ligne » que nous trouvons plus intuitive.
+- Chaque élément de la liste `lignes` se termine par le caractère `\n`. Ce caractère un peu particulier correspond au « [saut de ligne](https://fr.wikipedia.org/wiki/Saut_de_ligne) » \index{saut de ligne} qui permet de passer d'une ligne à la suivante (en anglais *line feed*). Ceci est codé par un caractère spécial que l'on représente par `\n`. Vous pourrez parfois rencontrer également la notation octale `\012`. Dans la suite de cet ouvrage, nous emploierons aussi l'expression « retour à la ligne » que nous trouvons plus intuitive.
 - Par défaut, l'instruction `print()` affiche quelque chose puis revient à la ligne. Ce retour à la ligne dû à `print()` se cumule alors avec celui de la fin de ligne (`\n`) de chaque ligne du fichier et donne l'impression qu'une ligne est sautée à chaque fois.
 
 close-box-rem
+
+\index{with@with (instruction)}
 
 Il existe en Python le mot-clé `with` qui permet d'ouvrir et de fermer un fichier de manière efficace.
 Si pour une raison ou une autre l'ouverture ou la lecture du fichier conduit à une erreur, l'utilisation de `with` garantit la bonne fermeture du fichier, ce qui n'est pas le cas dans le code précédent. Voici donc le même exemple avec `with` :
 
 ```python
->>> with open("zoo.txt", 'r') as filin:
+>>> with open("animaux.txt", 'r') as filin:
 ...     lignes = filin.readlines()
 ...     for ligne in lignes:
 ...         print(ligne)
@@ -101,10 +112,12 @@ close-box-rem
 
 ### Méthode `.read()`
 
+\index{read@.read()}
+
 Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fichier. Par exemple, la méthode `.read()` lit tout le contenu d'un fichier et renvoie une chaîne de caractères unique.
 
 ```python
->>> with open("zoo.txt", "r") as filin:
+>>> with open("animaux.txt", "r") as filin:
 ...     filin.read()
 ...
 'girafe\ntigre\nsinge\nsouris\n'
@@ -113,10 +126,12 @@ Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fich
 
 ### Méthode `.readline()`
 
+\index{readline@.readline()}
+
 La méthode `.readline()` (sans `s` à la fin) lit une ligne d'un fichier et la renvoie sous forme de chaîne de caractères. À chaque nouvel appel de `.readline()`, la ligne suivante est renvoyée. Associée à la boucle `while`, cette méthode permet de lire un fichier ligne par ligne.
 
 ```python
->>> with open("zoo.txt", "r") as filin:
+>>> with open("animaux.txt", "r") as filin:
 ...     ligne = filin.readline()
 ...     while ligne != "":
 ...         print(ligne)
@@ -136,11 +151,13 @@ souris
 
 ### Itérations directes sur le fichier
 
+\index{iteration@itération (sur un fichier)}
+
 Python essaie de vous faciliter la vie au maximum.
 Voici un moyen à la fois simple et élégant de parcourir un fichier :
 
 ```python
->>> with open("zoo.txt", "r") as filin:
+>>> with open("animaux.txt", "r") as filin:
 ...     for ligne in filin:
 ...         print(ligne)
 ...
@@ -173,11 +190,15 @@ close-box-rem
 
 ## Écriture dans un fichier
 
+\index{fichier@fichier (écriture)}
+
 Écrire dans un fichier est aussi simple que de le lire. Voyez l'exemple suivant :
+
+\index{write@.write()}
 
 ```python
 >>> animaux2 = ["poisson", "abeille", "chat"]
->>> with open("zoo2.txt", "w") as filout:
+>>> with open("animaux2.txt", "w") as filout:
 ...     for animal in animaux2:
 ...         filout.write(animal)
 ...
@@ -189,11 +210,11 @@ close-box-rem
 Quelques commentaires sur cet exemple :
 
 - **Ligne 1**. Création d'une liste de chaînes de caractères `animaux2`.
-- **Ligne 2**. Ouverture du fichier `zoo2.txt` en mode écriture, avec le caractère `w` pour *write*. L'instruction `with` crée un bloc d'instructions qui doit être indenté.
+- **Ligne 2**. Ouverture du fichier `animaux2.txt` en mode écriture, avec le caractère `w` pour *write*. L'instruction `with` crée un bloc d'instructions qui doit être indenté.
 - **Ligne 3**. Parcours de la liste `animaux2` avec une boucle `for`.
 - **Ligne 4**. À chaque itération de la boucle, nous avons écrit chaque élément de la liste dans le fichier. La méthode `.write()` s'applique sur l'objet `filout`. Notez qu'à chaque utilisation de la méthode `.write()`, celle-ci nous affiche le nombre d'octets (équivalent au nombre de caractères) écrits dans le fichier (lignes 6 à 8). Ceci est valable uniquement dans l'interpréteur. Si vous créez un programme avec les mêmes lignes de code, ces valeurs ne s'afficheront pas à l'écran.
 
-Si nous ouvrons le fichier `zoo2.txt` avec un éditeur de texte, voici ce que nous obtenons :
+Si nous ouvrons le fichier `animaux2.txt` avec un éditeur de texte, voici ce que nous obtenons :
 
 `poissonabeillechat`
 
@@ -203,7 +224,7 @@ Pour ce faire, nous pouvons utiliser l'écriture formatée :
 
 ```python
 >>> animaux2 = ["poisson", "abeille", "chat"]
->>> with open("zoo2.txt", "w") as filout:
+>>> with open("animaux2.txt", "w") as filout:
 ...     for animal in animaux2:
 ...         filout.write(f"{animal}\n")
 ...
@@ -215,7 +236,7 @@ Pour ce faire, nous pouvons utiliser l'écriture formatée :
 - **Ligne 4**. L'écriture formatée, vue au chapitre 3 *Affichage*, permet d'ajouter un retour à la ligne (`\n`) après le nom de chaque animal.
 - **Lignes 6 à 8**. Le nombre d'octets écrits dans le fichier est augmenté de 1 par rapport à l'exemple précédent, car le caractère retour à la ligne compte pour un seul octet.
 
-Le contenu du fichier `zoo2.txt` est alors :
+Le contenu du fichier `animaux2.txt` est alors :
 
 ```text
 poisson
@@ -232,12 +253,12 @@ On peut avec l'instruction `with` ouvrir deux fichiers (ou plus) en même temps.
 Voyez l'exemple suivant :
 
 ```python
-with open("zoo.txt", "r") as fichier1, open("zoo2.txt", "w") as fichier2:
+with open("animaux.txt", "r") as fichier1, open("animaux2.txt", "w") as fichier2:
     for ligne in fichier1:
         fichier2.write("* " + ligne)
 ```
 
-Si le fichier `zoo.txt` contient le texte suivant :
+Si le fichier `animaux.txt` contient le texte suivant :
 
 ```text
 souris
@@ -246,7 +267,7 @@ lion
 singe
 ```
 
-alors le contenu de `zoo2.txt` sera :
+alors le contenu de `animaux2.txt` sera :
 
 ```text
 * souris
@@ -262,6 +283,8 @@ Si vous souhaitez aller plus loin, sachez que l'instruction `with`
 
 
 ## Note sur les retours à la ligne sous Unix et sous Windows
+
+\index{retour a la ligne@retour à la ligne}
 
 open-box-adv
 
