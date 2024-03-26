@@ -4,6 +4,7 @@
 
 Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3~*Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3/library/string.html).
 
+\index{chaine de caracteres@chaîne de caractères}
 
 ## Chaînes de caractères et listes
 
@@ -33,6 +34,8 @@ Nous pouvons donc utiliser certaines propriétés des listes comme les tranches 
 'iaetg'
 ```
 
+\index{immutabilite@immutabilité (d'une chaîne de caractères)}
+
 Mais *a contrario* des listes, les chaînes de caractères présentent toutefois une différence notable, ce sont **des listes non modifiables**. Une fois une chaîne de caractères définie, vous ne pouvez plus modifier un de ses éléments. Le cas échéant, Python renvoie un message d'erreur :
 
 ```python
@@ -49,6 +52,8 @@ Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez 
 
 
 ## Caractères spéciaux
+
+\index{caractere speciaux@caractères spéciaux}
 
 Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` produit une tabulation. Si vous voulez écrire des guillemets simples ou doubles et que ceux-ci ne soient pas confondus avec les guillemets de déclaration de la chaîne de caractères, vous pouvez utiliser `\'` ou `\"`.
 
@@ -83,7 +88,7 @@ chat
 abeille
 ```
 
-Attention, les caractères spéciaux n'apparaissent intérprétés que lorsqu'ils sont utilisés avec la fonction `print()`. Par exemple, le `\n` n'apparait comme un saut de ligne que lorsqu'il est dans une chaîne de caractères passée à la fonction `print()` :
+Attention, les caractères spéciaux n'apparaissent intérprétés que lorsqu'ils sont utilisés avec la fonction `print()`. Par exemple, le `\n` n'apparait comme un retour à la ligne que lorsqu'il est dans une chaîne de caractères passée à la fonction `print()` :
 
 ```python
 >>> "bla\nbla"
@@ -94,6 +99,9 @@ bla
 ```
 
 ## Préfixe de chaîne de caractères
+
+\index{prefixe@préfixe (de chaîne de caracteres)}
+\index{stringprefix}
 
 Nous avons vu au chapitre 3 *Affichage* la notion de *f-string*. Il s'agit d'un mécanisme pour formater du texte au sein d'une chaîne de caractères. Par exemple :
 
@@ -112,6 +120,8 @@ Un *stringprefix* modifie la manière dont Python va interpréter la dite *strin
 close-box-rem
 
 Il existe différents *stringprefixes* en Python, nous vous montrons ici les deux qui nous apparaissent les plus importants.
+
+\index{raw string}
 
 - Le préfixe `r` mis pour *raw string*, qui force la non-interprétation des caractères spéciaux :
 
@@ -132,6 +142,8 @@ Voici un retour à la ligne\nEt là une autre ligne
 L'ajout du `r` va forcer Python à ne pas interpréter le `\n` comme un retour à la ligne, mais comme un *backslash* littéral suivi d'un *n*. Quand on demande à l'interpréteur d'afficher cette chaîne de caractères, celui-ci met deux *backslashes* pour signifier qu'il s'agit d'un *backslash* littéral (le premier échappe le second). Finalement, l'utilisation de la syntaxe `r"Voici un retour à la ligne\nEt là une autre ligne"` renvoie une chaîne de caractères normale, puisqu'on voit ensuite que le `r` a disparu lorsqu'on demande à Python d'afficher le contenu de la variable `s`. Comme dans `var = 2 + 2`, d'abord Python évalue `2 + 2`. Puis ce résultat est affecté à la variable `var`. Enfin, on notera que seule l'utilisation du `print()` mène à l'interprétation des caractères spéciaux comme `\n`, comme expliqué dans la rubrique précédente.
 
 Les caractères spéciaux non interprétés dans les *raw strings* sont de manière générale tout ce dont le *backslash* modifie la signification, par exemple un `\n`, un `\t`, etc.
+
+\index{f-string}
 
 - Le préfixe `f` mis pour *formatted string*, qui met en place l'écriture formattée comme vue au chapitre 3 *Affichage* :
 
@@ -165,6 +177,9 @@ close-box-adv
 
 Voici quelques [méthodes](https://docs.python.org/fr/3/library/string.html) spécifiques aux objets de type `str` :
 
+\index{lower@.lower()}
+\index{upper@.upper()}
+
 ```python
 >>> x = "girafe"
 >>> x.upper()
@@ -189,6 +204,8 @@ ou plus simplement utiliser la méthode adéquate :
 'Girafe'
 ```
 
+\index{split@.split()}
+
 Il existe une méthode associée aux chaînes de caractères qui est particulièrement pratique, la méthode `.split()` :
 
 ```python
@@ -207,6 +224,9 @@ souris
 La méthode `.split()` découpe une chaîne de caractères en plusieurs éléments appelés *champs*, en utilisant comme séparateur n'importe quelle combinaison « d'espace(s) blanc(s) ».
 
 open-box-def
+
+\index{espace blanc}
+\index{whitespace}
 
 Un [espace blanc](https://en.wikipedia.org/wiki/Whitespace_character) (*whitespace* en anglais) correspond aux caractères qui sont invisibles à l'œil, mais qui occupent de l'espace dans un texte. Les espaces blancs les plus classiques sont l'espace, la tabulation et le retour à la ligne.
 
@@ -233,6 +253,8 @@ Il est également intéressant d'indiquer à `.split()` le nombre de fois qu'on 
 ['girafe', 'tigre', 'singe souris']
 ```
 
+\index{find@.find()}
+
 La méthode `.find()`, quant à elle, recherche une chaîne de caractères passée en argument :
 
 ```python
@@ -257,6 +279,8 @@ Si l'élément recherché est trouvé plusieurs fois, seul l'indice de la premi�
 1
 ```
 
+\index{replace@.replace()}
+
 On trouve aussi la méthode `.replace()` qui substitue une chaîne de caractères par une autre :
 
 ```python
@@ -266,6 +290,8 @@ On trouve aussi la méthode `.replace()` qui substitue une chaîne de caractère
 >>> animaux.replace("i", "o")
 'gorafe togre'
 ```
+
+\index{count@.count()}
 
 La méthode `.count()` compte le nombre d’occurrences d'une chaîne de caractères passée en argument :
 
@@ -281,6 +307,8 @@ La méthode `.count()` compte le nombre d’occurrences d'une chaîne de caract�
 
 La méthode `.startswith()` vérifie si une chaîne de caractères commence par une autre chaîne de caractères :
 
+\index{startswith@.startswith()}
+
 ```python
 >>> chaine = "Bonjour monsieur le capitaine !"
 >>> chaine.startswith("Bonjour")
@@ -290,6 +318,8 @@ False
 ```
 
 Cette méthode est particulièrement utile lorsqu'on lit un fichier et que l'on veut récupérer certaines lignes commençant par un mot-clé. Par exemple dans un fichier PDB, les lignes contenant les coordonnées des atomes commencent par le mot-clé `ATOM`.
+
+\index{strip@.strip()}
 
 Enfin, la méthode `.strip()` permet de « nettoyer les bords » d'une chaîne de caractères :
 
@@ -350,6 +380,8 @@ close-box-rem
 
 ## Fonction `map()`
 
+\index{map@map()}
+
 open-box-adv
 
 Pour les débutants, vous pouvez passer cette rubrique.
@@ -375,6 +407,9 @@ La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un
 ```
 
 open-box-rem
+
+\index{fonction rappel@fonction de rappel}
+\index{callback@callback (fonction)}
 
 La fonction `map()` prend deux arguments. Le second est un objet itérable, souvent une liste comme dans notre exemple. Le premier argument est le nom d'une fonction qu'on souhaite appliquer à chaque élément de la liste, mais sans les parenthèses (ici `int` et non pas `int()`). Une fonction passée en argument d'une autre fonction est appelée [fonction de rappel](https://fr.wikipedia.org/wiki/Fonction_de_rappel) ou *callback* en anglais. Nous reverrons cette notion dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
 
@@ -403,6 +438,8 @@ Enfin, on peut utiliser `map()` avec ses propres fonctions.
 
 ## Test d'appartenance
 
+\index{in@in (opérateur)}
+
 L’opérateur `in` teste si une chaîne de caractères fait partie d’une autre chaîne de caractères.
 
 ```python
@@ -429,7 +466,11 @@ False
 
 ## Conversion d'une liste de chaînes de caractères en une chaîne de caractères
 
+\index{conversion type@conversion (de types)}
+
 On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *float* et chaîne de caractères) en un autre avec les fonctions `int()`, `float()` et `str()`. La conversion d'une liste de chaînes de caractères en une chaîne de caractères est moins intuitive. Elle fait appelle à la méthode `.join()` :
+
+\index{join@.join()}
 
 ```python
 >>> seq = ["A", "T", "G", "A", "T"]
@@ -457,6 +498,8 @@ TypeError: sequence item 1: expected str instance, int found
 
 On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse des méthodes associées aux chaînes de caractères. Pour avoir une liste exhaustive de l'ensemble des méthodes associées à une variable particulière, vous pouvez utiliser la fonction `dir()`.
 
+\index{dir@dir()}
+
 ```python
 >>> animaux = "girafe tigre"
 >>> dir(animaux)
@@ -470,6 +513,8 @@ On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse
 Pour l'instant, vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`. Nous n'avons pas mis l'ensemble de la sortie de cette commande `dir()` pour ne pas surcharger le texte, mais n'hésitez pas à la tester dans l'interpréteur.
 
 Vous pouvez également accéder à l'aide et à la documentation d'une méthode particulière avec `help()`, par exemple pour la méthode `.split()` :
+
+\index{help@help()}
 
 ```text
 >>> help(animaux.split)
@@ -489,6 +534,8 @@ Attention à ne pas mettre les parenthèses à la suite du nom de la méthode. L
 
 
 ## *Method chaining*
+
+\index{method chaining}
 
 Il existe de nombreuses méthodes pour traiter les chaînes de caractères. Ces méthodes renvoient la plupart du temps une chaîne de caractères modifiée.
 
