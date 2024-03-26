@@ -2,9 +2,14 @@
 
 ## Principe et généralités
 
+\index{fonction}
+
 En programmation, les **fonctions** sont très utiles pour réaliser plusieurs fois la même opération au sein d'un programme. Elles rendent également le code plus lisible et plus clair en le fractionnant en blocs logiques.
 
 Vous connaissez déjà certaines fonctions Python. Par exemple `math.cos(angle)` du module `math` renvoie le cosinus de la variable `angle` exprimé en radian. Vous connaissez aussi des fonctions internes à Python comme `range()` ou `len()`. Pour l'instant, une fonction est à vos yeux une sorte de « boîte noire » :
+
+\index{argument@argument (passé à une fonction)}
+\index{renvoi@renvoi (d'élément(s) par une fonction)}
 
 1. À laquelle vous passez aucune, une ou plusieurs variable(s) entre parenthèses. Ces variables sont appelées **arguments**. Il peut s'agir de n'importe quel type d'objet Python.
 2. Qui effectue une action.
@@ -43,10 +48,16 @@ Aux yeux du programmeur, au contraire, une fonction est une portion de code effe
 
 - Chaque fonction effectue en général une tâche **unique et précise**. Si cela se complique, il est plus judicieux d'écrire plusieurs fonctions (qui peuvent éventuellement s'appeler les unes les autres). Cette **modularité** améliore la qualité générale et la lisibilité du code. Vous verrez qu'en Python, les fonctions présentent une grande flexibilité.
 
+\index{programme principal}
+\index{main@main (programme principal)}
+
 Pour finir sur les généralités, nous avons utilisé dans la Figure ci-dessus le terme **programme principal** (*main* en anglais), pour désigner l'endroit depuis lequel on appelle une fonction (on verra plus tard que l'on peut en fait appeler une fonction de n'importe où). Le programme principal désigne le code qui est exécuté lorsqu'on lance le script Python, c'est-à-dire toute la suite d'instructions en dehors des fonctions. En général, dans un script Python, on écrit d'abord les fonctions, puis le programme principal. Nous aurons l'occasion de revenir sur cette notion de programme principal plus tard dans ce chapitre, ainsi que dans le chapitre 13 *Plus sur les fonctions*.
 
 
 ## Définition
+
+\index{def@def (instruction)}
+\index{return@return (instruction)}
 
 Pour définir une fonction, Python utilise le mot-clé `def`. Si on souhaite que la fonction renvoie quelque chose, il faut utiliser le mot-clé `return`. Par exemple :
 
@@ -93,6 +104,8 @@ Ceci n'est pas une faute car Python n'émet pas d'erreur, toutefois cela ne pré
 
 ## Passage d'arguments
 
+\index{argument@argument (passé à une fonction)}
+
 Le nombre d'arguments que l'on peut passer à une fonction est variable. Nous avons vu ci-dessus des fonctions auxquelles on passait zero ou un argument. Dans les chapitres précédents, vous avez rencontré des fonctions internes à Python qui prenaient au moins deux arguments. Souvenez-vous par exemple de `range(1, 10)` ou encore `range(1, 10, 2)`. Le nombre d'argument est donc laissé libre à l'initiative du programmeur qui développe une nouvelle fonction.
 
 Une particularité des fonctions en Python est que vous n'êtes pas obligé de préciser le type des arguments que vous lui passez, dès lors que les opérations que vous effectuez avec ces arguments sont valides. Python est en effet connu comme étant un langage au «~typage dynamique », c'est-à-dire qu'il reconnaît pour vous le type des variables au moment de l'exécution. Par exemple :
@@ -116,6 +129,8 @@ L'opérateur `*` reconnaît plusieurs types (entiers, *floats*, chaînes de cara
 
 ## Renvoi de résultats
 
+\index{renvoi@renvoi (d'élément(s) par une fonction)}
+
 Un énorme avantage en Python est que les fonctions sont capables de renvoyer plusieurs objets à la fois, comme dans cette fraction de code :
 
 ```python
@@ -137,6 +152,8 @@ En réalité Python ne renvoie qu'un seul objet, mais celui-ci peut être séque
 ```
 
 Renvoyer un *tuple* ou une liste de deux éléments (ou plus) est très pratique en conjonction avec l'**affectation multiple**, par exemple :
+
+\index{affectation multiple}
 
 ```python
 >>> z1, z2 = carre_cube2(3)
@@ -185,6 +202,8 @@ On constate que passer un seul argument à une fonction qui en attend deux condu
 
 open-box-def
 
+\index{argument positionnel@argument positionnel (passé à une fonction)}
+
 Lorsqu'on définit une fonction `def fct(x, y):` les arguments `x` et `y` sont appelés **arguments positionnels** (en anglais, *positional arguments*). Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x` et `3` correspondra à `y`. Finalement, tout dépendra de leur position, d'où leur qualification de positionnel.
 
 close-box-def
@@ -202,6 +221,8 @@ Mais il est aussi possible de passer un ou plusieurs argument(s) de manière fac
 ```
 
 open-box-def
+
+\index{argument mot cle@argument par mot-clé (passé à une fonction)}
 
 Un argument défini avec une syntaxe `def fct(arg=val):` est appelé **argument par mot-clé** (en anglais, *keyword argument*). Le passage d'un tel argument lors de l'appel de la fonction est facultatif. Ce type d'argument ne doit pas être confondu avec les arguments positionnels présentés ci-dessus, dont la syntaxe est `def fct(arg):`.
 
@@ -280,7 +301,11 @@ Nous verrons, dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), 
 
 ## Variables locales et variables globales
 
+\index{variable locale}
+
 Lorsqu'on manipule des fonctions, il est essentiel de bien comprendre comment se comportent les variables. Une variable est dite **locale** lorsqu'elle est créée dans une fonction. Elle n'existera et ne sera visible que lors de l'exécution de ladite fonction.
+
+\index{variable globale}
 
 Une variable est dite **globale** lorsqu'elle est créée dans le programme principal. Elle sera visible partout dans le programme.
 
@@ -361,6 +386,8 @@ Enfin, comme vous avez pu le constater, *Python Tutor* nous a grandement aidé �
 
 
 ## Principe DRY
+
+\index{DRY@DRY (principe)}
 
 L'acronyme [DRY](https://www.earthdatascience.org/courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/dry-modular-code/) signifie *Don't Repeat Yourself*. Les fonctions permettent de satisfaire ce principe en évitant la duplication de code.
 En effet, plus un code est dupliqué plusieurs fois dans un programme, plus il sera source d'erreurs, notamment lorsqu'il faudra le faire évoluer.
