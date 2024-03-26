@@ -1375,6 +1375,8 @@ array([3, 6, 9])
 
 ## Masques booléens
 
+\index{masque booleen@masque booléen (numpy)}
+
 Une fonctionnalité puissante des *arrays* *NumPy* est l'utilisation des **masques booléens**. Avant de les définir, il est important d'introduire le concept d'*arrays* de booléens. Jusqu'à maintenant nous avions définis uniquement des *arrays* avec des types numériques *int* ou *float*. Il est tout à fait possible de définir des *arrays* de booléens. La fonction `np.full()` vue précédemment nous permet d'en construire facilement :
 
 ```python
