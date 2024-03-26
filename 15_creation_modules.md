@@ -7,6 +7,8 @@ Dans le chapitre 9 *Modules*, nous avons découvert quelques modules Python comm
 
 ## Création d'un module
 
+\index{module@module (création)}
+
 En Python, la création d'un module est très simple. Il suffit d'écrire un ensemble de fonctions (et éventuellement de constantes) dans un fichier, puis d'enregistrer ce dernier avec une extension `.py` (comme n'importe quel script Python). À titre d'exemple, nous allons créer un module simple que nous enregistrerons sous le nom `message.py` :
 
 ```python
@@ -40,6 +42,8 @@ close-box-rem
 
 
 ## Utilisation de son propre module
+
+\index{PYTHONPATH@PYTHONPATH (variable d'environnement Unix)}
 
 Pour appeler une fonction ou une variable de ce module, il faut que le fichier `message.py` soit dans le répertoire courant (dans lequel on travaille) ou bien dans un répertoire listé par la variable d'environnement `PYTHONPATH` de votre système d'exploitation. Ensuite, il suffit d'importer le module et toutes ses fonctions (et constantes) vous sont alors accessibles.
 
@@ -81,7 +85,11 @@ close-box-rem
 
 ## Les *docstrings*
 
+\index{docstring@docstring (chaîne de documentation)}
+
 Lorsqu'on écrit un module, il est important de créer de la documentation pour expliquer ce que fait le module et comment utiliser chaque fonction. Les chaînes de caractères entre triple guillemets, situées en début du module et de chaque fonction, sont là pour cela : on les appelle *docstrings* (« chaînes de documentation » en français). Les *docstrings* seront détaillées dans le chapitre 16 *Bonnes pratiques en programmation Python*.
+
+\index{help@help()}
 
 Les *docstrings* permettent notamment de fournir de l'aide lorsqu'on invoque la commande `help()` :
 
@@ -150,6 +158,9 @@ Toutes ces règles viennent de la manière dont Python gère les **espaces de no
 
 ## Module ou script ?
 
+\index{main@main (programme principal)}
+\index{programme principal}
+
 Vous avez remarqué que notre module `message` ne contient que des fonctions et une constante. Si on l'exécutait comme un script classique, cela n'afficherait rien :
 
 ```bash
@@ -170,7 +181,7 @@ def bonjour(nom):
     return f"Bonjour {nom}"
 
 
-# programme principal
+# Programme principal.
 print(bonjour("Joe"))
 ```
 
