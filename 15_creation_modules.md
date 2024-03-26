@@ -43,7 +43,7 @@ close-box-rem
 
 ## Utilisation de son propre module
 
-\index{PYTHONPATH@PYTHONPATH (variable d'environnement Unix)}
+\index{PYTHONPATH}
 
 Pour appeler une fonction ou une variable de ce module, il faut que le fichier `message.py` soit dans le répertoire courant (dans lequel on travaille) ou bien dans un répertoire listé par la variable d'environnement `PYTHONPATH` de votre système d'exploitation. Ensuite, il suffit d'importer le module et toutes ses fonctions (et constantes) vous sont alors accessibles.
 
