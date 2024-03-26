@@ -1,6 +1,6 @@
 # Bonnes pratiques en programmation Python
 
-Comme vous l'avez constaté dans tous les chapitres précédents, la syntaxe de Python est très permissive. Afin d'uniformiser l'écriture de code en Python, la communauté des développeurs Python recommande un certain nombre de règles afin qu'un code soit lisible. Lisible par quelqu'un d'autre, mais également, et surtout, par soi-même. Essayez de relire un code que vous avez écrit « rapidement » il y a un mois, six mois ou un an. Si le code ne fait que quelques lignes, il se peut que vous vous y retrouviez, mais s'il fait plusieurs dizaines voire centaines de lignes, vous serez perdus.
+Comme vous l'avez constaté dans tous les chapitres précédents, la syntaxe de Python est très permissive. Afin d'uniformiser l'écriture de code en Python, la communauté des développeurs Python recommande un certain nombre de règles afin qu'un code soit lisible. Lisible par quelqu'un d'autre, mais également, et surtout, par soi-même. Essayez de relire un code que vous avez écrit « rapidement » il y a un mois, six mois ou un an. Si le code ne fait que quelques lignes, il se peut que vous vous y retrouviez, mais s'il fait plusieurs dizaines, voire centaines de lignes, vous serez perdus.
 
 Dans ce contexte, le créateur de Python, Guido van Rossum, part d'un constat simple : « *code is read much more often than it is written* » (« le code est plus souvent lu qu'écrit »). Avec l'expérience, vous vous rendrez compte que cela est parfaitement vrai. Alors, plus de temps à perdre, voyons en quoi consistent ces bonnes pratiques.
 
@@ -14,12 +14,15 @@ close-box-def
 
 On va aborder dans ce chapitre sans doute la plus célèbre des PEP, à savoir la PEP 8, qui est incontournable lorsque l'on veut écrire du code Python correctement.
 
+\index{pythonique}
+
 open-box-def
 
 On parle de code **pythonique** lorsque ce dernier respecte les règles d'écriture définies par la communauté Python, mais aussi les règles d'usage du langage.
 
 close-box-def
 
+\index{pep8@PEP 8}
 
 ## De la bonne syntaxe avec la PEP 8
 
@@ -27,6 +30,8 @@ La PEP 8 [*Style Guide for Python Code*](https://www.python.org/dev/peps/pep-000
 
 
 ### Indentation
+
+\index{indentation}
 
 On a vu que l'indentation est obligatoire en Python pour séparer les blocs d'instructions. Cela vient d'un constat simple : l'indentation améliore la lisibilité d'un code. La PEP 8 recommande
 d'utiliser **quatre espaces** pour chaque niveau d'indentation. Nous vous recommandons de suivre impérativement cette règle.
@@ -95,6 +100,10 @@ MyException
 
 open-box-rem
 
+\index{snakecase@snake\_case}
+\index{\_}
+
+
 - Le style recommandé pour nommer les variables et les fonctions en Python est
 appelé *snake_case*. Il est différent du *CamelCase* utilisé pour les noms des
 classes et des exceptions.
@@ -110,6 +119,8 @@ Pensez à donner à vos variables des noms qui ont du sens. Évitez autant que p
 ...     print(ma_liste[i])
 ```
 
+\index{pythonique}
+
 Bien sûr, une écriture plus « pythonique » de l'exemple précédent permet de se débarrasser de l'indice `i` :
 
 ```python
@@ -122,6 +133,8 @@ Enfin, des noms de variable à une lettre peuvent être utilisés lorsque cela a
 
 
 ### Gestion des espaces
+
+\index{espace}
 
 La PEP 8 recommande d'entourer les opérateurs (`+`, `-`, `/`, `*`, `==`, `!=`, `>=`, `not`, `in`, `and`, `or`...) d'un espace avant et d'un espace après. Par exemple :
 
@@ -254,6 +267,8 @@ ma variable vaut 3
 
 open-box-rem
 
+\index{method chaining}
+
 Les parenthèses sont aussi très utiles lorsqu'on a besoin d’enchaîner des méthodes les unes à la suite des autres. Cette technique du *method chaining* a été introduite dans le chapitre 11 *Plus sur les chaînes de caractères* et sera très utilisée dans le chapitre 22 *Module Pandas*.
 
 close-box-rem
@@ -280,6 +295,8 @@ On peut aussi laisser une ligne vide dans le corps d'une fonction pour séparer 
 
 
 ### Commentaires
+
+\index{commentaire}
 
 Les commentaires débutent toujours par le symbole `#` suivi d'un espace. Ils fournissent des explications sur l'utilité du code et permettent de comprendre son fonctionnement.
 
@@ -317,6 +334,9 @@ close-box-rem
 
 
 ## Les *docstrings* et la PEP 257
+
+\index{PEP 257}
+\index{docstrings}
 
 Les *docstrings*, que l'on pourrait traduire par « chaînes de documentation » en français, sont un élément essentiel des programmes Python, comme on l'a vu au chapitre 15 *Création de modules*. À nouveau, les développeurs de Python ont émis des recommandations dans la PEP 8, et plus exhaustivement dans la [PEP 257](https://www.python.org/dev/peps/pep-0257/), sur la manière de rédiger correctement les *docstrings*. En voici un résumé succinct.
 
@@ -413,6 +433,9 @@ close-box-warn
 
 Pour évaluer la qualité d'un code Python, c'est-à-dire sa conformité avec les recommandations de la PEP 8 et de la PEP 257, on peut utiliser les outils `pycodestyle`, `pydocstyle` et `pylint`.
 
+\index{pycodestyle}
+\index{pydocstyle}
+\index{pylint}
 
 Ces outils ne sont fournis dans l'installation de base de Python et doivent être installés sur votre machine. Avec la distribution Miniconda, cette étape d'installation se résume à une ligne de commande :
 
@@ -528,6 +551,8 @@ Une version améliorée du script précédent est disponible [en ligne](https://
 
 ## Outil de formatage automatique du code
 
+\index{black}
+
 Se souvenir de toutes les règles PEP 8 est fastidieux. Il existe des outils pour formater automatiquement le code Python pour qu'il soit conforme à la PEP 8. L'outil le plus connu est `black`.
 
 Cet outil n'est pas fourni dans l’installation de base de Python et doit être installé
@@ -583,7 +608,7 @@ close-box-adv
 
 open-box-warn
 
-- `black` ne fait qu'une entorse à la PEP  : il autorise des longueurs de lignes jusqu'à 88 caractères. Si vous souhaitez respecter strictement la PEP 8, utilisez l'option `--line-length 79`.
+- `black` ne fait qu'une entorse à la PEP 8 : il autorise des longueurs de lignes jusqu'à 88 caractères. Si vous souhaitez respecter strictement la PEP 8, utilisez l'option `--line-length 79`.
 - `black` se limite à la PEP 8. Il ne vérifie pas la conformité avec la PEP 257 ni la qualité du code (imports inutiles, etc.). Utilisez toujours `pydocstyle` et `pylint` en complément.
 
 close-box-warn
@@ -641,7 +666,7 @@ if __name__ == "__main__":
 ```
 
 - **Lignes 1 à 9.** Cette *docstring* décrit globalement le script. Cette *docstring* (ainsi que les autres) seront visibles si on importe le script en tant que module, puis en invoquant la commande `help()` (voir chapitre 15 *Création de modules*).
-- **Lignes 11 à 15.** On définit ici un certain nombres de variables avec des doubles *underscores* donnant quelques informations sur la version du script, les auteurs, etc. Il s'agit de métadonnées que la commande `help()` pourra afficher. Ces métadonnées sont utiles lorsque le code est distribué à la communauté.
+- **Lignes 11 à 15.** On définit ici un certain nombre de variables avec des doubles *underscores* donnant quelques informations sur la version du script, les auteurs, etc. Il s'agit de métadonnées que la commande `help()` pourra afficher. Ces métadonnées sont utiles lorsque le code est distribué à la communauté.
 - **Lignes 17 à 22.** Importation des modules. D'abord les modules internes à Python (fournis en standard), puis les modules externes (ceux qu'il faut installer en plus), puis les modules créés localement. Un module par ligne.
 - **Ligne 24.** Définition des constantes. Le nom des constantes est en majuscule.
 - **Lignes 27 à 39.** Définition des fonctions. Avant chaque fonction, on laisse deux lignes vides.
@@ -668,6 +693,8 @@ Voici quelques conseils pour vous aider à concevoir un script Python.
 
 
 ## Pour terminer : la PEP 20
+
+\index{PEP 20}
 
 La PEP 20 est une sorte de réflexion philosophique avec des phrases simples qui devraient guider tout programmeur. Comme les développeurs de Python ne manque pas d'humour, celle-ci est accessible sous la forme d'un « œuf de Pâques » (*easter egg*, en anglais) ou encore « fonctionnalité cachée d'un programme » en important un module nommé `this` :
 
