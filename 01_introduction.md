@@ -132,6 +132,8 @@ Les blocs
 
 représentent l'invite de commande de votre *shell* \index{invite@invite (de commande)}. Il se peut que vous ayez aussi le mot `(base)` qui indique que vous avez un environnement conda activé. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
 
+\index{chevron}
+
 Le triple chevron `>>>` est l'invite de commande (*prompt* \index{prompt} en anglais) de l'interpréteur Python. Ici, Python attend une commande que vous devez saisir au clavier.
 Tapez par exemple l'instruction :
 

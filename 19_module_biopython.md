@@ -31,7 +31,7 @@ On charge le module *Biopython* avec la commande :
 import Bio
 ```
 
-\index{bio@Bio (biopython)}
+\index{bio@Bio}
 
 open-box-warn
 
@@ -46,7 +46,7 @@ Voici quelques exemples de manipulation de séquences avec *Biopython*.
 
 ### Définition d'une séquence
 
-\index{seq@Seq (biopython)}
+\index{seq@Seq}
 
 ```python
 import Bio
@@ -66,7 +66,7 @@ Seq('ATATCGGCTATAGCATGC')
 
 ### Obtention de la séquence complémentaire et de la séquence complémentaire inverse
 
-\index{complement@.complement() (biopython)}
+\index{complement@.complement()}
 
 ```python
 ADN.complement()
@@ -76,7 +76,7 @@ ADN.complement()
 Seq('TATAGCCGATATCGTACG')
 ```
 
-\index{reversecomplement@.reverse\_complement() (biopython)}
+\index{reversecomplement@.reverse\_complement()}
 
 ```python
 ADN.reverse_complement()
@@ -88,7 +88,7 @@ Seq('GCATGCTATAGCCGATAT')
 
 ### Traduction en séquence protéique
 
-\index{translate@.translate() (biopython)}
+\index{translate@.translate()}
 
 ```python
 ADN.translate()
@@ -114,8 +114,8 @@ et notamment d'interroger la base de données [PubMed](https://www.ncbi.nlm.nih.
 Nous allons par exemple utiliser PubMed pour chercher des articles scientifiques
 relatifs à la transferrine (*transferrin* en anglais):
 
-\index{entrez@Entrez (biopython)}
-\index{esearch@esearch() (biopython)}
+\index{entrez@Entrez}
+\index{esearch@esearch()}
 
 ```python
 from Bio import Entrez
@@ -189,7 +189,7 @@ en connaissant son PMID, par exemple, l'article avec le PMID [22294463](https://
 
 Nous allons pour cela utiliser la fonction `Entrez.esummary()`
 
-\index{esummary@esummary() (biopython)}
+\index{esummary@esummary()}
 
 ```python
 req_esummary = Entrez.esummary(db="pubmed", id="22294463")
@@ -251,7 +251,7 @@ res_esummary[0]["Source"]
 Enfin, pour récupérer le résumé de la publication précédente, nous allons
 utiliser la fonction `Entrez.efetch()` :
 
-\index{efetch@efetch() (biopython)}
+\index{efetch@efetch()}
 
 ```python
 req_efetch = Entrez.efetch(

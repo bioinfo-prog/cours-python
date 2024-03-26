@@ -54,6 +54,7 @@ Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez 
 ## Caractères spéciaux
 
 \index{caractere speciaux@caractères spéciaux}
+\index{retour a la ligne@retour à la ligne}
 
 Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` produit une tabulation. Si vous voulez écrire des guillemets simples ou doubles et que ceux-ci ne soient pas confondus avec les guillemets de déclaration de la chaîne de caractères, vous pouvez utiliser `\'` ou `\"`.
 

@@ -65,12 +65,12 @@ ax.set_title("Concentration de produit en fonction du temps")
 plt.show()
 ```
 
-\index{subplots@.subplots() (matplotlib)}
-\index{scatter@.scatter() (matplotlib)}
-\index{setxlabel@.set\_xlabel() (matplotlib)}
-\index{setylabel@.set\_ylabel() (matplotlib)}
-\index{settitle@.set\_title() (matplotlib)}
-\index{show@.show() (matplotlib)}
+\index{subplots@.subplots()}
+\index{scatter@.scatter()}
+\index{setxlabel@.set\_xlabel()}
+\index{setylabel@.set\_ylabel()}
+\index{settitle@.set\_title()}
+\index{show@.show()}
 
 
 Dans un *notebook* Jupyter, vous devriez obtenir un graphique ressemblant à celui de la figure @fig:conc-vs-tps0.
@@ -124,9 +124,9 @@ fig.savefig("concentration_vs_temps_1.png", bbox_inches="tight", dpi=200)
 ```
 
 \index{linspace@linspace() (numpy)}
-\index{plot@.plot() (matplotlib)}
-\index{grid@.grid() (matplotlib)}
-\index{savefig@.savefig() (matplotlib)}
+\index{plot@.plot()}
+\index{grid@.grid()}
+\index{savefig@.savefig()}
 
 Le résultat est représenté sur la figure @fig:conc-vs-tps1.
 
@@ -206,7 +206,7 @@ ax.set_title(f"Distribution des bases\n dans la séquence {sequence}")
 fig.savefig("distribution_bases.png", bbox_inches="tight", dpi=200)
 ```
 
-\index{bar@.bar() (matplotlib)}
+\index{bar@.bar()}
 
 On obtient alors le graphique de la figure @fig:distribution.
 

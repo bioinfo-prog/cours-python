@@ -1,6 +1,6 @@
 # Conteneurs
 
-Dans ce chapitre nous allons aborder la notion de conteneur, revenir sur certaines propriétés avancées des dictionnaires et tuples, et enfin aborder les types *set* et *frozenset*. Pour les débutants, ce chapitre aborde des notions relativement avancées. Avant de vous lancer, nous vous conseillons vivement de bien maitriser les chapitres 4 *Listes* et 12 *Plus sur les listes*, ainsi que le chapitre 8 *Dictionnaires et tuples*, d'avoir effectué un maximum d'exercices, et de vous sentir à l'aise avec toutes les notions abordées jusque là.
+Dans ce chapitre, nous allons aborder la notion de conteneur, revenir sur certaines propriétés avancées des dictionnaires et tuples, et enfin aborder les types *set* et *frozenset*. Pour les débutants, ce chapitre aborde des notions relativement avancées. Avant de vous lancer, nous vous conseillons vivement de bien maitriser les chapitres 4 *Listes* et 12 *Plus sur les listes*, ainsi que le chapitre 8 *Dictionnaires et tuples*, d'avoir effectué un maximum d'exercices, et de vous sentir à l'aise avec toutes les notions abordées jusque là.
 
 
 ## Définition et propriétés
@@ -8,7 +8,6 @@ Dans ce chapitre nous allons aborder la notion de conteneur, revenir sur certain
 open-box-def
 
 \index{conteneur}
-\index{container}
 
 Un **conteneur** (*container* en anglais) est un nom générique pour définir un objet Python qui contient une collection d'autres objets. 
 
@@ -16,7 +15,7 @@ close-box-def
 
 Les conteneurs que nous connaissons depuis le début de ce cours sont les listes, les chaînes de caractères, les dictionnaires et les tuples. Même si on ne l'a pas vu explicitement, les objets de type *range* sont également des conteneurs.
 
-Dans la suite de cette rubrique, nous allons examiner les différentes propriétés des conteneurs. A la fin de ce chapitre, nous ferons un tableau récapitulatif de ces propriétés.
+Dans la suite de cette rubrique, nous allons examiner les différentes propriétés des conteneurs. À la fin de ce chapitre, nous ferons un tableau récapitulatif de ces propriétés.
 
 Examinons d'abord les propriétés qui caractérisent tous les types de conteneur.
 
@@ -40,8 +39,8 @@ Voici d'autres propriétés générales que nous avons déjà croisées. Un cont
 \index{indexable}
 \index{iterable@itérable}
 
-- **Ordonné** (*ordered* en anglais) : il y a un ordre précis des éléments ; cet ordre correspond à celui utilisé lors de la création ou de la modification du conteneur (si cela est permis) ; ce même ordre est utilisé lorqu'on itère dessus.
-- **Indexable** (*subscriptable* en anglais) : on peut retrouver un élément par son indice (i.e. sa position dans le conteneur) ou plusieurs éléments avec une tranche ; en général, tout conteneur indexable est ordonné.
+- **Ordonné** (*ordered* en anglais) : il y a un ordre précis des éléments ; cet ordre correspond à celui utilisé lors de la création ou de la modification du conteneur (si cela est permis) ; ce même ordre est utilisé lorsqu'on itère dessus.
+- **Indexable** (*subscriptable* en anglais) : on peut retrouver un élément par son indice (c'est-à-dire sa position dans le conteneur) ou plusieurs éléments avec une tranche ; en général, tout conteneur indexable est ordonné.
 - **Itérable** (*iterable* en anglais) : on peut faire une boucle dessus. 
 
 Certains conteneurs sont appelés objets séquentiels ou séquence.
@@ -68,7 +67,7 @@ open-box-def
 
 \index{identifiant@identifiant (d'un objet)}
 
-L'**identifiant** d'un objet est un nombre entier qui est garanti constant pendant toute la durée de vie de l'objet. Cet identifiant est en général unique pour chaque objet. Toutefois, pour des raisons d'optimisation, Python crée parfois le même identifiant pour deux objets non modifiables différents qui ont la même valeur. L'identifiant peut être assimilé à l'adresse mémoire de l'objet qui elle aussi est unique. En Python, on utilise la fonction interne `id()` qui prend en argument un objet et renvoie son identifiant.
+L'**identifiant** d'un objet est un nombre entier qui est garanti constant pendant toute la durée de vie de l'objet. Cet identifiant est en général unique pour chaque objet. Toutefois, pour des raisons d'optimisation, Python crée parfois le même identifiant pour deux objets non modifiables différents qui ont la même valeur. L'identifiant peut être assimilé à l'adresse mémoire de l'objet qui, elle aussi, est unique. En Python, on utilise la fonction interne `id()` qui prend en argument un objet et renvoie son identifiant.
 
 close-box-def
 
@@ -85,7 +84,7 @@ Maintenant que l'identifiant est défini, regardons l'exemple suivant qui montre
 140318876873472
 ```
 
-En ligne 1 on définit l'entier `var` puis on regarde son identifiant. En ligne 4, on pourrait penser que l'on modifie `var`. Toutefois, on voit que son identifiant en ligne 6 est différent de la ligne 3. En fait, l'affectation en ligne 4 `var = 5` écrase l'ancienne variable `var` et en crée une nouvelle, ce n'est pas la valeur de `var` qui a été changée puisque l'identifiant n'est plus le même. Le même raisonnement peut être tenu pour les autres types numériques comme les *floats* et booléens. Si on regarde maintenant ce qu'il se passe pour une liste :
+Ligne 1 on définit l'entier `var` puis on regarde son identifiant. Ligne 4, on pourrait penser que l'on modifie `var`. Toutefois, on voit que son identifiant ligne 6 est différent de la ligne 3. En fait, l'affectation ligne 4 `var = 5` écrase l'ancienne variable `var` et en crée une nouvelle, ce n'est pas la valeur de `var` qui a été changée puisque l'identifiant n'est plus le même. Le même raisonnement peut être tenu pour les autres types numériques comme les *floats* et booléens. Si on regarde maintenant ce qu'il se passe pour une liste :
 
 ```python
 >>> liste1 = [1, 2, 3]
@@ -99,7 +98,7 @@ En ligne 1 on définit l'entier `var` puis on regarde son identifiant. En ligne 
 140318850324832
 ```
 
-La liste `liste1` a été modifiée en ligne 4 (changement de l'élément d'indice 1) et en ligne 7 (ajout d'un élément). Pour autant, l'identifiant de cette liste est resté identique tout du long. Ceci démontre la mutabilité des listes : quelle que soit la manière dont on modifie une liste, celle-ci garde le même identifiant.
+La liste `liste1` a été modifiée ligne 4 (changement de l'élément d'indice 1) et ligne 7 (ajout d'un élément). Pour autant, l'identifiant de cette liste est resté identique tout du long. Ceci démontre la mutabilité des listes : quelle que soit la manière dont on modifie une liste, celle-ci garde le même identifiant.
 
 \index{hachabilite@hachabilité (d'un objet)}
 
@@ -125,7 +124,7 @@ Pour aller plus loin, vous pouvez consulter la [page Wikipedia sur les fonctions
 
 close-box-more
 
-Pourquoi évoquer cette propriété de hachabilité ? D'abord, parce-qu'elle est étroitement liée à l'immutabilité. En effet, un objet non modifiable est la plupart du temps hachable. Cela permet de l'identifier **en fonction de son contenu**. Par ailleurs, l'hachabilité est une implémentation qui permet un accès rapide aux éléments des conteneurs de type dictionnaire ou *set* (cf. rubriques suivantes).
+Pourquoi évoquer cette propriété de hachabilité ? D'abord, parce qu'elle est étroitement liée à l'immutabilité. En effet, un objet non modifiable est la plupart du temps hachable. Cela permet de l'identifier **en fonction de son contenu**. Par ailleurs, l'hachabilité est une implémentation qui permet un accès rapide aux éléments des conteneurs de type dictionnaire ou *set* (cf. rubriques suivantes).
 
 Les objets hachables sont les chaînes de caractères, les entiers, les *floats*, les booléens, les objets de type *range*, les tuples (sous certaines conditions) et les *frozensets* ; par contre, les listes, les *sets* et les dictionnaires sont non hachables. Les dictionnaires, tuples, *sets* et *frozensets* seront vus plus bas dans ce chapitre.
 
@@ -180,7 +179,7 @@ Nous revenons sur les dictionnaires qui, on l'a vu, sont des conteneurs de corre
 
 ### Objets utilisables comme clé
 
-Toutes les clés de dictionnaire vues dans le chapitre 8 *Dictionnaires et tuples* et utilisées jusqu'à présent étaient des chaînes de caractères. Toutefois, on peut utiliser d'autres types d'objets comme des entiers, des *floats*, voire même des tuples, cela peut s'avérer parfois très utile. Une règle est toutefois requise : les objets utilisés comme clé doivent être **hachables** (voir la rubrique précédente pour la définition).
+Toutes les clés de dictionnaire vues dans le chapitre 8 *Dictionnaires et tuples* et utilisées jusqu'à présent étaient des chaînes de caractères. Toutefois, on peut utiliser d'autres types d'objets comme des entiers, des *floats*, voire des tuples, cela peut s'avérer parfois très utile. Une règle est toutefois requise : les objets utilisés comme clé doivent être **hachables** (voir la rubrique précédente pour la définition).
 
 Pourquoi les clés doivent être des objets hachables ? C'est la raison d'être des dictionnaires qui d'ailleurs sont aussi appelés [table de hachage](https://fr.wikipedia.org/wiki/Table_de_hachage) dans d'autres langages, comme Perl. Convertir chaque clé en sa valeur de hachage permet un accès très rapide à chacun des éléments du dictionnaire, ainsi que des comparaisons de clés entre dictionnaires extrêmement efficaces. Même si on a vu que deux objets pouvaient avoir la même valeur de hachage, par exemple `a = 5` et `b = 5`, on ne peut mettre qu'une seule fois la clé `5`. Ceci assure que deux clés d'un même dictionnaire ont forcément une valeur de hachage différente.
 
@@ -215,6 +214,8 @@ Vous voyez l'énorme avantage, d'utiliser comme clé le numéro de résidu. Avec
 ```
 
 ### Destruction d'une paire clé/valeur
+
+\index{del@del (instruction)}
 
 Comme pour tous les objets Python, l'instruction `del` permet de détruire un couple clé/valeur :
 
@@ -251,7 +252,7 @@ Pour trier un dictionnaire par ses valeurs, il faut utiliser la fonction `sorted
 ['b', 'a', 'c']
 ```
 
-L'argument `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue au chapitre 8 *Dictionnaires et tuples*, mais sans les parenthèses : `key=dico.get` mais pas `key=dico.get()`. Une fonction ou méthode passée en argument sans les parenthèses est appelée *callback*, nous reverrons cela en détail dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
+L'argument `key=dico.get` indique explicitement qu'il faut réaliser le tri par les valeurs du dictionnaire. On retrouve la méthode `.get()` vue au chapitre 8 *Dictionnaires et tuples*, mais sans les parenthèses : `key=dico.get`, mais pas `key=dico.get()`. Une fonction ou méthode passée en argument sans les parenthèses est appelée *callback*, nous reverrons cela en détail dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
 
 Attention, ce sont les clés du dictionnaire qui sont renvoyées, pas les valeurs. Ces clés sont cependant renvoyées dans un ordre qui permet d'obtenir les clés triées par ordre croissant :
 
@@ -291,6 +292,9 @@ close-box-rem
 
 ### Clé associée au minimum ou au maximum des valeurs
 
+\index{min@min()}
+\index{max@max()}
+
 Les fonctions `min()` et `max()`, que vous avez déjà manipulées dans les chapitres précédents, acceptent également l'argument `key=`. On peut ainsi obtenir la clé associée au minimum ou au maximum des valeurs d'un dictionnaire :
 
 ```python
@@ -304,8 +308,9 @@ Les fonctions `min()` et `max()`, que vous avez déjà manipulées dans les chap
 ### Fonction `dict()`
 
 \index{dict@dict()}
+\index{casting}
 
-La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de *casting*, comme `int()`, `str()`, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière : un objet séquentiel contenant d'autres objets séquentiels de 2 éléments. Par exemple, une liste de listes de 2 éléments :
+La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de *casting*, comme `int()`, `str()`, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière : un objet séquentiel contenant d'autres objets séquentiels de deux éléments. Par exemple, une liste de listes de deux éléments :
 
 ```python
 >>> liste_animaux = [["girafe", 2], ["singe", 3]]
@@ -313,7 +318,7 @@ La fonction `dict()` va convertir l'argument qui lui est passé en dictionnaire.
 {'girafe': 2, 'singe': 3}
 ```
 
-Ou un tuple de tuples de 2 éléments, ou encore une combinaison liste / tuple :
+Ou un tuple de tuples de deux éléments, ou encore une combinaison liste et tuple :
 
 ```python
 >>> tuple_animaux = (("girafe", 2), ("singe", 3))
@@ -324,7 +329,7 @@ Ou un tuple de tuples de 2 éléments, ou encore une combinaison liste / tuple :
 {'girafe': 2, 'singe': 3}
 ```
 
-Si un des sous-éléments a plus de 2 éléments (ou moins), Python renvoie une erreur :
+Si un des sous-éléments a plus de deux éléments (ou moins), Python renvoie une erreur :
 
 ```python
 >>> dict([("girafe", 2), ("singe", 3, 4)])
@@ -342,7 +347,7 @@ Une manière intuitive utilise simplement des arguments par mot-clés, qui devie
 {'un': 1, 'deux': 2, 'trois': 3}
 ```
 
-Nous vous déconseillons toutefois cette manière de faire, car on ne peut pas mettre d'arguments par mot-clé variables, on doit les écrire en dur.
+Nous vous déconseillons toutefois cette manière de faire, car on ne peut pas mettre d'arguments par mot-clé variables, on doit les écrire explicitement.
 
 close-box-warn
 
@@ -370,6 +375,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ValueError: dictionary update sequence element #0 has length 3; 2 is required
 ```
+
 
 ## Plus sur les tuples
 
@@ -451,7 +457,7 @@ close-box-adv
 
 ### Affectation multiple et nom de variable `_`
 
-Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (caractère *underscore*) pour indiquer que certaines valeurs ne nous intéressent pas :
+Quand une fonction renvoie plusieurs valeurs, mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (caractère *underscore*) pour indiquer que certaines valeurs ne nous intéressent pas :
 
 \index{\_}
 
@@ -846,7 +852,7 @@ close-box-adv
 
 ## Récapitulation des propriétés des conteneurs
 
-Après ce tour d'horizon des différents conteneurs, voici des tableaux récapitulants leurs propriétés. La mention « `in` et `len()` » indique que l'on peut tester l'appartenance d'un élément à un conteneur avec l'opérateur `in`, et que l'on peut connaître le nombre d'éléments du conteneur avec la fonction `len()`. Les mentions « index. » et « modif. » indiquent respectivement « indexable » et « modifiable ».
+Après ce tour d'horizon des différents conteneurs, voici des tableaux qui résument leurs propriétés. La mention « `in` et `len()` » indique que l'on peut tester l'appartenance d'un élément à un conteneur avec l'opérateur `in`, et que l'on peut connaître le nombre d'éléments du conteneur avec la fonction `len()`. Les mentions « index. » et « modif. » indiquent respectivement « indexable » et « modifiable ».
 
 
 ### Objets séquentiels
@@ -862,7 +868,7 @@ Après ce tour d'horizon des différents conteneurs, voici des tableaux récapit
 $^*$ s'il ne contient que des objets hachables
 
 
-### Objects de *mapping*
+### Objets de *mapping*
 
 | Conteneur             | `in` et `len()` | itérable         | ordonné  | index. | modif. | hachable |
 |:----------------------|:---------------:|:----------------:|:--------:|:------:|:------:|:--------:|

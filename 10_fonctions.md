@@ -108,6 +108,8 @@ Ceci n'est pas une faute car Python n'émet pas d'erreur, toutefois cela ne pré
 
 Le nombre d'arguments que l'on peut passer à une fonction est variable. Nous avons vu ci-dessus des fonctions auxquelles on passait zero ou un argument. Dans les chapitres précédents, vous avez rencontré des fonctions internes à Python qui prenaient au moins deux arguments. Souvenez-vous par exemple de `range(1, 10)` ou encore `range(1, 10, 2)`. Le nombre d'argument est donc laissé libre à l'initiative du programmeur qui développe une nouvelle fonction.
 
+\index{typage dynamique}
+
 Une particularité des fonctions en Python est que vous n'êtes pas obligé de préciser le type des arguments que vous lui passez, dès lors que les opérations que vous effectuez avec ces arguments sont valides. Python est en effet connu comme étant un langage au «~typage dynamique », c'est-à-dire qu'il reconnaît pour vous le type des variables au moment de l'exécution. Par exemple :
 
 ```python
@@ -290,6 +292,8 @@ Préciser le nom des arguments par mot-clé lors de l'appel d'une fonction est u
 close-box-adv
 
 L'utilisation d'arguments par mot-clé est habituelle en Python. Elle permet de modifier le comportement par défaut de nombreuses fonctions. Par exemple, si on souhaite que la fonction `print()` n'affiche pas un retour à la ligne, on peut utiliser l'argument `end` :
+
+\index{retour a la ligne@retour à la ligne}
 
 ```python
 >>> print("Message ", end="")

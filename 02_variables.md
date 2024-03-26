@@ -18,7 +18,7 @@ En Python, la **déclaration**\index{declaration@déclaration (de variable)} d'u
 
 **Ligne 1**. Dans cet exemple, nous avons déclaré, puis initialisé la variable `x` avec la valeur 2. Notez bien qu'en réalité, il s'est passé plusieurs choses :
 
-- Python a « deviné » que la variable était un entier. On dit que Python est un langage au **typage dynamique** \index{typage dynamique@typage dynamique}.
+- Python a « deviné » que la variable était un entier. On dit que Python est un langage au **typage dynamique** \index{typage dynamique}.
 - Python a alloué (réservé) l'espace en mémoire pour y accueillir un entier. Chaque type de variable prend plus ou moins d'espace en mémoire. Python a aussi fait en sorte qu'on puisse retrouver la variable sous le nom `x`.
 - Enfin, Python a assigné la valeur 2 à la variable `x`.
 
@@ -370,7 +370,7 @@ Si ces notions vous semblent obscures, ne vous inquiétez pas, au fur et à mesu
 
 ## Minimum et maximum
 
-Python propose les fonctions `min()`\index{min@min()} et `max()`\index{max@max()} qui renvoient respectivement le minimum et le maximum de plusieurs entiers ou *floats* :
+Python propose les fonctions `min()` \index{min@min()} et `max()` \index{max@max()} qui renvoient respectivement le minimum et le maximum de plusieurs entiers ou *floats* :
 
 ```python
 >>> min(1, -2, 4)
