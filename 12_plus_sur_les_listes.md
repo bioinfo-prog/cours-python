@@ -9,6 +9,8 @@ Comme pour les chaînes de caractères, les listes possèdent de nombreuses **m�
 
 ### `.append()`
 
+\index{append@.append()}
+
 La méthode `.append()`, que l'on a déjà vu au chapitre 4 *Listes*, ajoute un élément à la fin d'une liste :
 
 ```python
@@ -36,6 +38,8 @@ close-box-adv
 
 ### `.insert()`
 
+\index{insert@.insert()}
+
 La méthode `.insert()` insère un objet dans une liste à un indice déterminé :
 
 ```python
@@ -47,6 +51,8 @@ La méthode `.insert()` insère un objet dans une liste à un indice déterminé
 
 
 ### `del`
+
+\index{del@del (instruction)}
 
 L'instruction `del` supprime un élément d'une liste à un indice déterminé :
 
@@ -65,6 +71,8 @@ close-box-rem
 
 
 ### `.remove()`
+
+\index{remove@.remove()}
 
 La méthode `.remove()` supprime un élément d'une liste à partir de sa valeur :
 
@@ -89,6 +97,8 @@ S'il y a plusieurs fois la même valeur dans la liste, seule la première est re
 
 ### `.sort()`
 
+\index{sort@.sort()}
+
 La méthode `.sort()` trie les éléments d'une liste du plus petit au plus grand:
 
 ```python
@@ -107,8 +117,9 @@ L'argument `reverse=True` spécifie le tri inverse, c'est-à-dire du plus grand 
 [3, 2, 1]
 ```
 
-
 ### `sorted()`
+
+\index{sorted@sorted()}
 
 La fonction `sorted()` trie également une liste. 
 Contrairement à la méthode précédente `.sort()`, cette fonction renvoie la liste triée et ne modifie pas la liste initiale :
@@ -133,6 +144,8 @@ La fonction `sorted()` supporte aussi l'argument `reverse=True` :
 
 ### `.reverse()`
 
+\index{reverse@.reverse()}
+
 La méthode `.reverse()` inverse une liste :
 
 ```python
@@ -144,6 +157,8 @@ La méthode `.reverse()` inverse une liste :
 
 
 ### `.count()`
+
+\index{count@.count()}
 
 La méthode `.count()` compte le nombre d'éléments (passés en argument) dans une liste :
 
@@ -177,6 +192,8 @@ None
 ```
 
 open-box-rem
+
+\index{modification sur place@modification sur place (d'une variable)}
 
 Pour exprimer la même idée, la documentation parle de modification de la liste « sur place » (*in place* en anglais) :
 
@@ -229,6 +246,8 @@ Cette méthode est certes plus simple, mais il arrive parfois qu'on doive utilis
 
 ## Test d'appartenance
 
+\index{in@in (opérateur)}
+
 L'opérateur `in` teste si un élément fait partie d'une liste :
 
 ```python
@@ -246,6 +265,8 @@ La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'es
 
 
 ## Fonction `zip()`
+
+\index{zip@zip()}
 
 open-box-adv
 
@@ -326,6 +347,9 @@ close-box-rem
 
 ## Copie de listes
 
+\index{copie liste@copie (de listes)}
+\index{copie reference@copie par référence (de listes)}
+
 Il est très important de savoir que l'affectation d'une liste (à partir d'une liste préexistante) crée en réalité une **référence** et non une **copie** :
 
 ```python
@@ -396,6 +420,9 @@ et
 
 La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la fonction `deepcopy()` du module *copy*.
 
+\index{deepcopy@deepcopy (module)}
+\index{copie profonde@copie profonde (de listes)}
+
 ```python
 >>> import copy
 >>> liste1 = [[1, 2], [3, 4]]
@@ -410,6 +437,8 @@ La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la
 ```
 
 ## Initialisation d'une liste de listes
+
+\index{initialisation@initialisation (d'une liste de listes)}
 
 Un dernier écueil que vous pourrez rencontrer concerne l'initialisation d'une liste de listes avec l'opérateur `*`. Imaginons que l'on souhaite représenter un tableau de nombre et l'initialiser avec des 0. Nous pourrions être tentés d'utiliser la duplication de listes :
 
@@ -456,6 +485,8 @@ close-box-warn
 
 ## Liste de compréhension
 
+\index{liste comprehension@liste de compréhension}
+
 open-box-adv
 
 Pour les débutants, vous pouvez passer cette rubrique.
@@ -477,6 +508,8 @@ Pour plus de détails, consultez à ce sujet le site de [Python](http://www.pyth
 Voici quelques exemples illustrant la puissance des listes de compréhension.
 
 ### Initialisation d'une liste de listes
+
+\index{initialisation@initialisation (d'une liste de listes)}
 
 Une liste de compréhension permet l'initialisation d'une liste de listes en une ligne sans avoir l'inconvénient de faire une référence vers la même sous-liste (voir rubrique précédente) :
 
