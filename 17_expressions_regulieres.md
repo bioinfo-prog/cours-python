@@ -391,7 +391,7 @@ close-box-adv
 
 ### *Regex* de base
 
-\index{GenBank@GenBank (format de fichier)}
+\index{GenBank@GenBank}
 
 Dans cet exercice, nous allons manipuler le fichier GenBank [`NC_001133.gbk`](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk) correspondant au chromosome I de la levure *Saccharomyces cerevisiae*.
 
@@ -433,7 +433,7 @@ Créez un script `cigale_fourmi.py` qui, grâce à une *regex* et à la fonction
 
 ### Liste des protéines humaines
 
-\index{FASTA@FASTA (format de fichier)}
+\index{FASTA}
 
 Téléchargez le fichier [`human-proteome.fasta`](https://python.sdv.u-paris.fr/data-files/human-proteome.fasta) qui contient le protéome humain, c'est-à-dire les séquences de l'ensemble des protéines chez l'Homme. Ce fichier est au format FASTA.
 

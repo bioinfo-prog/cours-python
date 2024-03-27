@@ -254,7 +254,7 @@ close-box-adv
 
 ### Module ADN
 
-\index{FASTA@FASTA (format de fichier)}
+\index{FASTA}
 
 Dans le script `adn.py`, construisez un module qui va contenir les fonctions et constantes suivantes.
 

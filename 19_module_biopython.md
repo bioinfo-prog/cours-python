@@ -326,7 +326,7 @@ close-box-adv
 
 ### Pourcentage de GC de gènes de *Plasmodium falciparum*
 
-\index{FASTA@FASTA (format de fichier)}
+\index{FASTA}
 
 *Plasmodium falciparum* (*P. falciparum*) est un des parasites responsables du paludisme chez les êtres humains. Le fichier [`p_falciparum_500.fasta`](https://python.sdv.u-paris.fr/data-files/p_falciparum_500.fasta) contient 500 gènes du génome de *P. falciparum*.
 

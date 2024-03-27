@@ -1004,7 +1004,7 @@ Pratique, non ? Attention toutefois aux points suivants :
 
 Nous vous conseillons de consulter la [documentation complète](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) de cette fonction. En effet, `np.loadtxt()` contient de nombreux arguments permettant de récupérer telles ou telles lignes ou colonnes, d'ignorer des lignes de commentaire, de changer le séparateur par défaut (par exemple la virgule `,` pour les fichiers .csv)... qui peuvent se révéler utiles.
 
-\index{CSV@CSV (format de fichier)}
+\index{CSV}
 
 L'opération inverse qui consiste à sauver un *array* dans un fichier se fait avec la fonction `np.savetxt()` :
 
@@ -1743,7 +1743,7 @@ L'objectif de cet exercice est de calculer la distance entre carbones alpha cons
 
 Le morceau de code suivant vous sera utile pour extraire les coordonnées atomiques des carbones alpha de la barstar depuis un fichier PDB :
 
-\index{PDB@PDB (format de fichier)}
+\index{PDB}
 
 ```python
 with open("1bta.pdb", "r") as f_pdb, open("1bta_CA.txt", "w") as f_CA:

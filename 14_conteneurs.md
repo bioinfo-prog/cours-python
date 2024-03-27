@@ -459,7 +459,7 @@ close-box-adv
 
 Quand une fonction renvoie plusieurs valeurs, mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable `_` (caractère *underscore*) pour indiquer que certaines valeurs ne nous intéressent pas :
 
-\index{\_}
+\index{underscore@underscore (caractère)}
 
 ```python
 >>> def ma_fonction():
@@ -491,7 +491,7 @@ Dans l'interpréteur interactif, la variable `_` a une signification différente
 
 Attention, ceci n'est vrai que dans l'interpréteur !
 
-\index{\_}
+\index{underscore@underscore (caractère)}
 
 close-box-rem
 
@@ -1030,7 +1030,7 @@ CTA : 5
 
 ### Mots de deux lettres dans la séquence du chromosome I de *Saccharomyces cerevisiae*
 
-\index{FASTA@FASTA (format de fichier)}
+\index{FASTA}
 
 Créez une fonction `lit_fasta()` qui prend comme argument le nom d'un fichier FASTA sous la forme d'une chaîne de caractères, lit la séquence dans le fichier FASTA et la renvoie sous la forme d'une chaîne de caractères. Inspirez-vous d'un exercice similaire du chapitre 10 *Plus sur les chaînes de caractères*.
 
@@ -1041,7 +1041,7 @@ Le génome complet est fourni au format FASTA. Vous trouverez des explications s
 
 ### Mots de *n* lettres dans un fichier FASTA
 
-\index{FASTA@FASTA (format de fichier)}
+\index{FASTA}
 
 Créez un script `extract-words.py` qui prend comme arguments le nom d'un fichier FASTA suivi d'un entier compris entre 1 et 4. Ce script doit extraire du fichier FASTA tous les mots et leurs occurrences, en fonction du nombre de lettres passé en option.
 
@@ -1059,7 +1059,7 @@ Cette méthode vous paraît-elle efficace sur un génome assez gros comme celui 
 
 ### Atomes carbone alpha d'un fichier PDB
 
-\index{PDB@PDB (format de fichier)}
+\index{PDB}
 
 Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb), qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
 

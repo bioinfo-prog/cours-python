@@ -189,7 +189,7 @@ On peut écrire des nombres très grands ou très petits avec des puissances de 
 
 On appelle cela écriture ou notation scientifique. On pourra noter deux choses importantes :
 
-- `1e6` ou `3.12e-3` n'implique pas l'utilisation du nombre exponentiel *e* mais signifie $1 \times 10^{6}$ ou $3.12 \times 10^{-3}$ respectivement ;
+- `1e6` ou `3.12e-3` n'implique pas l'utilisation du nombre exponentiel *e*, mais signifie $1 \times 10^{6}$ ou $3.12 \times 10^{-3}$ respectivement ;
 - même si on ne met que des entiers à gauche et à droite du symbole `e` (comme dans `1e6`), Python génère systématiquement un *float*.
 
 Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des nombres composés de beaucoup de chiffres, par exemple le nombre d'Avogradro $6.02214076 \times 10^{23}$ ou le [nombre d'humains sur Terre](https://thepopulationproject.org/) $8094752749$ au 5 mars 2024 à 19h34. Pour s'y retrouver, Python autorise l'utilisation du caractère « souligné » (ou *underscore*) `_` pour séparer des groupes de chiffres. Par exemple :
@@ -203,9 +203,9 @@ Enfin, vous avez sans doute constaté qu'il est parfois pénible d'écrire des n
 8094752749
 ```
 
-\index{\_}
+\index{underscore@underscore (caractère)}
 
-Dans ces exemples, le caractère `_` est utilisé pour séparer des groupes de trois chiffres, mais on peut faire ce qu'on veut :
+Dans ces exemples, le caractère `_` (*underscore* ou « souligné ») est utilisé pour séparer des groupes de trois chiffres, mais on peut faire ce qu'on veut :
 
 ```python
 >>> print(80_94_7527_49)

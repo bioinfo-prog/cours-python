@@ -510,7 +510,7 @@ On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse
 
 Pour l'instant, vous pouvez ignorer les méthodes qui commencent et qui se terminent par deux tirets bas (*underscores*) `__`. Nous n'avons pas mis l'ensemble de la sortie de cette commande `dir()` pour ne pas surcharger le texte, mais n'hésitez pas à la tester dans l'interpréteur.
 
-\index{\_}
+\index{underscore@underscore (caractère)}
 
 Vous pouvez également accéder à l'aide et à la documentation d'une méthode particulière avec `help()`, par exemple pour la méthode `.split()` :
 
@@ -618,7 +618,7 @@ Soit la liste `['girafe', 'tigre', 'singe', 'souris']`. Avec une boucle, affiche
 
 ### Lecture d'une séquence à partir d'un fichier FASTA
 
-\index{FASTA@FASTA (format de fichier)}
+\index{FASTA}
 
 Le fichier [`UBI4_SCerevisiae.fasta`](https://python.sdv.u-paris.fr/data-files/UBI4_SCerevisiae.fasta) contient une séquence d'ADN au format FASTA.
 
@@ -673,7 +673,7 @@ puis entre les séquences : `ATTCATACGTTACGATT` et `ATACTTACGTAACCATT`.
 
 ### Moyenne de notes
 
-\index{CSV@CSV (format de fichier)}
+\index{CSV}
 
 Le fichier [`notes.csv`](https://python.sdv.u-paris.fr/data-files/notes.csv) contient des noms d'étudiant ainsi que leurs notes dans différentes matières. Chaque donnée est séparée par une virgule. On trouve dans l'ordre le nom de l'étudiant, la note en géographie, la note en sport, la note en anglais. 
 
@@ -772,7 +772,7 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 
 ### Lecture d'une séquence à partir d'un fichier GenBank (exercice +++)
 
-\index{GenBank@GenBank (format de fichier)}
+\index{GenBank}
 
 On cherche à récupérer la séquence d'ADN du chromosome I de la levure *Saccharomyces cerevisiae* contenu dans le fichier au format GenBank [`NC_001133.gbk`](https://python.sdv.u-paris.fr/data-files/NC_001133.gbk).
 
@@ -820,7 +820,7 @@ Lire toutes les lignes du fichier:
 
 ### Affichage des carbones alpha d'une structure de protéine
 
-\index{PDB@PDB (format de fichier)}
+\index{PDB}
 
 Téléchargez le fichier [`1bta.pdb`](https://files.rcsb.org/download/1BTA.pdb) qui correspond à la [structure tridimensionnelle de la protéine barstar](http://www.rcsb.org/pdb/explore.do?structureId=1BTA) sur le site de la *Protein Data Bank* (PDB).
 

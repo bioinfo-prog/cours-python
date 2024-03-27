@@ -123,7 +123,7 @@ ax.grid()
 fig.savefig("concentration_vs_temps_1.png", bbox_inches="tight", dpi=200)
 ```
 
-\index{linspace@linspace() (numpy)}
+\index{linspace@linspace()}
 \index{plot@.plot()}
 \index{grid@.grid()}
 \index{savefig@.savefig()}

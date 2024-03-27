@@ -14,7 +14,7 @@ Ce langage de programmation \index{langage de programmation} présente de nombre
 - Il est gratuit. Vous pouvez l'installer sur autant d'ordinateurs que vous voulez (même sur votre téléphone !).
 - C'est un langage de haut niveau. Il demande relativement peu de connaissance sur le fonctionnement d'un ordinateur pour être utilisé.
 - C'est un langage interprété. Un script Python n'a pas besoin d'être compilé pour être exécuté, contrairement à des langages comme le C ou le C++.
-- Il est orienté objet. C'est-à-dire qu'il est possible de concevoir en Python des entités qui miment celles du monde réel (une cellule, une protéine, un atome, etc.) avec un certain nombre de règles de fonctionnement et d'interactions.
+- Il est orienté objet. C'est-à-dire qu'il est possible de concevoir en Python des entités qui miment celles du monde réel (une cellule, une protéine, un atome, etc.) avec un certain nombre de règles de fonctionnement et d'interactions. \index{programmation orientee objet@programmation orientée objet}
 - Il est relativement *simple* à prendre en main[^footnote].
 - Enfin, il est très utilisé en bioinformatique et plus généralement en analyse de données.
 
@@ -166,6 +166,8 @@ En résumant, l'interpréteur fonctionne sur le modèle :
 >>> instruction python
 résultat
 ```
+
+\index{chevron}
 
 où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape au clavier, et l'absence de chevron en début de ligne correspond à la sortie (*output*) générée par Python. Une exception se présente toutefois : lorsqu'on a une longue ligne de code \index{ligne longue@ligne longue (de code)}, on peut la couper en deux avec le caractère `\` (*backslash*) pour des raisons de lisibilité :
 

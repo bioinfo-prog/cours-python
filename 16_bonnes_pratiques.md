@@ -86,6 +86,8 @@ mon_module
 
 c'est-à-dire en minuscules avec un caractère « souligné » (« tiret du bas », ou *underscore* en anglais) pour séparer les différents « mots » dans le nom.
 
+\index{underscore@underscore (caractère)}
+
 Les constantes sont écrites en majuscules :
 
 ```python
@@ -103,7 +105,7 @@ MyException
 open-box-rem
 
 \index{snakecase@snake\_case}
-\index{\_}
+\index{underscore@underscore (caractère)}
 
 
 - Le style recommandé pour nommer les variables et les fonctions en Python est

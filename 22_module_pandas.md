@@ -753,7 +753,7 @@ contient des informations tirées de la base de données de séquences UniProt p
 Si vous n'êtes pas familier avec le format de fichier `.csv`, nous vous conseillons
 de consulter l'annexe A *Quelques formats de données en biologie*.
 
-\index{CSV@CSV (format de fichier)}
+\index{CSV}
 
 \index{devinette}
 
@@ -833,7 +833,7 @@ open-box-rem
 
 La fonction `.read_csv()` permet également d'ouvrir un fichier au format TSV (voir l'annexe A *Quelques formats de données en biologie*). Il faut pour cela préciser que le séparateur des colonnes de données est une tabulation (`\t`), avec l'argument `sep="\t"`.
 
-\index{TSV@TSV (format de fichier)}
+\index{TSV}
 
 close-box-rem
 
@@ -1159,9 +1159,8 @@ En réalisant une régression linéaire, on peut déterminer les paramètres de
 la droite qui passent le plus proche possible des points du graphique.
 On utilise pour cela la fonction [`linregress()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html) du module `scipy.stats` :
 
-\index{linregress@linregress() (scipy)}
-
-\index{regression lineaire@régression linéaire (scipy)}
+\index{linregress@linregress()}
+\index{regression lineaire@régression linéaire}
 
 ```python
 from scipy.stats import linregress
