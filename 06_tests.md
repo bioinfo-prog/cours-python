@@ -57,7 +57,7 @@ Le test est faux !
 
 On peut utiliser une série de tests dans la même instruction `if`, notamment pour tester plusieurs valeurs d'une même variable.
 
-Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 9 *Modules*, admettez pour le moment qu'elle est nécessaire.
+Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 9 *Modules*, admettez pour le moment qu'elle est nécessaire :
 
 \index{elif@elif (instruction)}
 
@@ -177,7 +177,7 @@ Nous vous conseillons la syntaxe avec un `and` qui est plus compacte. De manièr
 
 close-box-adv
 
-Vous pouvez aussi tester directement l'effet de ces opérateurs à l'aide de `True` et `False` (attention à respecter la casse).
+Vous pouvez aussi tester directement l'effet de ces opérateurs à l'aide de `True` et `False` (attention à respecter la casse) :
 
 ```python
 >>> True or False

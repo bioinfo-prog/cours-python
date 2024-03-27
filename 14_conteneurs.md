@@ -71,7 +71,7 @@ L'**identifiant** d'un objet est un nombre entier qui est garanti constant penda
 
 close-box-def
 
-Maintenant que l'identifiant est défini, regardons l'exemple suivant qui montre l'immutabilité des entiers.
+Maintenant que l'identifiant est défini, regardons l'exemple suivant qui montre l'immutabilité des entiers :
 
 \index{id@id()}
 
@@ -149,7 +149,7 @@ Les valeurs de hachage renvoyées par la fonction `hash()` de Python sont systé
 
 \index{range@range (type de variable)}
 
-Revenons rapidement sur les objets de type *range*. Jusqu'à maintenant, on s'en est servi pour faire des boucles ou générer des listes de nombres. Toutefois, on a vu ci-dessus qu'ils étaient aussi des conteneurs. Ils sont ordonnés, indexables, itérables, hachables et non modifiables.
+Revenons rapidement sur les objets de type *range*. Jusqu'à maintenant, on s'en est servi pour faire des boucles ou générer des listes de nombres. Toutefois, on a vu ci-dessus qu'ils étaient aussi des conteneurs. Ils sont ordonnés, indexables, itérables, hachables et non modifiables :
 
 ```python
 >>> range1 = range(3)
@@ -351,7 +351,7 @@ Nous vous déconseillons toutefois cette manière de faire, car on ne peut pas m
 
 close-box-warn
 
-Une dernière manière puissante pour générer des dictionnaires combine les fonctions `dict()` et `zip()`. On se souvient que la fonction `zip()` peut générer une liste de tuples.
+Une dernière manière puissante pour générer des dictionnaires combine les fonctions `dict()` et `zip()`. On se souvient que la fonction `zip()` peut générer une liste de tuples :
 
 ```python
 >>> animaux = ["poulain", "renard", "python"]
@@ -425,7 +425,7 @@ close-box-adv
 
 Dans le chapitre 8 *Dictionnaires et tuples*, nous avons abordé l'affectation multiple. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : `x, y, z = 1, 2, 3`. On a vu qu'il était possible de le faire également avec les listes : `[x, y, z] = [1, 2, 3]`. Toutefois, cette syntaxe étant alourdie par la présence des crochets, on préfèrera toujours la première syntaxe avec les tuples sans parenthèses.
 
-Concernant les fonctions, nous avions croisé l'importance de l'affectation multiple dans le chapitre 10 lorsqu'une fonction renvoyait plusieurs valeurs.
+Concernant les fonctions, nous avions croisé l'importance de l'affectation multiple dans le chapitre 10 lorsqu'une fonction renvoyait plusieurs valeurs :
 
 ```python
 >>> def ma_fonction():
@@ -597,7 +597,7 @@ Bien sûr, un entier ou un booléen ne sont pas itérables.
 
 \index{hachabilite@hachabilité (d'un objet)}
 
-Les tuples sont hachables s'ils ne contiennent que des éléments hachables. Si un tuple contient un ou plusieurs objet(s) non hachable(s), comme une liste, il devient non hachable.
+Les tuples sont hachables s'ils ne contiennent que des éléments hachables. Si un tuple contient un ou plusieurs objet(s) non hachable(s), comme une liste, il devient non hachable :
 
 ```python
 >>> tuple1 = tuple(range(10))
@@ -702,7 +702,7 @@ Par contre, les *sets* sont itérables :
 4
 ```
 
-Les *sets* ne peuvent être modifiés que par des méthodes spécifiques. 
+Les *sets* ne peuvent être modifiés que par des méthodes spécifiques :
 
 \index{add@.add()}
 \index{discard@.discard()}

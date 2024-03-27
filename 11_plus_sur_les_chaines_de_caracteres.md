@@ -56,11 +56,11 @@ Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez 
 \index{caractere speciaux@caractères spéciaux}
 \index{retour a la ligne@retour à la ligne}
 
-Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` produit une tabulation. Si vous voulez écrire des guillemets simples ou doubles et que ceux-ci ne soient pas confondus avec les guillemets de déclaration de la chaîne de caractères, vous pouvez utiliser `\'` ou `\"`.
+Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` produit une tabulation. Si vous voulez écrire des guillemets simples ou doubles et que ceux-ci ne soient pas confondus avec les guillemets de déclaration de la chaîne de caractères, vous pouvez utiliser `\'` ou `\"` :
 
 ```python
->>> print("Un retour à la ligne\npuis une tabulation\t puis un guillemet\"")
-Un retour à la ligne
+>>> print("Un backslash n\npuis une tabulation\t puis un guillemet\"")
+Un backslash n
 puis une tabulation     puis un guillemet"
 >>> print('J\'affiche un guillemet simple')
 J'affiche un guillemet simple
@@ -363,7 +363,7 @@ D'abord, on découpe la chaîne de caractères avec la méthode `.split()` :
 '17.2'
 ```
 
-On obtient alors une liste de chaînes de caractères `liste1`. Avec l'affectation multiple, on récupère les nombres souhaités dans `nb1` et `nb2`, mais ils sont toujours sous forme de chaîne de caractères. Il faut ensuite les convertir en *floats* pour pouvoir les additionner.
+On obtient alors une liste de chaînes de caractères `liste1`. Avec l'affectation multiple, on récupère les nombres souhaités dans `nb1` et `nb2`, mais ils sont toujours sous forme de chaîne de caractères. Il faut ensuite les convertir en *floats* pour pouvoir les additionner :
 
 ```python
 >>> float(nb1) + float(nb2)
@@ -386,7 +386,7 @@ Si vous êtes débutant, vous pouvez sauter cette rubrique.
 
 close-box-adv
 
-La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un objet itérable. Par exemple, si on a une chaîne de caractères avec trois entiers séparés par des espaces, on peut extraire et convertir les trois nombres en entier en une seule ligne. La fonction `map()` produit un objet de type *map* qui est itérable ou que l'on peut transformer en liste.
+La fonction `map()` permet d'appliquer une fonction à plusieurs éléments d'un objet itérable. Par exemple, si on a une chaîne de caractères avec trois entiers séparés par des espaces, on peut extraire et convertir les trois nombres en entier en une seule ligne. La fonction `map()` produit un objet de type *map* qui est itérable ou que l'on peut transformer en liste :
 
 ```python
 >>> ligne = "67 946   -45"
@@ -413,7 +413,7 @@ La fonction `map()` prend deux arguments. Le second est un objet itérable, souv
 
 close-box-rem
 
-La fonction `map()` est particulièrement utile lorsqu'on lit un fichier de valeurs numériques. Par exemple, si on a un fichier `data.dat` contenant trois colonnes de nombres, `map()` en conjonction avec `.split()` permet de séparer les trois nombres puis de les convertir  en *float* en une seule ligne de code.
+La fonction `map()` est particulièrement utile lorsqu'on lit un fichier de valeurs numériques. Par exemple, si on a un fichier `data.dat` contenant trois colonnes de nombres, `map()` en conjonction avec `.split()` permet de séparer les trois nombres puis de les convertir  en *float* en une seule ligne de code :
 
 ```python
 with open("data.dat", "r") as filin:
@@ -424,7 +424,7 @@ with open("data.dat", "r") as filin:
 
 Sans `map()`, il aurait fallu une ligne pour séparer les données `x, y, z = line.split()` et une autre pour les transformer en *float* `x, y, z = float(x), float(y), float(z)`.
 
-Enfin, on peut utiliser `map()` avec ses propres fonctions.
+Enfin, on peut utiliser `map()` avec ses propres fonctions :
 
 ```python
 >>> def calc_cube(x):
@@ -438,7 +438,7 @@ Enfin, on peut utiliser `map()` avec ses propres fonctions.
 
 \index{in@in (opérateur)}
 
-L’opérateur `in` teste si une chaîne de caractères fait partie d’une autre chaîne de caractères.
+L’opérateur `in` teste si une chaîne de caractères fait partie d’une autre chaîne de caractères :
 
 ```python
 >>> chaine = "Néfertiti"
@@ -452,7 +452,7 @@ True
 
 Notez que la chaîne testée peut-être présente à n'importe quelle position dans l'autre chaîne. Par ailleurs, le test est vrai si elle est présente une ou plusieurs fois. 
 
-La variation avec l'opérateur booléen `not` permet de vérifier qu'une chaîne n'est pas présente dans une autre chaîne.
+La variation avec l'opérateur booléen `not` permet de vérifier qu'une chaîne n'est pas présente dans une autre chaîne :
 
 ```python
 >>> not "toto" in chaine
@@ -484,7 +484,7 @@ On a vu dans le chapitre 2 *Variables* la conversion d'un type simple (entier, *
 
 Les éléments de la liste initiale sont concaténés les uns à la suite des autres et intercalés par un séparateur, qui peut être n'importe quelle chaîne de caractères. Ici, on a utilisé un tiret, un espace et rien (une chaîne de caractères vide).
 
-Attention, la méthode `.join()` ne s'applique qu'à une liste de chaînes de caractères.
+Attention, la méthode `.join()` ne s'applique qu'à une liste de chaînes de caractères :
 
 ```python
 >>> maliste = ["A", 5, "G"]
@@ -494,7 +494,7 @@ Traceback (most recent call last):
 TypeError: sequence item 1: expected str instance, int found
 ```
 
-On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse des méthodes associées aux chaînes de caractères. Pour avoir une liste exhaustive de l'ensemble des méthodes associées à une variable particulière, vous pouvez utiliser la fonction `dir()`.
+On espère qu'après ce petit tour d'horizon vous serez convaincu de la richesse des méthodes associées aux chaînes de caractères. Pour avoir une liste exhaustive de l'ensemble des méthodes associées à une variable particulière, vous pouvez utiliser la fonction `dir()` :
 
 \index{dir@dir()}
 

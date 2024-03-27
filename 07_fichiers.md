@@ -117,7 +117,7 @@ close-box-rem
 
 \index{read@.read()}
 
-Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fichier. Par exemple, la méthode `.read()` lit tout le contenu d'un fichier et renvoie une chaîne de caractères unique.
+Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fichier. Par exemple, la méthode `.read()` lit tout le contenu d'un fichier et renvoie une chaîne de caractères unique :
 
 ```python
 >>> with open("animaux.txt", "r") as filin:
@@ -131,7 +131,7 @@ Il existe d'autres méthodes que `.readlines()` pour lire (et manipuler) un fich
 
 \index{readline@.readline()}
 
-La méthode `.readline()` (sans `s` à la fin) lit une ligne d'un fichier et la renvoie sous forme de chaîne de caractères. À chaque nouvel appel de `.readline()`, la ligne suivante est renvoyée. Associée à la boucle `while`, cette méthode permet de lire un fichier ligne par ligne.
+La méthode `.readline()` (sans `s` à la fin) lit une ligne d'un fichier et la renvoie sous forme de chaîne de caractères. À chaque nouvel appel de `.readline()`, la ligne suivante est renvoyée. Associée à la boucle `while`, cette méthode permet de lire un fichier ligne par ligne :
 
 ```python
 >>> with open("animaux.txt", "r") as filin:

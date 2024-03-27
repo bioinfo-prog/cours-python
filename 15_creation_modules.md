@@ -62,7 +62,7 @@ Une fois cette manipulation effectuée, vous pouvez contrôler que le chemin ver
 
 close-box-rem
 
-Le chargement du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py`, pourtant on ne la précise pas lorsqu'on importe le module. Ensuite, on peut utiliser les fonctions comme avec un module classique.
+Le chargement du module se fait avec la commande `import message`. Notez que le fichier est bien enregistré avec une extension `.py`, pourtant on ne la précise pas lorsqu'on importe le module. Ensuite, on peut utiliser les fonctions comme avec un module classique :
 
 ```python
 >>> import message

@@ -187,7 +187,7 @@ open-box-rem
 close-box-rem
 
 
-La commande `help()` est en fait une commande plus générale, permettant d'avoir de l'aide sur n'importe quel objet chargé en mémoire.
+La commande `help()` est en fait une commande plus générale, permettant d'avoir de l'aide sur n'importe quel objet chargé en mémoire :
 
 ```python
 >>> t = [1, 2, 3]
@@ -398,7 +398,7 @@ L'intérêt de récupérer des arguments passés dans la ligne de commande à l'
 
 close-box-rem
 
-Voici comme nouvel exemple le script `compte_lignes.py`, qui prend comme argument le nom d'un fichier puis affiche le nombre de lignes qu'il contient.
+Voici comme nouvel exemple le script `compte_lignes.py`, qui prend comme argument le nom d'un fichier puis affiche le nombre de lignes qu'il contient :
 
 ```python
 import sys

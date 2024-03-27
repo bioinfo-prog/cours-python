@@ -424,7 +424,7 @@ ValueError: cannot reshape array of size 6 into shape (3,4)
 
 \index{resize@.resize()}
 
-La méthode `.resize()`, par contre, ne déclenche pas d'erreur dans une telle situation et ajoute des 0 jusqu'à ce que le nouvel *array* soit rempli, ou bien coupe la liste initiale.
+La méthode `.resize()`, par contre, ne déclenche pas d'erreur dans une telle situation et ajoute des 0 jusqu'à ce que le nouvel *array* soit rempli, ou bien coupe la liste initiale :
 
 ```python
 a = np.arange(0, 6)
@@ -703,7 +703,7 @@ array([0, 2, 4, 6, 8])
 ```
 
 
-Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *i*), une colonne complète (d'indice *j*) ou bien un seul élément. La figure @fig:array2Dlignescolonnes montre comment sont organisés les indices des lignes et des colonnes.
+Dans le cas d'un objet *array* à deux dimensions, vous pouvez récupérer une ligne complète (d'indice *i*), une colonne complète (d'indice *j*) ou bien un seul élément. La figure @fig:array2Dlignescolonnes montre comment sont organisés les indices des lignes et des colonnes :
 
 ```python
 a = np.array([[1, 2], [3, 4]])
@@ -741,7 +741,7 @@ a[1, 1]
 4
 ```
 
-La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, qu'**on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne.
+La syntaxe `a[i, j]` renvoie l'élément à la ligne d'indice `i` et à la colonne d'indice `j`. Notez que *NumPy* suit la convention mathématiques des [matrices](https://fr.wikipedia.org/wiki/Matrice_(math%C3%A9matiques)#D%C3%A9finitions), à savoir, qu'**on définit toujours un élément par sa ligne puis par sa colonne**. En mathématiques, l'élément $a_{ij}$ d'une matrice $A$ se trouve à la $i^{ème}$ ligne et à la $j^{ème}$ colonne :
 
 
 open-box-rem
@@ -912,7 +912,7 @@ close-box-rem
 
 ## Construction automatique de matrices
 
-Il est parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues.
+Il est parfois pénible de construire une matrice (*array* à deux dimensions) à l'aide d'une liste de listes. Le module *NumPy* possède quelques fonctions pratiques pour initialiser des matrices. Par exemple, Les fonctions `zeros()` et `ones()` construisent des objets *array* contenant des 0 ou des 1. Il suffit de leur passer en argument un tuple indiquant les dimensions voulues :
 
 \index{zeros@zeros()}
 \index{ones@ones()}
@@ -1136,7 +1136,7 @@ array([[ 0,  1],
        [20, 25]])
 ```
 
-Ensuite, on concatène par colonne (`axis=1`). Attention, il vaut bien veiller à ce que la concaténation soit possible en terme de dimensionalité. Par exemple, lors de la concaténation par colonne, il faut que les deux *arrays* `a1` et `a2` aient le même nombre de lignes.
+Ensuite, on concatène par colonne (`axis=1`). Attention, il vaut bien veiller à ce que la concaténation soit possible en terme de dimensionalité. Par exemple, lors de la concaténation par colonne, il faut que les deux *arrays* `a1` et `a2` aient le même nombre de lignes :
 
 ```python
 np.concatenate((a1, a2), axis=1)
@@ -1196,7 +1196,7 @@ array([[1, 4, 7],
 
 \index{dot@dot()}
 
-La fonction `dot()` permet de [multiplier deux matrices](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_matriciel_ordinaire).
+La fonction `dot()` permet de [multiplier deux matrices](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_matriciel_ordinaire) :
 
 ```python
 a = np.resize(np.arange(4), (2, 2))

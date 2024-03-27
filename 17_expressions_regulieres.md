@@ -194,7 +194,7 @@ N'hésitez pas à explorer ces sites avant de vous lancer dans les exercices ou 
 
 Dans le module *re*, la fonction `search()` est incontournable. Elle permet de rechercher un motif, c'est-à-dire une *regex*, au sein d'une chaîne de caractères avec une syntaxe de la forme `search(motif, chaine)`. Si `motif` est retrouvé dans `chaine`, Python renvoie un objet du type `SRE_Match`.
 
-Sans entrer dans les détails propres au langage orienté objet, si on utilise un objet du type `SRE_Match` dans un test, il sera considéré comme vrai. Regardez cet exemple, dans lequel on va rechercher le motif `tigre` dans la chaîne de caractères `"girafe tigre singe"` :
+Sans entrer dans les détails propres au langage orienté objet, si on utilise un objet du type `SRE_Match` dans un test, il sera considéré comme vrai. Par exemple, si on recherche le motif `tigre` dans la chaîne de caractères `"girafe tigre singe"` :
 
 ```python
 >>> import re
@@ -218,7 +218,7 @@ close-box-warn
 
 \index{match@match()}
 
-Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le modèle de `search()`. La différence est qu'elle renvoie un objet du type `SRE_Match` seulement lorsque la *regex* correspond au début de la chaîne de caractères (à partir du premier caractère).
+Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le modèle de `search()`. La différence est qu'elle renvoie un objet du type `SRE_Match` seulement lorsque la *regex* correspond au début de la chaîne de caractères (à partir du premier caractère) :
 
 ```python
 >>> animaux = "girafe tigre singe"
@@ -352,7 +352,7 @@ Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants
 'pi vaut quelque chose et e vaut 2.72'
 ```
 
-Encore plus puissant, il est possible d'utiliser dans le remplacement des groupes qui ont été « capturés » avec des parenthèses.
+Encore plus puissant, il est possible d'utiliser dans le remplacement des groupes qui ont été « capturés » avec des parenthèses :
 
 ```python
 >>> regex = re.compile("([0-9]+)\.([0-9]+)")

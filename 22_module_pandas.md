@@ -1117,7 +1117,7 @@ On peut, sans trop de risque, émettre l'hypothèse que plus il y a d'acides
 aminés dans la protéine, plus sa masse va être élevée.
 
 Pour vérifier cela graphiquement, on représente la masse de
-la protéine en fonction de sa taille (c'est-à-dire du nombre d'acides aminés).
+la protéine en fonction de sa taille (c'est-à-dire du nombre d'acides aminés) :
 
 ```python
 import matplotlib.pyplot as plt
@@ -1235,7 +1235,7 @@ Une autre question est de savoir combien de kinases ont
 
 La méthode `.value_counts()` peut être utilisée, mais elle ne renvoie que
 le nombre de protéines référencées dans UniProt pour un jour donné. Par exemple,
-40 structures ont été référencées le 28 novembre 2006.
+40 structures ont été référencées le 28 novembre 2006 :
 
 \index{valuecounts@.value\_counts()}
 
@@ -1289,7 +1289,7 @@ Pour connaître en quelle année le plus de kinases ont été référencées dan
 il faut trier les valeurs obtenues du plus grand au plus petit avec la méthode
 `.sort_values()`. Comme on ne veut connaître que les premières dates
 (celles où il y a eu le plus de protéines référencées),
-on utilisera également la méthode `.head()`.
+on utilisera également la méthode `.head()` :
 
 \index{sortvalues@.sort\_values()}
 

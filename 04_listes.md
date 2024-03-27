@@ -152,7 +152,7 @@ indice positif :   0    1    2    3    4    5
 indice négatif :  -6   -5   -4   -3   -2   -1
 ```
 
-Les indices négatifs reviennent à compter à partir de la fin. Leur principal avantage est que vous pouvez accéder au dernier élément d'une liste à l'aide de l'indice `-1` sans pour autant connaître la longueur de cette liste. L'avant-dernier élément a lui l'indice `-2`, l'avant-avant dernier l'indice `-3`, etc.
+Les indices négatifs reviennent à compter à partir de la fin. Leur principal avantage est que vous pouvez accéder au dernier élément d'une liste à l'aide de l'indice `-1` sans pour autant connaître la longueur de cette liste. L'avant-dernier élément a lui l'indice `-2`, l'avant-avant dernier l'indice `-3`, etc. :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -196,7 +196,7 @@ Un autre avantage des listes est la possibilité de sélectionner une partie d'u
 
 Notez que lorsqu'aucun indice n'est indiqué à gauche ou à droite du symbole deux-points `:`, Python prend par défaut tous les éléments depuis le début ou tous les éléments jusqu'à la fin respectivement.
 
-On peut aussi préciser le pas en ajoutant un symbole deux-points supplémentaire et en indiquant le pas par un entier.
+On peut aussi préciser le pas en ajoutant un symbole deux-points supplémentaire et en indiquant le pas par un entier :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -317,7 +317,7 @@ On verra un peu plus loin qu'il existe en Python des dictionnaires qui sont éga
 \index{max@max()}
 \index{sum@sum()}
 
-Les fonctions `min()`, `max()` et `sum()` renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument.
+Les fonctions `min()`, `max()` et `sum()` renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument :
 
 ```python
 >>> liste1 = list(range(10))

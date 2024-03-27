@@ -493,7 +493,7 @@ On pourrait concevoir la même chose sur quatre ou cinq éléments, voire plus. 
 
 \index{divmod@divmod()}
 
-Dans le chapitre 2 *Variables*, on a vu les opérateurs `//` et `%` qui renvoient respectivement le quotient et le reste d'une division entière. La fonction `divmod()` prend en argument deux valeurs, le numérateur et le dénominateur d'une division, et renvoie le quotient et le reste de la division entière correspondante.
+Dans le chapitre 2 *Variables*, on a vu les opérateurs `//` et `%` qui renvoient respectivement le quotient et le reste d'une division entière. La fonction `divmod()` prend en argument deux valeurs, le numérateur et le dénominateur d'une division, et renvoie le quotient et le reste de la division entière correspondante :
 
 ```python
 >>> 3 / 4

@@ -275,7 +275,7 @@ Si vous êtes débutant, vous pouvez sauter cette rubrique.
 
 close-box-adv
 
-La fonction `zip()` de Python permet d'itérer sur plusieurs listes en parallèle.
+La fonction `zip()` de Python permet d'itérer sur plusieurs listes en parallèle :
 
 ```python
 >>> animaux = ["poulain", "renard", "python"]
@@ -311,7 +311,7 @@ Un objet *zip* est aussi utile pour générer facilement une liste de tuples.
 [('poulain', 'alezan'), ('renard', 'roux'), ('python', 'vert')]
 ```
 
-Si une des listes passée en argument n'a pas la même longueur, l'objet *zip* s'arrête sur la liste la plus courte.
+Si une des listes passée en argument n'a pas la même longueur, l'objet *zip* s'arrête sur la liste la plus courte :
 
 ```python
 >>> animaux = ["poulain", "renard", "python", "orque"]
@@ -320,7 +320,7 @@ Si une des listes passée en argument n'a pas la même longueur, l'objet *zip* s
 [('poulain', 'alezan'), ('renard', 'roux'), ('python', 'vert')]
 ```
 
-On peut empêcher ce comportement avec l'argument par mot-clé `strict`, qui renvoie une erreur si les listes n'ont pas la même longueur.
+On peut empêcher ce comportement avec l'argument par mot-clé `strict`, qui renvoie une erreur si les listes n'ont pas la même longueur :
 
 ```python
 >>> list(zip(animaux, couleurs, strict=True))
@@ -418,7 +418,7 @@ et
 [[1, 2], [3, 77]]
 ```
 
-La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la fonction `deepcopy()` du module *copy*.
+La méthode de copie qui **fonctionne à tous les coups** consiste à appeler la fonction `deepcopy()` du module *copy* :
 
 \index{deepcopy@deepcopy()}
 \index{copie listes@copie (de listes)}

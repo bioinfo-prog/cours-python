@@ -355,7 +355,7 @@ Lorsque l'explication est courte et compacte, comme dans certaines fonctions ou 
 """Docstring simple d'une ligne se finissant par un point."""
 ```
 
-Lorsque vous avez besoin de décrire plus en détail un module, une fonction, une classe ou une méthode, utilisez une *docstring* sur plusieurs lignes.
+Lorsque vous avez besoin de décrire plus en détail un module, une fonction, une classe ou une méthode, utilisez une *docstring* sur plusieurs lignes :
 
 ```python
 """Docstring de plusieurs lignes, la première ligne est un résumé.

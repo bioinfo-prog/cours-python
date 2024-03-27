@@ -204,7 +204,7 @@ Vous pouvez aussi formater des entiers avec la lettre `d` (ici `d` veut dire *de
 Ce génome contient 4500 guanines
 ```
 
-ou mettre plusieurs nombres dans une même chaîne de caractères.
+ou mettre plusieurs nombres dans une même chaîne de caractères :
 
 ```python
 >>> nb_G = 4500
