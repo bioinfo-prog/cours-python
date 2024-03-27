@@ -3,7 +3,7 @@
 ## Définition
 
 \index{test}
-\index{if@if (test)}
+\index{if@if (instruction)}
 
 Les **tests** sont un élément essentiel à tout langage informatique si on veut lui donner un peu de complexité car ils permettent à l'ordinateur de prendre des décisions. Pour cela, Python utilise l'instruction `if` ainsi qu'une comparaison que nous avons abordée au chapitre précédent. Voici un premier exemple :
 
@@ -34,7 +34,9 @@ Il y a plusieurs remarques à faire concernant ces deux exemples :
 
 ## Tests à plusieurs cas
 
-Parfois, il est pratique de tester si la condition est vraie ou si elle est fausse dans une même instruction `if`. Plutôt que d'utiliser deux instructions `if`, on peut se servir des instructions `if` et `else` \index{else@else (test)}:
+\index{else@else (instruction)}
+
+Parfois, il est pratique de tester si la condition est vraie ou si elle est fausse dans une même instruction `if`. Plutôt que d'utiliser deux instructions `if`, on peut se servir des instructions `if` et `else` :
 
 ```python
 >>> x = 2
@@ -57,7 +59,7 @@ On peut utiliser une série de tests dans la même instruction `if`, notamment p
 
 Par exemple, on se propose de tirer au sort une base d'ADN puis d'afficher le nom de cette dernière. Dans le code suivant, nous utilisons l'instruction `random.choice(liste)` qui renvoie un élément choisi au hasard dans une liste. L'instruction `import random` sera vue plus tard dans le chapitre 9 *Modules*, admettez pour le moment qu'elle est nécessaire.
 
-\index{elif@elif (test)}
+\index{elif@elif (instruction)}
 
 ```python
 >>> import random
@@ -122,8 +124,9 @@ Les deux codes pourtant très similaires produisent des résultats très différ
 ## Tests multiples
 
 \index{test multiple}
+\index{operateur booleen@opérateur (booléen)}
 
-Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens \index{operateur booleen@opérateur (booléen)}. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
+Les tests multiples permettent de tester plusieurs conditions en même temps en utilisant des opérateurs booléens. Les deux opérateurs les plus couramment utilisés sont **OU** et **ET**. Voici un petit rappel sur le fonctionnement de l'opérateur **OU** :
 
 
 | Condition 1 | Opérateur | Condition 2 | Résultat |
@@ -142,8 +145,10 @@ et de l'opérateur **ET** :
 |     Faux    |     ET    |     Vrai    |   Faux   |
 |     Faux    |     ET    |     Faux    |   Faux   |
 
+\index{and@and (opérateur booléen)}
+\index{or@or (opérateur booléen)}
 
-En Python, on utilise le mot réservé `and` \index{and@and (opérateur booléen)} pour l'opérateur **ET** et le mot réservé `or` \index{or@or (opérateur booléen)}pour l'opérateur **OU**. Respectez bien la casse des opérateurs `and` et `or` qui, en Python, s'écrivent en minuscule. En voici un exemple d'utilisation :
+En Python, on utilise le mot réservé `and` pour l'opérateur **ET** et le mot réservé `or` pour l'opérateur **OU**. Respectez bien la casse des opérateurs `and` et `or` qui, en Python, s'écrivent en minuscule. En voici un exemple d'utilisation :
 
 ```python
 >>> x = 2
@@ -179,7 +184,9 @@ Vous pouvez aussi tester directement l'effet de ces opérateurs à l'aide de `Tr
 True
 ```
 
-Enfin, on peut utiliser l'opérateur logique de négation `not` \index{not@not (opérateur booléen)} qui inverse le résultat d'une condition :
+\index{not@not (opérateur booléen)}
+
+Enfin, on peut utiliser l'opérateur logique de négation `not`  qui inverse le résultat d'une condition :
 
 ```python
 >>> not True
@@ -276,8 +283,10 @@ True
 
 Ici on teste si `var` est compris dans l'intervalle $0,3 \pm delta$. Les deux méthodes mènent à un résultat strictement équivalent :
 
+\index{abs@abs()}
+
 - La ligne 3 est intuitive car elle ressemble à un encadrement mathématique.
-- La ligne 5 utilise la fonction valeur absolue `abs()` \index{abs@abs()} et est plus compacte.
+- La ligne 5 utilise la fonction valeur absolue `abs()` et est plus compacte.
 
 close-box-adv
 
