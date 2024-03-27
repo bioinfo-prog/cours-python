@@ -75,7 +75,7 @@ open-box-rem
 \index{retour a la ligne@retour à la ligne}
 
 - Chaque élément de la liste `lignes` est une chaîne de caractères. C'est en effet sous forme de chaînes de caractères que Python lit le contenu d'un fichier.
-- Chaque élément de la liste `lignes` se termine par le caractère `\n`. Ce caractère un peu particulier correspond au « [saut de ligne](https://fr.wikipedia.org/wiki/Saut_de_ligne) » \index{saut de ligne} qui permet de passer d'une ligne à la suivante (en anglais *line feed*). Ceci est codé par un caractère spécial que l'on représente par `\n`. Vous pourrez parfois rencontrer également la notation octale `\012`. Dans la suite de cet ouvrage, nous emploierons aussi l'expression « retour à la ligne » que nous trouvons plus intuitive.
+- Chaque élément de la liste `lignes` se termine par le caractère `\n`. Ce caractère un peu particulier correspond au « [saut de ligne](https://fr.wikipedia.org/wiki/Saut_de_ligne) » qui permet de passer d'une ligne à la suivante (en anglais *line feed*). Ceci est codé par un caractère spécial que l'on représente par `\n`. Vous pourrez parfois rencontrer également la notation octale `\012`. Dans la suite de cet ouvrage, nous emploierons aussi l'expression « retour à la ligne » que nous trouvons plus intuitive.
 - Par défaut, l'instruction `print()` affiche quelque chose puis revient à la ligne. Ce retour à la ligne dû à `print()` se cumule alors avec celui de la fin de ligne (`\n`) de chaque ligne du fichier et donne l'impression qu'une ligne est sautée à chaque fois.
 
 close-box-rem
@@ -297,7 +297,9 @@ close-box-adv
 
 On a vu plus haut que le caractère spécial `\n` correspondait à un retour à la ligne. C'est le standard sous Unix (Mac OS X et Linux).
 
-Toutefois, Windows utilise deux caractères spéciaux pour le retour à la ligne : `\r` correspondant à un retour chariot (hérité des machines à écrire) et `\n` comme sous Unix. \index{caractere speciaux@caractères spéciaux}
+\index{caractere speciaux@caractères spéciaux}
+
+Toutefois, Windows utilise deux caractères spéciaux pour le retour à la ligne : `\r` correspondant à un retour chariot (hérité des machines à écrire) et `\n` comme sous Unix.
 
 Si vous avez commencé à programmer en Python 2, vous aurez peut-être remarqué que, selon les versions, la lecture de fichier supprimait parfois les `\r` et d'autres fois les laissait. Heureusement, la fonction [`open()` dans Python 3](https://docs.python.org/fr/3/library/functions.html#open) gère tout ça automatiquement et renvoie uniquement des sauts de ligne sous forme d'un seul `\n` (même si le fichier a été conçu sous Windows et qu'il contient initialement des `\r`).
 

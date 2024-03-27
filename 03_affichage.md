@@ -17,7 +17,9 @@ Hello world!>>>
 
 **Ligne 3**. On a ajouté un second argument `end=""`, en précisant le mot-clé `end`. Nous aborderons les arguments par mot-clé dans le chapitre 10 *Fonctions*. Pour l'instant, dites-vous que cela modifie le comportement par défaut des fonctions.
 
-**Ligne 4**. L'effet de l'argument `end=""` est que les trois chevrons `>>>` se retrouvent collés après la chaîne de caractères `"Hello world!"`. \index{chevron}
+\index{chevron}
+
+**Ligne 4**. L'effet de l'argument `end=""` est que les trois chevrons `>>>` se retrouvent collés après la chaîne de caractères `"Hello world!"`.
 
 Une autre manière de s'en rendre compte est d'utiliser deux fonctions `print()` à la suite. Dans la portion de code suivante, le caractère « `;` » sert à séparer plusieurs instructions Python sur une même ligne :
 
