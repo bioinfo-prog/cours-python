@@ -6,7 +6,7 @@ Cette action de recherche de données dans un fichier est appelée généralemen
 
 Dans ce chapitre, nous ne ferons que quelques rappels sur les expressions régulières. Pour une documentation plus complète, référez-vous à la [page d'aide des expressions régulières](https://docs.python.org/fr/3/library/re.html) sur le site officiel de Python.
 
-\index{re@re (regex)}
+\index{re@re (module)}
 
 ## Définition et syntaxe
 
@@ -190,7 +190,7 @@ N'hésitez pas à explorer ces sites avant de vous lancer dans les exercices ou 
 
 ### La fonction `search()`
 
-\index{search@search() (regex)}
+\index{search@search()}
 
 Dans le module *re*, la fonction `search()` est incontournable. Elle permet de rechercher un motif, c'est-à-dire une *regex*, au sein d'une chaîne de caractères avec une syntaxe de la forme `search(motif, chaine)`. Si `motif` est retrouvé dans `chaine`, Python renvoie un objet du type `SRE_Match`.
 
@@ -216,7 +216,7 @@ close-box-warn
 
 ### Les fonctions `match()` et `fullmatch()`
 
-\index{match@match() (regex)}
+\index{match@match()}
 
 Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le modèle de `search()`. La différence est qu'elle renvoie un objet du type `SRE_Match` seulement lorsque la *regex* correspond au début de la chaîne de caractères (à partir du premier caractère).
 
@@ -232,7 +232,7 @@ Il existe aussi la fonction `match()` dans le module `re` qui fonctionne sur le 
 >>>
 ```
 
-\index{fullmatch@fullmatch() (regex)}
+\index{fullmatch@fullmatch()}
 
 Il existe également la fonction `fullmatch()`, qui renvoie un objet du type `SRE_Match` si et seulement si l'expression régulière correspond **exactement** à la chaîne de caractères.
 
@@ -249,7 +249,7 @@ De manière générale, nous vous recommandons l'usage de la fonction `search()`
 
 ### Compilation d'expressions régulières
 
-\index{compile@compile() (regex)}
+\index{compile@compile()}
 
 Lorsqu'on a besoin de tester la même expression régulière sur plusieurs milliers de chaînes de caractères, il est pratique de compiler préalablement la *regex* à l'aide de la fonction `compile()`, qui renvoie un objet de type `SRE_Pattern` :
 
@@ -280,7 +280,7 @@ L'intérêt de l'objet de type `SRE_Match` renvoyé par Python lorsqu'une *regex
 >>> regex = re.compile("([0-9]+)\.([0-9]+)")
 ```
 
-\index{groupe@.group() (regex)}
+\index{groupe@.group()}
 
 Dans cet exemple, on recherche un nombre décimal, c'est-à-dire une chaîne de caractères :
 
@@ -317,7 +317,7 @@ Les méthodes `.start()` et `.end()` donnent respectivement la position de débu
 
 ### La méthode `.findall()`
 
-\index{findall@.findall() (regex)}
+\index{findall@.findall()}
 
 Pour récupérer chaque zone dans la *regex*, s'il y en a plusieurs, vous pouvez utiliser la méthode `.findall()` qui renvoie une liste des éléments en correspondance :
 
@@ -340,7 +340,7 @@ L'utilisation des groupes entre parenthèses est également possible, ceux-ci so
 
 ### La méthode `.sub()`
 
-\index{sub@.sub() (regex)}
+\index{sub@.sub()}
 
 Enfin, la méthode `.sub()` permet d'effectuer des remplacements assez puissants. Par défaut, la méthode `.sub(chaine1, chaine2)` remplace toutes les occurrences trouvées par l'expression régulière dans `chaine2` par `chaine1`. Si vous souhaitez ne remplacer que les *n* premières occurrences, utilisez l'argument `count=n` :
 
