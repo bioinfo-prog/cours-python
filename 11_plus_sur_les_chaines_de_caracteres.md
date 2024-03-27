@@ -59,9 +59,9 @@ Par conséquent, si vous voulez modifier une chaîne de caractères, vous devez 
 Il existe certains caractères spéciaux comme `\n` que nous avons déjà vu (pour le retour à la ligne). Le caractère `\t` produit une tabulation. Si vous voulez écrire des guillemets simples ou doubles et que ceux-ci ne soient pas confondus avec les guillemets de déclaration de la chaîne de caractères, vous pouvez utiliser `\'` ou `\"` :
 
 ```python
->>> print("Un backslash n\npuis une tabulation\t puis un guillemet\"")
+>>> print("Un backslash n\npuis un backslash t\t puis un guillemet\"")
 Un backslash n
-puis une tabulation     puis un guillemet"
+puis un backslash t     puis un guillemet"
 >>> print('J\'affiche un guillemet simple')
 J'affiche un guillemet simple
 ```
