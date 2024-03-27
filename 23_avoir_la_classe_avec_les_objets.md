@@ -98,7 +98,7 @@ Reprenons notre classe `Citron` et l'instance `citron1` créée précédemment. 
 
 **Lignes 6.** La notation `instance.attribut` donne accès à l'attribut de l'objet.
 
-\index{dict@.__dict__}
+\index{dict@.\_\_dict\_\_}
 
 L'attribut nommé `.__dict__` est particulièrement intéressant. Il s'agit d'un dictionnaire qui listera les attributs créés dynamiquement dans l'instance en cours :
 
