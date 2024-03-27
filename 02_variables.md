@@ -4,11 +4,16 @@
 
 open-box-def 
 
-Une **variable**\index{variable} est une zone de la mémoire de l'ordinateur dans laquelle une **valeur** est stockée. Aux yeux du programmeur, cette variable est définie par un **nom**, alors que pour l'ordinateur, il s'agit en fait d'une adresse, c'est-à-dire d'une zone particulière de la mémoire.
+\index{variable}
+
+Une **variable** est une zone de la mémoire de l'ordinateur dans laquelle une **valeur** est stockée. Aux yeux du programmeur, cette variable est définie par un **nom**, alors que pour l'ordinateur, il s'agit en fait d'une adresse, c'est-à-dire d'une zone particulière de la mémoire.
 
 close-box-def
 
-En Python, la **déclaration**\index{declaration@déclaration (de variable)} d'une variable et son **initialisation**\index{initialisation@initialisation (de variable)} (c'est-à-dire la première valeur que l'on va stocker dedans) se font en même temps. Pour vous en convaincre, testez les instructions suivantes après avoir lancé l'interpréteur :
+\index{declaration@déclaration (de variable)}
+\index{initialisation@initialisation (de variable)}
+
+En Python, la **déclaration** d'une variable et son **initialisation** (c'est-à-dire la première valeur que l'on va stocker dedans) se font en même temps. Pour vous en convaincre, testez les instructions suivantes après avoir lancé l'interpréteur :
 
 ```python
 >>> x = 2
@@ -18,7 +23,9 @@ En Python, la **déclaration**\index{declaration@déclaration (de variable)} d'u
 
 **Ligne 1**. Dans cet exemple, nous avons déclaré, puis initialisé la variable `x` avec la valeur 2. Notez bien qu'en réalité, il s'est passé plusieurs choses :
 
-- Python a « deviné » que la variable était un entier. On dit que Python est un langage au **typage dynamique** \index{typage dynamique}.
+\index{typage dynamique}
+
+- Python a « deviné » que la variable était un entier. On dit que Python est un langage au **typage dynamique**.
 - Python a alloué (réservé) l'espace en mémoire pour y accueillir un entier. Chaque type de variable prend plus ou moins d'espace en mémoire. Python a aussi fait en sorte qu'on puisse retrouver la variable sous le nom `x`.
 - Enfin, Python a assigné la valeur 2 à la variable `x`.
 
@@ -50,6 +57,8 @@ Revenons sur le signe `=` ci-dessus.
 
 open-box-def
 
+\index{operateur affectation@opérateur d'affectation}
+
 Le symbole `=` est appelé **opérateur d'affectation**. Il permet d'assigner une valeur à une variable en Python. Cet opérateur s'utilise toujours de la droite vers la gauche. Par exemple, dans l'instruction  `x = 2` ci-dessus, Python attribue la valeur située à droite (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`. 
 
 close-box-def
@@ -72,17 +81,26 @@ Voici d'autres cas de figures que vous rencontrerez avec l'opérateur `=` :
 
 open-box-warn
 
-L'opérateur d'affectation `=` \index{operateur affectation@opérateur d'affectation} écrase systématiquement la valeur de la variable située à sa gauche si celle-ci existe déjà.
+\index{operateur affectation@opérateur d'affectation}
+
+L'opérateur d'affectation `=` écrase systématiquement la valeur de la variable située à sa gauche si celle-ci existe déjà.
 
 close-box-warn
 
 ## Les types de variables
 
-\index{type@type (de variable)}
-
 open-box-def
 
-Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers\index{entier} (*integer*\index{integer@integer (type de variable)} ou *int*\index{int@int (type de variable)), les nombres décimaux que nous appellerons *floats*\index{float@float (type de variable)} et les chaînes de caractères\index{chaine de caracteres@chaîne de caractères} (*string*\index{string@string (type de variable)} ou *str*\index{str@str (type de variable)}). 
+\index{type@type (de variable)}
+\index{entier}
+\index{integer@integer (type de variable)}
+\index{int@int (type de variable)}
+\index{float@float (type de variable)}
+\index{chaine de caracteres@chaîne de caractères}
+\index{string@string (type de variable)}
+\index{str@str (type de variable)}
+
+Le **type** d'une variable correspond à la nature de celle-ci. Les trois principaux types dont nous aurons besoin dans un premier temps sont les entiers (*integer* ou *int*), les nombres décimaux que nous appellerons *floats* et les chaînes de caractères (*string* ou *str*). 
 
 close-box-def
 
@@ -110,7 +128,9 @@ Dans l'exemple précédent, nous avons stocké un nombre entier (*int*) dans la 
 
 open-box-rem
 
-Python reconnaît certains types de variables automatiquement (entier, *float*). Par contre, pour une chaîne de caractères, il faut l'entourer de guillemets\index{guillemets@guillemets (chaîne de caractères)} (doubles, simples, voire trois guillemets successifs doubles ou simples) afin d'indiquer à Python le début et la fin de la chaîne de caractères.
+\index{guillemets@guillemets (chaîne de caractères)}
+
+Python reconnaît certains types de variables automatiquement (entier, *float*). Par contre, pour une chaîne de caractères, il faut l'entourer de guillemets (doubles, simples, voire trois guillemets successifs doubles ou simples) afin d'indiquer à Python le début et la fin de la chaîne de caractères.
 
 Dans l'interpréteur, l'affichage direct du contenu d'une chaîne de caractères se fait avec des guillemets simples, quel que soit le type de guillemets utilisé pour définir la chaîne de caractères.
 
@@ -119,8 +139,10 @@ En Python, comme dans la plupart des langages de programmation, c'est le point q
 close-box-rem
 
 \index{booleen@booléen}
+\index{True}
+\index{False}
 
-Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` \index{True} et `False` \index{False} :
+Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` et `False :
 
 ```python
 >>> var = True
@@ -141,11 +163,15 @@ Le nom des variables en Python peut être constitué de lettres minuscules (`a` 
 
 Par ailleurs, un nom de variable ne doit pas débuter par un chiffre et il n'est pas recommandé de le faire débuter par le caractère `_` (sauf cas très particuliers).
 
-De plus, il faut absolument éviter d'utiliser un mot « réservé » par Python\index{mot reserve@mot réservé} comme nom de variable (par exemple : `print`, `range`, `for`, `from`, etc.).
+\index{mot reserve@mot réservé}
+
+De plus, il faut absolument éviter d'utiliser un mot « réservé » par Python comme nom de variable (par exemple : `print`, `range`, `for`, `from`, etc.).
 
 Dans la mesure du possible, il est conseillé de mettre des noms de variables explicites. Sauf dans de rares cas que nous expliquerons plus tard dans le cours, évitez les noms de variables à une lettre.
 
-Enfin, Python est sensible à la casse\index{casse@casse (nom de variable)}, ce qui signifie que les variables `TesT`, `test` et `TEST` sont différentes.
+\index{casse@casse (nom de variable)}
+
+Enfin, Python est sensible à la casse, ce qui signifie que les variables `TesT`, `test` et `TEST` sont différentes.
 
 
 ## Écriture scientifique
@@ -210,7 +236,9 @@ Les quatre opérations arithmétiques de base se font de manière simple sur les
 
 Remarquez toutefois que si vous mélangez les types entiers et *floats*, le résultat est renvoyé comme un *float* (car ce type est plus général). Par ailleurs, l'utilisation de parenthèses permet de gérer les priorités.
 
-L'opérateur\index{operateur@opérateur} `/` effectue une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
+\index{operateur@opérateur}
+
+L'opérateur `/` effectue une division. Contrairement aux opérateurs `+`, `-` et `*`, celui-ci renvoie systématiquement un *float* :
 
 ```python
 >>> 3 / 4
@@ -228,7 +256,10 @@ L'opérateur puissance utilise les symboles `**` :
 16
 ```
 
-Pour obtenir le quotient et le reste d'une division entière\index{division entiere@division entière} (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo\index{modulo@modulo (opérateur)} `%` :
+\index{division entiere@division entière}
+\index{modulo@modulo (opérateur)}
+
+Pour obtenir le quotient et le reste d'une division entière (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo `%` :
 
 ```python
 >>> 5 // 4
@@ -276,13 +307,19 @@ Pour les chaînes de caractères, deux opérations sont possibles, l'addition et
 'SalutSalutSalut'
 ```
 
-L'opérateur d'addition `+` concatène (assemble) deux chaînes de caractères. On parle de concaténation\index{concatenation@concaténation}.
+\index{concatenation@concaténation}
 
-L'opérateur de multiplication `*` entre un nombre entier et une chaîne de caractères duplique (répète) plusieurs fois une chaîne de caractères. On parle de duplication\index{duplication}.
+L'opérateur d'addition `+` concatène (assemble) deux chaînes de caractères. On parle de concaténation.
+
+\index{duplication}
+
+L'opérateur de multiplication `*` entre un nombre entier et une chaîne de caractères duplique (répète) plusieurs fois une chaîne de caractères. On parle de duplication.
 
 open-box-warn
 
-Vous observez que les opérateurs `+` et `*` se comportent différemment s'il s'agit d'entiers ou de chaînes de caractères. Ainsi, l'opération `2 + 2` est une addition alors que l'opération `"2" + "2"` est une concaténation. On appelle ce comportement **redéfinition des opérateurs** \index{redefinition operateur@redéfinition des opérateurs}. Nous serons amenés à revoir cette notion dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
+\index{redefinition operateur@redéfinition des opérateurs}
+ 
+Vous observez que les opérateurs `+` et `*` se comportent différemment s'il s'agit d'entiers ou de chaînes de caractères. Ainsi, l'opération `2 + 2` est une addition alors que l'opération `"2" + "2"` est une concaténation. On appelle ce comportement **redéfinition des opérateurs**. Nous serons amenés à revoir cette notion dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne).
 
 close-box-warn
 
@@ -307,7 +344,9 @@ Notez que Python vous donne des informations dans son message d'erreur. Dans le 
 
 ## La fonction `type()`
 
-Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type()`\index{type@type()} qui vous le rappellera.
+\index{type@type()}
+
+Si vous ne vous souvenez plus du type d'une variable, utilisez la fonction `type()` qui vous le rappellera.
 
 ```python
 >>> x = 2
@@ -335,8 +374,11 @@ close-box-warn
 ## Conversion de types
 
 \index{conversion type@conversion (de types)}
+\index{int@int()}
+\index{float@float()}
+\index{str@str()}
 
-En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`\index{int@int()}, `float()` \index{float@float()} et `str()`\index{str@str()}. Pour vous en convaincre, regardez ces exemples :
+En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`, `float()`  et `str()`. Pour vous en convaincre, regardez ces exemples :
 
 ```python
 >>> i = 3
@@ -354,23 +396,35 @@ En programmation, on est souvent amené à convertir les types, c'est-à-dire pa
 
 On verra au chapitre 7 *Fichiers* que ces conversions sont essentielles. En effet, lorsqu'on lit ou écrit des nombres dans un fichier, ils sont considérés comme du texte, donc des chaînes de caractères.
 
-Toute conversion d'une variable d'un type en un autre est appelé *casting*\index{casting} en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
+\index{casting} 
+
+Toute conversion d'une variable d'un type en un autre est appelé *casting* en anglais, il se peut que vous croisiez ce terme si vous consultez d'autres ressources.
 
 
 ## Note sur le vocabulaire et la syntaxe
 
-Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet**\index{objet} pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 23 *Avoir la classe avec les objets* (en ligne) ce que le mot « objet » signifie réellement (tout comme le mot « classe\index{classe} »).
+\index{objet}
+\index{classe}
 
-Par ailleurs, nous avons rencontré plusieurs fois des **fonctions**\index{fonction} dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
+Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet** pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 23 *Avoir la classe avec les objets* (en ligne) ce que le mot « objet » signifie réellement (tout comme le mot « classe »).
 
-Ce qui se trouve entre les parenthèses d'une fonction est appelé **argument**\index{argument@argument (passé à une fonction)} et c'est ce que l'on « passe » à la fonction. Dans l'instruction `type(2)`, c'est l'entier `2` qui est l'argument passé à la fonction `type()`. Pour l'instant, on retiendra qu'une fonction est une sorte de boîte à qui on passe un (ou plusieurs) argument(s), qui effectue une action et qui peut renvoyer un résultat ou plus généralement un objet. Par exemple, la fonction `type()` renvoie le type de la variable qu'on lui a passé en argument.
+\index{fonction}
+
+Par ailleurs, nous avons rencontré plusieurs fois des **fonctions** dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
+
+\index{argument@argument (passé à une fonction)}
+
+Ce qui se trouve entre les parenthèses d'une fonction est appelé **argument** et c'est ce que l'on « passe » à la fonction. Dans l'instruction `type(2)`, c'est l'entier `2` qui est l'argument passé à la fonction `type()`. Pour l'instant, on retiendra qu'une fonction est une sorte de boîte à qui on passe un (ou plusieurs) argument(s), qui effectue une action et qui peut renvoyer un résultat ou plus généralement un objet. Par exemple, la fonction `type()` renvoie le type de la variable qu'on lui a passé en argument.
 
 Si ces notions vous semblent obscures, ne vous inquiétez pas, au fur et à mesure que vous avancerez dans le cours, tout deviendra limpide.
 
 
 ## Minimum et maximum
 
-Python propose les fonctions `min()` \index{min@min()} et `max()` \index{max@max()} qui renvoient respectivement le minimum et le maximum de plusieurs entiers ou *floats* :
+\index{min@min()}
+\index{max@max()}
+
+Python propose les fonctions `min()` et `max()` qui renvoient respectivement le minimum et le maximum de plusieurs entiers ou *floats* :
 
 ```python
 >>> min(1, -2, 4)
