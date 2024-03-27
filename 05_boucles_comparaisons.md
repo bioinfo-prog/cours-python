@@ -103,7 +103,7 @@ singe
 ```
 
 On a vu que les boucles `for` pouvaient utiliser une liste contenant des chaînes de caractères, 
-mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou n'importe quel type de variable).
+mais elles peuvent tout aussi bien utiliser des listes contenant des entiers (ou n'importe quel type de variable) :
 
 ```python
 >>> for i in [1, 2, 3]:
@@ -208,7 +208,7 @@ L'animal 3 est un(e) souris
 
 \index{enumerate@enumerate()}
 
-Enfin, Python possède la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
+Enfin, Python possède la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes :
 
 ```python
 >>> animaux = ["girafe", "tigre", "singe", "souris"]
@@ -240,7 +240,7 @@ Python est capable d'effectuer toute une série de comparaisons entre le contenu
 |           `<`            | strictement inférieur à |
 |           `<=`           | inférieur ou égal à     |
 
-Observez les exemples suivants avec des nombres entiers.
+Observez les exemples suivants avec des nombres entiers :
 
 ```python
 >>> x = 5
