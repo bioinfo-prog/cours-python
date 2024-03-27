@@ -147,7 +147,7 @@ Les valeurs de hachage renvoyées par la fonction `hash()` de Python sont systé
 
 ### Conteneurs de type *range*
 
-\index{range@range (objets)}
+\index{range@range (type de variable)}
 
 Revenons rapidement sur les objets de type *range*. Jusqu'à maintenant, on s'en est servi pour faire des boucles ou générer des listes de nombres. Toutefois, on a vu ci-dessus qu'ils étaient aussi des conteneurs. Ils sont ordonnés, indexables, itérables, hachables et non modifiables.
 
