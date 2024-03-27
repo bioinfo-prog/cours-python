@@ -2,19 +2,21 @@
 
 ## Qu'est-ce que Python ?
 
-Le langage de programmation Python \index{Python} a été créé en 1989 par Guido van Rossum, aux Pays-Bas. Le nom *Python* vient d'un hommage à la série télévisée *Monty Python's Flying Circus* dont G. van Rossum est fan. La première version publique de ce langage a été publiée en 1991.
+Le langage de programmation Python a été créé en 1989 par Guido van Rossum, aux Pays-Bas. Le nom *Python* vient d'un hommage à la série télévisée *Monty Python's Flying Circus* dont G. van Rossum est fan. La première version publique de ce langage a été publiée en 1991.
 
 La dernière version de Python est la version 3. Plus précisément, la version 3.11 a été publiée en octobre 2022. La version 2 de Python est obsolète et n'est plus maintenue, évitez de l'utiliser.
 
 La [*Python Software Foundation*](https://www.python.org/psf/) est l'association qui organise le développement de Python et anime la communauté de développeurs et d'utilisateurs.
 
-Ce langage de programmation \index{langage de programmation} présente de nombreuses caractéristiques intéressantes :
+Ce langage de programmation présente de nombreuses caractéristiques intéressantes :
+
+\index{programmation orientee objet@programmation orientée objet}
 
 - Il est multiplateforme. C'est-à-dire qu'il fonctionne sur de nombreux systèmes d'exploitation : Windows, Mac OS X, Linux, Android, iOS, depuis les mini-ordinateurs Raspberry Pi jusqu'aux supercalculateurs.
 - Il est gratuit. Vous pouvez l'installer sur autant d'ordinateurs que vous voulez (même sur votre téléphone !).
 - C'est un langage de haut niveau. Il demande relativement peu de connaissance sur le fonctionnement d'un ordinateur pour être utilisé.
 - C'est un langage interprété. Un script Python n'a pas besoin d'être compilé pour être exécuté, contrairement à des langages comme le C ou le C++.
-- Il est orienté objet. C'est-à-dire qu'il est possible de concevoir en Python des entités qui miment celles du monde réel (une cellule, une protéine, un atome, etc.) avec un certain nombre de règles de fonctionnement et d'interactions. \index{programmation orientee objet@programmation orientée objet}
+- Il est orienté objet. C'est-à-dire qu'il est possible de concevoir en Python des entités qui miment celles du monde réel (une cellule, une protéine, un atome, etc.) avec un certain nombre de règles de fonctionnement et d'interactions.
 - Il est relativement *simple* à prendre en main[^footnote].
 - Enfin, il est très utilisé en bioinformatique et plus généralement en analyse de données.
 
@@ -39,7 +41,9 @@ Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en
 
 ### Miniconda
 
-Nous vous conseillons d'installer [Miniconda](https://conda.io/miniconda.html) \index{Miniconda}, 
+\index{Miniconda}
+
+Nous vous conseillons d'installer [Miniconda](https://conda.io/miniconda.html), 
 logiciel gratuit, disponible pour Windows, Mac OS X et Linux, et qui installera pour vous Python 3.
 
 Avec le gestionnaire de paquets *conda*, fourni avec Miniconda, vous pourrez installer des modules supplémentaires qui sont très utiles en bioinformatique (*NumPy*, *scipy*, *matplotlib*, *pandas*, *Biopython*), mais également Jupyter Lab qui vous permettra d'éditer des *notebooks* Jupyter. Vous trouverez en [ligne](https://python.sdv.u-paris.fr/livre-dunod) une documentation pas-à-pas pour installer Miniconda, Python 3 et les modules supplémentaires qui seront utilisés dans ce cours.
@@ -75,7 +79,9 @@ Par ailleurs, dans le cas de programmes, de contenus de fichiers ou de résultat
 
 ## Introduction au *shell*
 
-Un *shell* \index{shell} est un interpréteur de commandes interactif permettant d'interagir avec l'ordinateur. On utilisera le *shell* pour lancer l'interpréteur Python.
+\index{shell}
+
+Un *shell* est un interpréteur de commandes interactif permettant d'interagir avec l'ordinateur. On utilisera le *shell* pour lancer l'interpréteur Python.
 
 Pour approfondir la notion de *shell*, vous pouvez consulter les pages Wikipedia :
 
@@ -97,7 +103,9 @@ Python est un langage interprété, c'est-à-dire que chaque ligne de code est l
 
 `python`
 
-La commande précédente va lancer l'**interpréteur Python** \index{interpreteur@interpréteur (Python)}. Vous devriez obtenir quelque chose de ce style pour Windows :
+\index{interpreteur@interpréteur (Python)}
+
+La commande précédente va lancer l'**interpréteur Python**. Vous devriez obtenir quelque chose de ce style pour Windows :
 
 ```text
 PS C:\Users\pierre>python
@@ -130,11 +138,14 @@ Les blocs
 - `iMac-de-pierre:Downloads$` pour Mac OS X,
 - `pierre@jeera:~$` pour Linux.
 
-représentent l'invite de commande de votre *shell* \index{invite@invite (de commande)}. Il se peut que vous ayez aussi le mot `(base)` qui indique que vous avez un environnement conda activé. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
+\index{invite@invite (de commande)}
+
+représentent l'invite de commande de votre *shell*. Il se peut que vous ayez aussi le mot `(base)` qui indique que vous avez un environnement conda activé. Par la suite, cette invite de commande sera représentée simplement par le caractère `$`, que vous soyez sous Windows, Mac OS X ou Linux.
 
 \index{chevron}
+\index{prompt}
 
-Le triple chevron `>>>` est l'invite de commande (*prompt* \index{prompt} en anglais) de l'interpréteur Python. Ici, Python attend une commande que vous devez saisir au clavier.
+Le triple chevron `>>>` est l'invite de commande (*prompt* en anglais) de l'interpréteur Python. Ici, Python attend une commande que vous devez saisir au clavier.
 Tapez par exemple l'instruction :
 
 `print("Hello world!")`
@@ -168,8 +179,9 @@ résultat
 ```
 
 \index{chevron}
+\index{ligne longue@ligne longue (de code)}
 
-où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape au clavier, et l'absence de chevron en début de ligne correspond à la sortie (*output*) générée par Python. Une exception se présente toutefois : lorsqu'on a une longue ligne de code \index{ligne longue@ligne longue (de code)}, on peut la couper en deux avec le caractère `\` (*backslash*) pour des raisons de lisibilité :
+où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape au clavier, et l'absence de chevron en début de ligne correspond à la sortie (*output*) générée par Python. Une exception se présente toutefois : lorsqu'on a une longue ligne de code , on peut la couper en deux avec le caractère `\` (*backslash*) pour des raisons de lisibilité :
 
 ```python
 >>> Voici une longue ligne de code \
@@ -203,7 +215,9 @@ Ensuite, enregistrez votre fichier sous le nom `test.py`, puis quittez l'éditeu
 
 open-box-rem
 
-L'extension de fichier standard des scripts Python est `.py` \index{extension@extension (de nom de script Python)}.
+\index{extension@extension (de nom de script Python)}
+
+L'extension de fichier standard des scripts Python est `.py`.
 
 close-box-rem
 
@@ -222,8 +236,10 @@ Si c'est bien le cas, bravo ! Vous avez exécuté votre premier programme Python
 
 ## Commentaires
 
+\index{commentaire}
+
 Dans un script, tout ce qui suit le caractère `#` est ignoré par Python
-jusqu'à la fin de la ligne et est considéré comme un commentaire \index{commentaire}.
+jusqu'à la fin de la ligne et est considéré comme un commentaire.
 
 Les commentaires doivent expliquer votre code dans un langage humain.
 L'utilisation des commentaires est rediscutée dans le chapitre 16 *Bonnes pratiques en programmation Python*.
@@ -239,7 +255,9 @@ print("Hello world!")
 
 open-box-rem
 
-On appelle souvent à tort le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe))~» \index{croisillon}.
+\index{croisillon}
+
+On appelle souvent à tort le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe))~».
 
 close-box-rem
 
