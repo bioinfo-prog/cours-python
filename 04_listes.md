@@ -4,7 +4,10 @@
 
 open-box-def
 
-Une **liste** \index{liste} est une structure de données qui contient une collection d'objets Python. Il s'agit d'un nouveau type par rapport aux entiers, *float*, booléens et chaînes de caractères que nous avons vus jusqu'à maintenant. On parle aussi d'**objet séquentiel** \index{objet sequentiel@objet séquentiel} en ce sens qu'il contient une séquence d'autres objets.
+\index{liste (type de variable)} 
+\index{objet sequentiel@objet séquentiel}
+
+Une **liste** est une structure de données qui contient une collection d'objets Python. Il s'agit d'un nouveau type par rapport aux entiers, *float*, booléens et chaînes de caractères que nous avons vus jusqu'à maintenant. On parle aussi d'**objet séquentiel** en ce sens qu'il contient une séquence d'autres objets.
 
 close-box-def
 
@@ -27,7 +30,9 @@ Lorsque l'on affiche une liste, Python la restitue telle qu'elle a été saisie.
 
 ## Utilisation
 
-Un des gros avantages d'une liste est que vous accédez à ses éléments par leur position. Ce numéro est appelé **indice** (ou *index*) de la liste \index{indice@indice (d'une liste)}.
+\index{indice@indice (d'une liste)}
+
+Un des gros avantages d'une liste est que vous accédez à ses éléments par leur position. Ce numéro est appelé **indice** (ou *index*) de la liste.
 
 ```text
 liste  : ["girafe", "tigre", "singe", "souris"]
@@ -60,7 +65,10 @@ N'oubliez pas ceci ou vous risquez d'obtenir des bugs inattendus !
 
 ## Opération sur les listes
 
-Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de concaténation \index{concatenation@concaténation}, ainsi que l'opérateur `*` pour la duplication \index{duplication}:
+\index{concatenation@concaténation}
+\index{duplication}
+
+Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de concaténation, ainsi que l'opérateur `*` pour la duplication :
 
 ```python
 >>> ani1 = ["girafe", "tigre"]
@@ -111,7 +119,9 @@ puis avec la méthode `.append()` :
 [15, -5, 13, -3]
 ```
 
-Dans cet exemple, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()` \index{append@.append()}. 
+\index{append@.append()}
+
+Dans cet exemple, nous ajoutons des éléments à une liste en utilisant l'opérateur de concaténation `+` ou la méthode `.append()`. 
 
 open-box-adv
 
@@ -124,7 +134,9 @@ Nous reverrons en détail la méthode `.append()` dans le chapitre 12 *Plus sur 
 
 ## Indiçage négatif
 
-La liste peut également être indexée avec des nombres négatifs selon le modèle suivant \index{indice negatif@indice négatif (d'une liste)} :
+\index{indice negatif@indice négatif (d'une liste)}
+
+La liste peut également être indexée avec des nombres négatifs selon le modèle suivant :
 
 ```text
 liste          : ["girafe", "tigre", "singe", "souris"]
@@ -223,8 +235,8 @@ L'instruction `len()` vous permet de connaître la longueur d'une liste, c'est-�
 
 ## Les fonctions `range()` et `list()`
 
-\index{len@range()}
-\index{len@list()}
+\index{range@range()}
+\index{list@list()}
 
 L'instruction `range()` est une fonction spéciale en Python qui génère des nombres entiers compris dans un intervalle. Lorsqu'elle est utilisée en combinaison avec la fonction `list()`, on obtient une liste d'entiers. Par exemple :
 
@@ -301,7 +313,11 @@ On verra un peu plus loin qu'il existe en Python des dictionnaires qui sont éga
 
 ## Minimum, maximum et somme d'une liste
 
-Les fonctions `min()` \index{min@min()}, `max()` \index{max@max()} et `sum()` \index{sum@sum()} renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument.
+\index{min@min()}
+\index{max@max()}
+\index{sum@sum()}
+
+Les fonctions `min()`, `max()` et `sum()` renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument.
 
 ```python
 >>> liste1 = list(range(10))
@@ -380,7 +396,9 @@ close-box-warn
 
 ## Note sur le vocabulaire et la syntaxe
 
-Revenons quelques instants sur la notion de **méthode** \index{methode@méthode} abordée dans ce chapitre avec `.append()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est de la forme `objet.méthode()`.
+\index{methode@méthode}
+
+Revenons quelques instants sur la notion de **méthode** abordée dans ce chapitre avec `.append()`. En Python, on peut considérer chaque variable comme un objet sur lequel on peut appliquer des méthodes. Une méthode est simplement une fonction qui utilise et/ou agit sur l'objet lui-même, les deux étant connectés par un point. La syntaxe générale est de la forme `objet.méthode()`.
 
 Dans l'exemple suivant :
 
