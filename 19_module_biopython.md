@@ -396,7 +396,7 @@ En utilisant la méthode `Entrez.esearch()`, récupérez tous les PMID relatifs 
 
 En utilisant maintenant la méthode `Entrez.esummary()` dans une boucle, récupérez la date de publication de chaque article. Stockez l'année sous forme d'un nombre entier dans la liste `years`. Cette étape peut prendre une dizaine de minutes, soyez patient. Vous pouvez afficher dans votre boucle un message qui indique où vous en êtes dans la récupération des articles.
 
-À la fin, vérifiez que votre liste `years` contient bien autant d'éléments que la liste `pmids`.
+Vérifiez que votre liste `years` contient bien autant d'éléments que la liste `pmids` à la fin.
 
 Calculez maintenant le nombre de publications par année. Vous créerez pour cela un dictionnaire `freq` qui aura pour clé les années (oui, une clé de dictionnaire peut aussi être un entier) et pour valeur le nombre de publications associées à une année donnée.
 
