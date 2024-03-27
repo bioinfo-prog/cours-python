@@ -544,12 +544,12 @@ La méthode `.is_file()` renvoie `True` si l'objet est un fichier, et `False` si
 La méthode `.iterdir()` parcourt le contenu d'un répertoire, sans en explorer les éventuels sous-répertoires. Si on souhaite parcourir récursivement un répertoire, on utilise la méthode `.glob()`. Prenons l'arborescence suivante comme exemple :
 
 ```text
-├── 1BTA.pdb
-├── demo.py
-└── tests
-    ├── results.csv
-    ├── script1.py
-    └── script2.py
+1BTA.pdb
+demo.py
+tests
+  ├── results.csv
+  ├── script1.py
+  └── script2.py
 ```
 
 Le répertoire courant contient les fichiers `1BTA.pdb` et `demo.py`, ainsi que le répertoire `tests`. Ce dernier contient lui-même les fichiers `results.csv`, `script1.py` et `script2.py`.
