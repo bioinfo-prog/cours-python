@@ -479,7 +479,7 @@ Si tous ces tests ont bien fonctionné, bravo, vous avez installé correctement 
 
 open-box-adv
 
-Pour les débutants, vous pouvez passer cette rubrique.
+Si vous êtes débutant, vous pouvez sauter cette rubrique.
 
 close-box-adv
 

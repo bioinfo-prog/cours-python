@@ -57,7 +57,7 @@ Un exemple de fonction *callback* est présenté dans la rubrique suivante.
 
 open-box-adv
 
-Pour les débutants, vous pouvez passer cette rubrique.
+Si vous êtes débutant, vous pouvez sauter cette rubrique.
 
 close-box-adv
 
@@ -505,7 +505,13 @@ Pour plus d'informations, vous pouvez consulter la [documentation officielle de 
 
 ### Autres pistes à approfondir
 
-Si vous souhaitez aller un peu plus loin en *Tkinter*, voici quelques notions / remarques qui pourraient vous être utiles. Pour les débutants, vous pouvez passer cette rubrique.
+Si vous souhaitez aller un peu plus loin en *Tkinter*, voici quelques notions / remarques qui pourraient vous être utiles. 
+
+open-box-adv
+
+Si vous êtes débutant, vous pouvez sauter cette rubrique.
+
+close-box-adv
 
 #### Les variables de contrôle
 

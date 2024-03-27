@@ -271,7 +271,7 @@ La variation avec `not` permet, *a contrario*, de vérifier qu'un élément n'es
 
 open-box-adv
 
-Pour les débutants, vous pouvez passer cette rubrique.
+Si vous êtes débutant, vous pouvez sauter cette rubrique.
 
 close-box-adv
 
@@ -489,7 +489,7 @@ close-box-warn
 
 open-box-adv
 
-Pour les débutants, vous pouvez passer cette rubrique.
+Si vous êtes débutant, vous pouvez sauter cette rubrique.
 
 close-box-adv
 

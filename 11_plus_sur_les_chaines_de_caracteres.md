@@ -382,7 +382,7 @@ close-box-rem
 
 open-box-adv
 
-Pour les débutants, vous pouvez passer cette rubrique.
+Si vous êtes débutant, vous pouvez sauter cette rubrique.
 
 close-box-adv
 
