@@ -1,5 +1,11 @@
 # Avoir la classe avec les objets
 
+\index{programmation orientee objet@programmation orientée objet}
+\index{objet}
+\index{classe}
+\index{instance}
+\index{methode@méthode}
+
 La programmation orientée objet (POO) est un concept de programmation très puissant qui permet de structurer ses programmes d'une manière nouvelle. En POO, on définit un « objet » qui peut contenir des « attributs » ainsi que des « méthodes » qui agissent sur lui-même. Par exemple, on définit un objet « citron » qui contient les attributs « saveur » et « couleur », ainsi qu'une méthode « presser » permettant d'en extraire le jus. En Python, on utilise une « classe » pour construire un objet. Dans notre exemple, la classe correspondrait au « moule » utilisé pour construire autant d'objets citrons que nécessaire.
 
 open-box-def
@@ -9,6 +15,8 @@ Une **classe** définit des **objets**, qui sont des **instances** (des représe
 close-box-def
 
 Dans les chapitres précédents, nous avons déjà mentionné qu'en Python tout est objet. Une variable de type *int* est en fait un objet de type *int*, donc construit à partir de la classe *int*. Même chose pour les *float* et *string*, mais aussi pour les *list*, *tuple*, *dict*, etc. Voilà pourquoi nous avons rencontré de nombreuses notations et mots de vocabulaire associés à la POO depuis le début de ce cours.
+
+\index{espace de noms}
 
 La POO permet de produire du code plus compact et plus facilement réutilisable. L'utilisation de classes évite l'utilisation de variables globales en créant ce qu'on appelle un *espace de noms*, propre à chaque objet et permettant d'y *encapsuler* des attributs et des méthodes. De plus, la POO amène de nouveaux concepts tels que le *polymorphisme* (capacité à redéfinir le comportement des opérateurs), ou bien encore l'*héritage* (capacité à définir une classe à partir d'une classe pré-existante et d'y ajouter de nouvelles fonctionnalités). Tous ces concepts seront définis dans ce chapitre.
 
@@ -27,7 +35,11 @@ Nous allons voir dans cette rubrique comment définir une classe en reprenant no
 
 ### La classe minimale
 
+\index{class@class (instruction)}
+
 En Python, le mot-clé `class` permet de créer sa propre classe, suivi du nom de cette classe. On se souvient, un nom de classe commence toujours par une majuscule (voir le chapitre 16 *Bonnes pratiques en programmation Python*). Comme d'habitude, cette ligne attend un bloc d'instructions indenté définissant le corps de la classe. Voyons un exemple simple dans l'interpréteur :
+
+\index{pass@pass (instruction)}
 
 ```python
 >>> class Citron:
@@ -64,6 +76,8 @@ True
 
 ### Ajout d'un attribut d'instance
 
+\index{attribut instance@attribut d'instance}
+
 Reprenons notre classe `Citron` et l'instance `citron1` créée précédemment. Regardons les attributs et méthodes que cet objet possède, puis tentons de lui ajouter un attribut  :
 
 ```python
@@ -83,6 +97,8 @@ Reprenons notre classe `Citron` et l'instance `citron1` créée précédemment. 
 **Lignes 4 à 5.** La fonction `dir()` nous montre que l'attribut `.couleur` a bien été ajouté à l'objet.
 
 **Lignes 6.** La notation `instance.attribut` donne accès à l'attribut de l'objet.
+
+\index{dict@.__dict__}
 
 L'attribut nommé `.__dict__` est particulièrement intéressant. Il s'agit d'un dictionnaire qui listera les attributs créés dynamiquement dans l'instance en cours :
 
@@ -116,6 +132,8 @@ Une **variable** ou **attribut d'instance** est une variable accrochée à une i
 
 close-box-def
 
+\index{del@del (instruction)}
+
 L'instruction `del` fonctionne bien sûr pour détruire un objet (par exemple : 
 `del citron1`), mais permet également de détruire un attribut d'instance. Si on reprend notre exemple `citron1` ci-dessus :
 
@@ -131,6 +149,8 @@ Dans la suite, on montrera du code à tester dans un script : n'hésitez pas, co
 
 
 ### Les attributs de classe
+
+\index{attribut de classe}
 
 Si on ajoute une variable dans une classe comme on créait une variable locale dans une fonction, on crée ce qu'on appelle un attribut de classe :
 
@@ -186,6 +206,8 @@ close-box-warn
 
 ### Les méthodes
 
+\index{methode@méthode}
+
 Dans notre classe, on pourra aussi ajouter des fonctions.
 
 open-box-def
@@ -229,6 +251,8 @@ Vous l'aurez deviné, ce code affichera `acide` à l'écran. Comme pour les fonc
 
 
 ### Le constructeur
+
+\index{constructeur@constructeur (d'une classe)}
 
 Lors de l'instanciation d'un objet à partir d'une classe, il peut être intéressant de lancer des instructions, comme par exemple, d'initialiser certaines variables. Pour cela, on ajoute une méthode spéciale nommée `.__init__()` : cette méthode s'appelle le « constructeur~» de la classe. Il s'agit d'une méthode spéciale dont le nom est entouré de doubles *underscores* : en effet, elle sert au fonctionnement interne de notre classe et, sauf cas extrêmement rare, elle n'est pas supposée être lancée comme une fonction classique par l'utilisateur de la classe. Ce constructeur est exécuté à chaque instanciation de notre classe, et ne renvoie pas de valeur, il ne possède donc pas de `return`.
 
@@ -309,6 +333,8 @@ citron2: {'masse': 150, 'couleur': 'blanc'}
 
 
 ### Mieux comprendre le rôle du `self`
+
+\index{self}
 
 Cette rubrique va nous aider à mieux comprendre le rôle du `self` à travers quelques exemples simples. Regardons le code suivant dans lequel nous créons une nouvelle méthode `.affiche_attributs()`:
 
