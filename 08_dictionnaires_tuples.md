@@ -6,7 +6,7 @@ Dans ce chapitre, nous allons voir deux nouveaux types d'objet qui s'avèrent ex
 
 ### Définition et fonctionnement
 
-\index{dictionnaire}
+\index{dictionnaire (type de variable)}
 \index{cle@clé (dictionnaire)}
 \index{valeur@valeur (dictionnaire)}
 
@@ -260,12 +260,14 @@ Vous constatez ainsi que les dictionnaires permettent de gérer des structures c
 
 ### Définition
 
-\index{tuple}
+\index{tuple (type de variable)}
 \index{immutabilite@immutabilité}
 
 open-box-def
 
-Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** \index{objet sequentiel@objet séquentiel} correspondant aux listes, mais ils sont toutefois **non modifiables**. On dit aussi qu'ils sont **immuables**. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
+\index{objet sequentiel@objet séquentiel}
+
+Les **tuples** (« n-uplets » en français) sont des **objets séquentiels** correspondant aux listes, mais ils sont toutefois **non modifiables**. On dit aussi qu'ils sont **immuables**. Vous verrez ci-dessous que nous les avons déjà croisés à plusieurs reprises !
 
 close-box-def
 
