@@ -836,7 +836,7 @@ Lignes 6 à 10. On définit deux méthodes *getters* pour accéder à chaque att
 
 Lignes 12 à 18. On définit deux méthodes *setters* pour modifier chaque attribut. Notez qu'en ligne 16 nous testons si la masse est négative, si tel est le cas nous générons une erreur avec le mot-clé `raise` (voir le chapitre 26 *Remarques complémentaires* (en ligne)). Ceci représente un des avantages des *setters* : contrôler la validité des attributs (on pourrait aussi vérifier qu'il s'agit d'un entier, etc.).
 
-Lignes 22 à 28. Après instanciation, on affiche la valeur des attributs avec les deux fonctions *getters*, puis on les modifie avec les *setters* et on les réaffiche à nouveau.
+Lignes 22 à 28. Après instanciation, on affiche la valeur des attributs avec les deux fonctions *getters*, puis on les modifie avec les *setters* et on les affiche à nouveau.
 
 L'exécution de ce code donnera la sortie suivante :
 
@@ -857,9 +857,9 @@ Traceback (most recent call last):
 ValueError: Z'avez déjà vu une masse négative ???
 ```
 
-La fonction interne `raise` nous a permis de générer une erreur car l'utilisateur de la classe (c'est-à-dire nous dans le programme principal) n'a pas rentré une valeur correcte.
+La fonction interne `raise` nous a permis de générer une erreur, car l'utilisateur de la classe (c'est-à-dire nous dans le programme principal) n'a pas rentré une valeur correcte.
 
-On comprend bien l'utilité d'une stratégie avec des *getters* et *setters* dans cet exemple. Toutefois, en Python, on peut très bien accéder et modifier les attributs même si on a des *getters* et des *setters* dans la classe. Imaginons la même classe `Citron` que ci-dessus, mais on utilise le programme principal suivant (notez que nous avons simplement ajouter les lignes 9 à 12 ci-dessous) :
+On comprend bien l'utilité d'une stratégie avec des *getters* et *setters* dans cet exemple. Toutefois, en Python, on peut très bien accéder et modifier les attributs même si on a des *getters* et des *setters* dans la classe. Imaginons la même classe `Citron` que ci-dessus, mais on utilise le programme principal suivant (notez que nous avons simplement ajouté les lignes 9 à 12 ci-dessous) :
 
 ```python
 if __name__ == "__main__":
@@ -886,7 +886,7 @@ pourpre profond -15
 
 Malgré la présence des *getters* et des *setters*, nous avons réussi à accéder et à modifier la valeur des attributs. De plus, nous avons pu mettre une valeur aberrante (masse négative) sans que cela ne génère une erreur !
 
-Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt de mettre des *getters* et des *setters* en Python ? La réponse est très simple : cette  stratégie n'est pas une manière « pythonique » d'opérer (voir le chapitre 16 *Bonnes pratiques en programmation Python* pour la définition de « pythonique »). En Python, la lisibilité est la priorité. Souvenez-vous du Zen de Python « *Readability counts* » (voir le chapitre 16).
+Vous vous posez sans doute la question : mais dans ce cas, quel est l'intérêt de mettre des *getters* et des *setters* en Python ? La réponse est très simple : cette stratégie n'est pas une manière « pythonique » d'opérer (voir le chapitre 16 *Bonnes pratiques en programmation Python* pour la définition de « pythonique »). En Python, la lisibilité est la priorité. Souvenez-vous du Zen de Python « *Readability counts* » (voir le chapitre 16).
 
 De manière générale, une syntaxe avec des *getters* et *setters* du côté client surcharge la lecture. Imaginons que l'on ait une instance nommée `obj` et que l'on souhaite faire la somme de ses trois attributs `x`, `y` et `z` :
 
@@ -900,7 +900,7 @@ obj.get_x() + obj.get_y() + obj.get_z()
 
 La méthode pythonique est plus « douce » à lire, on parle aussi de *syntactic sugar* ou littéralement en français « *sucre syntaxique* ». De plus, à l'intérieur de la classe, il faut définir un *getter* et un *setter* pour chaque attribut, ce qui multiple les lignes de code.
 
-Très bien. Donc en Python, on n'utilise pas comme dans les autres langages orientés objet les *getters* et les *setters*  ? Mais, tout de même, cela avait l'air une bonne idée de pouvoir contrôler comment un utilisateur de la classe interagit avec certains attributs (par exemple, rentre-t-il une bonne valeur ?). N'existe-t-il pas un moyen de faire ça en Python ? La réponse est : bien sûr il existe un moyen pythonique, la classe `property`. Nous allons voir cette nouvelle classe dans la prochaine rubrique et nous vous dirons comment opérer systématiquement pour accéder, modifier, voire détruire, chaque attribut d'instance de votre classe.
+Très bien. Donc en Python, on n'utilise pas comme dans les autres langages orientés objet les *getters* et les *setters* ? Mais, tout de même, cela avait l'air une bonne idée de pouvoir contrôler comment un utilisateur de la classe interagit avec certains attributs (par exemple, rentre-t-il une bonne valeur ?). N'existe-t-il pas un moyen de faire ça en Python ? La réponse est : bien sûr il existe un moyen pythonique, la classe `property`. Nous allons voir cette nouvelle classe dans la prochaine rubrique et nous vous dirons comment opérer systématiquement pour accéder, modifier, voire détruire, chaque attribut d'instance de votre classe.
 
 ### La solution : la classe `property`
 
@@ -920,7 +920,7 @@ Les arguments passés à `property()` sont systématiquement des méthodes dites
 - L'instruction `del instance.attribut` appellera la méthode  
 `.destructeur()`.
 
-L'objet `attribut` est de type *property*, et la vraie valeur de l'attribut est stockée par Python dans une variable d'instance qui s'appellera par exemple `_attribut` (même nom mais commençant par un *underscore* unique, envoyant un message à l'utilisateur qu'il s'agit d'une variable associée au comportement interne de la classe).
+L'objet `attribut` est de type *property*, et la vraie valeur de l'attribut est stockée par Python dans une variable d'instance qui s'appellera par exemple `_attribut` (même nom, mais commençant par un *underscore* unique, envoyant un message à l'utilisateur qu'il s'agit d'une variable associée au comportement interne de la classe).
 
 Comment cela fonctionne-t-il concrètement dans un code ? Regardons cet exemple (nous avons mis des `print()` un peu partout pour bien comprendre ce qui se passe) :
 
@@ -973,7 +973,7 @@ Lignes 6 à 15. Dans les méthodes accesseur et mutateur, on utilise la variable
 
 open-box-warn
 
-Dans les méthodes accesseur et mutateur il ne faut surtout pas utiliser `self.masse` à la place de `self._masse`. Pourquoi ? Par exemple, dans l'accesseur, si on met `self.masse` cela signifie que l'on souhaite accéder à la valeur de l'attribut (comme dans le constructeur !). Ainsi, Python rappellera l'accesseur et retombera sur `self.masse`, ce qui rappellera l'accesseur et ainsi de suite : vous l'aurez compris, cela partira dans une récursion infinie et mènera à une erreur du type `RecursionError: maximum recursion depth exceeded`. Cela serait vrai aussi si vous aviez une fonction destructeur, il faudrait utiliser `self._masse`).
+Dans les méthodes accesseur et mutateur, il ne faut surtout pas utiliser `self.masse` à la place de `self._masse`. Pourquoi ? Par exemple, dans l'accesseur, si on met `self.masse` cela signifie que l'on souhaite accéder à la valeur de l'attribut (comme dans le constructeur !). Ainsi, Python rappellera l'accesseur et retombera sur `self.masse`, ce qui rappellera l'accesseur et ainsi de suite : vous l'aurez compris, cela partira dans une récursion infinie et mènera à une erreur du type `RecursionError: maximum recursion depth exceeded`. Cela serait vrai aussi si vous aviez une fonction destructeur, il faudrait utiliser `self._masse`.
 
 close-box-warn
 
@@ -1030,7 +1030,7 @@ Certains langages orientés objet mettent en place des attributs dits *privés* 
 
 open-box-warn
 
-En Python, il n'existe pas d'attributs privés comme dans d'autres langages orientés objet. L'utilisateur a accès à tous les attributs quels qu'ils soient, même s'ils contiennent un ou plusieurs caractère(s) *underscore(s)* (cf. ci-desssous) !
+En Python, il n'existe pas d'attributs privés comme dans d'autres langages orientés objet. L'utilisateur a accès à tous les attributs quels qu'ils soient, même s'ils contiennent un ou plusieurs caractère(s) *underscore(s)* (voir ci-dessous) !
 
 close-box-warn
 
@@ -1148,7 +1148,7 @@ Ce code affiche `100` puis `200`. La ligne 12 a permis d'accéder à l'attribut 
 
 Le *name mangling* n'est donc pas un mécanisme de « protection » d'un attribut, il n'a pas été conçu pour ça. Les concepteurs de Python le disent clairement dans la PEP 8: « *Generally, double leading underscores should be used only to avoid name conflicts with attributes in classes designed to be subclassed* ».
 
-Donc en Python, on peut tout détruire, même les attributs délicats contenant des *underscores*. Pourquoi Python permet-il un tel paradoxe ? Et bien selon le concepteur Guido van Rossum : « *We’re all consenting adults here* », nous sommes ici entre adultes, autrement dit nous savons ce que nous faisons !
+Donc en Python, on peut tout détruire, même les attributs délicats contenant des *underscores*. Pourquoi Python permet-il un tel paradoxe ? Selon le concepteur de Python, Guido van Rossum : « *We’re all consenting adults here* », nous sommes ici entre adultes, autrement dit nous savons ce que nous faisons !
 
 open-box-adv
 
@@ -1225,7 +1225,7 @@ class Citron(builtins.object)
  |  saveur = 'acide'
 ```
 
-Python formate automatiquement l'aide comme il le fait avec les modules (voir chapitre 15 *Création de modules*). Comme nous l'avons dit dans le chapitre 16 *Bonnes pratiques en programmation Python*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elle doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
+Python formate automatiquement l'aide comme il le fait avec les modules (voir chapitre 15 *Création de modules*). Comme nous l'avons dit dans le chapitre 16 *Bonnes pratiques en programmation Python*, n'oubliez pas que les *docstrings* sont destinées aux utilisateurs de votre classe. Elles doivent donc contenir tout ce dont un utilisateur a besoin pour comprendre ce que fait la classe et comment l'utiliser.
 
 Notez que si on instancie la classe `citron1 = Citron()` et qu'on invoque l'aide sur l'instance `help(citron1)`, on obtient la même page d'aide. Comme pour les modules, si on invoque l'aide pour une méthode de la classe  
 `help(citron1.affiche_coucou)`, on obtient l'aide pour cette méthode seulement.
@@ -1268,10 +1268,10 @@ Si vous créez des instances sans passer d'argument lors de l'instanciation, tou
         liste = []
 	```
 
-Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souvenez vous, la modification des attributs de classe doit se faire par une syntaxe `Citron.attribut = valeur` (et non pas via les instances).
+Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souvenez-vous, la modification des attributs de classe doit se faire par une syntaxe `Citron.attribut = valeur` (et non pas via les instances).
 
-- Comme abordé dans la rubrique *Différence entre les attributs de classe et d'instance*, nous vous conseillons de ne jamais modifier les attributs de classe. Vous pouvez néanmois les utiliser comme constantes.
-- Si vous avez besoin d'attributs modifiables, utilisez des attributs d'instance et initialisez les dans la méthode `.__init__()` (et nulle part ailleurs). Par exemple, si vous avez besoin d'une liste comme attribut, créez la plutôt dans le constructeur :
+- Comme abordé dans la rubrique *Différence entre les attributs de classe et d'instance*, nous vous conseillons de ne jamais modifier les attributs de classe. Vous pouvez néanmoins les utiliser comme constantes.
+- Si vous avez besoin d'attributs modifiables, utilisez des attributs d'instance et initialisez-les dans la méthode `.__init__()` (et nulle part ailleurs). Par exemple, si vous avez besoin d'une liste comme attribut, créez la plutôt dans le constructeur :
 
 	```python
 	class Citron:
@@ -1283,7 +1283,7 @@ Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
 ### Pour finir, les *namedtuples*
 
-Imaginons que l'on souhaite stocker des éléments dans un conteneur, que l'on puisse retrouver ces éléments avec une syntaxe `conteneur.element` et que ces éléments soit non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, il n'est pas conseillé de les utiliser comme des conteneurs inertes, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de conteneur est issu du très utile module *collections* que nous avions évoqué dans le chapitre 14 *Conteneurs*.
+Imaginons que l'on souhaite stocker des éléments dans un conteneur, que l'on puisse retrouver ces éléments avec une syntaxe `conteneur.element` et que ces éléments soient non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, il n'est pas conseillé de les utiliser comme des conteneurs inertes, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de conteneur est issu du module *collections* que nous avions évoqué dans le chapitre 14 *Conteneurs*.
 
 ```python
 >>> import collections
@@ -1333,14 +1333,15 @@ Lignes 9 à 15. Les *namedtuples* sont itérables.
 
 Un *namedtuple* est non modifiable, mais on peut en générer un nouveau avec la méthode `._replace()`, à l'image de la méthode `.replace()` pour les chaînes de caractères :
 
-```
+```python
 >>> citron._replace(masse=30)
 Citron(masse=30, couleur='jaune', saveur='acide', forme='ellipsoide')
 >>> citron
 Citron(masse=10, couleur='jaune', saveur='acide', forme='ellipsoide')
 >>> citron = citron._replace(masse=30)
 >>> citron
-Citron(masse=30, couleur='jaune', saveur='acide', forme='ellipsoide')```
+Citron(masse=30, couleur='jaune', saveur='acide', forme='ellipsoide')
+```
 
 Lignes 1 et 2. On crée un nouveau *namedtuples* avec la méthode `._replace()`. Notez qu'il faut passer un (ou plusieurs) argument(s) par mot-clé à cette méthode désignant les attributs à modifier.
 
@@ -1350,12 +1351,12 @@ Lignes 5 à 7. En ré-affectant ce que renvoie la méthode `._replace()` dans da
 
 Enfin, il est possible de convertir un *namedtuple* en dictionnaire (ordonné) avec la méthode `._asdict()` :
 
-```
+```python
 >>> citron._asdict()
 OrderedDict([('masse', 10), ('couleur', 'jaune'), ('saveur', 'acide'), ('forme', 'ellipsoide')])
 ```
 
-Quand utiliser les *namedtuples* ? Vous souvenez-vous de la différence entre les listes et les dictionnaires ? Et bien là c'est un peu la même chose entre les *tuples* et les *namedtuples*. Les *namedtuples* permettent de créer un code plus lisible en remplaçant des numéros d'indice par des noms. Le fait qu'ils soient non modifiables peut aussi avoir un avantage par rapport à l'intégrité des données. Si vous trouvez les *namedtuples* limités, sachez que vous pouvez créer votre propre classe qui hérite d'un *namedtuple* afin de lui ajouter de nouvelles méthodes « maison ».
+Quand utiliser les *namedtuples* ? Vous souvenez-vous de la différence entre les listes et les dictionnaires ? Ici, c'est un peu la même chose entre les *tuples* et les *namedtuples*. Les *namedtuples* permettent de créer un code plus lisible en remplaçant des numéros d'indice par des noms. Le fait qu'ils soient non modifiables peut aussi avoir un avantage par rapport à l'intégrité des données. Si vous trouvez les *namedtuples* limités, sachez que vous pouvez créer votre propre classe qui hérite d'un *namedtuple* afin de lui ajouter de nouvelles méthodes « maison ».
 
 open-box-more
 
