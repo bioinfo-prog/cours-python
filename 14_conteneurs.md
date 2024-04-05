@@ -673,8 +673,8 @@ La fonction interne à Python `set()` convertit un objet itérable passé en arg
 {'clé_1', 'clé_2'}
 >>> set(["ti", "to", "to"])
 {'ti', 'to'}
->>> set("Maître corbeau sur un arbre perché")
-{'h', 'u', 'o', 'b', ' ', 'M', 'a', 'p', 'n', 'e', 'é', 'c', 'î', 's', 't', 'r'}
+>>> set("Maître Corbeau et Maître Renard")
+{'e', 'd', 'M', 'r', 'n', 't', 'a', 'C', 'î', ' ', 'o', 'u', 'R', 'b'}
 ```
 
 Nous avons dit plus haut que les *sets* ne sont ni ordonnés ni indexables, il est donc impossible de récupérer un élément par sa position. Il est également impossible de modifier un de ses éléments par l'indexation.
