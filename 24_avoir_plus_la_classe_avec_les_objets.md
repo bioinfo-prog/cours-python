@@ -747,6 +747,7 @@ Regardons l'exemple suivant illustrant cela :
 class Citron:
     saveur = "acide"
 
+
 if __name__ == "__main__":
     citron1 = Citron()
     print(citron1.saveur)
