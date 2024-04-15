@@ -25,10 +25,10 @@ def calc_somme_nb_pairs(debut, fin):
         
 # Programme principal.
 somme = calc_somme_nb_pairs(1, 5)
-print(f"La somme des nombres de 1 à 5 est {somme}")
+print(f"La somme des nombres pairs de 1 à 5 est {somme}")
 ```
 
-Nous appelons depuis le programme principal la fonction `calc_somme_nb_pairs()`, puis à l'intérieur de celle-ci nous appelons l'autre fonction `est_pair()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `calc_somme_nb_pairs()` est exécutée dans la Figure @fig:appel_fct_ds_fct.
+Nous appelons la fonction `calc_somme_nb_pairs()` depuis le programme principal, puis à l'intérieur de celle-ci nous appelons l'autre fonction `est_pair()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `calc_somme_nb_pairs()` est exécutée dans la Figure @fig:appel_fct_ds_fct.
 
 ![Appel d'une fonction dans une fonction.](img/appel_fct_ds_fct.png){ #fig:appel_fct_ds_fct width=90% }
 

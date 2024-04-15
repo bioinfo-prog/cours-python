@@ -428,7 +428,7 @@ Dans les deux cas, `x` vaudra `1`, `y` vaudra `2` et  `z` vaudra `3`.
 
 open-box-adv
 
-La syntaxe `x, y, z = t` pour désempaqueter un tuple est plus élégante, plus lisible et plus compacte. Elle sera donc à privilégier.
+La syntaxe `x, y, z = tuple1` pour désempaqueter un tuple est plus élégante, plus lisible et plus compacte. Elle sera donc à privilégier.
 
 close-box-adv
 

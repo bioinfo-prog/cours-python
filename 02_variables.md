@@ -77,7 +77,7 @@ Voici d'autres cas de figures que vous rencontrerez avec l'opérateur `=` :
 
 **Ligne 2**. Ici on a un nom de variable à gauche et à droite de l'opérateur `=`. Dans ce cas, on garde la règle d'aller toujous de la droite vers la gauche. C'est donc le contenu de la variable `y` qui est affecté à la variable `x`.
 
-**Ligne 5**. Comme on le verra plus bas, si on a à droite de l'opérateur `=` une expression, ici la soustraction `x = 4 - 2`, celle-ci est d'abord évaluée et c'est le résultat de cette opération qui sera affecté à la variable `x`. On pourra noter également que la valeur de `x` précédente (2) a été écrasée.
+**Ligne 5**. Comme on le verra plus bas, si on a à droite de l'opérateur `=` une expression, ici la soustraction `4 - 2`, celle-ci est d'abord évaluée et c'est le résultat de cette opération qui sera affecté à la variable `x`. On pourra noter également que la valeur de `x` précédente (2) a été écrasée.
 
 open-box-warn
 
@@ -142,7 +142,7 @@ close-box-rem
 \index{True}
 \index{False}
 
-Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` et `False :
+Il existe également des variables de type booléen. Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est une variable qui ne prend que deux valeurs : Vrai ou Faux. En python, on utilise pour cela les deux mots réservés `True` et `False` :
 
 ```python
 >>> var = True

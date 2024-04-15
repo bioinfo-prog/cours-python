@@ -173,7 +173,7 @@ le test est vrai
 
 open-box-adv
 
-Nous vous conseillons la syntaxe avec un `and` qui est plus compacte. De manière générale, moins il y a de niveau d'indentations mieux dans la mesure où ça ne nuis pas à la lisibilité.
+Nous vous conseillons la syntaxe avec un `and` qui est plus compacte. De manière générale, moins il y a de niveau d'indentations mieux c'est pour la lisibilité.
 
 close-box-adv
 

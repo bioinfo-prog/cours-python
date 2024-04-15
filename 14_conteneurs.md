@@ -126,7 +126,7 @@ close-box-more
 
 Pourquoi évoquer cette propriété de hachabilité ? D'abord, parce qu'elle est étroitement liée à l'immutabilité. En effet, un objet non modifiable est la plupart du temps hachable. Cela permet de l'identifier **en fonction de son contenu**. Par ailleurs, l'hachabilité est une implémentation qui permet un accès rapide aux éléments des conteneurs de type dictionnaire ou *set* (cf. rubriques suivantes).
 
-Les objets hachables sont les chaînes de caractères, les entiers, les *floats*, les booléens, les objets de type *range*, les tuples (sous certaines conditions) et les *frozensets* ; par contre, les listes, les *sets* et les dictionnaires sont non hachables. Les dictionnaires, tuples, *sets* et *frozensets* seront vus plus bas dans ce chapitre.
+Les objets hachables sont les chaînes de caractères, les entiers, les *floats*, les booléens, les objets de type *range*, les tuples (sous certaines conditions) et les *frozensets* ; par contre, les listes, les *sets* et les dictionnaires sont non hachables. Les *sets* et *frozensets* seront vus plus bas dans ce chapitre.
 
 Voici un exemple :
 
@@ -990,7 +990,7 @@ close-box-adv
 
 ### Séquence peptidique et dictionnaire
 
-Les numéros d'acides aminés commencent rarement à 1 dans les fichiers PDB. Créez un dictionnaire où chaque clé est un numéro de résidu de 3 à 9, et chaque valeur est un acide aminé de la séquence peptidique `SEQPEPT`. Utilisez pour cela les fonctions `dict()` et `zip()`. 
+Les numéros d'acides aminés commencent rarement à 1 dans les fichiers PDB. Créez un dictionnaire où chaque clé est un numéro de résidu de 3 à 9, et chaque valeur est un acide aminé de la séquence peptidique suivante : `SEQPEPT`. Utilisez pour cela les fonctions `dict()` et `zip()`. 
 
 
 ### Composition en acides aminés
