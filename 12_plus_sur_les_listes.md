@@ -637,7 +637,7 @@ Soit la liste de nombres `[8, 3, 12.5, 45, 25.5, 52, 1]`. Triez les nombres de c
 ### Séquence d'ADN aléatoire
 
 Créez une fonction `seq_alea()` qui prend comme argument un entier positif `taille` représentant le nombre de bases de la séquence et qui renvoie une séquence d'ADN aléatoire sous forme d'une chaîne de caractères.
-Utilisez la fonctions `random.choices()` présentée dans le chapitre 9 *Modules*.
+Utilisez la fonction `random.choices()` présentée dans le chapitre 9 *Modules*.
 
 Utilisez la fonction `seq_alea()` pour générer aléatoirement une séquence d'ADN de 15 bases.
 
@@ -690,6 +690,7 @@ Trouvez le nombre mystère qui répond aux conditions suivantes :
 - *La somme de ses chiffres est égale à 7*.
 
 On vous propose d'employer une méthode dite « *brute force* », c'est-à-dire d'utiliser une boucle et à chaque itération de tester les différentes conditions.
+
 
 ### Codes une et trois lettres des acides aminés
 

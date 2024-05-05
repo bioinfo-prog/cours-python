@@ -414,7 +414,7 @@ close-box-adv
 
 Une enzyme de restriction est une protéine capable de couper une molécule d'ADN. Cette coupure se fait sur le site de restriction de l'ADN qui correspond à une séquence particulière de nucléotides (bases).
 
-Pour chacune des enzymes ci-dessous, déterminez les expressions régulières qui décrivent leurs sites de restriction. Le symbole N correspond aux bases A, T, C ou G. W correspond à A ou T . Y correspond à C ou T. R correspond à A ou G.
+Pour chacune des enzymes ci-dessous, déterminez les expressions régulières qui décrivent leurs sites de restriction. Le symbole N correspond aux bases A, T, C ou G. W correspond à A ou T. Y correspond à C ou T. R correspond à A ou G.
 
 | Enzyme  | Site de restriction |
 |---------|--------------|

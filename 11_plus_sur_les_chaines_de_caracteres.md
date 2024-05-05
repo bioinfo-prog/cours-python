@@ -628,7 +628,7 @@ Utilisez ensuite cette fonction pour récupérer la séquence d'ADN dans la vari
 
 - le nom du fichier FASTA,
 - la longueur de la séquence (c'est-à-dire le nombre de bases qu'elle contient),
-- un message vérifiant que le nombre de base est (ou non) un multiple de 3,
+- un message vérifiant que le nombre de bases est (ou non) un multiple de 3,
 - le nombre de codons (on rappelle qu'un codon est un bloc de 3 bases),
 - les 10 premières bases,
 - les 10 dernières bases.
@@ -638,7 +638,7 @@ La sortie produite par le script devrait ressembler à ça :
 ```text
 UBI4_SCerevisiae.fasta
 La séquence contient WWW bases
-La longueur de la séquence est un multiple de 3 nucléotides
+La longueur de la séquence est un multiple de 3 bases
 La séquence possède XXX codons
 10 premières bases : YYYYYYYYYY
 10 dernières bases : ZZZZZZZZZZ
@@ -659,11 +659,12 @@ Soit la séquence d'ADN `ATATACGGATCGGCTGTTGCCTGCGTAGTAGCGT`. On souhaite calcul
 
 Créez pour cela une fonction `calc_composition()` à laquelle vous passez en argument votre séquence d'ADN sous forme d'une chaîne de caractères, et qui renvoie une liste de quatre *floats* indiquant respectivement la fréquence en bases `A`, `T`, `G` et `C`.
 
+
 ### Distance de Hamming
 
 La [distance de Hamming](https://fr.wikipedia.org/wiki/Distance_de_Hamming) mesure la différence entre deux séquences de même taille en comptant le nombre de positions qui, pour chaque séquence, ne correspondent pas au même acide aminé.
 
-Créez la fonction `dist_hamming()`  qui prend en argument deux chaînes de caractères et qui renvoie la distance de Hamming (sous la forme d'un entier) entre ces deux chaînes de caractères.
+Créez la fonction `dist_hamming()` qui prend en argument deux chaînes de caractères et qui renvoie la distance de Hamming (sous la forme d'un entier) entre ces deux chaînes de caractères.
 
 Calculez la distance de Hamming entre les séquences :
 `AGWPSGGASAGLAIL` et `IGWPSAGASAGLWIL`
@@ -684,7 +685,8 @@ Susan,3,8,10
 [...]
 ```
 
-Créez un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Jason", "geo": 17, "sport": 3, "anglais": 1}, ...]`. Utilisez si possible la fonction la fonction `map()` pour convertir les nombres lus dans le fichier en entiers. Réalisez ensuite une boucle sur cette liste de dictionnaires, et affichez le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et de géographie pour tous les étudiants.
+Créez un programme qui lit chaque ligne du fichier et construit une liste de dictionnaire du style `[{"nom": "Jason", "geo": 17, "sport": 3, "anglais": 1}, ...]`. Utilisez si possible la fonction `map()` pour convertir les nombres lus dans le fichier en entiers. Réalisez ensuite une boucle sur cette liste de dictionnaires, et affichez le nom de l'étudiant, sa note en sport et sa note en anglais. Affichez ensuite la moyenne des notes de sport et de géographie pour tous les étudiants.
+
 
 ### Conversion des acides aminés du code à trois lettres au code à une lettre
 
@@ -769,6 +771,7 @@ Testez ensuite si les expressions suivantes sont des pangrammes :
 - Monsieur Jack vous dactylographiez bien mieux que votre ami Wolf
 - Buvez de ce whisky que le patron juge fameux
 - Ceci n'est pas un pangramme
+
 
 ### Lecture d'une séquence à partir d'un fichier GenBank (exercice +++)
 
@@ -867,6 +870,7 @@ open-box-adv
 Vous trouverez des explications sur le format PDB et des exemples de code pour lire ce type de fichier en Python dans l'annexe A *Quelques formats de données en biologie*.
 
 close-box-adv
+
 
 ### Compteur de gènes dans un fichier GenBank
 

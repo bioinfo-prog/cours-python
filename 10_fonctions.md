@@ -451,12 +451,12 @@ close-box-adv
 Reprenez l'exemple précédent à l'aide du site [*Python Tutor*](http://www.pythontutor.com) :
 
 ```python
-# définition d'une fonction carre()
+# Définition d'une fonction carre().
 def carre(x):
     y = x**2
     return y
 
-# programme principal
+# Programme principal.
 z = 5
 resultat = carre(z)
 print(resultat)
@@ -471,7 +471,7 @@ def calc_factorielle(n):
         fact = fact * i
     return fact
 
-# programme principal
+# Programme principal.
 nb = 4
 factorielle_nb = calc_factorielle(nb)
 print(f"{nb}! = {factorielle_nb}")
@@ -484,9 +484,10 @@ Avez-vous réussi à prédire la sortie correctement ?
 
 open-box-rem
 
-Une remarque concernant l'utilisation des *f-strings* que nous avions vues dans le chapitre 3 *Affichage*. On voit à nouveau une possibilité puissante des *f-strings* dans l'instruction `f"{nb2}! = {calc_factorielle(nb2)}"` : il est possible de mettre directement au sein des accolades un appel à une fonction (ici `{calc_factorielle(nb2)}`) ! Ainsi, pas besoin de créer une variable intermédiaire dans laquelle on stocke ce que retourne la fonction. 
+Une remarque concernant l'utilisation des *f-strings* que nous avions abordées dans le chapitre 3 *Affichage*. On découvre ici une autre possibilité des *f-strings* dans l'instruction `f"{nb2}! = {calc_factorielle(nb2)}"` : il est en effet possible d'appeler entre les accolades une fonction (ici `{calc_factorielle(nb2)}`) ! Ainsi, il n'est pas nécessaire de créer une variable intermédiaire dans laquelle on stocke ce que retourne la fonction. 
 
 close-box-rem
+
 
 ### Puissance
 
@@ -559,7 +560,7 @@ $$
 
 ### Distribution et statistiques
 
-Créez une fonction `gen_distrib()` qui prend comme argument trois entiers : *debut*, *fin* et *n*. La fonction renverra une liste de $n$ *floats* aléatoires entre *debut* et *fin*. Pour générer un nombre aléatoire dans un intervalle donné, utilisez la fonction `uniform()` du module *random*, dont voici quelques exemple d'utilisation :
+Créez une fonction `gen_distrib()` qui prend comme argument trois entiers : *debut*, *fin* et *n*. La fonction renverra une liste de $n$ *floats* aléatoires entre *debut* et *fin*. Pour générer un nombre aléatoire dans un intervalle donné, utilisez la fonction `uniform()` du module *random*, dont voici quelques exemples d'utilisation :
 
 ```python
 >>> import random
@@ -577,7 +578,7 @@ Créez une autre fonction `calc_stat()` qui prend en argument une liste de *floa
 
 Dans le programme principal, générez 20 listes aléatoires de 100 *floats* compris entre 0 et 100 et affichez le minimum (`min()`), le maximum (`max()`) et la moyenne pour chacune d'entre elles. La moyenne pourra être calculée avec les fonctions `sum()` et `len()`.
 
-Pour chacune des 20 listes, affichez les statistiques (min, max, et moyenne) avec deux chiffres après la virgule :
+Pour chacune des 20 listes, affichez les statistiques (valeur minimale, valeur maximale et moyenne) avec deux chiffres après la virgule :
 ```text
 Liste  1 : min = 0.17 ; max = 99.72 ; moyenne = 57.38
 Liste  2 : min = 1.25 ; max = 99.99 ; moyenne = 47.41
@@ -594,7 +595,7 @@ Les écarts sur les statistiques entre les différentes listes sont-ils importan
 
 En reprenant votre fonction de calcul de distance euclidienne en trois dimensions `calc_distance_3D()`, faites-en une version pour deux dimensions que vous appellerez `calc_distance_2D()`.
 
-Créez une autre fonction `calc_dist2ori()`, à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0,0)$).
+Créez une autre fonction `calc_dist2ori()`, à laquelle vous passez en argument deux listes de *floats* `list_x` et `list_y` représentant les coordonnées d'une fonction mathématique (par exemple $x$ et $sin(x)$). Cette fonction renverra une liste de *floats* représentant la distance entre chaque point de la fonction et l'origine (de coordonnées $(0, 0)$).
 
 La figure @fig:sin2ori montre un exemple sur quelques points de la fonction $sin(x)$ (courbe en trait épais). Chaque trait pointillé représente la distance que l'on cherche à calculer entre les points de la courbe et l'origine du repère de coordonnées $(0, 0$).
 

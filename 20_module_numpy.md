@@ -1732,7 +1732,7 @@ Soit `impairs` un *array* *NumPy* qui contient les nombres :
 ```
 
 En une seule instruction, construisez l'*array* `pairs` dans lequel tous les éléments de `impairs` sont incrémentés de 1.
-Comparez ce que vous venez de faire avec l'exercice 5.4.4 du chapitre 5 *Boucles et comparaisons*.
+Comparez ce que vous venez de faire avec l'exercice « Nombres pairs et impairs » du chapitre 5 *Boucles et comparaisons*.
 
 
 ### Distance entre deux atomes carbones alpha consécutifs de la barstar
@@ -1781,7 +1781,7 @@ Voici les étapes à suivre :
 
     - Créez maintenant une matrice qui contient les coordonnées des $n-1$ premiers carbones alpha et une autre qui contient les coordonnées des $n-1$ derniers carbones alpha. Affichez les dimensions des matrices pour vérification.
     - En utilisant les opérateurs mathématiques habituels (`-`, `+`, `**2`) et les fonctions `sqrt()` et `sum()` du module *NumPy*, calculez la distance entre les atomes $n$ et $n+1$.
-    - Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones alpha consécutifs avec un chiffres après la virgule. Repérez la valeur surprenante.
+    - Pour chaque atome, affichez le numéro de l'atome et la distance entre carbones alpha consécutifs avec un chiffre après la virgule. Repérez la valeur surprenante.
 
 
 ### Jour le plus chaud

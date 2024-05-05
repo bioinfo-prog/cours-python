@@ -1468,6 +1468,7 @@ Pour ces exercices, utilisez des *notebooks* Jupyter.
 
 close-box-adv
 
+
 ### Analyse d'un jeu de données
 
 Le jeu de données `people.tsv` contient les caractéristiques de quelques individus : prénom, sexe, taille (en cm) et âge (en années). 
