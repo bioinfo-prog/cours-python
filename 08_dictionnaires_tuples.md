@@ -608,7 +608,7 @@ On souhaite convertir la séquence en acide aminé du domaine transmembranaire d
 
 La séquence contient une hélice transmembranaire, donc une succession de résidus apolaires, essayez de la retrouver visuellement.
 
-Pour cette exercice, nous vous conseillons d'itérer sur la chaîne de caractères contenant la séquence. Nous reverrons cela dans le chapitre 11 *Plus sur les chaînes de caractères*.
+Pour cet exercice, nous vous conseillons d'itérer sur la chaîne de caractères contenant la séquence. Nous reverrons cela dans le chapitre 11 *Plus sur les chaînes de caractères*.
 
 
 ### Boucle sur plusieurs éléments simultanément
@@ -617,4 +617,5 @@ Pour cette exercice, nous vous conseillons d'itérer sur la chaîne de caractèr
 
 `[("chien", 3), ("chat", 4), ("souris", 16)]`
 
-affichez chaque animal et son nombre en utilisant qu'une seule boucle for. Attention, pour cet exercice, il est interdit d'utiliser l'indiçage des listes.
+affichez chaque animal et son nombre en utilisant qu'une seule boucle `for`. Attention, pour cet exercice, il est interdit d'utiliser l'indiçage des listes.
+

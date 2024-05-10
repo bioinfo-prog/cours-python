@@ -349,7 +349,7 @@ Affichez la valeur de la moyenne avec deux décimales. Affichez aussi la mention
 
 Construisez une boucle qui parcourt les nombres de 0 à 20 et qui affiche les nombres pairs inférieurs ou égaux à 10 d'une part, et les nombres impairs strictement supérieurs à 10 d'autre part.
 
-Pour cet exercice, vous pourrez utiliser l'opérateur modulo `%`  qui renvoie le reste de la division entière entre deux nombres et dont voici quelques exemples d'utilisation :
+Pour cet exercice, vous pourrez utiliser l'opérateur modulo `%` qui renvoie le reste de la division entière entre deux nombres et dont voici quelques exemples d'utilisation :
 
 ```python
 >>> 4 % 3
@@ -369,7 +369,7 @@ Vous remarquerez qu'un nombre est pair lorsque le reste de sa division entière 
 
 La [conjecture de Syracuse](http://fr.wikipedia.org/wiki/Conjecture_de_Syracuse) est une conjecture mathématique qui reste improuvée à ce jour et qui est définie de la manière suivante.
 
-Soit un entier positif *n*. Si *n* est pair, alors le diviser par 2. Si il est impair, alors le multiplier par 3 et lui ajouter 1. En répétant cette procédure, la suite de nombres atteint la valeur 1 puis se prolonge
+Soit un entier positif *n*. Si *n* est pair, alors le diviser par 2. S'il est impair, alors le multiplier par 3 et lui ajouter 1. En répétant cette procédure, la suite de nombres atteint la valeur 1 puis se prolonge
 indéfiniment par une suite de trois valeurs triviales appelée cycle trivial.
 
 Jusqu'à présent, la conjecture de Syracuse, selon laquelle depuis n'importe quel entier positif la suite de Syracuse atteint 1, n'a pas été mise en défaut.
