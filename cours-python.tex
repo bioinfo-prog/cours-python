@@ -70,8 +70,9 @@
 \usepackage[explicit]{titlesec}
 % Refefine the chapter title format
 % https://borntocode.fr/latex-personnaliser-les-titres-chapter/
-\usepackage[Bjornstrup]{fncychap}
-%\titlespacing*{\chapter}{0pt}{-10pt}{\baselineskip}
+\usepackage[Glenn]{fncychap}
+\setlength{\headheight}{15pt}
+\titlespacing*{\chapter}{0pt}{-10pt}{\baselineskip}
 \titlespacing*{\section}{0pt}{*1.5}{*1}
 \titlespacing*{\subsection}{0pt}{*1.5}{*1}
 
@@ -92,6 +93,13 @@
 % Conversion des liens web en note de bas de page
 %====================================================================
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+
+%====================================================================
+% Force le positionnement des floats
+%====================================================================
+\usepackage{float}
+\floatplacement{figure}{!ht}
 
 
 %==============================================================================
