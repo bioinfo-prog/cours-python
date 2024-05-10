@@ -17,7 +17,7 @@ En Python 2 `print` est un mot-clé du langage (en anglais *statement*) au même
 girafe
 ```
 
-Par contre en Python 3, `print()` est une fonction. Ainsi, si vous n'utilisez pas de parenthèse, Python vous renverra une erreur :
+Par contre, en Python 3, `print()` est une fonction. Ainsi, si vous n'utilisez pas de parenthèse, Python vous renverra une erreur :
 
 ```python
 >>> print 12
@@ -84,7 +84,7 @@ En Python 2, la fonction `range()` renvoie une liste. Par exemple :
 [2, 3, 4, 5]
 ```
 
-La création de liste avec `range()` était pratique mais très peu efficace en mémoire lorsque l'argument donné à `range()` était un grand nombre.
+La création de liste avec `range()` était pratique, mais très peu efficace en mémoire lorsque l'argument donné à `range()` était un grand nombre.
 
 D'ailleurs la fonction `xrange()` est disponible en Python 2 pour faire la même chose que la fonction `range()` en Python 3. Attention, ne vous mélangez pas les pinceaux !
 
@@ -112,7 +112,7 @@ close-box-rem
 
 ### Encodage et utf-8
 
-En Python 3, vous pouvez utiliser des caractères accentués dans les commentaires ou dans les chaîne de caractères.
+En Python 3, vous pouvez utiliser des caractères accentués dans les commentaires ou dans les chaînes de caractères.
 
 Ce n'est pas le cas en Python 2. Si un caractère accentué est présent dans votre code, cela occasionnera une erreur de ce type lors de l'exécution de votre script :
 
@@ -145,6 +145,7 @@ L'encodage utf-8 peut aussi être déclaré de cette manière :
 mais c'est un peu plus long à écrire.
 
 close-box-rem
+
 
 ## Ancienne méthode de formatage des chaînes de caractères
 
@@ -201,9 +202,9 @@ On a 4500 G et 2575 C -> prop GC = 0.48
 - On peut éventuellement préciser le formatage en mettant un caractère deux-points `:` puis par exemple ici `.2f` qui signifie deux chiffres après la virgule.
 - La méthode `.format()` agit sur la chaîne de caractères à laquelle elle est attachée par le point.
 
-Tout ce que nous avons vu avec les *f-strings* sur la manière de formatter l'affichage d'une variable (après les `:` au sein des accolades) est identique avec la méthode `.format()`. Par exemple `{:.2f}`, `{:0>6d}`, `{:.6e}`, etc., fonctionneront de la même manière. La différence notable est qu'on ne met pas directement le nom de la variable au sein des accolades. Comme pour l'opérateur `%`, c'est l'emplacement dans les arguments passés à la méthode `.format()` qui dicte quelle variable doit être remplacée. Par exemple, dans `"{} {} {}".format(bidule, machin, truc)`, les premières accolades remplaceront la variable `bidule`, les deuxièmes la variable `machin`, les troisièmes la variable `truc`.
+Tout ce que nous avons vu avec les *f-strings* sur la manière de formater l'affichage d'une variable (après les `:` au sein des accolades) est identique avec la méthode `.format()`. Par exemple `{:.2f}`, `{:0>6d}`, `{:.6e}`, etc., fonctionneront de la même manière. La différence notable est qu'on ne met pas directement le nom de la variable au sein des accolades. Comme pour l'opérateur `%`, c'est l'emplacement dans les arguments passés à la méthode `.format()` qui dicte quelle variable doit être remplacée. Par exemple, dans `"{} {} {}".format(bidule, machin, truc)`, les premières accolades remplaceront la variable `bidule`, les deuxièmes la variable `machin`, les troisièmes la variable `truc`.
 
-Le formattage avec la méthode `.format()` se rapproche de la syntaxe des *f-strings* (accolades, deux-points), mais présente l'inconvénient -- comme avec l'opérateur `%` -- de devoir mettre la liste des variables tout à la fin, alourdissant ainsi la syntaxe. En effet, dans l'exemple avec la proportion de GC, la ligne équivalente avec une *f-string* apparait tout de même plus simple à lire :
+Le formatage avec la méthode `.format()` se rapproche de la syntaxe des *f-strings* (accolades, deux-points), mais présente l'inconvénient -- comme avec l'opérateur `%` -- de devoir mettre la liste des variables tout à la fin, alourdissant ainsi la syntaxe. En effet, dans l'exemple avec la proportion de GC, la ligne équivalente avec une *f-string* apparait tout de même plus simple à lire :
 
 ```python
 >>> print(f"On a {nb_G} G et {nb_C} C -> prop GC = {prop_GC:.2f}")
@@ -221,7 +222,7 @@ close-box-adv
 
 ## Gestion des exceptions
 
-Les langages de programmation comme Python contiennent un [système de gestion des **exceptions**](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_d%27exceptions). Qu'est-ce qu'une exception ? Sur la [page anglaise de Wikipedia](https://en.wikipedia.org/wiki/Exception_handling), une exception est définie comme une anomalie de l'exécution d'un programme requérant une action spéciale, en général l'arrêt de l'exécution. Le plus souvent, **une exception correspond à une erreur** que Python rencontre lorsqu'il tente d'exécuter les lignes de code qu'on lui soumet. Par exemple, un problème de syntaxe, une variable ou objet qui prend une valeur aberrante (par exemple diviser par 0, parcourir une liste au delà du nombre d'éléments, etc.). 
+Les langages de programmation comme Python contiennent un [système de gestion des **exceptions**](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_d%27exceptions). Qu'est-ce qu'une exception ? Sur la [page anglaise de Wikipedia](https://en.wikipedia.org/wiki/Exception_handling), une exception est définie comme une anomalie de l'exécution d'un programme requérant une action spéciale, en général l'arrêt de l'exécution. Le plus souvent, **une exception correspond à une erreur** que Python rencontre lorsqu'il tente d'exécuter les lignes de code qu'on lui soumet. Par exemple, un problème de syntaxe, une variable ou objet qui prend une valeur aberrante (par exemple diviser par 0, parcourir une liste au-delà du nombre d'éléments, etc.). 
 
 Le système de gestion des exceptions évite que votre programme « plante » en prévoyant vous-même les sources d'erreurs éventuelles.
 
@@ -260,7 +261,7 @@ Entrez un nombre entier : ATCG
 Vous n'avez pas entré un nombre entier !
 ```
 
-Dans cette exemple, l'exception levée par la fonction `int()` (qui ne peut pas convertir `"ATCG"` en nombre entier) est interceptée et déclenche l'affichage du message d'avertissement.
+Dans cet exemple, l'exception levée par la fonction `int()` (qui ne peut pas convertir `"ATCG"` en nombre entier) est interceptée et déclenche l'affichage du message d'avertissement.
 
 On peut ainsi redemander sans cesse un nombre entier à l'utilisateur, jusqu'à ce que celui-ci en rentre bien un.
 
@@ -332,7 +333,7 @@ Traceback (most recent call last):
 NameError: name 'variable' is not defined. Did you mean: 'callable'?
 ```
 
-Ici l'exception levée est de type `NameError` car `variable` n'existe pas. Alors que si vous mettez `except` tout court, cela intercepte n'importe quelle exception.
+Ici l'exception levée est de type `NameError`, car `variable` n'existe pas. Alors que si vous mettez `except` tout court, cela intercepte n'importe quelle exception.
 
 ```python
 >>> try:
@@ -384,15 +385,14 @@ class OverflowError(ArithmeticError)
 
 L'exception `OverflowError` hérite de `ArithmeticError`, c'est-à-dire qu'`OverflowError` a été conçue à partir de `ArithmeticError` et en hérite de tous ses attributs.
 
-Un autre aspect très important que nous avons croisé au chapitre 23 est la possibilité de lever vous-même une exception avec le mot-clé `raise`. Nous avions vu le code suivant :
-
+Un autre aspect très important que nous avons croisé au chapitre 24 *Avoir plus la classe avec les objets* est la possibilité de lever vous-même une exception avec le mot-clé `raise`. Nous avions vu le code suivant :
 
 ```
 if valeur < 0:
-    raise ValueError("Z'avez déjà vu une masse négative ? C'est nawak")
+    raise ValueError("Z'avez déjà vu une masse négative ?")
 ```
 
-La ligne 2 lève une exception `ValueError` lorsque la variable `valeur` est négative. L'instruction `raise` est bien pratique lorsque vous souhaitez stopper l'exécution d'un programme si une variable ne se trouve pas dans le bon intervalle ou ne contient pas la bonne valeur. Vous avez sans doute compris maintenant pourquoi on parlait de « levée » d'exception... Pour les non anglophones, allez voir ce que signifie *raise* en anglais ;-) !
+La ligne 2 lève une exception `ValueError` lorsque la variable `valeur` est négative. L'instruction `raise` est bien pratique lorsque vous souhaitez stopper l'exécution d'un programme si une variable ne se trouve pas dans le bon intervalle ou ne contient pas la bonne valeur. Vous avez sans doute compris maintenant pourquoi on parlait de « levée » d'exception...
 
 Enfin, on peut aussi être très précis dans le message d'erreur. Observez la fonction `download_page()` qui, avec le module *urllib*, télécharge un fichier sur internet.
 
@@ -424,6 +424,238 @@ else:
 
 La variable `e` est une instance de l'exception `IOError`. Certains de ses attributs sont testés avec la fonction `hasattr()` pour ainsi affiner le message renvoyé (ici contenu dans la variable `error`).
 
-Si tout se passe bien, la page est téléchargée est stockée dans la variable `data`, puis ensuite enregistrée sur le disque dur.
+Si tout se passe bien, la page est téléchargée est stockée dans la variable `data`, puis enregistrée sur le disque dur.
 
-Pour aller plus loin sur les exceptions, vous pouvez lire l'[excellente page](https://sametmax2.com/gestion-des-erreurs-en-python/) du blog impertinent et politiquement incorrect de Sam et Max.
+
+
+## Shebang et /usr/bin/env python3
+
+Lorsque l'on programme sur un système Unix (Mac OS X ou Linux par exemple), on peut exécuter directement un script Python, sans appeler explicitement la commande `python`.
+
+Pour cela, deux opérations sont nécessaires :
+
+**Étape 1.** Préciser la localisation de l'interpréteur Python en indiquant dans la première ligne du script :
+   
+```python
+#! /usr/bin/env python
+```
+
+Par exemple, si le script *test.py* contenait :
+
+```python
+print("Hello World !")
+```
+
+il va alors contenir :
+
+```python
+#!/usr/bin/env python
+
+print("Hello World !")
+```
+
+**Étape 2.**. Rendre le script Python exécutable en lançant l'instruction :
+
+```bash
+$ chmod +x test.py
+```
+
+open-box-rem
+
+La ligne `#! /usr/bin/env python` n'est pas considérée comme un commentaire
+par Python, ni comme une instruction Python d'ailleurs . Cette ligne a une signification
+particulière pour le système d'exploitation Unix.
+
+close-box-rem
+
+Pour exécuter le script, il suffit alors de taper son nom précédé des deux caractères **./** (afin de préciser au *shell* où se trouve le script) :
+
+```bash
+$ ./test.py
+Hello World !
+```
+
+open-box-def
+
+Le [**shebang**](http://fr.wikipedia.org/wiki/Shebang) correspond aux caractères `#!` qui se trouvent au début de la première ligne du script `test`.
+
+Le *shebang* est suivi du chemin complet du programme qui interprète le script ou du programme qui sait où se trouve l'interpréteur Python. Dans l'exemple précédent, c'est le programme `/usr/bin/env` qui indique où se trouve l'interpréteur Python.
+
+close-box-def
+
+## Passage d'arguments avec `*args` et `**kwargs`
+
+Avant de lire cette rubrique, nous vous conseillons de bien relire et maîtriser la rubrique *Arguments positionnels et arguments par mot-clé* du chapitre 10 *Fonctions*.
+
+Dans le chapitre 10, nous avons vu qu'il était nécessaire de passer à une fonction tous les arguments positionnels définis dans celle-ci. Il existe toutefois une astuce permettant de passer un nombre arbitraire d'arguments positionnels :
+
+```python
+>>> def fct(*args):
+...     print(args)
+...
+>>> fct()
+()
+>>> fct(1)
+(1,)
+>>> fct(1, 2, 5, "Python")
+(1, 2, 5, 'Python')
+>>> fct(z=1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: fct() got an unexpected keyword argument 'z'
+```
+
+L'utilisation de la syntaxe `*args` permet d'empaqueter tous les arguments positionnels dans un *tuple* unique `args` récupéré au sein de la fonction. L'avantage est que nous pouvons passer autant d'arguments positionnels que l'on veut. Toutefois, on s'aperçoit en ligne 10 que cette syntaxe ne fonctionne pas avec les arguments par mot-clé.
+
+Il existe un équivalent avec les arguments par mot-clé :
+
+```python
+>>> def fct(**kwargs):
+...     print(kwargs)
+...
+>>> fct()
+{}
+>>> fct(z=1, gogo="toto")
+{'gogo': 'toto', 'z': 1}
+>>> fct(z=1, gogo="toto", y=-67)
+{'y': -67, 'gogo': 'toto', 'z': 1}
+>>> fct(1, 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: fct() takes 0 positional arguments but 2 were given
+```
+
+La syntaxe `**kwargs` permet d'empaqueter l'ensemble des arguments par mot-clé, quel que soit leur nombre, dans un dictionnaire unique `kwargs` récupéré dans la fonction. Les clés et valeurs de celui-ci sont les noms des arguments et les valeurs passées à la fonction. Toutefois, on s'aperçoit en ligne 9 que cette syntaxe ne fonctionne pas avec les arguments positionnels.
+
+Si on attend un mélange d'arguments positionnels et par mot-clé, on peut utiliser `*args` et  `**kwargs` en même temps :
+
+```python
+>>> def fct(*args, **kwargs):
+...     print(args)
+...     print(kwargs)
+...
+>>> fct()
+()
+{}
+>>> fct(1, 2)
+(1, 2)
+{}
+>>> fct(z=1, y=2)
+()
+{'y': 2, 'z': 1}
+>>> fct(1, 2, 3, z=1, y=2)
+(1, 2, 3)
+{'y': 2, 'z': 1}
+```
+
+Deux contraintes sont toutefois à respecter. Il faut toujours :
+
+- mettre `*args` avant `**kwargs` dans la définition de la fonction ;
+- passer les arguments positionnels avant ceux par mot-clé lors de l'appel de la fonction.
+
+Enfin, il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple :
+
+`def fct(a, b, *args, **kwargs):`
+
+Dans un tel cas, il faudra obligatoirement passer les deux arguments `a` et `b` à la fonction, ensuite on pourra mettre un nombre arbitraire d'arguments positionnels (récupérés dans le tuple `args`), puis un nombre arbitraire d'arguments par mot-clé (récupérés dans le dictionnaire `kwargs`).
+
+open-box-adv
+
+Les noms `*args` et `**kwargs` sont des conventions en Python, ils rappellent les mots *arguments* et *keyword arguments*. Bien qu'on puisse mettre ce que l'on veut, nous vous conseillons de respecter ces conventions pour faciliter la lecture de votre code par d'autres personnes.
+
+close-box-adv
+
+L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *Fenêtres graphiques et Tkinter* présenté dans le chapitre 25 (en ligne).
+
+Enfin, il est possible d'utiliser ce mécanisme d'empaquetage / désempaquetage (*packing* / *unpacking*) dans l'autre sens :
+
+```python
+>>> def fct(a, b, c):
+...    print(a,b,c)
+...
+>>> t = (-5,6,7)
+>>>
+>>> fct(*t)
+-5 6 7
+```
+
+Avec la syntaxe `*t` on désempaquette le tuple à la volée lors de l'appel à la fonction. Cela est aussi possible avec un dictionnaire : 
+
+```python
+>>> def fct(x, y, z):
+...    print(x, y, z)
+...
+>>> dico = {'x': -1, 'y': -2, 'z': -3}
+>>> fct(**dico)
+-1 -2 -3
+```
+
+Attention toutefois à bien respecter deux choses :
+
+- la concordance entre le nom des clés du dictionnaire et le nom des arguments dans la fonction (sinon cela renvoie une erreur) ;
+- l'utilisation d'une double étoile pour désempaqueter les valeurs du dictionnaire (si vous utilisez une seule étoile, Python désempaquettera les clés !).
+
+
+## Un peu de transformée de Fourier avec *NumPy*
+
+La transformée de Fourier est très utilisée pour l'analyse de signaux, notamment lorsqu'on souhaite extraire des périodicités au sein d'un signal bruité. Le module *NumPy* possède la fonction `fft()` (dans le sous-module *fft*) permettant de calculer des transformées de Fourier.
+
+Voici un petit exemple sur la fonction cosinus de laquelle on souhaite extraire la période à l'aide de la fonction `fft()` :
+
+```python
+import numpy as np
+
+debut = -2 * np.pi
+fin = 2 * np.pi
+pas = 0.1
+x = np.arange(debut,fin,pas)
+y = np.cos(x)
+
+TF = np.fft.fft(y)
+ABSTF = np.abs(TF)
+pas_xABSTF = 1/(fin-debut)
+x_ABSTF = np.arange(0,pas_xABSTF * len(ABSTF),pas_xABSTF)
+```
+
+Plusieurs commentaires sur cet exemple :
+
+Ligne 1. On charge le module *NumPy* avec le nom raccourci `np`.
+
+Lignes 3 à 6. On définit l'intervalle (de $-2\pi$ à $2\pi$ radians) pour les valeurs en abscisse ainsi que le pas (0,1 radians).
+
+Lignes 7. On calcule directement les valeurs en ordonnées avec la fonction cosinus du module *NumPy*. On constate ici que *NumPy* redéfinit certaines fonctions ou constantes mathématiques de base, comme `pi`, `cos()` ou `abs()` (valeur absolue, ou module d'un nombre complexe). Ces fonctions sont directement utilisables avec un objet *array*.
+
+Ligne 9. On calcule la transformée de Fourier avec la fonction `fft()` qui renvoie un vecteur (objet *array* à une dimension) de nombres complexes. Eh oui, le module *NumPy* gère aussi les nombres complexes !
+
+Ligne 10. On extrait le module du résultat précédent avec la fonction `abs()`.
+
+Ligne 11. La variable `x_ABSTFL` représente l'abscisse du spectre (en radian$^{-1}$).
+
+Ligne 12. La variable `ABSTF` contient le spectre lui même. L'analyse de ce dernier nous donne un pic à 0,15 radian$^{-1}$, ce qui correspond bien à $2\pi$ (c'est plutôt bon signe de retrouver ce résultat).
+
+
+## Sauvegardez votre historique de commandes
+
+Vous pouvez sauvegarder l'historique des commandes utilisées dans l'interpréteur Python avec le module `readline`.
+
+```python
+>>> print("hello")
+hello
+>>> a = 22
+>>> a = a + 11
+>>> print(a)
+33
+>>> import readline
+>>> readline.write_history_file()
+```
+
+Quittez Python. L'historique de toutes vos commandes est dans votre répertoire personnel, dans le fichier `.history`.
+
+Relancez l'interpréteur Python.
+
+```python
+>>> import readline
+>>> readline.read_history_file()
+```
+
+Vous pouvez accéder aux commandes de la session précédente avec la flèche du haut de votre clavier. D'abord les commandes `readline.read_history_file()` et `import readline` de la session actuelle, puis `print(a)`, `a = a + 11`, `a = 22`...

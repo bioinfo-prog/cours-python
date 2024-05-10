@@ -819,7 +819,7 @@ class Citron:
 
     def set_masse(self, value):
         if value < 0:
-            raise ValueError("Z'avez déjà vu une masse négative ???")
+            raise ValueError("Z'avez déjà vu une masse négative ?")
         self.masse = value
 
 
