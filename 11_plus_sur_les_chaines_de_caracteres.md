@@ -899,9 +899,9 @@ gène 100 direct         ->   485 bases
 gène 101 direct         ->  1403 bases
 ```
 
-
 open-box-adv
 
 Vous trouverez des explications sur le format GenBank dans l'annexe A *Quelques formats de données en biologie*.
 
 close-box-adv
+
