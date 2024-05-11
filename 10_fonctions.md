@@ -15,7 +15,7 @@ Vous connaissez déjà certaines fonctions Python. Par exemple `math.cos(angle)`
 2. Qui effectue une action.
 3. Qui renvoie un objet Python ou rien du tout.
 
-Tout cela est illustré schématiquement dans la Figure ci-dessous.
+Tout cela est illustré schématiquement dans la figure ci-dessous.
 
 ![Fonctionnement schématique d'une fonction.](img/schema_fonction.png){ width=90% }
 

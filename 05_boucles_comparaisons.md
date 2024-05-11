@@ -539,9 +539,9 @@ Pouvez-vous trouver une formule générale reliant le nombre de cases parcourues
 
 ### Sauts de puce
 
-On imagine une puce qui se déplace aléatoirement sur une ligne, en avant ou en arrière, par pas de 1 ou -1. Par exemple, si elle est à l'emplacement 0, elle peut sauter à l'emplacement 1 ou -1; si elle est à l'emplacement 2, elle peut sauter à l'emplacement 3 ou 1, etc.
+On imagine une puce qui se déplace aléatoirement sur une ligne, en avant ou en arrière, par pas de 1 ou -1. Par exemple, si elle est à l'emplacement 0, elle peut sauter à l'emplacement 1 ou -1 ; si elle est à l'emplacement 2, elle peut sauter à l'emplacement 3 ou 1, etc.
 
-Avec une boucle `while`, simuler le mouvement de cette puce de l'emplacement initial~0 à l'emplacement final 5 (voir le schéma de la figure @fig:saut-de-puce). Combien de sauts sont nécessaires pour réaliser ce parcours ? Relancez plusieurs fois le programme. Trouvez-vous le même nombre de sauts à chaque exécution ?
+Avec une boucle `while`, simulez le mouvement de cette puce de l'emplacement initial 0 à l'emplacement final 5 (voir le schéma de la figure @fig:saut-de-puce). Combien de sauts sont nécessaires pour réaliser ce parcours ? Relancez plusieurs fois le programme. Trouvez-vous le même nombre de sauts à chaque exécution ?
 
 ![Sauts de puce.](img/sauts-de-puce.png "Sauts de puce"){ #fig:saut-de-puce width=50% }
 
