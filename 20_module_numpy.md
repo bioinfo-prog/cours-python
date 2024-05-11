@@ -1531,7 +1531,7 @@ Maintenant que les *arrays* de booléens ont été introduits, nous pouvons déf
 
 open-box-def
 
-Les masques booléens sont des *arrays* de booléens qui sont utilisés en tant qu'« indice~» d'un *array* initial. Cela permet de récupérer ou de modifier une partie de l'*array* initial.
+Les masques booléens sont des *arrays* de booléens qui sont utilisés en tant qu'« indice » d'un *array* initial. Cela permet de récupérer ou de modifier une partie de l'*array* initial.
 
 close-box-def
 

@@ -2,7 +2,7 @@
 
 ## Préambule
 
-Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3~*Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3/library/string.html).
+Nous avons déjà abordé les chaînes de caractères dans les chapitres 2 *Variables* et 3 *Affichage*. Ici nous allons un peu plus loin, notamment avec les [méthodes associées aux chaînes de caractères](https://docs.python.org/fr/3/library/string.html).
 
 \index{chaine de caracteres@chaîne de caractères}
 
@@ -791,7 +791,7 @@ ORIGIN
 //
 ```
 
-Pour extraire la séquence d'ADN, nous vous proposons d'utiliser un algorithme de «~drapeau », c'est-à-dire une variable qui sera à `True` lorsqu'on lira les lignes contenant la séquence et à `False` pour les autres lignes.
+Pour extraire la séquence d'ADN, nous vous proposons d'utiliser un algorithme de « drapeau », c'est-à-dire une variable qui sera à `True` lorsqu'on lira les lignes contenant la séquence et à `False` pour les autres lignes.
 
 Créez une fonction `lit_genbank()` qui prend comme argument le nom d'un fichier GenBank sous la forme d'une chaîne de caractères, lit la séquence dans le fichier GenBank et la renvoie sous la forme d'une chaîne de caractères.
 
@@ -863,7 +863,7 @@ Les numéros des carbones alpha seront affichés sur deux caractères. La distan
 
 Modifiez maintenant la fonction `calcule_distance()` pour qu'elle affiche à la fin la moyenne des distances.
 
-La distance inter-carbone alpha dans les protéines est très stable et de l'ordre de 3,8~angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine barstar. Repérez une valeur surprenante. Essayez de l'expliquer.
+La distance inter-carbone alpha dans les protéines est très stable et de l'ordre de 3,8 angströms. Observez avec attention les valeurs que vous avez calculées pour la protéine barstar. Repérez une valeur surprenante. Essayez de l'expliquer.
 
 open-box-adv
 

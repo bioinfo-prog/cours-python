@@ -36,7 +36,7 @@ Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pou
 
 Ce cours est basé sur la **version 3 de Python**, qui est désormais le standard.
 
-Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en Python~2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 26 *Remarques complémentaires* (en ligne) vous apportera plus de précisions.
+Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 26 *Remarques complémentaires* (en ligne) vous apportera plus de précisions.
 
 
 ### Miniconda
@@ -257,7 +257,7 @@ open-box-rem
 
 \index{croisillon}
 
-On appelle souvent à tort le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe))~».
+On appelle souvent à tort le caractère `#` « dièse ». On devrait plutôt parler de « [croisillon](https://fr.wikipedia.org/wiki/Croisillon_(signe)) ».
 
 close-box-rem
 

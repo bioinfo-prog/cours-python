@@ -57,11 +57,11 @@ D'ores et déjà, prêtez attention au caractère **deux-points** « `:` » à l
 
 open-box-rem
 
-Les notions de bloc d'instruction et d'indentations ont été introduites dans le chapitre~1 *Introduction*.
+Les notions de bloc d'instruction et d'indentations ont été introduites dans le chapitre 1 *Introduction*.
 
 close-box-rem
 
-Dans l'exemple suivant, le corps de la boucle contient deux instructions (ligne 2 et ligne~3) car elles sont indentées par rapport à la ligne débutant par `for` :
+Dans l'exemple suivant, le corps de la boucle contient deux instructions (ligne 2 et ligne 3) car elles sont indentées par rapport à la ligne débutant par `for` :
 
 ```python
 for animal in animaux:
@@ -275,7 +275,7 @@ Dans le cas des chaînes de caractères, *a priori* seuls les tests `==` et `!=`
 True
 ```
 
-`"a"` est *inférieur à* `"b"` car le caractère *a* est situé avant le caractère *b* dans l'ordre alphabétique. En fait, c'est l'ordre [ASCII](http://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange) des caractères qui est pris en compte (à  chaque caractère correspond un code numérique), on peut donc aussi comparer des caractères spéciaux (comme `#` ou `~`) entre eux. Enfin, on peut comparer des chaînes de caractères de plusieurs caractères :
+`"a"` est *inférieur à* `"b"` car le caractère *a* est situé avant le caractère *b* dans l'ordre alphabétique. En fait, c'est l'ordre [ASCII](http://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange) des caractères qui est pris en compte (à chaque caractère correspond un code numérique), on peut donc aussi comparer des caractères spéciaux (comme `#` ou `~`) entre eux. Enfin, on peut comparer des chaînes de caractères de plusieurs caractères :
 
 ```python
 >>> "ali" < "alo"
@@ -345,7 +345,7 @@ Entrez un entier supérieur à 10 : 15
 
 \index{input@input()}
 
-La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne~4). Si on reprend les trois éléments d'une boucle while, on trouve l'initialisation de la variable d'itération en ligne 1, le test de sa valeur en ligne 2, et sa mise à jour en ligne 4. 
+La fonction `input()` prend en argument un message (sous la forme d'une chaîne de caractères), demande à l'utilisateur d'entrer une valeur et renvoie celle-ci sous forme d'une chaîne de caractères, qu'il faut ensuite convertir en entier (avec la fonction `int()` ligne 4). Si on reprend les trois éléments d'une boucle while, on trouve l'initialisation de la variable d'itération en ligne 1, le test de sa valeur en ligne 2, et sa mise à jour en ligne 4. 
 
 open-box-adv
 
