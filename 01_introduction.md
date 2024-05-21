@@ -28,7 +28,7 @@ Toutes ces caractéristiques font que Python est désormais enseigné dans de no
 
 ## Conseils pour l'apprentissage de Python
 
-Comme tout apprentissage, apprendre la programmation Python prend du temps et nécessite de pratiquer. Contrairement à d'autres activités scientifiques expérimentales (biologie moléculaire, chimie organique, électronique...), programmer en Python ne nécessite pas de matériel coûteux, juste un ordinateur et éventuellement une connexion internet. Par ailleurs, Python est un programme informatique qui par définition ne se fatigue pas, est patient et toujours disponible. N'hésitez donc pas à pratiquer, pratiquer et pratiquer encore.
+Comme tout apprentissage, apprendre la programmation Python prend du temps et nécessite de pratiquer. Contrairement à d'autres activités scientifiques expérimentales (biologie moléculaire, chimie organique, électronique, etc.), programmer en Python ne nécessite pas de matériel coûteux, juste un ordinateur et éventuellement une connexion internet. Par ailleurs, Python est un programme informatique qui par définition ne se fatigue pas, est patient et toujours disponible. N'hésitez donc pas à pratiquer, pratiquer et pratiquer encore.
 
 
 ## Conseils pour installer et configurer Python
