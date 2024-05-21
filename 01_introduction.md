@@ -16,20 +16,26 @@ Ce langage de programmation présente de nombreuses caractéristiques intéressa
 - Il est gratuit. Vous pouvez l'installer sur autant d'ordinateurs que vous voulez (même sur votre téléphone !).
 - C'est un langage de haut niveau. Il demande relativement peu de connaissance sur le fonctionnement d'un ordinateur pour être utilisé.
 - C'est un langage interprété. Un script Python n'a pas besoin d'être compilé pour être exécuté, contrairement à des langages comme le C ou le C++.
-- Il est orienté objet. C'est-à-dire qu'il est possible de concevoir en Python des entités qui miment celles du monde réel (une cellule, une protéine, un atome, etc.) avec un certain nombre de règles de fonctionnement et d'interactions.
+- Il est orienté objet. C'est-à-dire qu'il est possible de concevoir en Python des entités qui miment celles du monde réel (une molécule d'ADN, une protéine, un atome, etc.) avec un certain nombre de règles de fonctionnement et d'interactions.
 - Il est relativement *simple* à prendre en main[^footnote].
-- Enfin, il est très utilisé en bioinformatique et plus généralement en analyse de données.
+- C'est le langage de programmation le plus utilisé au monde (voir les classements [TIOBE](https://www.tiobe.com/tiobe-index/) et [IEEE Spectrum](https://spectrum.ieee.org/the-top-programming-languages-2023)).
+- Enfin, il est très utilisé en bioinformatique, chimie-informatique et plus généralement en analyse de données.
 
 [^footnote]: Nous sommes d'accord, cette notion est très relative.
 
 Toutes ces caractéristiques font que Python est désormais enseigné dans de nombreuses formations, du lycée à l'enseignement supérieur.
 
 
+## Conseils pour l'apprentissage de Python
+
+Comme tout apprentissage, apprendre la programmation Python prend du temps et nécessite de pratiquer. Contrairement à d'autres activités scientifiques expérimentales (biologie moléculaire, chimie organique, électronique, etc.), programmer en Python ne nécessite pas de matériel coûteux, juste un ordinateur et éventuellement une connexion internet. Par ailleurs, Python est un programme informatique qui par définition ne se fatigue pas, est patient et toujours disponible. N'hésitez donc pas à pratiquer, pratiquer et pratiquer encore.
+
+
 ## Conseils pour installer et configurer Python
 
 \index{installation@installation (de Python)}
 
-Pour apprendre la programmation Python, il va falloir que vous pratiquiez et pour cela il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons dans cette rubrique un résumé des points importants concernant cette installation. Tous les détails et la marche à suivre pas-à-pas sont donnés à l'adresse <https://python.sdv.u-paris.fr/livre-dunod>.
+Pour pratiquer la programmation Python, il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons dans cette rubrique un résumé des points importants concernant cette installation. Tous les détails et la marche à suivre pas-à-pas sont donnés à l'adresse <https://python.sdv.u-paris.fr/livre-dunod>.
 
 
 ### Python 2 ou Python 3 ?
