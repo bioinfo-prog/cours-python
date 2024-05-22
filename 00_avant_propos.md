@@ -27,6 +27,6 @@ De nombreuses personnes nous ont aussi demandé les corrections des exercices. N
 
 Ce cours est également publié aux éditions Dunod sous le titre « [Programmation en Python pour les sciences de la vie](https://www.dunod.com/sciences-techniques/programmation-en-python-pour-sciences-vie-0) ». Le livre en est à sa 2e édition, vous pouvez vous le procurer dans toutes les bonnes librairies.
 
-![Couverture livre Dunod.](img/couverture_livre_dunod.jpg){ width=30% }
+![Couverture livre Dunod, 2e édition.](img/couverture_livre_dunod.jpg){ width=30% }
 
 Afin de promouvoir le partage des connaissances et le logiciel libre, nos droits d'auteurs provenant de la vente de cet ouvrage sont reversés à deux associations : [Wikimédia France](https://www.wikimedia.fr/) qui s'occupe notamment de l'encyclopédie libre Wikipédia et [NumFOCUS](https://numfocus.org/) qui soutient le développement de logiciels libres scientifiques et notamment l'écosystème scientifique autour de Python.

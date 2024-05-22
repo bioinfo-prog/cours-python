@@ -739,9 +739,9 @@ close-box-adv
 
 Un mot est composable à partir d'une séquence de lettres si la séquence contient toutes les lettres du mot. Chaque lettre de la séquence ne peut être utilisée qu'une seule fois. Par exemple, « coucou » est composable à partir de « uocuoceokzefhu ».
 
-Écrivez la fonction `est_composable()`, qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères), et qui renvoie `True` si le mot est composable à partir de la séquence, sinon `False`.
+Créez la fonction `est_composable()`, qui prend en argument un mot (sous la forme d'une chaîne de caractères) et une séquence de lettres (aussi comme une chaîne de caractères), et qui renvoie `True` si le mot est composable à partir de la séquence, sinon `False`.
 
-Dans le programme principal, créez une liste de tuples contenant les couples mot / séquence (de la forme `[('mot1', 'sequence1'), ...]`. Faites ensuite une boucle sur tous les couples mot / séquence, et  appelez à chaque itération la fonction `est_composable()`. Affichez enfin `Le mot xxx est composable à partir de yyy` si le mot `xxx` est composable à partir de la séquence de lettres (`yyy`) sinon `Le mot xxx n'est pas composable à partir de yyy`.
+Dans le programme principal, créez une liste de tuples contenant les couples mot / séquence, de la forme `[('mot1', 'sequence1'), ('mot2', 'sequence2'), ...]`. Utilisez ensuite une boucle sur tous les couples mot / séquence, et appelez à chaque itération la fonction `est_composable()`. Affichez enfin `Le mot xxx est composable à partir de yyy` si le mot `xxx` est composable à partir de la séquence de lettres (`yyy`). Affichez `Le mot xxx n'est pas composable à partir de yyy` si ce n'est pas le cas.
 
 Testez cette fonction avec les mots et les séquences suivantes :
 
@@ -761,9 +761,9 @@ Créez la fonction `get_alphabet()` qui utilise une boucle et la fonction `chr()
 
 Un [pangramme](http://fr.wikipedia.org/wiki/Pangramme) est une phrase comportant au moins une fois chaque lettre de l'alphabet. Par exemple, « Portez ce vieux whisky au juge blond qui fume » est un pangramme.
 
-Créez la fonction `est_pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères `xxx`, et qui renvoie `True` si la phrase est un pangramme sinon `False`.
+Créez la fonction `est_pangramme()` qui utilise la fonction `get_alphabet()` précédente, qui prend en argument une chaîne de caractères `xxx`, et qui renvoie `True` si la phrase est un pangramme et `False` sinon.
 
-Le programme affichera au final `xxx est un pangramme` ou `xxx n'est pas un pangramme`. Pensez à vous débarrasser des majuscules le cas échéant.
+Le programme affichera finalement `xxx est un pangramme` ou `xxx n'est pas un pangramme`. Pensez à vous débarrasser des majuscules le cas échéant.
 
 Testez ensuite si les expressions suivantes sont des pangrammes :
 
@@ -885,7 +885,7 @@ Dans cet exercice, on souhaite compter le nombre de gènes du fichier GenBank [N
 [...]
 ```
 
-Lorsque la ligne contient le mot `complement` le gène est situé sur le brin complémentaire, sinon il est situé sur le brin direct. Votre code devra récupérer le premier et le second nombre indiquant respectivement la position du début et de fin du gène. Attention à bien les convertir en entier afin de pouvoir calculer la longueur du gène. Notez que les caractères `>` et `<` doivent être ignorés, et les `..` servent à séparer la position de début et de fin.
+Lorsque la ligne contient le mot `complement` le gène est situé sur le brin complémentaire, sinon il est situé sur le brin direct. Votre code devra récupérer le premier et le second nombre indiquant respectivement la position du début et de fin du gène. Attention à bien les convertir en entier afin de pouvoir calculer la longueur du gène. Notez que les caractères `>` et `<` doivent être ignorés, et que les `..` servent à séparer la position de début et de fin.
 
 On souhaite obtenir une sortie de la forme :
 

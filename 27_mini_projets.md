@@ -266,8 +266,8 @@ Toujours dans le même script, ajoutez la fonction `construit_comp_inverse()` qu
 
 On rappelle que construire la séquence complémentaire inverse d'une séquence d'ADN consiste à :
 
-- Prendre la séquence complémentaire. C'est-à-dire à remplacer la base `a` par la base `t`, `t` par `a`, `c` par `g` et `g` par `c`.
-- Prendre l'inverse. C'est-à-dire à que la première base de la séquence complémentaire devient la dernière base et réciproquement, la dernière base devient la première.
+- Prendre la séquence complémentaire. C'est-à-dire remplacer la base `a` par la base `t`, `t` par `a`, `c` par `g` et `g` par `c`.
+- Prendre l'inverse. C'est-à-dire que la première base de la séquence complémentaire devient la dernière base et réciproquement, la dernière base devient la première.
 
 Pour vous faciliter le travail, ne travaillez que sur des séquences en minuscule.
 
@@ -292,7 +292,9 @@ Testez cette fonction avec :
 
 - nom de fichier : `test.fasta`
 - commentaire : `mon commentaire`
-- séquence : `atcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcg`
+- séquence :
+
+     `atcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatc`
 
 
 #### Extraction des gènes
@@ -459,7 +461,9 @@ Testez cette fonction avec :
 
 - nom de fichier : `test.fasta`
 - commentaire : `mon commentaire`
-- séquence : `atcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcg`
+- séquence :
+
+     `atcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatc`
 
 
 #### Extraction des gènes
@@ -498,7 +502,7 @@ Testez votre script ainsi finalisé.
 
 ### Simulation d'un pendule
 
-L'objectif de ce projet est de simuler un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple) en 2 dimensions, puis de le visualiser à l'aide du module *tkinter*. Le projet peut s'avérer complexe. Tout d'abord, il y a l'aspect physique du projet. Nous allons faire ici tous les rappels de mécanique nécessaires à la réalisation du projet. Ensuite, il y a la partie *tkinter* qui n'est pas évidente au premier abord. Nous conseillons de bien séparer les deux parties. D'abord réaliser la simulation physique et vérifier qu'elle fonctionne (par exemple, en écrivant un fichier de sortie permettant cette vérification). Ensuite passer à la partie graphique *tkinter* **si et seulement si** la première partie est fonctionnelle.
+L'objectif de ce projet est de simuler un [pendule simple](https://fr.wikipedia.org/wiki/Pendule_simple) en deux dimensions, puis de le visualiser à l'aide du module *tkinter*. Le projet peut s'avérer complexe. Tout d'abord, il y a l'aspect physique du projet. Nous allons faire ici tous les rappels de mécanique nécessaires à la réalisation du projet. Ensuite, il y a la partie *tkinter* qui n'est pas évidente au premier abord. Nous conseillons de bien séparer les deux parties. D'abord réaliser la simulation physique et vérifier qu'elle fonctionne (par exemple, en écrivant un fichier de sortie permettant cette vérification). Ensuite passer à la partie graphique *tkinter* **si et seulement si** la première partie est fonctionnelle.
 
 
 #### Mécanique d'un pendule simple
@@ -590,9 +594,9 @@ dtheta <- 0     # vitesse angulaire initiale en rad/s
 afficher_position_pendule(t, theta) # afficher position de départ
 ```
 
-L'initialisation des valeurs de `theta` et `dtheta` est très importante car elle détermine le comportement du pendule. Nous avons choisi ici d'avoir une vitesse angulaire nulle et un angle de départ du pendule $\theta = \pi / 4$ rad $= 45$ deg. Le pas `dt` est également très important, c'est lui qui déterminera l'erreur faite sur l'intégration de l'équation différentielle. Plus ce pas est petit, plus on est précis, mais plus le calcul sera long. Ici, on choisit un pas `dt` de 0.05 s qui constitue un bon compromis.
+L'initialisation des valeurs de `theta` et `dtheta` est très importante, car elle détermine le comportement du pendule. Nous avons choisi ici d'avoir une vitesse angulaire nulle et un angle de départ du pendule $\theta = \pi / 4$ rad $= 45$ deg. Le pas `dt` est également très important, c'est lui qui déterminera l'erreur faite sur l'intégration de l'équation différentielle. Plus ce pas est petit, plus on est précis, mais plus le calcul sera long. Ici, on choisit un pas `dt` de 0.05 s qui constitue un bon compromis.
 
-À ce stade, vous avez tous les éléments pour tester votre pendule. Essayez de réaliser un petit programme python `pendule_basic.py` qui utilise les conditions initiales ci-dessus et simule le mouvement du pendule. A la fin de cette rubrique, nous proposons une solution en langage algorithmique. Essayez dans un premier temps de le faire vous-même. A chaque pas, le programme écrira le temps $t$ et l'angle $\theta$ dans un fichier `pendule_basic.dat`. Dans les équations, $\theta$ doit être exprimé en radian, mais nous vous conseillons de convertir cet angle en degré dans le fichier (plus facile à comprendre pour un humain !). Une fois ce fichier généré, vous pourrez observer le graphe correspondant avec *matplotlib* en utilisant le code suivant :
+À ce stade, vous avez tous les éléments pour tester votre pendule. Essayez de réaliser un petit programme python `pendule_basic.py` qui utilise les conditions initiales ci-dessus et simule le mouvement du pendule. À la fin de cette rubrique, nous proposons une solution en langage algorithmique. Essayez dans un premier temps de le faire vous-même. À chaque pas, le programme écrira le temps $t$ et l'angle $\theta$ dans un fichier `pendule_basic.dat`. Dans les équations, $\theta$ doit être exprimé en radian, mais nous vous conseillons de convertir cet angle en degré dans le fichier (plus facile à comprendre pour un humain !). Une fois ce fichier généré, vous pourrez observer le graphe correspondant avec *matplotlib* en utilisant le code suivant :
 
 ```python
 import matplotlib.pyplot as plt
@@ -634,6 +638,7 @@ tant qu'on n'arrête pas le pendule:
     afficher_position_pendule(t, theta)
 ```
 
+
 #### Constructeur de l'application en *tkinter*
 
 Nous allons maintenant construire l'application *tkinter* en vous guidant pas à pas. Il est bien sûr conseillé de relire le chapitre 25 sur *Fenêtres graphiques et Tkinter* (en ligne) avant de vous lancer dans cette partie.
@@ -650,24 +655,24 @@ if __name__ == "__main__":
     app_pendule.mainloop()
 ```
 
-Ensuite, nous commençons par écrire le constructeur de la classe. Dans ce constructeur, nous aurons une section initialisant toutes les variables utilisées pour simuler le pendule (cf. rubrique précédente), puis, une autre partie générant les *widgets* et tous les éléments graphiques. Nous vous conseillons vivement de bien les séparer, et surtout de **mettre des commentaires** pour pouvoir s'y retrouver. Voici un « squelette » pour vous aider :
+Ensuite, nous commençons par écrire le constructeur de la classe. Dans ce constructeur, nous aurons une section initialisant toutes les variables utilisées pour simuler le pendule (voir rubrique précédente), puis, une autre partie générant les *widgets* et tous les éléments graphiques. Nous vous conseillons vivement de bien les séparer, et surtout de **mettre des commentaires** pour pouvoir s'y retrouver. Voici un « squelette » pour vous aider :
 
 ```python
 class AppliPendule(tk.Tk):
     def __init__(self):
-        # instanciation de la classe Tk
+        # Instanciation de la classe Tk.
         tk.Tk.__init__(self)
-        # ici vous pouvez définir toutes les variables
-        # concernant la physique du pendule
-		self.theta = np.pi / 4 # valeur intiale theta
-		self.dtheta = 0 # vitesse angulaire initiale
+        # Ici vous pouvez définir toutes les variables
+        # concernant la physique du pendule.
+		self.theta = np.pi / 4  # valeur intiale theta
+		self.dtheta = 0  # vitesse angulaire initiale
 		[...]
-        self.g = 9.8 # cst gravitationnelle en m/s^2
+        self.g = 9.8  # cst gravitationnelle en m/s^2
         [...]
-        # ici vous pouvez construire l'application graphique
+        # Oci vous pouvez construire l'application graphique.
         self.canv = tk.Canvas(self, bg='gray', height=400, width=400)
-        # création d'un boutton demarrer, arreter, quitter
-        # penser à placer les widgets avec .pack()
+        # Création d'un boutton demarrer, arreter, quitter.
+        # Pensez à placer les widgets avec .pack()
 		[...]
 ```
 
@@ -675,7 +680,7 @@ La figure @fig:pendule vous montre un aperçu de ce que l'on voudrait obtenir.
 
 ![Application pendule.](img/pendule.png){ #fig:pendule width=60% }
 
-Pour le moment, vous pouvez oublier la réglette fixant la valeur initiale de $\theta$, les *labels* affichant la valeur de $\theta$ et $v_{\theta}$ ainsi que les points violets « laissés en route » par le pendule. De même, nous dessinerons le pivot, la boule et la tige plus tard. A ce stade, il est fondamental de tout de suite lancer votre application pour vérifier que les *widgets* sont bien placés. N'oubliez pas, un code complexe se teste **au fur et à mesure** lors de son développement.
+Pour le moment, vous pouvez oublier la réglette fixant la valeur initiale de $\theta$, les *labels* affichant la valeur de $\theta$ et $v_{\theta}$ ainsi que les points violets « laissés en route » par le pendule. De même, nous dessinerons le pivot, la boule et la tige plus tard. À ce stade, il est fondamental de tout de suite lancer votre application pour vérifier que les *widgets* sont bien placés. N'oubliez pas, un code complexe se teste **au fur et à mesure** lors de son développement.
 
 open-box-adv
 
@@ -688,7 +693,7 @@ close-box-adv
 
 Le pivot et la boule pourront être créés avec la méthode `.create_oval()`, la tige le sera avec la méthode `.create_line()`. Pensez à créer des variables pour la tige et la boule lors de l'instanciation car celles-ci bougeront par la suite.
 
-Comment placer ces éléments dans le *canvas* ? Vous avez remarqué que lors de la création de ce dernier, nous avons fixé une dimension de 400 $\times$ 400 pixels. Le pivot se trouve au centre, c'est-à-dire au point $(200, 200)$ . Pour la tige et la boule il sera nécessaire de connaître la position de la boule **dans le repère du canvas**. Or, pour l'instant, nous définissons la position de la boule avec l'angle $\theta$. Il va donc nous falloir convertir $\theta$ en coordonnées cartésiennes $(x, y)$ dans le repère mathématique défini dans la figure @fig:pendulumsketch2, puis dans le repère du *canvas* $(x_{c}, y_{c})$ (cf. rubrique suivante).
+Comment placer ces éléments dans le *canvas* ? Vous avez remarqué que lors de la création de ce dernier, nous avons fixé une dimension de 400 $\times$ 400 pixels. Le pivot se trouve au centre, c'est-à-dire au point $(200, 200)$. Pour la tige et la boule, il sera nécessaire de connaître la position de la boule **dans le repère du canvas**. Or, pour l'instant, nous définissons la position de la boule avec l'angle $\theta$. Il va donc nous falloir convertir $\theta$ en coordonnées cartésiennes $(x, y)$ dans le repère mathématique défini dans la figure @fig:pendulumsketch2, puis dans le repère du *canvas* $(x_{c}, y_{c})$ (cf. rubrique suivante).
 
 ##### Conversion de $\theta$ en coordonnées $(x, y)$
 
@@ -734,11 +739,11 @@ self.y_c = -self.y*self.conv_factor + 200
 
 #### Gestion des boutons
 
-Il reste maintenant à gérer les boutons permettant de démarrer / stopper le pendule. Pour cela il faudra créer 3 méthodes dans notre classe :
+Il reste maintenant à gérer les boutons permettant de démarrer / stopper le pendule. Pour cela il faudra créer trois méthodes dans notre classe :
 
-- la méthode `.start()` : met en mouvement le pendule ; si le pendule n'a jamais été en mouvement, il part de son point de départ ; si le pendule avait déjà été en mouvement, celui-ci repart d'où on l'avait arrêté (avec la vitesse qu'il avait à ce moment-là) ;
-- la méthode `.stop()` : arrête le mouvement du pendule ;
-- la méthode `.move()` : gère le mouvement du pendule (génère les coordonnées du pendule au pas suivant).
+- La méthode `.start()` : met en mouvement le pendule ; si le pendule n'a jamais été en mouvement, il part de son point de départ ; si le pendule avait déjà été en mouvement, celui-ci repart d'où on l'avait arrêté (avec la vitesse qu'il avait à ce moment-là).
+- La méthode `.stop()` : arrête le mouvement du pendule.
+- La méthode `.move()` : gère le mouvement du pendule (génère les coordonnées du pendule au pas suivant).
 
 Le bouton « Démarrer » appellera la méthode `.start()`, le bouton « Arrêter » appellera la méthode `.stop()` et le bouton « Quitter » quittera l'application. Pour lier une action au clic d'un bouton, on se souvient qu'il faut donner à l'argument par mot-clé *command* une *callback* (c'est-à-dire le nom d'une fonction ou méthode sans les parenthèses) :
 
@@ -753,11 +758,12 @@ Nous vous proposons ici une stratégie inspirée du [livre de Gérard Swinnen](h
 - la méthode `.start()` ajoutera 1 à `self.is_moving`. Si `self.is_moving` est égal à 1 alors la méthode `self.move()` sera appelée ; 
 - la méthode `.stop()` mettra la valeur de `self.is_moving` à 0.
 
-Puisque `.start()` ajoute 1 à `self.is_moving`, le premier clic sur le bouton « Démarrer » appelera la méthode `.move()` car `self.is_moving` vaudra 1. Si l'utilisateur appuie une deuxième fois sur le bouton « Démarrer », `self.is_moving` vaudra 2 mais n'appellera pas `.move()` une deuxième fois ; cela sera vrai pour tout clic ultérieur de l'utilisateur sur ce bouton. Cette astuce évite des appels concurrents de la méthode `.move()`.
+Puisque `.start()` ajoute 1 à `self.is_moving`, le premier clic sur le bouton « Démarrer » appellera la méthode `.move()` car `self.is_moving` vaudra 1. Si l'utilisateur appuie une deuxième fois sur le bouton « Démarrer », `self.is_moving` vaudra 2, mais n'appellera pas `.move()` une deuxième fois ; cela sera vrai pour tout clic ultérieur de l'utilisateur sur ce bouton. Cette astuce évite des appels concurrents de la méthode `.move()`.
+
 
 #### Le coeur du programme : la méthode `.move()`
 
-Il nous reste maintenant à générer la méthode `.move()` qui meut le pendule. Pour cela vous pouvez vous inspirez de la rubrique *Un canvas animé dans une classe* du chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
+Il nous reste maintenant à générer la méthode `.move()` qui meut le pendule. Pour cela vous pouvez vous inspirer de la rubrique *Un canvas animé dans une classe* du chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne).
 
 Cette méthode va réaliser un pas de simulation de $t$ à $t+\delta t$. Il faudra ainsi réaliser dans l'ordre :
 
@@ -768,9 +774,10 @@ Cette méthode va réaliser un pas de simulation de $t$ à $t+\delta t$. Il faud
 - Incrémenter le pas de temps.
 - Si le drapeau `self.is_moving` est supérieur à 0, la méthode `self.move()` est rappelée après 20 millisecondes (*Conseil*: la méthode `.after()` est votre amie).
 
+
 #### Ressources complémentaires
 
-Si vous en êtes arrivé là, bravo vous pouvez maintenant admirer votre superbe pendule en mouvement :-) ! 
+Si vous êtes arrivé jusqu'ici, bravo, vous pouvez maintenant admirer votre superbe pendule en mouvement :-) ! 
 
 Voici quelques indications si vous voulez aller un peu plus loin.
 
