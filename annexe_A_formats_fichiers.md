@@ -769,7 +769,7 @@ length: 247
 \index{TSV}
 
 L'acronyme CSV signifie « *Comma-Separated values* », qu'on peut traduire littéralement
-par « valeurs séparées par des virgules ». De façon similaire, TSV signifie «~*Tabulation-Separated Values* »,
+par « valeurs séparées par des virgules ». De façon similaire, TSV signifie « *Tabulation-Separated Values* »,
 soit des « valeurs séparées par des tabulations ».
 
 Ces deux formats sont utiles pour stocker des données structurées sous forme de tableau, comme vous pourriez l'avoir dans un tableur.

@@ -300,9 +300,9 @@ le python est vert
 
 **Lignes 3 et 6**. On passe en argument deux listes à `zip()` qui génère un nouvel objet de type *zip*. Comme pour les objets de type *map* vu au chapitre 11 *Plus sur les chaînes de caractères*, les objets *zip* sont itérables.
 
-**Lignes 7 à 12**. Lorsqu'on itère sur un objet *zip*, la variable  d'itération est un tuple. À la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, à la deuxième itération ce sera le deuxième élément, et ainsi de suite.
+**Lignes 7 à 12**. Lorsqu'on itère sur un objet *zip*, la variable d'itération est un tuple. À la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, à la deuxième itération, ce sera le deuxième élément, et ainsi de suite.
 
-**Lignes 13 à 18**. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme avec `enumerate()` dans les chapitres~5 *Boucles* et 8 *Dictionnaires et tuples*).
+**Lignes 13 à 18**. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme avec `enumerate()` dans les chapitres 5 *Boucles* et 8 *Dictionnaires et tuples*).
 
 Un objet *zip* est aussi utile pour générer facilement une liste de tuples.
 

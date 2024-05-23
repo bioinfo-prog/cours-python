@@ -394,7 +394,7 @@ open-box-rem
 
 Nous avons appelé l'opération `x, y, z = 1, 2, 3` affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps. 
 
-Vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par «~désempaquetage de tuple ». De même, il existe le *list unpacking*.
+Vous pourrez rencontrer aussi l'expression *tuple unpacking* que l'on pourrait traduire par « désempaquetage de tuple ». De même, il existe le *list unpacking*.
 
 close-box-rem
 
