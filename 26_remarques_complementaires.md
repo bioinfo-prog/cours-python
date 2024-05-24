@@ -623,7 +623,7 @@ def transforme_en_sandwich(fonction_a_decorer):
     return emballage
 ```
 
-La fonction `transforme_en_sandwich()` est notre décorateur, elle prend en argument la fonction que l'on souhaite décorer sous forme de *callback (donc sans les parenthèses). On voit qu'à l'intérieur, on définit une sous-fonction `emballage()` qui va effectuer une action avant et après l'appel à la fonction à décorer. Enfin, le décorateur renvoie cette sous-fonction `emballage` sous forme de *callback*.  Pour que le décorateur soit actif, il faudra « transformer » la fonction à décorer avec notre fonction décoratrice :
+La fonction `transforme_en_sandwich()` est notre décorateur, elle prend en argument la fonction que l'on souhaite décorer sous forme de *callback* (donc sans les parenthèses). On voit qu'à l'intérieur, on définit une sous-fonction `emballage()` qui va littéralement « emballer » (*wrap*) notre fonction à décorer, c'est-à-dire, effectuer une action avant et après l'appel de la fonction à décorer. Enfin, le décorateur renvoie cette sous-fonction `emballage` sous forme de *callback*.  Pour que le décorateur soit actif, il faudra « transformer » la fonction à décorer avec notre fonction décoratrice :
 
 ```python
 imprime_victuaille = transforme_en_sandwich(imprime_victuaille)
@@ -651,7 +651,7 @@ if __name__ == "__main__":
     imprime_victuaille()
 ```
 
-La sortie donne :
+On voit au final que l'idée est d'appeler la fonction décoratrice plutôt que la fonction `imprime_victuaille()` elle-même. La sortie donne :
 
 ```text
 Fonction non décorée:
@@ -663,7 +663,7 @@ tomate/ mozza
 Pain
 ```
 
-Le premier appel en ligne 13 exécute la fonction simple, alors que le second en ligne 17 exécute la fonction décorée. Avouons que cette construction semble un peu tordue et difficile à comprendre. Heureusement, Python a une notation en  « *sucre syntaxique* » (*syntactic sugar*) qui facilite la lecture. Celle-ci utilise le symbole `@` aussi appelé *pie decorator syntax* :
+Le premier appel en ligne 13 exécute la fonction simple, alors que le second en ligne 17 exécute la fonction décorée. Cette construction peut sembler ardue et difficile à comprendre. Heureusement, Python a une notation en  « *sucre syntaxique* » (*syntactic sugar*) qui en facilite la lecture. Celle-ci utilise le symbole `@` :
 
 ```python
 def transforme_en_sandwich(fonction_a_decorer):
@@ -689,7 +689,30 @@ tomate / mozza
 Pain
 ```
 
-Si tout cela vous semble un peu confus (on vous comprend...), vous devez vous dire « pourquoi utiliser une construction aussi complexe ? ». Et bien, c'est tout simplement parce qu'un décorateur est ré-utilisable dans n'importe quelle fonction. Si on reprend la même fonction décoratrice que ci-dessus :
+Au final, la notation :
+
+```python
+@decorator
+def fct():
+    [...]
+```
+
+est équivalente à :
+
+```python
+fct = decorator(fct)
+```
+
+Cela fonctionne avec n'importe quelle fonction prenant en argument une autre fonction.
+
+open-box-adv
+
+Nous vous conseillons d'utiliser systématiquement la notation `@decorator` qui est plus claire.
+
+close-box-adv
+
+
+Si tout cela vous semble ardu (on vous comprend...), vous devez vous dire « pourquoi utiliser une construction aussi complexe ? ». Et bien, c'est tout simplement parce qu'un décorateur est ré-utilisable dans n'importe quelle fonction. Si on reprend la même fonction décoratrice que ci-dessus :
 
 ```python
 @transforme_en_sandwich
@@ -706,7 +729,7 @@ if __name__ == "__main__":
     imprime_victuaille2()
 ```
 
-On a donc un décorateur permettant de transformer en sandwich n'importe quelle victuaille ! Ceci renverra :
+On a donc un décorateur permettant de transformer en sandwich n'importe quelle fonction imprimant une victuaille ! Ceci renverra :
 
 ```text
 Pain
@@ -718,21 +741,22 @@ jambon / fromage
 Pain
 ```
 
-Un exemple plus concret pourrait être la conception d'un décorateur qui mesure le temps d'exécution de fonctions :
+Un exemple plus concret de décorateur pourrait être la mesure du temps d'exécution d'une fonction :
 
 ```text
 import time
+
 def mesure_temps(fonction_a_decorer):
     def emballage():
         temps1 = time.time()
         fonction_a_decorer()
         temps2 = time.time()
-		print(f"Le temps d'éxécution de {fonction_a_decorer.name} est "
+		print(f"Le temps d'éxécution de {fonction_a_decorer.__name__} est "
               f"{temps2 - temps1} s")
     return emballage
 ```
 
-Dans ce cas, le décorateur `@mesure_temps` mis devant n'importe quelle fonction affichera systématiquement le temps d'exécution de celle-ci.
+En ligne 8, l'attribut `.__name__` renvoie le nom de la fonction sous forme de chaîne de caractères. Dans cet exemple, le décorateur `@mesure_temps` mis devant n'importe quelle fonction affichera systématiquement le temps d'exécution de celle-ci.
 
 open-box-more
 
