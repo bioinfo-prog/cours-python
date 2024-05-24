@@ -614,7 +614,7 @@ def imprime_victuaille():
 
 On souhaite améliorer cette fonction et transformer cette victuaille en sandwich, en affichant une tranche de pain avant et après. La stratégie va être de créer une fonction spéciale, qu'on appelle **décorateur**, modifiant `imprime_victuaille()`.
 
-``python
+```python
 def transforme_en_sandwich(fonction_a_decorer):
     def emballage():
         print("Pain")
