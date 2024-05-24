@@ -951,7 +951,7 @@ if __name__ == "__main__":
      citron = Citron(masse=100)
      print("(3) Je reviens dans le programme principal")
      print(f"La masse de notre citron est {citron.masse} g")
-     # on mange le citron
+     # On mange le citron.
      citron.masse = 25
      print(f"La masse de notre citron est {citron.masse} g")
      print(citron.__dict__)
@@ -995,12 +995,151 @@ La masse de notre citron est 25 g
 
 Cette exécution montre qu'à chaque appel de `self.masse` ou `citron.masse` on va utiliser les méthodes accesseur ou mutateur. La dernière commande qui affiche le contenu de `citron.__dict__` montre que la vraie valeur de l'attribut est stockée dans la variable d'instance `._masse` (`instance._masse` de l'extérieur et `self._masse` de l'intérieur).
 
+### Une meilleure solution : les décorateurs `@property`, `@attribut.setter` et `@attribut.deleter`
+
+Nous venons de voir les objets *property* pour controller l'accès, la mutation et la supression d'attributs. Toutefois la syntaxe est relativement lourde. Afin de la simplifier, une manière plus pythonique (sucre syntaxique) est d'utiliser un décorateur. La syntaxe pour décorer une fonction est la suivante :
+
+```python
+@decorateur
+def fonction():
+    [...]
+```
+
+La ligne 1 précise que `fonction()` va être modifiée par une autre fonction nommée `decorateur()`. Le symbole `@` en ligne 1 indique la fonction décoratrice. Pour plus de détails sur comment les décorateurs fonctionnent, vous pouvez consulter le chapitre 26 *Remarques complémentaires* où une rubrique leur est consacrée. Ici, nous avons juste à savoir q'un décorateur est une fonction qui modifie le comportement d'une autre fonction. 
+
+En reprenant l'exemple vu dans la rubrique précédente, voici comment on peut l'écrire avec des décorateurs :
+
+```python
+class Citron:
+    def __init__(self, masse=0):
+        print(f"(2) J'arrive dans le .__init__(), je mets la masse = {masse}")
+        self._masse = masse
+    
+    @property
+    def masse(self):
+        print("Coucou je suis dans le getter")
+        return self._masse
+
+    @masse.setter
+    def masse(self, valeur):
+        print("Coucou je suis dans le setter")
+        if valeur < 0:
+            raise ValueError("Un citron ne peut pas avoir"
+                             " de masse négative !")
+        self._masse = valeur
+
+    @masse.deleter
+    def masse(self):
+        print("Coucou, je suis dans le deleter")
+        del self._masse
+```
+
+On voit que la syntaxe est plus lisible que celle de la rubrique précédente. Examinons les différences. La première chose est que les méthodes *getter* (ligne 7), *setter* (ligne 11) et *deleter* (ligne 19) s'appelle toutes `.masse()`, `masse` étant le nom de notre objet *property*. Comme dans la syntaxe de la rubrique précédente, la masse réelle se trouve dans un attribut nommée `._masse` pour ne pas confondre avec notre objet *property*. Afin de comprendre ce qu'il se passe, nous vous avons concocté le programme principal suivant avec des `print()` un peu partout :
+
+```python
+if __name__ == "__main__":
+    print("(1) Je suis dans le programme principal et "
+          "je vais instancier un Citron")
+    citron = Citron(masse=100)
+    print("(3) Je reviens dans le programme principal")
+    print(f"La masse de notre citron est {citron.masse} g")
+    print()
+    # On mange une partie du citron.
+    print("(4)Je suis dans le prog principal "
+          "et je vais change la masse du citron")
+    citron.masse = 25
+    print()
+    print(f"(5) Je suis dans le prog principal, "
+          f"la nouvelle masse de notre citron est {citron.masse} g")
+    print(f"L'attribut citron.__dict__ m'indique bien le nom réel :"
+          f"de l'attribut contenant la masse :")
+    print(citron.__dict__)
+    print()
+    # On mange la fin du citron.
+    print(f"(6)  Je suis dans le prog principal, " 
+          f"je détruis l'attribut .masse")
+    del citron.masse
+    print(f"Ainsi, citron.__dict__ est maintenant vide :")
+    print(citron.__dict__)
+```
+
+L'exécution donnera la sortie suivante :
+
+```text
+(1) Je suis dans le programme principal et je vais instancier un Citron
+(2) J'arrive dans le .__init__(), je mets la masse = 100
+(3) Je reviens dans le programme principal
+Coucou je suis dans le getter
+La masse de notre citron est 100 g
+
+(4)Je suis dans le prog principal et je vais change la masse du citron
+Coucou je suis dans le setter
+
+Coucou je suis dans le getter
+(5) Je suis dans le prog principal, la nouvelle masse de notre citron est 25 g
+L'attribut citron.__dict__ m'indique bien le nom réel :de l'attribut contenant la masse :
+{'_masse': 25}
+
+(6)  Je suis dans le prog principal, je détruis l'attribut .masse
+Coucou, je suis dans le deleter
+Ainsi, citron.__dict__ est maintenant vide :
+{}
+```
+
+Examinez bien les phrases `Coucou je suis dans [...]` et essayez de comprendre pourquoi elles apparaissent. Bien que nos trois méthodes soient définies comme `def masse()`, vous pouvez constater qu'elles sont appelées lorsque on invoque `citron.masse`, `citron.masse = 25` ou `del citron.masse` (à l'intérieur de la classe, ce serait `self.masse`, `self.masse = 25` ou `del self.masse`). Autrement dit, on n'utilise jamais la syntaxe `.masse()`. Ceci est justement dû au fait que `.masse` est un objet de type *property*.
+
+open-box-adv
+
+Lorsque vous souhaitez créer des objets *property* , nous vous conseillons la syntaxe pythonique `@property`,`@nom_attribut.setter` et `@nom_attribut.deleter` plutôt que celle de la rubrique précédente avec la ligne `masse = property(fget=get_masse, fset=set_masse, fdel=del_masse)`.
+
+close-box-adv
+
+### Le décorateur `@property` seul
+
+Il se peut que vous rencontriez une classe où on a une méthode décorée avec `@property` mais sans nécessairement avoir un *setter* et/ou un *deleter*. Cela peut être pratique lorsqu'on veut créer une sorte « d'attribut dynamique » plutôt qu'avoir un appel de fonction explicite.
+
+```python
+class Repertoire:
+    def __init__(self):
+        self.repertoire = []
+
+    def __repr__(self):
+        return f"Mon répertoire contient {self.repertoire}"
+
+    def ajoute_nom(self, nom):
+        self.repertoire.append(nom)
+
+    @property
+    def len(self):
+        return len(self.repertoire)
+```
+
+Cela donnera comme sortie (dans l'interpréteur) :
+
+```text
+>>> mon_rep = Repertoire()
+>>> mon_rep.ajoute_nom("John")
+>>> mon_rep.ajoute_nom("Bill")
+>>> mon_rep
+Mon répertoire contient ['John', 'Bill']
+>>> mon_rep.len
+2
+>>> mon_rep.ajoute_nom("Jack")
+>>> mon_rep
+Mon répertoire contient ['John', 'Bill', 'Jack']
+>>> mon_rep.len
+3
+```
+
+On voit que lorsqu'on utilise l'attribut `mon_rep.len`, ceci invoque finalement l'appel de l'objet *property* `len` qui, *in fine*, est une méthode. Ainsi, la valeur renvoyée sera calculée à chaque fois, bien que dans la syntaxe on n'a pas une notation `.methode()`, mais plutôt `.attribut`. Voilà pourquoi nous avons parlé d'attribut dynamique. Cela allège la syntaxe et peut être intéressant dans certains cas.
+
+<!---
 open-box-more
 
 Il existe une autre syntaxe considérée comme plus élégante pour mettre en place les objets *property*. Il s'agit des *décorateurs* `@property`, `@attribut.setter` et `@attribut.deleter`. Toutefois, la notion de décorateur va au-delà du présent ouvrage. Si vous souhaitez plus d'informations, vous pouvez consulter par exemple le [site programiz](https://www.programiz.com/python-programming/property) ou le livre de [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
 
 close-box-more
-
+-->
 
 ## Bonnes pratiques pour construire et manipuler ses classes
 
