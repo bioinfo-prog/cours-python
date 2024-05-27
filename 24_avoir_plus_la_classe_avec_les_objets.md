@@ -1516,6 +1516,47 @@ Pour aller plus loin, vous pouvez consulter le très bon [article](https://dbade
 
 close-box-more
 
+## Note finale de sémantique
+
+Jusqu'à présent, lorsque nous avons évoqué les outils pour créer ou convertir des objets Python tels que `int()`, `list()`, `range()`, etc., nous avons toujours parlé de fonctions. Ceci parce-que nous avions une syntaxe `fonction()`, c'est-à-dire `fonction` suivie de parenthèses `()`. Toutefois, vous vous êtes peut-être déjà demandé pourquoi Python indiquait `class` lorsqu'on tapait le nom de ces fonctions dans l'interpréteur (ou en invoquant `help()`) :
+
+```python
+>>> int
+<class 'int'>
+>>> list
+<class 'list'>
+>>> range
+<class 'range'>
+>>> property
+<class 'property'>
+```
+
+Et bien, c'est parce-que ce sont bel et bien des classes ! Donc, lorsqu'on invoque par exemple `liste1 = list()`, on crée finalement une instance de la classe `list`. Python ne met pas `list` en *CamelCase* car ce sont des classes natives (*builtin-classes*). Finalement, la création d'une instance à partir d'une classe ou l'appel d'une fonction possède la même syntaxe `mot_clé()` :
+
+```python
+>>> class Citron:
+...     pass
+...
+>>> Citron()
+<__main__.Citron object at 0x7fb776308a10>
+>>> def fct():
+...     return "Coucou"
+...
+>>> fct()
+'coucou'
+```
+
+Si on prend des fonctions natives (*built-in functions*) de Python comme `len()` ou `sorted()`, l'interpréteur nous confirme bien qu'il s'agit de fonctions :
+
+```python
+>>> len
+<built-in function len>
+>>> sorted
+<built-in function sorted>
+```
+
+Par conséquent, d'un point de vue purement sémantique nous devrions parler de classe plutôt que de fonction pour les instructions comme `list()`, `range()`, etc. Toutefois, nous avons décidé de garder le nom fonction pour ne pas complexifier les premiers chapitres de ce cours.
+
 ## Exercices
 
 open-box-adv
