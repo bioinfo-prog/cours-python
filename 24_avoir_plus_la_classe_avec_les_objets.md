@@ -181,6 +181,8 @@ close-box-more
 
 Nous allons voir maintenant des propriétés très importantes des classes en Python, le polymorphisme dans cette rubrique et l'héritage dans la suivante. Ces deux concepts donnent un surplus de puissance à la POO par rapport à la programmation classique.
 
+### Principe
+
 Commençons par le polymorphisme. Dans la vie, celui-ci évoque la capacité à prendre plusieurs apparences, qu'en est-il en programmation ?
 
 open-box-def
@@ -216,6 +218,8 @@ Un exemple classique de redéfinition des opérateurs concerne l'opérateur `+`.
 ```
 
 Nous verrons dans la rubrique suivante sur *l'héritage* qu'il est également possible de redéfinir des méthodes d'une classe, c'est-à-dire leur donner une nouvelle définition.
+
+### Méthodes magiques ou dunder methods
 
 Comment Python permet-il ces prouesses que sont le polymorphisme et la redéfinition des opérateurs ? Et bien, il utilise des méthodes dites *magiques*.
 
@@ -1429,7 +1433,7 @@ Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souv
 
 Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
-### Pour finir, les *namedtuples*
+### *Namedtuples*
 
 Imaginons que l'on souhaite stocker des éléments dans un conteneur, que l'on puisse retrouver ces éléments avec une syntaxe `conteneur.element` et que ces éléments soient non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, il n'est pas conseillé de les utiliser comme des conteneurs inertes, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de conteneur est issu du module *collections* que nous avions évoqué dans le chapitre 14 *Conteneurs*.
 
@@ -1511,7 +1515,6 @@ open-box-more
 Pour aller plus loin, vous pouvez consulter le très bon [article](https://dbader.org/blog/writing-clean-python-with-namedtuples) de Dan Bader.
 
 close-box-more
-
 
 ## Exercices
 
