@@ -648,16 +648,91 @@ class Orange(Fruit):
         return Fruit.affiche_conseil(self, "Orange", "Trop bon en jus !")
 ```
 
-Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on les utilise en Python. Pour chaque fruit, on utilise la méthode  
-`.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne) ainsi que dans les exercices du présent chapitre. Avec le module *Tkinter*, chaque objet graphique (bouton, zone de texte, etc.) est en fait une classe. On peut ainsi créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
+Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on les utilise en Python. Pour chaque fruit, on utilise la méthode `.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne) ainsi que dans les exercices du présent chapitre. Avec le module *Tkinter*, chaque objet graphique (bouton, zone de texte, etc.) est en fait une classe. On peut ainsi créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
 
+## Composition
+
+Un autre concept puissant rencontré en POO est la notion de composition. 
+
+open-box-def
+
+La composition désigne le fait qu'une classe peut contenir des instances provenant d'autres classes. On parle parfois de classe *Composite* contenant des instances d'une classe *Component*.
+
+close-box-def
+
+Pour vous illustrer cela, nous allons prendre un exemple sur notre fruit préféré, le citron. un citron (classe *Composite*) contient de la pulpe (classe *Component*). Voilà comment nous pourrions l'implémenter :
+
+```python
+class Pulpe:
+    def __init__(self, quantite_jus):
+        self.quantite_jus = quantite_jus # En cL.
+
+    def __str__(self):
+        return f"Cette pulpe contient {self.quantite_jus} cL de jus"
+
+
+class Citron:
+    def __init__(self, pulpe=None):
+        self.pulpe = pulpe
+
+    def presse_citron(self):
+        if self.pulpe:
+            print(f"Le pressage de la pulpe délivre "
+                  f"{self.pulpe.quantite_jus} cL de jus")
+            self.pulpe = None
+        else:
+            print("Il n'y a plus rien à presser dans votre citron !")
+
+    def __str__(self):
+        if self.pulpe:
+            return f"Votre citron contient {self.pulpe.quantite_jus} cL de jus"
+        else:
+            return "Ce citron ne contient pas de pulpe"
+
+
+if __name__ == "__main__":
+    pulpe = Pulpe(10)
+    print(pulpe)
+    citron1 = Citron()
+    print(citron1)
+    print()
+    citron2 = Citron(pulpe)
+    print(citron2.pulpe)
+    print(citron2)
+    print()
+    citron2.presse_citron()
+    citron2.presse_citron()
+    print(citron2)
+```
+
+**Lignes 1 à 6**. On crée une classe `Pulpe` qui prend en argument à l'instanciation une quantité de jus (en cL) qu'elle peut délivrer si on la presse.
+
+**Lignes 9 à 25**. On crée une classe `Citron` qui prend un objet Pulpe à l'instanciation. Si aucun objet est passé, on affecte `None`. Cette classe contient une méthode `.presse_citron()` qui pressera la pulpe pour délivrer le jus de citron. Une fois le pressage effectué, il n'y aura plus de jus à délivrer.
+
+La sortie sera la suivante :
+
+```text
+Cette pulpe contient 10 cL de jus
+Ce citron ne contient pas de pulpe
+
+Cette pulpe contient 10 cL de jus
+Votre citron contient 10 cL de jus
+
+Le pressage de la pulpe délivre 10 cL de jus
+Il n'y a plus rien à presser dans votre citron !
+Ce citron ne contient pas de pulpe
+```
+
+Dans cet exemple, la classe `Citron` a utilisé une instance de la classe `Pulpe` pour fonctionner. Un avantage de la composition est qu'on pourrait réutiliser cette  classe `Pulpe` dans une classe `Orange` ou `Pamplemousse`. Par ailleurs, si on change des détails dans la classe `Pulpe`, cela affectera peu la classe `Citron` à partir du moment où on garde l'attribut `.quantite_jus`.
+
+De manière générale, la composition est considérée comme plus flexible que l'héritage car les classes *Composite* et *Component* sont peu couplées. Le changement de l'une d'entre elle aura peu d'effet sur l'autre. Au contraire, pour l'héritage le changement d'une classe mère peut avoir des répercussions importantes pour les classes filles.
 
 open-box-more
 
 À ce stade, nous pouvons émettre deux remarques :
 
-L'héritage et le polymorphisme donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entraîner sur un maximum d'exemples.
-Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), et [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
+Le polymorphisme, l'héritage et la composition  donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entraîner sur un maximum d'exemples.
+Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), et [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python). Nous vous conseillons également ce très bon article sur le site *RealPython* concernant la [composition vs héritage](https://realpython.com/inheritance-composition-python/).
 
 close-box-more
 
