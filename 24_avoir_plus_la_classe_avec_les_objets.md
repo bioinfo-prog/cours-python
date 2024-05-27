@@ -1012,8 +1012,8 @@ En reprenant l'exemple vu dans la rubrique précédente, voici comment on peut l
 ```python
 class Citron:
     def __init__(self, masse=0):
-        print(f"(2) J'arrive dans le .__init__(), je mets la masse = {masse}")
-        self._masse = masse
+        print(f"(2) J'arrive dans le .__init__(), je vais mettre la masse = {masse}")
+        self.masse = masse
     
     @property
     def masse(self):
@@ -1040,18 +1040,22 @@ On voit que la syntaxe est plus lisible que celle de la rubrique précédente. E
 if __name__ == "__main__":
     print("(1) Je suis dans le programme principal et "
           "je vais instancier un Citron")
+    print()
     citron = Citron(masse=100)
-    print("(3) Je reviens dans le programme principal")
+    print()
+    print("(3) Je reviens dans le programme principal, je vais afficher "
+          "la masse du citron")
     print(f"La masse de notre citron est {citron.masse} g")
     print()
     # On mange une partie du citron.
     print("(4)Je suis dans le prog principal "
-          "et je vais change la masse du citron")
+          "et je vais changer la masse du citron")
     citron.masse = 25
     print()
-    print(f"(5) Je suis dans le prog principal, "
-          f"la nouvelle masse de notre citron est {citron.masse} g")
-    print(f"L'attribut citron.__dict__ m'indique bien le nom réel :"
+    print(f"(5) Je suis dans le prog principal, je vais afficher "
+          "la masse du citron")
+    print(f"La nouvelle masse de notre citron est {citron.masse} g")
+    print(f"L'attribut citron.__dict__ m'indique bien le nom réel "
           f"de l'attribut contenant la masse :")
     print(citron.__dict__)
     print()
@@ -1067,17 +1071,21 @@ L'exécution donnera la sortie suivante :
 
 ```text
 (1) Je suis dans le programme principal et je vais instancier un Citron
-(2) J'arrive dans le .__init__(), je mets la masse = 100
-(3) Je reviens dans le programme principal
+
+(2) J'arrive dans le .__init__(), je vais mettre la masse = 100
+Coucou je suis dans le setter
+
+(3) Je reviens dans le programme principal, je vais afficher la masse du citron
 Coucou je suis dans le getter
 La masse de notre citron est 100 g
 
-(4)Je suis dans le prog principal et je vais change la masse du citron
+(4)Je suis dans le prog principal et je vais changer la masse du citron
 Coucou je suis dans le setter
 
+(5) Je suis dans le prog principal, je vais afficher la masse du citron
 Coucou je suis dans le getter
-(5) Je suis dans le prog principal, la nouvelle masse de notre citron est 25 g
-L'attribut citron.__dict__ m'indique bien le nom réel :de l'attribut contenant la masse :
+La nouvelle masse de notre citron est 25 g
+L'attribut citron.__dict__ m'indique bien le nom réel de l'attribut contenant la masse :
 {'_masse': 25}
 
 (6)  Je suis dans le prog principal, je détruis l'attribut .masse
@@ -1090,7 +1098,7 @@ Examinez bien les phrases `Coucou je suis dans [...]` et essayez de comprendre p
 
 open-box-adv
 
-Lorsque vous souhaitez créer des objets *property* , nous vous conseillons la syntaxe pythonique `@property`,`@nom_attribut.setter` et `@nom_attribut.deleter` plutôt que celle de la rubrique précédente avec la ligne `masse = property(fget=get_masse, fset=set_masse, fdel=del_masse)`.
+Lorsque vous souhaitez créer des objets *property* , nous vous conseillons la syntaxe pythonique `@property`,`@nom_attribut.setter` et `@nom_attribut.deleter` plutôt que celle de la rubrique précédente avec la ligne `masse = property(fget=get_masse, fset=set_masse, fdel=del_masse)`. Cette syntaxe améliore grandement la lisibilité.
 
 close-box-adv
 
@@ -1114,7 +1122,7 @@ class Repertoire:
         return len(self.repertoire)
 ```
 
-Cela donnera comme sortie (dans l'interpréteur) :
+Voici un dans l'interpréteur :
 
 ```text
 >>> mon_rep = Repertoire()
@@ -1131,7 +1139,7 @@ Mon répertoire contient ['John', 'Bill', 'Jack']
 3
 ```
 
-On voit que lorsqu'on utilise l'attribut `mon_rep.len`, ceci invoque finalement l'appel de l'objet *property* `len` qui, *in fine*, est une méthode. Ainsi, la valeur renvoyée sera calculée à chaque fois, bien que dans la syntaxe on n'a pas une notation `.methode()`, mais plutôt `.attribut`. Voilà pourquoi nous avons parlé d'attribut dynamique. Cela allège la syntaxe et peut être intéressant dans certains cas.
+On voit que lorsqu'on utilise l'attribut `mon_rep.len`, ceci invoque finalement l'appel de l'objet *property* `len` qui, *in fine*, est une méthode. Ainsi, la valeur renvoyée sera calculée à chaque fois, bien que dans la syntaxe on n'a pas une notation `.methode()`, mais plutôt `.attribut`. Voilà pourquoi nous avons parlé d'attribut dynamique. Cela permet d'alléger la syntaxe.
 
 <!---
 open-box-more
