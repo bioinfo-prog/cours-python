@@ -652,11 +652,11 @@ Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facili
 
 ## Composition
 
-Un autre concept puissant rencontré en POO est la notion de composition. 
+Un autre concept puissant rencontré en POO est la composition. 
 
 open-box-def
 
-La composition désigne le fait qu'une classe peut contenir des instances provenant d'autres classes. On parle parfois de classe *Composite* contenant des instances d'une classe *Component*.
+La composition désigne le fait qu'une classe peut contenir des instances provenant d'autres classes. On parle parfois de classe *Composite* contenant des instances d'une classe *Component* (qu'on pourrait traduire par *élément*).
 
 close-box-def
 
@@ -725,14 +725,22 @@ Ce citron ne contient pas de pulpe
 
 Dans cet exemple, la classe `Citron` a utilisé une instance de la classe `Pulpe` pour fonctionner. Un avantage de la composition est qu'on pourrait réutiliser cette  classe `Pulpe` dans une classe `Orange` ou `Pamplemousse`. Par ailleurs, si on change des détails dans la classe `Pulpe`, cela affectera peu la classe `Citron` à partir du moment où on garde l'attribut `.quantite_jus`.
 
-De manière générale, la composition est considérée comme plus flexible que l'héritage car les classes *Composite* et *Component* sont peu couplées. Le changement de l'une d'entre elle aura peu d'effet sur l'autre. Au contraire, pour l'héritage le changement d'une classe mère peut avoir des répercussions importantes pour les classes filles.
+De manière générale, la composition est considérée comme plus flexible que l'héritage car les classes *Composite* et *Component* sont peu couplées. Le changement de l'une d'entre elle aura peu d'effet sur l'autre. Au contraire, pour l'héritage le changement d'une classe mère peut avoir des répercussions importantes pour les classes filles. Toutefois, dans certains cas l'héritage peut s'avérer plus naturel. Nous vous parlions en introduction de ce chapitre de l'art pour concevoir des classes interagissant harmonieusement entre elles. Et bien nous y sommes !
+
+Si on a deux classes `A` et `B`, la relation entre elles dans l'héritage sera de type `A` **is a** `B`. Dans la composition, ce sera plutôt `A` **has a** `B`. Cela peut vous servir de piste dans la conception des relations entre vos classes. A-t-il plus de sens d'y avoir une relation **is a** ou bien **has a** ? Dans le premier cas vous irez plutôt vers l'héritage, alors que dans le deuxième plutôt vers la composition. Bien sûr, il faudra vous entraîner sur des cas concrets pour acquérir l'expérience qui vous mènera aux bons choix. A la fin de ce chapitre, nous vous présentons un exercice pour vous entraîner dans un premier temps à la composition.
+
+open-box-more
+
+Nous vous conseillons ce très bon article sur le site *RealPython* qui explique de manière approfondie la problématique entre [la composition et l'héritage](https://realpython.com/inheritance-composition-python/).
+
+close-box-more
 
 open-box-more
 
 À ce stade, nous pouvons émettre deux remarques :
 
 Le polymorphisme, l'héritage et la composition  donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entraîner sur un maximum d'exemples.
-Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), et [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python). Nous vous conseillons également ce très bon article sur le site *RealPython* concernant la [composition vs héritage](https://realpython.com/inheritance-composition-python/).
+Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), et [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
 
 close-box-more
 
@@ -1084,7 +1092,7 @@ def fonction():
     [...]
 ```
 
-La ligne 1 précise que `fonction()` va être modifiée par une autre fonction nommée `decorateur()`. Le symbole `@` en ligne 1 indique la fonction décoratrice. Pour plus de détails sur comment les décorateurs fonctionnent, vous pouvez consulter le chapitre 26 *Remarques complémentaires* où une rubrique leur est consacrée. Ici, nous avons juste à savoir q'un décorateur est une fonction qui modifie le comportement d'une autre fonction. 
+La ligne 1 précise que `fonction()` va être modifiée par une autre fonction nommée `decorateur()`. Le symbole `@` en ligne 1 attend un nom de fonction qui sera la fonction décoratrice. Pour plus de détails sur comment les décorateurs fonctionnent, vous pouvez consulter le chapitre 26 *Remarques complémentaires* où une rubrique leur est consacrée. Ici, nous avons juste à savoir q'un décorateur est une fonction qui modifie le comportement d'une autre fonction. 
 
 En reprenant l'exemple vu dans la rubrique précédente, voici comment on peut l'écrire avec des décorateurs :
 
@@ -1113,7 +1121,7 @@ class Citron:
         del self._masse
 ```
 
-On voit que la syntaxe est plus lisible que celle de la rubrique précédente. Examinons les différences. La première chose est que les méthodes *getter* (ligne 7), *setter* (ligne 11) et *deleter* (ligne 19) s'appelle toutes `.masse()`, `masse` étant le nom de notre objet *property*. Comme dans la syntaxe de la rubrique précédente, la masse réelle se trouve dans un attribut nommée `._masse` pour ne pas confondre avec notre objet *property*. Afin de comprendre ce qu'il se passe, nous vous avons concocté le programme principal suivant avec des `print()` un peu partout :
+On voit que la syntaxe est plus lisible que celle de la rubrique précédente. Examinons les différences. La première chose est que les méthodes *getter* (ligne 7), *setter* (ligne 11) et *deleter* (ligne 19) s'appellent toutes `.masse()`, `masse` étant le nom de notre objet *property*. Comme dans la syntaxe de la rubrique précédente, la masse réelle se trouve dans un attribut nommée `._masse` pour ne pas confondre avec notre objet *property*. Afin de comprendre ce qu'il se passe, nous vous avons concocté le programme principal suivant avec des `print()` un peu partout :
 
 ```python
 if __name__ == "__main__":
@@ -1186,39 +1194,39 @@ close-box-adv
 Il se peut que vous rencontriez une classe où on a une méthode décorée avec `@property` mais sans nécessairement avoir un *setter* et/ou un *deleter*. Cela peut être pratique lorsqu'on veut créer une sorte « d'attribut dynamique » plutôt qu'avoir un appel de fonction explicite.
 
 ```python
-class Repertoire:
+class ADN:
     def __init__(self):
-        self.repertoire = []
+        self.sequence = []
 
     def __repr__(self):
-        return f"Mon répertoire contient {self.repertoire}"
+        return f"La séquence de mon brin d'ADN est {self.sequence}"
 
-    def ajoute_nom(self, nom):
-        self.repertoire.append(nom)
+    def ajoute_base(self, nom_base):
+        self.sequence.append(nom_base)
 
     @property
     def len(self):
-        return len(self.repertoire)
+        return len(self.sequence)
 ```
 
 Voici un dans l'interpréteur :
 
 ```text
->>> mon_rep = Repertoire()
->>> mon_rep.ajoute_nom("John")
->>> mon_rep.ajoute_nom("Bill")
->>> mon_rep
-Mon répertoire contient ['John', 'Bill']
->>> mon_rep.len
+>>> brin_adn = ADN()
+>>> brin_adn.ajoute_base("A")
+>>> brin_adn.ajoute_base("T")
+>>> brin_adn
+La séquence de mon brin d'ADN est ['A', 'T']
+>>> brin_adn.len
 2
->>> mon_rep.ajoute_nom("Jack")
->>> mon_rep
-Mon répertoire contient ['John', 'Bill', 'Jack']
->>> mon_rep.len
+>>> brin_adn.ajoute_atome("G")
+>>> brin_adn
+La séquence de mon brin d'ADN est ['A', 'T', 'G']
+>>> brin_adn.len
 3
 ```
 
-On voit que lorsqu'on utilise l'attribut `mon_rep.len`, ceci invoque finalement l'appel de l'objet *property* `len` qui, *in fine*, est une méthode. Ainsi, la valeur renvoyée sera calculée à chaque fois, bien que dans la syntaxe on n'a pas une notation `.methode()`, mais plutôt `.attribut`. Voilà pourquoi nous avons parlé d'attribut dynamique. Cela permet d'alléger la syntaxe quand il n'y a pas spécifiquement d'arguments à passer à la méthode qui se trouve derrière cet attribut.
+On voit que lorsqu'on utilise l'attribut `brin_adn.len`, ceci invoque finalement l'appel de l'objet *property* `len` qui, *in fine*, est une méthode. Ainsi, la valeur renvoyée sera calculée à chaque fois, bien que dans la syntaxe on n'a pas une notation `.methode()`, mais plutôt `.attribut`. Voilà pourquoi nous avons parlé d'attribut dynamique. Cela permet d'alléger la syntaxe quand il n'y a pas spécifiquement d'arguments à passer à la méthode qui se trouve derrière cet attribut.
 
 <!---
 open-box-more
@@ -1606,7 +1614,9 @@ Jusqu'à présent, lorsque nous avons évoqué les outils pour créer ou convert
 <class 'property'>
 ```
 
-Et bien, c'est parce-que ce sont bel et bien des classes ! Donc, lorsqu'on invoque par exemple `liste1 = list()`, on crée finalement une instance de la classe `list`. Python ne met pas `list` en *CamelCase* car ce sont des classes natives (*builtin-classes*). Finalement, la création d'une instance à partir d'une classe ou l'appel d'une fonction possède la même syntaxe `mot_clé()` :
+Et bien, c'est parce-que ce sont bel et bien des classes ! Donc, lorsqu'on invoque par exemple `liste1 = list()`, on crée finalement une instance de la classe `list`. Python ne met pas `list` en *CamelCase* car ce sont des classes natives (*built-in classes*). En effet, les auteurs de Python ont décidé que les classes et fonctions natives sont en minuscules, et les exceptions en *CamelCase* ([voir](https://peps.python.org/pep-0008/#class-names)).
+
+Finalement, la création d'une instance à partir d'une classe ou l'appel d'une fonction possède la même syntaxe `mot_clé()` :
 
 ```python
 >>> class Citron:
@@ -1620,6 +1630,19 @@ Et bien, c'est parce-que ce sont bel et bien des classes ! Donc, lorsqu'on invoq
 >>> fct()
 'coucou'
 ```
+
+On peut le voir aussi quand on invoque l'aide sur un de ces outils, par exemple `help(int)` :
+
+```text
+Help on class int in module builtins:
+
+class int(object)
+ |  int([x]) -> integer
+ |  int(x, base=10) -> integer
+[...]
+```
+
+Il est bien précise que `int` est une classe.
 
 Si on prend des fonctions natives (*built-in functions*) de Python comme `len()` ou `sorted()`, l'interpréteur nous confirme bien qu'il s'agit de fonctions :
 
