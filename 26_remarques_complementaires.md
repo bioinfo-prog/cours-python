@@ -268,12 +268,12 @@ On peut ainsi redemander sans cesse un nombre entier à l'utilisateur, jusqu'à 
 ```python
 >>> while True:
 ...     try:
-...             nb = int(input("Entrez un nombre entier : "))
-...             print("Le nombre est", nb)
-...             break
+...         nb = int(input("Entrez un nombre entier : "))
+...         print("Le nombre est", nb)
+...         break
 ...     except:
-...             print("Vous n'avez pas entré un nombre entier !")
-...             print("Essayez encore")
+...         print("Vous n'avez pas entré un nombre entier !")
+...         print("Essayez encore")
 ...
 Entrez un nombre entier : ATCG
 Vous n'avez pas entré un nombre entier !
@@ -354,7 +354,7 @@ open-box-adv
 
 close-box-adv
 
-Il existe de nombreux types d'exception comme `RuntimeError`, `TypeError`, `NameError`, `IOError`, etc. Vous pouvez aller voir la [liste complète](https://docs.python.org/fr/3.7/library/exceptions.html#exceptions.TypeError) sur le site de Python. Nous avions déjà croisé des noms d'exception au chapitre 23 (*Avoir la classe avec les objets*) en regardant ce que contient le module `builtins`.
+Il existe de nombreux types d'exception comme `RuntimeError`, `TypeError`, `NameError`, `IOError`, etc. Vous pouvez aller voir la [liste complète](https://docs.python.org/fr/3.12/library/exceptions.html#exceptions.TypeError) sur le site de Python. Nous avions déjà croisé des noms d'exception au chapitre 23 (*Avoir la classe avec les objets*) en regardant ce que contient le module `builtins`.
 
 ```python
 >>> import builtins
