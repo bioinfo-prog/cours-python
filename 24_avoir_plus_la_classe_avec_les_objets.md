@@ -1664,6 +1664,80 @@ Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 close-box-adv
 
 
-### Ajouter exo classe atome
+### Classe molécule
 
-### TODO
+Pour illustrer le mécanisme de la composition en POO, on se propose de créer un programme `molecule.py` qui permettra de décrire une molécule en utilisant les classes. Nous allons créer une classe représentant une molécule (qui sera notre classe *Composite*) et celle-ci contiendra des instances d'une classe décrivant un atome (classe *Component*). 
+
+Après les import nécessaires, le programme contiendra une constante donnant les masses des atomes sous forme de dictionnaire : `ATOM_MASSES = {"C": 12.0, "O": 16.0, "H": 1.0}`.
+
+Créer une classe `Atom` en vous inspirant des exercices du chapitre 23 *Avoir la classe avec les objets*. Cette classe devra instancier des objets contenant les attributs d’instance suivants :
+
+- nom d’atome (par exemple `C1`)
+- type d’atome (une seule lettre, déduit du nom d’atome, par exemple `C`)
+- coordonnée $x$
+- coordonnée $y$
+- coordonnée $z$
+
+Le nom d’atome et coordonnées cartésiennes seront passés au constructeur.
+
+Ajouter les méthodes `calc_distance()`, `calc_com()` (*center of mass*). Ajouter une méthode `mute_atom(name)` qui change le nom de l’atome, où `name` est un nouveau nom d’atome (par exemple `O1`). Cette méthode changera également l’attribut d’instance décrivant le type d’atome.
+
+Créer une classe `Molecule` qui construit les attributs d’instance :
+- Nom de la molécule
+- Une liste d’atomes (vide à l’instanciation) : `list_atoms`
+- Une liste indiquant la connectivité (la liste des atomes connectés, vide à l’instanciation) : `list_connectivity`
+
+Le constructeur prendra en argument seulement le nom de la molécule.
+
+Créer une méthode `add_atom(atom)` qui vérifie si l’argument passé est bien une instance de la classe `Atom`, et qui ajoute `atom` dans la liste d’atomes.
+
+Créer une autre méthode `build_mlc_from_pdb(filename)` qui prend en argument un nom de fichier pdb. La méthode lit le fichier pdb, et pour chaque atome lu, crée une instance de la classe `Atom`, et ajouter celle-ci à `list_atoms`.
+
+Ajouter une méthode `calc_mass()` qui calcule et renvoie masse de la molécule.
+
+Créer une méthode `calc_com()` qui cette fois-ci calcule et renvoie le centre de masse de la molécule entière.
+
+Ajouter la méthode `calc_connectivity()` qui calcule et renvoie une liste décrivant la connectivité entre les atomes. Deux atomes sont considérés connectés s’il y a une liaison covalente entre eux, on peut pour cela calculer la distance entre eux qui doit être inférieure à 1.6 Å. La liste de connectivité pourra être construite dans ce style : `[("C1", "H1"), ("C1", "C2"), ...]`.
+
+Chaque paire d’atome doit apparaitre une seule fois (pas de `[("C1", "H1"), [("H1", "C1"), ...]`.
+
+Créer une méthode spéciale affichant les caractéristiques de la molécule lorsqu’on utilise `print()` avec une instance de cette classe `Molecule`, par exemple `print(benzene)`. Cette méthode pourra par exemple afficher avant d’avoir créé la molécule :
+
+```text
+Molecule benzene
+No atom for the moment
+No connectivity for the moment
+```
+
+Ou bien, lorsque la molécule est créée et la connectivité déterminée, elle s’affichera comme ceci :
+
+```text
+Molecule benzene
+atom C1, type C, mass =  12.0 amu, coor( -2.145,   0.973,  -0.003)
+atom H1, type H, mass =   1.0 amu, coor( -3.103,   0.460,  -0.005)
+[...]
+Connectivity
+C1 connected to H1
+C1 connected to C2
+[...]
+```
+
+Pour lancer le programme dans un premier temps, vous pourrez instancier une molécule benzene, puis y ajouter les atomes :
+
+```python
+if __name__ == "__main__":
+    benzene = Molecule("benzene")
+    print(benzene)
+    benzene.build_mlc_from_pdb("benzene.pdb")
+    print(benzene)
+```
+
+Dans un deuxième temps, le programme principal calculera la masse et le centre de masse de benzene et les affichera. Muter ensuite l’atome `H1` en `O1` et recalculer la masse et le centre de masse et les afficher.
+
+Pour aller plus loin, vous pouvez ajouter une méthode qui calcule et affiche un graphe de la molécule avec le [module networkx](https://networkx.org/). La [page de tutorial](https://networkx.org/documentation/latest/tutorial.html#drawing-graphs) pourra vous être utile.
+
+Par exemple :
+
+![Graphe représentant une molécule de benzène.](img/benzene.png){ #fig:benzene width=70% }
+
+
