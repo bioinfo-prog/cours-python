@@ -219,7 +219,7 @@ Un exemple classique de redéfinition des opérateurs concerne l'opérateur `+`.
 
 Nous verrons dans la rubrique suivante sur *l'héritage* qu'il est également possible de redéfinir des méthodes d'une classe, c'est-à-dire leur donner une nouvelle définition.
 
-### Méthodes magiques ou dunder methods
+### Méthodes magiques ou *dunder methods*
 
 Comment Python permet-il ces prouesses que sont le polymorphisme et la redéfinition des opérateurs ? Et bien, il utilise des méthodes dites *magiques*.
 
@@ -660,7 +660,7 @@ La composition désigne le fait qu'une classe peut contenir des instances proven
 
 close-box-def
 
-Pour vous illustrer cela, nous allons prendre un exemple sur notre fruit préféré, le citron. un citron (classe *Composite*) contient de la pulpe (classe *Component*). Voilà comment nous pourrions l'implémenter :
+Pour vous illustrer cela, nous allons prendre un exemple sur notre fruit préféré, le citron. Un citron (classe *Composite*) contient de la pulpe (classe *Component*). Voilà comment nous pourrions l'implémenter :
 
 ```python
 class Pulpe:
