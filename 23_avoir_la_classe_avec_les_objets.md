@@ -430,6 +430,9 @@ close-box-adv
 
 Afin de bien comprendre les différentes étapes des codes de cette rubrique, nous vous conseillons de les retester de votre côté dans *Python Tutor*.
 
+### Remarque finale
+
+Dans ce chapitre, nous avons vu les bases pour construire une classe. Toutefois, nous avons encore de nombreuses notions à vous montrer afin de pouvoir utiliser la POO à plein régime. Dans le chapitre 24 *Avoir plus la classe avec les objets* (en ligne), nous verrons les concepts de polymorphisme, composition et héritage qui donnent toute la puissance à la POO. D'autres notions comme les décorateurs `property` seront abordées permettant le contrôle des attributs par un utilisateur de la classe. Nous donnerons également des conseils généraux quand vous utilisez la POO. Le chapitre 25 *Fenêtres graphiques et Tkinter*  (en ligne) illustrera l'utilisation de la POO pour concevoir des fenêtres graphiques avec le module *Tkinter*.
 
 ## Exercices
 
