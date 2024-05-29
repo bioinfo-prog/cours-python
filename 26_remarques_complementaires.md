@@ -629,7 +629,7 @@ La fonction `transforme_en_sandwich()` est notre décorateur, elle prend en argu
 imprime_victuaille = transforme_en_sandwich(imprime_victuaille)
 ```
 
-Regardons ce que renvoie la fonction avant et après décoration :
+Voici le code complet implémentant la fonction `imprime_victuaille()` décorée :
 
 ```python
 def transforme_en_sandwich(fonction_a_decorer):
@@ -651,7 +651,7 @@ if __name__ == "__main__":
     imprime_victuaille()
 ```
 
-On voit au final que l'idée est d'appeler la fonction décoratrice plutôt que la fonction `imprime_victuaille()` elle-même. La sortie donne :
+Au final l'idée est d'appeler la fonction décoratrice plutôt que la fonction `imprime_victuaille()` elle-même. Regardons ce que donne l'exécution de la fonction avant et après décoration :
 
 ```text
 Fonction non décorée:
@@ -707,7 +707,7 @@ Cela fonctionne avec n'importe quelle fonction prenant en argument une autre fon
 
 open-box-adv
 
-Nous vous conseillons d'utiliser systématiquement la notation `@decorator` qui est plus claire.
+Nous vous conseillons bien sûr d'utiliser systématiquement la notation `@decorator` qui est plus lisible et intuitive.
 
 close-box-adv
 
