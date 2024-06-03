@@ -727,7 +727,7 @@ Dans cet exemple, la classe `Citron` a utilisé une instance de la classe `Pulpe
 
 De manière générale, la composition est considérée comme plus flexible que l'héritage car les classes *Composite* et *Component* sont peu couplées. Le changement de l'une d'entre elle aura peu d'effet sur l'autre. Au contraire, pour l'héritage le changement d'une classe mère peut avoir des répercussions importantes pour les classes filles. Toutefois, dans certains cas l'héritage peut s'avérer plus naturel. Nous vous parlions en introduction du chapitre 23 *Avoir la classe avec les objets* de l'art pour concevoir des classes interagissant harmonieusement entre elles. Et bien nous y sommes !
 
-Si on a deux classes `A` et `B`, la relation entre elles dans l'héritage sera de type `A` **is a** `B`. Dans la composition, ce sera plutôt `A` **has a** `B`. Cela peut vous servir de piste dans la conception des relations entre vos classes. A-t-il plus de sens d'y avoir une relation **is a** ou bien **has a** ? Dans le premier cas vous irez plutôt vers l'héritage, alors que dans le deuxième plutôt vers la composition. C'est ici que le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)) peut être pratique pour avoir une vision d'ensemble sur comment les classes interagissent.
+Si on a deux classes `A` et `B`, la relation entre elles dans l'héritage sera de type `B` **is a** `A` (avec `B` qui hérite de `A`). Dans la composition, ce sera plutôt `A` **has a** `B`. Cela peut vous servir de piste dans la conception des relations entre vos classes. A-t-il plus de sens d'y avoir une relation **is a** ou bien **has a** ? Dans le premier cas vous irez plutôt vers l'héritage, alors que dans le deuxième plutôt vers la composition. C'est ici que le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)) peut être pratique pour avoir une vision d'ensemble sur comment les classes interagissent.
 
 Bien sûr, il faudra vous entraîner sur des cas concrets pour acquérir l'expérience qui vous mènera aux bons choix. A la fin de ce chapitre, nous vous présentons un exercice pour vous entraîner dans un premier temps à la composition. Dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), vous aurez des illustrations et des exercices sur l'héritage qui est très utilisé en *Tkinter*.
 
@@ -742,7 +742,7 @@ open-box-more
 À ce stade, nous pouvons émettre deux remarques :
 
 Le polymorphisme, l'héritage et la composition  donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entraîner sur un maximum d'exemples.
-Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), et [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
+Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python) et [Xavier Olive](https://www.xoolive.org/python/).
 
 close-box-more
 
@@ -1086,7 +1086,7 @@ Cette exécution montre qu'à chaque appel de `self.masse` ou `citron.masse` on 
 
 ### Une meilleure solution : les décorateurs `@property`, `@attribut.setter` et `@attribut.deleter`
 
-Nous venons de voir les objets *property* pour controller l'accès, la mutation et la supression d'attributs. Toutefois la syntaxe est relativement lourde. Afin de la simplifier, une manière plus pythonique (sucre syntaxique) est d'utiliser un décorateur. La syntaxe pour décorer une fonction est la suivante :
+Nous venons de voir les objets *property* pour contrôler l'accès, la mutation et la supression d'attributs. Toutefois la syntaxe est relativement lourde. Afin de la simplifier, une manière plus pythonique (sucre syntaxique) est d'utiliser un décorateur. La syntaxe pour décorer une fonction est la suivante :
 
 ```python
 @decorateur
@@ -1630,7 +1630,7 @@ Finalement, la création d'une instance à partir d'une classe ou l'appel d'une 
 ...     return "Coucou"
 ...
 >>> fct()
-'coucou'
+'Coucou'
 ```
 
 On peut le voir aussi quand on invoque l'aide sur un de ces outils, par exemple `help(int)` :
