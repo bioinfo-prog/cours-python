@@ -1094,7 +1094,7 @@ def fonction():
     [...]
 ```
 
-La ligne 1 précise que `fonction()` va être modifiée par une autre fonction nommée `decorateur()`. Le symbole `@` en ligne 1 attend un nom de fonction qui sera la fonction décoratrice. Pour plus de détails sur comment les décorateurs fonctionnent, vous pouvez consulter le chapitre 26 *Remarques complémentaires* où une rubrique leur est consacrée. Ici, nous avons juste à savoir q'un décorateur est une fonction qui modifie le comportement d'une autre fonction. 
+La ligne 1 précise que `fonction()` va être modifiée par une autre fonction nommée `decorateur()`. Le symbole `@` en ligne 1 attend un nom de fonction qui sera la fonction décoratrice. Pour plus de détails sur comment les décorateurs fonctionnent, vous pouvez consulter le chapitre 26 *Remarques complémentaires* où une rubrique leur est consacrée. Ici, nous avons juste à savoir qu'un décorateur est une fonction qui modifie le comportement d'une autre fonction. 
 
 En reprenant l'exemple vu dans la rubrique précédente, voici comment on peut l'écrire avec des décorateurs :
 
@@ -1655,7 +1655,7 @@ Si on prend des fonctions natives (*built-in functions*) de Python comme `len()`
 <built-in function sorted>
 ```
 
-Par conséquent, d'un point de vue purement sémantique nous devrions parler de classe plutôt que de fonction pour les instructions comme `list()`, `range()`, etc. Toutefois, nous avons décidé de garder le nom fonction pour ne pas complexifier les premiers chapitres de ce cours.
+Par conséquent, d'un point de vue purement sémantique nous devrions parler de classe plutôt que de fonction pour les instructions comme `list()`, `range()`, etc. Toutefois, nous avons décidé de garder le nom fonction pour ne pas compliquer les premiers chapitres de ce cours.
 
 ## Exercices
 
