@@ -2,7 +2,7 @@
 
 Dans le chapitre précédent, nous avons vu les bases sur comment créer une classe, les notions d'attributs d'instance et de classe, le fonctionnent d'un constructeur et comment passer des arguments lors de l'instanciation. Nous avons vu qu'une classe pouvait être vue comme un constructeur de conteneur (chaque conteneur construit est une instance), qu'on pouvait y mettre tout un tas de variables ou objets (les attributs d'instance), mais également  nous pouvions définir des méthodes réalisant des actions pour modifier ce que contient l'objet.
 
-Dans le présent chapitre, nous abordons de nouvelles notions qui augmentent la puissance des classes, à savoir le polymorphisme et l'héritage. À la fin du chapitre, nous vous donnerons des bonnes pratiques pour construire vos classes. Mais avant d'aborder ces sujets, nous revenons sur un concept important en Python, à savoir les espaces de noms.
+Dans le présent chapitre, nous abordons de nouvelles notions qui augmentent la puissance des classes, à savoir le polymorphisme, l'héritage et la composition. Nous verrons également les décorateurs *property* permettant le contrôle de l'accès aux attributs. À la fin du chapitre, nous vous donnerons des bonnes pratiques pour construire vos classes. Mais avant d'aborder ces sujets, nous revenons sur un concept important en Python, à savoir les espaces de noms.
 
 ## Espace de noms
 
@@ -181,6 +181,8 @@ close-box-more
 
 Nous allons voir maintenant des propriétés très importantes des classes en Python, le polymorphisme dans cette rubrique et l'héritage dans la suivante. Ces deux concepts donnent un surplus de puissance à la POO par rapport à la programmation classique.
 
+### Principe
+
 Commençons par le polymorphisme. Dans la vie, celui-ci évoque la capacité à prendre plusieurs apparences, qu'en est-il en programmation ?
 
 open-box-def
@@ -217,11 +219,13 @@ Un exemple classique de redéfinition des opérateurs concerne l'opérateur `+`.
 
 Nous verrons dans la rubrique suivante sur *l'héritage* qu'il est également possible de redéfinir des méthodes d'une classe, c'est-à-dire leur donner une nouvelle définition.
 
+### Méthodes magiques ou *dunder methods*
+
 Comment Python permet-il ces prouesses que sont le polymorphisme et la redéfinition des opérateurs ? Et bien, il utilise des méthodes dites *magiques*.
 
 open-box-def
 
-Une méthode magique (*magic method*) est une méthode spéciale dont le nom est entouré de double *underscores*. Par exemple, la méthode `.__init__()` est une méthode magique. Ces méthodes sont, la plupart du temps, destinées au fonctionnement interne de la classe. Nombre d'entre elles sont destinées à changer le comportement de fonctions ou opérateurs internes à Python avec les instances d'une classe que l'on a créée.
+Une méthode magique (*magic method*) est une méthode spéciale dont le nom est entouré de double *underscores*. Par exemple, la méthode `.__init__()` est une méthode magique. Ces méthodes sont, la plupart du temps, destinées au fonctionnement interne de la classe. Nombre d'entre elles sont destinées à changer le comportement de fonctions ou opérateurs internes à Python avec les instances d'une classe que l'on a créée. On parle aussi de *dunder method*, le mot *dunder* signifiant littéralement *double underscore*.
 
 close-box-def
 
@@ -644,16 +648,101 @@ class Orange(Fruit):
         return Fruit.affiche_conseil(self, "Orange", "Trop bon en jus !")
 ```
 
-Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on les utilise en Python. Pour chaque fruit, on utilise la méthode  
-`.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne) ainsi que dans les exercices du présent chapitre. Avec le module *Tkinter*, chaque objet graphique (bouton, zone de texte, etc.) est en fait une classe. On peut ainsi créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
+Cet exemple illuste la puissance de l'héritage et du polymorphisme et la facilité avec laquelle on les utilise en Python. Pour chaque fruit, on utilise la méthode `.affiche_conseil()` définie dans la classe mère sans avoir à la réécrire. Bien sûr cet exemple reste simpliste et n'est qu'une « mise en bouche ». Vous verrez des exemples concrets de la puissance de l'héritage dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne) ainsi que dans les exercices du présent chapitre. Avec le module *Tkinter*, chaque objet graphique (bouton, zone de texte, etc.) est en fait une classe. On peut ainsi créer de nouvelles classes héritant des classes *Tkinter* afin de personnaliser chaque objet graphique.
 
+## Composition
+
+Un autre concept puissant rencontré en POO est la composition. 
+
+open-box-def
+
+La composition désigne le fait qu'une classe peut contenir des instances provenant d'autres classes. On parle parfois de classe *Composite* contenant des instances d'une classe *Component* (qu'on pourrait traduire par *élément*).
+
+close-box-def
+
+Pour vous illustrer cela, nous allons prendre un exemple sur notre fruit préféré, le citron. Un citron (classe *Composite*) contient de la pulpe (classe *Component*). Voilà comment nous pourrions l'implémenter :
+
+```python
+class Pulpe:
+    def __init__(self, quantite_jus):
+        self.quantite_jus = quantite_jus # En cL.
+
+    def __str__(self):
+        return f"Cette pulpe contient {self.quantite_jus} cL de jus"
+
+
+class Citron:
+    def __init__(self, pulpe=None):
+        self.pulpe = pulpe
+
+    def presse_citron(self):
+        if self.pulpe:
+            print(f"Le pressage de la pulpe délivre "
+                  f"{self.pulpe.quantite_jus} cL de jus")
+            self.pulpe = None
+        else:
+            print("Il n'y a plus rien à presser dans votre citron !")
+
+    def __str__(self):
+        if self.pulpe:
+            return f"Votre citron contient {self.pulpe.quantite_jus} cL de jus"
+        else:
+            return "Ce citron ne contient pas de pulpe"
+
+
+if __name__ == "__main__":
+    pulpe = Pulpe(10)
+    print(pulpe)
+    citron1 = Citron()
+    print(citron1)
+    print()
+    citron2 = Citron(pulpe)
+    print(citron2.pulpe)
+    print(citron2)
+    print()
+    citron2.presse_citron()
+    citron2.presse_citron()
+    print(citron2)
+```
+
+**Lignes 1 à 6**. On crée une classe `Pulpe` qui prend en argument à l'instanciation une quantité de jus (en cL) qu'elle peut délivrer si on la presse.
+
+**Lignes 9 à 25**. On crée une classe `Citron` qui prend un objet Pulpe à l'instanciation. Si aucun objet est passé, on affecte `None`. Cette classe contient une méthode `.presse_citron()` qui pressera la pulpe pour délivrer le jus de citron. Une fois le pressage effectué, il n'y aura plus de jus à délivrer.
+
+La sortie sera la suivante :
+
+```text
+Cette pulpe contient 10 cL de jus
+Ce citron ne contient pas de pulpe
+
+Cette pulpe contient 10 cL de jus
+Votre citron contient 10 cL de jus
+
+Le pressage de la pulpe délivre 10 cL de jus
+Il n'y a plus rien à presser dans votre citron !
+Ce citron ne contient pas de pulpe
+```
+
+Dans cet exemple, la classe `Citron` a utilisé une instance de la classe `Pulpe` pour fonctionner. Un avantage de la composition est qu'on pourrait réutiliser cette  classe `Pulpe` dans une classe `Orange` ou `Pamplemousse`. Par ailleurs, si on change des détails dans la classe `Pulpe`, cela affectera peu la classe `Citron` à partir du moment où on garde l'attribut `.quantite_jus`.
+
+De manière générale, la composition est considérée comme plus flexible que l'héritage car les classes *Composite* et *Component* sont peu couplées. Le changement de l'une d'entre elle aura peu d'effet sur l'autre. Au contraire, pour l'héritage le changement d'une classe mère peut avoir des répercussions importantes pour les classes filles. Toutefois, dans certains cas l'héritage peut s'avérer plus naturel. Nous vous parlions en introduction du chapitre 23 *Avoir la classe avec les objets* de l'art pour concevoir des classes interagissant harmonieusement entre elles. Et bien nous y sommes !
+
+Si on a deux classes `A` et `B`, la relation entre elles dans l'héritage sera de type `B` **is a** `A` (avec `B` qui hérite de `A`). Dans la composition, ce sera plutôt `A` **has a** `B`. Cela peut vous servir de piste dans la conception des relations entre vos classes. A-t-il plus de sens d'y avoir une relation **is a** ou bien **has a** ? Dans le premier cas vous irez plutôt vers l'héritage, alors que dans le deuxième plutôt vers la composition. C'est ici que le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)) peut être pratique pour avoir une vision d'ensemble sur comment les classes interagissent.
+
+Bien sûr, il faudra vous entraîner sur des cas concrets pour acquérir l'expérience qui vous mènera aux bons choix. A la fin de ce chapitre, nous vous présentons un exercice pour vous entraîner dans un premier temps à la composition. Dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), vous aurez des illustrations et des exercices sur l'héritage qui est très utilisé en *Tkinter*.
+
+open-box-more
+
+Nous vous conseillons ce très bon article sur le site *RealPython* qui explique de manière approfondie la problématique entre [la composition et l'héritage](https://realpython.com/inheritance-composition-python/).
+
+close-box-more
 
 open-box-more
 
 À ce stade, nous pouvons émettre deux remarques :
 
-L'héritage et le polymorphisme donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entraîner sur un maximum d'exemples.
-Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), et [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
+Le polymorphisme, l'héritage et la composition  donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entraîner sur un maximum d'exemples.
+Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python) et [Xavier Olive](https://www.xoolive.org/python/).
 
 close-box-more
 
@@ -951,7 +1040,7 @@ if __name__ == "__main__":
      citron = Citron(masse=100)
      print("(3) Je reviens dans le programme principal")
      print(f"La masse de notre citron est {citron.masse} g")
-     # on mange le citron
+     # On mange le citron.
      citron.masse = 25
      print(f"La masse de notre citron est {citron.masse} g")
      print(citron.__dict__)
@@ -995,12 +1084,159 @@ La masse de notre citron est 25 g
 
 Cette exécution montre qu'à chaque appel de `self.masse` ou `citron.masse` on va utiliser les méthodes accesseur ou mutateur. La dernière commande qui affiche le contenu de `citron.__dict__` montre que la vraie valeur de l'attribut est stockée dans la variable d'instance `._masse` (`instance._masse` de l'extérieur et `self._masse` de l'intérieur).
 
+### Une meilleure solution : les décorateurs `@property`, `@attribut.setter` et `@attribut.deleter`
+
+Nous venons de voir les objets *property* pour contrôler l'accès, la mutation et la supression d'attributs. Toutefois la syntaxe est relativement lourde. Afin de la simplifier, une manière plus pythonique (sucre syntaxique) est d'utiliser un décorateur. La syntaxe pour décorer une fonction est la suivante :
+
+```python
+@decorateur
+def fonction():
+    [...]
+```
+
+La ligne 1 précise que `fonction()` va être modifiée par une autre fonction nommée `decorateur()`. Le symbole `@` en ligne 1 attend un nom de fonction qui sera la fonction décoratrice. Pour plus de détails sur comment les décorateurs fonctionnent, vous pouvez consulter le chapitre 26 *Remarques complémentaires* où une rubrique leur est consacrée. Ici, nous avons juste à savoir qu'un décorateur est une fonction qui modifie le comportement d'une autre fonction. 
+
+En reprenant l'exemple vu dans la rubrique précédente, voici comment on peut l'écrire avec des décorateurs :
+
+```python
+class Citron:
+    def __init__(self, masse=0):
+        print(f"(2) J'arrive dans le .__init__(), je vais mettre la masse = {masse}")
+        self.masse = masse
+    
+    @property
+    def masse(self):
+        print("Coucou je suis dans le getter")
+        return self._masse
+
+    @masse.setter
+    def masse(self, valeur):
+        print("Coucou je suis dans le setter")
+        if valeur < 0:
+            raise ValueError("Un citron ne peut pas avoir"
+                             " de masse négative !")
+        self._masse = valeur
+
+    @masse.deleter
+    def masse(self):
+        print("Coucou, je suis dans le deleter")
+        del self._masse
+```
+
+On voit que la syntaxe est plus lisible que celle de la rubrique précédente. Examinons les différences. La première chose est que les méthodes *getter* (ligne 7), *setter* (ligne 11) et *deleter* (ligne 19) s'appellent toutes `.masse()`, `masse` étant le nom de notre objet *property*. Comme dans la syntaxe de la rubrique précédente, la masse réelle se trouve dans un attribut nommée `._masse` pour ne pas confondre avec notre objet *property*. Afin de comprendre ce qu'il se passe, nous vous avons concocté le programme principal suivant avec des `print()` un peu partout :
+
+```python
+if __name__ == "__main__":
+    print("(1) Je suis dans le programme principal et "
+          "je vais instancier un Citron")
+    print()
+    citron = Citron(masse=100)
+    print()
+    print("(3) Je reviens dans le programme principal, je vais afficher "
+          "la masse du citron")
+    print(f"La masse de notre citron est {citron.masse} g")
+    print()
+    # On mange une partie du citron.
+    print("(4)Je suis dans le prog principal "
+          "et je vais changer la masse du citron")
+    citron.masse = 25
+    print()
+    print(f"(5) Je suis dans le prog principal, je vais afficher "
+          "la masse du citron")
+    print(f"La nouvelle masse de notre citron est {citron.masse} g")
+    print(f"L'attribut citron.__dict__ m'indique bien le nom réel "
+          f"de l'attribut contenant la masse :")
+    print(citron.__dict__)
+    print()
+    # On mange la fin du citron.
+    print(f"(6)  Je suis dans le prog principal, " 
+          f"je détruis l'attribut .masse")
+    del citron.masse
+    print(f"Ainsi, citron.__dict__ est maintenant vide :")
+    print(citron.__dict__)
+```
+
+L'exécution donnera la sortie suivante :
+
+```text
+(1) Je suis dans le programme principal et je vais instancier un Citron
+
+(2) J'arrive dans le .__init__(), je vais mettre la masse = 100
+Coucou je suis dans le setter
+
+(3) Je reviens dans le programme principal, je vais afficher la masse du citron
+Coucou je suis dans le getter
+La masse de notre citron est 100 g
+
+(4)Je suis dans le prog principal et je vais changer la masse du citron
+Coucou je suis dans le setter
+
+(5) Je suis dans le prog principal, je vais afficher la masse du citron
+Coucou je suis dans le getter
+La nouvelle masse de notre citron est 25 g
+L'attribut citron.__dict__ m'indique bien le nom réel de l'attribut contenant la masse :
+{'_masse': 25}
+
+(6)  Je suis dans le prog principal, je détruis l'attribut .masse
+Coucou, je suis dans le deleter
+Ainsi, citron.__dict__ est maintenant vide :
+{}
+```
+
+Examinez bien les phrases `Coucou je suis dans [...]` et essayez de comprendre pourquoi elles apparaissent. Bien que nos trois méthodes soient définies comme `def masse()`, vous pouvez constater qu'elles sont appelées lorsque on invoque `citron.masse`, `citron.masse = 25` ou `del citron.masse` (à l'intérieur de la classe, ce serait `self.masse`, `self.masse = 25` ou `del self.masse`). Autrement dit, on n'utilise jamais la syntaxe `.masse()`. Ceci est justement dû au fait que `.masse` est un objet de type *property*.
+
+open-box-adv
+
+Lorsque vous souhaitez créer des objets *property* , nous vous conseillons la syntaxe pythonique `@property`,`@nom_attribut.setter` et `@nom_attribut.deleter` plutôt que celle de la rubrique précédente avec la ligne `masse = property(fget=get_masse, fset=set_masse, fdel=del_masse)`. Cette syntaxe améliore grandement la lisibilité.
+
+close-box-adv
+
+### Le décorateur `@property` seul
+
+Il se peut que vous rencontriez une classe où on a une méthode décorée avec `@property` mais sans nécessairement avoir un *setter* et/ou un *deleter*. Cela peut être pratique lorsqu'on veut créer une sorte « d'attribut dynamique » plutôt qu'avoir un appel de fonction explicite.
+
+```python
+class ADN:
+    def __init__(self):
+        self.sequence = []
+
+    def __repr__(self):
+        return f"La séquence de mon brin d'ADN est {self.sequence}"
+
+    def ajoute_base(self, nom_base):
+        self.sequence.append(nom_base)
+
+    @property
+    def len(self):
+        return len(self.sequence)
+```
+
+Voici un dans l'interpréteur :
+
+```text
+>>> brin_adn = ADN()
+>>> brin_adn.ajoute_base("A")
+>>> brin_adn.ajoute_base("T")
+>>> brin_adn
+La séquence de mon brin d'ADN est ['A', 'T']
+>>> brin_adn.len
+2
+>>> brin_adn.ajoute_atome("G")
+>>> brin_adn
+La séquence de mon brin d'ADN est ['A', 'T', 'G']
+>>> brin_adn.len
+3
+```
+
+On voit que lorsqu'on utilise l'attribut `brin_adn.len`, ceci invoque finalement l'appel de l'objet *property* `len` qui, *in fine*, est une méthode. Ainsi, la valeur renvoyée sera calculée à chaque fois, bien que dans la syntaxe on n'a pas une notation `.methode()`, mais plutôt `.attribut`. Voilà pourquoi nous avons parlé d'attribut dynamique. Cela permet d'alléger la syntaxe quand il n'y a pas spécifiquement d'arguments à passer à la méthode qui se trouve derrière cet attribut.
+
+<!---
 open-box-more
 
 Il existe une autre syntaxe considérée comme plus élégante pour mettre en place les objets *property*. Il s'agit des *décorateurs* `@property`, `@attribut.setter` et `@attribut.deleter`. Toutefois, la notion de décorateur va au-delà du présent ouvrage. Si vous souhaitez plus d'informations, vous pouvez consulter par exemple le [site programiz](https://www.programiz.com/python-programming/property) ou le livre de [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
 
 close-box-more
-
+-->
 
 ## Bonnes pratiques pour construire et manipuler ses classes
 
@@ -1282,7 +1518,7 @@ Ici chaque instance pourra modifier la liste, ce qui n'est pas souhaitable. Souv
 
 Ainsi, vous aurez des listes réellement indépendantes pour chaque instance.
 
-### Pour finir, les *namedtuples*
+### *Namedtuples*
 
 Imaginons que l'on souhaite stocker des éléments dans un conteneur, que l'on puisse retrouver ces éléments avec une syntaxe `conteneur.element` et que ces éléments soient non modifiables. On a vu ci-dessus, les classes ne sont pas faites pour cela, il n'est pas conseillé de les utiliser comme des conteneurs inertes, on les conçoit en général afin d'y créer aussi des méthodes. Dans ce cas, les [*namedtuples*](https://docs.python.org/fr/3/library/collections.html#collections.namedtuple) sont faits pour vous ! Ce type de conteneur est issu du module *collections* que nous avions évoqué dans le chapitre 14 *Conteneurs*.
 
@@ -1365,6 +1601,61 @@ Pour aller plus loin, vous pouvez consulter le très bon [article](https://dbade
 
 close-box-more
 
+## Note finale de sémantique
+
+Jusqu'à présent, lorsque nous avons évoqué les outils pour créer ou convertir des objets Python tels que `int()`, `list()`, `range()`, etc., nous avons toujours parlé de fonctions. Ceci parce-que nous avions une syntaxe `fonction()`, c'est-à-dire `fonction` suivie de parenthèses `()`. Toutefois, vous vous êtes peut-être déjà demandé pourquoi Python indiquait `class` lorsqu'on tapait le nom de ces fonctions dans l'interpréteur (ou en invoquant `help()`) :
+
+```python
+>>> int
+<class 'int'>
+>>> list
+<class 'list'>
+>>> range
+<class 'range'>
+>>> property
+<class 'property'>
+```
+
+Et bien, c'est parce-que ce sont bel et bien des classes ! Donc, lorsqu'on invoque par exemple `liste1 = list()`, on crée finalement une instance de la classe `list`. Python ne met pas `list` en *CamelCase* car ce sont des classes natives (*built-in classes*). En effet, les auteurs de Python ont décidé que les classes et fonctions natives sont en minuscules, et les exceptions en *CamelCase* (voir ce [lien](https://peps.python.org/pep-0008/#class-names)).
+
+Finalement, la création d'une instance à partir d'une classe ou l'appel d'une fonction possède la même syntaxe `mot_clé()` :
+
+```python
+>>> class Citron:
+...     pass
+...
+>>> Citron()
+<__main__.Citron object at 0x7fb776308a10>
+>>> def fct():
+...     return "Coucou"
+...
+>>> fct()
+'Coucou'
+```
+
+On peut le voir aussi quand on invoque l'aide sur un de ces outils, par exemple `help(int)` :
+
+```text
+Help on class int in module builtins:
+
+class int(object)
+ |  int([x]) -> integer
+ |  int(x, base=10) -> integer
+[...]
+```
+
+Il est bien précise que `int` est une classe.
+
+Si on prend des fonctions natives (*built-in functions*) de Python comme `len()` ou `sorted()`, l'interpréteur nous confirme bien qu'il s'agit de fonctions :
+
+```python
+>>> len
+<built-in function len>
+>>> sorted
+<built-in function sorted>
+```
+
+Par conséquent, d'un point de vue purement sémantique nous devrions parler de classe plutôt que de fonction pour les instructions comme `list()`, `range()`, etc. Toutefois, nous avons décidé de garder le nom fonction pour ne pas compliquer les premiers chapitres de ce cours.
 
 ## Exercices
 
@@ -1375,6 +1666,80 @@ Pour ces exercices, créez des scripts puis exécutez-les dans un *shell*.
 close-box-adv
 
 
-### Ajouter exo classe atome
+### Classe molécule
 
-### TODO
+Pour illustrer le mécanisme de la composition en POO, on se propose de créer un programme `molecule.py` qui permettra de décrire une molécule en utilisant les classes. Nous allons créer une classe représentant une molécule (qui sera notre classe *Composite*) et celle-ci contiendra des instances d'une classe décrivant un atome (classe *Component*). 
+
+Après les import nécessaires, le programme contiendra une constante donnant les masses des atomes sous forme de dictionnaire : `ATOM_MASSES = {"C": 12.0, "O": 16.0, "H": 1.0}`.
+
+Créer une classe `Atom` en vous inspirant des exercices du chapitre 23 *Avoir la classe avec les objets*. Cette classe devra instancier des objets contenant les attributs d’instance suivants :
+
+- nom d’atome (par exemple `C1`)
+- type d’atome (une seule lettre, déduit du nom d’atome, par exemple `C`)
+- coordonnée $x$
+- coordonnée $y$
+- coordonnée $z$
+
+Le nom d’atome et coordonnées cartésiennes seront passés au constructeur.
+
+Ajouter les méthodes `calc_distance()`, `calc_com()` (*center of mass*). Ajouter une méthode `mute_atom(name)` qui change le nom de l’atome, où `name` est un nouveau nom d’atome (par exemple `O1`). Cette méthode changera également l’attribut d’instance décrivant le type d’atome.
+
+Créer une classe `Molecule` qui construit les attributs d’instance :
+- Nom de la molécule
+- Une liste d’atomes (vide à l’instanciation) : `list_atoms`
+- Une liste indiquant la connectivité (la liste des atomes connectés, vide à l’instanciation) : `list_connectivity`
+
+Le constructeur prendra en argument seulement le nom de la molécule.
+
+Créer une méthode `add_atom(atom)` qui vérifie si l’argument passé est bien une instance de la classe `Atom`, et qui ajoute `atom` dans la liste d’atomes.
+
+Créer une autre méthode `build_mlc_from_pdb(filename)` qui prend en argument un nom de fichier pdb. La méthode lit le fichier pdb, et pour chaque atome lu, crée une instance de la classe `Atom`, et ajouter celle-ci à `list_atoms`.
+
+Ajouter une méthode `calc_mass()` qui calcule et renvoie masse de la molécule.
+
+Créer une méthode `calc_com()` qui cette fois-ci calcule et renvoie le centre de masse de la molécule entière.
+
+Ajouter la méthode `calc_connectivity()` qui calcule et renvoie une liste décrivant la connectivité entre les atomes. Deux atomes sont considérés connectés s’il y a une liaison covalente entre eux, on peut pour cela calculer la distance entre eux qui doit être inférieure à 1.6 Å. La liste de connectivité pourra être construite dans ce style : `[("C1", "H1"), ("C1", "C2"), ...]`.
+
+Chaque paire d’atome doit apparaitre une seule fois (pas de `[("C1", "H1"), [("H1", "C1"), ...]`.
+
+Créer une méthode spéciale affichant les caractéristiques de la molécule lorsqu’on utilise `print()` avec une instance de cette classe `Molecule`, par exemple `print(benzene)`. Cette méthode pourra par exemple afficher avant d’avoir créé la molécule :
+
+```text
+Molecule benzene
+No atom for the moment
+No connectivity for the moment
+```
+
+Ou bien, lorsque la molécule est créée et la connectivité déterminée, elle s’affichera comme ceci :
+
+```text
+Molecule benzene
+atom C1, type C, mass =  12.0 amu, coor( -2.145,   0.973,  -0.003)
+atom H1, type H, mass =   1.0 amu, coor( -3.103,   0.460,  -0.005)
+[...]
+Connectivity
+C1 connected to H1
+C1 connected to C2
+[...]
+```
+
+Pour lancer le programme dans un premier temps, vous pourrez instancier une molécule benzene, puis y ajouter les atomes :
+
+```python
+if __name__ == "__main__":
+    benzene = Molecule("benzene")
+    print(benzene)
+    benzene.build_mlc_from_pdb("benzene.pdb")
+    print(benzene)
+```
+
+Dans un deuxième temps, le programme principal calculera la masse et le centre de masse de benzene et les affichera. Muter ensuite l’atome `H1` en `O1` et recalculer la masse et le centre de masse et les afficher.
+
+Pour aller plus loin, vous pouvez ajouter une méthode qui calcule et affiche un graphe de la molécule avec le [module networkx](https://networkx.org/). La [page de tutorial](https://networkx.org/documentation/latest/tutorial.html#drawing-graphs) pourra vous être utile.
+
+Par exemple :
+
+![Graphe représentant une molécule de benzène.](img/benzene.png){ #fig:benzene width=70% }
+
+

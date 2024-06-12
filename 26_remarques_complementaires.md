@@ -595,6 +595,176 @@ Attention toutefois à bien respecter deux choses :
 - la concordance entre le nom des clés du dictionnaire et le nom des arguments dans la fonction (sinon cela renvoie une erreur) ;
 - l'utilisation d'une double étoile pour désempaqueter les valeurs du dictionnaire (si vous utilisez une seule étoile, Python désempaquettera les clés !).
 
+## Décorateurs
+
+Dans le chapitre 24, nous avons rencontré la notion de décorateur pour déclarer des objets de type *property*. Cela permettait de rendre des méthodes accessibles comme des attributs (décorateur `@property`), et plus généralement de contrôler l'accès, la modification et la destruction d'attributs (décorateurs `@nom_attribut.setter` et `@nom_attribut.deleter`). Il existe d'autres décorateurs prédéfinis en Python (e.g. `@staticmethod`, `@classmethod`, etc.). Nous allons voir dans cette section comment on crée ses propres décorateurs et les mécanismes sous-jacents. Nous vous conseillons de bien relire commment fonctionne les fonctions de rappel, ou fonctions *callback* (chapitre 25 *Tkinter*).
+
+open-box-def
+
+Un décorateur est une fonction qui modifie le comportement d'une autre fonction.
+
+close-box-def
+
+Ceci étant dit, comme cela fonctionne-t-il ? Commençons par une fonction simple qui affiche de la nourriture :
+
+```python
+def imprime_victuaille():
+    print("tomate / mozza")
+```
+
+On souhaite améliorer cette fonction et transformer cette victuaille en sandwich, en affichant une tranche de pain avant et après. La stratégie va être de créer une fonction spéciale, qu'on appelle **décorateur**, modifiant `imprime_victuaille()`.
+
+```python
+def transforme_en_sandwich(fonction_a_decorer):
+    def emballage():
+        print("Pain")
+        fonction_a_decorer()
+        print("Pain")
+    return emballage
+```
+
+La fonction `transforme_en_sandwich()` est notre décorateur, elle prend en argument la fonction que l'on souhaite décorer sous forme de *callback* (donc sans les parenthèses). On voit qu'à l'intérieur, on définit une sous-fonction `emballage()` qui va littéralement « emballer » (*wrap*) notre fonction à décorer, c'est-à-dire, effectuer une action avant et après l'appel de la fonction à décorer. Enfin, le décorateur renvoie cette sous-fonction `emballage` sous forme de *callback*.  Pour que le décorateur soit actif, il faudra « transformer » la fonction à décorer avec notre fonction décoratrice :
+
+```python
+imprime_victuaille = transforme_en_sandwich(imprime_victuaille)
+```
+
+Voici le code complet implémentant la fonction `imprime_victuaille()` décorée :
+
+```python
+def transforme_en_sandwich(fonction_a_decorer):
+    def emballage():
+        print("Pain")
+        fonction_a_decorer()
+        print("Pain")
+    return emballage
+
+def imprime_victuaille():
+    print("tomate/ mozza")
+
+if __name__ == "__main__":
+    print("Fonction non décorée:")
+    imprime_victuaille()
+    print()
+    print("Fonction décorée:")
+    imprime_victuaille = transforme_en_sandwich(imprime_victuaille)
+    imprime_victuaille()
+```
+
+Au final l'idée est d'appeler la fonction décoratrice plutôt que la fonction `imprime_victuaille()` elle-même. Regardons ce que donne l'exécution de la fonction avant et après décoration :
+
+```text
+Fonction non décorée:
+tomate/ mozza
+
+Fonction décorée:
+Pain
+tomate/ mozza
+Pain
+```
+
+Le premier appel en ligne 13 exécute la fonction simple, alors que le second en ligne 17 exécute la fonction décorée. Cette construction peut sembler ardue et difficile à comprendre. Heureusement, Python a une notation en  « *sucre syntaxique* » (*syntactic sugar*) qui en facilite la lecture. Celle-ci utilise le symbole `@` :
+
+```python
+def transforme_en_sandwich(fonction_a_decorer):
+    def emballage():
+        print("Pain")
+        fonction_a_decorer()
+        print("Pain")
+    return emballage
+
+@transforme_en_sandwich
+def imprime_victuaille():
+    print("tomate / mozza")
+
+if __name__ == "__main__":
+    imprime_victuaille()
+```
+
+La ligne 8 transforme irrémédiablement la fonction `imprime_victuaille()` en fonction décorée. Cela parait déjà un peu plus lisible. L'exécution donnera bien sûr :
+
+```text
+Pain
+tomate / mozza
+Pain
+```
+
+Au final, la notation :
+
+```python
+@decorator
+def fct():
+    [...]
+```
+
+est équivalente à :
+
+```python
+fct = decorator(fct)
+```
+
+Cela fonctionne avec n'importe quelle fonction prenant en argument une autre fonction.
+
+open-box-adv
+
+Nous vous conseillons bien sûr d'utiliser systématiquement la notation `@decorator` qui est plus lisible et intuitive.
+
+close-box-adv
+
+
+Si tout cela vous semble ardu (on vous comprend...), vous devez vous dire « pourquoi utiliser une construction aussi complexe ? ». Et bien, c'est tout simplement parce qu'un décorateur est ré-utilisable dans n'importe quelle fonction. Si on reprend la même fonction décoratrice que ci-dessus :
+
+```python
+@transforme_en_sandwich
+def imprime_victuaille1():
+    print("tomate / mozza")
+
+@transforme_en_sandwich
+def imprime_victuaille2():
+    print("jambon / fromage")
+
+if __name__ == "__main__":
+    imprime_victuaille1()
+	print()
+    imprime_victuaille2()
+```
+
+On a donc un décorateur permettant de transformer en sandwich n'importe quelle fonction imprimant une victuaille ! Ceci renverra :
+
+```text
+Pain
+tomate / mozza
+Pain
+
+Pain
+jambon / fromage
+Pain
+```
+
+Un exemple plus concret de décorateur pourrait être la mesure du temps d'exécution d'une fonction :
+
+```text
+import time
+
+def mesure_temps(fonction_a_decorer):
+    def emballage():
+        temps1 = time.time()
+        fonction_a_decorer()
+        temps2 = time.time()
+		print(f"Le temps d'éxécution de {fonction_a_decorer.__name__} est "
+              f"{temps2 - temps1} s")
+    return emballage
+```
+
+En ligne 8, l'attribut `.__name__` renvoie le nom de la fonction sous forme de chaîne de caractères. Dans cet exemple, le décorateur `@mesure_temps` mis devant n'importe quelle fonction affichera systématiquement le temps d'exécution de celle-ci.
+
+Pour finir, si on revient sur le décorateur `@property` vu dans le chapitre 24 *Avoir plus la classe avec les objets*, nous avions vu également qu'il existait une fonction `property()`. Donc pour les décorateurs pré-existants que nous avons abordés dans le chapitre 24, il existe des fonctions équivalentes. Comme dans notre exemple, la notation `@decorateur` va finalement appeler la fonction décoratrice. Donc derrière une notation `@quelquechose`, il existe toujours une fonction `quelquechose()` remplissant ce rôle de décorateur.
+
+open-box-more
+
+Pour aller plus loin, vous pouvez consulter ce très [bon article](https://realpython.com/primer-on-python-decorators/) sur le site *RealPython*. Il y est expliqué en outre comment on peut gérer le passage d'arguments quand on utilise des décorateurs, ainsi que l'utilisation de décorateurs multiples.
+
+close-box-more
 
 ## Un peu de transformée de Fourier avec *NumPy*
 
