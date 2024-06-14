@@ -367,7 +367,7 @@ close-box-adv
 Soit la liste `["vache", "souris", "levure", "bacterie"]`. Affichez l'ensemble des éléments de cette liste (un élément par ligne) de trois façons différentes (deux méthodes avec `for` et une avec `while`).
 
 
-### Boucle et jours de la semaine
+### Boucles et jours de la semaine
 
 Constituez une liste `semaine` contenant les 7 jours de la semaine.
 
