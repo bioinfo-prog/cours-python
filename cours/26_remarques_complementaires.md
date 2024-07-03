@@ -147,7 +147,7 @@ mais c'est un peu plus long à écrire.
 close-box-rem
 
 
-## Ancienne méthode de formatage des chaînes de caractères
+## Anciennes méthodes de formatage des chaînes de caractères
 
 Dans les premières versions de Python jusqu'à la 2.6, il fallait utiliser l'opérateur `%`, puis de la version 2.7 jusqu'à la 3.5 il était plutôt conseillé d'utiliser la méthode `.format()` (voir la rubrique suivante pour la définition du mot « méthode »). Même si les *f-strings* sont devenues la manière conseillée pour mettre en place l'écriture formatée, ces deux anciennes manières, sont encore pleinement compatibles avec les versions modernes de Python.
 
