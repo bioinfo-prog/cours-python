@@ -23,7 +23,7 @@ Par ailleurs, nous vous recommandons vivement la lecture de la rubrique sur les 
 
 Enfin, dans tout ce qui suit, nous partons du principe que vous installerez Miniconda  **en tant qu'utilisateur**, et non pas en tant qu'administrateur. Autrement dit, vous n'aurez pas besoin de droits spéciaux pour pouvoir installer Miniconda et les autres modules nécessaires. La procédure proposée a été testée avec succès sous Windows 10 et 11, Mac OS X, Ubuntu 22.04 et 24.04).
 
-Depuis quelques années, Windows 10 (et 11) propose le [WSL](https://fr.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (Windows Subsystem for Linux). Le WSL permet de lancer un terminal Linux au sein de Windows et propose (quasiment) toutes les fonctionnalités disponibles sous un vrai système Linux. Nous ne détaillons par comment l'installer, mais vous pouvez vous référer à la [page d'installation sur le site de Microsoft](https://learn.microsoft.com/fr-fr/windows/wsl/install). Si vous avez installer WSL sur votre ordinateur, nous vous recommandons de suivre la procédure ci-dessous comme si vous étiez sous Linux (rubrique *Installation de Python avec Miniconda pour Linux*), plutôt que d'installer la version Windows.
+Depuis quelques années, Windows 10 (et 11) propose le [WSL](https://fr.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (Windows Subsystem for Linux). Le WSL permet de lancer un terminal Linux au sein de Windows et propose (quasiment) toutes les fonctionnalités disponibles sous un vrai système Linux. Nous ne détaillons par comment l'installer, mais vous pouvez vous référer à la [page d'installation sur le site de Microsoft](https://learn.microsoft.com/fr-fr/windows/wsl/install). Si vous avez installé WSL sur votre ordinateur, nous vous recommandons de suivre la procédure ci-dessous comme si vous étiez sous Linux (rubrique *Installation de Python avec Miniconda pour Linux*), plutôt que d'installer la version Windows.
 
 
 ## Installation de Python avec Miniconda
@@ -276,7 +276,7 @@ Nous sommes maintenant prêts à tester l'interpréteur Python. En premier lieu,
 
 Cliquez sur l'icône `Windows PowerShell`, cela va lancer un *shell* PowerShell avec un fond bleu (couleur que l'on peut bien sûr modifier en cliquant sur la petite icône représentant un terminal dans la barre de titre). En principe, l'invite du shell doit ressembler à `(base) PS C:\Users\Pat>`. La partie `(base)` indique que conda a bien été activé suite à l'initialisation faite si dessus (plus exactement c'est son environnement de base qui est activé, mais ça ne nous importe pas pour l'instant). Pour tester si Python est bien installé, il suffit alors de lancer l'interpréteur Python en tapant la commande `python` :
 
-![Lancement de l'interpréteur Python dans un PowerShell.](img/test_python_powershell.png){ #fig:miniconda_test_interpreter width=90% }
+![Lancement de l'interpréteur Python dans un PowerShell.](img/test_python_powershell.png){ #fig:miniconda_test_interpreter width=100% }
 
 Si tout s'est bien passé, vous devriez avoir un affichage de ce style :
 
@@ -546,7 +546,7 @@ Pour apprendre Python, nous allons devoir écrire des scripts, les enregistrer d
 
 Notre livre n'est pas un cours d'Unix, mais il convient au moins de savoir se déplacer dans l'arborescence avant de lancer Python. Sous Linux et sous Mac il est donc fondamental de connaître les commandes Unix `cd`, `pwd`, `ls` et la signification de `..` (point point).
 
-Sous Linux, il existe une astuce très pratique. Si vous utilisez l'explorateur de fichiers Nautilis, quand vous êtes dans un répertoire, faites un clic droit et choisissez dans le menu *Ouvrir dans un terminal*. Vous vous retrouverez automatiquement dans le bon répertoire (vous pouvez vous en assurer avec la commande Unix `pwd`).
+Sous Linux, il existe une astuce très pratique. Si vous utilisez l'explorateur de fichiers Nautilus, quand vous êtes dans un répertoire, faites un clic droit et choisissez dans le menu *Ouvrir dans un terminal*. Vous vous retrouverez automatiquement dans le bon répertoire (vous pouvez vous en assurer avec la commande Unix `pwd`).
 
 ![Lancement d'un terminal depuis un répertoire donné avec Nautilus).](img/nautilus_ouvrir_terminal.png){ #fig:lancement_shell_Nautilus width=90% }
 

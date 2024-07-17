@@ -676,9 +676,9 @@ class AppliPendule(tk.Tk):
 		[...]
 ```
 
-La figure @fig:pendule vous montre un aperçu de ce que l'on voudrait obtenir.
+La figure @fig:pendule-apercu vous montre un aperçu de ce que l'on voudrait obtenir.
 
-![Application pendule.](img/pendule.png){ #fig:pendule width=60% }
+![Application pendule.](img/pendule.png){ #fig:pendule-apercu width=60% }
 
 Pour le moment, vous pouvez oublier la réglette fixant la valeur initiale de $\theta$, les *labels* affichant la valeur de $\theta$ et $v_{\theta}$ ainsi que les points violets « laissés en route » par le pendule. De même, nous dessinerons le pivot, la boule et la tige plus tard. À ce stade, il est fondamental de tout de suite lancer votre application pour vérifier que les *widgets* sont bien placés. N'oubliez pas, un code complexe se teste **au fur et à mesure** lors de son développement.
 
