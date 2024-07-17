@@ -727,7 +727,7 @@ Dans cet exemple, la classe `Citron` a utilisé une instance de la classe `Pulpe
 
 De manière générale, la composition est considérée comme plus flexible que l'héritage car les classes *Composite* et *Component* sont peu couplées. Le changement de l'une d'entre elle aura peu d'effet sur l'autre. Au contraire, pour l'héritage le changement d'une classe mère peut avoir des répercussions importantes pour les classes filles. Toutefois, dans certains cas l'héritage peut s'avérer plus naturel. Nous vous parlions en introduction du chapitre 23 *Avoir la classe avec les objets* de l'art pour concevoir des classes interagissant harmonieusement entre elles. Et bien nous y sommes !
 
-Si on a deux classes `A` et `B`, la relation entre elles dans l'héritage sera de type `B` **is a** `A` (avec `B` qui hérite de `A`). Dans la composition, ce sera plutôt `A` **has a** `B`. Cela peut vous servir de piste dans la conception des relations entre vos classes. A-t-il plus de sens d'y avoir une relation **is a** ou bien **has a** ? Dans le premier cas vous irez plutôt vers l'héritage, alors que dans le deuxième plutôt vers la composition. C'est ici que le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)) peut être pratique pour avoir une vision d'ensemble sur comment les classes interagissent.
+Si on a deux classes `A` et `B`, la relation entre elles dans l'héritage sera de type `B` **is a** `A` (avec `B` qui hérite de `A`). Dans la composition, ce sera plutôt `A` **has a** `B`. Cela peut vous servir de piste dans la conception des relations entre vos classes. A-t-il plus de sens d'y avoir une relation **is a** ou bien **has a** ? Dans le premier cas vous irez plutôt vers l'héritage, alors que dans le deuxième plutôt vers la composition. C'est ici que le langage [UML](https://fr.wikipedia.org/wiki/UML_(informatique)) peut être pratique pour avoir une vision d'ensemble sur comment les classes interagissent entre elles.
 
 Bien sûr, il faudra vous entraîner sur des cas concrets pour acquérir l'expérience qui vous mènera aux bons choix. A la fin de ce chapitre, nous vous présentons un exercice pour vous entraîner dans un premier temps à la composition. Dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), vous aurez des illustrations et des exercices sur l'héritage qui est très utilisé en *Tkinter*.
 
@@ -738,8 +738,6 @@ Nous vous conseillons ce très bon article sur le site *RealPython* qui explique
 close-box-more
 
 open-box-more
-
-À ce stade, nous pouvons émettre deux remarques :
 
 Le polymorphisme, l'héritage et la composition  donnent toute la puissance à la POO. Toutefois, concevoir ses classes sur un projet, surtout au début de celui-ci, n'est pas chose aisée. Nous vous conseillons de lire d'autres ressources et de vous entraîner sur un maximum d'exemples.
 Si vous souhaitez allez plus loin sur la POO, nous vous conseillons de lire des ressources supplémentaires. En langue française, vous trouverez les livres de [Gérard Swinnen](https://inforef.be/swi/python.htm), [Bob Cordeau et Laurent Pointal](https://perso.limsi.fr/pointal/python:courspython3), [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python) et [Xavier Olive](https://www.xoolive.org/python/).
@@ -1193,7 +1191,7 @@ close-box-adv
 
 ### Le décorateur `@property` seul
 
-Il se peut que vous rencontriez une classe où on a une méthode décorée avec `@property` mais sans nécessairement avoir un *setter* et/ou un *deleter*. Cela peut être pratique lorsqu'on veut créer une sorte « d'attribut dynamique » plutôt qu'avoir un appel de fonction explicite.
+Une méthode décorée avec `@property` peut être utile seule sans avoir le *setter* et/ou le *deleter* correspondant(s). On rencontre cela lorsqu'on souhaite créer un « d'attribut dynamique » plutôt qu'avoir un appel de méthode explicite. Regardons un exemple :
 
 ```python
 class ADN:
@@ -1228,15 +1226,7 @@ La séquence de mon brin d'ADN est ['A', 'T', 'G']
 3
 ```
 
-On voit que lorsqu'on utilise l'attribut `brin_adn.len`, ceci invoque finalement l'appel de l'objet *property* `len` qui, *in fine*, est une méthode. Ainsi, la valeur renvoyée sera calculée à chaque fois, bien que dans la syntaxe on n'a pas une notation `.methode()`, mais plutôt `.attribut`. Voilà pourquoi nous avons parlé d'attribut dynamique. Cela permet d'alléger la syntaxe quand il n'y a pas spécifiquement d'arguments à passer à la méthode qui se trouve derrière cet attribut.
-
-<!---
-open-box-more
-
-Il existe une autre syntaxe considérée comme plus élégante pour mettre en place les objets *property*. Il s'agit des *décorateurs* `@property`, `@attribut.setter` et `@attribut.deleter`. Toutefois, la notion de décorateur va au-delà du présent ouvrage. Si vous souhaitez plus d'informations, vous pouvez consulter par exemple le [site programiz](https://www.programiz.com/python-programming/property) ou le livre de [Vincent Legoff](https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python).
-
-close-box-more
--->
+Lorsqu'on utilise l'attribut `brin_adn.len`, ceci invoque finalement l'appel de l'objet *property* `len` qui, *in fine*, est une méthode. Ainsi, la valeur renvoyée sera calculée à chaque fois, bien que dans la syntaxe on n'a pas une notation `.methode()`, mais plutôt `.attribut`. Voilà pourquoi nous avons parlé d'attribut dynamique. Cela permet d'alléger la syntaxe quand il n'y a pas spécifiquement d'arguments à passer à la méthode qui se trouve derrière cet attribut.
 
 ## Bonnes pratiques pour construire et manipuler ses classes
 

@@ -182,7 +182,7 @@ for chiffre in range(1, 5):
         print(f"{chiffre} est pair")
 ```
 
-Comme la fonction renvoie un booléen, on peut utiliser la notation `if est_pair(chiffre):` qui équivaut à `if est_pair(chiffre) == True:`. Il est courant d'appeler une fonction qui renvoie un booléen `est_quelquechose()` car on comprend que ça pose la question si c'est vrai ou faux. En anglais, on trouvera la nnotation `is_even()`. Nous reverrons ces notions dans le chapitre 13 *Plus sur les fonctions*.
+Comme la fonction renvoie un booléen, on peut utiliser la notation `if est_pair(chiffre):` qui équivaut à `if est_pair(chiffre) == True:`. Il est courant d'appeler une fonction qui renvoie un booléen `est_quelquechose()` car on comprend que ça pose la question si c'est vrai ou faux. En anglais, on trouvera la notation `is_even()`. Nous reverrons ces notions dans le chapitre 13 *Plus sur les fonctions*.
 
 ## Arguments positionnels et arguments par mot-clé
 

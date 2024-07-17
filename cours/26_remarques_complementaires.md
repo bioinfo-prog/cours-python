@@ -553,7 +553,7 @@ Deux contraintes sont toutefois à respecter. Il faut toujours :
 - mettre `*args` avant `**kwargs` dans la définition de la fonction ;
 - passer les arguments positionnels avant ceux par mot-clé lors de l'appel de la fonction.
 
-Enfin, il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple :
+Il est possible de combiner des arguments positionnels avec `*args` et `**kwargs`, par exemple :
 
 `def fct(a, b, *args, **kwargs):`
 
@@ -567,7 +567,7 @@ close-box-adv
 
 L'utilisation de la syntaxe `*args` et `**kwargs` est très classique dans le module *Fenêtres graphiques et Tkinter* présenté dans le chapitre 25 (en ligne).
 
-Enfin, il est possible d'utiliser ce mécanisme d'empaquetage / désempaquetage (*packing* / *unpacking*) dans l'autre sens :
+Il est possible d'utiliser ce mécanisme d'empaquetage / désempaquetage (*packing* / *unpacking*) dans l'autre sens :
 
 ```python
 >>> def fct(a, b, c):
@@ -594,6 +594,45 @@ Attention toutefois à bien respecter deux choses :
 
 - la concordance entre le nom des clés du dictionnaire et le nom des arguments dans la fonction (sinon cela renvoie une erreur) ;
 - l'utilisation d'une double étoile pour désempaqueter les valeurs du dictionnaire (si vous utilisez une seule étoile, Python désempaquettera les clés !).
+
+Ce mécanisme de désempaquetage est aussi utilisable avec les objets *zip*, on parle de *zip unpacking*. Souvenons-nous, un objet *zip* permettait d'assembler plusieurs listes, éléments par éléments (voir Chapitre 12 *Plus sur les listes*) :
+
+```python
+>>> animaux = ["poulain", "renard", "python"]
+>>> couleurs = ["alezan", "roux", "vert"]
+>>> zip(range(3), animaux, couleurs)
+<zip object at 0x7f333febc880>
+>>> triplets = list(zip(range(3), animaux, couleurs))
+>>> triplets
+[(0, 'poulain', 'alezan'), (1, 'renard', 'roux'), (2, 'python', 'vert')]
+```
+
+**Lignes 1 à 4**. On crée un objet *zip* avec trois objets de trois éléments.
+
+**Lignes 5 à 7**. Cet objet *zip* en conjonction avec la fonction `list()` nous permet d'associer les éléments par ordre d'apparition (tous les éléments à la position 1 se retrouve ensemble, idem pour les positions 2 et 3). Au final, l'objet `triplets` est une liste de *tuples* de trois éléments.
+
+L'opérateur `*` en combinaison avec la fonction *zip* va nous permettre de désempaqueter `triplets` pour récupérer les listes initiales (`range(3)`, `animaux` et `couleurs`) :
+
+```python
+>>> zip(*triplets)
+<zip object at 0x7f333fd44980>
+>>> list(zip(*triplets))
+[(0, 1, 2), ('poulain', 'renard', 'python'), ('alezan', 'roux', 'vert')]
+```
+
+Bien sûr, on peut l'utiliser l'affectation multiple :
+
+```python
+>>> numéros2, animaux2, couleurs2 = zip(*triplets)
+>>> numéros2
+(0, 1, 2)
+>>> animaux2
+('poulain', 'renard', 'python')
+>>> couleurs2
+('alezan', 'roux', 'vert')
+```
+
+Au final, on récupère des *tuples* au lieu des listes initiales. Mais à ce stade, vous devriez être capable de les retransformer en liste ;-).
 
 ## Décorateurs
 
