@@ -4,7 +4,7 @@
 
 Ce dépôt GitHub contient les sources du cours de Python disponible à <https://python.sdv.u-paris.fr/>
 
-Ce cours est écrit en Markdown et est rendu disponible sous la licence Creative Commons BY-SA 4.0. Cela signifie que vous pouvez réutiliser ce contenu à condition de citer explicitement les auteurs (Patrick Fuchs & Pierre Poulain) et de redistribuer vos modifications sous la même licence (Creative Commons BY-SA 4.0).
+Ce cours est écrit en Markdown et est rendu disponible sous la licence [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.fr). Cela signifie que vous pouvez réutiliser ce contenu à condition de citer explicitement les auteurs (Patrick Fuchs & Pierre Poulain) et de redistribuer vos modifications sous la même licence (Creative Commons BY-SA 4.0).
 
 ## Comment contribuer ?
 
