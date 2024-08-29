@@ -422,6 +422,7 @@ Pour ces exercices, utilisez l'interpréteur Python.
 
 close-box-adv
 
+
 ### Prédire la sortie
 
 Soit les trois lignes de code suivantes :
@@ -440,6 +441,7 @@ Prédisez le comportement de chaque instruction ci-dessous, sans les recopier da
 - `print(liste1["var"])`
 
 Lorsqu'une instruction produit une erreur, identifiez pourquoi.
+
 
 ### Jours de la semaine
 
@@ -464,3 +466,8 @@ Créez quatre listes `hiver`, `printemps`, `ete` et `automne` contenant les mois
 ### Table de multiplication par 9
 
 Affichez la table de multiplication par 9 en une seule commande avec les instructions `range()` et `list()`.
+
+
+### Nombres pairs
+
+Répondez à la question suivante en une seule commande. Combien y a-t-il de nombres pairs dans l'intervalle `[2, 10000]` inclus ?
