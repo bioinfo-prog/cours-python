@@ -214,11 +214,9 @@ close-box-warn
 
 Il nous faut maintenant initialiser *conda*. Cette manipulation va permettre de le rendre visible dans n'importe quel *shell* Powershell.
 
-L'installateur a en principe ajouté une nouvelle section dans le Menu Démarrer nommée `Anaconda3 (64-bit)` :
+L'installateur a en principe ajouté des nouveaux raccourcis dans le Menu Démarrer contenant le mot `Anaconda` :
 
-![Menu Anaconda Powershell Prompt](img/menu_anaconda_W10.png){ #fig:menu_anaconda_W10 width=40% }
-
-Cette section contient deux éléments :
+![Menu Anaconda Powershell Prompt](img/menu_anaconda_W10.png){ #fig:menu_anaconda_W10 width=80% }
 
 - `Anaconda Powershell Prompt (Miniconda3)` : pour lancer un *shell* Powershell (shell standard de Windows équivalent du bash sous Linux) avec *conda* qui est activé correctement ;
 - `Anaconda Prompt (Miniconda3)` : même chose mais avec le *shell* nommé cmd ; ce vieux shell est limité et nous vous en déconseillons l'utilisation. 
