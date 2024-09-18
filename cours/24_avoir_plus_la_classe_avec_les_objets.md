@@ -1658,7 +1658,7 @@ close-box-adv
 
 ### Classe molécule
 
-Pour illustrer le mécanisme de la composition en POO, on se propose de créer un programme `molecule.py` qui permettra de décrire une molécule en utilisant les classes. Nous allons créer une classe représentant une molécule (qui sera notre classe *Composite*) et celle-ci contiendra des instances d'une classe décrivant un atome (classe *Component*). 
+Pour illustrer le mécanisme de la composition en POO, on se propose de créer un programme `molecule.py` qui permettra de décrire une molécule en utilisant les classes. Nous allons créer une classe représentant une molécule (qui sera notre classe *Composite*) et celle-ci contiendra des instances d'une classe décrivant un atome (classe *Component*). On se propose de tester cela sur la molécule simple de benzene. Vous aurons besoin du fichier [`benzene.pdb`]("https://python.sdv.u-paris.fr/data-files/benzene.pdb") pour réaliser cet exercice.
 
 Après les import nécessaires, le programme contiendra une constante donnant les masses des atomes sous forme de dictionnaire : `ATOM_MASSES = {"C": 12.0, "O": 16.0, "H": 1.0}`.
 

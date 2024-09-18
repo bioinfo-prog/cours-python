@@ -527,9 +527,11 @@ Cette fonction est très pratique, notamment quand on souhaite convertir des sec
 
 La division normale nous donne un *float* en minutes qui n'est pas très pratique, il faut encore convertir `0.566666666666666` minute en secondes et gérer les problèmes d'arrondi. La fonction `divmod()` renvoie le résultat directement : 12 min et 34 s. On pourrait raisonner de manière similaire pour convertir des minutes en heures, des heures en jours, etc.
 
+
 ### Remarque finale
 
-Les listes, dictionnaires, tuples et chaînes de caractères sont tous des objets contenant une collection d'autres objets. En Python, on peut construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
+Les listes, les dictionnaires et les tuples sont tous des objets contenant une collection d'autres objets. En Python, on peut construire des listes qui contiennent des dictionnaires, des tuples ou d'autres listes, mais aussi des dictionnaires contenant des tuples, des listes, etc. Les combinaisons sont infinies !
+
 
 ## Exercices
 

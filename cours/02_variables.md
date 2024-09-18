@@ -31,7 +31,7 @@ En Python, la **déclaration** d'une variable et son **initialisation** (c'est-�
 
 Dans d'autres langages (en C par exemple), il faut coder ces différentes étapes une par une. Python étant un langage dit de *haut niveau*, la simple instruction `x = 2` a suffi à réaliser les trois étapes en une fois !
 
-**Lignes 2 et 3**. L'interpréteur nous a permis de connaître le contenu de la variable juste en tapant son nom. Retenez ceci car c'est une **spécificité de l'interpréteur Python**, très pratique pour chasser (*debugger*) les erreurs dans un programme. En revanche, la ligne d'un script Python qui contient seulement le nom d'une variable (sans aucune autre indication) n'affichera pas la valeur de la variable à l'écran lors de l'exécution (pour autant, cette instruction reste valide et ne générera pas d'erreur).
+**Lignes 2 et 3**. L'interpréteur nous a permis de connaître le contenu de la variable juste en tapant son nom. Retenez ceci, car c'est une **spécificité de l'interpréteur Python**, très pratique pour chasser (*debugger*) les erreurs dans un programme. En revanche, la ligne d'un script Python qui contient seulement le nom d'une variable (sans aucune autre indication) n'affichera pas la valeur de la variable à l'écran lors de l'exécution (pour autant, cette instruction reste valide et ne générera pas d'erreur).
 
 Depuis la version 3.10, l'interpréteur Python a amélioré ses messages d'erreur. Il est ainsi capable de suggérer des noms de variables existants lorsqu'on fait une faute de frappe :
 
@@ -59,7 +59,7 @@ open-box-def
 
 \index{operateur affectation@opérateur d'affectation}
 
-Le symbole `=` est appelé **opérateur d'affectation**. Il permet d'assigner une valeur à une variable en Python. Cet opérateur s'utilise toujours de la droite vers la gauche. Par exemple, dans l'instruction  `x = 2` ci-dessus, Python attribue la valeur située à droite (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`. 
+Le symbole `=` est appelé **opérateur d'affectation**. Il permet d'assigner une valeur à une variable en Python. Cet opérateur s'utilise toujours de la droite vers la gauche. Par exemple, dans l'instruction `x = 2` ci-dessus, Python attribue la valeur située à droite (ici, `2`) à la variable située à gauche (ici, `x`). D'autres langages de programmation comme *R* utilisent les symboles `<-` pour rendre l'affectation d'une variable plus explicite, par exemple `x <- 2`. 
 
 close-box-def
 
@@ -75,7 +75,7 @@ Voici d'autres cas de figures que vous rencontrerez avec l'opérateur `=` :
 3
 ```
 
-**Ligne 2**. Ici on a un nom de variable à gauche et à droite de l'opérateur `=`. Dans ce cas, on garde la règle d'aller toujous de la droite vers la gauche. C'est donc le contenu de la variable `y` qui est affecté à la variable `x`.
+**Ligne 2**. Ici on a un nom de variable à gauche et à droite de l'opérateur `=`. Dans ce cas, on garde la règle d'aller toujours de la droite vers la gauche. C'est donc le contenu de la variable `y` qui est affecté à la variable `x`.
 
 **Ligne 5**. Comme on le verra plus bas, si on a à droite de l'opérateur `=` une expression, ici la soustraction `4 - 2`, celle-ci est d'abord évaluée et c'est le résultat de cette opération qui sera affecté à la variable `x`. On pourra noter également que la valeur de `x` précédente (2) a été écrasée.
 
@@ -154,6 +154,7 @@ False
 ```
 
 Nous verrons l'utilité des booléens dans les chapitres 5 *Boucles* et 6 *Tests*.
+
 
 ## Nommage
 
@@ -259,7 +260,7 @@ L'opérateur puissance utilise les symboles `**` :
 \index{division entiere@division entière}
 \index{modulo@modulo (opérateur)}
 
-Pour obtenir le quotient et le reste d'une division entière (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et  modulo `%` :
+Pour obtenir le quotient et le reste d'une division entière (voir [ici](https://fr.wikipedia.org/wiki/Division_euclidienne) pour un petit rappel sur la division entière), on utilise respectivement les symboles `//` et modulo `%` :
 
 ```python
 >>> 5 // 4
@@ -292,6 +293,7 @@ Enfin, il existe des opérateurs « combinés » qui effectue une opération et 
 L'opérateur `+=` effectue une addition puis affecte le résultat à la même variable. Cette opération s'appelle une « incrémentation ».
 
 Les opérateurs `-=`, `*=` et `/=` se comportent de manière similaire pour la soustraction, la multiplication et la division.
+
 
 ### Opérations sur les chaînes de caractères
 
@@ -326,7 +328,7 @@ close-box-warn
 
 ### Opérations illicites
 
-Attention à ne pas faire d'opération illicite car vous obtiendriez un message d'erreur :
+Attention à ne pas faire d'opération illicite, car vous obtiendriez un message d'erreur :
 
 ```python
 >>> "toto" * 1.3
@@ -339,7 +341,7 @@ Traceback (most recent call last):
 TypeError: can only concatenate str (not "int") to str
 ```
 
-Notez que Python vous donne des informations dans son message d'erreur. Dans le second exemple, il indique que vous devez utiliser une variable de type *str* c'est-à-dire une chaîne de caractères et pas un *int*, c'est-à-dire un entier.
+Notez que Python vous donne des informations dans son message d'erreur. Dans le second exemple, il indique que vous devez utiliser une variable de type *str*, c'est-à-dire une chaîne de caractères et pas un *int*, c'est-à-dire un entier.
 
 
 ## La fonction `type()`
@@ -378,7 +380,7 @@ close-box-warn
 \index{float@float()}
 \index{str@str()}
 
-En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`, `float()`  et `str()`. Pour vous en convaincre, regardez ces exemples :
+En programmation, on est souvent amené à convertir les types, c'est-à-dire passer d'un type numérique à une chaîne de caractères ou vice-versa. En Python, rien de plus simple avec les fonctions `int()`, `float()` et `str()`. Pour vous en convaincre, regardez ces exemples :
 
 ```python
 >>> i = 3
@@ -406,11 +408,11 @@ Toute conversion d'une variable d'un type en un autre est appelé *casting* en a
 \index{objet}
 \index{classe}
 
-Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours nous employions le mot **objet** pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 23 *Avoir la classe avec les objets* (en ligne) ce que le mot « objet » signifie réellement (tout comme le mot « classe »).
+Nous avons vu dans ce chapitre la notion de **variable** qui est commune à tous les langages de programmation. Toutefois, Python est un langage dit « orienté objet », il se peut que dans la suite du cours, nous employions le mot **objet** pour désigner une variable. Par exemple, « une variable de type entier » sera pour nous équivalent à « un objet de type entier ». Nous verrons dans le chapitre 23 *Avoir la classe avec les objets* (en ligne) ce que le mot « objet » signifie réellement (tout comme le mot « classe »).
 
 \index{fonction}
 
-Par ailleurs, nous avons rencontré plusieurs fois des **fonctions** dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
+Par ailleurs, nous avons rencontré plusieurs fois des **fonctions** dans ce chapitre, notamment avec `type()`, `int()`, `float()` et `str()`. Dans le chapitre 1 *Introduction*, nous avons également vu la fonction `print()`. On reconnaît qu'il s'agit d'une fonction, car son nom est suivi de parenthèses (par exemple, `type()`). En Python, la syntaxe générale est `fonction()`.
 
 \index{argument@argument (passé à une fonction)}
 
@@ -452,7 +454,7 @@ close-box-adv
 
 Les [nombres de Friedman](https://fr.wikipedia.org/wiki/Nombre_de_Friedman) sont des nombres qui peuvent s'exprimer avec tous leurs chiffres dans une expression mathématique.
 
-Par exemple, 347 est un nombre de Friedman car il peut s'écrire sous la forme $4+7^3$. De même pour 127 qui peut s'écire sous la forme $2^7 - 1$.
+Par exemple, 347 est un nombre de Friedman, car il peut s'écrire sous la forme $4+7^3$. De même pour 127 qui peut s'écrire sous la forme $2^7 - 1$.
 
 Déterminez si les expressions suivantes correspondent à des nombres de Friedman. Pour cela, vous les écrirez en Python puis exécuterez le code correspondant.
 

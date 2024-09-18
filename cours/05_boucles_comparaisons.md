@@ -397,7 +397,7 @@ Voici les notes d'un étudiant `[14, 9, 6, 8, 12]`. Calculez la moyenne de ces n
 
 ### Produit de nombres consécutifs
 
-Avez les fonctions `list()` et `range()`, créez la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus.
+Avec les fonctions `list()` et `range()`, créez la liste `entiers` contenant les nombres entiers pairs de 2 à 20 inclus.
 
 Calculez ensuite le produit des nombres consécutifs deux à deux de `entiers` en utilisant une boucle. Exemple pour les premières itérations :
 

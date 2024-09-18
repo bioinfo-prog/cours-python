@@ -35,7 +35,7 @@ Comme tout apprentissage, apprendre la programmation Python prend du temps et n�
 
 \index{installation@installation (de Python)}
 
-Pour pratiquer la programmation Python, il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons dans cette rubrique un résumé des points importants concernant cette installation. Tous les détails et la marche à suivre pas-à-pas sont donnés à l'adresse <https://python.sdv.u-paris.fr/livre-dunod>.
+Pour pratiquer la programmation Python, il est préférable que Python soit installé sur votre ordinateur. La bonne nouvelle est que vous pouvez installer gratuitement Python sur votre machine, que ce soit sous Windows, Mac OS X ou Linux. Nous donnons ici un résumé des points importants concernant cette installation. La marche à suivre pas-à-pas est détaillée à l'adresse <https://python.sdv.u-paris.fr/> dans la rubrique *B. Installation de Python*.
 
 
 ### Python 2 ou Python 3 ?
@@ -156,7 +156,7 @@ Tapez par exemple l'instruction :
 
 `print("Hello world!")`
 
-puis validez cette commande en appuyant sur la touche *Entrée*.
+puis, validez cette commande en appuyant sur la touche *Entrée*.
 
 Python a exécuté la commande directement et a affiché le texte `Hello world!`. Il attend ensuite une nouvelle instruction en affichant l'invite de l'interpréteur Python (`>>>`). En résumé, voici ce qui a dû apparaître sur votre écran :
 
@@ -187,7 +187,7 @@ résultat
 \index{chevron}
 \index{ligne longue@ligne longue (de code)}
 
-où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape au clavier, et l'absence de chevron en début de ligne correspond à la sortie (*output*) générée par Python. Une exception se présente toutefois : lorsqu'on a une longue ligne de code , on peut la couper en deux avec le caractère `\` (*backslash*) pour des raisons de lisibilité :
+où le triple chevron correspond à l'entrée (*input*) que l'utilisateur tape au clavier, et l'absence de chevron en début de ligne correspond à la sortie (*output*) générée par Python. Une exception se présente toutefois : lorsqu'on a une longue ligne de code, on peut la couper en deux avec le caractère `\` (*backslash*) pour des raisons de lisibilité :
 
 ```python
 >>> Voici une longue ligne de code \
@@ -227,7 +227,7 @@ L'extension de fichier standard des scripts Python est `.py`.
 
 close-box-rem
 
-Pour exécuter votre script, ouvrez un *shell*  et entrez la commande :
+Pour exécuter votre script, ouvrez un *shell* et entrez la commande :
 `python test.py`
 
 Vous devriez obtenir un résultat similaire à ceci :
@@ -279,7 +279,7 @@ Par exemple, imaginons que nous souhaitions afficher chacune des bases d'une sé
 
 ![Notion d'indentation et de bloc d'instructions.](img/indentation_bloc_instructions.png "Indentation et bloc d'instructions"){ #fig:indentation_bloc_instructions width=70% }
 
-Pour chaque base de la séquence ATCCGACTG, nous souhaitons effectuer deux actions : d'abord afficher la base puis compter une base de plus. Pour indiquer cela, on décalera vers la droite ces deux instructions par rapport à la ligne précédente (`pour chaque base [...]`). Ce décalage est appelé **indentation**, et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
+Pour chaque base de la séquence ATCCGACTG, nous souhaitons effectuer deux actions : d'abord afficher la base puis compter une base de plus. Pour indiquer cela, on décalera vers la droite ces deux instructions par rapport à la ligne précédente (`pour chaque base [...]`). Ce décalage est appelé **indentation** et l'ensemble des lignes indentées constitue un **bloc d'instructions**.
 
 Une fois qu'on aura réalisé ces deux actions sur chaque base, on pourra passer à la suite, c'est-à-dire afficher la taille de la séquence. Pour bien préciser que cet affichage se fait à la fin, donc une fois l'affichage puis le comptage de chaque base terminés, la ligne correspondante n'est pas indentée (c'est-à-dire qu'elle n'est pas décalée vers la droite).
 
