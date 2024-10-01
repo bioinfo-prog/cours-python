@@ -308,7 +308,7 @@ close-box-adv
 
 open-box-rem
 
-Pour créer un tuple d'un seul élément comme ci-dessus, utilisez une syntaxe avec une virgule `(element,)`, pour éviter une ambiguïté avec une simple expression. Par exemple `(2)` équivaut à l'entier `2`, `(2,)` est un tuple avec l'élément `2`.
+Pour créer un tuple d'un seul élément comme ci-dessus, utilisez une syntaxe avec une virgule `(element,)`, pour éviter une ambiguïté avec une simple expression. Par exemple, `(2)` équivaut à l'entier `2`, alors que l'expression `(2,)` est un tuple contenant l'élément `2`.
 
 close-box-rem
 
