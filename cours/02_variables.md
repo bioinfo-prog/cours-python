@@ -246,6 +246,10 @@ L'opérateur `/` effectue une division. Contrairement aux opérateurs `+`, `-` e
 0.75
 >>> 2.5 / 2
 1.25
+>>> 6 / 3
+2.0
+>>> 10 / 2
+5.0
 ```
 
 L'opérateur puissance utilise les symboles `**` :
