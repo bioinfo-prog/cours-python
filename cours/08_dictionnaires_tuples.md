@@ -473,7 +473,7 @@ merle 3
 ('merle', 3) <class 'tuple'>
 ```
 
-La méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
+La méthode `.items()` itère, comme `enumerate()`, sur une série de tuples.
 
 Enfin, on peut itérer sur trois valeurs en même temps à partir d'une liste de tuples de trois éléments :
 
