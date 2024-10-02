@@ -308,7 +308,7 @@ close-box-adv
 
 open-box-rem
 
-Pour créer un tuple d'un seul élément comme ci-dessus, utilisez une syntaxe avec une virgule `(element,)`, pour éviter une ambiguïté avec une simple expression. Par exemple `(2)` équivaut à l'entier `2`, `(2,)` est un tuple avec l'élément `2`.
+Pour créer un tuple d'un seul élément comme ci-dessus, utilisez une syntaxe avec une virgule `(element,)`, pour éviter une ambiguïté avec une simple expression. Par exemple, `(2)` équivaut à l'entier `2`, alors que l'expression `(2,)` est un tuple contenant l'élément `2`.
 
 close-box-rem
 
@@ -473,7 +473,7 @@ merle 3
 ('merle', 3) <class 'tuple'>
 ```
 
-La méthode `.dict_items()` itère comme `enumerate()` sur une série de tuples.
+La méthode `.items()` itère, comme `enumerate()`, sur une série de tuples.
 
 Enfin, on peut itérer sur trois valeurs en même temps à partir d'une liste de tuples de trois éléments :
 

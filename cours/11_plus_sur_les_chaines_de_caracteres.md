@@ -113,7 +113,7 @@ Que signifie le `f` que l'on accole aux guillemets de la chaîne de caractères 
 
 open-box-rem
 
-Un *stringprefix* modifie la manière dont Python va interpréter ladite *string*. Celui-ci doit être systématiquement « collé » à la chaîne de caractères, c'est-à-dire sans d'espace entre les deux.
+Un *stringprefix* modifie la manière dont Python va interpréter ladite *string*. Celui-ci doit être systématiquement « collé » à la chaîne de caractères, c'est-à-dire sans espace entre les deux.
 
 close-box-rem
 
