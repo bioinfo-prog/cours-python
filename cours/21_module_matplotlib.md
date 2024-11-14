@@ -130,7 +130,7 @@ fig.savefig("concentration_vs_temps_1.png", bbox_inches="tight", dpi=200)
 
 Le résultat est représenté sur la figure @fig:conc-vs-tps1.
 
-![Concentration du produit en fonction du temps.](img/concentration_vs_temps_1.png "Concentration du produit en fonction du temps"){  #fig:conc-vs-tps1 width=80% }
+![Concentration du produit en fonction du temps.](img/concentration_vs_temps_1.png "Concentration du produit en fonction du temps"){ #fig:conc-vs-tps1 width=80% }
 
 Les étapes supplémentaires par rapport au graphique précédent (figure @fig:conc-vs-tps0) sont :
 
@@ -172,7 +172,7 @@ fig.savefig("concentration_vs_temps_2.png", bbox_inches="tight", dpi=200)
 
 On obtient alors le graphique représenté dans la figure @fig:conc-vs-tps2.
 
-![Concentration du produit en fonction du temps, version améliorée.](img/concentration_vs_temps_2.png "Concentration du produit en fonction du temps, version améliorée"){  #fig:conc-vs-tps2 width=80% }
+![Concentration du produit en fonction du temps, version améliorée.](img/concentration_vs_temps_2.png "Concentration du produit en fonction du temps, version améliorée"){ #fig:conc-vs-tps2 width=80% }
 
 Les différences notables par rapport au code précédent sont :
 

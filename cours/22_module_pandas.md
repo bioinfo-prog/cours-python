@@ -1257,7 +1257,7 @@ Name: count, dtype: int64
 
 Si on souhaite une réponse plus globale, par exemple à l'échelle de
 l'année, la méthode `.resample()` calcule le nombre de protéines référencées par
-année (en fournissant l'argument `YE`). En utilisant le *method chaining*
+an (en fournissant l'argument `YE`). En utilisant le *method chaining*
 présenté dans le chapitre 11 *Plus sur les chaînes de caractères*,
 nous pouvons écrire toutes ces transformations en une seule instruction,
 répartie sur plusieurs lignes pour plus de lisibilité (en utilisant des parenthèses) :
@@ -1266,24 +1266,24 @@ répartie sur plusieurs lignes pour plus de lisibilité (en utilisant des parent
 (df["Creation date"]
     .value_counts()
     .resample("YE")
-    .count()
+    .sum()
     .head()
 )
 ```
 
 ```text
 Creation date
-1986-12-31    2
-1987-12-31    1
-1988-12-31    4
-1989-12-31    2
-1990-12-31    4
+1986-12-31    11
+1987-12-31    12
+1988-12-31    32
+1989-12-31    29
+1990-12-31    40
 Freq: YE-DEC, Name: count, dtype: int64
 ```
 
-Les dates apparaissent maintenant comme le dernier jour de l'année, mais désignent
-bien l'année complète. Dans cet exemple, une seule kinase a été référencée
-dans UniProt entre le 1er janvier et le 31 décembre 1987.
+Les dates apparaissent maintenant comme le dernier jour de l'année (31 décembre), mais désignent
+bien l'année complète. Dans cet exemple, 11 kinases ont été référencées
+dans UniProt entre le 1er janvier et le 31 décembre 1986.
 
 Pour connaître en quelle année le plus de kinases ont été référencées dans UniProt,
 il faut trier les valeurs obtenues du plus grand au plus petit avec la méthode
@@ -1294,10 +1294,10 @@ on utilisera également la méthode `.head()` :
 \index{sortvalues@.sort\_values()}
 
 ```python
-(df["Création date"]
+(df["Creation date"]
     .value_counts()
     .resample("YE")
-    .count()
+    .sum()
     .sort_values(ascending=False)
     .head()
 )
@@ -1305,16 +1305,16 @@ on utilisera également la méthode `.head()` :
 
 ```text
 Creation date
-2005-12-31    21
-2004-12-31    20
-2003-12-31    19
-2006-12-31    18
-2007-12-31    17
+2006-12-31    167
+2005-12-31    136
+2004-12-31    118
+2003-12-31    104
+2007-12-31     88
 Name: count, dtype: int64
 ```
 
-En 2005, 21 kinases ont été référencées dans UniProt. La deuxième
-« meilleure » année est 2004 avec 20 protéines.
+En 2006, 167 kinases ont été référencées dans UniProt. La deuxième
+« meilleure » année est 2005 avec 136 protéines.
 
 Toutes ces méthodes, enchaînées les unes à la suite des autres, peuvent vous
 sembler complexes, mais chacune d'elles correspond à une étape du traitement des données. 
@@ -1324,7 +1324,7 @@ pour chaque étape, mais cela aurait été plus lourd :
 ```python
 date1 = df["Creation date"].value_counts()
 date2 = date1.resample("YE")
-date3 = date2.count()
+date3 = date2.sum()
 date4 = date3.sort_values(ascending=False)
 date4.head()
 ```
@@ -1342,11 +1342,12 @@ close-box-rem
 Enfin, pour obtenir un graphique de l'évolution du nombre de kinases référencées dans UniProt en fonction du temps, on peut encore utiliser le *method chaining* :
 
 ```python
+import matplotlib.pyplot as plt
 (df["Creation date"]
     .value_counts()
     .resample("YE")
-     .count()
-     .plot()
+    .sum()
+    .plot()
 )
 plt.savefig("kinases3.png")
 ```
@@ -1355,7 +1356,7 @@ On obtient ainsi le graphique de la figure @fig:kinases3.
 
 ![Évolution temporelle du nombre de kinases référencées dans UniProt.](img/kinases3.png){ #fig:kinases3 width=70% }
 
-On observe un pic du nombre de kinases référencées dans UniProt sur la période 2001-2009.
+On observe un pic du nombre de kinases référencées dans UniProt sur la période 2003-2007.
 
 
 ### Transformation d'une colonne

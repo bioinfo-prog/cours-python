@@ -262,18 +262,19 @@ En fait, ce problème ne vient pas de Python, mais plutôt de la manière dont u
 '0.30000'
 >>> f"{0.3:.60f}"
 '0.299999999999999988897769753748434595763683319091796875000000'
->>> f"{3 - 2.7:.60f}"
+>>> var = 3 - 2.7
+>>> f"{var:.60f}"
 '0.299999999999999822364316059974953532218933105468750000000000'
+>>> abs(var - 0.3)
+1.6653345369377348e-16
 ```
 
-On observe que lorsqu'on tape `0.3`, Python affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est essentiel d'avoir cela en tête lorsque l'on compare deux *floats*.
+On observe que lorsqu'on tape `0.3`, Python affiche une valeur arrondie. En réalité, le nombre réel `0.3` ne peut être qu'approché lorsqu'on le code en nombre flottant. Il est essentiel d'avoir cela en tête lorsque l'on compare deux *floats*. Même si `0.3` et `3 - 2.7` ne donnent pas le même résultat, la différence est toutefois infinétisimale, de l'ordre de `1e-16` soit la $16^{ème}$ décimale !
 
-open-box-adv
-
-Pour les raisons évoquées ci-dessus, il ne faut surtout pas tester si un *float* est égal à une certaine valeur. La bonne pratique est de vérifier si un *float* est compris dans un intervalle avec une certaine précision. Si on appelle cette précision *delta*, on peut procéder ainsi :
+Pour ces raisons, il ne faut surtout pas utiliser l'opérateur `==` pour tester si un *float* est égal à une certaine valeur, car cet opérateur correspond à une égalité stricte. La bonne pratique est de vérifier si un *float* est compris dans un intervalle avec une certaine précision. Si on appelle cette précision *delta*, on peut procéder ainsi :
 
 ```python
->>> delta = 0.0001
+>>> delta = 1e-5
 >>> var = 3.0 - 2.7
 >>> 0.3 - delta < var < 0.3 + delta
 True
@@ -281,15 +282,29 @@ True
 True
 ```
 
-Ici on teste si `var` est compris dans l'intervalle $0,3 \pm delta$. Les deux méthodes mènent à un résultat strictement équivalent :
+Ici on teste si `var` est compris dans l'intervalle $0.3 \pm delta$. En choisissant delta à `1e-5`, on teste jusqu'à la cinquième décimale. Les deux méthodes mènent à un résultat strictement équivalent :
 
 \index{abs@abs()}
 
-- La ligne 3 est intuitive car elle ressemble à un encadrement mathématique.
+- La ligne 3 est plus intuitive car elle ressemble à un encadrement mathématique.
 - La ligne 5 utilise la fonction valeur absolue `abs()` et est plus compacte.
 
-close-box-adv
+Une dernière manière pour tester la valeur d'un *float*, apparue en Python 3.5, est d'utiliser la fonction `math.isclose()` :
 
+```python
+>>> import math
+>>> var = 3.0 - 2.7
+>>> math.isclose(var, 0.3, abs_tol=1e-5)
+True
+```
+
+Cette fonction prend en argument les deux *floats* à comparer, ainsi que l'argument par mot-clé `abs_tol` correspondant à la précision souhaitée (que nous avions appelée `delta` ci-dessus). Nous vous conseillons de toujours préciser cet argument `abs_tol`. Comme vu au dessus pour tirer une base au hasard, l'instruction `import math` sera vue dans le chapitre 9 Modules, admettez pour le moment qu'elle est nécessaire.
+
+open-box-adv
+
+Sur les trois manières de procéder pour comparer un *float* à une valeur, nous vous conseillons celle avec `math.isclose()` qui nous parait la plus lisible.
+
+close-box-adv
 
 ## Exercices
 

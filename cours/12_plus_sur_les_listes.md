@@ -302,7 +302,7 @@ le python est vert
 
 **Lignes 7 à 12**. Lorsqu'on itère sur un objet *zip*, la variable d'itération est un tuple. À la première itération, on a un tuple avec le premier élément de chaque liste utilisée pour générer l'objet *zip*, à la deuxième itération, ce sera le deuxième élément, et ainsi de suite.
 
-**Lignes 13 à 18**. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes (comme avec `enumerate()` dans les chapitres 5 *Boucles* et 8 *Dictionnaires et tuples*).
+**Lignes 13 à 18**. Avec l'affectation multiple, on peut affecter à la volée les éléments à des variables différentes, comme on l'a fait avec la fonction `enumerate()` (chapitre 5 *Boucles*) et la méthode `.items()` des dictionnaires (chapitre 8 *Dictionnaires et tuples*).
 
 Un objet *zip* est aussi utile pour générer facilement une liste de tuples.
 
@@ -345,6 +345,13 @@ La fonction `zip()` fonctionne sur n'importe quel objet itérable : listes, tupl
 
 close-box-rem
 
+open-box-adv
+
+*Pour les débutants, vous pouvez sauter cette remarque*.
+
+Un objet `zip()` comme présenté plus haut est ce qu'on appelle un itérateur. Cela implique un mode de fonctionnement particulier, notamment le fait qu'on ne peut l'utiliser qu'une fois lorsqu'on l'a créé. Vous trouverez plus d'explications sur la définition et le fonctionnement d'un itérateur dans le chapitre 26 *Remarques complémentaires*.
+
+close-box-adv
 
 ## Copie de listes
 
@@ -619,6 +626,67 @@ NameError: name 'idx_b' is not defined. Did you mean: 'idx_a'?
 
 La variable d'itération `idx_a` reste disponible en dehors de la boucle `for`. Par contre, la variable d'itération `idx_b` n'est pas disponible en dehors de la liste de compréhension, car elle est créée « à la volée » par Python puis éliminée une fois l'instruction exécutée.
 
+## Tris puissants de listes
+
+open-box-adv
+
+Si vous êtes débutant, vous pouvez sauter cette rubrique.
+
+close-box-adv
+
+Un peu plus haut nous avons évoqué la méthode `.sort()` qui trie une liste sur place, ainsi que la fonction `sorted()` qui renvoie une nouvelle liste triée. Nous avons également vu qu'elles supportaient l'argument par mot-clé `reverse` pour trier dans le sens inverse (décroissant ou anti-ASCII). Il existe un autre argument par mot-clé nommé `key` permettant un tri avec des règles alternatives que nous pouvons customiser. On doit passer à `key` une fonction *callback* (nous avions déjà croisé cette notion avec la fonction `map()` dans le chapitre 11 *Plus sur les chaînes de caractères*, pour une définition voir le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne)), c'est-à-dire, un nom de fonction sans les parenthèses. Par exemple, si on passe la *callback* `len` comme ça :
+
+```python
+>>> mots = ["babar", "bar", "ba", "bababar"]
+>>> sorted(mots, key=len)
+['ba', 'bar', 'babar', 'bababar']
+```
+
+Python trie la liste `mots` en considérant la longeur de chaque élément, donc ici le nombre de lettres de chaque chaîne de caractères. Si plusieurs mots ont la même longueur (`bar` et `bam` dans l'exemple suivant), `sorted()` les laisse dans l'ordre de la liste initiale.
+
+```python
+>>> mots = ["bar", "babar", "bam", "ba", "bababar"]
+>>> sorted(mots, key=len)
+['ba', 'bar', 'bam', 'babar', 'bababar']
+```
+
+Là où `key` va se révéler puissant est quand nous allons lui passer une fonction « maison ». Voici une exemple :
+
+```python
+>>> def compte_b(chaine):
+...     return chaine.count("b")
+...
+>>> compte_b("babar")
+2
+>>> mots = ["bar", "babar", "bam", "ba", "bababar"]
+>>> sorted(mots, key=compte_b)
+['bar', 'bam', 'ba', 'babar', 'bababar']
+```
+
+- **Lignes 1 à 5.** Comme son nom l'indique, la fonction `compte_b()` compte les lettres `b` dans une chaîne de caractères.
+- **Lignes 7 et 8.** En donnant `compte_b` (notez l'absence de parenthèses) à l'argument `key`, Python trie en fonction du nombre de lettres `b` dans chaque mot ! Comme pour `len`, si plusieurs mots ont un nombre de lettres `b` identiques, il conserve l'ordre de la liste initiale.
+
+open-box-rem
+
+L'argument `key` fonctionne de la même manière entre `sorted()` et la méthode `.sort()` qui trie sur place. Cet argument existe aussi avec les fonctions `min()` et `max()`. Par exemple :
+
+```python
+>>> mots = ["bar", "babar", "bam", "ba", "bababar"]
+>>> min(mots, key=len)
+'ba'
+>>> max(mots, key=len)
+'bababar'
+```
+
+Python renverra le premier élément avec `min()` ou le dernier élément avec `max()` après un tri sur la longueur de chaque mot.
+
+close-box-rem
+
+open-box-more
+
+En Python, trier avec une fonction maison passée à l'argument `key` se fait plutôt avec ce qu'on appelle une **fonction lambda**. Il s'agit d'une « petite » fonction que l'on écrit sur une ligne. Si vous voulez en savoir plus, vous pouvez consulter le chapitre 26 *Remarques complémentaires*.
+
+close-box-more
 
 ## Exercices
 

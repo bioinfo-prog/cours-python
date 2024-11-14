@@ -106,8 +106,11 @@ Dans une telle construction, `fct_callback("scoubidous")` serait d'abord évalu�
 
 Lorsqu'on est dans `une_fct()` on pourra utiliser bien sûr des arguments lors de l'appel de notre fonction *callback* si on le souhaite. Notez enfin que dans `une_fct()` la fonction *callback* reçue en argument peut avoir un nom différent (comme pour tout type de variable).
 
-À quoi cela sert-il ? À première vue cette construction peut sembler ardue et inutile. Toutefois, vous verrez que dans le module *Tkinter* les fonctions *callback* sont incontournables. En effet, on utilise cette construction pour lancer une fonction lors de l'interaction de l'utilisateur avec un *widget* : par exemple, lorsque l'utilisateur clique sur un bouton et qu'on souhaite lancer une fonction particulière suite à ce clic. Notez enfin que nous les avons déjà croisées avec le tri de dictionnaire par valeur (avec une syntaxe `sorted(dico, key=dico.get)`, voir le  chapitre 14 *Conteneurs*) ainsi que les objets `property` (voir le chapitre 23 *Avoir la classe avec les objets*).
+À quoi cela sert-il ? À première vue cette construction peut sembler ardue et inutile. Toutefois, vous verrez que dans le module *Tkinter* les fonctions *callback* sont incontournables. En effet, on utilise cette construction pour lancer une fonction lors de l'interaction de l'utilisateur avec un *widget* : par exemple, lorsque l'utilisateur clique sur un bouton et qu'on souhaite lancer une fonction particulière suite à ce clic. Notez enfin que nous les avons déjà croisées avec :
 
+- le tri de dictionnaire par valeur avec la syntaxe `sorted(dico, key=dico.get)` (voir le  chapitre 8 *Dictionnaires et tuples*) ;
+- le tri par longueur de mots avec la syntaxe `sorted(liste, key=len)` (voir chapitre 12 *Plus sur les listes*);
+- les objets `property` avec la syntaxe `property(fget=get_masse, fset=set_masse)` (voir le chapitre 24 *Avoir plus la classe avec les objets* (en ligne)).
 
 ## Prise en main du module *Tkinter*
 

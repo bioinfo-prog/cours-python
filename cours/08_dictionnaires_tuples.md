@@ -602,8 +602,8 @@ Les acides aminés peuvent être séparés en quatre grandes catégories : apola
 aa2prop = {'A': 'a', 'V': 'a', 'L': 'a', 'G': 'a', 'I': 'a', 'M': 'a',
            'W': 'a', 'F': 'a', 'P': 'a',
            'S': 'p', 'C': 'p', 'N': 'p', 'Q': 'p', 'T': 'p', 'Y': 'p',
-           'D': '+', 'E': '+',
-           'K': '-', 'R': '-', 'H': '-' }
+           'D': '-', 'E': '-',
+           'K': '+', 'R': '+', 'H': '+' }
 ```
 
 On souhaite convertir la séquence en acide aminé du domaine transmembranaire d'une intégrine humaine `SNADVVYEKQMLYLYVLSGIGGLLLLLLIFIVLYKVGFFKRNLKEKMEAG` en une série de signes indiquant la nature des acides aminés (*a*, *p*, *+* et *-*). Affichez tout d'abord la séquence sur une ligne, puis la nature des acides aminés sur une seconde ligne.

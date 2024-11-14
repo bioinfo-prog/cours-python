@@ -219,17 +219,17 @@ Un exemple classique de redéfinition des opérateurs concerne l'opérateur `+`.
 
 Nous verrons dans la rubrique suivante sur *l'héritage* qu'il est également possible de redéfinir des méthodes d'une classe, c'est-à-dire leur donner une nouvelle définition.
 
-### Méthodes magiques ou *dunder methods*
+### Méthodes *dunder* ou magiques
 
-Comment Python permet-il ces prouesses que sont le polymorphisme et la redéfinition des opérateurs ? Et bien, il utilise des méthodes dites *magiques*.
+Comment Python permet-il ces prouesses que sont le polymorphisme et la redéfinition des opérateurs ? Et bien, il utilise des méthodes dites *dunder* ou *magiques*.
 
 open-box-def
 
-Une méthode magique (*magic method*) est une méthode spéciale dont le nom est entouré de double *underscores*. Par exemple, la méthode `.__init__()` est une méthode magique. Ces méthodes sont, la plupart du temps, destinées au fonctionnement interne de la classe. Nombre d'entre elles sont destinées à changer le comportement de fonctions ou opérateurs internes à Python avec les instances d'une classe que l'on a créée. On parle aussi de *dunder method*, le mot *dunder* signifiant littéralement *double underscore*.
+Une méthode *dunder* (*dunder method*) est une méthode spéciale dont le nom est entouré de double *underscores*. Par exemple, la méthode `.__init__()` est une méthode *dunder*. Ces méthodes sont, la plupart du temps, destinées au fonctionnement interne de la classe. Nombre d'entre elles sont destinées à changer le comportement de fonctions ou opérateurs internes à Python avec les instances d'une classe que l'on a créée. Le mot *dunder* signifie littéralement *double underscore*. On parle aussi parfois de méthodes *magiques*.
 
 close-box-def
 
-Nous allons prendre un exemple concret. Imaginons que suite à la création d'une classe, nous souhaitions que Python affiche un message personnalisé lors de l'utilisation de la fonction `print()` avec une instance de cette classe. La méthode magique qui permettra cela est nommée `.__str__()` : elle redéfinit le comportement d'une instance avec la fonction `print()`.
+Nous allons prendre un exemple concret. Imaginons que suite à la création d'une classe, nous souhaitions que Python affiche un message personnalisé lors de l'utilisation de la fonction `print()` avec une instance de cette classe. La méthode *dunder* qui permettra cela est nommée `.__str__()` : elle redéfinit le comportement d'une instance avec la fonction `print()`.
 
 ```python
 class CitronBasique:
@@ -268,22 +268,22 @@ L'exécution de ce code affichera la sortie suivante :
 Votre citron est de couleur jaune foncée et de taille minuscule 8-)
 ```
 
-L'utilisation de la fonction `print()` sur l'instance `citron1` construite à partir de la classe `CitronBasique` affiche le message abscons que nous avons déjà croisé. Par contre, pour l'instance `citron2` de la classe `CitronCool`, le texte correspond à celui retourné par la méthode magique `.__str__()`. Nous avons donc redéfini comment la fonction `print()` se comportait avec une instance de la classe `CitronCool`. Notez que `str(citron2)` donnerait le même message que `print(citron2)`.
+L'utilisation de la fonction `print()` sur l'instance `citron1` construite à partir de la classe `CitronBasique` affiche le message abscons que nous avons déjà croisé. Par contre, pour l'instance `citron2` de la classe `CitronCool`, le texte correspond à celui retourné par la méthode *dunder* `.__str__()`. Nous avons donc redéfini comment la fonction `print()` se comportait avec une instance de la classe `CitronCool`. Notez que `str(citron2)` donnerait le même message que `print(citron2)`.
 
-Ce mécanisme pourra être reproduit avec de très nombreux opérateurs et fonctions de bases de Python. En effet, il existe une multitude de méthodes magiques, en voici quelques unes :
+Ce mécanisme pourra être reproduit avec de très nombreux opérateurs et fonctions de bases de Python. En effet, il existe une multitude de méthodes *dunder*, en voici quelques unes :
 
 - `.__repr__()` : redéfinit le message obtenu lorsqu'on tape le nom de l'instance dans l'interpréteur ;
 - `.__add__()` : redéfinit le comportement de l'opérateur `+` ;
 - `.__mul__()` : redéfinit le comportement de l'opérateur `*` ;
 - `.__del__()` : redéfinit le comportement de la fonction `del`.
 
-Si on conçoit une classe produisant des objets séquentiels (comme des listes ou des *tuples*), il existe des méthodes magiques telles que :
+Si on conçoit une classe produisant des objets séquentiels (comme des listes ou des *tuples*), il existe des méthodes *dunder* telles que :
 
 - `.__len__()` : redéfinit le comportement de la fonction `len()` ;
 - `.__getitem__()` : redéfinit le comportement pour récupérer un élément ;
 - `.__getslice__()` : redéfinit le comportement avec les tranches.
 
-Certaines méthodes magiques font des choses assez impressionnantes. Par exemple, la méthode `.__call__()` crée des instances que l'on peut appeler comme des fonctions ! Dans cet exemple, nous allons vous montrer que l'on peut ainsi créer un moyen inattendu pour mettre à jour des attributs d'instance :
+Certaines méthodes *dunder* font des choses assez impressionnantes. Par exemple, la méthode `.__call__()` crée des instances que l'on peut appeler comme des fonctions ! Dans cet exemple, nous allons vous montrer que l'on peut ainsi créer un moyen inattendu pour mettre à jour des attributs d'instance :
 
 ```python
 class Citronnier:
@@ -305,7 +305,7 @@ if __name__ == "__main__":
     print(citronnier1)
 ```
 
-À la ligne 16, on utilise une notation `instance(arg1, arg2)`, ce qui va automatiquement appeler la méthode magique `.__call__()` qui mettra à jour les deux attributs d'instance `nbcitrons` et `age` (lignes 5 et 6). Ce code affichera la sortie suivante :
+À la ligne 16, on utilise une notation `instance(arg1, arg2)`, ce qui va automatiquement appeler la méthode *dunder* `.__call__()` qui mettra à jour les deux attributs d'instance `nbcitrons` et `age` (lignes 5 et 6). Ce code affichera la sortie suivante :
 
 ```text
 Ce citronnier a 3 ans et 10 citrons
@@ -314,7 +314,7 @@ Ce citronnier a 4 ans et 30 citrons
 
 open-box-more
 
-- Nous vous avons montré l'idée qu'il y avait derrière le polymorphisme, et avec cela vous avez assez pour vous jeter à l'eau et commencer à construire vos propres classes. L'apprentissage de toutes les méthodes magiques va bien sûr au-delà du présent ouvrage. Toutefois, si vous souhaitez aller plus loin, nous vous conseillons la [page de Rafe Kettler](https://rszalski.github.io/magicmethods) qui est particulièrement complète et très bien faite.
+- Nous vous avons montré l'idée qu'il y avait derrière le polymorphisme, et avec cela vous avez assez pour vous jeter à l'eau et commencer à construire vos propres classes. L'apprentissage de toutes les méthodes *dunder* va bien sûr au-delà du présent ouvrage. Toutefois, si vous souhaitez aller plus loin, nous vous conseillons la page de [Trey Hunner](https://www.pythonmorsels.com/every-dunder-method/) qui est particulièrement complète et très bien faite. Une autre page qui a un peu vieilli mais reste intéressante est celle de [Rafe Kettler](https://rszalski.github.io/magicmethods). Enfin, nous développons les méthodes *dunder* `.__iter__()` et `.__next__()` dans la rubrique sur les itérateurs du chapitre 26 *Remarques complémentaires*.
 
 close-box-more
 
@@ -393,7 +393,7 @@ True
 True
 ```
 
-Si une méthode de la classe fille possède le même nom que celle de la classe mère, c'est la première qui prend la priorité. Dans ce cas, on dit que la méthode est *redéfinie* (en anglais on parle de *method overriding*), tout comme on parlait de *redéfinition des opérateurs* un peu plus haut. C'est le même mécanisme, car la redéfinition des opérateurs revient finalement à redéfinir une méthode magique (comme par exemple la méthode `.__add__()` pour l'opérateur `+`).
+Si une méthode de la classe fille possède le même nom que celle de la classe mère, c'est la première qui prend la priorité. Dans ce cas, on dit que la méthode est *redéfinie* (en anglais on parle de *method overriding*), tout comme on parlait de *redéfinition des opérateurs* un peu plus haut. C'est le même mécanisme, car la redéfinition des opérateurs revient finalement à redéfinir une méthode *dunder* (comme par exemple la méthode `.__add__()` pour l'opérateur `+`).
 
 Voyons un exemple :
 

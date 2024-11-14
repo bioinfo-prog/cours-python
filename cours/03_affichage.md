@@ -76,6 +76,88 @@ chatsouris
 chatsouris
 ```
 
+## Messages d'erreur
+
+Nous avons déjà croisé des messages d'erreur dans le chapitre précédent sur les variables. Nous vous expliquons ici comment les lire.
+
+Depuis la version 3.10 de Python, l'interpréteur renvoie des messages explicites lorsqu'on fait une erreur de syntaxe. Par exemple, on considère le script suivant (enregistré dans un fichier nommé `test.py`) qui contient plusieurs erreurs. Les voyez-vous ?
+
+```python
+print("chat"
+print("souris")
+print(1 / 0)
+print(int("deux"))
+```
+
+Vous avez sans doute repéré l'oubli d'une parenthèse fermante en **ligne 1**. Lorsqu'on lance le script, on obtient :
+
+```bash
+$ python test.py
+  File "test.py", line 1
+    print("chat"
+         ^
+SyntaxError: '(' was never closed
+```
+
+Comment doit-on lire ce message d'erreur ? Et bien cela se fait toujours du bas vers le haut. Le message s'appelle une *Traceback* et contient plusieurs types d'information :
+
+- Tout en bas : On a le type d'erreur qui a été généré (on verra plus tard que cela s'appelle en réalité une exception). Ici une erreur de syntaxe appelée `SyntaxError`. Puis sur la même ligne, un indice supplémentaire (ici l'absence d'une parenthèse).
+- Un peu plus haut : une description de l'erreur où on voit la parenthèse ouverte qui n'a jamais été fermée.
+- Encore plus haut : le numéro de ligne dans le code où l'erreur a été détectée.
+
+Avec cette *Traceback* il devient facile de corriger l'erreur.
+
+open-box-warn
+
+Dans les vieilles versions de Python (< 3.10), la même erreur conduisait à une *Traceback* beaucoup moins claire :
+
+```bash
+$ python3.5 test.py
+  File "test.py", line 2
+    print("souris")
+        ^
+SyntaxError: invalid syntax
+```
+
+L'interpréteur vous indiquait une erreur de syntaxe en **ligne 2** alors que l'oubli de parenthèse était en **ligne 1** ! Pour cette raison, utilisez dans la mesure du possible une version récente de Python (3.12 ou 3.13). 
+
+close-box-warn
+
+Si nous corrigeons la **ligne 1** en mettant la parenthèse finale et que nous relançons le script, nous aurons cette fois-ci une erreur due à une division par zéro :
+
+```bash
+$ python test.py
+chat
+souris
+Traceback (most recent call last):
+  File "test.py", line 3, in <module>
+    print(1 / 0)
+          ~~^~~
+ZeroDivisionError: division by zero
+```
+
+Si nous corrigeons cette erreur en **ligne 3** en évitant la division par zéro (par exemple en mettant `print(1 / 1)`), l'exécution donnera un autre message d'erreur dû à la **ligne 4** où la transformation d'une chaîne de caractères en entier n'est pas possible :
+
+```bash
+$ python test.py
+chat
+souris
+1
+Traceback (most recent call last):
+  File "test.py", line 4, in <module>
+    print(int("deux"))
+          ^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'deux'
+```
+
+À nouveau dans ces deux derniers exemples de *Traceback*, vous voyez qu'on a la même construction. Tout en bas, le type d'erreur, puis en remontant une description du problème et le numéro de ligne où l'erreur a été détectée.
+
+open-box-adv
+
+Il est important de bien lire chaque message d'erreur généré par Python. En général, la clé du problème est mentionnée dans ce message vous donnant des éléments pour le corriger.
+
+close-box-adv
+
 ## Écriture formatée et *f-strings*
 
 ### Définitions

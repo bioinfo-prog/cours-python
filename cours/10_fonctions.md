@@ -171,7 +171,7 @@ Une fonction peut aussi renvoyer un booléen :
 
 ```python
 def est_pair(x):
-    if x % == 0:
+    if x % 2 == 0:
         return True
     else:
         return False
