@@ -493,11 +493,11 @@ Vous l'aurez sans doute compris, avec notre fonction lambda, nous avons trié en
 
 Nous avons vu que les fonctions lambda permettaient des définitions de fonction rapidement sur une ligne. Il faut absolument éviter de les assigner à un nom. Elles ont toute leur utilité lorsqu'on les utilise avec `map()` pour appliquer une opération à tous les éléments d'un conteneur, ou pour des tris puissants avec `sorted()`.
 
-open-box-adv
+open-box-more
 
 Pour aller plus loin, vous pouvez consulter ces quelques articles : [Dataquest](https://www.dataquest.io/blog/tutorial-lambda-functions-in-python/), [Trey Hunner](https://www.pythonmorsels.com/lambda-expressions/), [RealPython](https://realpython.com/python-lambda/) et [Dan Bader](https://dbader.org/blog/python-lambda-functions).
 
-close-box-adv
+close-box-more
 
 ## Itérables, itérateurs, générateurs et module itertools
 

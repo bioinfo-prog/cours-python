@@ -4,7 +4,7 @@
 
 Le langage de programmation Python a été créé en 1989 par Guido van Rossum, aux Pays-Bas. Le nom *Python* vient d'un hommage à la série télévisée *Monty Python's Flying Circus* dont G. van Rossum est fan. La première version publique de ce langage a été publiée en 1991.
 
-La dernière version de Python est la version 3. Plus précisément, la version 3.11 a été publiée en octobre 2022. La version 2 de Python est obsolète et n'est plus maintenue, évitez de l'utiliser.
+La dernière version de Python est la version 3. Plus précisément, la version 3.11 a été publiée en octobre 2022. La version 2 de Python est obsolète et n'est plus maintenue, ne l'utilisez pas.
 
 La [*Python Software Foundation*](https://www.python.org/psf/) est l'association qui organise le développement de Python et anime la communauté de développeurs et d'utilisateurs.
 
@@ -28,7 +28,7 @@ Toutes ces caractéristiques font que Python est désormais enseigné dans de no
 
 ## Conseils pour l'apprentissage de Python
 
-Comme tout apprentissage, apprendre la programmation Python prend du temps et nécessite de pratiquer. Contrairement à d'autres activités scientifiques expérimentales (biologie moléculaire, chimie organique, électronique, etc.), programmer en Python ne nécessite pas de matériel coûteux, juste un ordinateur et éventuellement une connexion internet. Par ailleurs, Python est un programme informatique qui par définition ne se fatigue pas, est patient et toujours disponible. N'hésitez donc pas à pratiquer, pratiquer et pratiquer encore.
+Comme tout apprentissage, apprendre la programmation Python prend du temps et nécessite de pratiquer. Contrairement à d'autres activités scientifiques expérimentales (biologie moléculaire, chimie organique, électronique, etc.), programmer en Python ne nécessite pas de matériel ou de réactifs coûteux, juste un ordinateur et une connexion internet. Par ailleurs, Python est un programme informatique qui par définition ne se fatigue pas, est patient et toujours disponible. N'hésitez donc pas à pratiquer, pratiquer et pratiquer encore.
 
 
 ## Conseils pour installer et configurer Python
@@ -40,9 +40,9 @@ Pour pratiquer la programmation Python, il est préférable que Python soit inst
 
 ### Python 2 ou Python 3 ?
 
-Ce cours est basé sur la **version 3 de Python**, qui est désormais le standard.
+Ce cours est basé sur la **version 3 de Python**, qui est la version standard.
 
-Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe quelques différences importantes entre Python 2 et Python 3. Le chapitre 26 *Remarques complémentaires* (en ligne) vous apportera plus de précisions.
+Si, néanmoins, vous deviez un jour travailler sur un ancien programme écrit en Python 2, sachez qu'il existe des différences importantes entre Python 2 et Python 3. Le chapitre 26 *Remarques complémentaires* (en ligne) vous apportera plus de précisions.
 
 
 ### Miniconda
@@ -248,7 +248,7 @@ Dans un script, tout ce qui suit le caractère `#` est ignoré par Python
 jusqu'à la fin de la ligne et est considéré comme un commentaire.
 
 Les commentaires doivent expliquer votre code dans un langage humain.
-L'utilisation des commentaires est rediscutée dans le chapitre 16 *Bonnes pratiques en programmation Python*.
+L'utilisation des commentaires est discutée en détail dans le chapitre 16 *Bonnes pratiques en programmation Python*.
 
 Voici un exemple :
 

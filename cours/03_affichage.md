@@ -482,7 +482,7 @@ Par exemple pour la fraction $\frac{7}{3}$, le numérateur vaut 7 et le dénomin
 7/3 = 2 + 1/3
 ```
 
-Ici, 2 est le résultat de la division entière du numérateur par le dénominateur et 1 est le reste de la division entière du numérateur par le dénominateur.
+Ici, 2 est le quotient de la division entière du numérateur par le dénominateur et 1 est le reste de la division entière du numérateur par le dénominateur.
 
 Faites de même pour les fractions suivantes : 
 
@@ -490,3 +490,4 @@ $$
 \frac{9}{4}, \frac{23}{5}, \frac{21}{8} \textrm{et} \frac{7}{2}
 $$
 
+**Aide :** Pour chaque fraction, créez les variables `numerateur` et `denominateur` pour stocker les valeurs du numérateur et du dénominateur. Créez ensuite les variables `quotient` et `reste` à partir des variables `numerateur` et `denominateur` en utilisant les opérateurs `//` et `%`. Utilisez enfin ces quatre variables pour afficher le résultat dans la forme demandée avec une *f-string*.

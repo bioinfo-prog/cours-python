@@ -22,6 +22,7 @@ def calc_somme_nb_pairs(debut, fin):
     for nombre in range(debut, fin+1):
         if est_pair(nombre):
             somme += nombre
+    return somme
         
 # Programme principal.
 somme = calc_somme_nb_pairs(1, 5)

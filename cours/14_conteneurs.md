@@ -85,7 +85,11 @@ Maintenant que l'identifiant est défini, regardons l'exemple suivant qui montre
 140318876873472
 ```
 
-Ligne 1 on définit l'entier `var` puis on regarde son identifiant. Ligne 4, on pourrait penser que l'on modifie `var`. Toutefois, on voit que son identifiant ligne 6 est différent de la ligne 3. En fait, l'affectation ligne 4 `var = 5` écrase l'ancienne variable `var` et en crée une nouvelle, ce n'est pas la valeur de `var` qui a été changée puisque l'identifiant n'est plus le même. Le même raisonnement peut être tenu pour les autres types numériques comme les *floats* et booléens. Si on regarde maintenant ce qu'il se passe pour une liste :
+**Ligne 1** on définit l'entier `var` puis on regarde son identifiant.
+
+**Ligne 4**, on pourrait penser que l'on modifie `var`. Toutefois, on voit que son identifiant ligne 6 est différent de la ligne 3. En fait, l'affectation ligne 4 `var = 5` écrase l'ancienne variable `var` et en crée une nouvelle, ce n'est pas la valeur de `var` qui a été changée puisque l'identifiant n'est plus le même. Le même raisonnement peut être tenu pour les autres types numériques comme les *floats* et booléens.
+
+Si on regarde maintenant ce qu'il se passe pour une liste :
 
 ```python
 >>> liste1 = [1, 2, 3]

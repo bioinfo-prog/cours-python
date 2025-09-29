@@ -280,8 +280,13 @@ Ce mécanisme pourra être reproduit avec de très nombreux opérateurs et fonct
 Si on conçoit une classe produisant des objets séquentiels (comme des listes ou des *tuples*), il existe des méthodes *dunder* telles que :
 
 - `.__len__()` : redéfinit le comportement de la fonction `len()` ;
-- `.__getitem__()` : redéfinit le comportement pour récupérer un élément ;
-- `.__getslice__()` : redéfinit le comportement avec les tranches.
+- `.__getitem__()` : redéfinit le comportement pour récupérer un élément ou des tranches sur un objet séquentiel. Pour les tranches vous aurez également besoin de la fonction *builtin* `slice()` que nous ne développerons pas plus en avant dans le cadre de ce cours.
+
+open-box-adv
+
+Nous vous conseillons la page de [Trey Hunner](https://www.pythonmorsels.com/implementing-slicing/) qui est bien complète sur comment mettre en place une méthode `.__getitem__()` avec la fonction `slice()`.
+
+close-box-adv
 
 Certaines méthodes *dunder* font des choses assez impressionnantes. Par exemple, la méthode `.__call__()` crée des instances que l'on peut appeler comme des fonctions ! Dans cet exemple, nous allons vous montrer que l'on peut ainsi créer un moyen inattendu pour mettre à jour des attributs d'instance :
 
@@ -1658,7 +1663,7 @@ close-box-adv
 
 ### Classe molécule
 
-Pour illustrer le mécanisme de la composition en POO, on se propose de créer un programme `molecule.py` qui permettra de décrire une molécule en utilisant les classes. Nous allons créer une classe représentant une molécule (qui sera notre classe *Composite*) et celle-ci contiendra des instances d'une classe décrivant un atome (classe *Component*). On se propose de tester cela sur la molécule simple de benzene. Vous aurons besoin du fichier [`benzene.pdb`]("https://python.sdv.u-paris.fr/data-files/benzene.pdb") pour réaliser cet exercice.
+Pour illustrer le mécanisme de la composition en POO, on se propose de créer un programme `molecule.py` qui permettra de décrire une molécule en utilisant les classes. Nous allons créer une classe représentant une molécule (qui sera notre classe *Composite*) et celle-ci contiendra des instances d'une classe décrivant un atome (classe *Component*). On se propose de tester cela sur la molécule simple de benzene. Vous aurons besoin du fichier [`benzene.pdb`](https://python.sdv.u-paris.fr/data-files/benzene.pdb) pour réaliser cet exercice.
 
 Après les import nécessaires, le programme contiendra une constante donnant les masses des atomes sous forme de dictionnaire : `ATOM_MASSES = {"C": 12.0, "O": 16.0, "H": 1.0}`.
 
