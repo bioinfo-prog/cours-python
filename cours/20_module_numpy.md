@@ -1231,7 +1231,7 @@ Notez bien que `dot(a, a)` renvoie le **produit matriciel** entre deux matrices,
 
 open-box-rem
 
-Dans le module *NumPy*, il existe également des objets de type *matrix* pour lesquels les multiplications de matrices sont différents, mais nous ne les aborderons pas ici.
+Dans le module *NumPy*, il existe également des objets de type *matrix* pour lesquels les multiplications de matrices sont différentes, mais nous ne les aborderons pas ici.
 
 close-box-rem
 
@@ -1316,8 +1316,67 @@ array([[1., 0., 0.],
        [0., 0., 1.]])
 ```
 
-`eigvecs` est un *array* 2D contenant les trois vecteurs propres (un par ligne).
+`eigvecs` est un *array* 2D contenant les trois vecteurs propres (un par *colonne*).
 
+Attention, la fonction `eig()` ne renvoie pas forcément les valeurs propres dans l'ordre décroissant. Pour rappel, on nomme premier vecteur propre celui qui explique le maximum de variance, et on les numérote ainsi de suite en fonction des valeurs propres. Il convient donc de trier les valeurs propres et les vecteurs propres. Pour cela, on peut utiliser la méthode `.argsort()`. Celle-ci renvoie un array-1D contenant les indices triés par ordre croissant.
+
+```python
+eigvals.argsort()
+```
+
+```text
+array([0, 1, 2])
+```
+
+Comme on veut les valeurs propres par ordre décroissant, on peut utiliser l'astuce d'un pas de -1 comme avec les listes.
+
+```python
+eigvals.argsort()[::-1]
+```
+
+```text
+array([2, 1, 0])
+```
+
+Bien sûr, cet array d'indices est utilisable comme indice dans l'array initial `eigvals`. Nous vous conseillons de récupérer cet array d'indice dans une variable, par exemple `idx`.
+
+```python
+idx = eigvals.argsort()[::-1]
+eigvals = eigvals[idx]
+eigvals
+```
+
+```text
+array([3., 2., 1.])
+```
+
+On récupère bien les valeurs propres par ordre décroissant. On peut se servir de nouveau de la variable `idx` pour trier cette fois-ci les vecteurs propres. Mais attention, on doit faire le tri sur les colonnes (puisque les vecteurs propres sont décrits par colonne) !
+
+```python
+eigvecs = eigvecs[:,idx]
+eigvecs
+```
+
+```text
+array([[0., 0., 1.],
+       [0., 1., 0.],
+       [1., 0., 0.]])
+```
+
+C'est parce qu'on avait besoin de trier les vecteurs propres sur la base des valeurs propres qu'il fallait sauvegarder les indices dans la variable `idx`. Si on avait trié directement les valeurs propres avec `eigvals = eigvals.argsort()[::-1]`, on aurait perdu l'association valeurs propres et vecteurs propres.
+
+Pour accéder au premier vecteur propre, on récupère la colonne d'indice 0.
+
+```
+eigvec1 = eigvecs[:,0]
+eigvec1
+```
+
+```text
+array([0., 0., 1.])
+```
+
+Et ainsi de suite pour les  vecteurs propres suivants.
 
 ## Parcours de matrice et affectation de lignes et colonnes
 

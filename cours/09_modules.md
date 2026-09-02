@@ -516,7 +516,7 @@ PosixPath('/home/pierre')
 PosixPath('/home')
 ```
 
-Enfin, la méthode `.iterdir()` liste le contenu du répertoire depuis lequel est lancé Python :
+Enfin, la méthode `.iterdir()` donne accès au contenu du répertoire depuis lequel est lancé Python :
 
 ```python
 >>> list(Path().iterdir())

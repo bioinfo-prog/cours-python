@@ -281,7 +281,7 @@ Comme attendu, la première méthode (itération par les éléments) est plus ra
 
 \index{timeit@\%\%timeit (magic command)}
 
-Pour palier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Python détermine automatiquement le nombre d'itérations et le nombre de répétitions à effectuer pour obtenir un temps global d'exécution raisonnable.
+Pour pallier à ce problème, la *magic command* `%%timeit` va exécuter plusieurs fois la cellule et donner une estimation du temps d'exécution moyen. Python détermine automatiquement le nombre d'itérations et le nombre de répétitions à effectuer pour obtenir un temps global d'exécution raisonnable.
 
 En reprenant l'exemple précédent, on obtient :
 

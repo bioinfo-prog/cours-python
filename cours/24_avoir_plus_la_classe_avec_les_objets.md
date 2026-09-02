@@ -1484,7 +1484,7 @@ L'attribut `.__doc__` est automatiquement créé par Python au moment de la mise
 
 Voici quelques points en vrac auxquels nous vous conseillons de faire attention :
 
-- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuples* (voir la rubrique suivante).
+- Une classe ne se conçoit pas sans méthode. Si on a besoin d'une structure de données séquentielles ou si on veut donner des noms aux variables (plutôt qu'un indice), utilisez plutôt les dictionnaires. Une bonne alternative peut être les *namedtuples* (voir la rubrique suivante) ou encore mieux les *dataclasses* (voir deux rubriques plus bas).
 - Nous vous déconseillons de mettre comme paramètre par défaut une liste vide (ou tout autre objet séquentiel modifiable) :
 
 	```python
@@ -1595,6 +1595,109 @@ open-box-more
 Pour aller plus loin, vous pouvez consulter le très bon [article](https://dbader.org/blog/writing-clean-python-with-namedtuples) de Dan Bader.
 
 close-box-more
+
+### Dataclasses
+
+Les *namedtuples* sont pratiques pour stocker des éléments avec une syntaxe `objet.attribut`, mais présentent l'inconvénient d'être forcément immuable. Comme nous avons souligné dans la rubrique précédente, il est déconseillé d'utiliser une classe normale pour cela. Si vous souhaitez stocker des attributs modifiables, les *dataclasses* sont faites pour ça. Les [dataclasses](https://docs.python.org/fr/3.14/library/dataclasses.html) sont des classes spéciales permettant de construire des conteneurs très facilement, sans avoir à écrire beaucoup de lignes de code. En effet, les méthodes dunder `__init__()`, ` __repr__()` et `__eq__()` sont automatiquement créées ! Regardons un exemple.
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Citron:
+    humidite: int # en %
+    couleur: str = "jaune"
+    saveur: str = "acide"
+    masse: int = 100 # en g
+
+
+if __name__ == "__main__":
+    citron = Citron(50)
+    citron2 = Citron(humidite=40, couleur="vert", masse=200)
+    print(citron)
+    print(citron.__dict__)
+    print(citron2)
+    citron2.couleur = "jaune"
+    print(citron2)
+```
+
+Ligne 1. On importe la fonction `dataclass` du module `dataclasses`.
+Lignes 3 et 4. On utilise cette fonction comme décorateur de notre classe `Citron`, ce qui rend transforme notre classe automatiquement en dataclass.
+Lignes 5 à 8. Chaque attribut d'instance que l'on souhaite créé doit être listé ici, suivi de `:`, puis de son type sous forme d'une annotation de type (*type hint* en anglais, c'est-à-dire, le nom du type attendu). On peut lui mettre une valeur par défaut. Notez bien que nous n'avons défini aucune méthode.
+
+open-box-warn
+
+Bien que cela ressemble à une notation comme les attributs de classe dans les classes normales, il s'agit bel et bien d'**attributs d'instance** ! C'est le fait d'avoir déclarer la classe comme une dataclass qui change le comportement.
+
+close-box-warn
+
+L'éxécution de se code donne la sortie suivante :
+
+```
+$ python ./dataclass.py
+Citron(humidite=50, couleur='jaune', saveur='acide', masse=100)
+{'humidite': 50, 'couleur': 'jaune', 'saveur': 'acide', 'masse': 100}
+Citron(humidite=40, couleur='vert', saveur='acide', masse=200)
+Citron(humidite=40, couleur='jaune', saveur='acide', masse=200)
+```
+
+Ligne 2. L'utilisation de `print()` sur notre instance `citron` affiche une belle sortie où on voit la valeur de chaque attribut d'instance. Cela est plus utile qu'un affichage abscons du style `<__main__.Citron object at 0x7ff2193a20f0>`. Notez que cela s'est fait automatiquement.
+Ligne 3. L'atttibut `__dict__` nous confirme que tous les attributs sont bien des attributs d'instance.
+Lignes 4 et 5. On peut modifier un attribut d'instance, ici `citron.couleur`.
+
+Vous voyez tout de suite l'avantage des dataclasses, elles permettent de créer des conteneurs très simplement.
+
+Si vous souhaitez initialiser un attribut avec une liste vide, on pourrait penser que le code suivant ferait le travail.
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Citron:
+    couleur: str = "jaune"
+    masse: int = 100
+    pepins: list = []
+
+if __name__ == "__main__":
+    citron = Citron()
+```
+
+Toutefois celui-ci lèvera une exception `ValueError: mutable default <class 'list'> for field pepins is not allowed: use default_factory` car par défaut chaque instance pointera vers la même liste en mémoire (problème des copies par référence (cf. rubrique 11.4 *Copie de listes* du chapitre 12 *Plus sur les listes*). Le même problème apparaitrait pour n'importe quel type modifiable (comme les dictionnaires par exemple). Pour contourner cela, il faut utiliser la fonction `field` et son argument par mot-clé `default_factory`.
+
+```python
+from dataclasses import dataclass, field
+
+@dataclass
+class Citron:
+    couleur: str = "jaune"
+    masse: int = 100
+    pepins: list = field(default_factory=list)
+
+if __name__ == "__main__":
+    citron = Citron()
+    print(citron)
+    citron.pepins.append("pepin1")
+    citron.pepins.append("pepin2")
+    print(citron)
+```
+
+Ligne 7. On passe à la fonction `field()` et son argument par mot-clé `default_factory` une fonction callback renvoyant le type attendu. On pourrait mettre n'importe quelle fonction maison qui renvoie un objet d'un certain type (par exemple une fonction renvoyant une `str`).
+
+Ce code renverra la sortie suivante.
+
+```
+Citron(couleur='jaune', masse=100, pepins=[])
+Citron(couleur='jaune', masse=100, pepins=['pepin1', 'pepin2'])
+```
+
+On voit que les deux instances ont bien des listes de pépins différentes.
+
+open-box-more
+
+Il est possible de créer des dataclasses immuables ou de faire des comparaisons entre instances de dataclasses, mais nous n'abordons pas ces points ici. Pour aller plus loin, vous pouvez consulter le très bon [article](https://blog.stephane-robert.info/docs/developper/programmation/python/dataclasses/) de Stéphane Robert.
+
+close-box-more
+
 
 ## Note finale de sémantique
 

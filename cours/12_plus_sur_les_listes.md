@@ -123,7 +123,7 @@ L'argument `reverse=True` spécifie le tri inverse, c'est-à-dire du plus grand 
 \index{sorted@sorted()}
 
 La fonction `sorted()` trie également une liste. 
-Contrairement à la méthode précédente `.sort()`, cette fonction renvoie la liste triée et ne modifie pas la liste initiale :
+Contrairement à la méthode précédente `.sort()`, cette fonction renvoie une liste triée et ne modifie pas la liste initiale passée en argument :
 
 ```python
 >>> liste1 = [3, 1, 2]
@@ -133,7 +133,7 @@ Contrairement à la méthode précédente `.sort()`, cette fonction renvoie la l
 [3, 1, 2]
 ```
 
-La fonction `sorted()` supporte aussi l'argument `reverse=True` :
+La fonction `sorted()` accepte aussi l'argument `reverse=True` :
 
 ```python
 >>> liste1 = [3, 1, 2]
