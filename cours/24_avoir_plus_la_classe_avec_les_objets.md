@@ -1214,7 +1214,7 @@ class ADN:
         return len(self.sequence)
 ```
 
-Voici un dans l'interpréteur :
+Voici un exemple dans l'interpréteur :
 
 ```text
 >>> brin_adn = ADN()
@@ -1224,7 +1224,7 @@ Voici un dans l'interpréteur :
 La séquence de mon brin d'ADN est ['A', 'T']
 >>> brin_adn.len
 2
->>> brin_adn.ajoute_atome("G")
+>>> brin_adn.ajoute_base("G")
 >>> brin_adn
 La séquence de mon brin d'ADN est ['A', 'T', 'G']
 >>> brin_adn.len
@@ -1249,7 +1249,7 @@ close-box-adv
 
 Les objets *property* ont deux avantages principaux :
 
-- ils permettent de garder une lisibilité du côté client avec une syntaxe  
+- ils permettent de garder une lisibilité du côté client avec une syntaxe 
 `instance.attribut` ;
 - même si un jour vous décidez de modifier votre classe et de mettre en place un contrôle d'accès à certains attributs avec des objets *property*, cela ne changera rien du côté client. Ce dernier utilisera toujours `instance.attribut` ou  
 `instance.attribut = valeur`. Tout cela contribuera à une meilleure maintenance du code client utilisant votre classe.
@@ -1598,7 +1598,15 @@ close-box-more
 
 ### Dataclasses
 
-Les *namedtuples* sont pratiques pour stocker des éléments avec une syntaxe `objet.attribut`, mais présentent l'inconvénient d'être forcément immuable. Comme nous avons souligné dans la rubrique précédente, il est déconseillé d'utiliser une classe normale pour cela. Si vous souhaitez stocker des attributs modifiables, les *dataclasses* sont faites pour ça. Les [dataclasses](https://docs.python.org/fr/3.14/library/dataclasses.html) sont des classes spéciales permettant de construire des conteneurs très facilement, sans avoir à écrire beaucoup de lignes de code. En effet, les méthodes dunder `__init__()`, ` __repr__()` et `__eq__()` sont automatiquement créées ! Regardons un exemple.
+Les *namedtuples* sont pratiques pour créer des conteneurs où on retrouve les éléments avec une syntaxe `objet.attribut`. Toutefois, ils présentent l'inconvénient d'être forcément immuables. Comme nous avons souligné dans la rubrique précédente, il est déconseillé d'utiliser une classe normale pour cela (une classe se conçoit toujours avec des méthodes). Si vous souhaitez stocker des attributs modifiables tout en les retrouvant avec une syntaxe `objet.attribut`, les *dataclasses* sont la solution. 
+
+open-box-def
+
+Les [dataclasses](https://docs.python.org/fr/3.14/library/dataclasses.html) sont des classes spéciales permettant de construire des conteneurs très facilement, sans avoir à écrire beaucoup de lignes de code. En effet, les méthodes dunder `__init__()`, ` __repr__()` et `__eq__()` sont automatiquement créées ! Les dataclasses permettent également de faire des comparaisons d'objets en fonction de leur contenu. 
+
+close-box-def
+
+Regardons un exemple :
 
 ```python
 from dataclasses import dataclass
@@ -1609,41 +1617,38 @@ class Citron:
     couleur: str = "jaune"
     saveur: str = "acide"
     masse: int = 100 # en g
-
-
-if __name__ == "__main__":
-    citron = Citron(50)
-    citron2 = Citron(humidite=40, couleur="vert", masse=200)
-    print(citron)
-    print(citron.__dict__)
-    print(citron2)
-    citron2.couleur = "jaune"
-    print(citron2)
 ```
 
 Ligne 1. On importe la fonction `dataclass` du module `dataclasses`.
-Lignes 3 et 4. On utilise cette fonction comme décorateur de notre classe `Citron`, ce qui rend transforme notre classe automatiquement en dataclass.
-Lignes 5 à 8. Chaque attribut d'instance que l'on souhaite créé doit être listé ici, suivi de `:`, puis de son type sous forme d'une annotation de type (*type hint* en anglais, c'est-à-dire, le nom du type attendu). On peut lui mettre une valeur par défaut. Notez bien que nous n'avons défini aucune méthode.
+
+Lignes 3 et 4. On utilise cette fonction comme décorateur de notre classe `Citron`, ce qui la transforme automatiquement en dataclass.
+
+Lignes 5 à 8. Chaque attribut d'instance que l'on souhaite créer doit être listé ici, suivi de `:`, puis de son type sous forme d'une annotation de type (*type hint* en anglais, c'est-à-dire, le nom du type attendu). Il est possible de mettre une valeur par défaut pour chaque attribut. Notez bien que nous n'avons défini aucune méthode.
 
 open-box-warn
 
-Bien que cela ressemble à une notation comme les attributs de classe dans les classes normales, il s'agit bel et bien d'**attributs d'instance** ! C'est le fait d'avoir déclarer la classe comme une dataclass qui change le comportement.
+Bien que cela ressemble à une notation comme les attributs de classe dans les classes normales, il s'agit bel et bien d'**attributs d'instance** ! C'est le fait d'avoir déclarer la classe comme une dataclass qui change ce comportement.
 
 close-box-warn
 
-L'éxécution de se code donne la sortie suivante :
+Regardons comment se comporte les instances d'une dataclass :
 
-```
-$ python ./dataclass.py
+```python
+>>> citron = Citron(50)
+>>> citron
 Citron(humidite=50, couleur='jaune', saveur='acide', masse=100)
+>>> citron.__dict__
 {'humidite': 50, 'couleur': 'jaune', 'saveur': 'acide', 'masse': 100}
-Citron(humidite=40, couleur='vert', saveur='acide', masse=200)
-Citron(humidite=40, couleur='jaune', saveur='acide', masse=200)
+>>> citron.couleur = "vert"
+>>> citron
+Citron(humidite=50, couleur='vert', saveur='acide', masse=100)
 ```
 
-Ligne 2. L'utilisation de `print()` sur notre instance `citron` affiche une belle sortie où on voit la valeur de chaque attribut d'instance. Cela est plus utile qu'un affichage abscons du style `<__main__.Citron object at 0x7ff2193a20f0>`. Notez que cela s'est fait automatiquement.
-Ligne 3. L'atttibut `__dict__` nous confirme que tous les attributs sont bien des attributs d'instance.
-Lignes 4 et 5. On peut modifier un attribut d'instance, ici `citron.couleur`.
+Ligne 2. Quand on regarde le contenu de l'instance `citron`, l'interpréteur affiche une belle sortie où on voit la valeur de chaque attribut d'instance. Cela est plus utile qu'un affichage abscons du style `<__main__.Citron object at 0x7ff2193a20f0>`. Notez que cela s'est fait automatiquement sans que l'on ait à écrire nous même la méthode dunder `__repr__()`.
+
+Ligne 4. L'atttibut `__dict__` nous confirme que tous les attributs sont bien des attributs d'instance.
+
+Lignes 7 à 8. On peut modifier un attribut d'instance, ici `citron.couleur`.
 
 Vous voyez tout de suite l'avantage des dataclasses, elles permettent de créer des conteneurs très simplement.
 
@@ -1662,7 +1667,7 @@ if __name__ == "__main__":
     citron = Citron()
 ```
 
-Toutefois celui-ci lèvera une exception `ValueError: mutable default <class 'list'> for field pepins is not allowed: use default_factory` car par défaut chaque instance pointera vers la même liste en mémoire (problème des copies par référence (cf. rubrique 11.4 *Copie de listes* du chapitre 12 *Plus sur les listes*). Le même problème apparaitrait pour n'importe quel type modifiable (comme les dictionnaires par exemple). Pour contourner cela, il faut utiliser la fonction `field` et son argument par mot-clé `default_factory`.
+Toutefois celui-ci lèvera une exception `ValueError: mutable default <class 'list'> for field pepins is not allowed: use default_factory`. Si un tel code était permis, chaque instance pointerait vers la même liste en mémoire. Cela vient du problème des copies de liste par référence (cf. rubrique 11.4 *Copie de listes* du chapitre 12 *Plus sur les listes*). Le même problème apparaitrait pour n'importe quel type modifiable (comme les dictionnaires par exemple). Or, ce n'est pas ce qui est souhaité. On veut que chaque instance ait sa liste indépendante dans l'attribut `pepins`. Pour résoudre ce problème, il faut utiliser la fonction `field` et son argument par mot-clé `default_factory`.
 
 ```python
 from dataclasses import dataclass, field
@@ -1672,32 +1677,130 @@ class Citron:
     couleur: str = "jaune"
     masse: int = 100
     pepins: list = field(default_factory=list)
-
-if __name__ == "__main__":
-    citron = Citron()
-    print(citron)
-    citron.pepins.append("pepin1")
-    citron.pepins.append("pepin2")
-    print(citron)
 ```
 
-Ligne 7. On passe à la fonction `field()` et son argument par mot-clé `default_factory` une fonction callback renvoyant le type attendu. On pourrait mettre n'importe quelle fonction maison qui renvoie un objet d'un certain type (par exemple une fonction renvoyant une `str`).
+Ligne 7. On passe à la fonction `field()` et son argument par mot-clé `default_factory` une callback renvoyant le type attendu. Notez qu'il aurait fallu utiliser un mécanisme similaire pour initialiser un dictionnaire vide (ou tout autre objet modifiable) à chaque instance.
 
-Ce code renverra la sortie suivante.
+Voyons maintenant un exemple en créant deux instances de la classe `Citron` :
 
-```
+```python
+>>> citron = Citron()
+>>> citron2 = Citron("vert")
+>>> citron2.pepins.append("pepin1")
+>>> citron2.pepins.append("pepin2")
+>>> citron
 Citron(couleur='jaune', masse=100, pepins=[])
-Citron(couleur='jaune', masse=100, pepins=['pepin1', 'pepin2'])
+>>> citron2
+Citron(couleur='vert', masse=100, pepins=['pepin1', 'pepin2']))
 ```
 
-On voit que les deux instances ont bien des listes de pépins différentes.
+Lignes 1 et 2. On crée ces instances.
+
+Lignes 3 et 4. On ajouter des pépins dans `citron2`.
+
+Lignes 5 à 8. On contrôle que les deux instances ont bien des listes de pépins différentes. 
+
+open-box-warn
+
+Le mécanisme de levée d'exception quand on veut assigner des listes vides que nous venons de voir sur les dataclasses n'existe pas sur les classes normales dans les cas suivants : i) lorsque l'on crée un attribut de classe avec une liste vide, ii) lorsque on passe comme argument par défaut une liste vite dans le constructeur (voir rubrique *24.7.4 Autres bonnes pratiques*). Le problème est similaire pour n'importe quel objet modifiable.
+
+close-box-warn
+
+
+Dans l'exemple ci-dessus, on a passé `list` à l'argument par mot-clé `default_factory`. Il est possible de lui passer n'importe quelle callback d'une fonction « maison ». Par exemple :
+
+```python
+def random_mass():
+	return random.randint(50, 100)
+
+@dataclass
+class Citron:
+	masse: int = field(default_factory=random_mass)
+```
+
+Cela va assigner une valeur aléatoire à l'attribut d'instance `masse` :
+
+```python
+>>> [Citron() for i in range(4)]
+[Citron(masse=79), Citron(masse=60), Citron(masse=82), Citron(masse=63)]
+```
+
+La limite ici est qu'on ne peut pas passer d'argument à la fonction callback, d'où la fonction maison `random_mass()` qui retourne le résultat de la fonction `random.randint()` à qui nous avons passé deux arguments.
+
+La dernière fonctionnalité importante des dataclasses est la possibilité de faire des comparaisons d'instance **en fonction des valeurs de leurs attributs**. Cette fonctionnalité peut se révéler très pratique. Examinons d'abord ce qui se passe pour une classe normale : la comparaison se fait en fonction de l'`id` de l'objet :
+
+```python
+>>> class Citron:
+...     pass
+...
+>>> citron1 = Citron()
+>>> citron2 = Citron()
+>>> citron1 == citron2
+False
+```
+
+Lignes 6 et 7. On pourrait croire que `citron1` et `citron2` sont identiques. Toutefois, la comparaison renvoie `False`. La raison est que les deux instances ont des identifiants différents :
+
+```python
+>>> id(citron1)
+136465613174640
+>>> id(citron2)
+136465613580368
+```
+
+Si l'identifiant est identique, la comparaison renvoie vrai :
+
+```python
+>>> citron3 = citron1
+>>> citron1 == citron3
+True
+>>> id(citron1)
+136465613174640
+>>> id(citron3)
+136465613174640
+```
+
+Ainsi, le test d'égalité se fait sur l'identité des instances. Pour les dataclasses, le comportement est différent. La comparaison renvoie `True` lorsque les valeurs de tous les attributs sont identiques entre deux instances :
+
+```python
+@dataclass
+class Citron:
+    mass: int = 50
+    couleur: str = "jaune"
+```
+
+```python
+>>> citron1 = Citron()
+>>> citron2 = Citron()
+>>> citron1
+Citron(mass=50, couleur='jaune')
+>>> citron2
+Citron(mass=50, couleur='jaune')
+>>> id(citron1)
+136465612277472
+>>> id(citron2)
+136465613583568
+>>> citron1 == citron2
+True
+```
+
+Lignes 1 à 6. On instancie deux objets `Citron` et on vérifie qu'ils ont bien les mêmes valeurs pour chaque attribut d'instance.
+
+Lignes 7 à 10. Les identifiants sont différents car les deux objets sont distincts.
+
+Ligne 11 à 12. La comparaison renvoie `True` car le test d'égalité se fait sur les valeurs.
+
+open-box-adv
+
+Les dataclasses et les *namedtuples* créent tous les deux des objets où l'on peut retrouver les attributs avec une syntaxe `objet.attribut`. Quand utiliser l'une ou l'autre ? Si vous avez besoin d'attributs modifiables, utilisez les dataclasses. Si vous avez besoin de l'indexage, utilisez les *namedtuples*. 
+
+close-box-adv
 
 open-box-more
 
-Il est possible de créer des dataclasses immuables ou de faire des comparaisons entre instances de dataclasses, mais nous n'abordons pas ces points ici. Pour aller plus loin, vous pouvez consulter le très bon [article](https://blog.stephane-robert.info/docs/developper/programmation/python/dataclasses/) de Stéphane Robert.
+Il est également possible de créer des dataclasses immuables, mais nous n'abordons pas ce point ici. Pour aller plus loin, vous pouvez consulter le très bon [article](https://blog.stephane-robert.info/docs/developper/programmation/python/dataclasses/) de Stéphane Robert.
 
 close-box-more
-
 
 ## Note finale de sémantique
 
