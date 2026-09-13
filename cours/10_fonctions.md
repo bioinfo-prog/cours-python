@@ -71,7 +71,7 @@ Pour définir une fonction, Python utilise le mot-clé `def`. Si on souhaite que
 
 Notez que la syntaxe de `def` utilise les deux-points comme les boucles `for` et `while` ainsi que les tests `if` : un bloc d’instructions est donc attendu. De même que pour les boucles et les tests, l'**indentation** de ce bloc d'instructions (qu'on appelle le corps de la fonction) est **obligatoire**.
 
-Dans l'exemple précédent, nous avons passé un argument à la fonction `carre()`, qui nous a renvoyé (ou retourné) une valeur que nous avons immédiatement affichée à l'écran avec l'instruction `print()`. Que veut dire valeur renvoyée ? Et bien cela signifie que cette dernière est récupérable dans une variable :
+Dans l'exemple précédent, nous avons passé un argument (l'entier `2`) à la fonction `carre()`. Arrivé dans la fonction, la variable `x` est créée et prendra la valeur `2`. La fonction nous a ensuite renvoyé (ou retourné) une valeur (`x**2`) que nous avons immédiatement affichée à l'écran avec l'instruction `print()`. Que veut dire valeur renvoyée ? Et bien cela signifie que cette dernière est récupérable dans une variable :
 
 ```python
 >>> res = carre(2)
@@ -184,9 +184,25 @@ for chiffre in range(1, 5):
 
 Comme la fonction renvoie un booléen, on peut utiliser la notation `if est_pair(chiffre):` qui équivaut à `if est_pair(chiffre) == True:`. Il est courant d'appeler une fonction qui renvoie un booléen `est_quelquechose()` car on comprend que ça pose la question si c'est vrai ou faux. En anglais, on trouvera la notation `is_even()`. Nous reverrons ces notions dans le chapitre 13 *Plus sur les fonctions*.
 
-## Arguments positionnels et arguments par mot-clé
+## Arguments et paramètres
 
-Jusqu'à maintenant, nous avons systématiquement passé le nombre d'arguments que la fonction attendait. Que se passe-t-il si une fonction attend deux arguments et que nous ne lui en passons qu'un seul ?
+Considérons le code suivant :
+
+```python
+def fois(x, y):
+    return x*y
+
+# Prog principal.
+print(fct(2, 3))
+```
+
+open-box-def
+
+Dans le code ci-dessus, les entiers `2` et `3` sont des **arguments** passés à la fonction. Dans la définition de la fonction `def fois(x, y):`, `x` et `y` sont appelés **paramètres** de la fonction. Arguments et paramètres se retrouvent **par défaut** en fonction de leur position : `2` correspond à `x` car ils sont premiers dans la liste d'arguments et de paramètres, `3` et `y` sont deuxièmes. Dans cet exemple, `2` et `3` sont des arguments dits **positionnels** car les paramètres de la fonction `x` et `y` les retrouvent par leur position. On verra dans le chapitre 13 *Plus sur les fonctions* qu'il existe également des arguments par mot-clé.
+
+close-box-def
+
+Par défaut, le nombre d'arguments positionnels passés à la fonction doit coïncider avec le nombre de paramètres dans sa définition. Que se passe-t-il si une fonction attend deux arguments positionnels et que nous ne lui en passons qu'un seul ? Et bien cela renvoie une erreur :
 
 ```python
 >>> def fois(x, y):
@@ -200,17 +216,9 @@ Traceback (most recent call last):
 TypeError: fois() missing 1 required positional argument: 'y'
 ```
 
-On constate que passer un seul argument à une fonction qui en attend deux conduit à une erreur.
+## Paramètres par défaut
 
-open-box-def
-
-\index{argument positionnel@argument positionnel}
-
-Lorsqu'on définit une fonction `def fct(x, y):` les arguments `x` et `y` sont appelés **arguments positionnels** (en anglais, *positional arguments*). Il est strictement obligatoire de les préciser lors de l'appel de la fonction. De plus, il est nécessaire de respecter le même ordre lors de l'appel que dans la définition de la fonction. Dans l'exemple ci-dessus, `2` correspondra à `x` et `3` correspondra à `y`. Finalement, tout dépendra de leur position, d'où leur qualification de positionnel.
-
-close-box-def
-
-Mais il est aussi possible de passer un ou plusieurs argument(s) de manière facultative et de leur attribuer une valeur par défaut :
+On peut mettre une valeur par défaut pour les paramètres d'une fonction. Dans un tel cas, si l'utilisateur de la fonction passe un argument, c'est celui-ci qui est retenu, s'il n'en passe pas, c'est la valeur par défaut qui est retenue :
 
 ```python
 >>> def fct(x=1):
@@ -222,47 +230,9 @@ Mais il est aussi possible de passer un ou plusieurs argument(s) de manière fac
 10
 ```
 
-open-box-def
+Les valeurs par défaut permettent finalement d'avoir des arguments optionnels lors de l'appel de la fonction. On peut ou pas les mettre.
 
-\index{argument mot cle@argument par mot-clé}
-
-Un argument défini avec une syntaxe `def fct(arg=val):` est appelé **argument par mot-clé** (en anglais, *keyword argument*). Le passage d'un tel argument lors de l'appel de la fonction est facultatif. Ce type d'argument ne doit pas être confondu avec les arguments positionnels présentés ci-dessus, dont la syntaxe est `def fct(arg):`.
-
-close-box-def
-
-Il est bien sûr possible de passer plusieurs arguments par mot-clé :
-
-```python
->>> def fct(x=0, y=0, z=0):
-...     return x, y, z
-...
->>> fct()
-(0, 0, 0)
->>> fct(10)
-(10, 0, 0)
->>> fct(10, 8)
-(10, 8, 0)
->>> fct(10, 8, 3)
-(10, 8, 3)
-```
-
-On observe que pour l'instant, les arguments par mot-clé sont pris dans l'ordre dans lesquels on les passe lors de l'appel. Comment faire si l'on souhaitait préciser l'argument par mot-clé `z` et garder les valeurs de `x` et `y` par défaut ? Simplement en  précisant le nom de l'argument lors de l'appel :
-
-```python
->>> fct(z=10)
-(0, 0, 10)
-```
-
-Python permet même de rentrer les arguments par mot-clé dans un ordre arbitraire :
-
-```python
->>> fct(z=10, x=3, y=80)
-(3, 80, 10)
->>> fct(z=10, y=80)
-(0, 80, 10)
-```
-
-Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et par mot-clé ? Et bien les arguments positionnels doivent toujours être placés avant les arguments par mot-clé :
+Dans une définition de fonction, on peut mélanger les paramètres classiques sans valeurs par défaut avec ceux contenant une valeur par défaut. Une seule contrainte est requise dans un tel cas : les paramètres sans valeurs par défaut doivent être définis **avant** ceux ayant une valeur par défaut.
 
 ```python
 >>> def fct(a, b, x=0, y=0, z=0):
@@ -270,38 +240,23 @@ Que se passe-t-il lorsque nous avons un mélange d'arguments positionnels et par
 ...
 >>> fct(1, 1)
 (1, 1, 0, 0, 0)
->>> fct(1, 1, z=5)
-(1, 1, 0, 0, 5)
->>> fct(1, 1, z=5, y=32)
-(1, 1, 0, 32, 5)
+>>> fct(1, 1, 4, 7, -67)
+(1, 1, 4, 7, -67)
 ```
 
-On peut toujours passer les arguments par mot-clé dans un ordre arbitraire à partir du moment où on précise leur nom. Par contre, si les deux arguments positionnels `a` et `b` ne sont pas passés à la fonction, Python renvoie une erreur.
+Si tel n'est pas le cas, Python renvoie une erreur :
 
 ```python
->>> fct(z=0)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: fct() missing 2 required positional arguments: 'a' and 'b'
+>>> def fct(x=0, a, b, y=0, z=0):
+...     return a, b, x, y, z
+...
+  File "<python-input-8>", line 1
+    def fct(x=0, a, b, y=0, z=0):
+                 ^
+SyntaxError: parameter without a default follows parameter with a default
 ```
 
-open-box-adv
-
-Préciser le nom des arguments par mot-clé lors de l'appel d'une fonction est une pratique que nous vous recommandons. Cela les distingue clairement des arguments positionnels.
-
-close-box-adv
-
-L'utilisation d'arguments par mot-clé est habituelle en Python. Elle permet de modifier le comportement par défaut de nombreuses fonctions. Par exemple, si on souhaite que la fonction `print()` n'affiche pas un retour à la ligne, on peut utiliser l'argument `end` :
-
-\index{retour a la ligne@retour à la ligne}
-
-```python
->>> print("Message ", end="")
-Message >>>
-```
-
-Nous verrons, dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), que l'utilisation d'arguments par mot-clé est systématique lorsqu'on crée un objet graphique (une fenêtre, un bouton, etc.).
-
+Notez que dans ce cas le code n'est même pas exécuté, c'est au moment de la lecture de la définition de la fonction que l'erreur apparait.
 
 ## Variables locales et variables globales
 
