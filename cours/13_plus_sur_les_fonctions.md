@@ -2,7 +2,7 @@
 
 Avant d'aborder ce chapitre, nous vous conseillons de relire le chapitre 10 *Fonctions* et de bien en assimiler toutes les notions (et aussi d'en faire les exercices). Nous avons vu dans ce chapitre 10 le concept incontournable que représentent les **fonctions**. Nous avons également introduit la notion de variables **locales** et **globales**.
 
-Dans ce chapitre, nous allons aller un peu plus loin sur la visibilité de ces variables dans et hors des fonctions, et aussi voir ce qui se passe lorsque ces variables sont des listes. Attention, la plupart des lignes de code ci-dessous sont données à titre d'exemple pour bien comprendre ce qui se passe, mais nombre d'entre elles sont des aberrations en terme de programmation. Nous ferons un récapitulatif des bonnes pratiques à la fin du chapitre. Enfin, nous vous conseillons de tester tous les exemples ci-dessous avec le site [*Python Tutor*](http://www.pythontutor.com/) afin de suivre l'état des variables lors de l'exécution des exemples.
+Dans ce chapitre, nous allons aller un peu plus loin sur la visibilité de ces variables dans et hors des fonctions, et aussi voir ce qui se passe lorsque ces variables sont des listes. Attention, la plupart des lignes de code ci-dessous sont données à titre d'exemple pour bien comprendre ce qui se passe, mais nombre d'entre elles sont des aberrations en terme de programmation. Nous ferons un récapitulatif des bonnes pratiques à la fin du chapitre. Enfin, nous vous conseillons de tester tous les exemples ci-dessous avec le site [*Python Tutor*](http://www.pythontutor.com/) afin de suivre l'état des variables lors de l'exécution des exemples. Nous vous montrerons aussi le concept d'arguments par mot-clé qui sont complémentaires aux arguments positionnels vus dans le chapitre 10.
 
 
 ## Appel d'une fonction dans une fonction
@@ -28,7 +28,6 @@ def calc_somme_nb_pairs(debut, fin):
 somme = calc_somme_nb_pairs(1, 5)
 print(f"La somme des nombres pairs de 1 à 5 est {somme}")
 ```
-
 Nous appelons la fonction `calc_somme_nb_pairs()` depuis le programme principal, puis à l'intérieur de celle-ci nous appelons l'autre fonction `est_pair()`. Regardons ce que *Python Tutor* nous montre lorsque la fonction `calc_somme_nb_pairs()` est exécutée dans la Figure @fig:appel_fct_ds_fct.
 
 ![Appel d'une fonction dans une fonction.](img/appel_fct_ds_fct.png){ #fig:appel_fct_ds_fct width=90% }
@@ -95,6 +94,121 @@ Pas si facile à comprendre, n'est-ce pas ? À nouveau, aidons nous de *Python T
 
 Même si les fonctions récursives peuvent être ardues à comprendre, notre propos est ici de vous illustrer qu'une fonction qui en appelle une autre (ici il s'agit d'elle-même) reste « figée » dans le même état, jusqu'à ce que la fonction appelée lui renvoie une valeur.
 
+## Arguments positionnels et arguments par mot-clé
+
+Nous revenons sur les notions d'arguments passés à une fonction. Jusqu'à maintenant, nous avons appelé la plupart du temps les fonctions en leur passant des arguments positionnels (voir chapitre 10 *Fonctions*), c'est à dire, avec une syntaxe du style `fonction(arg1, arg2)`. Toutefois, nous avons aussi rencontré des arguments pour lesquels la syntaxe était différente. Par exemple dans la fonction `print()` :
+
+```python
+>>> print("pouillot", "mésange", "pinson", sep="***", end="")
+pouillot***mésange***pinson>>>
+```
+
+Dans cet exemple, les arguments `sep="***"` et `end=""` sont appelés arguments par mot-clé.
+
+open-box-def
+
+\index{argument positionnel@argument positionnel}
+\index{argument mot cle@argument par mot-clé}
+
+Les **arguments par mot-clé** (en anglais *keyword arguments*) sont des arguments passés à une fonction avec une syntaxe `fonction(nom_arg=arg)`. Ici, `nom_arg` est le nom ou mot-clé de l'argument et `arg` est la valeur de l'argument. Les arguments par mot-clé s'opposent aux **arguments positionnels** (*positional arguments*) pour lesquels la syntaxe est `fonction(arg)`.
+
+close-box-def
+
+Les arguments par mot-clé permettent de comprendre en un coup d'oeil la signification de l'argument envoyé à la fonction. Dans l'exemple ci-dessus, on comprend que `sep="***"` correspond à la spécification du séparateur lors de l'appel de la fonction `print()`.
+
+Leur fonctionnement est simple et intuitif. Il suffit d'utiliser des noms d'argument ou mots-clés (`nom_arg` dans la boîte précédente) identiques aux noms des paramètres dans la définition de la fonction. Voyons un exemple :
+
+```python
+>>> def fct(x, y, z):
+...     return x, y, z
+...
+>>> >>> fct(x=1, y=2, z=3)
+(1, 2, 3)
+```
+
+A nouveau, l'appel de la fonction avec les arguments par mot-clé rend clair ce que chaque argument est (par exemple ici, `x`, `y` et `z` pourraient être des coordonnées tridimensionnelles). Les arguments par mot-clé peuvent aussi s'utiliser dans un ordre arbitraire :
+
+```python
+>>> fct(y=2, z=3, x=1)
+(1, 2, 3)
+```
+
+Python s'y retrouve grâce à leur nom. Peut-on mélanger les arguments positionnels et par mot-clé ? La réponse est oui :
+
+```python
+>>> fct(67, z=3, y=2)
+(67, 2, 3)
+```
+
+Dans cet exemple, `67` est un argument positionnel, `z=3` et `y=2` sont des arguments par mot-clé
+
+open-box-warn
+
+Lorsqu'on mélange arguments positionnels et par mot-clé lors de l'appel d'une fonction, les arguments positionnels doivent toujours être placés **avant** ceux par mot-clé. Sinon, Python renvoie une erreur :
+
+```python
+>>> fct(z=3, y=2, 67)
+  File "<python-input-12>", line 1
+    fct(z=3, y=2, 67)
+                    ^
+SyntaxError: positional argument follows keyword argument
+```
+
+close-box-warn
+
+Au bout du compte, ce qu'on doit retenir est que pour les arguments positionnels c'est leur **ordre qui compte**, pour les arguments par mot-clé c'est leur **nom qui compte**. Par défaut, Python permet le passage d'arguments positionnels ou par mot-clé pour n'importe quel argument passé à une fonction. Cela est laissé à la guise de l'utilisateur de la fonction. Toutefois, il est possible de changer ce comportement par défaut (voir ci-dessous).
+
+open-box-rem
+
+Il est très important de ne pas confondre argument par mot-clé et paramètre par défaut d'une fonction. Un argument par mot-clé s'utilise au moment de l'appel de la fonction (par exemple `fonction(nom_arg=val)`), un paramètre par défaut s'indique au moment de la définition de la fonction (par exemple `def fct(nom_arg=val_par_defaut)`. Un paramètre ayant une valeur par défaut peut être aussi bien appelé via des arguments positionnels que par mot-clé :
+
+```python
+>>> def fct(x, y=1):
+...     return x, y
+...
+>>> fct(1, 2)
+(1, 2)
+>>> fct(y=11, x=22)
+(22, 11)
+```
+
+close-box-rem
+
+open-box-adv
+
+Comme on l'a vu, l'utilisation d'arguments par mot-clé peut améliorer la lisibilité du code lors de l'appel d'une fonction. Donc utilisez les lorsque vous considérez que c'est important pour la compréhension. Voici un exemple avec la fonction `enumerate()` qui prend en argument un itérable, mais qui peut prendre un autre argument spécifiant un entier correspondant au début du comptage :
+
+```python
+>>> pioupious = ["pouillot", "mésange", "pinson", "moineau"]
+>>> list(enumerate(pioupious, 5))
+[(5, 'pouillot'), (6, 'mésange'), (7, 'pinson'), (8, 'moineau')]
+>>> list(enumerate(pioupious, start=5))
+[(5, 'pouillot'), (6, 'mésange'), (7, 'pinson'), (8, 'moineau')]
+```
+
+L'utilisation de `enumerate(pioupious, start=5)` rend plus clair ce que veut dire le `5`.
+
+
+close-box-adv
+
+Parfois, les arguments par mot-clé sont obligatoires pour changer des comportements par défaut de certaines fonctions. Par exemple, on a vu la fonction `print()` qui prenait un nombre arbitraire d'arguments positionnels : 
+
+```python
+>>> print(2, -6, "bonjour")
+2 -6 bonjour
+>>> print(2, -6, "bonjour", 3.14)
+2 -6 bonjour 3.14
+>>> print(2, -6, "bonjour", 3.14, sep="**")
+2**-6**bonjour**3.14
+```
+
+La modification du séparateur ne peut se faire qu'avec l'argument par mot-clé `sep`. Ce serait la même chose pour `end`. En Python, il est très commun d'utiliser les arguments par mot-clé pour spécifier des options. Nous verrons, dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), que leur utilisation est systématique lorsqu'on crée un objet graphique. Par exemple, la création d'un bouton cliquable se fait avec une syntaxe `tk.Button(racine, text="Quitter", fg="red", command=racine.quit)` où `racine` représente la fenêtre dans laquelle on souhaite mettre le bouton (seul argument positionnel), et tous les autres arguments par mot-clé spécifient le rendu ou le comportement du bouton. En général, ces derniers sont optionnels (si omis, ils prennent une valeur par défaut).
+
+open-box-more
+
+Dans le chapitre 26 *Remarques complémentaires*, nous montrons comment récupérer un nombre arbitraire d'arguments positionnels et/ou d'arguments par mot-clé. Nous montrons également, comment imposer que certains arguments soient positionnels et/ou d'autres par mot-clé.
+
+close-box-more
 
 ## Portée des variables
 

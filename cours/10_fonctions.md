@@ -196,9 +196,13 @@ def fois(x, y):
 print(fct(2, 3))
 ```
 
+\index{argument@argument (passé à une fonction)}
+\index{parametre@paramètre (d'une fonction)}
+\index{argument positionnel@argument positionnel}
+
 open-box-def
 
-Dans le code ci-dessus, les entiers `2` et `3` sont des **arguments** passés à la fonction. Dans la définition de la fonction `def fois(x, y):`, `x` et `y` sont appelés **paramètres** de la fonction. Arguments et paramètres se retrouvent **par défaut** en fonction de leur position : `2` correspond à `x` car ils sont premiers dans la liste d'arguments et de paramètres, `3` et `y` sont deuxièmes. Dans cet exemple, `2` et `3` sont des arguments dits **positionnels** car les paramètres de la fonction `x` et `y` les retrouvent par leur position. On verra dans le chapitre 13 *Plus sur les fonctions* qu'il existe également des arguments par mot-clé.
+Dans le code ci-dessus, les entiers `2` et `3` sont des **arguments** passés à la fonction. Dans la définition de la fonction `def fois(x, y):`, `x` et `y` sont appelés **paramètres** de la fonction. Arguments et paramètres se retrouvent **par défaut** en fonction de leur position : `2` correspond à `x` car ils sont premiers dans la liste d'arguments et de paramètres, `3` correspond à `y` car ils sont deuxièmes. Dans cet exemple, `2` et `3` sont des arguments dits **positionnels** car les paramètres de la fonction `x` et `y` les retrouvent par leur position. On verra dans le chapitre 13 *Plus sur les fonctions* qu'il existe également des arguments par mot-clé.
 
 close-box-def
 
@@ -216,7 +220,20 @@ Traceback (most recent call last):
 TypeError: fois() missing 1 required positional argument: 'y'
 ```
 
+De même, si on passe trop d'arguments positionnels, cela renvoie une erreur :
+
+```python
+>>> fois(2, 3, 4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: fois() takes 2 positional arguments but 3 were given
+```
+
+Les messages d'erreur indiquent clairement que le nombre d'arguments positionnels n'est pas correct.
+
 ## Paramètres par défaut
+
+\index{parametre par defaut@paramètre par défaut (d'une fonction)}
 
 On peut mettre une valeur par défaut pour les paramètres d'une fonction. Dans un tel cas, si l'utilisateur de la fonction passe un argument, c'est celui-ci qui est retenu, s'il n'en passe pas, c'est la valeur par défaut qui est retenue :
 
@@ -232,7 +249,7 @@ On peut mettre une valeur par défaut pour les paramètres d'une fonction. Dans 
 
 Les valeurs par défaut permettent finalement d'avoir des arguments optionnels lors de l'appel de la fonction. On peut ou pas les mettre.
 
-Dans une définition de fonction, on peut mélanger les paramètres classiques sans valeurs par défaut avec ceux contenant une valeur par défaut. Une seule contrainte est requise dans un tel cas : les paramètres sans valeurs par défaut doivent être définis **avant** ceux ayant une valeur par défaut.
+Dans une définition de fonction, on peut mélanger les paramètres classiques sans valeurs par défaut avec ceux contenant une valeur par défaut. Toutefois, une contrainte est strictement requise dans un tel cas : les paramètres sans valeur par défaut doivent être définis **avant** ceux ayant une valeur par défaut.
 
 ```python
 >>> def fct(a, b, x=0, y=0, z=0):
@@ -256,7 +273,7 @@ Si tel n'est pas le cas, Python renvoie une erreur :
 SyntaxError: parameter without a default follows parameter with a default
 ```
 
-Notez que dans ce cas le code n'est même pas exécuté, c'est au moment de la lecture de la définition de la fonction que l'erreur apparait.
+Notez que ce n'est pas au moment de l'exécution que l'erreur apparaît, c'est à la lecture de la définition du code de la fonction.
 
 ## Variables locales et variables globales
 
