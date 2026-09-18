@@ -176,20 +176,24 @@ close-box-rem
 
 open-box-adv
 
-Comme on l'a vu, l'utilisation d'arguments par mot-clé peut améliorer la lisibilité du code lors de l'appel d'une fonction. Donc utilisez les lorsque vous considérez que c'est important pour la compréhension. Voici un exemple avec la fonction `enumerate()` qui prend en argument un itérable, mais qui peut prendre un autre argument spécifiant un entier correspondant au début du comptage :
+Comme on l'a vu, l'utilisation d'arguments par mot-clé peut améliorer la lisibilité du code lors de l'appel d'une fonction. Donc utilisez les lorsque vous considérez que c'est important pour la compréhension. Lors de l'appel d'une fonction, si vous passez un objet avec un nom explicite, dans ce cas vous pouvez conserver les arguments positionnels. Par exemple, on comprend dans l'appel `calc_age_moyen(liste_etudiants)` ce que `liste_etudiants` est. Il n'est pas forcément utile d'alourdir avec le mot-clé `calc_age_moyen(liste_utilisateurs=liste_etudiants)`. Donc à vous de juger en fonction du contexte !
+
+close-box-adv
+
+Pour illustrer ce propos, prenons un exemple avec la fonction `enumerate()`. Celle-ci peut prendre un deuxième argument optionnel. Soit la liste `pioupious = ["pouillot", "mésange", "pinson", "moineau"]`, à votre avis, que renvoie `list(enumerate(pioupious, 5))` ? Pas évident n'est-ce pas ? Reposons la question en précisant l'argument par mot-clé, que renvoie `list(enumerate(pioupious, start=5))` ? Cela nous met sur la piste. Regardons la solution :
 
 ```python
->>> pioupious = ["pouillot", "mésange", "pinson", "moineau"]
->>> list(enumerate(pioupious, 5))
-[(5, 'pouillot'), (6, 'mésange'), (7, 'pinson'), (8, 'moineau')]
 >>> list(enumerate(pioupious, start=5))
 [(5, 'pouillot'), (6, 'mésange'), (7, 'pinson'), (8, 'moineau')]
 ```
 
-L'utilisation de `enumerate(pioupious, start=5)` rend plus clair ce que veut dire le `5`.
+`enumerate()` prend en argument un itérable et le deuxième argument optionnel est un entier correspondant au début du comptage (`0` par défaut). L'utilisation de `enumerate(pioupious, start=5)` rend plus clair ce que veut dire le `5`.
 
+open-box-rem
 
-close-box-adv
+Python n'interdit pas d'utiliser un objet envoyé qui a le même nom que le mot-clé. Par exemple, `fct(liste=liste)` est parfaitement valide. Toutefois, faites bien attention de vous y retrouver si vous utilisez une telle syntaxe.
+
+close-box-rem
 
 Parfois, les arguments par mot-clé sont obligatoires pour changer des comportements par défaut de certaines fonctions. Par exemple, on a vu la fonction `print()` qui prenait un nombre arbitraire d'arguments positionnels : 
 
@@ -198,11 +202,15 @@ Parfois, les arguments par mot-clé sont obligatoires pour changer des comportem
 2 -6 bonjour
 >>> print(2, -6, "bonjour", 3.14)
 2 -6 bonjour 3.14
+>>> print(2, -6, "bonjour", 3.14, "**")
+2 -6 bonjour 3.14 **
 >>> print(2, -6, "bonjour", 3.14, sep="**")
 2**-6**bonjour**3.14
 ```
 
-La modification du séparateur ne peut se faire qu'avec l'argument par mot-clé `sep`. Ce serait la même chose pour `end`. En Python, il est très commun d'utiliser les arguments par mot-clé pour spécifier des options. Nous verrons, dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), que leur utilisation est systématique lorsqu'on crée un objet graphique. Par exemple, la création d'un bouton cliquable se fait avec une syntaxe `tk.Button(racine, text="Quitter", fg="red", command=racine.quit)` où `racine` représente la fenêtre dans laquelle on souhaite mettre le bouton (seul argument positionnel), et tous les autres arguments par mot-clé spécifient le rendu ou le comportement du bouton. En général, ces derniers sont optionnels (si omis, ils prennent une valeur par défaut).
+La modification du séparateur ne peut se faire qu'en précisant l'argument par mot-clé `sep`. Ce serait la même chose pour `end`. 
+
+En Python, il est très commun d'utiliser les arguments par mot-clé pour spécifier des options. Nous verrons, dans le chapitre 25 *Fenêtres graphiques et Tkinter* (en ligne), que leur utilisation est systématique lorsqu'on crée un objet graphique. Par exemple, la création d'un bouton cliquable se fait avec une syntaxe `tk.Button(racine, text="Quitter", fg="red", command=racine.quit)` où `racine` représente la fenêtre dans laquelle on souhaite mettre le bouton (seul argument positionnel dans cet exemple), et tous les autres arguments par mot-clé spécifient le rendu ou le comportement du bouton. En général, ces derniers sont optionnels (si omis, ils prennent une valeur par défaut).
 
 open-box-more
 
