@@ -355,12 +355,12 @@ Une autre solution pour éviter la modification d'une liste, lorsqu'elle est pas
 >>> ma_fonction(liste1[:])
 >>> liste1
 [1, 2, 3]
->>> ma_fonction(liste1(y))
+>>> ma_fonction(liste(liste1))
 >>> liste1
 [1, 2, 3]
 ```
 
-Dans ces deux derniers exemples, une copie de `y` est créée à la volée lorsqu'on appelle la fonction, ainsi la liste `y` du module principal reste intacte.
+Dans ces deux derniers exemples, une copie de `liste1` est créée à la volée lorsqu'on appelle la fonction, ainsi la liste `liste1` du module principal reste intacte. Attention, comme précisé dans le chapitre précédent, ces astuces ne fonctionnent qu'avec des listes à une dimension.
 
 D'autres suggestions sur l'envoi de liste dans une fonction vous sont données dans la rubrique *Recommandations* ci-dessous.
 
