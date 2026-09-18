@@ -273,7 +273,7 @@ Si tel n'est pas le cas, Python renvoie une erreur :
 SyntaxError: parameter without a default follows parameter with a default
 ```
 
-Notez que ce n'est pas au moment de l'exécution que l'erreur apparaît, c'est à la lecture de la définition du code de la fonction.
+Notez que ce n'est pas au moment de l'appel de la fonction que l'erreur apparaît, c'est à la lecture de la définition du code de la fonction.
 
 ## Variables locales et variables globales
 
