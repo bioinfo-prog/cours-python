@@ -229,7 +229,7 @@ if __name__ == "__main__":
     citron1.coucou()
 ```
 
-**Lignes 2 et 3.** On définit une méthode nommée `.coucou()`, qui va afficher un petit message. Attention, cette méthode prend obligatoirement un argument que nous avons nommé ici `self`. Nous verrons dans les deux prochaines rubriques la signification de ce `self`. Si on a plusieurs méthodes dans une classe, on saute toujours une ligne entre elles afin de faciliter la lecture (comme pour les fonctions).
+**Lignes 2 et 3.** On définit une méthode nommée `.coucou()`, qui va afficher un petit message. Attention, cette méthode prend obligatoirement un paramètre que nous avons nommé ici `self`. Nous verrons dans les deux prochaines rubriques la signification de ce `self`. Si on a plusieurs méthodes dans une classe, on saute toujours une ligne entre elles afin de faciliter la lecture (comme pour les fonctions).
 
 **Ligne 7 et 8.** On crée l'instance `citron1` de la classe `Citron`, puis on exécute la méthode `.coucou()` avec une syntaxe `instance.méthode()`.
 
@@ -283,7 +283,7 @@ Figure @fig:classe_constructeur1. Au départ, *Python Tutor* nous montre que la 
 
 #### Étape 2 {.unnumbered}
 
-Figure @fig:classe_constructeur2. Nous créons ensuite l'instance `citron1` à partir de la classe `Citron`. Notre classe `Citron` contenant une méthode `.__init__()` (le constructeur), celle-ci est immédiatement exécutée au moment de l'instanciation. Cette méthode prend un argument nommé `self` : cet argument est **obligatoire**. Il s'agit en fait d'une référence vers l'instance en cours (instance que nous appellerons `citron1` dans le programme principal, mais cela serait vrai pour n'importe quel autre nom d'instance). *Python Tutor* nous indique cela par une flèche pointant vers un espace nommé `Citron instance`. La signification du `self` est expliquée en détail dans la rubrique suivante.
+Figure @fig:classe_constructeur2. Nous créons ensuite l'instance `citron1` à partir de la classe `Citron`. Notre classe `Citron` contenant une méthode `.__init__()` (le constructeur), celle-ci est immédiatement exécutée au moment de l'instanciation. Cette méthode prend un paramètre nommé `self` : ce paramètre est **obligatoire**. Il s'agit en fait d'une référence vers l'instance en cours (instance que nous appellerons `citron1` dans le programme principal, mais cela serait vrai pour n'importe quel autre nom d'instance). *Python Tutor* nous indique cela par une flèche pointant vers un espace nommé `Citron instance`. La signification du `self` est expliquée en détail dans la rubrique suivante.
 
 ![Fonctionnement d'un constructeur (étape 2).](img/classe_constructeur2.png){ #fig:classe_constructeur2 width=90% }
 
@@ -308,7 +308,7 @@ close-box-adv
 
 ### Passage d'argument(s) à l'instanciation
 
-Lors de l'instanciation, il est possible de passer des arguments au constructeur. Comme pour les fonctions, on peut passer des arguments positionnels ou par mot-clé, et en créer autant que l'on veut (voir chapitre 10 *Fonctions*). Voici un exemple :
+Lors de l'instanciation, il est possible de passer des arguments au constructeur. Comme pour les fonctions classiques, on peut passer des arguments positionnels ou par mot-clé, et on peut créer autant de paramètres que l'on veut avec ou sans valeurs par défaut (voir chapitre 10 *Fonctions*) dans la méthode `__init__()`. Voici un exemple :
 
 ```python
 class Citron:
@@ -324,7 +324,7 @@ if __name__ == "__main__":
 	print("citron2:", citron2.__dict__)
 ```
 
-On a ici un argument positionnel (`masse`) et un autre par mot-clé (`couleur`). Le code donnera la sortie suivante :
+On a ici les paramètres `masse` et `couleur` avec pour ce dernier une valeur par défaut. Le code donnera la sortie suivante :
 
 ```python
 citron1: {'masse': 100, 'couleur': 'jaune'}
@@ -359,8 +359,7 @@ if __name__ == "__main__":
 
 **Ligne 4.** Nous créons cette fois-ci une variable `var` sans l'accrocher à `self`.
 
-**Ligne 6.** Nous créons une nouvelle méthode dans la classe `Citron` qui se nomme  
-`.affiche_attributs()`. Comme pour le constructeur, cette méthode prend comme premier argument une variable obligatoire, que nous avons à nouveau nommée `self`. Il s'agit encore une fois d'une référence vers l'objet ou instance créé(e).
+**Ligne 6.** Nous créons une nouvelle méthode dans la classe `Citron` qui se nomme `.affiche_attributs()`. Comme pour le constructeur, cette méthode prend comme premier paramètre une variable obligatoire, que nous avons à nouveau nommée `self`. Il s'agit encore une fois d'une référence vers l'objet ou instance créé(e).
 
 open-box-warn
 
@@ -389,7 +388,7 @@ NameError: name 'var' is not defined. Did you mean: 'vars'?
 
 **Ligne 2.** La méthode `.affiche_attributs()` montre que le `self` est bien une référence vers l'instance (ou objet) `citron1` (ou vers n'importe quelle autre instance : par exemple, si on crée `citron2 = Citron()`, le `self` sera une référence vers `citron2`).
 
-**Ligne 3.** La méthode `.affiche_attributs()` affiche l'attribut `.couleur`, qui avait été créé précédemment dans le constructeur. Vous voyez ici l'intérêt principal de l'argument `self` passé en premier à chaque méthode d'une classe : il « accroche » n'importe quel attribut qui sera visible partout dans la classe, y compris dans une méthode où il n'a pas été défini.
+**Ligne 3.** La méthode `.affiche_attributs()` affiche l'attribut `.couleur`, qui avait été créé précédemment dans le constructeur. Vous voyez ici l'intérêt principal du paramètre `self` défini en premier dans chaque méthode d'une classe : il « accroche » n'importe quel attribut qui sera visible partout dans la classe, y compris dans une méthode où il n'a pas été défini.
 
 **Lignes 4 à 9.** La création de la variable `var` dans la méthode `.__init__()` sans l'accrocher à l'objet `self` fait qu'elle n'est plus accessible en dehors de `.__init__()`. C'est exactement comme pour les fonctions classiques, `var` est finalement une variable locale au sein de la méthode `.__init__()` et n'est plus visible lorsque l'exécution de cette dernière est terminée (voir les chapitres 10 et 13 sur les fonctions). Ainsi, Python renvoie une erreur, car `var` n'existe pas lorsque `.affiche_attributs()` est en exécution.
 
@@ -411,11 +410,11 @@ if __name__ == "__main__":
 
 **Ligne 4.** Nous appelons ici la méthode `.affiche_message()` depuis le constructeur. Pour appeler cette méthode interne à la classe `Citron`, on doit utiliser une syntaxe `self.méthode()`. Le `self` sert donc pour accéder aux attributs, mais aussi aux méthodes, ou plus généralement à tout ce qui est accroché à la classe.
 
-**Lignes 6 et 7.** La méthode `.affiche_message()` est exécutée. On peut se poser la question « Pourquoi passer l'argument self à cette méthode alors qu'on ne s'en sert pas dans celle-ci ? »
+**Lignes 6 et 7.** La méthode `.affiche_message()` est exécutée. On peut se poser la question « Pourquoi définir le paramètre `self` dans cete  méthode alors qu'on ne s'en sert pas dans celle-ci ? »
 
 open-box-warn
 
-Même si on ne se sert d'aucun attribut dans une méthode, l'argument `self` (ou quel que soit son nom) est **strictement obligatoire**. En fait, la notation `citron1.affiche_message()` est équivalente à `Citron.affiche_message(citron1)`.
+Même si on ne se sert d'aucun attribut dans une méthode, le paramètre `self` (ou quel que soit son nom) est **strictement obligatoire**. En fait, la notation `citron1.affiche_message()` est équivalente à `Citron.affiche_message(citron1)`.
 Testez les deux pour voir ! Dans cette dernière instruction, on appelle la méthode accrochée à la classe `Citron` et on lui passe explicitement l'instance `citron1` en tant qu'argument. La notation `citron1.affiche_message()` contient donc en filigrane un argument, à savoir la référence vers l'instance `citron1` que l'on appelle `self` au sein de la méthode.
 
 close-box-warn
